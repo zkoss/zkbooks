@@ -59,7 +59,6 @@ public class DatabindingOrderViewCtrl extends GenericForwardComposer implements
 		return new OrderDAO();
 	}
 
-	@Override
 	public Order submitNewOrder(List<CartItem> items, String description) {
 		// 1. insert a new order, and a bunch of order_item into the DB.
 		Order order = getOrderDAO().createOrder(getCurrentUserId(), items,

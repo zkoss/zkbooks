@@ -1,10 +1,15 @@
 package demo.model;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import org.hibernate.Criteria;
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+import org.hibernate.criterion.Restrictions;
 
 import demo.model.bean.User;
 
@@ -29,21 +34,36 @@ public class UserDAO {
 		dbModel.put(USER3.getId(), USER3);
 	}
 
+	@SuppressWarnings("unchecked")
 	public List<User> findAll() {
-		return new ArrayList<User>(dbModel.values());
+		Session session = StoreHibernateUtil.openSession();
+        Query query = session.createQuery("from users");
+        List<User> users = query.list();
+
+        session.close();
+        return users;
 	}
 
 	public User findById(long id) {
-		return dbModel.get(id);
+		Session session = StoreHibernateUtil.openSession();
+        Transaction t = session.beginTransaction();
+        Criteria criteria = session.createCriteria(User.class).add(Restrictions.eq("id", id));
+        User user = (User)criteria.uniqueResult();
+        t.commit();
+        session.close();
+
+        return user;
 	}
 
 	public User findUserByName(String name) {
-		for (User user : dbModel.values()) {
-			if (user.getName().equals(name)) {
-				return user;
-			}
-		}
-		return null;
+		Session session = StoreHibernateUtil.openSession();
+        Transaction t = session.beginTransaction();
+        Criteria criteria = session.createCriteria(User.class).add(Restrictions.eq("name", name));
+        User user = (User)criteria.uniqueResult();
+        t.commit();
+        session.close();
+
+        return user;
 	}
 
 }

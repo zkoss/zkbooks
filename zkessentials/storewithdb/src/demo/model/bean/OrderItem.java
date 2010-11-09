@@ -1,15 +1,22 @@
 package demo.model.bean;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 /**
  * @author zkessentials store
  * 
  *         This class provides a representation of an {@code OrderItem}
  * 
  */
+@Entity
 public class OrderItem {
 
-	private long id;
-	private long orderId;
+	@Id
+    @GeneratedValue(strategy=GenerationType.AUTO)
+    private long id;
 	private long prodId;
 
 	private String name;
@@ -19,12 +26,11 @@ public class OrderItem {
 	public OrderItem() {
 	}
 
-	public OrderItem(Long id, long orderId, long prodId, String name,
+	public OrderItem(Long id, long prodId, String name,
 			float price, int quantity) {
 		super();
 		if (id != null)
 			this.id = id;
-		this.orderId = orderId;
 		this.prodId = prodId;
 		this.name = name;
 		this.price = price;
@@ -37,14 +43,6 @@ public class OrderItem {
 
 	public void setId(long id) {
 		this.id = id;
-	}
-
-	public long getOrderId() {
-		return orderId;
-	}
-
-	public void setOrderId(long orderId) {
-		this.orderId = orderId;
 	}
 
 	public long getProdId() {

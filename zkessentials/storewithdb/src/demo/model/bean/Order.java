@@ -6,12 +6,28 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
+
 /**
  * @author zkessentials store
  * 
  *         This class provides a representation of an {@code Order}
  * 
  */
+@Entity
+@Table(name="orders")
 public class Order {
 	public static final String COMPLETE = "complete";
 	public static final String PROCESSING = "processing";
@@ -25,13 +41,23 @@ public class Order {
 		STATUS.add(REJECTED);
 	}
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	private long userId;
 	private String status = PROCESSING;
 	private String description;
-	private float adjust;
+	private Float adjust;
+
+	@OneToMany
+	@JoinTable(name = "OrderedItems", joinColumns = @JoinColumn(name = "orderid", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "orderitemid", referencedColumnName = "id"))
+	@LazyCollection(value = LazyCollectionOption.FALSE)
 	private List<OrderItem> items = new ArrayList<OrderItem>();
+
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date createDate = new Date();
+
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date updateDate = createDate;
 
 	public Order() {

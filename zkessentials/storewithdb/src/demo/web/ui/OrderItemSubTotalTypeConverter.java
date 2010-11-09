@@ -15,12 +15,10 @@ import demo.model.bean.OrderItem;
  */
 public class OrderItemSubTotalTypeConverter implements TypeConverter {
 
-	@Override
 	public Object coerceToBean(Object val, Component comp) {
 		throw new UnsupportedOperationException();
 	}
 
-	@Override
 	public Object coerceToUi(Object val, Component comp) {
 		OrderItem item = (OrderItem) val;
 		String subTotal = "$ " + (item.getQuantity() * item.getPrice());

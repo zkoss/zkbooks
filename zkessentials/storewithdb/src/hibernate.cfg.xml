@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.dialect">org.hibernate.dialect.HSQLDialect</property>
+    <property name="hibernate.connection.driver_class">org.hsqldb.jdbcDriver</property>
+    <property name="hibernate.connection.url">jdbc:hsqldb:file:data/store</property>
+    <property name="hibernate.connection.username">sa</property>
+    <property name="hibernate.show_sql">true</property>
+    <property name="hibernate.current_session_context_class">thread</property>
+    <property name="hibernate.query.factory_class">org.hibernate.hql.classic.ClassicQueryTranslatorFactory</property>
+
+    
+    <property name="hibernate.hbm2ddl.auto">create-drop</property>
+    
+    <mapping class="demo.model.bean.Order"/>
+    <mapping class="demo.model.bean.OrderItem"/>
+    <mapping class="demo.model.bean.User"/>
+    <mapping class="demo.model.bean.Product"/>
+  </session-factory>
+</hibernate-configuration>
