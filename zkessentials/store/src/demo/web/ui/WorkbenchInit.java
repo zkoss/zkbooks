@@ -21,7 +21,6 @@ public class WorkbenchInit implements Initiator {
 	 * Invoked whhen the ZK Parser starts
 	 */
 	@SuppressWarnings("unchecked")
-	@Override
 	public void doInit(Page page, Map arg) throws Exception {
 
 		if (!UserCredentialManager.getIntance().isAuthenticated()) {
@@ -29,16 +28,13 @@ public class WorkbenchInit implements Initiator {
 		}
 	}
 
-	@Override
 	public boolean doCatch(Throwable parsingError) throws Exception {
 		return false;
 	}
 
-	@Override
 	public void doAfterCompose(Page page) throws Exception {
 	}
 
-	@Override
 	public void doFinally() throws Exception {
 	}
 

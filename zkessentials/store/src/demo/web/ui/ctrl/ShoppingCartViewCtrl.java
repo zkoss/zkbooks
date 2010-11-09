@@ -148,11 +148,9 @@ public class ShoppingCartViewCtrl extends GenericForwardComposer implements
 		cartItemImage.setSrc(cartItem.getProduct().getImgPath());
 	}
 
-	@Override
 	public void addItem(Product prod, int amount) {
 		try {
 			getShoppingCart(session).add(prod, amount, new AddToCartCallback() {
-				@Override
 				public void afterAdd(boolean hasAddNewItem, CartItem item) {
 					if (hasAddNewItem) {
 						_cartModel.add(item);
@@ -180,7 +178,6 @@ public class ShoppingCartViewCtrl extends GenericForwardComposer implements
 		return (ShoppingCartCtrl) desktop.getAttribute(KEY_SHOPPING_CART);
 	}
 
-	@Override
 	public float getCurrentSubTotal() {
 		return getShoppingCart(session).getTotalPrice();
 	}
