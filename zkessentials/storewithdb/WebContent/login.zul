@@ -1,0 +1,22 @@
+<?page title="ZK Store - Login"?>
+<window id="loginWin" border="normal" width="300px"
+	title="You are using: ${desktop.webApp.version}"
+	apply="demo.web.ui.ctrl.LoginViewCtrl" mode="overlapped"
+	position="center,enter">
+
+	<grid>
+		<rows>
+			<row>
+				Name:
+				<textbox id="nameTxb" />
+			</row>
+			<row>
+				Password:
+				<textbox id="passwordTxb" type="password" />
+			</row>
+		</rows>
+
+	</grid>
+	<button id="confirmBtn" label="confirm" forward="onOK" />
+	<label id="mesgLb" />
+</window>

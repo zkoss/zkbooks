@@ -4,3 +4,5 @@ zkessentials/store/.settings
 zkessentials/store/WebContent/META-INF
 zkessentials/store/WebContent/WEB-INF/lib
 zkessentials/store/build
+zkessentials/storewithdb/WebContent/META-INF
+zkessentials/storewithdb/WebContent/WEB-INF/lib

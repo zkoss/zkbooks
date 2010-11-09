@@ -1,0 +1,102 @@
+<?page title="ZK Store"?>
+<?init class="demo.web.ui.WorkbenchInit" ?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" ?>
+
+<window title="You are using ZK: ${desktop.webApp.version}"
+	border="normal" width="100%" height="900px">
+
+	<borderlayout>
+
+		<center border="0">
+			<div id="PrdoDiv" style="background:#D9E5EF; height:100%"
+				apply="demo.web.ui.ctrl.ProductViewCtrl">
+				<grid id="prodGrid">
+					<columns sizable="true">
+						<column image="/image/Bullet-10x10.png"
+							align="center" width="100px" />
+						<column label="Name" width="100px" />
+						<column label="Price" width="50px" />
+						<column label="Quantity" width="50px" />
+						<column label="Arrive Date" width="110px" />
+						<column label="operation" />
+					</columns>
+				</grid>
+			</div>
+		</center>
+
+		<east title="Shopping Cart" size="30%" flex="true"
+			splittable="true" collapsible="true">
+			<div style="background:#D9E5EF; height:100%"
+				apply="demo.web.ui.ctrl.ShoppingCartViewCtrl">
+
+				<listbox id="shoppingCartListbox">
+					<listhead sizable="true">
+						<listheader label="Name" />
+						<listheader label="Price" />
+						<listheader label="Amount" />
+						<listheader label="subTotal" />
+						<listheader align="center" />
+					</listhead>
+					<listfoot>
+						<listfooter span="2" id="subtotalFooter"></listfooter>
+						<listfooter>
+							<button id="submitOrderBtn" label="submit" />
+						</listfooter>
+						<listfooter>
+							<button id="clearBtn" label="clear" />
+						</listfooter>
+					</listfoot>
+				</listbox>
+				<textbox id="descTxb" rows="10" width="200px"
+					value="Note for this order." />
+				<image id="cartItemImage" />
+			</div>
+		</east>
+
+		<south size="250px" flex="true" border="0" splittable="true"
+			collapsible="true" style="overflow:scroll">
+			<div id="orderArea" style="background:#C6EAFD; height:100%"
+				apply="demo.web.ui.ctrl.DatabindingOrderViewCtrl">
+
+				<listbox id="orderLibox"
+					model="@{orderArea$composer.orders}" selectedItem="@{selectedX}">
+					<listhead>
+						<listheader label="info" />
+						<listheader label="description" />
+						<listheader label="Sub Total" />
+					</listhead>
+
+					<listitem self="@{each='order'}" value="@{order}">
+						<listcell
+							label="@{order, converter='demo.web.ui.OrderInfoTypeConverter'}" />
+						<listcell label="@{order.description}" />
+						<listcell label="@{order.total}" />
+					</listitem>
+				</listbox>
+
+				<grid id="orderItemsGrid" model="@{selectedX.items}">
+					<columns sizable="true">
+						<column label="Name" />
+						<column label="Quantity" />
+						<column label="Price" />
+						<column label="Sub Total" />
+					</columns>
+					<rows>
+						<row self="@{each='orderItem'}">
+							<label value="@{orderItem.name}" />
+							<label value="@{orderItem.quantity}" />
+							<label value="@{orderItem.price}" />
+							<label
+								value="@{orderItem, converter='demo.web.ui.OrderItemSubTotalTypeConverter'}"
+								maxlength="8" />
+						</row>
+					</rows>
+				</grid>
+				<button id="cancelOrderBtn"
+					label="Cancel Selected Order" />
+			</div>
+		</south>
+
+	</borderlayout>
+
+</window>
