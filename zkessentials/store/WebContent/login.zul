@@ -2,7 +2,7 @@
 <window id="loginWin" border="normal" width="300px"
 	title="You are using: ${desktop.webApp.version}"
 	apply="demo.web.ui.ctrl.LoginViewCtrl" mode="overlapped"
-	position="center,enter">
+	position="center,center">
 
 	<grid>
 		<rows>
@@ -18,5 +18,5 @@
 
 	</grid>
 	<button id="confirmBtn" label="confirm" forward="onOK" />
-	<label id="mesgLb" />
+	<label id="mesgLbl" />
 </window>
