@@ -1,0 +1,8 @@
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<spreadsheet id="bsheet"
+    src="/WEB-INF/excel/bean/bsheet.xls"
+    maxrows="200"
+    maxcolumns="40"
+    vflex="1"
+    width="100%">
+</spreadsheet>

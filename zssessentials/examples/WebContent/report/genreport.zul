@@ -1,0 +1,4 @@
+<window id="reportwin" apply="org.zkoss.zssessentials.report.ReportComposer" vflex="1">
+  <button label="Generate the report" onClick="reportwin$composer.generate();"/>
+  <spreadsheet id="report" src="/WEB-INF/excel/report/genreport.xls" maxrows="40" maxcolumns="8" vflex="1" width="100%"/>
+</window>
