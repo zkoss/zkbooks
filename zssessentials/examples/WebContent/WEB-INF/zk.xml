@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ 
+<!--
+	Created by ZK Studio
+-->
+ 
+<zk>
+ <library-property>
+    <name>org.zkoss.zss.formula.FunctionResolver</name>
+    <value>org.zkoss.zssex.formula.ZKFunctionResolver</value>
+</library-property>
+</zk>
