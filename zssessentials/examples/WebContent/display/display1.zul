@@ -1,0 +1,6 @@
+<?page title="ZSS Display Excel Book using src attribute" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<spreadsheet id="spreadsheet" src="/WEB-INF/excel/display/display.xlsx" maxrows="200"
+		maxcolumns="40" vflex="1" width="100%">
+	</spreadsheet>
+</zk>
