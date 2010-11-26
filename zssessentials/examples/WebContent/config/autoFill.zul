@@ -1,0 +1,21 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+<div height="100%" width="100%" apply="org.zkoss.zssessentials.config.AutofillComposer">
+	<div height="3px"></div>
+	<div>
+	Fill rows <intbox id="rows"/>, columns <intbox id="columns"/>
+	</div>
+	<div>	
+		<button id="fillDown" label="Fill down" mold="trendy"></button>
+		<button id="fillRight" label="Fill right" mold="trendy"></button>
+		<button id="fillLeft" label="Fill left" mold="trendy"></button>
+		<button id="fillUp" label="Fill up" mold="trendy"></button>
+		<button id="autofill" label="Auto fill" mold="trendy"></button>
+	</div>
+	<spreadsheet id="spreadsheet" src="/WEB-INF/excel/config/Untitled"	
+			maxrows="200" 
+			maxcolumns="40"
+			width="100%"
+			height="450px"></spreadsheet>
+</div>
+</zk>

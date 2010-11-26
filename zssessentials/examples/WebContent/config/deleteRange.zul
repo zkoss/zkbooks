@@ -1,0 +1,17 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+<div height="100%" width="100%" apply="org.zkoss.zssessentials.config.DeleteRangeComposer">
+	<div height="3px"></div>
+	<menupopup id="cellMenupopup">
+		<menuitem id="shiftCellLeft" label="Shift cells left"></menuitem>
+		<menuitem id="shiftCellUp" label="Shift cells up"/>
+		<menuitem id="deleteEntireRow" label="Entire row" />
+		<menuitem id="deleteEntireColumn" label="Entire column" />
+	</menupopup>
+	<spreadsheet id="spreadsheet"  src="/WEB-INF/excel/config/demo_sample.xls"	
+			maxrows="200" 
+			maxcolumns="40"
+			width="100%"
+			height="450px"></spreadsheet>
+</div>
+</zk>

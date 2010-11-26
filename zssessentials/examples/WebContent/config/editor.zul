@@ -1,0 +1,15 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+<div width="100%" height="100%" apply="org.zkoss.zssessentials.config.EditorComposer" >
+	<div height="3px"></div>
+		<combobox id="focusCombobox" mold="rounded"	style="text-align:center;">
+		</combobox>
+		<textbox id="formulaEditor" cols="100"/>
+	<div height="3px"></div>
+	<spreadsheet id="spreadsheet" src="/WEB-INF/excel/config/demo_sample.xls"	
+			maxrows="200" 
+			maxcolumns="40"
+			width="100%"
+			height="450px"></spreadsheet>
+</div>
+</zk>

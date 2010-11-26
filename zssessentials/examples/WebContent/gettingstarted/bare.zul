@@ -1,0 +1,11 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+<div height="10px"></div>
+<window title="Bare ZK Spreadsheet" border="normal" height="500px">
+<spreadsheet src="/WEB-INF/excel/gettingstarted/demo_sample.xls"	
+			maxrows="200" 
+			maxcolumns="40"
+			width="100%"
+			height="450px"></spreadsheet>
+</window>
+</zk>
