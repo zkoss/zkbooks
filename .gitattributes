@@ -31,6 +31,7 @@ zssessentials/examples/WebContent/WEB-INF/excel/events/events.xlsx -text
 zssessentials/examples/WebContent/WEB-INF/excel/export/export.xlsx -text
 zssessentials/examples/WebContent/WEB-INF/excel/functions/customfunctions.xlsx -text
 zssessentials/examples/WebContent/WEB-INF/excel/gettingstarted/demo_sample.xls -text
+zssessentials/examples/WebContent/WEB-INF/excel/jsf/Timesheet1.xls -text
 zssessentials/examples/WebContent/WEB-INF/excel/report/data.csv -text
 zssessentials/examples/WebContent/WEB-INF/excel/report/genreport.xls -text
 zssessentials/examples/WebContent/WEB-INF/spring-config.xml -text
@@ -63,6 +64,7 @@ zssessentials/examples/WebContent/export/export2.zul -text
 zssessentials/examples/WebContent/functions/javafunction.zul -text
 zssessentials/examples/WebContent/functions/tldfunction.zul -text
 zssessentials/examples/WebContent/gettingstarted/bare.zul -text
+zssessentials/examples/WebContent/jsf/zsscomp.xhtml -text
 zssessentials/examples/WebContent/report/genreport.zul -text
 zssessentials/examples/src/archive/metainfo/tld/config.xml -text
 zssessentials/examples/src/archive/web/WEB-INF/tld/custom.tld -text
@@ -91,6 +93,7 @@ zssessentials/examples/src/org/zkoss/zssessentials/events/SelectionEventsCompose
 zssessentials/examples/src/org/zkoss/zssessentials/export/ExportComposer.java -text
 zssessentials/examples/src/org/zkoss/zssessentials/export/ExportToPDFComposer.java -text
 zssessentials/examples/src/org/zkoss/zssessentials/functions/CurrencyFns.java -text
+zssessentials/examples/src/org/zkoss/zssessentials/jsf/MyBean.java -text
 zssessentials/examples/src/org/zkoss/zssessentials/report/ComputerBean.java -text
 zssessentials/examples/src/org/zkoss/zssessentials/report/DataProvider.java -text
 zssessentials/examples/src/org/zkoss/zssessentials/report/ReportComposer.java -text
