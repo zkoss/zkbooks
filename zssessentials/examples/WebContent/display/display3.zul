@@ -6,12 +6,12 @@
 	import org.zkoss.zk.ui.event.UploadEvent;
 	import org.zkoss.zss.model.Book;
 	import org.zkoss.zss.model.Importer;
-	import org.zkoss.zss.model.impl.ExcelImporter;
+	import org.zkoss.zss.model.Importers;
 	import org.zkoss.zss.ui.Spreadsheet;
 	void showBook(UploadEvent event) {
 		org.zkoss.util.media.Media media = event.getMedia();
 		if (media.isBinary()) {
-			Importer importer = new ExcelImporter();
+			Importer importer = Importers.getImporter("excel");
 			Book book = importer
 					.imports(media.getStreamData(), media.getName());
 			Spreadsheet spreadsheet = new Spreadsheet();

@@ -23,6 +23,7 @@ import org.zkoss.zk.ui.event.SelectEvent;
 import org.zkoss.zk.ui.util.GenericForwardComposer;
 import org.zkoss.zss.model.Book;
 import org.zkoss.zss.model.Exporter;
+import org.zkoss.zss.model.Exporters;
 import org.zkoss.zss.model.impl.PdfExporter;
 import org.zkoss.zss.ui.Rect;
 import org.zkoss.zss.ui.Spreadsheet;
@@ -42,7 +43,7 @@ public class ExportComposer extends GenericForwardComposer {
 
 	public void onClick$exportBtn(Event evt) throws IOException {
 		Book wb = spreadsheet.getBook();
-		Exporter c = new PdfExporter();
+		Exporter c = Exporters.getExporter("pdf");
 		ByteArrayOutputStream baos = new ByteArrayOutputStream();
 		c.export(wb, baos);
 		Filedownload.save(baos.toByteArray(), "application/pdf",

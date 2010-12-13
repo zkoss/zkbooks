@@ -27,6 +27,7 @@ import org.zkoss.zk.ui.util.GenericForwardComposer;
 import org.zkoss.zkjsf.ui.ZKJSFSpreadsheet;
 import org.zkoss.zkplus.embed.Bridge;
 import org.zkoss.zss.model.Exporter;
+import org.zkoss.zss.model.Exporters;
 import org.zkoss.zss.model.FormatText;
 import org.zkoss.zss.model.Range;
 import org.zkoss.zss.model.Ranges;
@@ -60,7 +61,7 @@ public class MyBean extends GenericForwardComposer {
 
 	public void exportToPdf(ActionEvent e) {
 
-		Exporter c = new PdfExporter();
+		Exporter c = Exporters.getExporter("pdf");
 		((PdfExporter) c).enableGridLines(true);
 		((PdfExporter) c).enableHeadings(true);
 		FacesContext context = FacesContext.getCurrentInstance();
