@@ -18,7 +18,7 @@ import org.zkoss.zk.ui.util.GenericForwardComposer;
 import org.zkoss.zss.model.Range;
 import org.zkoss.zss.model.Ranges;
 import org.zkoss.zss.ui.Spreadsheet;
-import org.zkoss.zss.ui.event.CellEvent;
+import org.zkoss.zss.ui.event.CellSelectionEvent;
 import org.zkoss.zul.Label;
 import org.zkoss.zul.Vlayout;
 
@@ -46,26 +46,35 @@ public class StockComposer extends GenericForwardComposer {
 		right = priceRange.getLastColumn();
 		bottom = priceRange.getLastRow();
 	}
-	public void onCellChange$stock(CellEvent event) {
+	public void onCellChange$stock(CellSelectionEvent event) {
 		final Sheet sheet = event.getSheet();
 		if (!monitorSheet.equals(sheet)) {
 			return; //not the monitorSheet, return
 		}
-		final int row = event.getRow();
-		final int col = event.getColumn();
-		if (left <= col && col <= right && top <= row && row <= bottom) { //in range
-			final Range priceRng = Ranges.range(monitorSheet, row, col);
-			final Range sellRng = priceRng.getOffset(0, 3);
-			final Range buyRng = priceRng.getOffset(0, 2);
-			final Range codeRng = priceRng.getOffset(0, -1);
-			final double newPrice = ((Number)priceRng.getValue()).doubleValue();
-			final double sellPrice = ((Number)sellRng.getValue()).doubleValue();
-			final double buyPrice = ((Number)buyRng.getValue()).doubleValue();
-			final String stockCode = (String) codeRng.getValue();
-			if (newPrice <= buyPrice) {
-				buy(stockCode, priceRng);
-			} else if (newPrice >= sellPrice) {
-				sell(stockCode, priceRng);
+		final int eleft = event.getLeft();
+		final int etop = event.getTop();
+		final int eright = event.getRight();
+		final int ebottom = event.getBottom();
+		if (left > eright || eleft > right || top > ebottom || etop > bottom) {
+			return; //no intersection, return
+		}
+		for (int row = etop; row <= ebottom; ++row) {
+			for (int col = eleft; col <= eright; ++col) {
+				if (left <= col && col <= right && top <= row && row <= bottom) { //in range
+					final Range priceRng = Ranges.range(monitorSheet, row, col);
+					final Range sellRng = priceRng.getOffset(0, 3);
+					final Range buyRng = priceRng.getOffset(0, 2);
+					final Range codeRng = priceRng.getOffset(0, -1);
+					final double newPrice = ((Number)priceRng.getValue()).doubleValue();
+					final double sellPrice = ((Number)sellRng.getValue()).doubleValue();
+					final double buyPrice = ((Number)buyRng.getValue()).doubleValue();
+					final String stockCode = (String) codeRng.getValue();
+					if (newPrice <= buyPrice) {
+						buy(stockCode, priceRng);
+					} else if (newPrice >= sellPrice) {
+						sell(stockCode, priceRng);
+					}
+				}
 			}
 		}
 	}
