@@ -61,6 +61,7 @@ zssessentials/examples/WebContent/events/mouseevents.zul -text
 zssessentials/examples/WebContent/events/selectionevents.zul -text
 zssessentials/examples/WebContent/export/export1.zul -text
 zssessentials/examples/WebContent/export/export2.zul -text
+zssessentials/examples/WebContent/export/exporttoexcel.zul -text
 zssessentials/examples/WebContent/functions/javafunction.zul -text
 zssessentials/examples/WebContent/functions/tldfunction.zul -text
 zssessentials/examples/WebContent/gettingstarted/bare.zul -text
@@ -91,6 +92,7 @@ zssessentials/examples/src/org/zkoss/zssessentials/events/KeyEventsComposer.java
 zssessentials/examples/src/org/zkoss/zssessentials/events/MouseEventsComposer.java -text
 zssessentials/examples/src/org/zkoss/zssessentials/events/SelectionEventsComposer.java -text
 zssessentials/examples/src/org/zkoss/zssessentials/export/ExportComposer.java -text
+zssessentials/examples/src/org/zkoss/zssessentials/export/ExportToExcelComposer.java -text
 zssessentials/examples/src/org/zkoss/zssessentials/export/ExportToPDFComposer.java -text
 zssessentials/examples/src/org/zkoss/zssessentials/functions/CurrencyFns.java -text
 zssessentials/examples/src/org/zkoss/zssessentials/jsf/MyBean.java -text
