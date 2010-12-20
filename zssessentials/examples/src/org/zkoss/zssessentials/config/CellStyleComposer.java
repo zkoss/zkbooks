@@ -17,7 +17,7 @@ import org.zkoss.poi.ss.usermodel.BorderStyle;
 import org.zkoss.poi.ss.usermodel.Cell;
 import org.zkoss.poi.ss.usermodel.CellStyle;
 import org.zkoss.poi.ss.usermodel.Font;
-import org.zkoss.poi.ss.usermodel.Sheet;
+import org.zkoss.zss.model.Worksheet;
 import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.event.Event;
 import org.zkoss.zk.ui.event.EventListener;
@@ -126,7 +126,7 @@ public class CellStyleComposer extends GenericForwardComposer{
 	 */
 	public void setFontFamily(String fontName) {
 		Rect rect = getSelection();
-		Sheet sheet = spreadsheet.getSelectedSheet();
+		Worksheet sheet = spreadsheet.getSelectedSheet();
 		Book book = spreadsheet.getBook();
 		for (int row = rect.getTop(); row <= rect.getBottom(); row++) {
 			for (int col = rect.getLeft(); col <= rect.getRight(); col++) {
@@ -169,7 +169,7 @@ public class CellStyleComposer extends GenericForwardComposer{
 	 */
 	public void setFontSize(short fontHeight) {
 		Rect rect = getSelection();
-		Sheet sheet = spreadsheet.getSelectedSheet();
+		Worksheet sheet = spreadsheet.getSelectedSheet();
 		Book book = spreadsheet.getBook();
 		for (int row = rect.getTop(); row <= rect.getBottom(); row++) {
 			for (int col = rect.getLeft(); col <= rect.getRight(); col++) {
@@ -202,7 +202,7 @@ public class CellStyleComposer extends GenericForwardComposer{
 	 */
 	public void setFontColor(String color) {
 		Rect rect = getSelection();
-		Sheet sheet = spreadsheet.getSelectedSheet();
+		Worksheet sheet = spreadsheet.getSelectedSheet();
 		Book book = spreadsheet.getBook();
 		for (int row = rect.getTop(); row <= rect.getBottom(); row++) {
 			for (int col = rect.getLeft(); col <= rect.getRight(); col++) {
@@ -237,7 +237,7 @@ public class CellStyleComposer extends GenericForwardComposer{
 	 */
 	public void setCellColor(String color) {
 		Rect rect = getSelection();
-		Sheet sheet = spreadsheet.getSelectedSheet();
+		Worksheet sheet = spreadsheet.getSelectedSheet();
 		Book book = spreadsheet.getBook();
 		short colorIndex = BookHelper.rgbToIndex(book, color);
 		
@@ -271,7 +271,7 @@ public class CellStyleComposer extends GenericForwardComposer{
 	 */
 	public void setFontBold(boolean isBold) {
 		Rect rect = getSelection();
-		Sheet sheet = spreadsheet.getSelectedSheet();
+		Worksheet sheet = spreadsheet.getSelectedSheet();
 		Book book = spreadsheet.getBook();
 		for (int row = rect.getTop(); row <= rect.getBottom(); row++) {
 			for (int col = rect.getLeft(); col <= rect.getRight(); col++) {
@@ -306,7 +306,7 @@ public class CellStyleComposer extends GenericForwardComposer{
 	 */
 	public void setItalic(boolean isItalic) {
 		Rect rect = getSelection();
-		Sheet sheet = spreadsheet.getSelectedSheet();
+		Worksheet sheet = spreadsheet.getSelectedSheet();
 		Book book = spreadsheet.getBook();
 		for (int row = rect.getTop(); row <= rect.getBottom(); row++) {
 			for (int col = rect.getLeft(); col <= rect.getRight(); col++) {
@@ -340,7 +340,7 @@ public class CellStyleComposer extends GenericForwardComposer{
 	 */
 	public void setUnderline(boolean isUnderline){
 		Rect rect = getSelection();
-		Sheet sheet = spreadsheet.getSelectedSheet();
+		Worksheet sheet = spreadsheet.getSelectedSheet();
 		Book book = spreadsheet.getBook();
 		
 		for (int row = rect.getTop(); row <= rect.getBottom(); row++) {
@@ -376,7 +376,7 @@ public class CellStyleComposer extends GenericForwardComposer{
 	 */
 	public void setStrikethrough(boolean isStrikethrough) {
 		Rect rect = getSelection();
-		Sheet sheet = spreadsheet.getSelectedSheet();
+		Worksheet sheet = spreadsheet.getSelectedSheet();
 		Book book = spreadsheet.getBook();
 		
 		for (int row = rect.getTop(); row <= rect.getBottom(); row++) {
@@ -419,7 +419,7 @@ public class CellStyleComposer extends GenericForwardComposer{
 		BorderStyle style = "none".equals(border) ? BorderStyle.NONE : BorderStyle.MEDIUM;
 		
 		Rect rect = getSelection();
-		Sheet sheet = spreadsheet.getSelectedSheet();
+		Worksheet sheet = spreadsheet.getSelectedSheet();
 		int lCol = rect.getLeft();
 		int rCol = rect.getRight();
 		int tRow = rect.getTop();
@@ -473,7 +473,7 @@ public class CellStyleComposer extends GenericForwardComposer{
 	 */
 	public void setAlignment(short alignment) {
 		Rect rect = getSelection();
-		Sheet sheet = spreadsheet.getSelectedSheet();
+		Worksheet sheet = spreadsheet.getSelectedSheet();
 		Book book = spreadsheet.getBook();
 		for (int row = rect.getTop(); row <= rect.getBottom(); row++) {
 			for (int col = rect.getLeft(); col <= rect.getRight(); col++) {

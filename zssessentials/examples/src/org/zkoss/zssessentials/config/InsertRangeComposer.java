@@ -15,7 +15,7 @@ Copyright (C) 2009 Potix Corporation. All Rights Reserved.
 package org.zkoss.zssessentials.config;
 
 import org.zkoss.poi.ss.usermodel.Row;
-import org.zkoss.poi.ss.usermodel.Sheet;
+import org.zkoss.zss.model.Worksheet;
 import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.util.GenericForwardComposer;
 import org.zkoss.zss.model.Range;
@@ -38,7 +38,7 @@ public class InsertRangeComposer extends GenericForwardComposer{
 	
 	private int rowIndex;
 	private int colIndex;
-	private Sheet currentSheet;
+	private Worksheet currentSheet;
 	private Spreadsheet spreadsheet;
 	private Menupopup cellMenupopup;
 	private Menuitem shiftCellRight;

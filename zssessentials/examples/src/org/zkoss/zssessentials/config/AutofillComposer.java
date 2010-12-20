@@ -14,7 +14,7 @@ Copyright (C) 2009 Potix Corporation. All Rights Reserved.
 package org.zkoss.zssessentials.config;
 
 import org.zkoss.poi.ss.usermodel.Cell;
-import org.zkoss.poi.ss.usermodel.Sheet;
+import org.zkoss.zss.model.Worksheet;
 import org.zkoss.zk.ui.util.GenericForwardComposer;
 import org.zkoss.zss.model.Range;
 import org.zkoss.zss.model.Ranges;
@@ -58,7 +58,7 @@ public class AutofillComposer extends GenericForwardComposer {
 		if (currentCell == null || rowNum == null)
 			return;
 		
-		Sheet sheet = spreadsheet.getSelectedSheet();
+		Worksheet sheet = spreadsheet.getSelectedSheet();
 		int top = currentCell.getRowIndex();
 		int left = currentCell.getColumnIndex();
 		Range downRange = Ranges.range(sheet, top, left, top + rowNum, left);
@@ -73,7 +73,7 @@ public class AutofillComposer extends GenericForwardComposer {
 		if (currentCell == null || colNum == null)
 			return;
 		
-		Sheet sheet = spreadsheet.getSelectedSheet();
+		Worksheet sheet = spreadsheet.getSelectedSheet();
 		int top = currentCell.getRowIndex();
 		int left = currentCell.getColumnIndex();
 		Range rightRange = Ranges.range(sheet, top, left, top, left + colNum);
@@ -88,7 +88,7 @@ public class AutofillComposer extends GenericForwardComposer {
 		if (currentCell == null || colNum == null)
 			return;
 		
-		Sheet sheet = spreadsheet.getSelectedSheet();
+		Worksheet sheet = spreadsheet.getSelectedSheet();
 		int top = currentCell.getRowIndex();
 		int left = currentCell.getColumnIndex();
 		Range leftRange = Ranges.range(sheet, top, left - colNum, top, left);
@@ -103,7 +103,7 @@ public class AutofillComposer extends GenericForwardComposer {
 		if (currentCell == null || rowNum == null)
 			return;
 
-		Sheet sheet = spreadsheet.getSelectedSheet();
+		Worksheet sheet = spreadsheet.getSelectedSheet();
 		int top = currentCell.getRowIndex();
 		int left = currentCell.getColumnIndex();
 		Range upRange = Ranges.range(sheet, top - rowNum, left, top, left);
@@ -119,7 +119,7 @@ public class AutofillComposer extends GenericForwardComposer {
 		 if (currentCell == null || rowNum == null || colNum == null)
 		    return;
 		         
-		 Sheet sheet = spreadsheet.getSelectedSheet();
+		 Worksheet sheet = spreadsheet.getSelectedSheet();
 		 int top = currentCell.getRowIndex();
 		 int left = currentCell.getColumnIndex();
 		 Range range = Ranges.range(sheet, top, left);

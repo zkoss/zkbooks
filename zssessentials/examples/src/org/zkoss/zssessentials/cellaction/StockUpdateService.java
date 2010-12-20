@@ -22,7 +22,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import org.zkoss.poi.ss.usermodel.Sheet;
+import org.zkoss.zss.model.Worksheet;
 import org.zkoss.zss.model.Ranges;
 import org.zkoss.zss.ui.Spreadsheet;
 
@@ -31,16 +31,16 @@ import org.zkoss.zss.ui.Spreadsheet;
  *
  */
 public class StockUpdateService {
-	Sheet dataSheet;
-	Sheet monitorSheet;
+	Worksheet dataSheet;
+	Worksheet monitorSheet;
 	List<StockInfo> stockModel;
 	Random random = new Random(System.currentTimeMillis());
 	
 	Thread udpateThread;
 	
 	public StockUpdateService(Spreadsheet ss){
-		monitorSheet = ss.getBook().getSheet("monitorSheet");
-		dataSheet = ss.getBook().getSheet("dataSheet");
+		monitorSheet = ss.getBook().getWorksheet("monitorSheet");
+		dataSheet = ss.getBook().getWorksheet("dataSheet");
 		
 		stockModel = new ArrayList<StockInfo>();
 		

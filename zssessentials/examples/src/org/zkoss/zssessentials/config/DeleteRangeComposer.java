@@ -15,7 +15,7 @@ Copyright (C) 2009 Potix Corporation. All Rights Reserved.
 package org.zkoss.zssessentials.config;
 
 import org.zkoss.poi.ss.usermodel.Row;
-import org.zkoss.poi.ss.usermodel.Sheet;
+import org.zkoss.zss.model.Worksheet;
 import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.util.GenericForwardComposer;
 import org.zkoss.zss.model.Range;
@@ -39,7 +39,7 @@ public class DeleteRangeComposer extends GenericForwardComposer {
 	
 	int rowIndex;
 	int colIndex;
-	Sheet currentSheet;
+	Worksheet currentSheet;
 	Spreadsheet spreadsheet;
 	Menupopup cellMenupopup;
 	

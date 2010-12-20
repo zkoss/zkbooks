@@ -15,7 +15,7 @@ Copyright (C) 2009 Potix Corporation. All Rights Reserved.
 package org.zkoss.zssessentials.config;
 
 import org.zkoss.poi.ss.usermodel.Cell;
-import org.zkoss.poi.ss.usermodel.Sheet;
+import org.zkoss.zss.model.Worksheet;
 import org.zkoss.zk.ui.event.InputEvent;
 import org.zkoss.zk.ui.util.GenericForwardComposer;
 import org.zkoss.zss.model.Range;
@@ -52,7 +52,7 @@ public class EditorComposer extends GenericForwardComposer {
 		int col = event.getColumn();
 		focusCombobox.setText(spreadsheet.getRowtitle(row) + spreadsheet.getColumntitle(col));
 
-		Sheet sheet = spreadsheet.getSelectedSheet();
+		Worksheet sheet = spreadsheet.getSelectedSheet();
 		currentCell = Utils.getCell(sheet, row, col);
 		currentRange = Ranges.range(sheet, row, col);
 		formulaEditor.setText(currentRange.getEditText());

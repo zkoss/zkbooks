@@ -12,7 +12,7 @@ Copyright (C) 2010 Potix Corporation. All Rights Reserved.
 
 package org.zkoss.zssessentials.cellaction;
 
-import org.zkoss.poi.ss.usermodel.Sheet;
+import org.zkoss.zss.model.Worksheet;
 import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.util.GenericForwardComposer;
 import org.zkoss.zss.model.Range;
@@ -30,7 +30,7 @@ public class StockComposer extends GenericForwardComposer {
 	private StockUpdateService service;
 	private Vlayout message;
 	private Spreadsheet stock;
-	private Sheet monitorSheet;
+	private Worksheet monitorSheet;
 	private int left;
 	private int top;
 	private int right;
@@ -47,7 +47,7 @@ public class StockComposer extends GenericForwardComposer {
 		bottom = priceRange.getLastRow();
 	}
 	public void onCellChange$stock(CellSelectionEvent event) {
-		final Sheet sheet = event.getSheet();
+		final Worksheet sheet = event.getSheet();
 		if (!monitorSheet.equals(sheet)) {
 			return; //not the monitorSheet, return
 		}

@@ -15,7 +15,7 @@ package org.zkoss.zssessentials.report;
 import java.io.IOException;
 import java.util.List;
 
-import org.zkoss.poi.ss.usermodel.Sheet;
+import org.zkoss.zss.model.Worksheet;
 import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.util.GenericForwardComposer;
 import org.zkoss.zss.model.Book;
@@ -30,7 +30,7 @@ import org.zkoss.zss.ui.Spreadsheet;
 public class ReportComposer extends GenericForwardComposer {
 	private Spreadsheet report;
 	private Book book;
-	private Sheet reportSheet;
+	private Worksheet reportSheet;
 	private int offset; //offset to next row
 	private Range templateRange;
 	
@@ -38,8 +38,8 @@ public class ReportComposer extends GenericForwardComposer {
 	public void doAfterCompose(Component comp) throws Exception {
 		super.doAfterCompose(comp);
 		book = report.getBook();
-		reportSheet = book.getSheet("ReportSheet");
-		final Sheet templateSheet = book.getSheet("TemplateSheet");
+		reportSheet = book.getWorksheet("ReportSheet");
+		final Worksheet templateSheet = book.getWorksheet("TemplateSheet");
 		templateRange = Ranges.range(templateSheet, "template");
 		offset = ((Number)Ranges.range(templateSheet, "offset").getValue()).intValue();
 	}

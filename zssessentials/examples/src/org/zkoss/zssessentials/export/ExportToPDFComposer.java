@@ -14,7 +14,6 @@ package org.zkoss.zssessentials.export;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 
-import org.zkoss.poi.ss.usermodel.Sheet;
 import org.zkoss.poi.ss.util.AreaReference;
 import org.zkoss.zhtml.Filedownload;
 import org.zkoss.zk.ui.Component;
@@ -50,7 +49,7 @@ public class ExportToPDFComposer extends GenericForwardComposer {
 		ListModelList sheetNames = new ListModelList();
 		int sheetCount = book.getNumberOfSheets();
 		for (int i = 0; i < sheetCount; i++) {
-			Sheet sheet = (Sheet) book.getSheetAt(i);
+			Worksheet sheet = (Worksheet) book.getSheetAt(i);
 			sheetNames.add(sheet.getSheetName());
 		}
 		sheets.setModel(sheetNames);
