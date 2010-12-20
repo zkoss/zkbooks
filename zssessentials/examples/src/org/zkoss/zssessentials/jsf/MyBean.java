@@ -31,7 +31,7 @@ import org.zkoss.zss.model.Exporters;
 import org.zkoss.zss.model.FormatText;
 import org.zkoss.zss.model.Range;
 import org.zkoss.zss.model.Ranges;
-import org.zkoss.zss.model.impl.PdfExporter;
+import org.zkoss.zss.model.impl.pdf.PdfExporter;
 
 @ManagedBean
 @SessionScoped

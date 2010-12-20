@@ -24,14 +24,13 @@ import org.zkoss.zk.ui.util.GenericForwardComposer;
 import org.zkoss.zss.model.Book;
 import org.zkoss.zss.model.Exporter;
 import org.zkoss.zss.model.Exporters;
-import org.zkoss.zss.model.impl.PdfExporter;
+import org.zkoss.zss.model.Worksheet;
 import org.zkoss.zss.ui.Rect;
 import org.zkoss.zss.ui.Spreadsheet;
 import org.zkoss.zss.ui.event.CellSelectionEvent;
 import org.zkoss.zul.Button;
 import org.zkoss.zul.ListModelList;
 import org.zkoss.zul.Listbox;
-import org.zkoss.zul.Listitem;
 
 /**
  * @author ashish
@@ -72,7 +71,7 @@ public class ExportToPDFComposer extends GenericForwardComposer {
 	}
 
 	public void onClick$exportSheetBtn(Event evt) throws IOException {
-		Sheet sheet = spreadsheet.getSelectedSheet();
+		Worksheet sheet = spreadsheet.getSelectedSheet();
 		Exporter c = Exporters.getExporter("pdf");
 		ByteArrayOutputStream baos = new ByteArrayOutputStream();
 		c.export(sheet, baos);
