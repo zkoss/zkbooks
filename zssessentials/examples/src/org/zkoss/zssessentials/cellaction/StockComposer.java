@@ -12,9 +12,19 @@ Copyright (C) 2010 Potix Corporation. All Rights Reserved.
 
 package org.zkoss.zssessentials.cellaction;
 
+import java.io.InputStream;
+
+import org.python.modules.synchronize;
+import org.zkoss.util.resource.Loader.Resource;
 import org.zkoss.zss.model.Worksheet;
 import org.zkoss.zk.ui.Component;
+import org.zkoss.zk.ui.Executions;
+import org.zkoss.zk.ui.Sessions;
+import org.zkoss.zk.ui.event.EventQueues;
 import org.zkoss.zk.ui.util.GenericForwardComposer;
+import org.zkoss.zss.model.Book;
+import org.zkoss.zss.model.Importer;
+import org.zkoss.zss.model.Importers;
 import org.zkoss.zss.model.Range;
 import org.zkoss.zss.model.Ranges;
 import org.zkoss.zss.ui.Spreadsheet;
@@ -27,7 +37,8 @@ import org.zkoss.zul.Vlayout;
  *
  */
 public class StockComposer extends GenericForwardComposer {
-	private StockUpdateService service;
+	private static Book book = null;
+	private static StockUpdateService service;
 	private Vlayout message;
 	private Spreadsheet stock;
 	private Worksheet monitorSheet;
@@ -38,7 +49,16 @@ public class StockComposer extends GenericForwardComposer {
 	
 	public void doAfterCompose(Component comp) throws Exception {
 		super.doAfterCompose(comp);
-		service = new StockUpdateService(stock);
+		synchronized (StockComposer.class) {
+			if (book == null) {
+				final Importer importer = Importers.getImporter("excel");
+				final InputStream is = Sessions.getCurrent().getWebApp().getResourceAsStream("/WEB-INF/excel/cellaction/stock.xls");
+				book = importer.imports(is, "stock.xls");
+				book.setShareScope(EventQueues.APPLICATION);
+				service = new StockUpdateService(book);
+			}
+		}
+		stock.setBook(book);
 		monitorSheet = stock.getSelectedSheet();
 		final Range priceRange = Ranges.range(monitorSheet, "price");
 		left = priceRange.getColumn();

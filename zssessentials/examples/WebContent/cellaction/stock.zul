@@ -1,6 +1,5 @@
 <window apply="org.zkoss.zssessentials.cellaction.StockComposer" width="100%" vflex="1">
 	<spreadsheet id="stock"
-	    src="/WEB-INF/excel/cellaction/stock.xls"
 	    maxrows="200"
 	    maxcolumns="40"
 	    vflex="1"

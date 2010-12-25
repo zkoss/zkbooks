@@ -22,25 +22,23 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import org.zkoss.zss.model.Worksheet;
+import org.zkoss.zk.ui.event.EventQueues;
+import org.zkoss.zss.model.Book;
 import org.zkoss.zss.model.Ranges;
-import org.zkoss.zss.ui.Spreadsheet;
+import org.zkoss.zss.model.Worksheet;
 
 /**
  * @author Dennis.Chen
  *
  */
 public class StockUpdateService {
-	Worksheet dataSheet;
-	Worksheet monitorSheet;
-	List<StockInfo> stockModel;
-	Random random = new Random(System.currentTimeMillis());
+	private Worksheet dataSheet;
+	private List<StockInfo> stockModel;
+	private Random random = new Random(System.currentTimeMillis());
 	
-	Thread udpateThread;
-	
-	public StockUpdateService(Spreadsheet ss){
-		monitorSheet = ss.getBook().getWorksheet("monitorSheet");
-		dataSheet = ss.getBook().getWorksheet("dataSheet");
+	private Thread udpateThread;
+	public StockUpdateService(Book book){
+		dataSheet = book.getWorksheet("dataSheet");
 		
 		stockModel = new ArrayList<StockInfo>();
 		
