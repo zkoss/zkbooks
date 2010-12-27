@@ -14,11 +14,7 @@ package org.zkoss.zssessentials.cellaction;
 
 import java.io.InputStream;
 
-import org.python.modules.synchronize;
-import org.zkoss.util.resource.Loader.Resource;
-import org.zkoss.zss.model.Worksheet;
 import org.zkoss.zk.ui.Component;
-import org.zkoss.zk.ui.Executions;
 import org.zkoss.zk.ui.Sessions;
 import org.zkoss.zk.ui.event.EventQueues;
 import org.zkoss.zk.ui.util.GenericForwardComposer;
@@ -27,6 +23,7 @@ import org.zkoss.zss.model.Importer;
 import org.zkoss.zss.model.Importers;
 import org.zkoss.zss.model.Range;
 import org.zkoss.zss.model.Ranges;
+import org.zkoss.zss.model.Worksheet;
 import org.zkoss.zss.ui.Spreadsheet;
 import org.zkoss.zss.ui.event.CellSelectionEvent;
 import org.zkoss.zul.Label;
