@@ -98,11 +98,20 @@ public class StockComposer extends GenericForwardComposer {
 			}
 		}
 	}
+	private int mcount = 0;
 	private void buy(String stockCode, Range priceRng) {
 		//stockService.buy(stockCode, price);
 		new Label("Buy "+stockCode+" at price: "+priceRng.getText()).setParent(message);
+		keepMessageShort(10);
 	}
 	private void sell(String stockCode, Range priceRng) {
 		new Label("Sell "+stockCode+" at price: "+priceRng.getText()).setParent(message);
+		keepMessageShort(10);
+	}
+	private void keepMessageShort(int count) {
+		if (++mcount > count) {
+			((Component)message.getChildren().get(0)).detach();
+			mcount=10;
+		}
 	}
 }
