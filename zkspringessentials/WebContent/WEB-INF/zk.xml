@@ -1,0 +1,43 @@
+<zk>
+<!-- 
+	<client-config>
+		<debug-js>true</debug-js>
+	</client-config>
+ 
+
+	<system-config>
+	<disable-event_thread>false</disable-event-thread>
+	</system-config>
+-->
+  
+	
+	<session-config>
+	    <session-timeout>1800</session-timeout>    
+	</session-config>
+	<listener>
+		<description>ZK Exception Translation Listener</description>
+		<listener-class>org.zkoss.spring.security.ui.ZkExceptionTranslationListener</listener-class>
+	</listener>
+	<listener>
+		<listener-class>org.zkoss.zkspringessentials.init.ExampleWebAppInit</listener-class>
+	</listener>
+	
+<!-- 
+	<listener>
+		<description>ThreadLocal Synchronization Listener
+		</description>
+		<listener-class>org.zkoss.zkplus.util.ThreadLocalListener
+		</listener-class>
+	</listener>
+	<preference>
+		<name>ThreadLocal</name>
+		<value>
+			org.springframework.security.context.ThreadLocalSecurityContextHolderStrategy=contextHolder
+		</value>
+	</preference>
+ -->
+	<preference>
+		<name>org.zkoss.zul.Window.defaultActionOnShow</name>
+		<value></value>
+	</preference>
+</zk>

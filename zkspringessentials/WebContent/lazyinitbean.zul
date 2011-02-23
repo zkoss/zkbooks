@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk xmlns="http://www.zkoss.org/2005/zul">
+<window title="Lazy init bean" width="640px" border="normal" apply="${windowComposer}">
+
+ <vbox>
+ 	<hbox>
+  	<label id="myLbl" value="Demo"/>
+  	<button id="myBtn" label="Run"/>
+  	<label id="lastRanLbl" value=""/>
+    </hbox>
+ </vbox> 
+</window>
+</zk>
