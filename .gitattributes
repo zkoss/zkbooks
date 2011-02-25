@@ -74,6 +74,7 @@ zkspringessentials/zkspringcoresec/src/org/zkoss/zkspringessentials/controller/M
 zkspringessentials/zkspringcoresec/src/org/zkoss/zkspringessentials/controller/ScopesController.java -text
 zkspringessentials/zkspringcoresec/src/org/zkoss/zkspringessentials/controller/WindowComposer.java -text
 zkspringessentials/zkspringcoresec/src/org/zkoss/zkspringessentials/init/ExampleWebAppInit.java -text
+zkspringessentials/zkspringcoresec/zkspringessentials.war -text
 zkspringessentials/zkspringwf/.classpath -text
 zkspringessentials/zkspringwf/.project -text
 zkspringessentials/zkspringwf/WebContent/META-INF/MANIFEST.MF -text
@@ -123,6 +124,7 @@ zkspringessentials/zkspringwf/src/org/springframework/webflow/samples/booking/Re
 zkspringessentials/zkspringwf/src/org/springframework/webflow/samples/booking/SearchCriteria.java -text
 zkspringessentials/zkspringwf/src/org/springframework/webflow/samples/booking/ShortDate.java -text
 zkspringessentials/zkspringwf/src/org/springframework/webflow/samples/booking/User.java -text
+zkspringessentials/zkspringwf/zkspringwf.war -text
 zssessentials/examples/WebContent/WEB-INF/excel/bean/bsheet.xls -text
 zssessentials/examples/WebContent/WEB-INF/excel/cellaction/stock.xls -text
 zssessentials/examples/WebContent/WEB-INF/excel/config/Untitled -text
