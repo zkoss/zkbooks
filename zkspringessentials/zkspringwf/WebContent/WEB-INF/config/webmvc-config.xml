@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="
+           http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+           http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
+
+	<!-- Maps request URIs to controllers --> 			
+	<bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		<property name="mappings">
+			<value>
+				/main=flowController
+				/booking=flowController
+			</value>
+		</property>
+		<property name="defaultHandler">
+			<bean class="org.springframework.web.servlet.mvc.UrlFilenameViewController" />
+		</property>
+	</bean>
+	
+	<!-- <bean class="org.springframework.webflow.mvc.servlet.FlowHandlerMapping">
+			<property name="order" value="-1"/>
+			<property name="flowRegistry" ref="flowRegistry" />
+	</bean>
+ 	-->
+	<!-- Custom FlowHandler for the hotel booking flow -->
+	<!-- <bean name="hotels/booking" class="org.springframework.webflow.samples.booking.BookingFlowHandler" />   -->	
+	
+	<!-- Handles requests mapped to the Spring Web Flow system -->
+<!-- 
+	<bean id="flowController" class="org.springframework.webflow.mvc.servlet.FlowController">
+		<property name="flowHandlerAdapter" ref="zkFlowHandlerAdapter"/>
+	</bean>
+
+	<bean id="zkFlowHandlerAdapter" class="org.zkoss.spring.webflow.mvc.servlet.ZkFlowHandlerAdapter">
+		<property name="flowExecutor" ref="flowExecutor"/>
+		<property name="flowUrlHandler" ref="zkFlowUrlHandler"/>
+		<property name="ajaxHandler" ref="zkAjaxHandler"/>
+ 	</bean>
+
+	<bean id="zkFlowUrlHandler" class="org.zkoss.spring.webflow.context.servlet.ZkFlowUrlHandler"/>
+	<bean id="zkAjaxHandler" class="org.zkoss.spring.js.ajax.ZkAjaxHandler"/>
+-->
+
+	<!-- Maps logical view names to ZK templates (e.g. 'search' to '/WEB-INF/search.zul' -->
+	<bean id="viewResolver" class="org.zkoss.spring.web.servlet.view.ZkResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/"/>
+		<property name="suffix" value=".zul"/>
+	</bean>
+	
+ <!--
+	<bean id="flowViewResolver" class="org.zkoss.spring.web.servlet.view.ZkFlowResourceViewResolver">
+		<property name="suffix" value=".zul"/>
+		<property name="viewClass" value="org.zkoss.spring.web.servlet.view.ZkView"/>
+	</bean>
+  -->
+</beans>
