@@ -20,9 +20,8 @@ zkessentials/storewithdb/WebContent/image/cookie.jpg -text
 zkessentials/storewithdb/WebContent/image/milk.jpg -text
 zkessentials/storewithdb/WebContent/image/toast.jpg -text
 zkessentials/storewithdb/storewithdb.war -text
-zkspringessentials/.classpath -text
-zkspringessentials/.project -text
-zkspringessentials/pom.xml -text
+zkspringessentials/zkspringcoresec/.classpath -text
+zkspringessentials/zkspringcoresec/.project -text
 zkspringessentials/zkspringcoresec/WebContent/META-INF/MANIFEST.MF -text
 zkspringessentials/zkspringcoresec/WebContent/WEB-INF/applicationContext-security.xml -text
 zkspringessentials/zkspringcoresec/WebContent/WEB-INF/applicationContext.xml -text
@@ -49,6 +48,7 @@ zkspringessentials/zkspringcoresec/WebContent/secure/index.jsp -text
 zkspringessentials/zkspringcoresec/WebContent/springutil.zul -text
 zkspringessentials/zkspringcoresec/WebContent/test.zul -text
 zkspringessentials/zkspringcoresec/WebContent/zscriptbean.zul -text
+zkspringessentials/zkspringcoresec/pom.xml -text
 zkspringessentials/zkspringcoresec/src/applicationContext-business.xml -text
 zkspringessentials/zkspringcoresec/src/bigbank/Account.java -text
 zkspringessentials/zkspringcoresec/src/bigbank/BankDao.java -text
