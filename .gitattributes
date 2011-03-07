@@ -212,6 +212,7 @@ zssessentials/examples/src/org/zkoss/zssessentials/events/MouseEventsComposer.ja
 zssessentials/examples/src/org/zkoss/zssessentials/events/SelectionEventsComposer.java -text
 zssessentials/examples/src/org/zkoss/zssessentials/export/ExportComposer.java -text
 zssessentials/examples/src/org/zkoss/zssessentials/export/ExportToExcelComposer.java -text
+zssessentials/examples/src/org/zkoss/zssessentials/export/ExportToHTMLComposer.java -text
 zssessentials/examples/src/org/zkoss/zssessentials/export/ExportToPDFComposer.java -text
 zssessentials/examples/src/org/zkoss/zssessentials/functions/CurrencyFns.java -text
 zssessentials/examples/src/org/zkoss/zssessentials/jsf/MyBean.java -text
