@@ -128,6 +128,7 @@ zkspringessentials/zkspringwf/zkspringwf.war -text
 zssessentials/examples/WebContent/WEB-INF/excel/bean/bsheet.xls -text
 zssessentials/examples/WebContent/WEB-INF/excel/cellaction/stock.xls -text
 zssessentials/examples/WebContent/WEB-INF/excel/config/Untitled -text
+zssessentials/examples/WebContent/WEB-INF/excel/config/autoFilter.xlsx -text
 zssessentials/examples/WebContent/WEB-INF/excel/config/demo_sample.xls -text
 zssessentials/examples/WebContent/WEB-INF/excel/display/display.xlsx -text
 zssessentials/examples/WebContent/WEB-INF/excel/display/engineering.xlsx -text
