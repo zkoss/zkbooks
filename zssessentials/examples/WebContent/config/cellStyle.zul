@@ -78,11 +78,14 @@
 		<colorbox id="fontColor"></colorbox>
 		<label value="Cell Color"></label>
 		<colorbox id="cellColor"></colorbox>
-		<toolbarbutton id="alignLeftBtn" label="align left" forward="onClick=onAlignHorizontalClick(left)">	</toolbarbutton>
-		<toolbarbutton id="alignCenterBtn" label="align center"	forward="onClick=onAlignHorizontalClick(center)"></toolbarbutton>
-		<toolbarbutton id="alignRightBtn" label="align right" forward="onClick=onAlignHorizontalClick(right)" ></toolbarbutton>
+		<toolbarbutton id="alignLeftBtn" label="Align left" forward="onClick=onAlignClick(left)">	</toolbarbutton>
+		<toolbarbutton id="alignCenterBtn" label="Align center"	forward="onClick=onAlignClick(center)"></toolbarbutton>
+		<toolbarbutton id="alignRightBtn" label="Align right" forward="onClick=onAlignClick(right)" ></toolbarbutton>
+		<toolbarbutton id="alignTopBtn" label="Align top" forward="onClick=onAlignClick(top)" ></toolbarbutton>
+		<toolbarbutton id="alignMiddleBtn" label="Align middle" forward="onClick=onAlignClick(middle)" ></toolbarbutton>
+		<toolbarbutton id="alignBottomBtn" label="Align bottom" forward="onClick=onAlignClick(bottom)" ></toolbarbutton>
 	</hlayout>
-	<spreadsheet id="spreadsheet" src="/WEB-INF/excel/config/demo_sample.xls"	
+	<spreadsheet id="spreadsheet" src="/WEB-INF/excel/config/ZSS-demo_sample.xlsx"	
 			maxrows="200" 
 			maxcolumns="40"
 			width="100%"
