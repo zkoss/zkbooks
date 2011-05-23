@@ -198,6 +198,7 @@ zssessentials/examples/src/org/zkoss/zssessentials/config/FreezeComposer.java -t
 zssessentials/examples/src/org/zkoss/zssessentials/config/HeaderTitleComposer.java -text
 zssessentials/examples/src/org/zkoss/zssessentials/config/HideHeaderComposer.java -text
 zssessentials/examples/src/org/zkoss/zssessentials/config/InsertRangeComposer.java -text
+zssessentials/examples/src/org/zkoss/zssessentials/config/MergeCellComposer.java -text
 zssessentials/examples/src/org/zkoss/zssessentials/config/MoveRangeComposer.java -text
 zssessentials/examples/src/org/zkoss/zssessentials/config/SheetDimensionComposer.java -text
 zssessentials/examples/src/org/zkoss/zssessentials/events/EditingEventsComposer.java -text
