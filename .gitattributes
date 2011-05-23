@@ -186,6 +186,7 @@ zssessentials/examples/src/org/zkoss/zssessentials/bean/spring/DataBeanImpl.java
 zssessentials/examples/src/org/zkoss/zssessentials/cellaction/StockComposer.java -text
 zssessentials/examples/src/org/zkoss/zssessentials/cellaction/StockInfo.java -text
 zssessentials/examples/src/org/zkoss/zssessentials/cellaction/StockUpdateService.java -text
+zssessentials/examples/src/org/zkoss/zssessentials/config/AutoFilterComposer.java -text
 zssessentials/examples/src/org/zkoss/zssessentials/config/AutofillComposer.java -text
 zssessentials/examples/src/org/zkoss/zssessentials/config/CellStyleComposer.java -text
 zssessentials/examples/src/org/zkoss/zssessentials/config/CopyPasteComposer.java -text
