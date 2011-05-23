@@ -150,6 +150,7 @@ zssessentials/examples/WebContent/bean/java/bsheet.zul -text
 zssessentials/examples/WebContent/bean/spring/bsheet.zul -text
 zssessentials/examples/WebContent/cellaction/stock.zul -text
 zssessentials/examples/WebContent/config/autoFill.zul -text
+zssessentials/examples/WebContent/config/autoFilter.zul -text
 zssessentials/examples/WebContent/config/cellStyle.zul -text
 zssessentials/examples/WebContent/config/copyAndPaste.zul -text
 zssessentials/examples/WebContent/config/deleteRange.zul -text
