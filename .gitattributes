@@ -162,6 +162,7 @@ zssessentials/examples/WebContent/config/hideTitle.zul -text
 zssessentials/examples/WebContent/config/insertRange.zul -text
 zssessentials/examples/WebContent/config/mergeCells.zul -text
 zssessentials/examples/WebContent/config/moveRange.zul -text
+zssessentials/examples/WebContent/config/protection.zul -text
 zssessentials/examples/WebContent/config/setSheet.zul -text
 zssessentials/examples/WebContent/display/display1.zul -text
 zssessentials/examples/WebContent/display/display2.zul -text
