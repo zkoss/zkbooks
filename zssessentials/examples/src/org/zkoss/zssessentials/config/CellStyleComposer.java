@@ -63,10 +63,6 @@ public class CellStyleComposer extends GenericForwardComposer{
 	private Colorbox fontColor;
 	private Colorbox cellColor;
 	
-	private Toolbarbutton alignLeftBtn;
-	private Toolbarbutton alignCenterBtn;
-	private Toolbarbutton alignRightBtn;
-	
 	private Spreadsheet spreadsheet;
 	private Rect selection;
 	
@@ -81,21 +77,7 @@ public class CellStyleComposer extends GenericForwardComposer{
 		newStyle.cloneStyleFrom(srcStyle);
 		return newStyle;
 	}
-	
-	
-	//override
-	@Override
-	public void doAfterCompose(Component comp) throws Exception {
-		super.doAfterCompose(comp);
-		
-		spreadsheet.addEventListener(Events.ON_CELL_SELECTION, new EventListener() {
-			@Override
-			public void onEvent(Event event) throws Exception {
-				selection = spreadsheet.getSelection();
-			}
-		});
-	}
-	
+
 	/**
 	 * Save current cell selection
 	 * @param event
@@ -446,26 +428,35 @@ public class CellStyleComposer extends GenericForwardComposer{
 	}
 	
 	/**
-	 * Sets font alignment
+	 * Sets cell alignment
 	 * @param event
 	 */
-	public void onAlignHorizontalClick(ForwardEvent event) {
+	public void onAlignClick(ForwardEvent event) {
 		String alignStr = (String) event.getData();
 
 		short align = CellStyle.ALIGN_GENERAL;
+		boolean isVer = false;
 		if (alignStr.equals("left")) {
 			align = CellStyle.ALIGN_LEFT;
-		}
-
-		if (alignStr.equals("center")) {
+		} else if (alignStr.equals("center")) {
 			align = CellStyle.ALIGN_CENTER;
-		}
-
-		if (alignStr.equals("right")) {
+		} else if (alignStr.equals("right")) {
 			align = CellStyle.ALIGN_RIGHT;
+		} else if (alignStr.equals("top")) {
+			align = CellStyle.VERTICAL_TOP;
+			isVer = true;
+		} else if (alignStr.equals("middle")) {
+			align = CellStyle.VERTICAL_CENTER;
+			isVer = true;
+		} else if (alignStr.equals("bottom")) {
+			align = CellStyle.VERTICAL_BOTTOM;
+			isVer = true;
 		}
 
-		setAlignment(align);
+		if (!isVer)
+			setAlignment(align);
+		else
+			setVerticalAlignment(align);
 	}
 	/**
 	 * Sets cell alignment
@@ -487,5 +478,26 @@ public class CellStyleComposer extends GenericForwardComposer{
 				}
 			}
 		}
+	}
+	
+	/**
+	 * Sets cell vertical alignment
+	 * @param alignment
+	 */
+	public void setVerticalAlignment(short alignment) {
+	    Rect rect = getSelection();
+	    Worksheet sheet = spreadsheet.getSelectedSheet();
+	    Book book = spreadsheet.getBook();
+	    for (int row = rect.getTop(); row <= rect.getBottom(); row++) {
+	        for (int col = rect.getLeft(); col <= rect.getRight(); col++) {
+	            Cell cell = Utils.getOrCreateCell(sheet, row, col);
+	            short srcAlign = cell.getCellStyle().getVerticalAlignment();
+	            if (srcAlign != alignment) {
+	                CellStyle newStyle = cloneStyle(cell.getCellStyle(), book);
+	                newStyle.setVerticalAlignment(alignment);
+	                Ranges.range(sheet, row, col).setStyle(newStyle);
+	            }
+	        }
+	    }
 	}
 }
