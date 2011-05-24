@@ -170,6 +170,7 @@ zssessentials/examples/WebContent/display/display1.zul -text
 zssessentials/examples/WebContent/display/display2.zul -text
 zssessentials/examples/WebContent/display/display3.zul -text
 zssessentials/examples/WebContent/events/editingevents.zul -text
+zssessentials/examples/WebContent/events/filterevent.zul -text
 zssessentials/examples/WebContent/events/hyperlinkevent.zul -text
 zssessentials/examples/WebContent/events/keyevents.zul -text
 zssessentials/examples/WebContent/events/mouseevents.zul -text
