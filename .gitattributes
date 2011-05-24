@@ -209,6 +209,7 @@ zssessentials/examples/src/org/zkoss/zssessentials/config/MoveRangeComposer.java
 zssessentials/examples/src/org/zkoss/zssessentials/config/ProtectionComposer.java -text
 zssessentials/examples/src/org/zkoss/zssessentials/config/SheetDimensionComposer.java -text
 zssessentials/examples/src/org/zkoss/zssessentials/events/EditingEventsComposer.java -text
+zssessentials/examples/src/org/zkoss/zssessentials/events/FilterEventComposer.java -text
 zssessentials/examples/src/org/zkoss/zssessentials/events/HyperlinkEventComposer.java -text
 zssessentials/examples/src/org/zkoss/zssessentials/events/KeyEventsComposer.java -text
 zssessentials/examples/src/org/zkoss/zssessentials/events/MouseEventsComposer.java -text
