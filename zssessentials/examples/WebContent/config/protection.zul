@@ -2,6 +2,7 @@
 <zk>
 <div height="100%" width="100%" apply="org.zkoss.zssessentials.config.ProtectionComposer">
 	<div>
+		<label id="message" style="color: red; padding-right: 5px;"></label>
 		<button id="toggleSheetProtection" label="Toggle sheet protection" mold="trendy"></button>
 		<button id="toggleLockCells" label="Toggle lock cells" mold="trendy"></button>
 	</div>
