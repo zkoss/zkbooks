@@ -137,6 +137,7 @@ zssessentials/examples/WebContent/WEB-INF/excel/display/display.xlsx -text
 zssessentials/examples/WebContent/WEB-INF/excel/display/engineering.xlsx -text
 zssessentials/examples/WebContent/WEB-INF/excel/display/financial.xlsx -text
 zssessentials/examples/WebContent/WEB-INF/excel/events/events.xlsx -text
+zssessentials/examples/WebContent/WEB-INF/excel/events/filter.xlsx -text
 zssessentials/examples/WebContent/WEB-INF/excel/export/export.xlsx -text
 zssessentials/examples/WebContent/WEB-INF/excel/extern/dstbook.xlsx -text
 zssessentials/examples/WebContent/WEB-INF/excel/extern/srcbook.xlsx -text
