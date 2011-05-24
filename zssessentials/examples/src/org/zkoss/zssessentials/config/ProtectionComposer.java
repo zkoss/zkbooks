@@ -18,6 +18,7 @@ package org.zkoss.zssessentials.config;
 
 import org.zkoss.poi.ss.usermodel.Cell;
 import org.zkoss.poi.ss.usermodel.CellStyle;
+import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.event.Event;
 import org.zkoss.zk.ui.util.GenericForwardComposer;
 import org.zkoss.zss.model.Book;
@@ -27,6 +28,7 @@ import org.zkoss.zss.ui.Spreadsheet;
 import org.zkoss.zss.ui.event.CellSelectionEvent;
 import org.zkoss.zss.ui.impl.Utils;
 import org.zkoss.zul.Button;
+import org.zkoss.zul.Label;
 
 /**
  * @author sam
@@ -41,6 +43,17 @@ public class ProtectionComposer extends GenericForwardComposer {
 	
 	Button toggleSheetProtection;
 	Button toggleLockCells;
+	Label message;
+	
+	@Override
+	public void doAfterCompose(Component comp) throws Exception {
+		super.doAfterCompose(comp);
+		setProtectionMessage();
+	}
+
+	void setProtectionMessage() {
+		message.setValue(spreadsheet.getSelectedSheet().getProtect() ? "Protected sheet" : "Unprotected sheet");
+	}
 	
 	/**
 	 * Save current spreadsheet selection range
@@ -60,6 +73,7 @@ public class ProtectionComposer extends GenericForwardComposer {
 		final Worksheet sheet = spreadsheet.getSelectedSheet();
 		boolean sheetProtection = !sheet.getProtect();
 		Ranges.range(sheet).protectSheet(sheetProtection ? "password" : null);
+		setProtectionMessage();
 	}
 	
 	/**
