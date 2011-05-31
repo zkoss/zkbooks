@@ -14,14 +14,17 @@ Copyright (C) 2009 Potix Corporation. All Rights Reserved.
 package org.zkoss.zssessentials.config;
 
 import org.zkoss.poi.ss.usermodel.Cell;
-import org.zkoss.zss.model.Worksheet;
+import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.util.GenericForwardComposer;
 import org.zkoss.zss.model.Range;
 import org.zkoss.zss.model.Ranges;
+import org.zkoss.zss.model.Worksheet;
+import org.zkoss.zss.ui.Rect;
 import org.zkoss.zss.ui.Spreadsheet;
 import org.zkoss.zss.ui.event.CellEvent;
 import org.zkoss.zss.ui.impl.Utils;
 import org.zkoss.zul.Button;
+import org.zkoss.zul.Combobox;
 import org.zkoss.zul.Intbox;
 
 /**
@@ -33,14 +36,24 @@ public class AutofillComposer extends GenericForwardComposer {
 
 	Spreadsheet spreadsheet;
 	Cell currentCell;
+	Rect selection;
 	
-	Intbox rows;
-	Intbox columns;
-	Button fillDown;
-	Button fillRight;
-	Button fillLeft;
-	Button fillUp;
+	Intbox fillCells;
+	Combobox fillOrientation;
+	
 	Button autoFill;
+	Intbox autoFillCells;
+	Combobox autofillType;
+
+	
+	
+	@Override
+	public void doAfterCompose(Component comp) throws Exception {
+		super.doAfterCompose(comp);
+		
+		fillOrientation.setSelectedIndex(0);
+		autofillType.setSelectedIndex(0);
+	}
 
 	/**
 	 * Cache current cell when focus on cell
@@ -51,82 +64,74 @@ public class AutofillComposer extends GenericForwardComposer {
 	}
 	
 	/**
-	 * Fill down cell's value from current cell
+	 * Cache the current selection range
 	 */
-	public void onClick$fillDown() {
-		Integer rowNum = rows.getValue();
-		if (currentCell == null || rowNum == null)
-			return;
-		
-		Worksheet sheet = spreadsheet.getSelectedSheet();
-		int top = currentCell.getRowIndex();
-		int left = currentCell.getColumnIndex();
-		Range downRange = Ranges.range(sheet, top, left, top + rowNum, left);
-		downRange.fillDown();
+	public void onCellSelection$spreadsheet() {
+		selection = spreadsheet.getSelection();
 	}
 	
 	/**
-	 * Fill right cell's value form current cell 
+	 * Fill cells from current cell
 	 */
-	public void onClick$fillRight() {
-		Integer colNum = columns.getValue();
-		if (currentCell == null || colNum == null)
-			return;
-		
-		Worksheet sheet = spreadsheet.getSelectedSheet();
-		int top = currentCell.getRowIndex();
-		int left = currentCell.getColumnIndex();
-		Range rightRange = Ranges.range(sheet, top, left, top, left + colNum);
-		rightRange.fillRight();
+	public void onClick$fill() {
+		String orientation = (String)fillOrientation.getSelectedItem().getValue();
+		if ("down".equals(orientation)) {
+			int leftCol = currentCell.getColumnIndex();
+			int topRow = currentCell.getRowIndex();
+			int rightCol = leftCol;
+			int btmRow = topRow + fillCells.getValue();
+			Ranges.range(spreadsheet.getSelectedSheet(), topRow, leftCol, btmRow, rightCol).fillDown();
+		} else if ("right".equals(orientation)) {
+			int leftCol = currentCell.getColumnIndex();
+			int topRow = currentCell.getRowIndex();
+			int rightCol = leftCol + fillCells.getValue();
+			int btmRow = topRow;
+			Ranges.range(spreadsheet.getSelectedSheet(), topRow, leftCol, btmRow, rightCol).fillRight();
+		} else if ("left".equals(orientation)) {
+			int rightCol = currentCell.getColumnIndex();
+			int leftCol = rightCol - fillCells.getValue();
+			int topRow = currentCell.getRowIndex();
+			int btmRow = topRow;
+			Ranges.range(spreadsheet.getSelectedSheet(), topRow, leftCol, btmRow, rightCol).fillLeft();
+		} else if ("up".equals(orientation)) {
+			int btmRow = currentCell.getRowIndex();
+			int topRow = btmRow - fillCells.getValue();
+			int leftCol = currentCell.getColumnIndex();
+			int rightCol = leftCol;
+			Ranges.range(spreadsheet.getSelectedSheet(), topRow, leftCol, btmRow, rightCol).fillUp();
+		}
 	}
-	
-	/**
-	 * Fill left cell's value from current cell
-	 */
-	public void onClick$fillLeft() {
-		Integer colNum = columns.getValue();
-		if (currentCell == null || colNum == null)
-			return;
-		
-		Worksheet sheet = spreadsheet.getSelectedSheet();
-		int top = currentCell.getRowIndex();
-		int left = currentCell.getColumnIndex();
-		Range leftRange = Ranges.range(sheet, top, left - colNum, top, left);
-		leftRange.fillLeft();
-	}
-	
-	/**
-	 * Fill up cell's value from current cell
-	 */
-	public void onClick$fillUp() {
-		Integer rowNum = rows.getValue();
-		if (currentCell == null || rowNum == null)
-			return;
 
-		Worksheet sheet = spreadsheet.getSelectedSheet();
-		int top = currentCell.getRowIndex();
-		int left = currentCell.getColumnIndex();
-		Range upRange = Ranges.range(sheet, top - rowNum, left, top, left);
-		upRange.fillUp();
-	}
-	
 	/**
-	 * Autofill cells value to right and bottom side 
+	 * AutoFill cells
 	 */
-	public void onClick$autoFill() {
-		 Integer rowNum = rows.getValue();
-		 Integer colNum = columns.getValue();
-		 if (currentCell == null || rowNum == null || colNum == null)
-		    return;
-		         
-		 Worksheet sheet = spreadsheet.getSelectedSheet();
-		 int top = currentCell.getRowIndex();
-		 int left = currentCell.getColumnIndex();
-		 Range range = Ranges.range(sheet, top, left);
-		 Range rightRange = Ranges.range(sheet, top, left, top , left + colNum);
-		 range.autoFill(rightRange, Range.FILL_COPY);
-		 
-		 Range downRange = Ranges.range(sheet, top, left, top + rowNum, left);
-		 range.autoFill(downRange, Range.FILL_COPY);
+	public void onClick$autofill() {
+		if (selection == null) {
+			alert("Selection can not be empty");
+			return;
+		}
+		
+		final Worksheet worksheet = spreadsheet.getSelectedSheet();
+		final int topRow = selection.getTop();
+		final int leftCol = selection.getLeft();
+		final int btmRow = selection.getBottom();
+		final int rightCol = selection.getRight();
+		
+		final int fillCells = autoFillCells.getValue();
+		
+		//fill down
+		Range autofillRange = 
+			Ranges.range(worksheet, topRow, leftCol, btmRow + fillCells, leftCol);
+
+		int type = Range.FILL_DEFAULT;
+		String fillType = (String) autofillType.getSelectedItem().getValue();
+		if ("copy".equals(fillType)) {
+			type = Range.FILL_COPY;
+		}
+		
+		final Range srcRange = 
+			Ranges.range(worksheet, topRow, leftCol, btmRow, rightCol);
+		
+		srcRange.autoFill(autofillRange, type);
 	}
 }
