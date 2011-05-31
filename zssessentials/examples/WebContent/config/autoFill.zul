@@ -2,17 +2,30 @@
 <zk>
 <div height="100%" width="100%" apply="org.zkoss.zssessentials.config.AutofillComposer">
 	<div height="3px"></div>
-	<div>
-	Fill rows <intbox id="rows"/>, columns <intbox id="columns"/>
-	</div>
-	<div>	
-		<button id="fillDown" label="Fill down" mold="trendy"></button>
-		<button id="fillRight" label="Fill right" mold="trendy"></button>
-		<button id="fillLeft" label="Fill left" mold="trendy"></button>
-		<button id="fillUp" label="Fill up" mold="trendy"></button>
-		<button id="autofill" label="Auto fill" mold="trendy"></button>
-	</div>
-	<spreadsheet id="spreadsheet" src="/WEB-INF/excel/config/Untitled"	
+	<hlayout>
+		<vlayout>
+			<div>
+				1. Fill cells <intbox id="fillCells" value="2"/>
+				<combobox id="fillOrientation" >
+					<comboitem label="Fill Down" value="down"/>
+					<comboitem label="Fill Right" value="right"/>
+					<comboitem label="Fill Left" value="left"/>
+					<comboitem label="Fill Up" value="up"/>
+				</combobox>
+				<button id="fill" label="Fill" mold="trendy"></button>
+			</div>
+		</vlayout>
+		<div>
+			2. AutoFill
+			<intbox id="autoFillCells" value="6"/>
+			<combobox id="autofillType">
+				<comboitem label="Default" value="default"/>
+				<comboitem label="Copy" value="copy"/>
+			</combobox>
+			<button id="autofill" label="Auto fill" mold="trendy"></button>
+		</div>
+	</hlayout>
+	<spreadsheet id="spreadsheet" src="/WEB-INF/excel/config/autofill.xlsx"	
 			maxrows="200" 
 			maxcolumns="40"
 			width="100%"
