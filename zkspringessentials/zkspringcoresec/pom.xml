@@ -5,7 +5,7 @@
 	<artifactId>zkspringessentials</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<properties>
-		<zk.version>5.0.6.FL.20110124</zk.version>
+		<zk.version>5.0.6</zk.version>
 		<zkel.version>1.0.2</zkel.version>
 		<zuljsp.version>1.4.1</zuljsp.version>
 		<spring.version>3.0.5.RELEASE</spring.version>
