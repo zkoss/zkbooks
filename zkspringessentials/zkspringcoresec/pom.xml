@@ -220,6 +220,16 @@
 				<artifactId>zuljsp</artifactId>
 				<version>1.4.1</version>
 				<scope>runtime</scope>
+				<exclusions>
+					<exclusion>
+						<artifactId>zweb</artifactId>
+						<groupId>org.zkoss.common</groupId>
+					</exclusion>
+					<exclusion>
+						<artifactId>zcommon</artifactId>
+						<groupId>org.zkoss.common</groupId>
+					</exclusion>
+				</exclusions>
 			</dependency>
 			<dependency>
 			<groupId>org.zkoss.zk</groupId>
