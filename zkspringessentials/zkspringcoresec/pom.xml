@@ -26,6 +26,7 @@
 		<zkspringsecurity.version>3.0</zkspringsecurity.version>
 		<commons-lang.version>2.5</commons-lang.version>
 		<aspectj.version>1.6.8</aspectj.version>
+		<javassist.version>3.14.0-GA</javassist.version>
 	</properties>
 	<repositories>
 		<repository>
@@ -224,7 +225,6 @@
 			<groupId>org.zkoss.zk</groupId>
 			<artifactId>zkspring-core</artifactId>
 			<version>${zkspring.version}</version>
-			<scope>runtime</scope>
 			<exclusions>
 				<exclusion>
 					<groupId>org.springframework</groupId>
@@ -369,6 +369,12 @@
 			<artifactId>zkmax</artifactId>
 			<version>${zk.version}</version>
 			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.javassist</groupId>
+			<artifactId>javassist</artifactId>
+			<version>${javassist.version}</version>
+			<scope>runtime</scope>
 		</dependency>
 	</dependencies>
 </project>
