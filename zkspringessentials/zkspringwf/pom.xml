@@ -1,9 +1,10 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>zkspringwf30</groupId>
-  <artifactId>zkspringwf30</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  	<properties>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>zkspringwf30</groupId>
+	<artifactId>zkspringwf30</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<properties>
 		<zk.version>5.0.6</zk.version>
 		<zkel.version>1.0.2</zkel.version>
 		<zuljsp.version>1.4.1</zuljsp.version>
@@ -54,11 +55,11 @@
 		</repository>
 	</repositories>
 	<dependencies>
-	<dependency>
-		<groupId>cglib</groupId>
-		<artifactId>cglib</artifactId>
-		<version>2.2</version>
-	</dependency>
+		<dependency>
+			<groupId>cglib</groupId>
+			<artifactId>cglib</artifactId>
+			<version>2.2</version>
+		</dependency>
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>servlet-api</artifactId>
@@ -139,7 +140,7 @@
 			<version>${spring.version}</version>
 			<scope>runtime</scope>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-orm</artifactId>
@@ -253,24 +254,24 @@
 					<artifactId>servlet-api</artifactId>
 				</exclusion>
 			</exclusions>
-			</dependency>
-			<dependency>
-				<groupId>org.zkoss.zk</groupId>
-				<artifactId>zuljsp</artifactId>
-				<version>1.4.1</version>
-				<scope>runtime</scope>
-				<exclusions>
-					<exclusion>
-						<artifactId>zcommon</artifactId>
-						<groupId>org.zkoss.common</groupId>
-					</exclusion>
-					<exclusion>
-						<artifactId>zweb</artifactId>
-						<groupId>org.zkoss.common</groupId>
-					</exclusion>
-				</exclusions>
-			</dependency>
-			<dependency>
+		</dependency>
+		<dependency>
+			<groupId>org.zkoss.zk</groupId>
+			<artifactId>zuljsp</artifactId>
+			<version>1.4.1</version>
+			<scope>runtime</scope>
+			<exclusions>
+				<exclusion>
+					<artifactId>zcommon</artifactId>
+					<groupId>org.zkoss.common</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>zweb</artifactId>
+					<groupId>org.zkoss.common</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
 			<groupId>org.zkoss.zk</groupId>
 			<artifactId>zkspring-core</artifactId>
 			<version>${zkspring.version}</version>
@@ -368,40 +369,46 @@
 			<version>${zk.version}</version>
 			<scope>runtime</scope>
 		</dependency>
-		
+
 		<dependency>
-      <groupId>org.hibernate</groupId>
-      <artifactId>hibernate-validator</artifactId>
-      <version>3.0.0.ga</version>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator</artifactId>
+			<version>3.0.0.ga</version>
 			<scope>runtime</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.hibernate</groupId>
-      <artifactId>hibernate-commons-annotations</artifactId>
-      <version>3.3.0.ga</version>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-commons-annotations</artifactId>
+			<version>3.3.0.ga</version>
 			<scope>runtime</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.hibernate</groupId>
-      <artifactId>hibernate-entitymanager</artifactId>
-      <version>3.3.2.GA</version>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+			<version>3.3.2.GA</version>
 			<scope>runtime</scope>
-    </dependency>
-	<dependency>
-    <groupId>hsqldb</groupId>
-    <artifactId>hsqldb</artifactId>
-    <version>1.8.0.7</version>
+		</dependency>
+		<dependency>
+			<groupId>hsqldb</groupId>
+			<artifactId>hsqldb</artifactId>
+			<version>1.8.0.7</version>
 			<scope>runtime</scope>
-</dependency>
-<dependency>
-    <groupId>log4j</groupId>
-    <artifactId>log4j</artifactId>
-    <version>1.2.16</version>
-</dependency>
+		</dependency>
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.16</version>
+		</dependency>
 		<dependency>
 			<groupId>javax.transaction</groupId>
 			<artifactId>jta</artifactId>
 			<version>1.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.jboss.el</groupId>
+			<artifactId>com.springsource.org.jboss.el</artifactId>
+			<version>2.0.0.GA</version>
+			<scope>runtime</scope>
 		</dependency>
 	</dependencies>
   
