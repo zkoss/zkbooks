@@ -22,6 +22,15 @@ zkessentials/storewithdb/WebContent/image/toast.jpg -text
 zkessentials/storewithdb/storewithdb.war -text
 zkspringessentials/zkspringcoresec/.classpath -text
 zkspringessentials/zkspringcoresec/.project -text
+zkspringessentials/zkspringcoresec/.settings/.jsdtscope -text
+zkspringessentials/zkspringcoresec/.settings/org.eclipse.jdt.core.prefs -text
+zkspringessentials/zkspringcoresec/.settings/org.eclipse.ltk.core.refactoring.prefs -text
+zkspringessentials/zkspringcoresec/.settings/org.eclipse.m2e.core.prefs -text
+zkspringessentials/zkspringcoresec/.settings/org.eclipse.wst.common.component -text
+zkspringessentials/zkspringcoresec/.settings/org.eclipse.wst.common.project.facet.core.xml -text
+zkspringessentials/zkspringcoresec/.settings/org.eclipse.wst.jsdt.ui.superType.container -text
+zkspringessentials/zkspringcoresec/.settings/org.eclipse.wst.jsdt.ui.superType.name -text
+zkspringessentials/zkspringcoresec/.settings/org.maven.ide.eclipse.prefs -text
 zkspringessentials/zkspringcoresec/WebContent/META-INF/MANIFEST.MF -text
 zkspringessentials/zkspringcoresec/WebContent/WEB-INF/applicationContext-security.xml -text
 zkspringessentials/zkspringcoresec/WebContent/WEB-INF/applicationContext.xml -text
