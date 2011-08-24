@@ -4,6 +4,7 @@
 package org.zkoss.zkspringessentials.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
 import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.event.Event;
 import org.zkoss.zk.ui.util.GenericForwardComposer;
@@ -17,6 +18,7 @@ import org.zkoss.zul.Textbox;
  *
  */
 @org.springframework.stereotype.Component("scopesCtrl")
+@Scope("desktop")
 public class ScopesController extends GenericForwardComposer {
 
 	@Autowired
