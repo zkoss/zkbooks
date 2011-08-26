@@ -6,19 +6,20 @@
 		<columns>
 			<column label="username"/>
 			<column label="password"/>
+			<column label="authorities"/>
 		</columns>
 		<rows>
 			<row>
-				rod <label value="koala"/>
+				rod <label value="koala"/><label value="ROLE_SUPERVISOR, ROLE_USER, ROLE_TELLER"/>
 			</row>
 			<row>
-				dianne <label value="emu"/>
+				dianne <label value="emu"/><label value="ROLE_USER,ROLE_TELLER"/>
 			</row>
 			<row>
-				scott <label value="wombat"/>
+				scott <label value="wombat"/><label value="ROLE_USER"/>
 			</row>
 			<row>
-				peter <label value="opal"/>
+				peter <label value="opal"/><label value="ROLE_USER"/>
 			</row>
 		</rows>
 	</grid>

@@ -1,6 +1,6 @@
 <?page id="testZul" title="Accounts" ?>
 <zk>
-<window title="Accouts" border="normal" width="500px">
+<window title="Accouts (page based login)" border="normal" width="500px">
 	<grid>
 		<rows>
 			<row forEach="${accounts}">
