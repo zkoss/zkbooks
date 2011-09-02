@@ -11,7 +11,7 @@
 		     http://www.zkoss.org/2008/zkspring/core http://www.zkoss.org/2008/zkspring/core/zkspring-core.xsd
    			http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.0.xsd
    			http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
-	<context:component-scan base-package="org.zkoss.zkspringessentials"></context:component-scan>
+	<context:component-scan base-package="org.zkoss.zkspringessentials,org.zkoss.spring.beans.zkcomponents"></context:component-scan>
 	<zksp:zk-config/>
 
 	<bean id="bankDao" class="bigbank.BankDaoStub"/>
