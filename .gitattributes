@@ -148,6 +148,7 @@ zssessentials/examples/WebContent/WEB-INF/excel/cellaction/stock.xls -text
 zssessentials/examples/WebContent/WEB-INF/excel/config/Untitled -text
 zssessentials/examples/WebContent/WEB-INF/excel/config/ZSS-demo_sample.xlsx -text
 zssessentials/examples/WebContent/WEB-INF/excel/config/addChart.xlsx -text
+zssessentials/examples/WebContent/WEB-INF/excel/config/addPicture.xlsx -text
 zssessentials/examples/WebContent/WEB-INF/excel/config/autoFilter.xlsx -text
 zssessentials/examples/WebContent/WEB-INF/excel/config/autofill.xlsx -text
 zssessentials/examples/WebContent/WEB-INF/excel/config/demo_sample.xls -text
@@ -174,6 +175,7 @@ zssessentials/examples/WebContent/bean/java/bsheet.zul -text
 zssessentials/examples/WebContent/bean/spring/bsheet.zul -text
 zssessentials/examples/WebContent/cellaction/stock.zul -text
 zssessentials/examples/WebContent/config/addChart.zul -text
+zssessentials/examples/WebContent/config/addPicture.zul -text
 zssessentials/examples/WebContent/config/autoFill.zul -text
 zssessentials/examples/WebContent/config/autoFilter.zul -text
 zssessentials/examples/WebContent/config/cellStyle.zul -text
@@ -217,6 +219,7 @@ zssessentials/examples/src/org/zkoss/zssessentials/cellaction/StockComposer.java
 zssessentials/examples/src/org/zkoss/zssessentials/cellaction/StockInfo.java -text
 zssessentials/examples/src/org/zkoss/zssessentials/cellaction/StockUpdateService.java -text
 zssessentials/examples/src/org/zkoss/zssessentials/config/AddChartComposer.java -text
+zssessentials/examples/src/org/zkoss/zssessentials/config/AddPictureComposer.java -text
 zssessentials/examples/src/org/zkoss/zssessentials/config/AutoFilterComposer.java -text
 zssessentials/examples/src/org/zkoss/zssessentials/config/AutofillComposer.java -text
 zssessentials/examples/src/org/zkoss/zssessentials/config/CellStyleComposer.java -text
