@@ -151,6 +151,7 @@ zssessentials/examples/WebContent/WEB-INF/excel/config/addChart.xlsx -text
 zssessentials/examples/WebContent/WEB-INF/excel/config/addPicture.xlsx -text
 zssessentials/examples/WebContent/WEB-INF/excel/config/autoFilter.xlsx -text
 zssessentials/examples/WebContent/WEB-INF/excel/config/autofill.xlsx -text
+zssessentials/examples/WebContent/WEB-INF/excel/config/deletePicture.xlsx -text
 zssessentials/examples/WebContent/WEB-INF/excel/config/demo_sample.xls -text
 zssessentials/examples/WebContent/WEB-INF/excel/config/merge.xlsx -text
 zssessentials/examples/WebContent/WEB-INF/excel/config/protection.xlsx -text
@@ -180,6 +181,7 @@ zssessentials/examples/WebContent/config/autoFill.zul -text
 zssessentials/examples/WebContent/config/autoFilter.zul -text
 zssessentials/examples/WebContent/config/cellStyle.zul -text
 zssessentials/examples/WebContent/config/copyAndPaste.zul -text
+zssessentials/examples/WebContent/config/deletePicture.zul -text
 zssessentials/examples/WebContent/config/deleteRange.zul -text
 zssessentials/examples/WebContent/config/editor.zul -text
 zssessentials/examples/WebContent/config/freeze.zul -text
@@ -224,6 +226,7 @@ zssessentials/examples/src/org/zkoss/zssessentials/config/AutoFilterComposer.jav
 zssessentials/examples/src/org/zkoss/zssessentials/config/AutofillComposer.java -text
 zssessentials/examples/src/org/zkoss/zssessentials/config/CellStyleComposer.java -text
 zssessentials/examples/src/org/zkoss/zssessentials/config/CopyPasteComposer.java -text
+zssessentials/examples/src/org/zkoss/zssessentials/config/DeletePictureComposer.java -text
 zssessentials/examples/src/org/zkoss/zssessentials/config/DeleteRangeComposer.java -text
 zssessentials/examples/src/org/zkoss/zssessentials/config/EditorComposer.java -text
 zssessentials/examples/src/org/zkoss/zssessentials/config/FreezeComposer.java -text
