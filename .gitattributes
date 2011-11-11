@@ -154,6 +154,7 @@ zssessentials/examples/WebContent/WEB-INF/excel/config/autofill.xlsx -text
 zssessentials/examples/WebContent/WEB-INF/excel/config/deletePicture.xlsx -text
 zssessentials/examples/WebContent/WEB-INF/excel/config/demo_sample.xls -text
 zssessentials/examples/WebContent/WEB-INF/excel/config/merge.xlsx -text
+zssessentials/examples/WebContent/WEB-INF/excel/config/movePicture.xlsx -text
 zssessentials/examples/WebContent/WEB-INF/excel/config/protection.xlsx -text
 zssessentials/examples/WebContent/WEB-INF/excel/display/display.xlsx -text
 zssessentials/examples/WebContent/WEB-INF/excel/display/engineering.xlsx -text
@@ -189,6 +190,7 @@ zssessentials/examples/WebContent/config/headerTitle.zul -text
 zssessentials/examples/WebContent/config/hideTitle.zul -text
 zssessentials/examples/WebContent/config/insertRange.zul -text
 zssessentials/examples/WebContent/config/mergeCells.zul -text
+zssessentials/examples/WebContent/config/movePicture.zul -text
 zssessentials/examples/WebContent/config/moveRange.zul -text
 zssessentials/examples/WebContent/config/protection.zul -text
 zssessentials/examples/WebContent/config/setSheet.zul -text
@@ -234,6 +236,7 @@ zssessentials/examples/src/org/zkoss/zssessentials/config/HeaderTitleComposer.ja
 zssessentials/examples/src/org/zkoss/zssessentials/config/HideHeaderComposer.java -text
 zssessentials/examples/src/org/zkoss/zssessentials/config/InsertRangeComposer.java -text
 zssessentials/examples/src/org/zkoss/zssessentials/config/MergeCellComposer.java -text
+zssessentials/examples/src/org/zkoss/zssessentials/config/MovePictureComposer.java -text
 zssessentials/examples/src/org/zkoss/zssessentials/config/MoveRangeComposer.java -text
 zssessentials/examples/src/org/zkoss/zssessentials/config/ProtectionComposer.java -text
 zssessentials/examples/src/org/zkoss/zssessentials/config/SheetDimensionComposer.java -text
