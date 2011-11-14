@@ -1,0 +1,6 @@
+<window vflex="1" width="100%"  apply="org.zkoss.zssessentials.config.DeleteChartComposer">
+    <spreadsheet id="myss" src="/WEB-INF/excel/config/deleteChart.xlsx" maxrows="200"
+        maxcolumns="40" vflex="1" width="100%">
+    </spreadsheet>
+    <button id="delete" label="Delete All Charts"/>
+</window>
