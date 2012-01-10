@@ -28,7 +28,7 @@ public class DeleteChartComposer<Component> extends GenericForwardComposer {
 	private Spreadsheet myss;
 	
 	public void onClick$delete(MouseEvent evt) throws Exception {
-		//delete all picture
+		//delete all charts
 		Worksheet sheet = myss.getSelectedSheet();
 		Range rng = Ranges.range(sheet);
 		for(Chart chart : sheet.getCharts()) {

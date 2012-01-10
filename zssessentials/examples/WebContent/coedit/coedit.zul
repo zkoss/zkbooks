@@ -1,0 +1,8 @@
+<window id="mainwin" apply="org.zkoss.zssessentials.coedit.CoeditComposer" width="100%" vflex="1">
+    <spreadsheet id="ss"
+        maxrows="200"
+        maxcolumns="40"
+        vflex="1"
+        width="100%">
+    </spreadsheet>
+</window>
