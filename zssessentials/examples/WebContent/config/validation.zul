@@ -1,0 +1,11 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+<div apply="org.zkoss.zssessentials.config.ValidationComposer" width="100%" vflex="1">
+	<combobox id="deparmentCombobox">
+	</combobox>
+	<spreadsheet id="spreadsheet" src="/WEB-INF/excel/config/validation.xlsx"
+		maxrows="100" maxcolumns="20" 
+		width="100%" vflex="1">
+	</spreadsheet>
+</div>
+</zk>

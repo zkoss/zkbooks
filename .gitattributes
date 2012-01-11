@@ -159,6 +159,7 @@ zssessentials/examples/WebContent/WEB-INF/excel/config/merge.xlsx -text
 zssessentials/examples/WebContent/WEB-INF/excel/config/moveChart.xlsx -text
 zssessentials/examples/WebContent/WEB-INF/excel/config/movePicture.xlsx -text
 zssessentials/examples/WebContent/WEB-INF/excel/config/protection.xlsx -text
+zssessentials/examples/WebContent/WEB-INF/excel/config/validation.xlsx -text
 zssessentials/examples/WebContent/WEB-INF/excel/display/display.xlsx -text
 zssessentials/examples/WebContent/WEB-INF/excel/display/engineering.xlsx -text
 zssessentials/examples/WebContent/WEB-INF/excel/display/financial.xlsx -text
@@ -200,6 +201,7 @@ zssessentials/examples/WebContent/config/movePicture.zul -text
 zssessentials/examples/WebContent/config/moveRange.zul -text
 zssessentials/examples/WebContent/config/protection.zul -text
 zssessentials/examples/WebContent/config/setSheet.zul -text
+zssessentials/examples/WebContent/config/validation.zul -text
 zssessentials/examples/WebContent/display/display1.zul -text
 zssessentials/examples/WebContent/display/display2.zul -text
 zssessentials/examples/WebContent/display/display3.zul -text
@@ -249,6 +251,7 @@ zssessentials/examples/src/org/zkoss/zssessentials/config/MovePictureComposer.ja
 zssessentials/examples/src/org/zkoss/zssessentials/config/MoveRangeComposer.java -text
 zssessentials/examples/src/org/zkoss/zssessentials/config/ProtectionComposer.java -text
 zssessentials/examples/src/org/zkoss/zssessentials/config/SheetDimensionComposer.java -text
+zssessentials/examples/src/org/zkoss/zssessentials/config/ValidationComposer.java -text
 zssessentials/examples/src/org/zkoss/zssessentials/events/EditingEventsComposer.java -text
 zssessentials/examples/src/org/zkoss/zssessentials/events/FilterEventComposer.java -text
 zssessentials/examples/src/org/zkoss/zssessentials/events/HyperlinkEventComposer.java -text
