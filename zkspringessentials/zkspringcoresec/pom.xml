@@ -235,7 +235,6 @@
 			<groupId>org.zkoss.zk</groupId>
 			<artifactId>zkspring-core</artifactId>
 			<version>${zkspring.version}</version>
-			<scope>runtime</scope>
 			<exclusions>
 				<exclusion>
 					<groupId>org.springframework</groupId>
