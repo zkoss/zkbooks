@@ -53,6 +53,7 @@ zkspringessentials/zkspringcoresec/src/main/java/org/zkoss/zkspringessentials/be
 zkspringessentials/zkspringcoresec/src/main/java/org/zkoss/zkspringessentials/beans/SimpleMessageBean.java -text
 zkspringessentials/zkspringcoresec/src/main/java/org/zkoss/zkspringessentials/config/ZKComponentFactory.java -text
 zkspringessentials/zkspringcoresec/src/main/java/org/zkoss/zkspringessentials/controller/BaseWindowComposer.java -text
+zkspringessentials/zkspringcoresec/src/main/java/org/zkoss/zkspringessentials/controller/GreetingCtrl.java -text
 zkspringessentials/zkspringcoresec/src/main/java/org/zkoss/zkspringessentials/controller/InnerPageComposer.java -text
 zkspringessentials/zkspringcoresec/src/main/java/org/zkoss/zkspringessentials/controller/MyController.java -text
 zkspringessentials/zkspringcoresec/src/main/java/org/zkoss/zkspringessentials/controller/ScopesController.java -text
