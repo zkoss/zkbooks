@@ -30,6 +30,7 @@ zkspringessentials/zkspringcoresec/.settings/org.eclipse.wst.common.component -t
 zkspringessentials/zkspringcoresec/.settings/org.eclipse.wst.common.project.facet.core.xml -text
 zkspringessentials/zkspringcoresec/.settings/org.eclipse.wst.jsdt.ui.superType.container -text
 zkspringessentials/zkspringcoresec/.settings/org.eclipse.wst.jsdt.ui.superType.name -text
+zkspringessentials/zkspringcoresec/.settings/org.hibernate.eclipse.console.prefs -text
 zkspringessentials/zkspringcoresec/.settings/org.maven.ide.eclipse.prefs -text
 zkspringessentials/zkspringcoresec/.springBeans -text
 zkspringessentials/zkspringcoresec/pom.xml -text

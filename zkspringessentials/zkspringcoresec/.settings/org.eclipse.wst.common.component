@@ -2,7 +2,9 @@
 <project-modules id="moduleCoreId" project-version="1.5.0">
     <wb-module deploy-name="zksecurity">
         <wb-resource deploy-path="/" source-path="/src/main/webapp"/>
-        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
+        <dependent-module archiveName="zkspring-core-3.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/zkspring-core/zkspring-core">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
         <property name="java-output-path" value="/zksecurity/target/classes"/>
         <property name="context-root" value="zkspringessentials"/>
     </wb-module>
