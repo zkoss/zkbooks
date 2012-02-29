@@ -18,10 +18,10 @@
 		<param-name>contextConfigLocation</param-name>
 		<param-value>
 			classpath:applicationContext-business.xml
+			/WEB-INF/applicationContext.xml 
 			/WEB-INF/applicationContext-security.xml
 		</param-value>
 	</context-param>
-	
 	<listener>
 		<listener-class>org.zkoss.spring.web.context.CoreContextListener</listener-class>
 	</listener>
