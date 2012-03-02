@@ -63,4 +63,6 @@
  		 <zksp:form-login login-page="/popupLogin.zul"/>
  	</zksp:zk-event>
 	
+	<beans:bean id="aclService" class="org.zkoss.zkspringessentials.acl.InMemoryAclService"/>
+
 </beans:beans>

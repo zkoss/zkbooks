@@ -48,6 +48,8 @@ zkspringessentials/zkspringcoresec/src/main/java/bigbank/web/ListAccountsScenari
 zkspringessentials/zkspringcoresec/src/main/java/bigbank/web/PostAccountsScenario1.java -text
 zkspringessentials/zkspringcoresec/src/main/java/bigbank/web/PostAccountsScenario2.java -text
 zkspringessentials/zkspringcoresec/src/main/java/log4j.properties -text
+zkspringessentials/zkspringcoresec/src/main/java/org/zkoss/zkspringessentials/acl/InMemoryAclService.java -text
+zkspringessentials/zkspringcoresec/src/main/java/org/zkoss/zkspringessentials/acl/SimpleAclImpl.java -text
 zkspringessentials/zkspringcoresec/src/main/java/org/zkoss/zkspringessentials/beans/Person.java -text
 zkspringessentials/zkspringcoresec/src/main/java/org/zkoss/zkspringessentials/beans/SimpleBean.java -text
 zkspringessentials/zkspringcoresec/src/main/java/org/zkoss/zkspringessentials/beans/SimpleMessageBean.java -text
@@ -88,6 +90,7 @@ zkspringessentials/zkspringcoresec/src/main/webapp/outerPage.zul -text
 zkspringessentials/zkspringcoresec/src/main/webapp/outerPageWithInclude.zul -text
 zkspringessentials/zkspringcoresec/src/main/webapp/popupLogin.zul -text
 zkspringessentials/zkspringcoresec/src/main/webapp/scopes.zul -text
+zkspringessentials/zkspringcoresec/src/main/webapp/secure/acl.zul -text
 zkspringessentials/zkspringcoresec/src/main/webapp/secure/extreme/index.jsp -text
 zkspringessentials/zkspringcoresec/src/main/webapp/secure/extreme/index.zul -text
 zkspringessentials/zkspringcoresec/src/main/webapp/secure/index.jsp -text

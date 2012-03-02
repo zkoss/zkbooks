@@ -1,6 +1,7 @@
 package org.zkoss.zkspringessentials.beans;
 
 public class Person {
+	private int id =1;
 	private String _firstName = "";
 	private String _lastName = "";
 
@@ -27,5 +28,13 @@ public class Person {
 
 	public String getFullName() {
 		return _firstName + " " + _lastName;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 }
