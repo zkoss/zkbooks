@@ -41,6 +41,8 @@
 	<zscript>
 	import org.zkoss.zkspringessentials.beans.*;
 	Person p = new Person();
+	final int OBJECT_ID_FOR_ACL = 1;
+	p.setId(OBJECT_ID_FOR_ACL);
 </zscript>
 	<separator bar="true" />
 	<label if="${sec:isAccessible(1, p)}">
@@ -55,7 +57,7 @@
 		If you see this line, you have Create permission.
 	</label>
 	<separator bar="true" />
-	<label if="${sec:isAccessible(8, p)}">
+	<label if="${sec:isAccessible(16, p)}">
 		If you see this line, you have Admin permission.
 	</label>
 

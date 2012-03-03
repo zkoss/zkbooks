@@ -37,7 +37,8 @@ public class InMemoryAclService implements AclService {
 //		ObjectIdentity user3 = new ObjectIdentityImpl(User.class, "scott");
 //		ObjectIdentity user4 = new ObjectIdentityImpl(User.class, "peter");
 
-		ObjectIdentity user1 = new ObjectIdentityImpl(Person.class, 1);
+		final int OBJECT_ID_FOR_ACL_TEST =1;
+		ObjectIdentity user1 = new ObjectIdentityImpl(Person.class, OBJECT_ID_FOR_ACL_TEST);
 		Acl acl1 = new SimpleAclImpl(user1, new LinkedList<AccessControlEntry>());
 		acl1.getEntries().add(new AccessControlEntryImpl("ace1", acl1, new PrincipalSid("rod"), BasePermission.ADMINISTRATION, true, true, true));
 		

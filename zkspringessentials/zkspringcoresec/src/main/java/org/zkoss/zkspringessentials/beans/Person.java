@@ -1,7 +1,7 @@
 package org.zkoss.zkspringessentials.beans;
 
 public class Person {
-	private int id =1;
+	private int id;
 	private String _firstName = "";
 	private String _lastName = "";
 
