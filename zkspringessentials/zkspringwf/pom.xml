@@ -5,7 +5,7 @@
 	<artifactId>zkspringwf30</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<properties>
-		<zk.version>5.0.6</zk.version>
+		<zk.version>5.0.10</zk.version>
 		<zkel.version>1.0.2</zkel.version>
 		<zuljsp.version>1.4.1</zuljsp.version>
 		<spring.version>3.0.5.RELEASE</spring.version>
@@ -23,9 +23,9 @@
 		<jstl-api.version>1.1.2</jstl-api.version>
 		<junit.version>4.7</junit.version>
 		<concurrent.version>1.3.4</concurrent.version>
-		<zkspring.version>3.1-SNAPSHOT</zkspring.version>
+		<zkspring.version>3.0</zkspring.version>
 		<zkspringsecurity.version>3.0</zkspringsecurity.version>
-		<zkspringwebflow.version>3.1-SNAPSHOT</zkspringwebflow.version>
+		<zkspringwebflow.version>3.1</zkspringwebflow.version>
 		<commons-lang.version>2.5</commons-lang.version>
 		<aspectj.version>1.6.8</aspectj.version>
 	</properties>
