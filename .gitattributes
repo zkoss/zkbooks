@@ -103,6 +103,12 @@ zkspringessentials/zkspringcoresec/src/main/webapp/zscriptbean.zul -text
 zkspringessentials/zkspringcoresec/zkspringessentials.war -text
 zkspringessentials/zkspringwf/.classpath -text
 zkspringessentials/zkspringwf/.project -text
+zkspringessentials/zkspringwf/.settings/.jsdtscope -text
+zkspringessentials/zkspringwf/.settings/org.eclipse.jdt.core.prefs -text
+zkspringessentials/zkspringwf/.settings/org.eclipse.wst.common.component -text
+zkspringessentials/zkspringwf/.settings/org.eclipse.wst.common.project.facet.core.xml -text
+zkspringessentials/zkspringwf/.settings/org.eclipse.wst.jsdt.ui.superType.container -text
+zkspringessentials/zkspringwf/.settings/org.eclipse.wst.jsdt.ui.superType.name -text
 zkspringessentials/zkspringwf/pom.xml -text
 zkspringessentials/zkspringwf/src/main/java/META-INF/persistence.xml -text
 zkspringessentials/zkspringwf/src/main/java/import.sql -text
