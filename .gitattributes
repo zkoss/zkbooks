@@ -55,6 +55,7 @@ zkspringessentials/zkspringcoresec/src/main/java/org/zkoss/zkspringessentials/be
 zkspringessentials/zkspringcoresec/src/main/java/org/zkoss/zkspringessentials/beans/SimpleMessageBean.java -text
 zkspringessentials/zkspringcoresec/src/main/java/org/zkoss/zkspringessentials/config/ZKComponentFactory.java -text
 zkspringessentials/zkspringcoresec/src/main/java/org/zkoss/zkspringessentials/controller/BaseWindowComposer.java -text
+zkspringessentials/zkspringcoresec/src/main/java/org/zkoss/zkspringessentials/controller/DynamicSecureController.java -text
 zkspringessentials/zkspringcoresec/src/main/java/org/zkoss/zkspringessentials/controller/GreetingCtrl.java -text
 zkspringessentials/zkspringcoresec/src/main/java/org/zkoss/zkspringessentials/controller/InnerPageComposer.java -text
 zkspringessentials/zkspringcoresec/src/main/java/org/zkoss/zkspringessentials/controller/MyController.java -text
@@ -71,6 +72,7 @@ zkspringessentials/zkspringcoresec/src/main/webapp/WEB-INF/jsp/listAccounts3.zul
 zkspringessentials/zkspringcoresec/src/main/webapp/WEB-INF/web.xml -text
 zkspringessentials/zkspringcoresec/src/main/webapp/WEB-INF/zk.xml -text
 zkspringessentials/zkspringcoresec/src/main/webapp/autowirezkcomp.zul -text
+zkspringessentials/zkspringcoresec/src/main/webapp/createSecurePage.zul -text
 zkspringessentials/zkspringcoresec/src/main/webapp/customScopesMain.zul -text
 zkspringessentials/zkspringcoresec/src/main/webapp/customScopesWindow.zul -text
 zkspringessentials/zkspringcoresec/src/main/webapp/customscopes.zul -text
