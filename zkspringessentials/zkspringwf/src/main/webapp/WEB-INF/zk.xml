@@ -15,17 +15,7 @@ Copyright (C) 2006 Potix Corporation. All Rights Reserved.
 	<system-config>
 		<disable-event-thread/>
 	</system-config>
- 	
-	<listener>
-		<description>Spring Web Flow Controller Listener</description>
-		<listener-class>org.zkoss.spring.webflow.mvc.servlet.ZkFlowControllerListener</listener-class>
-	</listener>
-
-	<listener>
-		<description>Spring Web Flow URL and FlowId Listener</description>
-		<listener-class>org.zkoss.spring.webflow.context.servlet.ZkFlowResourceListener</listener-class>
-	</listener>
-	<library-property>
+ 	<library-property>
                 <name>org.zkoss.zkplus.databind.AnnotateDataBinderInit.compatible</name>
                 <value>true</value>
         </library-property>
