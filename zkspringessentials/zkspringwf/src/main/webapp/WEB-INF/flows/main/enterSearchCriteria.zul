@@ -26,7 +26,7 @@
 						   	Maximum results:
 						</div>
 						<div class="input">
-							<zul:listbox id="pageSize" rows="1" mold="select">
+							<zul:listbox id="pageSize" rows="1" mold="select" selectedItem="@{searchCriteria.pageSize}">
 								<zul:listitem forEach="${referenceData.pageSizeOptions}" value="${c:int(each)}" label="${each}"/>
 							</zul:listbox>
 				   		</div>
