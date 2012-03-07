@@ -1,0 +1,126 @@
+<?page title="ZK Spring: Hotel Booking Sample Application" complete="true" ?>
+<?init class="org.zkoss.zk.ui.util.Composition" arg0="/WEB-INF/layouts/standard.zul"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit"?>
+<?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c" ?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver" ?>
+<?xel-method prefix="c" name="timezone"
+    class="java.util.TimeZone"    
+    signature="java.util.TimeZone getTimeZone(java.lang.String)"?>    
+<zk:zk 	xmlns="http://www.zkoss.org/2005/zk/native"       
+	xmlns:zul="http://www.zkoss.org/2005/zul"
+    xmlns:zk="http://www.zkoss.org/2005/zk"
+    xmlns:h="http://www.w3.org/1999/xhtml">
+
+<div class="section" self="@{define(content)}">
+	<h2>Book Hotel</h2>
+<!-- 	
+		<zul:div id="messagesInsertionPoint" self="@{fragment(messages)}">
+			<ul if="${!empty errors}">
+				<li style="color:#660000;font-weight:bold" zk:forEach="${errors}">${each.text}</li>
+			</ul>
+		</zul:div>
+ -->
+	<form>
+	<fieldset>
+		<div class="field">
+			<div class="label">Name:</div>
+			<div class="output">${booking.hotel.name}</div>
+		</div>
+		<div class="field">
+			<div class="label">Address:</div>
+			<div class="output">${booking.hotel.address}</div>
+		</div>
+		<div class="field">
+			<div class="label">City, State:</div>
+			<div class="output">${booking.hotel.city}, ${booking.hotel.state}</div>
+		</div>
+		<div class="field">
+			<div class="label">Zip:</div>
+			<div class="output">${booking.hotel.zip}</div>
+		</div>
+		<div class="field">
+			<div class="label">Country:</div>
+			<div class="output">${booking.hotel.country}</div>
+		</div>
+        <div class="field">
+            <div class="label">Nightly rate:</div>
+            <div class="output">
+                <zul:label value="&#36;${booking.hotel.price}"/>
+            </div>
+        </div>
+		<div class="field">
+			<div class="label">
+				Check In Date:
+			</div>
+			<div class="input">
+				<zul:datebox id="checkinDate" value="@{booking.checkinDate,save-when='proceed.onClick'}" constraint="no empty" format="yyyy-MM-dd" timeZone="${c:timezone('EST')}"/>
+			</div>
+		</div>
+		<div class="field">
+			<div class="label">
+				Check Out Date:
+			</div>
+			<div class="input">
+				<zul:datebox id="checkoutDate" value="@{booking.checkoutDate,save-when='proceed.onClick'}" constraint="no empty" format="yyyy-MM-dd" timeZone="${c:timezone('EST')}"/>
+			</div>
+		</div>
+		<div class="field">
+			<div class="label">
+				Room Preference:
+			</div>
+			<div class="input">
+				<zul:listbox selectedIndex="@{booking.beds,save-when='proceed.onClick'}" mold="select" rows="1" >
+					<zul:listitem forEach="${referenceData.bedOptions}" label="${each}"/>
+				</zul:listbox>
+			</div>
+		</div>
+		<div class="field">
+			<div class="label">
+				Smoking Preference:
+			</div>
+			<div id="radio" class="input">
+				<zul:radiogroup selectedIndex="@{booking.smoking,save-when='proceed.onClick',converter='org.springframework.webflow.samples.booking.BoolToInt'}">
+					<div>
+					<zul:radio label="Smoking"/>
+					<zul:radio label="Non-Smoking"/>
+					</div>
+				</zul:radiogroup>
+			</div>
+		</div>
+		<div class="field">
+			<div class="label">
+				Credit Card #:
+			</div>
+			<div class="input">
+				<zul:textbox value="@{booking.creditCard,save-when='proceed.onClick'}" constraint="no empty,/[0-9]{16}/: A 16-digit credit card number is required."/>
+			</div>
+		</div>
+		<div class="field">
+			<div class="label">
+				Credit Card Name:
+			</div>
+			<div class="input">
+				<zul:textbox id="creditCardName" value="@{booking.creditCardName,save-when='proceed.onClick'}" constraint="no empty"/>
+			</div>
+		</div>
+		<div class="field">
+			<div class="label">
+				Expiration Date:
+			</div>
+			<div class="input">
+				<zul:listbox  selectedItem="@{booking.creditCardExpiryMonth,save-when='proceed.onClick'}" mold="select" rows="1">
+					<zul:listitem forEach="${referenceData.creditCardExpMonths}" label="${each}" value="${c:int(forEachStatus.index + 1)}"/>
+				</zul:listbox>
+				<zul:listbox selectedItem="@{booking.creditCardExpiryYear,save-when='proceed.onClick'}" mold="select" rows="1">
+					<zul:listitem forEach="${referenceData.creditCardExpYears}" label="${each}" value="${c:int(each)}"/> 
+				</zul:listbox>
+			</div>
+		</div>
+		<div class="buttonGroup">
+			<zul:button id="proceed" label="proceed" self="@{action(proceed)}" onClick=""/>
+			<zul:button label="Cancel" self="@{action(cancel)}" onClick=""/>
+		</div>		
+	</fieldset>
+	</form>
+</div>
+</zk:zk>

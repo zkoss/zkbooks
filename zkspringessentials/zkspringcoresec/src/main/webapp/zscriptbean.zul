@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk xmlns="http://www.zkoss.org/2005/zul">
+<zscript>
+	String msg = simpleBean.message;
+</zscript>
+<window title="Bean in ZScript" width="640px" border="normal" >
+
+ <vbox>
+ 	<hbox>
+  	<label value="${msg}"></label>
+    </hbox>
+ </vbox> 
+</window>
+</zk>

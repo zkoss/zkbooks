@@ -1,0 +1,93 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver" ?>
+
+<h:html xmlns="http://www.zkoss.org/2005/zk/native"
+      xmlns:zul="http://www.zkoss.org/2005/zul"
+      xmlns:zk="http://www.zkoss.org/2005/zk"
+      xmlns:h="http://www.w3.org/1999/xhtml">
+      <zul:zscript><![CDATA[
+            import org.zkoss.zk.ui.event.EventListener;
+            self.getPage().addEventListener("onLoginOk", new EventListener(){
+            	public void onEvent(Event evt) {
+					loginout.getChildren().clear();
+					Executions.createComponentsDirectly(
+					"<span>"
+			    	+"Welcome, ${currentUser.name} | <a href=\"logout\" label=\"Logout\" />"
+					+"</span>", "zul", loginout, null);
+            	}
+            });
+		]]>
+      </zul:zscript>
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<zul:style src="/resources/css-framework/css/tools.css"/>
+	<zul:style src="/resources/css-framework/css/typo.css"/>
+	<zul:style src="/resources/css-framework/css/forms.css"/>
+	<zul:style src="/resources/css-framework/css/layout-navtop-localleft.css"/>
+	<zul:style src="/resources/css-framework/css/layout.css"/>
+	<zul:style src="/resources/styles/booking.css"/>
+	<style>
+div.springpage {
+	background:white none repeat scroll 0%;
+	margin:0pt auto;
+	padding:0pt;
+	text-align:center;
+	width:780px;
+}
+div.z-grid-header {
+	margin: 0;
+}
+div.z-grid-header table {
+	margin: 0;
+}
+div.z-grid-body {
+	margin: 0;
+}
+div.z-grid-body table {
+	margin: 0;
+}
+.buttonGroup {
+	margin-top:1.5em;
+	margin-bottom:0.5em;
+}
+	</style>
+</h:head>
+<h:body class="tundra spring">
+<zul:div class="springpage">
+	<div id="header" class="clearfix spring">
+		<div id="welcome">
+			<div class="left">Spring Travel: An ZK Spring Integration Reference Application</div>
+			<zul:div id="loginout" class="right">
+				<zul:span if="${not empty currentUser.name}">
+	            	Welcome, ${currentUser.name} | <a href="logout">Logout</a>
+				</zul:span>
+				<zul:span if="${empty currentUser.name}">
+	            	<a href="login">Login</a>
+				</zul:span>
+			</zul:div>
+		</div>
+		<div id="branding" class="spring">
+			<a href=""><zul:image src="/resources/images/header.jpg" tooltiptext="Spring Travel"/></a>
+		</div>
+	</div>
+	<div id="content" class="clearfix spring">
+		<div id="local" class="spring">
+			<a href="http://www.thespringexperience.com">
+				<zul:image src="/resources/images/diplomat.jpg" tooltiptext="generic hotel" />
+			</a>
+			<a href="http://www.thespringexperience.com">
+				<zul:image src="/resources/images/tse.gif" tooltiptext="The Spring Experience"/>
+			</a>
+			<p>
+			</p>
+		</div>
+		<zul:div id="main" self="@{insert(content)}" style="display:inline;float:right;width:500px">
+		</zul:div>
+	</div>
+	<div id="footer" class="clearfix spring">
+		<a href="http://www.springframework.org"><zul:image src="/resources/images/powered-by-spring.png" tooltiptext="Powered by Spring" /></a>
+		<a href="http://www.zkoss.org"><zul:image src="/resources/images/zkpowered_s.png" height="30px" tooltiptext="ZK Powered" /></a>
+	</div>
+</zul:div>
+</h:body>
+</h:html>
