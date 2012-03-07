@@ -3,7 +3,8 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>zkspringessentials</groupId>
 	<artifactId>zkspringessentials</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<name>zkspringessentials</name>
+	<version>1.0</version>
 	<properties>
 		<zk.version>6.0.0</zk.version>
 		<zkel.version>1.0.2</zkel.version>
@@ -26,6 +27,7 @@
 		<aspectj.version>1.6.8</aspectj.version>
 		<javassist.version>3.14.0-GA</javassist.version>
 	</properties>
+	<description>We should replace zuljsp 1.6 with 2.0 for compatibility issue with zk 6.0.0.</description>
 	<build>
 		<plugins>
 		</plugins>
