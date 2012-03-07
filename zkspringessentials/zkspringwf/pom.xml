@@ -31,7 +31,7 @@
 		<commons-lang.version>2.5</commons-lang.version>
 		<aspectj.version>1.6.8</aspectj.version>
 	</properties>
-	<description>A demo</description>
+	<description>A demo project for zkspring-webflow</description>
 	<repositories>
 		<repository>
 			<id>ZK EE</id>
