@@ -1,0 +1,67 @@
+<?page title="Secure Page"?>
+<?taglib uri="http://www.zkoss.org/zkspring/security" prefix="sec"?>
+<?variable-resolver class="org.zkoss.spring.DelegatingVariableResolver"?>
+<window title="ACL Page" border="normal" width="500px">
+
+	<label multiline="true">
+		This is a ACL testing page. 
+		
+		Domain object: Person
+		
+	</label>
+	You are login as: <label value="${authentication.name}"/>
+	<grid width="200px">
+		<columns>
+			<column label="Account" />
+			<column label="Permission" />
+		</columns>
+		<rows>
+			<row>
+				<label value="rod" />
+				Admin
+			</row>
+			<row>
+				<label value="dianne" />
+				Create
+			</row>
+			<row>
+				<label value="peter" />
+				Write
+			</row>
+			<row>
+				<label value="scott" />
+				Read
+			</row>
+		</rows>
+	</grid>
+
+	<label>
+		Please refer InMemoryAclService.java for predefined permission. 
+	</label>
+	<zscript>
+	import org.zkoss.zkspringessentials.beans.*;
+	Person p = new Person();
+	final int OBJECT_ID_FOR_ACL = 1;
+	p.setId(OBJECT_ID_FOR_ACL);
+</zscript>
+	<separator bar="true" />
+	<label if="${sec:isAccessible(1, p)}">
+		If you see this line, you have Read permission.
+	</label>
+	<separator bar="true" />
+	<label if="${sec:isAccessible(2, p)}">
+		If you see this line, you have Write permission.
+	</label>
+	<separator bar="true" />
+	<label if="${sec:isAccessible(4, p)}">
+		If you see this line, you have Create permission.
+	</label>
+	<separator bar="true" />
+	<label if="${sec:isAccessible(16, p)}">
+		If you see this line, you have Admin permission.
+	</label>
+
+	<separator bar="true"></separator>
+	<button label="Home" href="../home1.zul" />
+	<button label="Logout" href="../j_spring_security_logout" />
+</window>

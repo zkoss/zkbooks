@@ -1,0 +1,50 @@
+<?page title="ZK Spring: Hotel Booking Sample Application" complete="true"?>
+<?init class="org.zkoss.zk.ui.util.Composition" arg0="/WEB-INF/layouts/standard.zul"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver" ?>
+<zk:zk 	xmlns="http://www.zkoss.org/2005/zk/native"       
+	xmlns:zul="http://www.zkoss.org/2005/zul"
+    xmlns:zk="http://www.zkoss.org/2005/zk"
+    xmlns:h="http://www.w3.org/1999/xhtml">
+
+<div class="section" self="@{define(content)}">
+	<h2>View Hotel</h2>
+	<h:form>
+		<fieldset>
+			<div class="field">
+				<div class="label">Name:</div>
+				<div class="output">${hotel.name}</div>
+			</div>
+			<div class="field">
+				<div class="label">Address:</div>
+				<div class="output">${hotel.address}</div>
+			</div>
+			<div class="field">
+				<div class="label">City:</div>
+				<div class="output">${hotel.city}</div>
+			</div>
+			<div class="field">
+				<div class="label">State:</div>
+				<div class="output">${hotel.state}</div>
+			</div>
+			<div class="field">
+				<div class="label">Zip:</div>
+				<div class="output">${hotel.zip}</div>
+			</div>
+			<div class="field">
+				<div class="label">Country:</div>
+				<div class="output">${hotel.country}</div>
+			</div>
+		    <div class="field">
+		        <div class="label">Nightly rate:</div>
+		        <div class="output">
+		            <zul:label value="&#36;${hotel.price}"/>
+		        </div>
+		    </div>
+			<div class="buttonGroup">
+				<zul:button id="book" self="@{action(book)}" label="Book Hotel" onClick=""/>
+				<zul:button id="cancel" self="@{action(cancel)}" label="Back to Search" onClick=""/>
+			</div>
+		</fieldset>
+	</h:form>
+</div>
+</zk:zk>

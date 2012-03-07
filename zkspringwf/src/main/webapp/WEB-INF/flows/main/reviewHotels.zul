@@ -1,0 +1,41 @@
+<?page title="ZK Spring: Hotel Booking Sample Application" complete="true"?>
+<?init class="org.zkoss.zk.ui.util.Composition" arg0="/WEB-INF/layouts/standard.zul"?>
+<?variable-resolver class="org.zkoss.spring.DelegatingVariableResolver" ?>
+<?xel-method prefix="c" name="len"  class="org.zkoss.xel.fn.CommonFns" signature="int length(java.lang.Object o)"?>    
+<zk:zk 	xmlns="http://www.zkoss.org/2005/zk/native"       
+	xmlns:zul="http://www.zkoss.org/2005/zul"
+    xmlns:zk="http://www.zkoss.org/2005/zk">
+	<zul:div class="section" self="@{define(content)}">
+		<h2>Hotel Results</h2>
+		<p>
+			<zul:toolbarbutton label="Change Search" self="@{action(changeSearch)}" onClick=""/>
+		</p>
+			<zul:div self="@{fragment(searchResultsFragment)}">
+				<zul:label value="No Hotels Found" if="${empty hotels}"/>
+				<zul:grid id="hotelsGrid" unless="${empty hotels}">
+					<zul:columns height="27px">
+						<zul:column label="Name"/>
+						<zul:column label="Address"/>
+						<zul:column label="City, State"/>
+						<zul:column label="Zip"/>
+						<zul:column label="Action"/>
+					</zul:columns>
+					<zul:rows>
+						<zul:row forEach="${hotels}" value="${each}">
+							<zul:label value="${each.name}"/>
+							<zul:label value="${each.address}"/>
+							<zul:label value="${each.city}, ${each.state}, ${each.country}"/>
+							<zul:label value="${each.zip}"/>
+							<zul:toolbarbutton label="View Hotel" self="@{action(select)}" onClick="" >
+								<zk:custom-attributes hotel="${each}"/>
+							</zul:toolbarbutton>
+						</zul:row>
+					</zul:rows>
+				</zul:grid>
+				<div class="buttonGroup">
+					<zul:button label="Previous results" self="@{action(previous)}" if="${searchCriteria.page > 0}" onClick=""/>
+					<zul:button label="More Results" self="@{action(next)}" if="${not empty hotels and c:len(hotels) == searchCriteria.pageSize}" onClick=""/>
+				</div>
+			</zul:div>
+	</zul:div>
+</zk:zk>

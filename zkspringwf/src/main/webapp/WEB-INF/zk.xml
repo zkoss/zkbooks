@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- zk.xml
+	Purpose:
+		
+	Description:
+		
+	History:
+		Sun Mar 26 16:29:07     2006, Created by tomyeh
+
+Copyright (C) 2006 Potix Corporation. All Rights Reserved.
+-->
+
+<zk>
+	<system-config>
+		<disable-event-thread/>
+	</system-config>
+ 	<library-property>
+                <name>org.zkoss.zkplus.databind.AnnotateDataBinderInit.compatible</name>
+                <value>true</value>
+        </library-property>
+</zk>

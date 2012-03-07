@@ -1,0 +1,11 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+
+<zk>
+	<window id="myWindow" title="Inner Page" border="normal"
+		closable="true" width="200px" height="200px"
+		apply="${innerPageComposer}" mode="highlighted">
+		<label id="someLbl" />
+		<button id="showBtn" label="Show Message" />
+	</window>
+</zk>

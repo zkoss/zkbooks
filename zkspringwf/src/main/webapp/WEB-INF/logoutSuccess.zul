@@ -1,0 +1,14 @@
+<?page title="ZK Spring: Hotel Booking Sample Application" complete="true"?>
+<?init class="org.zkoss.zk.ui.util.Composition" arg0="/WEB-INF/layouts/standard.zul"?>
+<zk:zk xmlns="http://www.zkoss.org/2005/zk/native"       
+	xmlns:zul="http://www.zkoss.org/2005/zul"
+    xmlns:zk="http://www.zkoss.org/2005/zk">
+    
+	<div class="section" self="@{define(content)}">
+		<h1>Logout</h1>
+		<p>You have successfully logged out.</p>
+		<p>
+			<a href="${execution.contextPath}/spring/main">Continue</a>
+		</p>	
+	</div>
+</zk:zk>
