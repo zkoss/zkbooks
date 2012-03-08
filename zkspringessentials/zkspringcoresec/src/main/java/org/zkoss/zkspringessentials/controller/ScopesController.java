@@ -17,7 +17,7 @@ import org.zkoss.zul.Textbox;
  * @author ashish
  *
  */
-@org.springframework.stereotype.Component("scopesCtrl")
+@org.springframework.stereotype.Component("scopesCtrl1")
 @Scope("desktop")
 public class ScopesController extends GenericForwardComposer {
 
