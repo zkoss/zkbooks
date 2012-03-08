@@ -81,7 +81,6 @@ zkspringessentials/zkspringcoresec/src/main/webapp/databinding.zul -text
 zkspringessentials/zkspringcoresec/src/main/webapp/elexpression.zul -text
 zkspringessentials/zkspringcoresec/src/main/webapp/home.zul -text
 zkspringessentials/zkspringcoresec/src/main/webapp/home1.zul -text
-zkspringessentials/zkspringcoresec/src/main/webapp/idspace.zul -text
 zkspringessentials/zkspringcoresec/src/main/webapp/index.zul -text
 zkspringessentials/zkspringcoresec/src/main/webapp/innerPage.zul -text
 zkspringessentials/zkspringcoresec/src/main/webapp/lazyinitbean.zul -text
