@@ -1,0 +1,83 @@
+<?page title="ZK Spring: Hotel Booking Sample Application" complete="true" ?>
+<?init class="org.zkoss.zk.ui.util.Composition" arg0="/WEB-INF/layouts/standard.zul"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" arg0="./hotelSearch"?>
+<?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c" ?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk:zk 	xmlns="http://www.zkoss.org/2005/zk/native"       
+	xmlns:zul="http://www.zkoss.org/2005/zul"
+    xmlns:zk="http://www.zkoss.org/2005/zk">
+		<zul:div id="hotelSearch" class="section" self="@{define(content) fragment(hotelSearchFragment)}">
+		    <span class="errors">
+		       <!-- <h:messages globalOnly="true" />  -->
+		    </span>
+			<h2>Search Hotels</h2>
+			<form id="mainForm">
+				<fieldset>
+					<div class="field">
+						<div class="label">
+							Search String:
+						</div>
+						<div class="input">
+							<zul:textbox id="searchString" value="@{searchCriteria.searchString}" tooltiptext="Search hotels by name, address, city, or zip."/>
+						</div>
+					</div>
+					<div class="field">
+						<div class="label">
+						   	Maximum results:
+						</div>
+						<div class="input">
+							<zul:listbox id="pageSize" rows="1" mold="select" selectedItem="@{searchCriteria.pageSize}">
+								<zul:listitem forEach="${referenceData.pageSizeOptions}" value="${c:int(each)}" label="${each}"/>
+							</zul:listbox>
+				   		</div>
+					</div>
+					<div class="buttonGroup">
+						<zul:button id="findHotels" label="Find Hotels" onClick="" self="@{action(search)}"/>
+					</div>
+			    </fieldset>
+			</form>
+		</zul:div>
+
+		<zul:div id="bookingsSection" class="section" self="@{define(content) fragment(bookingsFragment)}">
+			<form id="bookingsForm">
+				<h2>Current Hotel Bookings</h2>			
+				<zul:label value="No Bookings Found" if="${empty bookings}"/>
+				<zul:grid unless="${empty bookings}">
+					<zul:columns height="51px">
+						<zul:column label="Name"/>
+						<zul:column label="Address"/>
+						<zul:column>
+							City,<br/>
+							State
+						</zul:column> 
+						<zul:column>
+							Check in<br/>
+							date
+						</zul:column>
+						<zul:column>
+							Check out<br/>
+							date
+						</zul:column>
+						<zul:column>
+							Confirmation<br/>
+							number
+						</zul:column>
+						<zul:column label="Action"/>
+					</zul:columns>
+					<zul:rows>
+						<zul:row forEach="${bookings}">
+							<zul:label value="${each.hotel.name}"/>
+							<zul:label value="${each.hotel.address}"/>
+							<zul:span><zul:label value="${each.hotel.city}"/>, <zul:label value="@{each.hotel.state}"/></zul:span>
+							<zul:label value="${each.checkinDate}"/>
+							<zul:label value="${each.checkoutDate}"/>
+							<zul:label value="${each.id}"/>
+							<zul:toolbarbutton label="Cancel" self="@{action(cancelBooking)}" onClick="">
+								<zk:custom-attributes booking="${each}"/>
+							</zul:toolbarbutton>
+						</zul:row>
+					</zul:rows>
+				</zul:grid>
+			</form>
+		</zul:div>
+</zk:zk>

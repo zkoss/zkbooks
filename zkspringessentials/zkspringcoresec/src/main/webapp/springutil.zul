@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<zk xmlns="http://www.zkoss.org/2005/zul">
+<zscript>
+	import org.zkoss.zkplus.spring.SpringUtil;
+	import org.zkoss.zkspringessentials.beans.*;
+	SimpleBean simple = SpringUtil.getBean("simpleBean");
+	String msg = simple.getMessage();
+</zscript>
+<window title="Example for SpringUtil#getBean" width="640px" border="normal" >
+
+ <vbox>
+ 	<hbox>
+  	<label value="${msg}"></label>
+    </hbox>
+ </vbox> 
+</window>
+</zk>

@@ -1,0 +1,67 @@
+<?page title="ZK Spring: Hotel Booking Sample Application" complete="true" ?>
+<?init class="org.zkoss.zk.ui.util.Composition" arg0="/WEB-INF/layouts/standard.zul"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver" ?>
+<zk:zk 	xmlns="http://www.zkoss.org/2005/zk/native"       
+	xmlns:zul="http://www.zkoss.org/2005/zul"
+    xmlns:zk="http://www.zkoss.org/2005/zk"
+    xmlns:h="http://www.w3.org/1999/xhtml">
+
+<div class="section" self="@{define(content)}">
+	<h1>Confirm Hotel Booking</h1> 
+</div>
+
+<div class="section" self="@{define(content)}">
+	<h:form>
+	<fieldset>
+		<div class="field">
+			<div class="label">Name:</div>
+			<div class="output">${booking.hotel.name}</div>
+		</div>
+		<div class="field">
+			<div class="label">Address:</div>
+			<div class="output">${booking.hotel.address}</div>
+		</div>
+		<div class="field">
+			<div class="label">City, State:</div>
+			<div class="output">${booking.hotel.city}, ${booking.hotel.state}</div>
+		</div>
+		<div class="field">
+			<div class="label">Zip:</div>
+			<div class="output">${booking.hotel.zip}</div>
+		</div>
+		<div class="field">
+			<div class="label">Country:</div>
+			<div class="output">${booking.hotel.country}</div>
+		</div>
+        <div class="field">
+            <div class="label">Total payment:</div>
+            <div class="output">
+                <zul:label value="&#36;${booking.total}"/>
+            </div>
+        </div>
+		<div class="field">
+			<div class="label">Check In Date:</div>
+			<div class="output">
+				<zul:label value="@{booking.checkinDate,converter=org.springframework.webflow.samples.booking.ShortDate}"/>
+			</div>
+		</div>
+		<div class="field">
+			<div class="label">Check Out Date:</div>
+			<div class="output">
+				<zul:label value="@{booking.checkoutDate,converter=org.springframework.webflow.samples.booking.ShortDate}"/>
+			</div>
+		</div>
+		<div class="field">
+			<div class="label">Credit Card #:</div>
+			<div class="output">${booking.creditCard}</div>
+		</div>
+		<div class="buttonGroup">
+			<zul:button label="Confirm" self="@{action(confirm)}" onClick=""/>&#160;
+    		<zul:button label="Revise" self="@{action(revise)}" onClick=""/>&#160;
+    		<zul:button label="Cancel" self="@{action(cancel)}" onClick=""/>
+		</div>
+	</fieldset>
+	</h:form>
+</div>
+</zk:zk>

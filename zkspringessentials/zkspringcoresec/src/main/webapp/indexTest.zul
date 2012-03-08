@@ -1,0 +1,32 @@
+<window title="ZK Spring Essentials Example links" border="nomal" width="100%">
+<vlayout>
+The index page for simple example.
+
+<a href="autowirezkcomp.zul"> Autowire ZK component</a>
+<separator />
+<a href="elexpression.zul"> Bean in EL Expression</a>
+<separator />
+<a href="databinding.zul"> Bean in ZK databinding annotations</a>
+<separator />
+<a href="springutil.zul">SpringUtil</a>
+<separator />
+<a href="zscriptbean.zul">Bean in ZScript</a>
+<separator />
+<a href="customScopesMain.zul">customScopesMain.zul</a>
+<separator />
+<a href="customscopes1.zul">customscopes1.zul</a>
+<separator />
+<a href="createSecurePage.zul">Dynamically creating secure page</a>
+<separator bar="true" height="10px"/>
+The following are not working since 3.0
+<separator />
+<a href="outerPage.zul">outerPage</a>
+<separator />
+<a href="lazyinitbean.zul"> Lazy init bean</a>
+<separator />
+<a href="scopes.zul"> Scopes</a>
+<separator />
+<a href="test.zul"> Scopes</a>
+</vlayout>
+
+</window>

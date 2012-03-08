@@ -1,0 +1,18 @@
+<window id="win" border="nomal" width="100%" apply="org.zkoss.zkspringessentials.controller.DynamicSecureController">
+
+<vlayout>
+<label multiline="true">
+This page dynamically create 2 pages under secure folder that require specific role (login).
+
+ 
+ 
+ 
+</label>
+
+Click button to create page - secure/index.zul
+<button id="secure" label="CreateSecurePage"/>
+
+Click button to create page - secure/extreme/index.zul
+<button id="exSecure" label="CreateExtremeSecurePage" />
+</vlayout>
+</window>

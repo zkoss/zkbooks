@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<window title="Autowire ZK Components Example" border="normal" height="100px"
+	width="400px" apply="${scopesCtrl1}">
+	<label value="Enter Message Text:"></label>
+	<textbox id="name" />
+	<button id="setAppNameBtn" label="Set" />
+	<button id="showAppNameBtn" label="Show Message" />
+	<button id="showPageBtn" label="Show Window">
+		<attribute name="onClick">
+		Window win = (Window) Executions.getCurrent().createComponents("customscopes2.zul", null, null);
+		win.doHighlighted();
+		</attribute>
+	</button>
+</window>
