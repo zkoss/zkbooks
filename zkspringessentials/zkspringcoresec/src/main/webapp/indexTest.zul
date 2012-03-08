@@ -12,9 +12,9 @@ The index page for simple example.
 <separator />
 <a href="zscriptbean.zul">Bean in ZScript</a>
 <separator />
-<a href="customScopesMain.zul">Custom Scope</a>
+<a href="customScopesMain.zul">customScopesMain.zul</a>
 <separator />
-<a href="customscopes1.zul">Custom Scope</a>
+<a href="customscopes1.zul">customscopes1.zul</a>
 <separator />
 <a href="createSecurePage.zul">Dynamically creating secure page</a>
 <separator bar="true" height="10px"/>
