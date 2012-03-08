@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<?page complete="true"?>
+<h:html xmlns="http://www.zkoss.org/2005/zk/native"
+      xmlns:zul="http://www.zkoss.org/2005/zul"
+      xmlns:zk="http://www.zkoss.org/2005/zk"
+      xmlns:h="http://www.w3.org/1999/xhtml">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<zul:style src="/resources/css-framework/css/tools.css"/>
+	<zul:style src="/resources/css-framework/css/typo.css"/>
+	<zul:style src="/resources/css-framework/css/forms.css"/>
+	<zul:style src="/resources/css-framework/css/layout-navtop-localleft.css"/>
+	<zul:style src="/resources/css-framework/css/layout.css"/>
+	<zul:style src="/resources/styles/booking.css"/>
+	<style>
+.buttonGroup {
+	margin-top:1.5em;
+	margin-bottom:0.5em;
+}
+	</style>
+</h:head>
+<h:body>
+<zul:div id="main" self="@{insert(content)}" style="width:500px;margin:0pt auto;">    
+<h1 self="@{define(content)}">Login Required</h1>
+
+<div self="@{define(content)}" class="section">
+		<zul:div class="errors" if="${not empty param.login_error}">
+		<zul:html><![CDATA[
+			Your login attempt was not successful, try again.<br /><br />
+			Reason: ${sessionScope.SPRING_SECURITY_LAST_EXCEPTION.message}
+			<br/>
+		]]></zul:html>
+		</zul:div>
+	<p>Valid username/passwords are:</p>
+	<ul>
+		<li>keith/melbourne</li>
+	    <li>erwin/leuven</li>
+	    <li>jeremy/atlanta</li>
+	    <li>scott/rochester</li>
+	</ul>
+</div>
+
+<div self="@{define(content)}" class="section">
+	<form name="f" action="${execution.contextPath}/spring/loginProcess" method="post">
+		<fieldset>
+			<div class="field">
+				<div class="label">User:</div>
+				<div class="output">
+					<zk:variables username="${sessionScope.SPRING_SECURITY_LAST_USERNAME}" if="${not empty param.login_error}"/>
+					<zul:textbox id="user" name="j_username" value="${username}" width="182px" constraint="no empty:Please enter your user name"/>
+				</div>
+			</div>
+			<div class="field">
+				<div class="label">Password:</div>
+				<div class="output">
+					<zul:textbox type="password" name="j_password" width="182px" constraint="no empty:Please enter your password"/>
+				</div>
+			</div>
+			<div class="field">
+				<div class="label">Don't ask for my password for two weeks:</div>
+				<div class="output">
+					<zul:checkbox name="_spring_security_remember_me"/> 
+				</div>
+			</div>
+		</fieldset>
+		<div class="buttonGroup">
+			<input name="submit" type="submit" value="Login" />
+		</div>
+	</form>
+</div>
+<zk:zscript>
+user.focus();
+</zk:zscript>
+</zul:div>
+</h:body>
+</h:html>

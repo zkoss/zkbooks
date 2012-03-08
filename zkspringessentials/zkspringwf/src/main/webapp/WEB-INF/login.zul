@@ -1,0 +1,53 @@
+<?page title="ZK Spring: Hotel Booking Sample Application" complete="true"?>
+<zk:zk xmlns="http://www.zkoss.org/2005/zk/native"       
+	xmlns:zul="http://www.zkoss.org/2005/zul"
+    xmlns:zk="http://www.zkoss.org/2005/zk">
+    
+<h1 self="@{define(content)}">Login Required</h1>
+
+<div self="@{define(content)}" class="section">
+		<zul:div class="errors" if="${not empty param.login_error}">
+		<zul:html><![CDATA[
+			Your login attempt was not successful, try again.<br /><br />
+			Reason: ${sessionScope.SPRING_SECURITY_LAST_EXCEPTION.message}
+			<br/>
+		]]></zul:html>
+		</zul:div>
+	<p>Valid username/passwords are:</p>
+	<ul>
+		<li>keith/melbourne</li>
+	    <li>erwin/leuven</li>
+	    <li>jeremy/atlanta</li>
+	    <li>scott/rochester</li>
+	</ul>
+</div>
+
+<div self="@{define(content)}" class="section">
+	<form name="f" action="${execution.contextPath}/spring/loginProcess" method="post">
+		<fieldset>
+			<div class="field">
+				<div class="label">User:</div>
+				<div class="output">
+					<zk:variables username="${sessionScope.SPRING_SECURITY_LAST_USERNAME}" if="${not empty param.login_error}"/>
+					<zul:textbox name="j_username" value="${username}" width="182px" constraint="no empty:Please enter your user name"/>
+				</div>
+			</div>
+			<div class="field">
+				<div class="label">Password:</div>
+				<div class="output">
+					<zul:textbox type="password" name="j_password" width="182px" constraint="no empty:Please enter your password"/>
+				</div>
+			</div>
+			<div class="field">
+				<div class="label">Don't ask for my password for two weeks:</div>
+				<div class="output">
+					<zul:checkbox name="_spring_security_remember_me"/> 
+				</div>
+			</div>
+		</fieldset>
+		<div class="buttonGroup">
+			<input name="submit" type="submit" value="Login" />
+		</div>
+	</form>
+</div>
+</zk:zk>

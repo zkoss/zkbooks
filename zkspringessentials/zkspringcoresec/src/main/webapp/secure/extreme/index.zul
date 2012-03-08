@@ -1,0 +1,14 @@
+<?page title="VERY Secure Page"?>
+<?taglib uri="http://www.zkoss.org/zkspring/security" prefix="sec"?>
+<window title="VERY Secure Page" border="normal" width="500px">
+This is a protected page. You can only see me if you are a supervisor.
+
+<zk if="${sec:isAllGranted('ROLE_SUPERVISOR')}">
+   You have "ROLE_SUPERVISOR" (this text is controlled by $ {sec:isAllGranted()}" expression).
+</zk>
+<separator bar="true" spacing="10px"/>
+<hbox>
+<button label="Home" href="../../"/>
+<button label="Logout" href="../../j_spring_security_logout"/>
+</hbox>
+</window>
