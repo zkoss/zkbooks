@@ -32,6 +32,18 @@
 		<aspectj.version>1.6.8</aspectj.version>
 	</properties>
 	<description>A demo project for zkspring-webflow</description>
+	<build>
+		<plugins>
+		</plugins>
+		  <resources>
+            <resource>
+                <directory>${basedir}/src/main/resources</directory>
+            </resource>
+            <resource>
+                <directory>${basedir}/src/main/java</directory>
+            </resource>
+        </resources>
+	</build>	
 	<repositories>
 		<repository>
 			<id>ZK EE</id>
@@ -67,6 +79,7 @@
 			<groupId>javax.servlet</groupId>
 			<artifactId>servlet-api</artifactId>
 			<version>${servlet-api.version}</version>
+			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>javax.servlet</groupId>
