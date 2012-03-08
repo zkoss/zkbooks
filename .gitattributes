@@ -100,6 +100,7 @@ zkspringessentials/zkspringcoresec/zkspringessentials.war -text
 zkspringessentials/zkspringwf/.classpath -text
 zkspringessentials/zkspringwf/.project -text
 zkspringessentials/zkspringwf/.settings/.jsdtscope -text
+zkspringessentials/zkspringwf/.settings/com.springsource.sts.config.flow.prefs -text
 zkspringessentials/zkspringwf/.settings/org.eclipse.jdt.core.prefs -text
 zkspringessentials/zkspringwf/.settings/org.eclipse.wst.common.component -text
 zkspringessentials/zkspringwf/.settings/org.eclipse.wst.common.project.facet.core.xml -text
