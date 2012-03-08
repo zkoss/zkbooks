@@ -1,0 +1,11 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<zk:zk xmlns="http://www.zkoss.org/2005/zk/native"
+      xmlns:zul="http://www.zkoss.org/2005/zul"
+      xmlns:zk="http://www.zkoss.org/2005/zk"
+      xmlns:h="http://www.w3.org/1999/xhtml">
+<h:html>	
+	<zk:attribute name="onLoginOK"><![CDATA[
+	   alert("test");                                     
+	]]></zk:attribute>
+</h:html>
+</zk:zk>

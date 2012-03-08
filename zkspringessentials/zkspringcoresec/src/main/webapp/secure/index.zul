@@ -1,0 +1,33 @@
+<?page title="Secure Page"?>
+<?taglib uri="http://www.zkoss.org/zkspring/security" prefix="sec"?>
+<?variable-resolver class="org.zkoss.spring.DelegatingVariableResolver"?>
+<window title="Secure Page" border="normal" width="500px" xmlns:n="http://www.zkoss.org/2005/zk/native">
+<n:p>
+This is a protected page. You can get to me if you've been remembered,
+or if you've authenticated this session.
+</n:p>
+
+<zk if="${sec:isAllGranted('ROLE_SUPERVISOR')}">
+	You are a supervisor! You can therefore see the <n:a href="extreme/index.zul">extremely secure page</n:a>.
+</zk>
+<zk unless="${sec:isAllGranted('ROLE_SUPERVISOR')}">
+	You are NOT a supervisor! You can NOT see the <n:a href="extreme/index.zul">extremely secure page</n:a>.
+</zk>
+
+<n:h4>Properties obtained using implicit Object <n:b>"authentication"</n:b>.</n:h4>
+<grid>
+	<columns>
+		<column label="Expression"/>
+		<column label="Value" width="50px"/>
+	</columns>
+	<rows>
+		<row><label value="authentication.name"/>${authentication.name}</row>
+		<row><label value="authentication.principal.username"/>${authentication.principal.username}</row>
+		<row><label value="authentication.principal.enabled"/>${authentication.principal.enabled}</row>
+		<row><label value="authentication.principal.accountNonLocked"/>${authentication.principal.accountNonLocked}</row>
+	</rows>
+</grid>
+<separator bar="true"></separator>
+<button label="Home" href="../home1.zul"/>
+<button label="Logout" href="../j_spring_security_logout"/>
+</window>

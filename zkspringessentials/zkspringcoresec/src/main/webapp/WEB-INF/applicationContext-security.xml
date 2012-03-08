@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- - Sample namespace-based configuration - - $Id: applicationContext-security.xml 
+	3019 2008-05-01 17:51:48Z luke_t $ -->
+
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+	xmlns:beans="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:zkc="http://www.zkoss.org/2008/zkspring/core"
+    xmlns:zksp="http://www.zkoss.org/2008/zkspring/security"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
+		http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.0.xsd
+        http://www.zkoss.org/2008/zkspring/core http://www.zkoss.org/2008/zkspring/core/zkspring-core.xsd 
+        http://www.zkoss.org/2008/zkspring/security http://www.zkoss.org/2008/zkspring/security/zkspring-security.xsd">
+		
+     <!--
+       - Enable the @Secured annotation to secure service layer methods
+       -->                   
+	<global-method-security secured-annotations="enabled" pre-post-annotations="enabled">
+	</global-method-security>
+
+	<http auto-config="true">
+        <intercept-url pattern="/secure/extreme/**" access="ROLE_SUPERVISOR"/>
+        <intercept-url pattern="/secure/**" access="IS_AUTHENTICATED_REMEMBERED" />
+        <intercept-url pattern="/**" access="IS_AUTHENTICATED_ANONYMOUSLY" />
+		 <form-login login-page="/login.zul"
+			authentication-failure-url="/login.zul?login_error=1" />
+		<!-- <logout logout-success-url="/home.zul"/> -->
+        <!-- Following is list of ZK Spring Security custom filters. 
+        	They needs to be exactly in the same order as shown below in order to work.  -->
+        <custom-filter ref="zkDesktopReuseFilter" position="FIRST" />
+        <custom-filter ref="zkDisableSessionInvalidateFilter" before="FORM_LOGIN_FILTER"/>
+        <custom-filter ref="zkEnableSessionInvalidateFilter" before="FILTER_SECURITY_INTERCEPTOR"/>
+        <custom-filter ref="zkLoginOKFilter" after="FILTER_SECURITY_INTERCEPTOR"/>
+        <custom-filter ref="zkError403Filter" after="LOGOUT_FILTER"/>
+	</http>
+
+	<!-- - Usernames/Passwords are - rod/koala - dianne/emu - scott/wombat -peter/opal -->
+	<authentication-manager>
+		<authentication-provider>
+			<password-encoder hash="md5" />
+			<user-service>
+				<user name="rod" password="a564de63c2d0da68cf47586ee05984d7"
+					authorities="ROLE_SUPERVISOR, ROLE_USER, ROLE_TELLER" />
+				<user name="dianne" password="65d15fe9156f9c4bbffd98085992a44e"
+					authorities="ROLE_USER,ROLE_TELLER" />
+				<user name="scott" password="2b58af6dddbd072ed27ffc86725d7d3a"
+					authorities="ROLE_USER" />
+				<user name="peter" password="22b5c9accc6e1ba628cedc63a72d57f8"
+					authorities="ROLE_USER" />
+			</user-service>
+		</authentication-provider>
+	</authentication-manager>
+	
+		<!--  Securing ZK events -->
+	<zkc:zk-config>
+	</zkc:zk-config>
+ 	<zksp:zk-event login-template-close-delay="5">
+		<zksp:intercept-event event="onClick" path="//**/btn_*" access="ROLE_TELLER" />
+		<zksp:intercept-event path="/**" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
+		<!-- Configuring Ajax popup login -->
+ 		 <zksp:form-login login-page="/popupLogin.zul"/>
+ 	</zksp:zk-event>
+	
+	<beans:bean id="aclService" class="org.zkoss.zkspringessentials.acl.InMemoryAclService"/>
+
+</beans:beans>

@@ -1,0 +1,38 @@
+<?page id="testZul" title="Accounts" ?>
+<?variable-resolver class="org.zkoss.spring.DelegatingVariableResolver"?>
+<zk>
+<window title="Accouts (Ajax popup login)" border="normal" width="500px">
+	<zscript><![CDATA[
+	   void adjBalance(Button btn) {
+		   double bal = new Double((String)btn.getAttribute("bal")).doubleValue();
+		   bigbank.Account a = bankServiceScenario2.readAccount(btn.getAttribute("aid"));
+		   bankServiceScenario2.post(a, bal);
+		   btn.getFellow("bal_"+a.getId()).setValue(""+a.getBalance());
+	   }
+	]]>
+	</zscript>
+	<grid>
+		<rows>
+			<row forEach="${accounts}">
+				<label value="${each.id}"/>
+				<label value="${each.holder}"/>
+				<label id="bal_${each.id}" value="${each.balance}"/>
+				<button id="btn_m20_${each.id}" label="-$20" onClick="adjBalance(self)">
+					<custom-attributes aid="${each.id}" bal="-20"/>
+				</button> 
+				<button id="btn_m5_${each.id}" label="-$5" onClick="adjBalance(self)"> 
+					<custom-attributes aid="${each.id}" bal="-5"/>
+				</button> 
+				<button id="btn_p5_${each.id}" label="+$5" onClick="adjBalance(self)"> 
+					<custom-attributes aid="${each.id}" bal="5"/>
+				</button>  
+				<button id="btn_p20_${each.id}" label="+$20" onClick="adjBalance(self)"> 
+					<custom-attributes aid="${each.id}" bal="+20"/>
+				</button>
+			</row>
+		</rows>
+	</grid>
+</window>
+<button label="Home" href="/home1.zul"/>
+<button label="Logout" href="/j_spring_security_logout"/>
+</zk>

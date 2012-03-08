@@ -1,0 +1,20 @@
+<?page id="testZul" title="Accounts" ?>
+<zk>
+<window title="Accouts (page based login)" border="normal" width="500px">
+	<grid>
+		<rows>
+			<row forEach="${accounts}">
+				<label value="${each.id}"/>
+				<label value="${each.holder}"/>
+				<label value="${each.balance}"/>
+				<button label="-$20" href="/postscenario1.html?id=${each.id}&amp;amount=-20.00" onClick=""/> 
+				<button label="-$5" href="/postscenario1.html?id=${each.id}&amp;amount=-5.00"/> 
+				<button label="+$5" href="/postscenario1.html?id=${each.id}&amp;amount=5.00"/> 
+				<button label="+$20" href="/postscenario1.html?id=${each.id}&amp;amount=20.00"/> 
+			</row>
+		</rows>
+	</grid>
+</window>
+*Home <button label="Go!" href="/home.zul"/>
+<button label="Logout" href="/j_spring_security_logout"/>
+</zk>

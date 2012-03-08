@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<window title="Autowire ZK Components Example" border="normal" height="100px"
+	width="400px">
+	<label value="Message Text:"></label>
+	<textbox id="name" value="${msgBean.msg}"/>
+</window>

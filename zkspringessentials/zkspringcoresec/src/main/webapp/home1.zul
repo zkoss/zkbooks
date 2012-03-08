@@ -1,0 +1,31 @@
+<?page id="main" title="ZK + Spring Security (Tutorial)"?>
+<?variable-resolver class="org.zkoss.spring.DelegatingVariableResolver"?>
+<zk>
+	<window id="win" title="Home Page" border="normal" width="500px">
+		<attribute name="onLoginOK">
+			principal.setValue(execution.getUserPrincipal().getName());
+		</attribute>
+		<grid>
+			<columns>
+				<column width="400px"/>
+				<column align="center"/>
+			</columns>
+			<rows>
+				<row>
+					Any one can list accounts.<button label="Go!" href="listAccounts2.html"/>
+				</row>
+				<row>
+					Your principal object is ...:<label id="principal" value="${execution.userPrincipal.name}"/>
+				</row>
+				<row>
+					Secure page<button label="Go!" href="secure/index.zul"/>
+				</row>
+				<row>
+					Extremely secure page<button label="Go!" href="secure/extreme/index.zul"/>
+				</row>
+			</rows>
+		</grid>
+	</window>
+	<button label="Logout" href="/j_spring_security_logout"/>
+	*Any one can view this page
+</zk>
