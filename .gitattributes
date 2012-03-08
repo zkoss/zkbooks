@@ -67,7 +67,6 @@ zkspringessentials/zkspringcoresec/src/main/webapp/WEB-INF/applicationContext.xm
 zkspringessentials/zkspringcoresec/src/main/webapp/WEB-INF/bank-servlet.xml -text
 zkspringessentials/zkspringcoresec/src/main/webapp/WEB-INF/jsp/listAccounts1.zul -text
 zkspringessentials/zkspringcoresec/src/main/webapp/WEB-INF/jsp/listAccounts2.zul -text
-zkspringessentials/zkspringcoresec/src/main/webapp/WEB-INF/jsp/listAccounts3.zul -text
 zkspringessentials/zkspringcoresec/src/main/webapp/WEB-INF/web.xml -text
 zkspringessentials/zkspringcoresec/src/main/webapp/WEB-INF/zk.xml -text
 zkspringessentials/zkspringcoresec/src/main/webapp/autowirezkcomp.zul -text

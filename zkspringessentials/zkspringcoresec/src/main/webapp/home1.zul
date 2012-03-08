@@ -12,7 +12,7 @@
 			</columns>
 			<rows>
 				<row>
-					Any one can list accounts.<button label="Go!" href="listAccounts3.html"/>
+					Any one can list accounts.<button label="Go!" href="listAccounts2.html"/>
 				</row>
 				<row>
 					Your principal object is ...:<label id="principal" value="${execution.userPrincipal.name}"/>
