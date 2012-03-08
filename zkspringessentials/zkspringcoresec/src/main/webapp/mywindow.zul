@@ -1,7 +1,0 @@
-<?page title="new page title" contentType="text/html;charset=UTF-8"?>
-<zk>
-<window id="myWindow" title="new page title" border="normal" closable="true">
-<label id="someLabel"/>
-<button id="showBtn" label="Show Message"/>
-</window>
-</zk>
