@@ -85,7 +85,6 @@ zkspringessentials/zkspringcoresec/src/main/webapp/innerPage.zul -text
 zkspringessentials/zkspringcoresec/src/main/webapp/lazyinitbean.zul -text
 zkspringessentials/zkspringcoresec/src/main/webapp/login.zul -text
 zkspringessentials/zkspringcoresec/src/main/webapp/outerPage.zul -text
-zkspringessentials/zkspringcoresec/src/main/webapp/outerPageWithInclude.zul -text
 zkspringessentials/zkspringcoresec/src/main/webapp/popupLogin.zul -text
 zkspringessentials/zkspringcoresec/src/main/webapp/scopes.zul -text
 zkspringessentials/zkspringcoresec/src/main/webapp/secure/acl.zul -text
