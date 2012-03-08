@@ -25,7 +25,7 @@ public class InnerPageComposer extends GenericSpringComposer {
 		super.doAfterCompose(comp);
 	}
 	@EventHandler("showBtn.onClick")
-	public void runDemo() throws InterruptedException {
+	public void runDemo(Event event) throws InterruptedException {
 		Messagebox.show("Hello");
 		someLbl.setValue("Showing Message:");
 	}

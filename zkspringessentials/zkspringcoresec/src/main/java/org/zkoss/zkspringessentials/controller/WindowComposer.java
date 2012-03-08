@@ -34,12 +34,12 @@ public class WindowComposer extends GenericSpringComposer {
 	}
 	
 	public void doAfterCompose(org.zkoss.zk.ui.Component comp) throws Exception {
-		System.out.println("Calling doAfterCompose");
 		super.doAfterCompose(comp);
+		System.out.println("Calling doAfterCompose");
 		myLbl.setValue("Running:");
 	}
 	@EventHandler("myBtn.onClick")
-	public void runDemo() throws InterruptedException {
+	public void runDemo(Event evt) throws InterruptedException {
 		Messagebox.show("Running Demo");
 		lastRanLbl.setValue("Demo visited last time at:" + System.currentTimeMillis());
 	}
