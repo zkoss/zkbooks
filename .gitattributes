@@ -74,7 +74,6 @@ zkspringessentials/zkspringcoresec/src/main/webapp/autowirezkcomp.zul -text
 zkspringessentials/zkspringcoresec/src/main/webapp/createSecurePage.zul -text
 zkspringessentials/zkspringcoresec/src/main/webapp/customScopesMain.zul -text
 zkspringessentials/zkspringcoresec/src/main/webapp/customScopesWindow.zul -text
-zkspringessentials/zkspringcoresec/src/main/webapp/customscopes.zul -text
 zkspringessentials/zkspringcoresec/src/main/webapp/customscopes1.zul -text
 zkspringessentials/zkspringcoresec/src/main/webapp/customscopes2.zul -text
 zkspringessentials/zkspringcoresec/src/main/webapp/databinding.zul -text
