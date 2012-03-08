@@ -15,7 +15,6 @@ public class ExampleWebAppInit implements WebAppInit {
 	/* (non-Javadoc)
 	 * @see org.zkoss.zk.ui.util.WebAppInit#init(org.zkoss.zk.ui.WebApp)
 	 */
-	@Override
 	public void init(WebApp wapp) throws Exception {
 		// TODO Auto-generated method stub
 
