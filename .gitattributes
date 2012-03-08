@@ -58,7 +58,6 @@ zkspringessentials/zkspringcoresec/src/main/java/org/zkoss/zkspringessentials/co
 zkspringessentials/zkspringcoresec/src/main/java/org/zkoss/zkspringessentials/controller/DynamicSecureController.java -text
 zkspringessentials/zkspringcoresec/src/main/java/org/zkoss/zkspringessentials/controller/GreetingCtrl.java -text
 zkspringessentials/zkspringcoresec/src/main/java/org/zkoss/zkspringessentials/controller/InnerPageComposer.java -text
-zkspringessentials/zkspringcoresec/src/main/java/org/zkoss/zkspringessentials/controller/MyController.java -text
 zkspringessentials/zkspringcoresec/src/main/java/org/zkoss/zkspringessentials/controller/ScopesController.java -text
 zkspringessentials/zkspringcoresec/src/main/java/org/zkoss/zkspringessentials/controller/WindowComposer.java -text
 zkspringessentials/zkspringcoresec/src/main/java/org/zkoss/zkspringessentials/init/ExampleWebAppInit.java -text
@@ -87,7 +86,6 @@ zkspringessentials/zkspringcoresec/src/main/webapp/index.zul -text
 zkspringessentials/zkspringcoresec/src/main/webapp/innerPage.zul -text
 zkspringessentials/zkspringcoresec/src/main/webapp/lazyinitbean.zul -text
 zkspringessentials/zkspringcoresec/src/main/webapp/login.zul -text
-zkspringessentials/zkspringcoresec/src/main/webapp/mywindow.zul -text
 zkspringessentials/zkspringcoresec/src/main/webapp/outerPage.zul -text
 zkspringessentials/zkspringcoresec/src/main/webapp/outerPageWithInclude.zul -text
 zkspringessentials/zkspringcoresec/src/main/webapp/popupLogin.zul -text
