@@ -13,9 +13,11 @@ Copyright (C) 2009 Potix Corporation. All Rights Reserved.
 */
 package org.zkoss.zssessentials.config;
 
+import org.zkoss.lang.Objects;
 import org.zkoss.poi.ss.usermodel.BorderStyle;
 import org.zkoss.poi.ss.usermodel.Cell;
 import org.zkoss.poi.ss.usermodel.CellStyle;
+import org.zkoss.poi.ss.usermodel.Color;
 import org.zkoss.poi.ss.usermodel.Font;
 import org.zkoss.zss.model.Worksheet;
 import org.zkoss.zk.ui.Component;
@@ -221,18 +223,18 @@ public class CellStyleComposer extends GenericForwardComposer{
 		Rect rect = getSelection();
 		Worksheet sheet = spreadsheet.getSelectedSheet();
 		Book book = spreadsheet.getBook();
-		short colorIndex = BookHelper.rgbToIndex(book, color);
+		final Color newColor = BookHelper.HTMLToColor(book, color);
 		
 		for (int row = rect.getTop(); row <= rect.getBottom(); row++) {
 			for (int col = rect.getLeft(); col <= rect.getRight(); col++) {
 				Cell cell = Utils.getOrCreateCell(sheet, row, col);
 				CellStyle cellStyle = cell.getCellStyle();
-				final short srcColor = cellStyle.getFillForegroundColor();
+				final Color srcColor = cellStyle.getFillForegroundColorColor();
 				
-				if (srcColor != colorIndex) {
+				if (!Objects.equals(newColor, srcColor)) {
 					CellStyle newStyle = cloneStyle(cellStyle, book);
 					newStyle.cloneStyleFrom(cellStyle);
-					newStyle.setFillForegroundColor(colorIndex);
+					BookHelper.setFillForegroundColor(newStyle, newColor);
 					
 					Ranges.range(sheet, row, col).setStyle(newStyle);
 				}
