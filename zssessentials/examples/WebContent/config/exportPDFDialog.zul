@@ -1,0 +1,35 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+<div style="padding: 10px;" width="580px">
+	<radiogroup id="range"> </radiogroup>
+	<radiogroup id="orientation"> </radiogroup>
+	<grid>
+		<rows>
+			<row spans="3">
+				<label value="Publish"></label>
+			</row>
+			<row>
+				<radio id="currSelection" label="Current Selection" radiogroup="range" />
+				<radio id="currSheet" label="Current Sheet" radiogroup="range"></radio>
+				<radio id="allSheet" label="All Sheet" radiogroup="range"></radio>
+			</row>
+			<row spans="3">
+				<label value="Option"></label>
+			</row>
+			<row>
+			   	<checkbox id="noHeader" label="No header" />
+        		<checkbox id="noGridlines" label="No Gridlines" />	
+			</row>
+			<row spans="3">
+				<label value="Orientation">
+				</label>
+			</row>
+			<row>
+				<radio id="landscape" label="Landscape" radiogroup="orientation"/>
+				<radio id="portrait" label="Portrait" radiogroup="orientation"/>
+			</row>
+		</rows>
+	</grid>
+	<button id="export" label="Export" mold="trendy" style="padding-top: 10px;"></button>
+</div>
+</zk>

@@ -1,0 +1,47 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<div style="padding: 10px;" width="580px">
+		<grid>
+			<columns>
+				<column hflex="1"></column>
+				<column hflex="2"></column>
+			</columns>
+			<rows>
+				<row>
+					<label value="Sort Option:" />
+					<hlayout>
+						<checkbox id="caseSensitive" label="Case Sensitive"></checkbox>
+						<checkbox id="hasHeader" label="Has Header"></checkbox>	
+					</hlayout>
+				</row>
+				<row>
+					<label value="Sort: " />
+					<combobox id="sort">
+						<comboitem id="sortByRows" label="By Rows"/>
+						<comboitem id="sortByColumns" label="By Columns"/>
+					</combobox>	
+				</row>
+				<row>
+					<label value="Sort Order: " />
+					<combobox id="sortOrder">
+						<comboitem id="sortAscending" label="Sort Ascending"/>
+						<comboitem id="sortDescending" label="Sort Descending"/>
+					</combobox>
+				</row>
+				<row>
+					<label value="Sort By: " />
+					<combobox id="sortBy1"></combobox>	
+				</row>
+				<row>
+					<label value="Then By: " />
+					<combobox id="sortBy2"></combobox>
+				</row>
+				<row>
+					<label value="Then By: " />
+					<combobox id="sortBy3"></combobox>	
+				</row>
+			</rows>
+		</grid>
+		<button id="okBtn" label="OK" mold="trendy" style="padding-top:10px;"/>
+	</div>
+</zk>
