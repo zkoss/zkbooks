@@ -196,6 +196,7 @@ zssessentials/examples/WebContent/config/addPicture.zul -text
 zssessentials/examples/WebContent/config/autoFill.zul -text
 zssessentials/examples/WebContent/config/autoFilter.zul -text
 zssessentials/examples/WebContent/config/cellStyle.zul -text
+zssessentials/examples/WebContent/config/contextMenu.zul -text
 zssessentials/examples/WebContent/config/copyAndPaste.zul -text
 zssessentials/examples/WebContent/config/customSortDialog.zul -text
 zssessentials/examples/WebContent/config/deleteChart.zul -text
@@ -254,6 +255,7 @@ zssessentials/examples/src/org/zkoss/zssessentials/config/AddPictureComposer.jav
 zssessentials/examples/src/org/zkoss/zssessentials/config/AutoFilterComposer.java -text
 zssessentials/examples/src/org/zkoss/zssessentials/config/AutofillComposer.java -text
 zssessentials/examples/src/org/zkoss/zssessentials/config/CellStyleComposer.java -text
+zssessentials/examples/src/org/zkoss/zssessentials/config/ContextMenuComposer.java -text
 zssessentials/examples/src/org/zkoss/zssessentials/config/CopyPasteComposer.java -text
 zssessentials/examples/src/org/zkoss/zssessentials/config/CustomizedActionHandler.java -text
 zssessentials/examples/src/org/zkoss/zssessentials/config/DeleteChartComposer.java -text

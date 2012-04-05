@@ -46,6 +46,7 @@ import org.zkoss.zss.model.Worksheet;
 import org.zkoss.zss.model.impl.BookHelper;
 import org.zkoss.zss.model.impl.Headings;
 import org.zkoss.zss.ui.Rect;
+import org.zkoss.zss.ui.Spreadsheet;
 import org.zkoss.zss.ui.impl.Utils;
 import org.zkoss.zss.ui.sys.ActionHandler;
 import org.zkoss.zul.Button;
@@ -74,19 +75,20 @@ public class CustomizedActionHandler extends ActionHandler {
 
 	@Override
 	public void doNewBook() {
-		_spreadsheet.setSrc("/WEB-INF/excel/config/blank.xlsx");
+		getSpreadsheet().setSrc("/WEB-INF/excel/config/blank.xlsx");
 	}
 	
 	@Override
 	public void doSaveBook() {
-		if (_spreadsheet.getBook() != null) {
-			final String filePath = Executions.getCurrent().getDesktop().getWebApp().getRealPath(_spreadsheet.getSrc());
+		Spreadsheet spreadsheet = getSpreadsheet();
+		if (spreadsheet.getBook() != null) {
+			final String filePath = Executions.getCurrent().getDesktop().getWebApp().getRealPath(spreadsheet.getSrc());
 			
 			Exporter exporter = Exporters.getExporter("excel");
 			FileOutputStream outputStream = null;
 			try {
 				outputStream = new FileOutputStream(new File(filePath));
-				exporter.export(_spreadsheet.getBook(), outputStream);
+				exporter.export(spreadsheet.getBook(), outputStream);
 				try {
 					Messagebox.show("Saved");
 				} catch (InterruptedException e) {
@@ -109,9 +111,10 @@ public class CustomizedActionHandler extends ActionHandler {
 	
 	@Override
 	public void doExportPDF(Rect selection) {
-		if (_spreadsheet.getBook() != null && validSelection(selection)) {
+		Spreadsheet spreadsheet = getSpreadsheet();
+		if (spreadsheet.getBook() != null && validSelection(selection)) {
 			ExportPDFDialog dialog = new ExportPDFDialog(selection);
-			dialog.setParent(_spreadsheet.getParent());
+			dialog.setParent(spreadsheet.getParent());
 			try {
 				dialog.doModal();
 			} catch (SuspendNotAllowedException e) {
@@ -122,9 +125,10 @@ public class CustomizedActionHandler extends ActionHandler {
 	
 	@Override
 	public void doPasteSpecial(Rect selection) {
-		if (getClipboard() != null && _spreadsheet.getBook() != null && validSelection(selection)) {
+		Spreadsheet spreadsheet = getSpreadsheet();
+		if (getClipboard() != null && spreadsheet.getBook() != null && validSelection(selection)) {
 			PasteSpecialDialog dialog = new PasteSpecialDialog(selection);
-			dialog.setParent(_spreadsheet.getParent());
+			dialog.setParent(spreadsheet.getParent());
 			try {
 				dialog.doModal();
 			} catch (SuspendNotAllowedException e) {
@@ -135,71 +139,89 @@ public class CustomizedActionHandler extends ActionHandler {
 	
 	@Override
 	public void doCustomSort(Rect selection) {
-		CustomSortDialog dialog = new CustomSortDialog(selection);
-		dialog.setParent(_spreadsheet.getParent());
-		try {
-			dialog.doModal();
-		} catch (SuspendNotAllowedException e) {
-		} catch (InterruptedException e) {
-		};
+		Spreadsheet spreadsheet = getSpreadsheet();
+		if (spreadsheet.getBook() != null && validSelection(selection)) {
+			CustomSortDialog dialog = new CustomSortDialog(selection);
+			dialog.setParent(spreadsheet.getParent());
+			try {
+				dialog.doModal();
+			} catch (SuspendNotAllowedException e) {
+			} catch (InterruptedException e) {
+			};	
+		}
 	}
 	
 	@Override
 	public void doHyperlink(Rect selection) {
-		InsertHyperlinkDialog dialog = new InsertHyperlinkDialog(selection);
-		dialog.setParent(_spreadsheet.getParent());
-		try {
-			dialog.doModal();
-		} catch (SuspendNotAllowedException e) {
-		} catch (InterruptedException e) {
-		};
+		Spreadsheet spreadsheet = getSpreadsheet();
+		if (spreadsheet.getBook() != null && validSelection(selection)) {
+			InsertHyperlinkDialog dialog = new InsertHyperlinkDialog(selection);
+			dialog.setParent(getSpreadsheet().getParent());
+			try {
+				dialog.doModal();
+			} catch (SuspendNotAllowedException e) {
+			} catch (InterruptedException e) {
+			};	
+		}
 	}
 	
 
 	@Override
 	public void doColumnWidth(Rect selection) {
-		HeaderSizeDialog dialog = new HeaderSizeDialog("column", selection);
-		dialog.setParent(_spreadsheet.getParent());
-		try {
-			dialog.doModal();
-		} catch (SuspendNotAllowedException e) {
-		} catch (InterruptedException e) {
-		};
+		Spreadsheet spreadsheet = getSpreadsheet();
+		if (spreadsheet.getBook() != null && validSelection(selection)) {
+			HeaderSizeDialog dialog = new HeaderSizeDialog("column", selection);
+			dialog.setParent(getSpreadsheet().getParent());
+			try {
+				dialog.doModal();
+			} catch (SuspendNotAllowedException e) {
+			} catch (InterruptedException e) {
+			};	
+		}
 	}
 
 
 	@Override
 	public void doRowHeight(Rect selection) {
-		HeaderSizeDialog dialog = new HeaderSizeDialog("row", selection);
-		dialog.setParent(_spreadsheet.getParent());
-		try {
-			dialog.doModal();
-		} catch (SuspendNotAllowedException e) {
-		} catch (InterruptedException e) {
-		};
+		Spreadsheet spreadsheet = getSpreadsheet();
+		if (spreadsheet.getBook() != null && validSelection(selection)) {
+			HeaderSizeDialog dialog = new HeaderSizeDialog("row", selection);
+			dialog.setParent(getSpreadsheet().getParent());
+			try {
+				dialog.doModal();
+			} catch (SuspendNotAllowedException e) {
+			} catch (InterruptedException e) {
+			};	
+		}
 	}
 
 
 	@Override
 	public void doFormatCell(Rect selection) {
-		FormatDialog dialog = new FormatDialog(selection);
-		dialog.setParent(_spreadsheet.getParent());
-		try {
-			dialog.doModal();
-		} catch (SuspendNotAllowedException e) {
-		} catch (InterruptedException e) {
-		};
+		Spreadsheet spreadsheet = getSpreadsheet();
+		if (spreadsheet.getBook() != null && validSelection(selection)) {
+			FormatDialog dialog = new FormatDialog(selection);
+			dialog.setParent(getSpreadsheet().getParent());
+			try {
+				dialog.doModal();
+			} catch (SuspendNotAllowedException e) {
+			} catch (InterruptedException e) {
+			};	
+		}
 	}
 	
 	@Override
 	public void doInsertFunction(Rect selection) {
-		InsertFunctionDialog dialog = new InsertFunctionDialog(selection);
-		dialog.setParent(_spreadsheet.getParent());
-		try {
-			dialog.doModal();
-		} catch (SuspendNotAllowedException e) {
-		} catch (InterruptedException e) {
-		};
+		Spreadsheet spreadsheet = getSpreadsheet();
+		if (spreadsheet.getBook() != null && validSelection(selection)) {
+			InsertFunctionDialog dialog = new InsertFunctionDialog(selection);
+			dialog.setParent(getSpreadsheet().getParent());
+			try {
+				dialog.doModal();
+			} catch (SuspendNotAllowedException e) {
+			} catch (InterruptedException e) {
+			};	
+		}
 	}
 	
 	public class Dialog extends Window {
@@ -233,7 +255,7 @@ public class CustomizedActionHandler extends ActionHandler {
 				String functionName = seld.getLabel();
 				
 				Ranges
-				.range(_spreadsheet.getSelectedSheet(), selection.getTop(), selection.getLeft(), selection.getBottom(), selection.getRight())
+				.range(getSpreadsheet().getSelectedSheet(), selection.getTop(), selection.getLeft(), selection.getBottom(), selection.getRight())
 				.setEditText("=" + functionName + "()");
 			}
 			
