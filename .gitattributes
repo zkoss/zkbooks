@@ -184,6 +184,7 @@ zssessentials/examples/WebContent/WEB-INF/excel/jsf/Timesheet1.xls -text
 zssessentials/examples/WebContent/WEB-INF/excel/jsp/ZSS-demo_sample.xlsx -text
 zssessentials/examples/WebContent/WEB-INF/excel/report/data.csv -text
 zssessentials/examples/WebContent/WEB-INF/excel/report/genreport.xls -text
+zssessentials/examples/WebContent/WEB-INF/i3-label.properties -text
 zssessentials/examples/WebContent/WEB-INF/spring-config.xml -text
 zssessentials/examples/WebContent/WEB-INF/web.xml -text
 zssessentials/examples/WebContent/WEB-INF/zk.xml -text
