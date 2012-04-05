@@ -220,6 +220,7 @@ zssessentials/examples/WebContent/config/moveRange.zul -text
 zssessentials/examples/WebContent/config/pasteSpecialDialog.zul -text
 zssessentials/examples/WebContent/config/protection.zul -text
 zssessentials/examples/WebContent/config/setSheet.zul -text
+zssessentials/examples/WebContent/config/sheetbar.zul -text
 zssessentials/examples/WebContent/config/toolbar.zul -text
 zssessentials/examples/WebContent/config/validation.zul -text
 zssessentials/examples/WebContent/display/display1.zul -text
@@ -273,6 +274,7 @@ zssessentials/examples/src/org/zkoss/zssessentials/config/MovePictureComposer.ja
 zssessentials/examples/src/org/zkoss/zssessentials/config/MoveRangeComposer.java -text
 zssessentials/examples/src/org/zkoss/zssessentials/config/ProtectionComposer.java -text
 zssessentials/examples/src/org/zkoss/zssessentials/config/SheetDimensionComposer.java -text
+zssessentials/examples/src/org/zkoss/zssessentials/config/SheetbarComposer.java -text
 zssessentials/examples/src/org/zkoss/zssessentials/config/ToolbarComposer.java -text
 zssessentials/examples/src/org/zkoss/zssessentials/config/ValidationComposer.java -text
 zssessentials/examples/src/org/zkoss/zssessentials/events/EditingEventsComposer.java -text
