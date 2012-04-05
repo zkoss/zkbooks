@@ -162,6 +162,7 @@ zssessentials/examples/WebContent/WEB-INF/excel/config/addChart.xlsx -text
 zssessentials/examples/WebContent/WEB-INF/excel/config/addPicture.xlsx -text
 zssessentials/examples/WebContent/WEB-INF/excel/config/autoFilter.xlsx -text
 zssessentials/examples/WebContent/WEB-INF/excel/config/autofill.xlsx -text
+zssessentials/examples/WebContent/WEB-INF/excel/config/blank.xlsx -text
 zssessentials/examples/WebContent/WEB-INF/excel/config/deleteChart.xlsx -text
 zssessentials/examples/WebContent/WEB-INF/excel/config/deletePicture.xlsx -text
 zssessentials/examples/WebContent/WEB-INF/excel/config/demo_sample.xls -text
@@ -219,6 +220,7 @@ zssessentials/examples/WebContent/config/movePicture.zul -text
 zssessentials/examples/WebContent/config/moveRange.zul -text
 zssessentials/examples/WebContent/config/pasteSpecialDialog.zul -text
 zssessentials/examples/WebContent/config/protection.zul -text
+zssessentials/examples/WebContent/config/renderAndCache.zul -text
 zssessentials/examples/WebContent/config/setSheet.zul -text
 zssessentials/examples/WebContent/config/sheetbar.zul -text
 zssessentials/examples/WebContent/config/toolbar.zul -text

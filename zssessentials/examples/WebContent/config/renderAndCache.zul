@@ -1,0 +1,12 @@
+<zk>
+	<window vflex="1" width="100%">
+		<spreadsheet 
+			clientCacheDisabled="false"
+			maxRenderedCellSize="15000"
+			preloadColumnSize="60"
+			preloadRowSize="80"
+			id="spreadsheet" vflex="true" width="100%" showSheetbar="true"
+			src="/WEB-INF/excel/config/ZSS-demo_sample.xlsx" maxcolumns="100" maxrows="1000"
+			></spreadsheet>
+	</window>
+</zk>
