@@ -112,7 +112,7 @@ public class CustomizedActionHandler extends ActionHandler {
 	@Override
 	public void doExportPDF(Rect selection) {
 		Spreadsheet spreadsheet = getSpreadsheet();
-		if (spreadsheet.getBook() != null && validSelection(selection)) {
+		if (spreadsheet.getBook() != null && isValidSelection(selection)) {
 			ExportPDFDialog dialog = new ExportPDFDialog(selection);
 			dialog.setParent(spreadsheet.getParent());
 			try {
@@ -126,7 +126,7 @@ public class CustomizedActionHandler extends ActionHandler {
 	@Override
 	public void doPasteSpecial(Rect selection) {
 		Spreadsheet spreadsheet = getSpreadsheet();
-		if (getClipboard() != null && spreadsheet.getBook() != null && validSelection(selection)) {
+		if (getClipboard() != null && spreadsheet.getBook() != null && isValidSelection(selection)) {
 			PasteSpecialDialog dialog = new PasteSpecialDialog(selection);
 			dialog.setParent(spreadsheet.getParent());
 			try {
@@ -140,7 +140,7 @@ public class CustomizedActionHandler extends ActionHandler {
 	@Override
 	public void doCustomSort(Rect selection) {
 		Spreadsheet spreadsheet = getSpreadsheet();
-		if (spreadsheet.getBook() != null && validSelection(selection)) {
+		if (spreadsheet.getBook() != null && isValidSelection(selection)) {
 			CustomSortDialog dialog = new CustomSortDialog(selection);
 			dialog.setParent(spreadsheet.getParent());
 			try {
@@ -154,7 +154,7 @@ public class CustomizedActionHandler extends ActionHandler {
 	@Override
 	public void doHyperlink(Rect selection) {
 		Spreadsheet spreadsheet = getSpreadsheet();
-		if (spreadsheet.getBook() != null && validSelection(selection)) {
+		if (spreadsheet.getBook() != null && isValidSelection(selection)) {
 			InsertHyperlinkDialog dialog = new InsertHyperlinkDialog(selection);
 			dialog.setParent(getSpreadsheet().getParent());
 			try {
@@ -169,7 +169,7 @@ public class CustomizedActionHandler extends ActionHandler {
 	@Override
 	public void doColumnWidth(Rect selection) {
 		Spreadsheet spreadsheet = getSpreadsheet();
-		if (spreadsheet.getBook() != null && validSelection(selection)) {
+		if (spreadsheet.getBook() != null && isValidSelection(selection)) {
 			HeaderSizeDialog dialog = new HeaderSizeDialog("column", selection);
 			dialog.setParent(getSpreadsheet().getParent());
 			try {
@@ -184,7 +184,7 @@ public class CustomizedActionHandler extends ActionHandler {
 	@Override
 	public void doRowHeight(Rect selection) {
 		Spreadsheet spreadsheet = getSpreadsheet();
-		if (spreadsheet.getBook() != null && validSelection(selection)) {
+		if (spreadsheet.getBook() != null && isValidSelection(selection)) {
 			HeaderSizeDialog dialog = new HeaderSizeDialog("row", selection);
 			dialog.setParent(getSpreadsheet().getParent());
 			try {
@@ -199,7 +199,7 @@ public class CustomizedActionHandler extends ActionHandler {
 	@Override
 	public void doFormatCell(Rect selection) {
 		Spreadsheet spreadsheet = getSpreadsheet();
-		if (spreadsheet.getBook() != null && validSelection(selection)) {
+		if (spreadsheet.getBook() != null && isValidSelection(selection)) {
 			FormatDialog dialog = new FormatDialog(selection);
 			dialog.setParent(getSpreadsheet().getParent());
 			try {
@@ -213,7 +213,7 @@ public class CustomizedActionHandler extends ActionHandler {
 	@Override
 	public void doInsertFunction(Rect selection) {
 		Spreadsheet spreadsheet = getSpreadsheet();
-		if (spreadsheet.getBook() != null && validSelection(selection)) {
+		if (spreadsheet.getBook() != null && isValidSelection(selection)) {
 			InsertFunctionDialog dialog = new InsertFunctionDialog(selection);
 			dialog.setParent(getSpreadsheet().getParent());
 			try {
