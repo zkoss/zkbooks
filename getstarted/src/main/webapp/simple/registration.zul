@@ -1,0 +1,40 @@
+<zk>
+	<window border="normal" width="400px" style="padding-top:20px;padding-left:20px;">
+		<caption label="Welcome! New User" style="font-size:20px;"/>
+		<grid hflex="1">
+			<auxhead>
+				<auxheader colspan="2" label="Registration Form" style="font-size:16px" image="../images/picture.png"/>
+			</auxhead>
+			<columns>
+			</columns>
+			<rows >
+				<row >
+					User Name <textbox hflex="1"/>
+				</row>
+				<row >
+					Blood Type 
+					<combobox hflex="1">
+						<comboitem label="A" image="../images/bloodtypeA.png"/>
+						<comboitem label="B" image="../images/bloodtypeB.png"/>
+						<comboitem label="O" image="../images/bloodtypeO.png"/>
+						<comboitem label="AB" image="../images/bloodtypeAB.png"/>
+					</combobox>
+				</row>
+				<row >
+					Birthday <datebox hflex="1"/>
+				</row>
+				<row spans="2" align="center" >
+					<hlayout>
+						<checkbox /> Accept Term of Use
+					</hlayout>
+				</row >
+				<row spans="2" align="right">
+					<hlayout>
+						<button label="Reset" />
+						<button label="Submit" disabled="true"/>
+					</hlayout>
+				</row>
+			</rows>
+		</grid>
+	</window>
+</zk>
