@@ -29,6 +29,7 @@ getstarted/src/main/webapp/images/save.png -text
 getstarted/src/main/webapp/images/trash.png -text
 getstarted/src/main/webapp/inventory.zul -text
 getstarted/src/main/webapp/simple/registration.zul -text
+getstarted/src/main/webapp/simple/registrationUI.zul -text
 getstarted/src/main/webapp/timeout.zul -text
 zkessentials/store/WebContent/image/Bullet-10x10.png -text
 zkessentials/store/WebContent/image/CasualUserMale-16x16.png -text
