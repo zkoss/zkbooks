@@ -1,6 +1,10 @@
+<!-- 
+  ZK Getting Started/Simple ZK
+  Control UI Component Directly  
+ -->
 <zk>
-	<window border="normal" width="400px" style="padding-top:20px;padding-left:20px;">
-		<caption label="Welcome! New User" style="font-size:20px;"/>
+	<window border="normal" width="400px" style="padding-top:20px;padding-left:20px;" title="Welcome! New User"
+	apply="org.zkoss.simple.RegistrationComposer">
 		<grid hflex="1">
 			<auxhead>
 				<auxheader colspan="2" label="Registration Form" style="font-size:16px" image="../images/picture.png"/>
@@ -14,10 +18,10 @@
 				<row >
 					Blood Type 
 					<combobox hflex="1">
-						<comboitem label="A" image="../images/bloodtypeA.png"/>
-						<comboitem label="B" image="../images/bloodtypeB.png"/>
-						<comboitem label="O" image="../images/bloodtypeO.png"/>
-						<comboitem label="AB" image="../images/bloodtypeAB.png"/>
+						<comboitem label="A" value="A" image="../images/bloodtypeA.png"/>
+						<comboitem label="B" value="B" image="../images/bloodtypeB.png"/>
+						<comboitem label="O" value="O" image="../images/bloodtypeO.png"/>
+						<comboitem label="AB" value="AB" image="../images/bloodtypeAB.png"/>
 					</combobox>
 				</row>
 				<row >
