@@ -13,17 +13,17 @@
 			</columns>
 			<rows >
 				<row >
-					User Name <textbox id="nameBox" hflex="1"/>
+					User Name <textbox id="nameBox" hflex="1" constraint="no empty"/>
 				</row>
 				<row>
 					Gender:
-					<radiogroup>
-						<radio label="Male" value="male" image="../images/male.png" checked="true"/>
+					<radiogroup id="genderGroup">
+						<radio id="maleRadio" label="Male" value="male" image="../images/male.png" checked="true"/>
 						<radio label="Female" value="female" image="../images/female.png"/>
 					</radiogroup>
 				</row>
 				<row >
-					Birthday <datebox id="birthdayBox" hflex="1"/>
+					Birthday <datebox id="birthdayBox" hflex="1" constraint="no empty, no today, no future"/>
 				</row>
 				<row spans="2" align="center" >
 					<hlayout>
@@ -32,8 +32,8 @@
 				</row >
 				<row spans="2" align="right">
 					<hlayout>
-						<button label="Reset" />
-						<button label="Submit" disabled="true"/>
+						<button id="resetButton" label="Reset" />
+						<button id="submitButton" label="Submit" disabled="true"/>
 					</hlayout>
 				</row>
 			</rows>
