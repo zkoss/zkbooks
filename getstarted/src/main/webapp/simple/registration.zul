@@ -13,23 +13,21 @@
 			</columns>
 			<rows >
 				<row >
-					User Name <textbox hflex="1"/>
+					User Name <textbox id="nameBox" hflex="1"/>
+				</row>
+				<row>
+					Gender:
+					<radiogroup>
+						<radio label="Male" value="male" image="../images/male.png" checked="true"/>
+						<radio label="Female" value="female" image="../images/female.png"/>
+					</radiogroup>
 				</row>
 				<row >
-					Blood Type 
-					<combobox hflex="1">
-						<comboitem label="A" value="A" image="../images/bloodtypeA.png"/>
-						<comboitem label="B" value="B" image="../images/bloodtypeB.png"/>
-						<comboitem label="O" value="O" image="../images/bloodtypeO.png"/>
-						<comboitem label="AB" value="AB" image="../images/bloodtypeAB.png"/>
-					</combobox>
-				</row>
-				<row >
-					Birthday <datebox hflex="1"/>
+					Birthday <datebox id="birthdayBox" hflex="1"/>
 				</row>
 				<row spans="2" align="center" >
 					<hlayout>
-						<checkbox /> Accept Term of Use
+						<checkbox id="acceptTermBox"/> Accept Term of Use
 					</hlayout>
 				</row >
 				<row spans="2" align="right">

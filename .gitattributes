@@ -12,6 +12,7 @@ getstarted/.settings/org.maven.ide.eclipse.prefs -text
 getstarted/.settings/org.zkoss.eclipse.preferences.prefs -text
 getstarted/assembly/demo.xml -text
 getstarted/pom.xml -text
+getstarted/src/main/java/org/zkoss/simple/RegistrationComposer.java -text
 getstarted/src/main/java/org/zkoss/start/InventoryComposer.java -text
 getstarted/src/main/java/org/zkoss/start/InventoryService.java -text
 getstarted/src/main/java/org/zkoss/start/Item.java -text
@@ -23,10 +24,13 @@ getstarted/src/main/webapp/images/bloodtypeA.png -text
 getstarted/src/main/webapp/images/bloodtypeAB.png -text
 getstarted/src/main/webapp/images/bloodtypeB.png -text
 getstarted/src/main/webapp/images/bloodtypeO.png -text
+getstarted/src/main/webapp/images/delete.png -text
+getstarted/src/main/webapp/images/female.png -text
 getstarted/src/main/webapp/images/filter.png -text
+getstarted/src/main/webapp/images/inventory.png -text
+getstarted/src/main/webapp/images/male.png -text
 getstarted/src/main/webapp/images/picture.png -text
 getstarted/src/main/webapp/images/save.png -text
-getstarted/src/main/webapp/images/trash.png -text
 getstarted/src/main/webapp/inventory.zul -text
 getstarted/src/main/webapp/simple/registration.zul -text
 getstarted/src/main/webapp/simple/registrationUI.zul -text

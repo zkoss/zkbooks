@@ -4,7 +4,12 @@
 	color:red;
 }
 </style>
-<window id="searchWin" title="Invertory Storage" border="normal" width="600px" apply="org.zkoss.start.InventoryComposer">
+<window id="searchWin" title="" border="normal" width="600px" apply="org.zkoss.start.InventoryComposer" 
+style="padding-top:10px;padding-left:10px;">
+	<caption>
+		<image src="images/inventory.png" style="float:left"/>
+		<label value="Invertory Management" style="float:left;font-size:28px"/>
+	</caption>
 	<vbox hflex="true">
 		<menubar>
 			<menu label="Item">
@@ -50,7 +55,7 @@
 					<row spans="2" align="right">
 						<hlayout>
 							<button label="Save" image="images/save.png"/>
-							<button label="Delete" image="images/trash.png" />
+							<button label="Delete" image="images/delete.png" />
 						</hlayout>
 					</row>
 				</rows>
