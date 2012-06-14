@@ -17,7 +17,7 @@
 				</row>
 				<row>
 					Gender:
-					<radiogroup id="genderGroup">
+					<radiogroup>
 						<radio id="maleRadio" label="Male" value="male" image="../images/male.png" checked="true"/>
 						<radio label="Female" value="female" image="../images/female.png"/>
 					</radiogroup>
