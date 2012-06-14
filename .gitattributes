@@ -13,6 +13,7 @@ getstarted/.settings/org.zkoss.eclipse.preferences.prefs -text
 getstarted/assembly/demo.xml -text
 getstarted/pom.xml -text
 getstarted/src/main/java/org/zkoss/simple/RegistrationComposer.java -text
+getstarted/src/main/java/org/zkoss/simple/RegistrationIntegrateComposer.java -text
 getstarted/src/main/java/org/zkoss/start/InventoryComposer.java -text
 getstarted/src/main/java/org/zkoss/start/InventoryService.java -text
 getstarted/src/main/java/org/zkoss/start/Item.java -text
@@ -34,6 +35,7 @@ getstarted/src/main/webapp/images/save.png -text
 getstarted/src/main/webapp/images/submit.png -text
 getstarted/src/main/webapp/inventory.zul -text
 getstarted/src/main/webapp/simple/registration.zul -text
+getstarted/src/main/webapp/simple/registrationIntegrate.zul -text
 getstarted/src/main/webapp/simple/registrationUI.zul -text
 getstarted/src/main/webapp/timeout.zul -text
 zkessentials/store/WebContent/image/Bullet-10x10.png -text
