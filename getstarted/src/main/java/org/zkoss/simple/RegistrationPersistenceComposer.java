@@ -5,7 +5,9 @@ import java.util.logging.Logger;
 
 import org.zkoss.zk.ui.select.SelectorComposer;
 import org.zkoss.zk.ui.select.annotation.Listen;
+import org.zkoss.zk.ui.select.annotation.VariableResolver;
 import org.zkoss.zk.ui.select.annotation.Wire;
+import org.zkoss.zk.ui.select.annotation.WireVariable;
 import org.zkoss.zul.Button;
 import org.zkoss.zul.Checkbox;
 import org.zkoss.zul.Datebox;
@@ -15,23 +17,22 @@ import org.zkoss.zul.Textbox;
 import org.zkoss.zul.Window;
 
 @SuppressWarnings("serial")
-public class RegistrationIntegrateComposer extends SelectorComposer<Window> {
+public class RegistrationPersistenceComposer extends SelectorComposer<Window> {
 
 	@Wire("#submitButton")
 	private Button submitButton;
-	
 	@Wire("#nameBox")
 	private Textbox nameBox;
 	@Wire("#maleRadio")
 	private Radio maleRadio;
 	@Wire("#birthdayBox")
 	private Datebox birthdayBox;
-	
-	
 	@Wire("#acceptTermBox")
 	private Checkbox acceptTermCheckbox;
+	
+	private RegistrationDao registrationDao;
 
-	private static Logger logger = Logger.getLogger(RegistrationIntegrateComposer.class.getName());
+	private static Logger logger = Logger.getLogger(RegistrationPersistenceComposer.class.getName());
 	
 	@Listen("onCheck = #acceptTermBox")
 	public void changeSubmitStatus(){
@@ -61,6 +62,16 @@ public class RegistrationIntegrateComposer extends SelectorComposer<Window> {
 			return;
 		}
 		
+		User newUser = new User();
+		newUser.setName(nameBox.getValue());
+		if (maleRadio.isChecked()){
+			newUser.setMale(true);
+		}else{
+			newUser.setMale(false);
+		}
+		newUser.setBirthday(birthdayBox.getValue());
+		registrationDao.add(newUser);
+		
 		Messagebox.show("Congratulation! "+nameBox.getValue()+". Your registration is success.");
 		reset();
 	}
@@ -76,4 +87,6 @@ public class RegistrationIntegrateComposer extends SelectorComposer<Window> {
 	
 		return true;
 	}
+	
+	
 }

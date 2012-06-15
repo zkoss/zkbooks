@@ -39,7 +39,7 @@
 	<dependencies>
 		<dependency>
 			<groupId>org.zkoss.zk</groupId>
-			<artifactId>zul</artifactId>
+			<artifactId>zkplus</artifactId>
 			<version>${zk.version}</version>
 		</dependency>
 		<dependency>

@@ -1,20 +1,24 @@
 package org.zkoss.simple;
 
 
+import java.util.logging.Logger;
+
 import org.zkoss.zk.ui.select.SelectorComposer;
 import org.zkoss.zk.ui.select.annotation.Listen;
+import org.zkoss.zk.ui.select.annotation.VariableResolver;
 import org.zkoss.zk.ui.select.annotation.Wire;
+import org.zkoss.zk.ui.select.annotation.WireVariable;
 import org.zkoss.zul.Button;
 import org.zkoss.zul.Checkbox;
 import org.zkoss.zul.Datebox;
 import org.zkoss.zul.Messagebox;
 import org.zkoss.zul.Radio;
-import org.zkoss.zul.Row;
 import org.zkoss.zul.Textbox;
 import org.zkoss.zul.Window;
 
 @SuppressWarnings("serial")
-public class RegistrationComposer extends SelectorComposer<Window> {
+@VariableResolver(org.zkoss.zkplus.spring.DelegatingVariableResolver.class)
+public class RegistrationSpringComposer extends SelectorComposer<Window> {
 
 	@Wire("#submitButton")
 	private Button submitButton;
@@ -26,8 +30,11 @@ public class RegistrationComposer extends SelectorComposer<Window> {
 	private Datebox birthdayBox;
 	@Wire("#acceptTermBox")
 	private Checkbox acceptTermCheckbox;
-	@Wire("#helpRow")
-	private Row helpRow;
+	
+	@WireVariable
+	private RegistrationService registrationService;
+
+	private static Logger logger = Logger.getLogger(RegistrationSpringComposer.class.getName());
 	
 	@Listen("onCheck = #acceptTermBox")
 	public void changeSubmitStatus(){
@@ -53,8 +60,19 @@ public class RegistrationComposer extends SelectorComposer<Window> {
 	@Listen("onClick = #submitButton")
 	public void submit(){
 		if (!validateInput()){
+			logger.fine("input validation failed");
 			return;
 		}
+		
+		User newUser = new User();
+		newUser.setName(nameBox.getValue());
+		if (maleRadio.isChecked()){
+			newUser.setMale(true);
+		}else{
+			newUser.setMale(false);
+		}
+		newUser.setBirthday(birthdayBox.getValue());
+		registrationService.add(newUser);
 		
 		Messagebox.show("Congratulation! "+nameBox.getValue()+". Your registration is success.");
 		reset();
@@ -69,19 +87,6 @@ public class RegistrationComposer extends SelectorComposer<Window> {
 			return false;
 		}
 	
-		if (!acceptTermCheckbox.isChecked()){
-			return false;
-		}
 		return true;
-	}
-	
-	@Listen("onOK = #formGrid")
-	public void onOK(){
-		submit();
-	}
-	
-	@Listen("onCtrlKey = #formGrid")
-	public void toggleHelpRow(){
-		helpRow.setVisible(!helpRow.isVisible());
 	}
 }

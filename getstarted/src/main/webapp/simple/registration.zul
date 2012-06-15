@@ -5,7 +5,7 @@
 <zk>
 	<window border="normal" width="400px" style="padding-top:20px;padding-left:20px;" title="Welcome! New User"
 	apply="org.zkoss.simple.RegistrationComposer">
-		<grid hflex="1">
+		<grid id="formGrid" hflex="1" ctrlKeys="^h">
 			<auxhead>
 				<auxheader colspan="2" label="Registration Form" style="font-size:16px" image="../images/picture.png"/>
 			</auxhead>
@@ -30,8 +30,12 @@
 						<checkbox id="acceptTermBox"/> Accept Term of Use
 					</hlayout>
 				</row >
+				<row id="helpRow" visible="false" spans="2">
+					<label value="All fields are required. You must accept Term of User before submitting"/>
+				</row>
 				<row spans="2" align="right">
 					<hlayout>
+						<label value="Help (Ctrl+h)"/>
 						<button id="resetButton" label="Reset" />
 						<button id="submitButton" label="Submit" disabled="true"/>
 					</hlayout>
