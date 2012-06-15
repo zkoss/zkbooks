@@ -25,7 +25,7 @@
 				<row >
 					Birthday <datebox id="birthdayBox" hflex="1" constraint="no empty, no today, no future"/>
 				</row>
-				<row spans="2" align="center" >
+				<row spans="2" align="center" popup="termDetail">
 					<hlayout>
 						<checkbox id="acceptTermBox"/> Accept Term of Use
 					</hlayout>
@@ -42,5 +42,13 @@
 				</row>
 			</rows>
 		</grid>
+		<popup id="termDetail" >
+			<hlayout style="background-color:#ffff99">
+			<label multiline="true">1. Please tell everyone you know.
+			2. Please read more articles.
+			3. Do Not leave before you finish.
+			</label>
+			</hlayout>
+		</popup>
 	</window>
 </zk>
