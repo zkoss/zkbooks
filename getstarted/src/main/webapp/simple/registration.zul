@@ -5,14 +5,14 @@
 <zk>
 	<window border="normal" width="400px" style="padding-top:20px;padding-left:20px;" title="Welcome! New User"
 	apply="org.zkoss.simple.RegistrationComposer">
-		<grid id="formGrid" hflex="1" ctrlKeys="^h">
+		<grid id="formGrid" hflex="1" ctrlKeys="^h" >
 			<auxhead>
 				<auxheader colspan="2" label="Registration Form" style="font-size:16px" image="../images/picture.png"/>
 			</auxhead>
 			<columns>
 			</columns>
 			<rows >
-				<row >
+				<row id="nameRow">
 					User Name <textbox id="nameBox" hflex="1" constraint="no empty"/>
 				</row>
 				<row>
@@ -25,30 +25,25 @@
 				<row >
 					Birthday <datebox id="birthdayBox" hflex="1" constraint="no empty, no today, no future"/>
 				</row>
-				<row spans="2" align="center" popup="termDetail">
+				<row  spans="2" align="center" >
 					<hlayout>
-						<checkbox id="acceptTermBox"/> Accept Term of Use
+						<checkbox id="acceptTermBox"/> <label value=" Accept Term of Use (Click for detail)" popup="termDetail, position=after_start" />
 					</hlayout>
 				</row >
-				<row id="helpRow" visible="false" spans="2">
-					<label value="All fields are required. You must accept Term of User before submitting"/>
-				</row>
 				<row spans="2" align="right">
 					<hlayout>
 						<label value="Help (Ctrl+h)"/>
 						<button id="resetButton" label="Reset" />
-						<button id="submitButton" label="Submit" disabled="true"/>
+						<button id="submitButton" label="Submit" disabled="true" />
 					</hlayout>
 				</row>
 			</rows>
 		</grid>
 		<popup id="termDetail" >
-			<hlayout style="background-color:#ffff99">
-			<label multiline="true">1. Please tell everyone you know.
-			2. Please read more articles.
-			3. Do Not leave before you finish.
-			</label>
-			</hlayout>
+			<include src="termofuse.zul"/>
+		</popup>
+		<popup id="helpPopup">
+			<include src="help.zul"/>
 		</popup>
 	</window>
 </zk>

@@ -7,7 +7,6 @@ import org.zkoss.zul.Button;
 import org.zkoss.zul.Window;
 
 public class RigistrationRichlet extends GenericRichlet {
-
 	public void service(Page page) throws Exception {
 		//create components dynamically
 		Window window = new Window("Welcome! New User", "normal", false);
@@ -16,5 +15,4 @@ public class RigistrationRichlet extends GenericRichlet {
 		window.appendChild(button);
 		window.setPage(page);
 	}
-
 }

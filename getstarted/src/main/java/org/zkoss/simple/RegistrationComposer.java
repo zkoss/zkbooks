@@ -8,6 +8,7 @@ import org.zkoss.zul.Button;
 import org.zkoss.zul.Checkbox;
 import org.zkoss.zul.Datebox;
 import org.zkoss.zul.Messagebox;
+import org.zkoss.zul.Popup;
 import org.zkoss.zul.Radio;
 import org.zkoss.zul.Row;
 import org.zkoss.zul.Textbox;
@@ -26,8 +27,10 @@ public class RegistrationComposer extends SelectorComposer<Window> {
 	private Datebox birthdayBox;
 	@Wire("#acceptTermBox")
 	private Checkbox acceptTermCheckbox;
-	@Wire("#helpRow")
-	private Row helpRow;
+	@Wire("#nameRow")
+	private Row nameRow;
+	@Wire("#helpPopup")
+	private Popup helpPopup;
 	
 	@Listen("onCheck = #acceptTermBox")
 	public void changeSubmitStatus(){
@@ -52,6 +55,11 @@ public class RegistrationComposer extends SelectorComposer<Window> {
 	
 	@Listen("onClick = #submitButton")
 	public void submit(){
+		try{
+			Thread.sleep(3000);
+		}catch(Exception e){
+			
+		}
 		if (!validateInput()){
 			return;
 		}
@@ -82,6 +90,7 @@ public class RegistrationComposer extends SelectorComposer<Window> {
 	
 	@Listen("onCtrlKey = #formGrid")
 	public void toggleHelpRow(){
-		helpRow.setVisible(!helpRow.isVisible());
+		helpPopup.open(nameRow, "end_before");
 	}
+	
 }
