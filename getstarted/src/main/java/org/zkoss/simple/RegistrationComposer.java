@@ -55,11 +55,6 @@ public class RegistrationComposer extends SelectorComposer<Window> {
 	
 	@Listen("onClick = #submitButton")
 	public void submit(){
-		try{
-			Thread.sleep(3000);
-		}catch(Exception e){
-			
-		}
 		if (!validateInput()){
 			return;
 		}
