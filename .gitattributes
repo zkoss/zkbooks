@@ -17,6 +17,7 @@ getstarted/src/main/java/org/zkoss/simple/RegistrationDao.java -text
 getstarted/src/main/java/org/zkoss/simple/RegistrationPersistenceComposer.java -text
 getstarted/src/main/java/org/zkoss/simple/RegistrationService.java -text
 getstarted/src/main/java/org/zkoss/simple/RegistrationSpringComposer.java -text
+getstarted/src/main/java/org/zkoss/simple/RigistrationRichlet.java -text
 getstarted/src/main/java/org/zkoss/simple/User.java -text
 getstarted/src/main/java/org/zkoss/start/InventoryComposer.java -text
 getstarted/src/main/java/org/zkoss/start/InventoryService.java -text
