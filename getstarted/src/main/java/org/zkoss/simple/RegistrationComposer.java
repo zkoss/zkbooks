@@ -9,7 +9,7 @@ import org.zkoss.zul.Checkbox;
 import org.zkoss.zul.Datebox;
 import org.zkoss.zul.Messagebox;
 import org.zkoss.zul.Popup;
-import org.zkoss.zul.Radio;
+import org.zkoss.zul.Radiogroup;
 import org.zkoss.zul.Row;
 import org.zkoss.zul.Textbox;
 import org.zkoss.zul.Window;
@@ -21,8 +21,8 @@ public class RegistrationComposer extends SelectorComposer<Window> {
 	private Button submitButton;
 	@Wire("#nameBox")
 	private Textbox nameBox;
-	@Wire("#maleRadio")
-	private Radio maleRadio;
+	@Wire("#genderRadio")
+	private Radiogroup genderRadio;
 	@Wire("#birthdayBox")
 	private Datebox birthdayBox;
 	@Wire("#acceptTermBox")
@@ -47,7 +47,7 @@ public class RegistrationComposer extends SelectorComposer<Window> {
 	public void reset(){
 		//set raw value to avoid triggering constraint error message
 		nameBox.setRawValue("");
-		maleRadio.setChecked(true);
+		genderRadio.setSelectedIndex(0);
 		birthdayBox.setRawValue(null);
 		acceptTermCheckbox.setChecked(false);
 		submitButton.setDisabled(true);

@@ -8,16 +8,15 @@
 			<auxhead>
 				<auxheader colspan="2" label="Registration Form" style="font-size:16px" image="../images/picture.png"/>
 			</auxhead>
-			<columns>
-			</columns>
+			<columns/>
 			<rows >
 				<row >
 					User Name <textbox id="nameBox" hflex="1" constraint="no empty"/>
 				</row>
 				<row>
 					Gender:
-					<radiogroup>
-						<radio id="maleRadio" label="Male" value="male" image="../images/male.png" checked="true"/>
+					<radiogroup id="genderRadio">
+						<radio label="Male" value="male" image="../images/male.png" checked="true"/>
 						<radio label="Female" value="female" image="../images/female.png"/>
 					</radiogroup>
 				</row>

@@ -12,7 +12,7 @@ import org.zkoss.zul.Button;
 import org.zkoss.zul.Checkbox;
 import org.zkoss.zul.Datebox;
 import org.zkoss.zul.Messagebox;
-import org.zkoss.zul.Radio;
+import org.zkoss.zul.Radiogroup;
 import org.zkoss.zul.Textbox;
 import org.zkoss.zul.Window;
 
@@ -24,15 +24,15 @@ public class RegistrationSpringComposer extends SelectorComposer<Window> {
 	private Button submitButton;
 	@Wire("#nameBox")
 	private Textbox nameBox;
-	@Wire("#maleRadio")
-	private Radio maleRadio;
+	@Wire("#genderRadio")
+	private Radiogroup genderRadio;
 	@Wire("#birthdayBox")
 	private Datebox birthdayBox;
 	@Wire("#acceptTermBox")
 	private Checkbox acceptTermCheckbox;
 	
 	@WireVariable
-	private RegistrationService registrationService;
+	private RegistrationDao registrationDao;
 
 	private static Logger logger = Logger.getLogger(RegistrationSpringComposer.class.getName());
 	
@@ -51,7 +51,7 @@ public class RegistrationSpringComposer extends SelectorComposer<Window> {
 	public void reset(){
 		//set raw value to avoid triggering constraint error message
 		nameBox.setRawValue("");
-		maleRadio.setChecked(true);
+		genderRadio.setSelectedIndex(0);
 		birthdayBox.setRawValue(null);
 		acceptTermCheckbox.setChecked(false);
 		submitButton.setDisabled(true);
@@ -66,13 +66,13 @@ public class RegistrationSpringComposer extends SelectorComposer<Window> {
 		
 		User newUser = new User();
 		newUser.setName(nameBox.getValue());
-		if (maleRadio.isChecked()){
+		if (genderRadio.getSelectedIndex()==0){
 			newUser.setMale(true);
 		}else{
 			newUser.setMale(false);
 		}
 		newUser.setBirthday(birthdayBox.getValue());
-		registrationService.add(newUser);
+		registrationDao.add(newUser);
 		
 		Messagebox.show("Congratulation! "+nameBox.getValue()+". Your registration is success.");
 		reset();
