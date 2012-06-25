@@ -1,8 +1,9 @@
 package org.zkoss.simple;
 
 
-import java.util.logging.Logger;
 
+
+import org.apache.log4j.Logger;
 import org.zkoss.zk.ui.select.SelectorComposer;
 import org.zkoss.zk.ui.select.annotation.Listen;
 import org.zkoss.zk.ui.select.annotation.VariableResolver;
@@ -33,8 +34,10 @@ public class RegistrationSpringComposer extends SelectorComposer<Window> {
 	
 	@WireVariable
 	private RegistrationDao registrationDao;
-
+	
 	private static Logger logger = Logger.getLogger(RegistrationSpringComposer.class.getName());
+	private LegacyRegister legacyRegister = new LegacyRegister();
+	
 	
 	@Listen("onCheck = #acceptTermBox")
 	public void changeSubmitStatus(){
@@ -57,10 +60,35 @@ public class RegistrationSpringComposer extends SelectorComposer<Window> {
 		submitButton.setDisabled(true);
 	}
 	
+	// sample method for 3rd party integration
+	@Listen("onClick = #submitButton")
+	public void register(){
+		
+		User newUser = new User();
+		newUser.setName(nameBox.getValue());
+		if (genderRadio.getSelectedIndex()==0){
+			newUser.setMale(true);
+		}else{
+			newUser.setMale(false);
+		}
+		newUser.setBirthday(birthdayBox.getValue());
+
+		if (!validate(newUser)){
+			logger.debug("user validation failed");
+			return;
+		}
+		
+		legacyRegister.add(newUser);
+		
+		Messagebox.show("Congratulation! "+nameBox.getValue()+". Your registration is success.");
+		reset();
+	}
+	
+	
 	@Listen("onClick = #submitButton")
 	public void submit(){
 		if (!validateInput()){
-			logger.fine("input validation failed");
+			logger.debug("input validation failed");
 			return;
 		}
 		
@@ -78,6 +106,9 @@ public class RegistrationSpringComposer extends SelectorComposer<Window> {
 		reset();
 	}
 	
+	private boolean validate(User user){
+		return true;
+	}
 	private boolean validateInput(){
 		if (nameBox.getValue().length()==0){
 			return false;
