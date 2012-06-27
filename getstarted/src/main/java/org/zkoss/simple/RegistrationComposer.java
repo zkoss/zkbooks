@@ -1,6 +1,7 @@
 package org.zkoss.simple;
 
 
+import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.select.SelectorComposer;
 import org.zkoss.zk.ui.select.annotation.Listen;
 import org.zkoss.zk.ui.select.annotation.Wire;
@@ -12,29 +13,28 @@ import org.zkoss.zul.Popup;
 import org.zkoss.zul.Radiogroup;
 import org.zkoss.zul.Row;
 import org.zkoss.zul.Textbox;
-import org.zkoss.zul.Window;
 
 @SuppressWarnings("serial")
-public class RegistrationComposer extends SelectorComposer<Window> {
+public class RegistrationComposer extends SelectorComposer<Component> {
 
-	@Wire("#submitButton")
+	@Wire
 	private Button submitButton;
-	@Wire("#nameBox")
+	@Wire
 	private Textbox nameBox;
-	@Wire("#genderRadio")
+	@Wire
 	private Radiogroup genderRadio;
-	@Wire("#birthdayBox")
+	@Wire
 	private Datebox birthdayBox;
-	@Wire("#acceptTermBox")
-	private Checkbox acceptTermCheckbox;
-	@Wire("#nameRow")
+	@Wire
+	private Checkbox acceptTermBox;
+	@Wire
 	private Row nameRow;
-	@Wire("#helpPopup")
+	@Wire
 	private Popup helpPopup;
 	
 	@Listen("onCheck = #acceptTermBox")
 	public void changeSubmitStatus(){
-		if (acceptTermCheckbox.isChecked()){
+		if (acceptTermBox.isChecked()){
 			submitButton.setDisabled(false);
 			submitButton.setImage("/images/submit.png");
 		}else{
@@ -49,7 +49,7 @@ public class RegistrationComposer extends SelectorComposer<Window> {
 		nameBox.setRawValue("");
 		genderRadio.setSelectedIndex(0);
 		birthdayBox.setRawValue(null);
-		acceptTermCheckbox.setChecked(false);
+		acceptTermBox.setChecked(false);
 		submitButton.setDisabled(true);
 	}
 	
@@ -72,7 +72,7 @@ public class RegistrationComposer extends SelectorComposer<Window> {
 			return false;
 		}
 	
-		if (!acceptTermCheckbox.isChecked()){
+		if (!acceptTermBox.isChecked()){
 			return false;
 		}
 		return true;

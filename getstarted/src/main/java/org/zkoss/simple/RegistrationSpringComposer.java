@@ -4,6 +4,7 @@ package org.zkoss.simple;
 
 
 import org.apache.log4j.Logger;
+import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.select.SelectorComposer;
 import org.zkoss.zk.ui.select.annotation.Listen;
 import org.zkoss.zk.ui.select.annotation.VariableResolver;
@@ -15,22 +16,21 @@ import org.zkoss.zul.Datebox;
 import org.zkoss.zul.Messagebox;
 import org.zkoss.zul.Radiogroup;
 import org.zkoss.zul.Textbox;
-import org.zkoss.zul.Window;
 
 @SuppressWarnings("serial")
 @VariableResolver(org.zkoss.zkplus.spring.DelegatingVariableResolver.class)
-public class RegistrationSpringComposer extends SelectorComposer<Window> {
+public class RegistrationSpringComposer extends SelectorComposer<Component> {
 
-	@Wire("#submitButton")
+	@Wire
 	private Button submitButton;
-	@Wire("#nameBox")
+	@Wire
 	private Textbox nameBox;
-	@Wire("#genderRadio")
+	@Wire
 	private Radiogroup genderRadio;
-	@Wire("#birthdayBox")
+	@Wire
 	private Datebox birthdayBox;
-	@Wire("#acceptTermBox")
-	private Checkbox acceptTermCheckbox;
+	@Wire
+	private Checkbox acceptTermBox;
 	
 	@WireVariable
 	private RegistrationDao registrationDao;
@@ -41,7 +41,7 @@ public class RegistrationSpringComposer extends SelectorComposer<Window> {
 	
 	@Listen("onCheck = #acceptTermBox")
 	public void changeSubmitStatus(){
-		if (acceptTermCheckbox.isChecked()){
+		if (acceptTermBox.isChecked()){
 			submitButton.setDisabled(false);
 			submitButton.setImage("/images/submit.png");
 		}else{
@@ -56,7 +56,7 @@ public class RegistrationSpringComposer extends SelectorComposer<Window> {
 		nameBox.setRawValue("");
 		genderRadio.setSelectedIndex(0);
 		birthdayBox.setRawValue(null);
-		acceptTermCheckbox.setChecked(false);
+		acceptTermBox.setChecked(false);
 		submitButton.setDisabled(true);
 	}
 	
