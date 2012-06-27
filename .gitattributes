@@ -12,9 +12,9 @@ getstarted/.settings/org.maven.ide.eclipse.prefs -text
 getstarted/.settings/org.zkoss.eclipse.preferences.prefs -text
 getstarted/assembly/demo.xml -text
 getstarted/pom.xml -text
+getstarted/src/main/java/foo/RegistrationComposer.java -text
 getstarted/src/main/java/org/zkoss/simple/LegacyRegister.java -text
 getstarted/src/main/java/org/zkoss/simple/PushComposer.java -text
-getstarted/src/main/java/org/zkoss/simple/RegistrationComposer.java -text
 getstarted/src/main/java/org/zkoss/simple/RegistrationDao.java -text
 getstarted/src/main/java/org/zkoss/simple/RegistrationService.java -text
 getstarted/src/main/java/org/zkoss/simple/RegistrationSpringComposer.java -text

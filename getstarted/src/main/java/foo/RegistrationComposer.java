@@ -1,4 +1,4 @@
-package org.zkoss.simple;
+package foo;
 
 
 import org.zkoss.zk.ui.Component;
