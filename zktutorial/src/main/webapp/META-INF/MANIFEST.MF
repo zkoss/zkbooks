@@ -1,0 +1,5 @@
+Manifest-Version: 1.0
+Specification-Title: tutorial
+Specification-Version: 0.0.1-SNAPSHOT
+Implementation-Title: org.zkoss.book.tutorial
+Implementation-Version: 0.0.1-SNAPSHOT
