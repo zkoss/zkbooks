@@ -37,7 +37,7 @@ public class RegistrationSpringComposer extends SelectorComposer<Component> {
 	
 	private static Logger logger = Logger.getLogger(RegistrationSpringComposer.class.getName());
 	private LegacyRegister legacyRegister = new LegacyRegister();
-	
+	private User newUser = new User();
 	
 	@Listen("onCheck = #acceptTermBox")
 	public void changeSubmitStatus(){
@@ -64,7 +64,7 @@ public class RegistrationSpringComposer extends SelectorComposer<Component> {
 	@Listen("onClick = #submitButton")
 	public void register(){
 		
-		User newUser = new User();
+		
 		newUser.setName(nameBox.getValue());
 		if (genderRadio.getSelectedIndex()==0){
 			newUser.setMale(true);
@@ -73,12 +73,9 @@ public class RegistrationSpringComposer extends SelectorComposer<Component> {
 		}
 		newUser.setBirthday(birthdayBox.getValue());
 
-		if (!validate(newUser)){
-			logger.debug("user validation failed");
-			return;
-		}
 		
 		legacyRegister.add(newUser);
+		logger.debug("a user was added.");
 		
 		Messagebox.show("Congratulation! "+nameBox.getValue()+". Your registration is success.");
 		reset();
