@@ -4,7 +4,7 @@
  -->
 <zk>
 	<window border="normal" width="400px" style="padding-top:20px;padding-left:20px;" title="Welcome! New User"
-	apply="org.zkoss.simple.RegistrationComposer">
+	apply="foo.RegistrationComposer">
 		<grid id="formGrid" hflex="1" ctrlKeys="^h" >
 			<auxhead>
 				<auxheader colspan="2" label="Registration Form" style="font-size:16px" image="../images/picture.png"/>
