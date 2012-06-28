@@ -1,6 +1,0 @@
-<zk>
-	<window title="Hello World!!" border="normal" width="500px" 
-		apply="org.zkoss.book.tutorial.DemoWindowComposer">
-		
-	</window>
-</zk>
