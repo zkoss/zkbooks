@@ -215,7 +215,9 @@ zktutorial/assembly/demo.xml -text
 zktutorial/pom.xml -text
 zktutorial/src/main/java/tutorial/Book.java -text
 zktutorial/src/main/java/tutorial/BookService.java -text
+zktutorial/src/main/java/tutorial/BookServiceImpl.java -text
 zktutorial/src/main/java/tutorial/SearchProductComposer.java -text
+zktutorial/src/main/java/tutorial/SearchViewModel.java -text
 zktutorial/src/main/webapp/META-INF/MANIFEST.MF -text
 zktutorial/src/main/webapp/WEB-INF/readme.txt -text
 zktutorial/src/main/webapp/WEB-INF/web.xml -text
@@ -224,9 +226,11 @@ zktutorial/src/main/webapp/img/effectiveJava.jpg -text
 zktutorial/src/main/webapp/img/headFirstJava.jpg -text
 zktutorial/src/main/webapp/img/javaBeginner.jpg -text
 zktutorial/src/main/webapp/img/search.png -text
+zktutorial/src/main/webapp/img/teachYourself.jpg -text
 zktutorial/src/main/webapp/img/zk.jpg -text
 zktutorial/src/main/webapp/img/zkDeveloperGuide.jpg -text
-zktutorial/src/main/webapp/search.zul -text
+zktutorial/src/main/webapp/searchMvc.zul -text
+zktutorial/src/main/webapp/searchMvvm.zul -text
 zktutorial/src/main/webapp/timeout.zul -text
 zssessentials/examples/WebContent/WEB-INF/excel/bean/bsheet.xls -text
 zssessentials/examples/WebContent/WEB-INF/excel/cellaction/stock.xls -text

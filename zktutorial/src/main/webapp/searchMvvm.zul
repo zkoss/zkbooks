@@ -1,0 +1,34 @@
+<zk>
+	<window id="searchWin" title="Search Product" width="800px" border="normal"
+	 style="padding-top:10px;padding-left:10px;" apply="org.zkoss.bind.BindComposer" viewModel="@id('vm')@init('tutorial.SearchViewModel')">
+		<vlayout>
+			<vlayout >
+				<hlayout>
+					<textbox value="@bind(vm.keyword)"/>
+					<button label="search" image="img/search.png" onClick="@command('search')"/>
+				</hlayout>
+				<listbox id="productListbox" mold="paging" pageSize="5" model="@load(vm.bookList)" selectedItem="@bind(vm.selectedBook)">
+					<listhead>
+						<listheader label="Name"/>
+						<listheader label="Price"/>
+					</listhead>				
+					<template name="model" var="b">
+						<listitem>
+							<listcell label="@load(b.name)"></listcell>
+							<listcell>$<label value="@load(b.price)"/></listcell>
+						</listitem>
+					</template>
+				</listbox>
+			</vlayout>
+			<separator bar="true" height="10px" />
+			<hbox id="detailArea" >
+				<image id="thumbImage" width="250px" src="@load(vm.selectedBook.thumbnail)"/>
+				<vlayout>
+					<label id="nameLabel" value="@load(vm.selectedBook.name)"/>
+					<label id="priceLabel" value="@load(vm.selectedBook.price)"/>
+					<label id="descriptionLabel" value="@load(vm.selectedBook.description)"/>
+				</vlayout>
+			</hbox>
+		</vlayout>
+	</window>
+</zk>

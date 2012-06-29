@@ -1,0 +1,34 @@
+<zk>
+	<window id="searchWin" title="Search Product" width="800px" border="normal"
+	 style="padding-top:10px;padding-left:10px;" apply="tutorial.SearchProductComposer">
+		<vlayout>
+			<vlayout >
+				<hlayout>
+					<textbox id="keywordBox"/>
+					<button id="searchButton" label="search" image="img/search.png"/>
+				</hlayout>
+				<listbox id="productListbox" mold="paging" pageSize="5">
+					<listhead>
+						<listheader label="Name"/>
+						<listheader label="Price"/>
+					</listhead>
+					<template name="model" >
+						<listitem>
+							<listcell label="${each.name}"></listcell>
+							<listcell >$<label value="${each.price}"/></listcell>
+						</listitem>
+					</template>
+				</listbox>
+			</vlayout>
+			<separator bar="true" height="10px" />
+			<hbox id="detailArea" >
+				<image id="thumbImage" />
+				<vlayout>
+					<label id="nameLabel" />
+					<label id="priceLabel" />
+					<label id="descriptionLabel" style="display:inline"/>
+				</vlayout>
+			</hbox>
+		</vlayout>
+	</window>
+</zk>
