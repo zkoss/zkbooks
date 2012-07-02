@@ -22,7 +22,7 @@
 			</vlayout>
 			<separator bar="true" height="10px" />
 			<hbox id="detailArea" >
-				<image id="thumbImage" />
+				<image id="thumbImage" width="250px"/>
 				<vlayout>
 					<label id="nameLabel" />
 					<label id="priceLabel" />
