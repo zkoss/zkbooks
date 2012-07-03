@@ -1,23 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<!-- web.xml
-	Purpose:
-		
-	Description:
-		
-	History:
-		Wed Dec 29 12:13:00     2004, Created by tomyeh
-
-Copyright (C) 2004 Potix Corporation. All Rights Reserved.
--->
-
 <web-app version="2.4" xmlns="http://java.sun.com/xml/ns/j2ee"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
  xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"> 
 
-	<description><![CDATA[tutorial]]></description>
 	<display-name>zktutorial</display-name>
-
+	<welcome-file-list>
+		<welcome-file>index.zul</welcome-file>
+		<welcome-file>index.zhtml</welcome-file>
+		<welcome-file>index.html</welcome-file>
+		<welcome-file>index.htm</welcome-file>
+	</welcome-file-list>
+	
 	<!-- ZK -->
     <listener>
         <description>ZK listener for session cleanup</description>
@@ -27,7 +20,6 @@ Copyright (C) 2004 Potix Corporation. All Rights Reserved.
         <description>ZK loader for ZUML pages</description>
         <servlet-name>zkLoader</servlet-name>
         <servlet-class>org.zkoss.zk.ui.http.DHtmlLayoutServlet</servlet-class>
- 
         <init-param>
             <param-name>update-uri</param-name>
             <param-value>/zkau</param-value>
@@ -38,10 +30,7 @@ Copyright (C) 2004 Potix Corporation. All Rights Reserved.
         <servlet-name>zkLoader</servlet-name>
         <url-pattern>*.zul</url-pattern>
     </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>zkLoader</servlet-name>
-        <url-pattern>*.zhtml</url-pattern>
-    </servlet-mapping>
+
 
     <servlet>
         <description>The asynchronous update engine for ZK</description>
@@ -53,11 +42,4 @@ Copyright (C) 2004 Potix Corporation. All Rights Reserved.
         <url-pattern>/zkau/*</url-pattern>
     </servlet-mapping>
 
-
-	<welcome-file-list>
-		<welcome-file>index.zul</welcome-file>
-		<welcome-file>index.zhtml</welcome-file>
-		<welcome-file>index.html</welcome-file>
-		<welcome-file>index.htm</welcome-file>
-	</welcome-file-list>
 </web-app>
