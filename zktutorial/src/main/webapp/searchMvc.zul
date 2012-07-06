@@ -2,9 +2,9 @@
 	<window title="Search Product" width="800px" border="normal"
 	 style="padding-top:10px;padding-left:10px;" apply="tutorial.SearchProductComposer">
 		<hbox>
-			<label>Book Name Keyword:</label><textbox id="keywordBox" />
-			<button id="searchButton" label="search"
-				image="img/search.png" />
+			<label>Book Name Keyword:</label>
+			<textbox id="keywordBox" />
+			<button id="searchButton" label="search" image="img/search.png" />
 		</hbox>
 		<listbox id="productListbox" mold="paging" pageSize="5">
 			<listhead>
@@ -18,8 +18,7 @@
 				</listitem>
 			</template>
 		</listbox>
-		<separator bar="true" height="10px" />
-		<hbox id="detailArea">
+		<hbox id="detailArea" style="margin-top:20px">
 			<image id="thumbImage" width="250px" />
 			<vbox>
 				<label id="nameLabel" />

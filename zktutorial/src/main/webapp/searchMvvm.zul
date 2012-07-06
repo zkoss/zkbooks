@@ -18,8 +18,7 @@
 				</listitem>
 			</template>
 		</listbox>
-		<separator bar="true" height="10px" />
-		<hbox id="detailArea">
+		<hbox id="detailArea" style="margin-top:20px">
 			<image id="thumbImage" width="250px" src="@load(vm.selectedBook.thumbnail)" />
 			<vbox>
 				<label id="nameLabel" value="@load(vm.selectedBook.name)" />
