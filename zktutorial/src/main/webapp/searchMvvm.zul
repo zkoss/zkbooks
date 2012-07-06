@@ -2,7 +2,7 @@
 	<window title="Search Product" width="800px" border="normal" style="padding-top:10px;padding-left:10px;"
 		apply="org.zkoss.bind.BindComposer" viewModel="@id('vm')@init('tutorial.SearchViewModel')">
 		<hbox>
-			<textbox value="@bind(vm.keyword)" />
+			<label>Book Name Keyword:</label><textbox value="@bind(vm.keyword)" />
 			<button label="search" image="img/search.png" onClick="@command('search')" />
 		</hbox>
 		<listbox id="productListbox" mold="paging" pageSize="5"
@@ -20,8 +20,7 @@
 		</listbox>
 		<separator bar="true" height="10px" />
 		<hbox id="detailArea">
-			<image id="thumbImage" width="250px"
-				src="@load(vm.selectedBook.thumbnail)" />
+			<image id="thumbImage" width="250px" src="@load(vm.selectedBook.thumbnail)" />
 			<vbox>
 				<label id="nameLabel" value="@load(vm.selectedBook.name)" />
 				<label id="priceLabel" value="@load(vm.selectedBook.price)" />
