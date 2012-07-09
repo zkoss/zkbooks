@@ -1,12 +1,12 @@
 <zk>
 	<window title="Search Product" width="800px" border="normal"
 	 style="padding-top:10px;padding-left:10px;" apply="tutorial.SearchProductComposer">
-		<hbox>
-			<label>Book Name Keyword:</label>
-			<textbox id="keywordBox" />
-			<button id="searchButton" label="search" image="img/search.png" />
-		</hbox>
-		<listbox id="productListbox" mold="paging" pageSize="5">
+	 	<hbox>
+	 		<label>Book Name Keyword:</label>
+	 		<textbox id="keywordBox" />
+	 		<button id="searchButton" label="Search" image="/img/search.png" />
+	 	</hbox>
+	 	<listbox id="productListbox" rows="5">
 			<listhead>
 				<listheader label="Name" />
 				<listheader label="Price" />
@@ -18,7 +18,7 @@
 				</listitem>
 			</template>
 		</listbox>
-		<hbox id="detailArea" style="margin-top:20px">
+		<hbox style="margin-top:20px">
 			<image id="thumbImage" width="250px" />
 			<vbox>
 				<label id="nameLabel" />

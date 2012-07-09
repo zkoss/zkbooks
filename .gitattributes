@@ -229,7 +229,7 @@ zktutorial/src/main/webapp/img/search.png -text
 zktutorial/src/main/webapp/img/teachYourself.jpg -text
 zktutorial/src/main/webapp/img/zk.jpg -text
 zktutorial/src/main/webapp/img/zkDeveloperGuide.jpg -text
-zktutorial/src/main/webapp/searchMvc.zul -text
+zktutorial/src/main/webapp/search.zul -text
 zktutorial/src/main/webapp/searchMvvm.zul -text
 zssessentials/examples/WebContent/WEB-INF/excel/bean/bsheet.xls -text
 zssessentials/examples/WebContent/WEB-INF/excel/cellaction/stock.xls -text

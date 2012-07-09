@@ -2,10 +2,11 @@
 	<window title="Search Product" width="800px" border="normal" style="padding-top:10px;padding-left:10px;"
 		apply="org.zkoss.bind.BindComposer" viewModel="@id('vm')@init('tutorial.SearchViewModel')">
 		<hbox>
-			<label>Book Name Keyword:</label><textbox value="@bind(vm.keyword)" />
-			<button label="search" image="img/search.png" onClick="@command('search')" />
+			<label>Book Name Keyword:</label>
+			<textbox value="@bind(vm.keyword)" />
+			<button label="Search" image="/img/search.png" onClick="@command('search')" />
 		</hbox>
-		<listbox id="productListbox" mold="paging" pageSize="5"
+		<listbox id="productListbox" rows="5"
 			model="@load(vm.bookList)" selectedItem="@bind(vm.selectedBook)">
 			<listhead>
 				<listheader label="Name" />
