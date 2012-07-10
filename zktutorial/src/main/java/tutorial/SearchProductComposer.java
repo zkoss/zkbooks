@@ -1,19 +1,20 @@
 package tutorial;
 
 
+import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.event.SelectEvent;
 import org.zkoss.zk.ui.select.SelectorComposer;
 import org.zkoss.zk.ui.select.annotation.Listen;
 import org.zkoss.zk.ui.select.annotation.Wire;
 import org.zkoss.zul.Image;
 import org.zkoss.zul.Label;
+import org.zkoss.zul.ListModelList;
 import org.zkoss.zul.Listbox;
 import org.zkoss.zul.SimpleListModel;
 import org.zkoss.zul.Textbox;
-import org.zkoss.zul.Window;
 
 @SuppressWarnings("serial")
-public class SearchProductComposer extends SelectorComposer<Window> {
+public class SearchProductComposer extends SelectorComposer<Component> {
 
 	@Wire
 	private Listbox productListbox;
@@ -31,17 +32,16 @@ public class SearchProductComposer extends SelectorComposer<Window> {
 	
 	private BookService bookService = new BookServiceImpl();
 	
-	
 	@Override
-	public void doAfterCompose(Window comp) throws Exception {
+	public void doAfterCompose(Component comp) throws Exception {
 		super.doAfterCompose(comp);
-		//initialize data
-		productListbox.setModel(new SimpleListModel<Book>(bookService.findAll()));
+		//initialize component's data
+		productListbox.setModel(new ListModelList<Book>(bookService.findAll()));
 	}
 	
 	@Listen("onClick = #searchButton")
 	public void search(){
-		productListbox.setModel(new SimpleListModel<Book>(bookService.search(keywordBox.getValue())));
+		productListbox.setModel(new ListModelList<Book>(bookService.search(keywordBox.getValue())));
 	}
 	
 	@Listen("onSelect = #productListbox")
