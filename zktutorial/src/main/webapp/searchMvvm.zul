@@ -3,7 +3,7 @@
 		apply="org.zkoss.bind.BindComposer" viewModel="@id('vm')@init('tutorial.SearchViewModel')">
 		<hbox>
 			<label>Book Name Keyword:</label>
-			<textbox value="@bind(vm.keyword)" />
+			<textbox value="@save(vm.keyword)" />
 			<button label="Search" image="/img/search.png" onClick="@command('search')" />
 		</hbox>
 		<listbox id="productListbox" rows="5"

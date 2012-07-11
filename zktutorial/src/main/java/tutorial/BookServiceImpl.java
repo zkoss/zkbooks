@@ -67,9 +67,13 @@ public class BookServiceImpl implements BookService{
 	
 	public List<Book> search(String keyword){
 		List<Book> result = new LinkedList<Book>();
-		for (Book b: bookList){
-			if (b.getName().contains(keyword)){
-				result.add(b);
+		if (keyword==null || "".equals(keyword)){
+			result = bookList;
+		}else{
+			for (Book b: bookList){
+				if (b.getName().toLowerCase().contains(keyword.toLowerCase())){
+					result.add(b);
+				}
 			}
 		}
 		return result;
