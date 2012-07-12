@@ -32,16 +32,18 @@ public class SearchProductComposer extends SelectorComposer<Component> {
 	
 	private BookService bookService = new BookServiceImpl();
 	
-	@Override
-	public void doAfterCompose(Component comp) throws Exception {
-		super.doAfterCompose(comp);
-		//initialize component's data
-		productListbox.setModel(new ListModelList<Book>(bookService.findAll()));
-	}
-	
+//	@Override
+//	public void doAfterCompose(Component comp) throws Exception {
+//		super.doAfterCompose(comp);
+//		//initialize component's data
+//		productListbox.setModel(new ListModelList<Book>(bookService.findAll()));
+//	}
+//	
 	@Listen("onClick = #searchButton")
 	public void search(){
-		productListbox.setModel(new ListModelList<Book>(bookService.search(keywordBox.getValue())));
+		String keyword = keywordBox.getValue();
+		productListbox.setModel(new ListModelList<Book>(bookService.search(keyword)));
+		System.out.println(keyword);
 	}
 	
 	@Listen("onSelect = #productListbox")
