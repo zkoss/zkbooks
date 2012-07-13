@@ -48,8 +48,8 @@ public class SearchProductComposer extends SelectorComposer<Component> {
 	}
 	
 	@Listen("onSelect = #productListbox")
-	public void showDetail(SelectEvent event){
-		Book selectedBook = (Book)event.getSelectedObjects().iterator().next();
+	public void showDetail(){
+		Book selectedBook = productListbox.getSelectedItem().getValue();
 		thumbImage.setSrc(selectedBook.getThumbnail());
 		nameLabel.setValue(selectedBook.getName());
 		priceLabel.setValue("$"+selectedBook.getPrice());
