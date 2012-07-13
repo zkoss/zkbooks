@@ -1,6 +1,8 @@
 package tutorial;
 
 
+import java.util.List;
+
 import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.event.SelectEvent;
 import org.zkoss.zk.ui.select.SelectorComposer;
@@ -10,7 +12,6 @@ import org.zkoss.zul.Image;
 import org.zkoss.zul.Label;
 import org.zkoss.zul.ListModelList;
 import org.zkoss.zul.Listbox;
-import org.zkoss.zul.SimpleListModel;
 import org.zkoss.zul.Textbox;
 
 @SuppressWarnings("serial")
@@ -42,8 +43,8 @@ public class SearchProductComposer extends SelectorComposer<Component> {
 	@Listen("onClick = #searchButton")
 	public void search(){
 		String keyword = keywordBox.getValue();
-		productListbox.setModel(new ListModelList<Book>(bookService.search(keyword)));
-		System.out.println(keyword);
+		List<Book> result = bookService.search(keyword);
+		productListbox.setModel(new ListModelList<Book>(result));
 	}
 	
 	@Listen("onSelect = #productListbox")
