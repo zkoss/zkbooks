@@ -24,14 +24,10 @@ public class SearchViewModel {
 	@Command
 	public void search(){
 		bookList = bookService.search(keyword);
-		for (Book b: bookList){
-			System.out.println(b.getName());
-		}
 	}
 
 	public void setKeyword(String keyword) {
 		this.keyword = keyword;
-		System.out.println(keyword);
 	}
 
 
