@@ -38,6 +38,7 @@ public class SearchViewModel {
 		return selectedBook;
 	}
 	
+
 //	@Init
 //	public void init(){
 //		bookList = bookService.findAll();
