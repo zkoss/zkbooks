@@ -14,8 +14,8 @@
 			</listhead>
 			<template name="model" >
 				<listitem>
-					<listcell label="@load(each.name)"></listcell>
-					<listcell>$<label value="@load(each.price)" /></listcell>
+					<listcell label="${each.name}"></listcell>
+					<listcell>$<label value="${each.name}" /></listcell>
 				</listitem>
 			</template>
 		</listbox>
