@@ -12,10 +12,10 @@
 				<listheader label="Name" />
 				<listheader label="Price" />
 			</listhead>
-			<template name="model" var="b">
+			<template name="model" >
 				<listitem>
-					<listcell label="@load(b.name)"></listcell>
-					<listcell>$<label value="@load(b.price)" /></listcell>
+					<listcell label="@load(each.name)"></listcell>
+					<listcell>$<label value="@load(each.price)" /></listcell>
 				</listitem>
 			</template>
 		</listbox>
