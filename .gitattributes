@@ -231,6 +231,7 @@ zktutorial/src/main/webapp/img/zk.jpg -text
 zktutorial/src/main/webapp/img/zkDeveloperGuide.jpg -text
 zktutorial/src/main/webapp/search.zul -text
 zktutorial/src/main/webapp/searchMvvm.zul -text
+zktutorial/src/test/java/testtutorial/TestSearch.java -text
 zssessentials/examples/WebContent/WEB-INF/excel/bean/bsheet.xls -text
 zssessentials/examples/WebContent/WEB-INF/excel/cellaction/stock.xls -text
 zssessentials/examples/WebContent/WEB-INF/excel/coedit/simple.xlsx -text

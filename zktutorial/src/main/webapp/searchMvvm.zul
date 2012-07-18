@@ -1,5 +1,5 @@
 <zk>
-	<window title="Search Product" width="800px" border="normal" style="padding-top:10px;padding-left:10px;"
+	<window title="Search Product" width="800px" border="normal" style="padding-top:10px;padding-left:10px;" 
 		apply="org.zkoss.bind.BindComposer" viewModel="@id('vm')@init('tutorial.SearchViewModel')">
 		<hbox>
 			<label>Book Name Keyword:</label>
@@ -7,7 +7,7 @@
 			<button label="Search" image="/img/search.png" onClick="@command('search')" />
 		</hbox>
 		<listbox rows="5"
-			model="@load(vm.bookList)" selectedItem="@bind(vm.selectedBook)">
+			model="@load(vm.bookList)" selectedItem="@save(vm.selectedBook)">
 			<listhead>
 				<listheader label="Name" />
 				<listheader label="Price" />
