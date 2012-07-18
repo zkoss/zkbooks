@@ -6,7 +6,7 @@
 			<textbox value="@save(vm.keyword)" />
 			<button label="Search" image="/img/search.png" onClick="@command('search')" />
 		</hbox>
-		<listbox id="productListbox" rows="5"
+		<listbox rows="5"
 			model="@load(vm.bookList)" selectedItem="@bind(vm.selectedBook)">
 			<listhead>
 				<listheader label="Name" />
@@ -19,12 +19,12 @@
 				</listitem>
 			</template>
 		</listbox>
-		<hbox id="detailArea" style="margin-top:20px">
-			<image id="thumbImage" width="250px" src="@load(vm.selectedBook.thumbnail)" />
+		<hbox style="margin-top:20px">
+			<image width="250px" src="@load(vm.selectedBook.thumbnail)" />
 			<vbox>
-				<label id="nameLabel" value="@load(vm.selectedBook.name)" />
-				<label id="priceLabel" value="@load(vm.selectedBook.price)" />
-				<label id="descriptionLabel" value="@load(vm.selectedBook.description)" />
+				<label value="@load(vm.selectedBook.name)" />
+				<label value="@load(vm.selectedBook.price)" />
+				<label value="@load(vm.selectedBook.description)" />
 			</vbox>
 		</hbox>
 	</window>
