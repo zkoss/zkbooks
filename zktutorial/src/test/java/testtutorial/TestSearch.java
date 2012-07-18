@@ -21,17 +21,7 @@ public class TestSearch {
 	public static void init() {
 		Zats.init("./src/main/webapp"); // can load by configuration file
 	}
-
-	@AfterClass
-	public static void end() {
-		Zats.end();
-	}
-
-	@After
-	public void after() {
-		Zats.cleanup();
-	}
-
+	
 	@Test
 	public void test() {
 		DesktopAgent desktop = Zats.newClient().connect("/search.zul");
@@ -51,5 +41,14 @@ public class TestSearch {
 			Assert.assertTrue(bookName.toLowerCase().contains(keyword));
 		}
 	}
-	
+
+	@AfterClass
+	public static void end() {
+		Zats.end();
+	}
+
+	@After
+	public void after() {
+		Zats.cleanup();
+	}
 }
