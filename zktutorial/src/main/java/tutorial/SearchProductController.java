@@ -4,7 +4,6 @@ package tutorial;
 import java.util.List;
 
 import org.zkoss.zk.ui.Component;
-import org.zkoss.zk.ui.event.SelectEvent;
 import org.zkoss.zk.ui.select.SelectorComposer;
 import org.zkoss.zk.ui.select.annotation.Listen;
 import org.zkoss.zk.ui.select.annotation.Wire;
@@ -15,7 +14,7 @@ import org.zkoss.zul.Listbox;
 import org.zkoss.zul.Textbox;
 
 @SuppressWarnings("serial")
-public class SearchProductComposer extends SelectorComposer<Component> {
+public class SearchProductController extends SelectorComposer<Component> {
 
 	@Wire
 	private Listbox productListbox;
@@ -33,13 +32,6 @@ public class SearchProductComposer extends SelectorComposer<Component> {
 	
 	private BookService bookService = new BookServiceImpl();
 	
-//	@Override
-//	public void doAfterCompose(Component comp) throws Exception {
-//		super.doAfterCompose(comp);
-//		//initialize component's data
-//		productListbox.setModel(new ListModelList<Book>(bookService.findAll()));
-//	}
-//	
 	@Listen("onClick = #searchButton")
 	public void search(){
 		String keyword = keywordBox.getValue();

@@ -216,7 +216,7 @@ zktutorial/pom.xml -text
 zktutorial/src/main/java/tutorial/Book.java -text
 zktutorial/src/main/java/tutorial/BookService.java -text
 zktutorial/src/main/java/tutorial/BookServiceImpl.java -text
-zktutorial/src/main/java/tutorial/SearchProductComposer.java -text
+zktutorial/src/main/java/tutorial/SearchProductController.java -text
 zktutorial/src/main/java/tutorial/SearchViewModel.java -text
 zktutorial/src/main/webapp/META-INF/MANIFEST.MF -text
 zktutorial/src/main/webapp/WEB-INF/readme.txt -text

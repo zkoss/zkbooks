@@ -37,14 +37,4 @@ public class SearchViewModel {
 	public Book getSelectedBook() {
 		return selectedBook;
 	}
-	
-
-//	@Init
-//	public void init(){
-//		bookList = bookService.findAll();
-//	}
-	
-//	public String getKeyword() {
-//		return keyword;
-//	}
 }
