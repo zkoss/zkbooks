@@ -1,12 +1,12 @@
 <zk>
 	<window title="Search Product" width="800px" border="normal"
-	 style="padding-top:10px;padding-left:10px;" apply="tutorial.SearchProductComposer">
-	 	<hbox align="center">
-	 		<label>Book Name Keyword:</label>
-	 		<textbox id="keywordBox" />
-	 		<button id="searchButton" label="Search" image="/img/search.png" />
-	 	</hbox>
-	 	<listbox id="productListbox" rows="5">
+		apply="tutorial.SearchProductComposer">
+		<hbox align="center">
+			<label>Book Name Keyword:</label>
+			<textbox id="keywordBox" />
+			<button id="searchButton" label="Search" image="/img/search.png" />
+		</hbox>
+		<listbox id="productListbox" rows="5">
 			<listhead>
 				<listheader label="Name" />
 				<listheader label="Price" />
@@ -14,7 +14,9 @@
 			<template name="model">
 				<listitem>
 					<listcell label="${each.name}"></listcell>
-					<listcell>$<label value="${each.price}" /></listcell>
+					<listcell>
+						$<label value="${each.price}" />
+					</listcell>
 				</listitem>
 			</template>
 		</listbox>
@@ -23,7 +25,7 @@
 			<vbox>
 				<label id="nameLabel" />
 				<label id="priceLabel" />
-				<label id="descriptionLabel"/>
+				<label id="descriptionLabel" />
 			</vbox>
 		</hbox>
 	</window>
