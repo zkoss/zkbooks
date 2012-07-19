@@ -1,16 +1,14 @@
 package tutorial;
 
 import java.util.List;
-
-import org.zkoss.bind.annotation.Command;
-import org.zkoss.bind.annotation.NotifyChange;
+import org.zkoss.bind.annotation.*;
 
 public class SearchViewModel {
 
 	private BookService bookService = new BookServiceImpl();
 	
-	private List<Book> bookList;
 	private String keyword;
+	private List<Book> bookList;
 	
 	private Book selectedBook;
 	
