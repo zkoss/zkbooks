@@ -34,6 +34,19 @@
 		}
 	</style>
 	<hlayout style="vertical-align:middle;">
+		<combobox id="dateFormat">
+			<comboitem label="*3/14/2001" value="m/d/yyyy"></comboitem>
+			<comboitem label="3/14/01" value="m/d/yy;@"></comboitem>
+			<comboitem label="03/14/01" value="mm/dd/yy;@"></comboitem>
+			<comboitem label="14-Mar-2001" value="d-mmm-yyyy;@"></comboitem>
+			<comboitem label="04-Mar-01" value="dd-mmm-yy;@"></comboitem>
+			<comboitem label="3/14" value="m/d;@"></comboitem>
+			<comboitem label="14-Mar" value="d-mmm;@"></comboitem>
+			<comboitem label="Mar-01" value="mmm-yy;@"></comboitem>
+			<comboitem label="March-01" value="mmmm-yy;@"></comboitem>
+			<comboitem label="3/14/01 13:30" value="m/d/yy h:mm;@"></comboitem>
+			<comboitem label="3/14/01 1:30 PM" value="m/d/yy h:mm AM/PM;@"></comboitem>
+		</combobox>
 		<combobox id="fontFamily" mold="rounded" width="125px">
 			<comboitem label="Calibri" sclass="calibriFont" />
 			<comboitem label="Courier New" sclass="courierFont" />

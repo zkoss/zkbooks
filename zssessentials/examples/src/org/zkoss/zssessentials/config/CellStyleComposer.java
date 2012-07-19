@@ -19,20 +19,17 @@ import org.zkoss.poi.ss.usermodel.Cell;
 import org.zkoss.poi.ss.usermodel.CellStyle;
 import org.zkoss.poi.ss.usermodel.Color;
 import org.zkoss.poi.ss.usermodel.Font;
-import org.zkoss.zss.model.Worksheet;
-import org.zkoss.zk.ui.Component;
-import org.zkoss.zk.ui.event.Event;
-import org.zkoss.zk.ui.event.EventListener;
 import org.zkoss.zk.ui.event.ForwardEvent;
+import org.zkoss.zk.ui.event.SelectEvent;
 import org.zkoss.zk.ui.util.GenericForwardComposer;
 import org.zkoss.zkex.zul.Colorbox;
 import org.zkoss.zss.model.Book;
 import org.zkoss.zss.model.Ranges;
+import org.zkoss.zss.model.Worksheet;
 import org.zkoss.zss.model.impl.BookHelper;
 import org.zkoss.zss.ui.Rect;
 import org.zkoss.zss.ui.Spreadsheet;
 import org.zkoss.zss.ui.event.CellSelectionEvent;
-import org.zkoss.zss.ui.event.Events;
 import org.zkoss.zss.ui.impl.Utils;
 import org.zkoss.zul.Combobox;
 import org.zkoss.zul.Toolbarbutton;
@@ -44,7 +41,7 @@ import org.zkoss.zul.Toolbarbutton;
  */
 public class CellStyleComposer extends GenericForwardComposer{
 	
-	
+	private Combobox dateFormat;
 	private Combobox fontFamily;
 	private Combobox fontSize;
 	
@@ -137,6 +134,36 @@ public class CellStyleComposer extends GenericForwardComposer{
 	 */
 	private short getFontHeight(int fontSize) {
 		return (short) (fontSize * 20);
+	}
+	
+	/**
+	 * Sets the cell format
+	 */
+	public void onSelect$dateFormat(SelectEvent event) {
+		String format = (String) dateFormat.getSelectedItem().getValue();
+		setCellFormat(format);
+	}
+	
+	private void setCellFormat(String format) {
+		Book book = spreadsheet.getBook();
+		short dstFormat = book.createDataFormat().getFormat(format);
+		
+		Rect rect = getSelection();
+		Worksheet sheet = spreadsheet.getSelectedSheet();
+		for (int row = rect.getTop(); row <= rect.getBottom(); row++) {
+			for (int col = rect.getLeft(); col <= rect.getRight(); col++) {
+				Cell cell = Utils.getOrCreateCell(sheet, row, col);
+				CellStyle srcCellStyle = cell.getCellStyle();
+				short srcDataFormat = srcCellStyle.getDataFormat();
+				
+				if (srcDataFormat != dstFormat) {
+					CellStyle newStyle = book.createCellStyle();
+					newStyle.cloneStyleFrom(srcCellStyle);
+					newStyle.setDataFormat(dstFormat);
+					Ranges.range(sheet, row, col).setStyle(newStyle);
+				}
+			}
+		}
 	}
 	
 	/**
