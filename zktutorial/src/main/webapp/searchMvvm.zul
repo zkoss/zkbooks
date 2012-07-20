@@ -3,29 +3,29 @@
 		viewModel="@id('vm')@init('tutorial.SearchViewModel')">
 		<hbox>
 			<label>Book Name Keyword:</label>
-			<textbox value="@save(vm.keyword)" />
+			<textbox value="@bind(vm.keyword)" />
 			<button label="Search" image="/img/search.png" onClick="@command('search')" />
 		</hbox>
-		<listbox rows="5" model="@load(vm.bookList)" selectedItem="@save(vm.selectedBook)">
+		<listbox rows="5" model="@bind(vm.bookList)" selectedItem="@bind(vm.selectedBook)">
 			<listhead>
 				<listheader label="Name" />
 				<listheader label="Price" />
 			</listhead>
 			<template name="model">
 				<listitem>
-					<listcell label="@load(each.name)"></listcell>
+					<listcell label="@bind(each.name)"></listcell>
 					<listcell>
-						$<label value="@load(each.name)" />
+						$<label value="@bind(each.name)" />
 					</listcell>
 				</listitem>
 			</template>
 		</listbox>
 		<hbox style="margin-top:20px">
-			<image width="250px" src="@load(vm.selectedBook.thumbnail)" />
+			<image width="250px" src="@bind(vm.selectedBook.thumbnail)" />
 			<vbox>
-				<label value="@load(vm.selectedBook.name)" />
-				<label value="@load(vm.selectedBook.price)" />
-				<label value="@load(vm.selectedBook.description)" />
+				<label value="@bind(vm.selectedBook.name)" />
+				<label value="@bind(vm.selectedBook.price)" />
+				<label value="@bind(vm.selectedBook.description)" />
 			</vbox>
 		</hbox>
 	</window>
