@@ -9,7 +9,6 @@ public class SearchViewModel {
 	
 	private String keyword;
 	private List<Book> bookList;
-	
 	private Book selectedBook;
 	
 	
