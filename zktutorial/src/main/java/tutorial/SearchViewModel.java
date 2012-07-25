@@ -36,8 +36,8 @@ public class SearchViewModel {
 	}
 
 	
-	@NotifyChange("bookList")
 	@Command
+	@NotifyChange("bookList")
 	public void search(){
 		bookList = bookService.search(keyword);
 	}

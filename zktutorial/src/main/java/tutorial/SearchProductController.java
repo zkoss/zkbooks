@@ -39,7 +39,7 @@ public class SearchProductController extends SelectorComposer<Component> {
 		Book selectedBook = productListbox.getSelectedItem().getValue();
 		thumbImage.setSrc(selectedBook.getThumbnail());
 		nameLabel.setValue(selectedBook.getName());
-		priceLabel.setValue("$"+selectedBook.getPrice());
+		priceLabel.setValue(selectedBook.getPrice().toString());
 		descriptionLabel.setValue(selectedBook.getDescription());
 		
 	}

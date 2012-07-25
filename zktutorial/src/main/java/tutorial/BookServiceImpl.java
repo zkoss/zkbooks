@@ -12,7 +12,7 @@ public class BookServiceImpl implements BookService{
 	static {
 		bookList.add(
 			new Book(1, 
-			"ZK: Ajax without the Javascript Framework", 
+			"ZK", 
 			"ZK is the most popular open source SourceForge Ajax web framework that enables rich user interface for " +
 			"web applications with no JavaScript and little programming.  This firstPress book will cover the following: " +
 			"Shows you how to use this simplest Ajax framework to write real-world responsive web applications " +
