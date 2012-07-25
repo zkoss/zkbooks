@@ -6,7 +6,7 @@
 			<textbox id="keywordBox" />
 			<button id="searchButton" label="Search" image="/img/search.png" />
 		</hbox>
-		<listbox id="productListbox" height="160px">
+		<listbox id="productListbox" height="160px" emptyMessage="No book found in the result">
 			<listhead>
 				<listheader label="Name" />
 				<listheader label="Price" />

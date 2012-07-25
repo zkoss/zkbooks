@@ -6,7 +6,7 @@
 			<textbox value="@bind(vm.keyword)" />
 			<button label="Search" image="/img/search.png" onClick="@command('search')" />
 		</hbox>
-		<listbox height="160px" model="@bind(vm.bookList)" 
+		<listbox height="160px" model="@bind(vm.bookList)" emptyMessage="No book found in the result"
 		selectedItem="@bind(vm.selectedBook)">
 			<listhead>
 				<listheader label="Name" />
