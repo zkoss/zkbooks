@@ -6,7 +6,7 @@
 			<textbox id="keywordBox" />
 			<button id="searchButton" label="Search" image="/img/search.png" />
 		</hbox>
-		<listbox id="productListbox" rows="5">
+		<listbox id="productListbox" height="160px">
 			<listhead>
 				<listheader label="Name" />
 				<listheader label="Price" />
