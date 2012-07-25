@@ -1,12 +1,4 @@
-/* Item.java
-
-	Purpose:
-		
-	Description:
-		
-	History:
-		2011/10/25 Created by Hawk Chen
-
+/*
 Copyright (C) 2011 Potix Corporation. All Rights Reserved.
  */
 package org.zkoss.start;
