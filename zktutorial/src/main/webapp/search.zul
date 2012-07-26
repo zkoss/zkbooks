@@ -1,6 +1,6 @@
 <zk>
 	<window title="Search Product" width="800px" border="normal"
-		apply="tutorial.SearchProductController">
+		apply="tutorial.SearchController">
 		<hbox align="center">
 			Book Name Keyword:
 			<textbox id="keywordBox" />

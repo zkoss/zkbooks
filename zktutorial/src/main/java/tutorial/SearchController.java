@@ -9,7 +9,7 @@ import org.zkoss.zk.ui.select.annotation.*;
 import org.zkoss.zul.*;
 
 @SuppressWarnings("serial")
-public class SearchProductController extends SelectorComposer<Component> {
+public class SearchController extends SelectorComposer<Component> {
 
 	@Wire
 	private Listbox productListbox;
@@ -41,6 +41,5 @@ public class SearchProductController extends SelectorComposer<Component> {
 		nameLabel.setValue(selectedBook.getName());
 		priceLabel.setValue(selectedBook.getPrice().toString());
 		descriptionLabel.setValue(selectedBook.getDescription());
-		
 	}
 }
