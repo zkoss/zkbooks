@@ -4,18 +4,17 @@ public class Book {
 
 	private Integer id;
 	private String name;
-	private String thumbnail;
+	private String priview;
 	private String description;
 	private Float price;
 	
 	public Book(){
-		super();
 	}
 	
-	public Book(Integer id, String name, String description,  String thumbnail, Float price){
+	public Book(Integer id, String name, String description,  String preview, Float price){
 		this.id = id;
 		this.name = name;
-		this.thumbnail = thumbnail;
+		this.priview = preview;
 		this.description = description;
 		this.price = price;
 	}
@@ -32,11 +31,11 @@ public class Book {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getThumbnail() {
-		return thumbnail;
+	public String getPreview() {
+		return priview;
 	}
-	public void setThumbnail(String thumbnail) {
-		this.thumbnail = thumbnail;
+	public void setPreview(String preview) {
+		this.priview = preview;
 	}
 	public String getDescription() {
 		return description;

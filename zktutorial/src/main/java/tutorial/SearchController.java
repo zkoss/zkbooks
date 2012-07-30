@@ -8,9 +8,10 @@ import org.zkoss.zk.ui.select.SelectorComposer;
 import org.zkoss.zk.ui.select.annotation.*;
 import org.zkoss.zul.*;
 
-@SuppressWarnings("serial")
 public class SearchController extends SelectorComposer<Component> {
 
+	private static final long serialVersionUID = 1L;
+	
 	@Wire
 	private Listbox productListbox;
 	@Wire
@@ -37,7 +38,7 @@ public class SearchController extends SelectorComposer<Component> {
 	@Listen("onSelect = #productListbox")
 	public void showDetail(){
 		Book selectedBook = productListbox.getSelectedItem().getValue();
-		thumbImage.setSrc(selectedBook.getThumbnail());
+		thumbImage.setSrc(selectedBook.getPreview());
 		nameLabel.setValue(selectedBook.getName());
 		priceLabel.setValue(selectedBook.getPrice().toString());
 		descriptionLabel.setValue(selectedBook.getDescription());

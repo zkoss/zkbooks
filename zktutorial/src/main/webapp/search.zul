@@ -9,7 +9,7 @@
 		<listbox id="productListbox" height="160px" emptyMessage="No book found in the result">
 			<listhead>
 				<listheader label="Name" />
-				<listheader label="Price" />
+				<listheader label="Price" width="20%"/>
 			</listhead>
 			<template name="model">
 				<listitem>

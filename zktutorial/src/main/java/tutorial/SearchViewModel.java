@@ -4,14 +4,12 @@ import java.util.List;
 import org.zkoss.bind.annotation.*;
 
 public class SearchViewModel {
-
-	private BookService bookService = new BookServiceImpl();
 	
 	private String keyword;
 	private List<Book> bookList;
 	private Book selectedBook;
 	
-	
+	private BookService bookService = new BookServiceImpl();
 	
 	public void setKeyword(String keyword) {
 		this.keyword = keyword;

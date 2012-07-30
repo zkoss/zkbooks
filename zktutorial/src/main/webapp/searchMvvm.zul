@@ -10,7 +10,7 @@
 		selectedItem="@bind(vm.selectedBook)">
 			<listhead>
 				<listheader label="Name" />
-				<listheader label="Price" />
+				<listheader label="Price" width="20%"/>
 			</listhead>
 			<template name="model">
 				<listitem>
@@ -22,7 +22,7 @@
 			</template>
 		</listbox>
 		<hbox style="margin-top:20px">
-			<image width="250px" src="@bind(vm.selectedBook.thumbnail)" />
+			<image width="250px" src="@bind(vm.selectedBook.preview)" />
 			<vbox>
 				<label value="@bind(vm.selectedBook.name)" />
 				<label value="@bind(vm.selectedBook.price)" />
