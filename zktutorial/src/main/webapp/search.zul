@@ -1,5 +1,5 @@
 <zk>
-	<window title="Search Product" width="800px" border="normal"
+	<window title="Search Product" width="600px" border="normal"
 		apply="tutorial.SearchController">
 		<hbox align="center">
 			Book Name Keyword:
@@ -21,7 +21,7 @@
 			</template>
 		</listbox>
 		<hbox style="margin-top:20px">
-			<image id="thumbImage" width="250px" />
+			<image id="previewImage" width="250px" />
 			<vbox>
 				<label id="nameLabel" />
 				<label id="priceLabel" />

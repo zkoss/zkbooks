@@ -21,7 +21,7 @@ public class SearchController extends SelectorComposer<Component> {
 	@Wire
 	private Label descriptionLabel;
 	@Wire
-	private Image thumbImage;
+	private Image previewImage;
 	@Wire
 	private Textbox keywordBox;
 	
@@ -38,7 +38,7 @@ public class SearchController extends SelectorComposer<Component> {
 	@Listen("onSelect = #productListbox")
 	public void showDetail(){
 		Book selectedBook = productListbox.getSelectedItem().getValue();
-		thumbImage.setSrc(selectedBook.getPreview());
+		previewImage.setSrc(selectedBook.getPreview());
 		nameLabel.setValue(selectedBook.getName());
 		priceLabel.setValue(selectedBook.getPrice().toString());
 		descriptionLabel.setValue(selectedBook.getDescription());

@@ -1,5 +1,5 @@
 <zk>
-	<window title="Search Product" width="800px" border="normal" apply="org.zkoss.bind.BindComposer"
+	<window title="Search Product" width="600px" border="normal" apply="org.zkoss.bind.BindComposer"
 		viewModel="@id('vm') @init('tutorial.SearchViewModel')">
 		<hbox>
 			Book Name Keyword:
