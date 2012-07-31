@@ -11,7 +11,8 @@
 	</properties>
 	<packaging>war</packaging>
 	<name>The tutorial Project</name>
-	<description>The tutorial Project</description>
+	<description>The exampe project for tutorial. (deprecated)
+Archive it to keep Mimic test case.</description>
 	<licenses>
 		<license>
 			<name>GNU LESSER GENERAL PUBLIC LICENSE, Version 3</name>
