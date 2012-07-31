@@ -57,6 +57,7 @@ tutorial/WebContent/WEB-INF/lib/zk.jar -text
 tutorial/WebContent/WEB-INF/lib/zkbind.jar -text
 tutorial/WebContent/WEB-INF/lib/zul.jar -text
 tutorial/WebContent/WEB-INF/lib/zweb.jar -text
+tutorial/WebContent/WEB-INF/readme.txt -text
 tutorial/WebContent/hello.zul -text
 tutorial/WebContent/img/beginning.jpg -text
 tutorial/WebContent/img/build.jpg -text
