@@ -1,0 +1,32 @@
+<zk>
+	<window title="Search Product" width="600px" border="normal"
+		apply="tutorial.SearchController">
+		<hbox align="center">
+			Book Name Keyword:
+			<textbox id="keywordBox" />
+			<button id="searchButton" label="Search" image="/img/search.png" />
+		</hbox>
+		<listbox id="productListbox" height="160px" emptyMessage="No book found in the result">
+			<listhead>
+				<listheader label="Name" />
+				<listheader label="Price" width="20%"/>
+			</listhead>
+			<template name="model">
+				<listitem>
+					<listcell label="${each.name}"></listcell>
+					<listcell>
+						$<label value="${each.price}" />
+					</listcell>
+				</listitem>
+			</template>
+		</listbox>
+		<hbox style="margin-top:20px">
+			<image id="previewImage" width="250px" />
+			<vbox>
+				<label id="nameLabel" />
+				<label id="priceLabel" />
+				<label id="descriptionLabel" />
+			</vbox>
+		</hbox>
+	</window>
+</zk>
