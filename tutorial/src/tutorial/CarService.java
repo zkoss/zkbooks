@@ -5,15 +5,15 @@ import java.util.List;
 public interface CarService {
 
 	/**
-	 * Retrieve all books in the bookstore.
-	 * @return all books
+	 * Retrieve all cars in the catalog.
+	 * @return all cars
 	 */
 	public List<Car> findAll();
 	
 	/**
-	 * search books according to keyword.
-	 * @param keyword book name's keyword
-	 * @return list of book that match the keyword
+	 * search cars according to keyword.
+	 * @param keyword car's name keyword
+	 * @return list of car that match the keyword
 	 */
 	public List<Car> search(String keyword);
 }

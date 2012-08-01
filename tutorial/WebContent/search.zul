@@ -1,12 +1,12 @@
 <zk>
-	<window title="Search Product" width="600px" border="normal"
+	<window title="Search" width="600px" border="normal"
 		apply="tutorial.SearchController">
 		<hbox align="center">
-			Book Name Keyword:
+			Name Keyword:
 			<textbox id="keywordBox" />
 			<button id="searchButton" label="Search" image="/img/search.png" />
 		</hbox>
-		<listbox id="productListbox" height="160px" emptyMessage="No book found in the result">
+		<listbox id="productListbox" height="160px" emptyMessage="No car found in the result">
 			<listhead>
 				<listheader label="Name" />
 				<listheader label="Price" width="20%"/>

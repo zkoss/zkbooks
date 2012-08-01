@@ -6,10 +6,10 @@ import org.zkoss.bind.annotation.*;
 public class SearchViewModel {
 	
 	private String keyword;
-	private List<Car> bookList;
-	private Car selectedBook;
+	private List<Car> carList;
+	private Car selectedCar;
 	
-	private CarService bookService = new CarServiceImpl();
+	private CarService carService = new CarServiceImpl();
 	
 	public void setKeyword(String keyword) {
 		this.keyword = keyword;
@@ -18,25 +18,22 @@ public class SearchViewModel {
 		return keyword;
 	}
 
-	public List<Car> getBookList(){
-		return bookList;
+	public List<Car> getCarList(){
+		return carList;
 	}
 	
-	public void setBookList(List<Car> bookList) {
-		this.bookList = bookList;
+		
+	public void setSelectedCar(Car selectedCar) {
+		this.selectedCar = selectedCar;
 	}
-	
-	public void setSelectedBook(Car selectedBook) {
-		this.selectedBook = selectedBook;
-	}
-	public Car getSelectedBook() {
-		return selectedBook;
+	public Car getSelectedCar() {
+		return selectedCar;
 	}
 
 	
 	@Command
-	@NotifyChange("bookList")
+	@NotifyChange("carList")
 	public void search(){
-		bookList = bookService.search(keyword);
+		carList = carService.search(keyword);
 	}
 }
