@@ -47,6 +47,14 @@ getstarted/src/main/webapp/simple/registrationIntegrate.zul -text
 getstarted/src/main/webapp/simple/registrationUI.zul -text
 getstarted/src/main/webapp/simple/termofuse.zul -text
 getstarted/src/main/webapp/timeout.zul -text
+tutorial/.classpath -text
+tutorial/.project -text
+tutorial/.settings/.jsdtscope -text
+tutorial/.settings/org.eclipse.jdt.core.prefs -text
+tutorial/.settings/org.eclipse.wst.common.component -text
+tutorial/.settings/org.eclipse.wst.common.project.facet.core.xml -text
+tutorial/.settings/org.eclipse.wst.jsdt.ui.superType.container -text
+tutorial/.settings/org.eclipse.wst.jsdt.ui.superType.name -text
 tutorial/WebContent/META-INF/MANIFEST.MF -text
 tutorial/WebContent/WEB-INF/lib/bsh.jar -text
 tutorial/WebContent/WEB-INF/lib/commons-fileupload.jar -text
