@@ -1,17 +1,17 @@
 package tutorial;
 
-public class Book {
+public class Car {
 
 	private Integer id;
 	private String name;
 	private String priview;
 	private String description;
-	private Float price;
+	private Integer price;
 	
-	public Book(){
+	public Car(){
 	}
 	
-	public Book(Integer id, String name, String description,  String preview, Float price){
+	public Car(Integer id, String name, String description,  String preview, Integer price){
 		this.id = id;
 		this.name = name;
 		this.priview = preview;
@@ -43,10 +43,10 @@ public class Book {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public Float getPrice() {
+	public Integer getPrice() {
 		return price;
 	}
-	public void setPrice(Float price) {
+	public void setPrice(Integer price) {
 		this.price = price;
 	}
 	

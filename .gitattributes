@@ -73,9 +73,9 @@ tutorial/WebContent/img/search.png -text
 tutorial/WebContent/img/teachYourself.jpg -text
 tutorial/WebContent/search.zul -text
 tutorial/WebContent/searchMvvm.zul -text
-tutorial/src/tutorial/Book.java -text
-tutorial/src/tutorial/BookService.java -text
-tutorial/src/tutorial/BookServiceImpl.java -text
+tutorial/src/tutorial/Car.java -text
+tutorial/src/tutorial/CarService.java -text
+tutorial/src/tutorial/CarServiceImpl.java -text
 tutorial/src/tutorial/SearchController.java -text
 tutorial/src/tutorial/SearchViewModel.java -text
 zkessentials/store/WebContent/image/Bullet-10x10.png -text

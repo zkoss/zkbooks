@@ -26,18 +26,18 @@ public class SearchController extends SelectorComposer<Component> {
 	private Textbox keywordBox;
 	
 	
-	private BookService bookService = new BookServiceImpl();
+	private CarService bookService = new CarServiceImpl();
 	
 	@Listen("onClick = #searchButton")
 	public void search(){
 		String keyword = keywordBox.getValue();
-		List<Book> result = bookService.search(keyword);
-		productListbox.setModel(new ListModelList<Book>(result));
+		List<Car> result = bookService.search(keyword);
+		productListbox.setModel(new ListModelList<Car>(result));
 	}
 	
 	@Listen("onSelect = #productListbox")
 	public void showDetail(){
-		Book selectedBook = productListbox.getSelectedItem().getValue();
+		Car selectedBook = productListbox.getSelectedItem().getValue();
 		previewImage.setSrc(selectedBook.getPreview());
 		nameLabel.setValue(selectedBook.getName());
 		priceLabel.setValue(selectedBook.getPrice().toString());
