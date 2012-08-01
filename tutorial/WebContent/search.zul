@@ -16,9 +16,7 @@
 				<listitem>
 					<listcell label="${each.name}"></listcell>
 					<listcell label="${each.company}"></listcell>
-					<listcell>
-						$<label value="${each.price}" />
-					</listcell>
+					<listcell>$<label value="${each.price}" /></listcell>
 				</listitem>
 			</template>
 		</listbox>

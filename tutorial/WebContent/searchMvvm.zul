@@ -17,9 +17,7 @@
 				<listitem>
 					<listcell label="@bind(each.name)"></listcell>
 					<listcell label="@bind(each.company)"></listcell>
-					<listcell>
-						$<label value="@bind(each.price)" />
-					</listcell>
+					<listcell>$<label value="@bind(each.price)" /></listcell>
 				</listitem>
 			</template>
 		</listbox>
