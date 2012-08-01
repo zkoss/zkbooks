@@ -6,11 +6,11 @@ import java.util.List;
 public class CarServiceImpl implements CarService{
 
 	//data model
-	private static List<Car> bookList= new LinkedList<Car>();
+	private static List<Car> carList= new LinkedList<Car>();
 	private static int id = 1;
 	//initialize book data
 	static {
-		bookList.add(
+		carList.add(
 				new Car(id++, 
 						"Primera",
 						"Nissan",
@@ -18,21 +18,21 @@ public class CarServiceImpl implements CarService{
 						" The entry-level 1.6-liter petrol feels underpowered for a large car. The 1.8-liter petrol is keen, the refined 2.0-liter unit is the star performer. An improved 2.2-liter turbodiesel performs well, but is only relatively economical, as it's competitors in this class with similar characteristics offer even lower fuel consumption.",
 						"img/car1.png",
 						23320));
-		bookList.add(
+		carList.add(
 				new Car(id++, 
 						"Cefiro",
 						"Nissan",
 						"The Nissan Cefiro is an intermediate-size automobile range sold in Japan and other countries. It was available only as a 4 door sedan. A large proportion were equipped with automatic transmissions. Originally marketed towards the Japanese salaryman the top model used the same engine as found in the R32 Nissan Skyline, a 2 litre turbo charged 6 cylinder engine capable of just over 200 hp (150 kW). Other variants came with other versions of the Nissan RB engine. Brand new, the Cefiro was slightly more expensive than the equivalent Nissan Skyline.",
 						"img/car2.png",
 						38165));
-		bookList.add(
+		carList.add(
 				new Car(id++, 
 						"Camry",
 						"Toyota",
 						"The Toyota Camry is a midsize car manufactured by Toyota in Georgetown, Kentucky, USA; as well as Australia; and Japan. Since 2001 it has been the top selling car in the United States.The Holden equivalents were not successful even though they came from the same factory as the Camry. Since 2000 Daihatsu has sold a Camry twin named the Daihatsu Altis. The name comes from the English phonetic of the Japanese word \"kan-muri,\" which means \"crown.\"",
 						"img/car3.png",
 						24170));
-		bookList.add(
+		carList.add(
 				new Car(id++, 
 						"Century",
 						"Toyota",
@@ -41,21 +41,21 @@ public class CarServiceImpl implements CarService{
 						"in a \"nearly hand-made\" fashion. It is often used by royalty, government leaders, and executive businessmen. Although the Century is not exported outside Japan in large numbers, it is used frequently by officials stationed in overseas Japanese offices. In contrast to other luxurious cars (such as the Maybach or a Rolls Royce), the Century has not been positioned and marketed as a sign of wealth or excess. Instead, the Century projects an image of conservative achievement.",
 						"img/car4.png",
 						28730));
-		bookList.add(
+		carList.add(
 				new Car(id++, 
 						"Sigma",
 						"Mitsubishi",
 						"The third-generation of Japanese car Mitsubishi Galant, dating from 1976, was divided into two models: the Galant Sigma (for the sedan and wagon) and the Galant Lambda (the coupe). The former was sold in many markets as the Mitsubishi Galant (without the word 'Sigma') and in Australia as the Chrysler Sigma (until 1980, after which it became the Mitsubishi Sigma). Strangely, in New Zealand it was badged as 'Galant Sigma' but colloquially referred to as the 'Sigma', a name it formally adopted after 1980.",
 						"img/car5.png",
 						54120));
-		bookList.add(
+		carList.add(
 				new Car(id++, 
 						"Challenger",
 						"Mitsubishi", 
 						"The Mitsubishi Challenger, called Mitsubishi Pajero Sport in most export markets, Mitsubishi Montero Sport in Spanish-speaking countries (including North America), Mitsubishi Shogun Sport in the UK and Mitsubishi Nativa in Central and South Americas (the Challenger name was also used in Australia), is a medium sized SUV built by the Mitsubishi Motors Corporation. It was released in 1997, and is still built as of 2006, although it's no longer available in its native Japan since the end of 2003.",
 						"img/car6.png",
 						58750));
-		bookList.add(
+		carList.add(
 				new Car(id++, 
 						"Civic",
 						"Honda",
@@ -63,7 +63,7 @@ public class CarServiceImpl implements CarService{
 						" At the moment there are four petrol engines and one diesel developed for this car. The 1.4-liter petrol is more suitable for the settled driving around town. The 1.8-liter petrol, developing 140 hp is a willing performer. The 2.2-liter diesel is similar to the Accord's unit. It accelerates rapidly and is economical as well. The Honda Civic is also available with a hybrid engine. In this case engine is coupled with an automatic transmission only. The 2.0-liter model is available with the paddle shift gearbox.",
 						"img/car1.png",
 						17479));
-		bookList.add(
+		carList.add(
 				new Car(id++, 
 						"New Beetle",
 						"Volkswagen",
@@ -72,7 +72,7 @@ public class CarServiceImpl implements CarService{
 						" The new Beetle has nothing in common with the rear-engined original, except the 'retro' design. It is based on the VW Golf and has the same solid build quality.",
 						"img/car2.png",
 						67540));
-		bookList.add(
+		carList.add(
 				new Car(id++, 
 						"Golf V",
 						"Volkswagen",
@@ -80,7 +80,7 @@ public class CarServiceImpl implements CarService{
 						" Steering is sharp. The car is stable at speed and easily controlled as the power steering gets weightier with speed, unfortunately it does not give enough feedback to the driver. The ride is a bit firm in town, as the reliability of suspension was preferred to the comfort. It is a common feature of all VW Golf's.",
 						"img/car3.png",
 						78200));
-		bookList.add(
+		carList.add(
 				new Car(id++, 
 						"Neon",
 						"Chrysler",
@@ -92,17 +92,18 @@ public class CarServiceImpl implements CarService{
 	
 	
 	public List<Car> findAll(){
-		return bookList;
+		return carList;
 	}
 	
 	public List<Car> search(String keyword){
 		List<Car> result = new LinkedList<Car>();
 		if (keyword==null || "".equals(keyword)){
-			result = bookList;
+			result = carList;
 		}else{
-			for (Car b: bookList){
-				if (b.getName().toLowerCase().contains(keyword.toLowerCase())){
-					result.add(b);
+			for (Car c: carList){
+				if (c.getName().toLowerCase().contains(keyword.toLowerCase())
+					||c.getCompany().toLowerCase().contains(keyword.toLowerCase())){
+					result.add(c);
 				}
 			}
 		}
