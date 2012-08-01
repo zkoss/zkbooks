@@ -17,6 +17,8 @@ public class SearchController extends SelectorComposer<Component> {
 	@Wire
 	private Label nameLabel;
 	@Wire
+	private Label companyLabel;
+	@Wire
 	private Label priceLabel;
 	@Wire
 	private Label descriptionLabel;
@@ -40,6 +42,7 @@ public class SearchController extends SelectorComposer<Component> {
 		Car selected = productListbox.getSelectedItem().getValue();
 		previewImage.setSrc(selected.getPreview());
 		nameLabel.setValue(selected.getName());
+		companyLabel.setValue(selected.getCompany());
 		priceLabel.setValue(selected.getPrice().toString());
 		descriptionLabel.setValue(selected.getDescription());
 	}

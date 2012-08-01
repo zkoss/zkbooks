@@ -10,11 +10,13 @@
 		selectedItem="@bind(vm.selectedCar)">
 			<listhead>
 				<listheader label="Name" />
+				<listheader label="Company" />
 				<listheader label="Price" width="20%"/>
 			</listhead>
 			<template name="model">
 				<listitem>
 					<listcell label="@bind(each.name)"></listcell>
+					<listcell label="@bind(each.company)"></listcell>
 					<listcell>
 						$<label value="@bind(each.price)" />
 					</listcell>
@@ -25,6 +27,7 @@
 			<image width="250px" src="@bind(vm.selectedCar.preview)" />
 			<vbox>
 				<label value="@bind(vm.selectedCar.name)" />
+				<label value="@bind(vm.selectedCar.company)" />
 				<label value="@bind(vm.selectedCar.price)" />
 				<label value="@bind(vm.selectedCar.description)" />
 			</vbox>

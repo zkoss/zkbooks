@@ -4,17 +4,19 @@ public class Car {
 
 	private Integer id;
 	private String name;
-	private String priview;
+	private String company;
+	private String preview;
 	private String description;
 	private Integer price;
 	
 	public Car(){
 	}
 	
-	public Car(Integer id, String name, String description,  String preview, Integer price){
+	public Car(Integer id, String name, String company, String description,  String preview, Integer price){
 		this.id = id;
 		this.name = name;
-		this.priview = preview;
+		this.company = company;
+		this.preview = preview;
 		this.description = description;
 		this.price = price;
 	}
@@ -32,10 +34,10 @@ public class Car {
 		this.name = name;
 	}
 	public String getPreview() {
-		return priview;
+		return preview;
 	}
 	public void setPreview(String preview) {
-		this.priview = preview;
+		this.preview = preview;
 	}
 	public String getDescription() {
 		return description;
@@ -48,6 +50,14 @@ public class Car {
 	}
 	public void setPrice(Integer price) {
 		this.price = price;
+	}
+
+	public String getCompany() {
+		return company;
+	}
+
+	public void setCompany(String company) {
+		this.company = company;
 	}
 	
 	
