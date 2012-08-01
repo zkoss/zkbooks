@@ -11,8 +11,8 @@ public interface CarService {
 	public List<Car> findAll();
 	
 	/**
-	 * search cars according to keyword.
-	 * @param keyword car's name keyword
+	 * search cars according to keyword in name and company.
+	 * @param keyword for search
 	 * @return list of car that match the keyword
 	 */
 	public List<Car> search(String keyword);
