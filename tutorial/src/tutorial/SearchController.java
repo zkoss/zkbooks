@@ -13,6 +13,8 @@ public class SearchController extends SelectorComposer<Component> {
 	private static final long serialVersionUID = 1L;
 	
 	@Wire
+	private Textbox keywordBox;
+	@Wire
 	private Listbox productListbox;
 	@Wire
 	private Label nameLabel;
@@ -24,8 +26,6 @@ public class SearchController extends SelectorComposer<Component> {
 	private Label descriptionLabel;
 	@Wire
 	private Image previewImage;
-	@Wire
-	private Textbox keywordBox;
 	
 	
 	private CarService carService = new CarServiceImpl();
