@@ -1,6 +1,6 @@
 <window title="Search" width="600px" border="normal" apply="org.zkoss.bind.BindComposer"
 	viewModel="@id('vm') @init('tutorial.SearchViewModel')">
-	<hbox>
+	<hbox align="center">
 		Keyword:
 		<textbox value="@bind(vm.keyword)" />
 		<button label="Search" image="/img/search.png" onClick="@command('search')" />
