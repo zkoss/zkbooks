@@ -11,8 +11,8 @@
 			<listheader label="Price" width="20%"/>
 		</listhead>
 	    <listitem>
-	        <listcell value="product name"></listcell>
-	        <listcell value="company"></listcell>
+	        <listcell label="product name"></listcell>
+	        <listcell label="company"></listcell>
 	        <listcell>$<label value="price" /></listcell>
 	    </listitem>
 	</listbox>
