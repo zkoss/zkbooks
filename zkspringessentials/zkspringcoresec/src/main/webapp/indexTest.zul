@@ -1,9 +1,7 @@
 <window title="ZK Spring Essentials Example links" border="nomal" width="100%">
 <vlayout>
-The index page for simple example.
+The index page for testing zkspring with example.
 
-<a href="autowirezkcomp.zul"> Autowire ZK component</a>
-<separator />
 <a href="elexpression.zul"> Bean in EL Expression</a>
 <separator />
 <a href="databinding.zul"> Bean in ZK databinding annotations</a>
@@ -14,11 +12,13 @@ The index page for simple example.
 <separator />
 <a href="customScopesMain.zul">customScopesMain.zul</a>
 <separator />
-<a href="customscopes1.zul">customscopes1.zul</a>
-<separator />
 <a href="createSecurePage.zul">Dynamically creating secure page</a>
 <separator bar="true" height="10px"/>
-The following are not working since 3.0
+The following is deprecated since 3.1
+<a href="autowirezkcomp.zul"> Autowire ZK component</a>
+<separator />
+The following do not work since 3.0.
+@EventListener doesn't work.
 <separator />
 <a href="outerPage.zul">outerPage</a>
 <separator />
@@ -26,7 +26,7 @@ The following are not working since 3.0
 <separator />
 <a href="scopes.zul"> Scopes</a>
 <separator />
-<a href="test.zul"> Scopes</a>
+<a href="test.zul"> test</a>
 </vlayout>
 
 </window>

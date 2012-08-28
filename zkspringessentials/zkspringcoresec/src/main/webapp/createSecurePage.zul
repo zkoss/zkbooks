@@ -2,12 +2,11 @@
 
 <vlayout>
 <label multiline="true">
-This page dynamically create 2 pages under secure folder that require specific role (login).
-
- 
- 
- 
+This page dynamically create 2 pages under secure folder that require specific role. 
+You need to login before viewing them correctly.
 </label>
+<a href="login.zul">login page</a>
+<separator height="50px"/>
 
 Click button to create page - secure/index.zul
 <button id="secure" label="CreateSecurePage"/>
