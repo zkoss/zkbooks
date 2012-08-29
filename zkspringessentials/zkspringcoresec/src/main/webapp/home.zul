@@ -12,8 +12,8 @@
 			</columns>
 			<rows>
 				<row>
-					Any one can list accounts. (Ajax login popup)<button label="Go!" href="listAccounts1.html"/>
-				</row>
+					Any one can list accounts (page based login)<button label="Go!" href="listAccounts1.html"/>
+				</row>			
 				<row>
 					Your principal object is ...:<label id="principal" value="${execution.userPrincipal.name}"/>
 				</row>
