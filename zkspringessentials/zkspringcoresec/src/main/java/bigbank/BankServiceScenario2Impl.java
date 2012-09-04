@@ -1,16 +1,11 @@
 package bigbank;
 
-import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.util.Assert;
 
 @Qualifier("bankServiceScenario2Impl")
 public class BankServiceScenario2Impl implements BankServiceScenario2 {
 	private BankDao bankDao;
-
-	// Not used unless you declare a <protect-pointcut>
-	@Pointcut("execution(* bigbank.BankServiceImpl.*(..))")
-	public void myPointcut() {}
 
 	public BankServiceScenario2Impl(BankDao bankDao) {
 		Assert.notNull(bankDao);
