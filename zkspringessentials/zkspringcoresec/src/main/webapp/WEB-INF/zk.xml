@@ -14,10 +14,13 @@
 	<session-config>
 	    <session-timeout>1800</session-timeout>    
 	</session-config>
+	<!-- 
+	If you configure ZK_DESKTOP_REUSE_FILTER in Spring's <http>, ZK will automatically add ZkExceptionTranslationListener.
 	<listener>
 		<description>ZK Exception Translation Listener</description>
 		<listener-class>org.zkoss.spring.security.ui.ZkExceptionTranslationListener</listener-class>
 	</listener>
+	 -->
 	<listener>
 		<listener-class>org.zkoss.zkspringessentials.init.ExampleWebAppInit</listener-class>
 	</listener>
