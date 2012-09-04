@@ -10,7 +10,7 @@
     xmlns:zksp="http://www.zkoss.org/2008/zkspring/security"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
-		http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.0.xsd
+		http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.1.xsd
         http://www.zkoss.org/2008/zkspring/core http://www.zkoss.org/2008/zkspring/core/zkspring-core.xsd 
         http://www.zkoss.org/2008/zkspring/security http://www.zkoss.org/2008/zkspring/security/zkspring-security.xsd">
 		
@@ -20,13 +20,21 @@
 	<global-method-security secured-annotations="enabled" pre-post-annotations="enabled">
 	</global-method-security>
 
+	<!-- test for spring security 3.1 multiple <http> allowed
+	 -->
+	<http pattern="/test.zul" security="none" />
+	<http pattern="/login.zul**" security="none" />
+  	
 	<http auto-config="true">
         <intercept-url pattern="/secure/extreme/**" access="ROLE_SUPERVISOR"/>
         <intercept-url pattern="/secure/**" access="IS_AUTHENTICATED_REMEMBERED" />
+        <intercept-url pattern="/zkau/**" access="IS_AUTHENTICATED_ANONYMOUSLY" />
+        <!-- 
         <intercept-url pattern="/**" access="IS_AUTHENTICATED_ANONYMOUSLY" />
-		 <form-login login-page="/login.zul"
+         -->
+		<form-login login-page="/login.zul"
 			authentication-failure-url="/login.zul?login_error=1" />
-		<!-- <logout logout-success-url="/home.zul"/> -->
+		<logout logout-success-url="/home.zul" invalidate-session="true" /> 
         <!-- Following is list of ZK Spring Security custom filters. 
         	They needs to be exactly in the same order as shown below in order to work.  -->
         <custom-filter ref="zkDesktopReuseFilter" position="FIRST" />
@@ -52,7 +60,6 @@
 			</user-service>
 		</authentication-provider>
 	</authentication-manager>
-	
 		<!--  Securing ZK events -->
 	<zkc:zk-config>
 	</zkc:zk-config>
