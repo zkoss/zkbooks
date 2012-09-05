@@ -4,7 +4,7 @@
 	<groupId>zkspringcoresec</groupId>
 	<artifactId>zkspringcoresec</artifactId>
 	<name>zkspringcoresec</name>
-	<version>1.0</version>
+	<version>3.1.1</version>
 	<properties>
 		<zk.version>6.0.2</zk.version>
 		<zkspring.version>3.1</zkspring.version>
@@ -19,7 +19,8 @@
 		<commons-lang.version>2.5</commons-lang.version>
 		<javassist.version>3.14.0-GA</javassist.version>
 	</properties>
-	<description>We should replace zuljsp 1.6 with 2.0 for compatibility issue with zk 6.0.0.</description>
+	<description>We should replace zuljsp 1.6 with 2.0 for compatibility issue with zk 6.0.0.
+Project version corresponds to zkspring core version that the project uses.</description>
 	<build>
 		<plugins>
 		</plugins>
