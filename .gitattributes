@@ -77,6 +77,7 @@ tutorial/WebContent/img/search.png -text
 tutorial/WebContent/search.zul -text
 tutorial/WebContent/searchMvc.zul -text
 tutorial/WebContent/searchMvvm.zul -text
+tutorial/readme.txt -text
 tutorial/src/tutorial/Car.java -text
 tutorial/src/tutorial/CarService.java -text
 tutorial/src/tutorial/CarServiceImpl.java -text
