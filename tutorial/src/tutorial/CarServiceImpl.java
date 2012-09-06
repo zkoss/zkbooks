@@ -6,10 +6,10 @@ import java.util.List;
 public class CarServiceImpl implements CarService{
 
 	//data model
-	private static List<Car> carList= new LinkedList<Car>();
+	private List<Car> carList= new LinkedList<Car>();
 	private static int id = 1;
 	//initialize book data
-	static {
+	public CarServiceImpl() {
 		carList.add(
 				new Car(id++, 
 						"Primera",
