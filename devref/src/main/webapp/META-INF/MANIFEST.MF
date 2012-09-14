@@ -1,0 +1,5 @@
+Manifest-Version: 1.0
+Specification-Title: reference.developer
+Specification-Version: 0.0.1-SNAPSHOT
+Implementation-Title: org.zkoss.reference.developer
+Implementation-Version: 0.0.1-SNAPSHOT

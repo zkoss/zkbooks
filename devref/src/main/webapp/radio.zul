@@ -1,0 +1,13 @@
+<window apply="org.zkoss.bind.BindComposer" viewModel="@id('vm') @init('org.zkoss.reference.developer.mvvm.collection.GridVM')">
+	<radiogroup  model="@bind(vm.itemList)">
+		<template name="model">
+		<radio label="@load(each)" value="@load(each)"></radio>
+		</template>
+	</radiogroup>
+<separator></separator>
+
+	<radiogroup id="age" selectedItem="@bind(vm.number)">
+		<radio id="a1" label="10" value="10"></radio>
+		<radio id="a2" label="20" value="20"></radio>
+	</radiogroup>
+</window>

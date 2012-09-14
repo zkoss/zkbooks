@@ -1,0 +1,7 @@
+<window apply="org.zkoss.bind.BindComposer" viewModel="@id('vm') @init('org.zkoss.reference.developer.mvvm.collection.CheckboxSelectionVM')">
+		<vlayout id="vlayout" children="@load(vm.itemList) @template('children1')">
+			<template name="children1" >
+				<checkbox label="@load(each)" onCheck="@command('pick', index=forEachStatus.index, picked=each)"></checkbox>
+			</template>
+		</vlayout>
+</window>

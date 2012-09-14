@@ -1,0 +1,21 @@
+<window apply="org.zkoss.bind.BindComposer"
+	viewModel="@id('vm') @init('org.zkoss.reference.developer.mvvm.collection.GridVM')">
+	<grid width="700px"
+		model="@bind(vm.itemList) @template(forEachStatus.index % 2 eq 0?'model1':'model2')">
+		<columns>
+			<column label="index" />
+			<column label="name" />
+		</columns>
+		<template name="model1" var="item" status="s">
+			<row spans="2" align="center">
+				<label value="@bind(item)" />
+			</row>
+		</template>
+		<template name="model2" var="item" status="s">
+			<row>
+				<label value="@bind(s.index)" />
+				<label value="@bind(item)" />
+			</row>
+		</template>
+	</grid>
+</window>
