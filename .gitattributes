@@ -13,13 +13,14 @@ devref/.settings/org.zkoss.eclipse.preferences.prefs -text
 devref/assembly/demo.xml -text
 devref/pom.xml -text
 devref/src/main/java/org/zkoss/reference/developer/mvvm/collection/CheckboxSelectionVM.java -text
-devref/src/main/java/org/zkoss/reference/developer/mvvm/collection/GridVM.java -text
+devref/src/main/java/org/zkoss/reference/developer/mvvm/collection/ItemsVM.java -text
 devref/src/main/java/org/zkoss/reference/developer/mvvm/collection/ListboxSelectionVM.java -text
 devref/src/main/java/org/zkoss/reference/developer/mvvm/collection/ListboxViewModel.java -text
 devref/src/main/java/org/zkoss/reference/developer/mvvm/collection/MenuVM.java -text
 devref/src/main/java/org/zkoss/reference/developer/mvvm/collection/RadioSelectionVM.java -text
 devref/src/main/java/org/zkoss/reference/developer/mvvm/collection/TreeSelectionVM.java -text
 devref/src/main/java/org/zkoss/reference/developer/mvvm/collection/TreeVM.java -text
+devref/src/main/java/org/zkoss/reference/developer/mvvm/collection/model/Item.java -text
 devref/src/main/java/org/zkoss/reference/developer/mvvm/collection/model/ItemService.java -text
 devref/src/main/java/org/zkoss/reference/developer/mvvm/collection/model/MyTreeNode.java -text
 devref/src/main/java/org/zkoss/reference/developer/mvvm/collection/model/MyTreeNodeData.java -text

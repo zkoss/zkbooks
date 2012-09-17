@@ -3,6 +3,7 @@ package org.zkoss.reference.developer.mvvm.collection;
 import java.util.List;
 import java.util.Set;
 
+import org.zkoss.reference.developer.mvvm.collection.model.Item;
 import org.zkoss.reference.developer.mvvm.collection.model.ItemService;
 
 public class ListboxSelectionVM {
@@ -13,8 +14,8 @@ public class ListboxSelectionVM {
 	private String pickedItem;
 	private Set pickedItemSet;
 	
-	public List<String> getItemList(){
-		return itemService.getItemList();
+	public List<Item> getItemList(){
+		return itemService.getAllItems();
 	}
 
 	public Set getPickedItemSet() {

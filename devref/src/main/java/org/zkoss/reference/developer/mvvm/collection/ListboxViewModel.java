@@ -2,6 +2,7 @@ package org.zkoss.reference.developer.mvvm.collection;
 
 import java.util.List;
 
+import org.zkoss.reference.developer.mvvm.collection.model.Item;
 import org.zkoss.reference.developer.mvvm.collection.model.ItemService;
 
 public class ListboxViewModel {
@@ -10,12 +11,12 @@ public class ListboxViewModel {
 	
 
 	
-	public List<String> getItemList(){
-		return itemService.getItemList();
+	public List<Item> getItemList(){
+		return itemService.getAllItems();
 	}
 	
 	//for testing
-	public List<String> getStaticItemList(){
+	public List<Item> getStaticItemList(){
 		
 		return itemService.getStaticItemList();
 	}

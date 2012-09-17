@@ -8,6 +8,7 @@ import org.zkoss.bind.annotation.BindingParam;
 import org.zkoss.bind.annotation.Command;
 import org.zkoss.bind.annotation.ContextParam;
 import org.zkoss.bind.annotation.ContextType;
+import org.zkoss.reference.developer.mvvm.collection.model.Item;
 import org.zkoss.reference.developer.mvvm.collection.model.ItemService;
 import org.zkoss.zk.ui.event.CheckEvent;
 
@@ -19,8 +20,8 @@ public class CheckboxSelectionVM {
 	private String pickedItem;
 	private Set pickedItemSet = new TreeSet<String>();
 	
-	public List<String> getItemList(){
-		return itemService.getItemList();
+	public List<Item> getItemList(){
+		return itemService.getAllItems();
 	}
 
 	@Command

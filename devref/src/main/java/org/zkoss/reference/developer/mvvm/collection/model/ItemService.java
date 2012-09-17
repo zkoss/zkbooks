@@ -5,20 +5,25 @@ import java.util.List;
 
 public class ItemService {
 
-	private LinkedList<String> itemList = new LinkedList<String>();
-	private static List<String> sItemList = new ItemService().getItemList();
+	private LinkedList<Item> itemList = new LinkedList<Item>();
+	private static List<Item> sItemList = new ItemService().getAllItems();
+	private static int DEFAULT_SIZE = 10;
 	
-	public ItemService(){
-		for (int i = 0 ; i< 10 ; i++){
-			itemList.add("Item "+i);
+	public ItemService(int maxSize){
+		for (int i = 0 ; i< maxSize ; i++){
+			itemList.add(new Item("Item "+i));
 		}
 	}
 	
-	public LinkedList<String> getItemList(){
+	public ItemService(){
+		this(DEFAULT_SIZE);
+	}
+	
+	public LinkedList<Item> getAllItems(){
 		return itemList;
 	}
 	
-	public List<String> getStaticItemList(){
+	public List<Item> getStaticItemList(){
 		return sItemList;
 	}
 }

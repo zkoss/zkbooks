@@ -2,21 +2,22 @@ package org.zkoss.reference.developer.mvvm.collection;
 
 import java.util.List;
 
+import org.zkoss.reference.developer.mvvm.collection.model.Item;
 import org.zkoss.reference.developer.mvvm.collection.model.ItemService;
 
-public class GridVM {
+public class ItemsVM {
 
 	private ItemService itemService = new ItemService();
+	private List<Item> itemList = itemService.getAllItems();
+	
+	public List<Item> getItemList(){
+		return itemList;
+	}
 	
 
 	
-	public List<String> getItemList(){
-		return itemService.getItemList();
-	}
-	
 	//for testing
-	public List<String> getStaticItemList(){
-		
+	public List<Item> getStaticItemList(){
 		return itemService.getStaticItemList();
 	}
 	
