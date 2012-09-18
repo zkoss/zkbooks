@@ -17,13 +17,12 @@ viewModel="@id('vm') @init('org.zkoss.reference.developer.mvvm.collection.Listbo
 	<separator/>
 	Selected Item:<label value="@load(vm.pickedItem.name)"/>
 
-	<listbox  width="400px" model="@bind(vm.itemList)" selectedIndex="@bind(vm.pickedIndex2)"
-	selectedItems="@bind(vm.pickedItemSet)" checkmark="true" multiple="true">
+	<listbox  width="400px" model="@bind(vm.itemList)" checkmark="true" multiple="true"
+	selectedItems="@bind(vm.pickedItemSet)" >
 		<listhead>
 			<listheader label="index"/>
 			<listheader label="name"/>
 		</listhead>
-		
 		<template name="model" var="item" status="s">
 			<listitem>
 				<listcell label="@bind(s.index)"/>

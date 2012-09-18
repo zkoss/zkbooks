@@ -11,7 +11,7 @@ public class RadioSelectionVM {
 	private ItemService itemService = new ItemService();
 	private int pickedIndex;
 	private int pickedIndex2;
-	private String pickedItem;
+	private Item pickedItem;
 	private Set pickedItemSet;
 	
 	public List<Item> getItemList(){
@@ -34,11 +34,11 @@ public class RadioSelectionVM {
 		this.pickedIndex = pickedIndex;
 	}
 
-	public String getPickedItem() {
+	public Item getPickedItem() {
 		return pickedItem;
 	}
 
-	public void setPickedItem(String pickedItem) {
+	public void setPickedItem(Item pickedItem) {
 		this.pickedItem = pickedItem;
 	}
 

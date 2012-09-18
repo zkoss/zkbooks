@@ -6,7 +6,6 @@
 			<treecol label="name" />
 			<treecol label="index" />
 		</treecols>
-		<!-- Use template in tree, don't need treechildren -->
 		<template name="model" var="node" status="s">
 			<treeitem open="@bind(node.open)">
 				<treerow>

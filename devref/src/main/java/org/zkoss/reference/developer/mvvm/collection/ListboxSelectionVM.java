@@ -13,8 +13,8 @@ public class ListboxSelectionVM {
 	private int pickedIndex;
 	private Item pickedItem;
 	
-	private int pickedIndex2;
 	private Set pickedItemSet;
+	private int pickedIndex2;
 	
 	public List<Item> getItemList(){
 		return itemList;

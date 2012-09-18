@@ -1,7 +1,17 @@
-<window apply="org.zkoss.bind.BindComposer" viewModel="@id('vm') @init('org.zkoss.reference.developer.mvvm.collection.RadioSelectionVM')">
-	<radiogroup  model="@bind(vm.itemList)" selectedItem="@bind(vm.pickedItem)" selectedIndex="@bind(vm.pickedIndex)">
-		<template name="model">
-		<radio label="@load(each)" value="@load(each)"></radio>
-		</template>
-	</radiogroup>
+<window apply="org.zkoss.bind.BindComposer"
+	viewModel="@id('vm') @init('org.zkoss.reference.developer.mvvm.collection.RadioSelectionVM')">
+	<vlayout>
+		<radiogroup model="@bind(vm.itemList)" selectedItem="@bind(vm.pickedItem)"
+			selectedIndex="@bind(vm.pickedIndex)">
+			<template name="model">
+				<radio label="@load(each)" value="@load(each)"></radio>
+			</template>
+		</radiogroup>
+		Static model list
+		<radiogroup selectedItem="@bind(vm.pickedItem)" selectedIndex="@bind(vm.pickedIndex)">
+			<radio label="Item 0" value="Item 0" />
+			<radio label="Item 1" value="Item 1" />
+			<radio label="Item 2" value="Item 2" />
+		</radiogroup>
+	</vlayout>
 </window>
