@@ -7,11 +7,25 @@
 				<radio label="@load(each)" value="@load(each)"></radio>
 			</template>
 		</radiogroup>
-		Static model list
-		<radiogroup selectedItem="@bind(vm.pickedItem)" selectedIndex="@bind(vm.pickedIndex)">
+		<hlayout>
+			selected index:
+			<label value="@load(vm.pickedIndex)" />
+		</hlayout>
+		<hlayout>
+			selected item:
+			<label value="@load(vm.pickedItem)" />
+		</hlayout>		
+		<!-- 
+		 -->
+		Static data model
+		<radiogroup selectedItem="@bind(vm.pickedItemName)">
 			<radio label="Item 0" value="Item 0" />
 			<radio label="Item 1" value="Item 1" />
 			<radio label="Item 2" value="Item 2" />
 		</radiogroup>
+		<hlayout>
+			selected item name:
+			<label value="@load(vm.pickedItemName)" />
+		</hlayout>
 	</vlayout>
 </window>

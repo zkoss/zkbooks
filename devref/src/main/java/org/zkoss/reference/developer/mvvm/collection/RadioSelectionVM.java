@@ -12,6 +12,7 @@ public class RadioSelectionVM {
 	private int pickedIndex;
 	private int pickedIndex2;
 	private Item pickedItem;
+	private String pickedItemName = "Item 1";
 	private Set pickedItemSet;
 	
 	public List<Item> getItemList(){
@@ -48,6 +49,14 @@ public class RadioSelectionVM {
 
 	public void setPickedIndex2(int pickedIndex2) {
 		this.pickedIndex2 = pickedIndex2;
+	}
+
+	public String getPickedItemName() {
+		return pickedItemName;
+	}
+
+	public void setPickedItemName(String pickedItemName) {
+		this.pickedItemName = pickedItemName;
 	}
 	
 }
