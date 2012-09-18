@@ -9,21 +9,15 @@ import org.zkoss.reference.developer.mvvm.collection.model.ItemService;
 public class ListboxSelectionVM {
 
 	private ItemService itemService = new ItemService();
+	private List<Item> itemList = itemService.getAllItems();
 	private int pickedIndex;
+	private Item pickedItem;
+	
 	private int pickedIndex2;
-	private String pickedItem;
 	private Set pickedItemSet;
 	
 	public List<Item> getItemList(){
-		return itemService.getAllItems();
-	}
-
-	public Set getPickedItemSet() {
-		return pickedItemSet;
-	}
-
-	public void setPickedItemSet(Set pickedItemSet) {
-		this.pickedItemSet = pickedItemSet;
+		return itemList;
 	}
 
 	public int getPickedIndex() {
@@ -34,20 +28,29 @@ public class ListboxSelectionVM {
 		this.pickedIndex = pickedIndex;
 	}
 
-	public String getPickedItem() {
+	public Item getPickedItem() {
 		return pickedItem;
 	}
 
-	public void setPickedItem(String pickedItem) {
+	public void setPickedItem(Item pickedItem) {
 		this.pickedItem = pickedItem;
 	}
 
+	//for multiple selections
 	public int getPickedIndex2() {
 		return pickedIndex2;
 	}
 
 	public void setPickedIndex2(int pickedIndex2) {
 		this.pickedIndex2 = pickedIndex2;
+	}
+
+	public Set getPickedItemSet() {
+		return pickedItemSet;
+	}
+	
+	public void setPickedItemSet(Set pickedItemSet) {
+		this.pickedItemSet = pickedItemSet;
 	}
 	
 }
