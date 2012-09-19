@@ -17,9 +17,6 @@ public class ItemsVM {
 
 	
 	//for testing
-	public List<Item> getStaticItemList(){
-		return itemService.getStaticItemList();
-	}
 	
 	public Integer getNumber(){
 		return 10;

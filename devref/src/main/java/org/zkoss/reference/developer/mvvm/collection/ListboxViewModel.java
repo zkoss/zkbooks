@@ -15,9 +15,4 @@ public class ListboxViewModel {
 		return itemService.getAllItems();
 	}
 	
-	//for testing
-	public List<Item> getStaticItemList(){
-		
-		return itemService.getStaticItemList();
-	}
 }
