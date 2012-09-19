@@ -13,17 +13,17 @@ public class RadioSelectionVM {
 	private int pickedIndex2;
 	private Item pickedItem;
 	private String pickedItemName = "Item 1";
-	private Set pickedItemSet;
+	private Set<Item> pickedItemSet;
 	
 	public List<Item> getItemList(){
 		return itemService.getAllItems();
 	}
 
-	public Set getPickedItemSet() {
+	public Set<Item> getPickedItemSet() {
 		return pickedItemSet;
 	}
 
-	public void setPickedItemSet(Set pickedItemSet) {
+	public void setPickedItemSet(Set<Item> pickedItemSet) {
 		this.pickedItemSet = pickedItemSet;
 	}
 

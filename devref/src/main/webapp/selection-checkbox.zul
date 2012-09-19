@@ -3,7 +3,7 @@
 	<vlayout id="vlayout" children="@load(vm.itemList) @template('checkboxes')">
 		<template name="checkboxes">
 			<checkbox label="@load(each.name)"
-				onCheck="@command('pick', picked=each)">
+				onCheck="@command('pick', checked=self.checked, picked=each)">
 			</checkbox>
 		</template>
 	</vlayout>

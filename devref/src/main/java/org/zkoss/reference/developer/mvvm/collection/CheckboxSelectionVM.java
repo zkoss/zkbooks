@@ -28,8 +28,8 @@ public class CheckboxSelectionVM {
 
 	@Command
 	@NotifyChange("pickedItemSet")
-	public void pick(@ContextParam(ContextType.TRIGGER_EVENT) CheckEvent checkEvent, @BindingParam("picked") Item item){
-		if (checkEvent.isChecked()){
+	public void pick(boolean checked, @BindingParam("picked") Item item){
+		if (checked){
 			pickedItemSet.add(item);
 		}else{
 			pickedItemSet.remove(item);
