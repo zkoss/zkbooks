@@ -1,7 +1,7 @@
 <window apply="org.zkoss.bind.BindComposer" 
 viewModel="@id('vm') @init('org.zkoss.reference.developer.mvvm.collection.ListboxSelectionVM')">
 	<listbox  width="400px" model="@bind(vm.itemList)" 
-	selectedIndex="@bind(vm.pickedIndex)" selectedItem="@bind(vm.pickedItem)" >
+    selectedItem="@bind(vm.pickedItem)" >
 		<listhead>
 			<listheader label="index"/>
 			<listheader label="name"/>
@@ -13,9 +13,23 @@ viewModel="@id('vm') @init('org.zkoss.reference.developer.mvvm.collection.Listbo
 			</listitem>
 		</template>
 	</listbox>
-	Selected Index:<label value="@load(vm.pickedIndex)"/>
-	<separator/>
 	Selected Item:<label value="@load(vm.pickedItem.name)"/>
+	<separator/>
+
+	<listbox  width="400px" model="@bind(vm.itemList)" 
+	selectedIndex="@bind(vm.pickedIndex)">
+		<listhead>
+			<listheader label="index"/>
+			<listheader label="name"/>
+		</listhead>
+		<template name="model" var="item" status="s">
+			<listitem>
+				<listcell label="@bind(s.index)"/>
+				<listcell label="@bind(item.name)"/>
+			</listitem>
+		</template>
+	</listbox>	
+	Selected Index:<label value="@load(vm.pickedIndex)"/>
 
 	<listbox  width="400px" model="@bind(vm.itemList)" checkmark="true" multiple="true"
 	selectedItems="@bind(vm.pickedItemSet)" >
