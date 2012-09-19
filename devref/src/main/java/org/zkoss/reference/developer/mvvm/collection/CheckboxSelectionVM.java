@@ -28,7 +28,7 @@ public class CheckboxSelectionVM {
 
 	@Command
 	@NotifyChange("pickedItemSet")
-	public void pick(boolean checked, @BindingParam("picked") Item item){
+	public void pick(@BindingParam("checked") boolean checked, @BindingParam("picked")Item item){
 		if (checked){
 			pickedItemSet.add(item);
 		}else{
