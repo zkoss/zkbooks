@@ -50,8 +50,8 @@
 		Custom layout - Use "forEach" attribute
 		(&lt;radiogroup&gt; can successfully restore selection state specified by "selectedItem"" on &lt;radio&gt;)
 		<radiogroup selectedItem="@bind(vm.pickedItemName)">
-			<vlayout forEach="${vm.itemList}">
-				<radio label="${each}" value="${each}" />
+			<vlayout >
+				<radio forEach="${vm.itemList}" label="${each}" value="${each}" />
 			</vlayout>
 		</radiogroup>
 	</vlayout>
