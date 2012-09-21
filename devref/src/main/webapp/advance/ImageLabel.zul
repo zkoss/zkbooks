@@ -1,0 +1,5 @@
+<groupbox id="item" width="100%" closable="false" sclass="item" >
+	<caption image="label.png">
+		<label id="titleLabel" sclass="title" />
+	</caption>
+</groupbox>

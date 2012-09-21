@@ -1,0 +1,6 @@
+<!-- Composite component  -->
+<?component name="imageLabel" class="org.zkoss.reference.developer.mvvm.advance.ImageLabel" ?>
+<!-- This component is editable contains a icon of item -->
+<zk>
+	<imageLabel title="Label" description="A label component represents a piece of text."/>
+</zk>
