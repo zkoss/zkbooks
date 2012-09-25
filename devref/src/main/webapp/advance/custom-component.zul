@@ -1,0 +1,13 @@
+<?component name="editedLabel" macroURI="editablelabel.zul" class="org.zkoss.reference.developer.mvvm.advance.EditableLabel" ?>
+<zk>
+	<window apply="org.zkoss.bind.BindComposer"
+		viewModel="@id('vm') @init('org.zkoss.reference.developer.mvvm.advance.CompositeVM')">
+		<vlayout>
+			<editedLabel value="@bind(vm.title)" />
+			<hlayout>
+				Current Title:
+				<label value="@load(vm.title)" />
+			</hlayout>
+		</vlayout>
+	</window>
+</zk>
