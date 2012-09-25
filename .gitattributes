@@ -35,6 +35,7 @@ devref/src/main/webapp/advance/InplaceEditor.zul -text
 devref/src/main/webapp/advance/composite.zul -text
 devref/src/main/webapp/advance/composite1.zul -text
 devref/src/main/webapp/advance/composite_demo.zul -text
+devref/src/main/webapp/advance/editlabel.zul -text
 devref/src/main/webapp/advance/label.png -text
 devref/src/main/webapp/collection/checkbox.zul -text
 devref/src/main/webapp/collection/grid.zul -text
