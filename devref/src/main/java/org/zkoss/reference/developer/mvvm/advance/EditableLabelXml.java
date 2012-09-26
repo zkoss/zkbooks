@@ -8,8 +8,12 @@ import org.zkoss.zk.ui.select.annotation.Wire;
 import org.zkoss.zul.Label;
 import org.zkoss.zul.Textbox;
 
-@ComponentAnnotation("value: @ZKBIND(ACCESS=both,SAVE_EVENT=onEdited)")
-public class EditableLabel extends HtmlMacroComponent{
+/**
+ * Data binding definition is defined in XML. 
+ * @author Hawk
+ *
+ */
+public class EditableLabelXml extends HtmlMacroComponent{
 
 	private static final long serialVersionUID = 1L;
 
@@ -19,7 +23,7 @@ public class EditableLabel extends HtmlMacroComponent{
 	@Wire
 	Label label;
 	
-	public EditableLabel(){
+	public EditableLabelXml(){
 		setMacroURI("editablelabel.zul");
 	}
 	

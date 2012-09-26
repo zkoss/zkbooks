@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<language-addon>
+	<addon-name>myaddon</addon-name>
+	<!-- <depends>zul</depends> -->
+	<language-name>xul/html</language-name>
+	<component>
+		<component-name>editableLabel</component-name>
+		<component-class>org.zkoss.reference.developer.mvvm.advance.EditableLabel</component-class>
+	</component>
+	<component>
+		<component-name>editableLabelXml</component-name>
+		<component-class>org.zkoss.reference.developer.mvvm.advance.EditableLabelXml</component-class>
+		<annotation>
+			<annotation-name>ZKBIND</annotation-name>
+			<property-name>value</property-name>
+			<attribute>
+				<attribute-name>ACCESS</attribute-name>
+				<attribute-value>both</attribute-value>
+			</attribute>
+			<attribute>
+				<attribute-name>SAVE_EVENT</attribute-name>
+				<attribute-value>onEdited</attribute-value>
+			</attribute>
+		</annotation>
+	</component>
+	<!-- 
+	<component>
+		<component-name>bandbox</component-name>
+		<extends>bandbox</extends>
+		<annotation>
+			<annotation-name>ZKBIND</annotation-name>
+			<property-name>value</property-name>
+			<attribute>
+				<attribute-name>ACCESS</attribute-name>
+				<attribute-value>both</attribute-value>
+			</attribute>
+			<attribute>
+				<attribute-name>SAVE_EVENT</attribute-name>
+				<attribute-value>onChange</attribute-value>
+			</attribute>
+			<attribute>
+				<attribute-name>LOAD_REPLACEMENT</attribute-name>
+				<attribute-value>rawValue</attribute-value>
+			</attribute>
+			<attribute>
+				<attribute-name>LOAD_TYPE</attribute-name>
+				<attribute-value>java.lang.String</attribute-value>
+			</attribute>
+		</annotation>
+	</component>
+	 -->
+</language-addon>

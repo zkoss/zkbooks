@@ -1,7 +1,0 @@
-<?component name="editor1" extends="div" class="org.zkoss.reference.developer.mvvm.advance.Composite1"?>
-<window  apply="org.zkoss.bind.BindComposer" viewModel="@id('vm') @init('org.zkoss.zktest.bind.basic.CompositeVM')" >
-	<vbox>
-		<hbox>Name:<editor1 value="@bind(vm.name)"/></hbox>
-		<hbox>Name:<label value="@bind(vm.name)"/></hbox>
-	</vbox>		
-</window>
