@@ -29,10 +29,10 @@ devref/src/main/java/org/zkoss/reference/developer/mvvm/collection/model/MyTreeN
 devref/src/main/java/org/zkoss/reference/developer/mvvm/collection/model/MyTreeNodeData.java -text
 devref/src/main/resources/metainfo/zk/lang-addon.xml -text
 devref/src/main/webapp/META-INF/MANIFEST.MF -text
+devref/src/main/webapp/WEB-INF/component/editablelabel.zul -text
 devref/src/main/webapp/WEB-INF/web.xml -text
 devref/src/main/webapp/WEB-INF/zk.xml -text
 devref/src/main/webapp/advance/custom-component.zul -text
-devref/src/main/webapp/advance/editablelabel.zul -text
 devref/src/main/webapp/collection/checkbox.zul -text
 devref/src/main/webapp/collection/grid.zul -text
 devref/src/main/webapp/collection/listbox.zul -text

@@ -20,7 +20,7 @@ public class EditableLabel extends HtmlMacroComponent{
 	Label label;
 	
 	public EditableLabel(){
-		setMacroURI("editablelabel.zul");
+		setMacroURI("/WEB-INF/component/editablelabel.zul");
 	}
 	
 	public String getValue(){

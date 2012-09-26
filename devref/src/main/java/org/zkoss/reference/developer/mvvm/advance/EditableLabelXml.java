@@ -1,7 +1,6 @@
 package org.zkoss.reference.developer.mvvm.advance;
 
 import org.zkoss.zk.ui.HtmlMacroComponent;
-import org.zkoss.zk.ui.annotation.ComponentAnnotation;
 import org.zkoss.zk.ui.event.Events;
 import org.zkoss.zk.ui.select.annotation.Listen;
 import org.zkoss.zk.ui.select.annotation.Wire;
@@ -24,7 +23,7 @@ public class EditableLabelXml extends HtmlMacroComponent{
 	Label label;
 	
 	public EditableLabelXml(){
-		setMacroURI("editablelabel.zul");
+		setMacroURI("/WEB-INF/component/editablelabel.zul");
 	}
 	
 	public String getValue(){

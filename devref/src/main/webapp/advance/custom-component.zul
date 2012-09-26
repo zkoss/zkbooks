@@ -1,17 +1,17 @@
-<zk>
-	<window apply="org.zkoss.bind.BindComposer"
-		viewModel="@id('vm') @init('org.zkoss.reference.developer.mvvm.advance.CompositeVM')">
-		<vlayout>
-			<hlayout>
-				Define in annotation: <editableLabel value="@bind(vm.title)" />
-			</hlayout>
-			<hlayout>
-				Define in XML: <editableLabelXml value="@bind(vm.title)" />
-			</hlayout>
-			<hlayout>
-				Current Title:
-				<label value="@load(vm.title)" />
-			</hlayout>
-		</vlayout>
-	</window>
-</zk>
+<window apply="org.zkoss.bind.BindComposer"
+	viewModel="@id('vm') @init('org.zkoss.reference.developer.mvvm.advance.CompositeVM')">
+	<vlayout>
+		<hlayout>
+			Define in annotation:
+			<editableLabel value="@bind(vm.title)" />
+		</hlayout>
+		<hlayout>
+			Define in XML:
+			<editableLabelXml value="@bind(vm.title)" />
+		</hlayout>
+		<hlayout>
+			Current Title:
+			<label value="@load(vm.title)" />
+		</hlayout>
+	</vlayout>
+</window>
