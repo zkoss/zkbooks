@@ -46,6 +46,4 @@ public class EditableLabel extends HtmlMacroComponent{
 		label.setVisible(true);
 		Events.postEvent("onEdited", this, null);
 	}
-	
-
 }
