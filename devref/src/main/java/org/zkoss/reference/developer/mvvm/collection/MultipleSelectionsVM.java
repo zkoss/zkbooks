@@ -6,14 +6,11 @@ import java.util.Set;
 
 import org.zkoss.bind.annotation.BindingParam;
 import org.zkoss.bind.annotation.Command;
-import org.zkoss.bind.annotation.ContextParam;
-import org.zkoss.bind.annotation.ContextType;
 import org.zkoss.bind.annotation.NotifyChange;
 import org.zkoss.reference.developer.mvvm.collection.model.Item;
 import org.zkoss.reference.developer.mvvm.collection.model.ItemService;
-import org.zkoss.zk.ui.event.CheckEvent;
 
-public class CheckboxSelectionVM {
+public class MultipleSelectionsVM {
 
 	private ItemService itemService = new ItemService();
 	private Set<Item> pickedItemSet = new HashSet<Item>();
@@ -28,8 +25,8 @@ public class CheckboxSelectionVM {
 
 	@Command
 	@NotifyChange("pickedItemSet")
-	public void pick(@BindingParam("checked") boolean checked, @BindingParam("picked")Item item){
-		if (checked){
+	public void pick(@BindingParam("checked") boolean isPicked, @BindingParam("picked")Item item){
+		if (isPicked){
 			pickedItemSet.add(item);
 		}else{
 			pickedItemSet.remove(item);

@@ -35,10 +35,14 @@
 		Custom layout - Children binding. 
 		(radiogroup cannot restore selection state with selectedItem, unless we put radiogroup after radio to make selectedItem work.
 		The is component creation life cycle issue.
+		<!--
+			since 6.5.1, we can bind it with any object, not only String 
+			<radiogroup selectedItem="@bind(vm.pickedItem)"> 
+		 -->
 		<radiogroup selectedItem="@bind(vm.pickedItemName)">
 			<vlayout children="@load(vm.itemList)">
 				<template name="children">
-					<radio label="@load(each)" value="@load(each)" />
+					<radio label="@load(each.name)" value="@load(each)" />
 				</template>
 			</vlayout>
 		</radiogroup>

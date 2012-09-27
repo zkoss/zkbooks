@@ -15,11 +15,11 @@ devref/pom.xml -text
 devref/src/main/java/org/zkoss/reference/developer/mvvm/advance/CompositeVM.java -text
 devref/src/main/java/org/zkoss/reference/developer/mvvm/advance/EditableLabel.java -text
 devref/src/main/java/org/zkoss/reference/developer/mvvm/advance/EditableLabelXml.java -text
-devref/src/main/java/org/zkoss/reference/developer/mvvm/collection/CheckboxSelectionVM.java -text
 devref/src/main/java/org/zkoss/reference/developer/mvvm/collection/ItemsVM.java -text
 devref/src/main/java/org/zkoss/reference/developer/mvvm/collection/ListboxSelectionVM.java -text
 devref/src/main/java/org/zkoss/reference/developer/mvvm/collection/ListboxViewModel.java -text
 devref/src/main/java/org/zkoss/reference/developer/mvvm/collection/MenuVM.java -text
+devref/src/main/java/org/zkoss/reference/developer/mvvm/collection/MultipleSelectionsVM.java -text
 devref/src/main/java/org/zkoss/reference/developer/mvvm/collection/RadioSelectionVM.java -text
 devref/src/main/java/org/zkoss/reference/developer/mvvm/collection/TreeSelectionVM.java -text
 devref/src/main/java/org/zkoss/reference/developer/mvvm/collection/TreeVM.java -text
