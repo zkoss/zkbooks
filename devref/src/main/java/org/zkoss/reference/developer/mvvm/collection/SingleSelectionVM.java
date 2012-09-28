@@ -6,7 +6,7 @@ import java.util.Set;
 import org.zkoss.reference.developer.mvvm.collection.model.Item;
 import org.zkoss.reference.developer.mvvm.collection.model.ItemService;
 
-public class ListboxSelectionVM {
+public class SingleSelectionVM {
 
 	private ItemService itemService = new ItemService();
 	private List<Item> itemList = itemService.getAllItems();
