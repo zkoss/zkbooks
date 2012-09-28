@@ -15,6 +15,8 @@ devref/pom.xml -text
 devref/src/main/java/org/zkoss/reference/developer/mvvm/advance/CompositeVM.java -text
 devref/src/main/java/org/zkoss/reference/developer/mvvm/advance/EditableLabel.java -text
 devref/src/main/java/org/zkoss/reference/developer/mvvm/advance/EditableLabelXml.java -text
+devref/src/main/java/org/zkoss/reference/developer/mvvm/collection/CustomMultipleSelectionsVM.java -text
+devref/src/main/java/org/zkoss/reference/developer/mvvm/collection/CustomSingleSelectionVM.java -text
 devref/src/main/java/org/zkoss/reference/developer/mvvm/collection/ItemsVM.java -text
 devref/src/main/java/org/zkoss/reference/developer/mvvm/collection/ListboxViewModel.java -text
 devref/src/main/java/org/zkoss/reference/developer/mvvm/collection/MenuVM.java -text
@@ -42,6 +44,7 @@ devref/src/main/webapp/collection/tree.zul -text
 devref/src/main/webapp/selection-checkbox.zul -text
 devref/src/main/webapp/selection-listbox.zul -text
 devref/src/main/webapp/selection-radio.zul -text
+devref/src/main/webapp/selection-tabbox.zul -text
 devref/src/main/webapp/selection-tree.zul -text
 getstarted/.classpath -text
 getstarted/.project -text

@@ -4,10 +4,13 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import org.zkoss.bind.annotation.BindingParam;
+import org.zkoss.bind.annotation.Command;
+import org.zkoss.bind.annotation.NotifyChange;
 import org.zkoss.reference.developer.mvvm.collection.model.Item;
 import org.zkoss.reference.developer.mvvm.collection.model.ItemService;
 
-public class MultipleSelectionsVM {
+public class CustomMultipleSelectionsVM {
 
 	private ItemService itemService = new ItemService();
 	private Set<Item> pickedItemSet = new HashSet<Item>();
@@ -18,6 +21,16 @@ public class MultipleSelectionsVM {
 	
 	public List<Item> getItemList(){
 		return itemService.getAllItems();
+	}
+
+	@Command
+	@NotifyChange("pickedItemSet")
+	public void pick(@BindingParam("checked") boolean isPicked, @BindingParam("picked")Item item){
+		if (isPicked){
+			pickedItemSet.add(item);
+		}else{
+			pickedItemSet.remove(item);
+		}
 	}
 
 	public int getPickedIndex() {

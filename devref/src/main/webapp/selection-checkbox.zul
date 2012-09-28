@@ -1,5 +1,5 @@
 <window apply="org.zkoss.bind.BindComposer"
-	viewModel="@id('vm') @init('org.zkoss.reference.developer.mvvm.collection.MultipleSelectionsVM')">
+	viewModel="@id('vm') @init('org.zkoss.reference.developer.mvvm.collection.CustomMultipleSelectionsVM')">
 	<vlayout id="vlayout" children="@load(vm.itemList)">
 		<template name="children">
 			<checkbox label="@load(each.name)"
