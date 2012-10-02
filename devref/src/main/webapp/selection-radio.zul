@@ -39,13 +39,12 @@
 			since 6.5.1, we can bind it with any object, not only String 
 			<radiogroup selectedItem="@bind(vm.pickedItem)"> 
 		 -->
-		<radiogroup selectedItem="@bind(vm.pickedItemName)">
-			<vlayout children="@load(vm.itemList)">
-				<template name="children">
-					<radio label="@load(each.name)" value="@load(each)" />
-				</template>
-			</vlayout>
-		</radiogroup>
+		 <vlayout children="@load(vm.itemList)">
+			<template name="children">
+				<radio label="@load(each.name)" value="@load(each)" radiogroup="rg" />
+			</template>
+		</vlayout>
+		<radiogroup id="rg" selectedItem="@bind(vm.pickedItem)"/>
 		<hbox>
 			Selection :
 			<label value="@load(vm.pickedItem)" />
@@ -53,10 +52,12 @@
 		<separator bar="true" />
 		Custom layout - Use "forEach" attribute
 		(&lt;radiogroup&gt; can successfully restore selection state specified by "selectedItem"" on &lt;radio&gt;)
+		<!-- 
 		<radiogroup selectedItem="@bind(vm.pickedItemName)">
 			<vlayout >
 				<radio forEach="${vm.itemList}" label="${each}" value="${each}" />
 			</vlayout>
 		</radiogroup>
+		 -->
 	</vlayout>
 </window>
