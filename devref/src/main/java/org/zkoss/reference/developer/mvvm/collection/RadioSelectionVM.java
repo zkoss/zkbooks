@@ -11,7 +11,7 @@ public class RadioSelectionVM {
 	private ItemService itemService = new ItemService();
 	private int pickedIndex;
 	private int pickedIndex2;
-	private Item pickedItem;
+	private Item pickedItem = itemService.getAllItems().get(1);
 	private String pickedItemName = "Item 1";
 	private Set<Item> pickedItemSet;
 	
