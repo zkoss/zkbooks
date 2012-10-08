@@ -1,0 +1,8 @@
+<zk>
+	<window apply="org.zkoss.bind.BindComposer" width="600px"
+		viewModel="@id('vm') @init('org.zkoss.document.ClientInfoVM')"
+	onClientInfo="@command('showClientInfo', orient=event.orientation)"
+	border="normal">
+		<label value="@load(vm.information)"/>
+	</window>
+</zk>

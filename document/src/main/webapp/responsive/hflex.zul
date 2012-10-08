@@ -1,0 +1,30 @@
+<zk>
+<style>
+.column1{
+	background-color:yellow;
+}
+.column2{
+	background-color:blue;
+}
+.column3{
+	background-color:green;
+}
+</style>	 
+<hlayout vflex="1">
+    <window title="Column 25%" vflex="1" hflex="1" contentSclass="column1" border="normal">
+            toffee candy canes cheesecake gummies apple pie. Pie cupcake cheesecake sugar plum tart donut
+            bear claw caramels. Sesame snaps candy candy faworki sesame snaps chocolate wypas cheesecake.
+            Cupcake cupcake chupa chups dragée bonbon cotton candy pudding.
+    </window>
+    <window title="Column 25%" vflex="1" hflex="1" contentSclass="column2" border="normal">
+            toffee candy canes cheesecake gummies apple pie. Pie cupcake cheesecake sugar plum tart donut
+            bear claw caramels. Sesame snaps candy candy faworki sesame snaps chocolate wypas cheesecake.
+            Cupcake cupcake chupa chups dragée bonbon cotton candy pudding.
+    </window>
+    <window title="Column 50%" vflex="1" hflex="2" contentSclass="column3" border="normal">
+            toffee candy canes cheesecake gummies apple pie. Pie cupcake cheesecake sugar plum tart donut
+            bear claw caramels. Sesame snaps candy candy faworki sesame snaps chocolate wypas cheesecake.
+            Cupcake cupcake chupa chups dragée bonbon cotton candy pudding.
+    </window>
+</hlayout>
+</zk>

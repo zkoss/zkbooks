@@ -1,0 +1,5 @@
+Manifest-Version: 1.0
+Specification-Title: document
+Specification-Version: 0.0.1-SNAPSHOT
+Implementation-Title: org.zkoss.document
+Implementation-Version: 0.0.1-SNAPSHOT

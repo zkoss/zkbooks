@@ -1,0 +1,20 @@
+<zk>
+<style>
+.column1{
+	background-color:yellow;
+}
+.column2{
+	background-color:blue;
+}
+.column3{
+	background-color:green;
+}
+</style>	 
+<borderlayout vflex="1">
+	<north sclass="column1" flex="true">North</north>
+	<west hflex="1">West</west>
+	<center >Center</center>
+	<east >East</east>
+	<south >South</south>
+</borderlayout>
+</zk>
