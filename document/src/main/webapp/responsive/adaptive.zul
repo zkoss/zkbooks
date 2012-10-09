@@ -10,10 +10,12 @@
 .description-area{
 	background-color:grey;
 	margin: 10px 10px 10px 10px;
+	padding: 5px 5px 5px 5px;
 }
 .description{
 	color:white;
 	font-size:20px;
+	font-family:Georgia;
 }
 
 .z-hlayout-inner:first-child {
