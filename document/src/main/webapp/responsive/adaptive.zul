@@ -1,4 +1,7 @@
 <zk>
+<!--
+	This example is inspired by Mondrian pattern at http://designshack.net/articles/css/5-really-useful-responsive-web-design-patterns/ . 
+ -->
 <style>
 
 .title{
@@ -60,7 +63,6 @@
 	    display:block;
 	}		
 }
-
 
 </style>
 	<hlayout hflex="1" vflex="1" style="background-color:black;float:left" apply="org.zkoss.bind.BindComposer" 
