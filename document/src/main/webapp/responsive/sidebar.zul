@@ -1,11 +1,17 @@
 <zk>
 	<style>
-		.button { font-size: 12px; color: white; text-shadow: 0 -1px
-		0 rgba(0, 0, 0, .35); border: 0px black solid; border-radius: 2px; padding: 2px;
-		background-color: transparent;cursor: pointer;}
-		.header{
+	.button { 
+		font-size: 12px; 
+		color: white; 
+		text-shadow: 0 -1px	0 rgba(0, 0, 0, .35); 
+		border: 0px black solid; 
+		border-radius: 2px; 
+		padding: 2px;
+		background-color: transparent;cursor: pointer;
+	}
+	.header{
 		background-color:#02B0E5
-		}
+	}
 	</style>
 	<window apply="org.zkoss.bind.BindComposer" width="100%" height="100%" 
 	onClientInfo="@command('updateClientInfo', width=event.desktopWidth, orientation=event.orientation)"
@@ -29,7 +35,7 @@
 				</hbox>
 			</north>
 			<west width="@load(vm.menuAreaWidth)">
-				<window mode="@load(vm.windowMode)" visible="@bind(vm.floatMenuVisible)" width="200px" top="30px" left="5px">
+				<window mode="@load(vm.windowMode)" visible="@bind(vm.floatMenuVisible)" width="200px" top="35px" left="10px">
 					<listbox>
 						<listgroup label="Favorites"/>
 						<listitem label="News feed" />
