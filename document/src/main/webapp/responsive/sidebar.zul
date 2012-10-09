@@ -12,7 +12,6 @@
 		viewModel="@id('vm') @init('org.zkoss.document.SidebarVM')">
 		<!-- preload to make image size calculation correct -->
 		<custom-attributes org.zkoss.zul.image.preload="true" />
-		
 		<borderlayout>
 			<north height="28px" sclass="header">
 				<hbox width="100%">
@@ -53,8 +52,5 @@
 				</div>
 			</center>
 		</borderlayout>
-		<!-- 
-		 -->
-		
 	</window>
 </zk>
