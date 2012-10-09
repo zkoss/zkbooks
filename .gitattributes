@@ -54,6 +54,8 @@ document/src/main/java/org/zkoss/document/SidebarVM.java -text
 document/src/main/webapp/META-INF/MANIFEST.MF -text
 document/src/main/webapp/WEB-INF/web.xml -text
 document/src/main/webapp/WEB-INF/zk.xml -text
+document/src/main/webapp/responsive/adaptive.zul -text
+document/src/main/webapp/responsive/car1.png -text
 document/src/main/webapp/responsive/clientinfoevent.zul -text
 document/src/main/webapp/responsive/hflex.zul -text
 document/src/main/webapp/responsive/layout.zul -text
