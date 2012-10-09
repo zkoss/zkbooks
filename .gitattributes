@@ -57,8 +57,12 @@ document/src/main/webapp/WEB-INF/zk.xml -text
 document/src/main/webapp/responsive/adaptive.zul -text
 document/src/main/webapp/responsive/car1.png -text
 document/src/main/webapp/responsive/clientinfoevent.zul -text
+document/src/main/webapp/responsive/friends.png -text
 document/src/main/webapp/responsive/hflex.zul -text
 document/src/main/webapp/responsive/layout.zul -text
+document/src/main/webapp/responsive/menu.png -text
+document/src/main/webapp/responsive/messages.png -text
+document/src/main/webapp/responsive/notification.png -text
 document/src/main/webapp/responsive/sidebar.zul -text
 document/src/main/webapp/responsive/width.zul -text
 tutorial/.classpath -text
