@@ -9,7 +9,7 @@
 }
 .description-area{
 	background-color:grey;
-	margin: 10px 10px 10px 10px;
+	margin: 20px 20px 40px 20px;
 	padding: 5px 5px 5px 5px;
 }
 .description{
@@ -67,8 +67,7 @@
 }
 
 </style>
-	<hlayout hflex="1" vflex="1" style="background-color:black;float:left" apply="org.zkoss.bind.BindComposer" 
-	viewModel="@id('vm') @init('org.zkoss.document.AdaptiveVM')">
+	<hlayout hflex="1" vflex="1" style="background-color:black">
 		<vbox width="100%" height="100%" pack="center" align="center">
 			<label sclass="title">ZK Car Center</label>
 			<image src="car1.png"/>
@@ -81,10 +80,12 @@
 			</div>
 			<div sclass="description-area" height="100%">
 				<label sclass="description">
-				The Nissan Primera was produced between 2002 and 2008. It was available as a 4-door sedan or a 5-door hatchback or estate.
+				The Nissan Primera was produced between 2002 and 2008. It was available as a 4-door sedan 
+				or a 5-door hatchback or estate.
 				The entry-level 1.6-liter petrol feels underpowered for a large car. The 1.8-liter petrol is keen, 
 				the refined 2.0-liter unit is the star performer. An improved 2.2-liter turbodiesel performs well, 
-				but is only relatively economical, as it's competitors in this class with similar characteristics offer even lower fuel consumption.
+				but is only relatively economical, as it's competitors in this class with similar characteristics 
+				offer even lower fuel consumption.
 				</label>
 			</div>
 		</hlayout>
