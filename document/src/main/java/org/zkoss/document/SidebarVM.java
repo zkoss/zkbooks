@@ -11,7 +11,7 @@ import org.zkoss.web.servlet.Servlets;
 
 public class SidebarVM {
 
-	private boolean floatMenuVisible = true;
+	private boolean floatingMenuVisible = true;
 	private boolean isMobile = false;
 	private String orientation;
 	private String windowMode = "embedded";
@@ -28,24 +28,24 @@ public class SidebarVM {
 	}
 	
 	private void toFloatMenu(){
-		floatMenuVisible = false;
+		floatingMenuVisible = false;
 		windowMode = "overlapped";
 		menuAreaWidth = "0px";
 	}
 	
 	private void toFixedMenu(){
-		floatMenuVisible = true;
+		floatingMenuVisible = true;
 		windowMode = "embedded";
 		menuAreaWidth = "200px";
 	}
 	@Command
-	@NotifyChange("floatMenuVisible")
+	@NotifyChange("floatingMenuVisible")
 	public void toggleMenu(){
-		floatMenuVisible = !floatMenuVisible;
+		floatingMenuVisible = !floatingMenuVisible;
 	}
 
 	@Command
-	@NotifyChange({"windowMode","menuAreaWidth","floatMenuVisible"})
+	@NotifyChange({"windowMode","menuAreaWidth","floatingMenuVisible"})
 	public void updateClientInfo(@BindingParam("orientation") String orientation, @BindingParam("width")int width ){
 		if (isMobile){
 			if (!orientation.equals(this.orientation)){
@@ -59,12 +59,12 @@ public class SidebarVM {
 		}
 	}
 
-	public boolean isFloatMenuVisible() {
-		return floatMenuVisible;
+	public boolean isFloatingMenuVisible() {
+		return floatingMenuVisible;
 	}
 
-	public void setFloatMenuVisible(boolean floatMenuVisible) {
-		this.floatMenuVisible = floatMenuVisible;
+	public void setFloatingMenuVisible(boolean floatingMenuVisible) {
+		this.floatingMenuVisible = floatingMenuVisible;
 	}
 
 	public boolean isMobile() {
@@ -90,7 +90,7 @@ public class SidebarVM {
 	public void setMenuAreaWidth(String menuAreaWidth) {
 		this.menuAreaWidth = menuAreaWidth;
 	}
-	
+
 	
 
 }

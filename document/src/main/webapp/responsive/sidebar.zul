@@ -35,7 +35,7 @@
 				</hbox>
 			</north>
 			<west width="@load(vm.menuAreaWidth)">
-				<window mode="@load(vm.windowMode)" visible="@bind(vm.floatMenuVisible)" width="200px" top="35px" left="10px">
+				<window mode="@load(vm.windowMode)" visible="@bind(vm.floatingMenuVisible)" width="200px" top="35px" left="10px">
 					<listbox>
 						<listgroup label="Favorites"/>
 						<listitem label="News feed" />
