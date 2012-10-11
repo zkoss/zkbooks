@@ -2,6 +2,7 @@ package org.zkoss.document;
 
 import javax.servlet.ServletRequest;
 
+import org.zkoss.bind.annotation.AfterCompose;
 import org.zkoss.bind.annotation.BindingParam;
 import org.zkoss.bind.annotation.Command;
 import org.zkoss.bind.annotation.Init;
@@ -17,27 +18,16 @@ public class SidebarVM {
 	private String windowMode = "embedded";
 	private String menuAreaWidth= "200px";
 
-	@Init
+	@AfterCompose
 	public void init(){
 		ServletRequest request = ServletFns.getCurrentRequest();
 		// Detect if client is mobile device (such as Android or iOS devices)
 		isMobile = Servlets.getBrowser(request, "mobile") != null;
 		if (isMobile){
-			toFloatMenu();
+			toFloatingMenu();
 		}
 	}
-	
-	private void toFloatMenu(){
-		floatingMenuVisible = false;
-		windowMode = "overlapped";
-		menuAreaWidth = "0px";
-	}
-	
-	private void toFixedMenu(){
-		floatingMenuVisible = true;
-		windowMode = "embedded";
-		menuAreaWidth = "200px";
-	}
+
 	@Command
 	@NotifyChange("floatingMenuVisible")
 	public void toggleMenu(){
@@ -51,14 +41,26 @@ public class SidebarVM {
 			if (!orientation.equals(this.orientation)){
 				this.orientation = orientation;
 				if (orientation.equals("protrait") || width < 800){
-					toFloatMenu();
+					toFloatingMenu();
 				}else{
 					toFixedMenu();
 				}
 			}
 		}
 	}
-
+	
+	private void toFloatingMenu(){
+		floatingMenuVisible = false;
+		windowMode = "overlapped";
+		menuAreaWidth = "0px";
+	}
+	
+	private void toFixedMenu(){
+		floatingMenuVisible = true;
+		windowMode = "embedded";
+		menuAreaWidth = "200px";
+	}
+	
 	public boolean isFloatingMenuVisible() {
 		return floatingMenuVisible;
 	}
