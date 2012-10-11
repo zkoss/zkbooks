@@ -5,7 +5,6 @@ import javax.servlet.ServletRequest;
 import org.zkoss.bind.annotation.AfterCompose;
 import org.zkoss.bind.annotation.BindingParam;
 import org.zkoss.bind.annotation.Command;
-import org.zkoss.bind.annotation.Init;
 import org.zkoss.bind.annotation.NotifyChange;
 import org.zkoss.web.fn.ServletFns;
 import org.zkoss.web.servlet.Servlets;
