@@ -8,6 +8,7 @@ import org.zkoss.bind.annotation.Command;
 import org.zkoss.bind.annotation.NotifyChange;
 import org.zkoss.web.fn.ServletFns;
 import org.zkoss.web.servlet.Servlets;
+import org.zkoss.zk.ui.Executions;
 
 public class SidebarVM {
 
@@ -19,9 +20,8 @@ public class SidebarVM {
 
 	@AfterCompose
 	public void init(){
-		ServletRequest request = ServletFns.getCurrentRequest();
 		// Detect if client is mobile device (such as Android or iOS devices)
-		isMobile = Servlets.getBrowser(request, "mobile") != null;
+		isMobile = Executions.getCurrent().getBrowser("mobile") !=null;
 		if (isMobile){
 			toFloatingMenu();
 		}
