@@ -1,6 +1,6 @@
 <zk>
 	<style>
-	.button { 
+	.menu-button { 
 		font-size: 12px; 
 		color: white; 
 		text-shadow: 0 -1px	0 rgba(0, 0, 0, .35); 
@@ -21,7 +21,7 @@
 		<borderlayout>
 			<north height="28px" sclass="header">
 				<hbox width="100%">
-					<button sclass="button" visible="@bind(vm.menuAreaWidth eq '0px')"
+					<button sclass="menu-button" visible="@bind(vm.menuAreaWidth eq '0px')"
 						image="menu.png"
 						onClick='@command("toggleMenu")' />
 					<hbox pack="end" align="end" hflex="1">
@@ -53,9 +53,9 @@
 				</window>
 			</west>
 			<center>
-				<div style="background-color:gray" vflex="1">
-					<label style="font-size:40px;"></label>
-				</div>
+				<cardlayout style="background-color:gray" vflex="1">
+					<image src="car1.png"></image>
+				</cardlayout>
 			</center>
 		</borderlayout>
 	</window>
