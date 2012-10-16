@@ -77,7 +77,7 @@
 	<hlayout vflex="1" hflex="1" sclass="first-layout">
 		<vbox  width="100%" height="100%" pack="center" align="center">
 			<label sclass="title">ZK Car Center</label>
-			<image src="car1.png"/>
+			<image src="images/car1.png"/>
 		</vbox>
 		<hlayout sclass="second-layout">
 			<div sclass="description-area" height="100%">
