@@ -26,22 +26,22 @@
 		<!-- preload to make image size calculation correct -->
 		<custom-attributes org.zkoss.zul.image.preload="true" />
 		<borderlayout>
-			<north height="40px" sclass="header">
+			<north height="30px" sclass="header">
 				<hbox width="100%">
 					<button sclass="menu-button" visible="@bind(vm.menuAreaWidth eq '0px')"
 						image="images/menu.png"
 						onClick='@command("toggleMenu")' />
-					<hbox pack="end" align="end" hflex="1">
-						<image sclass="touchable icon"
+					<hbox pack="end" align="end" hflex="1" vflex="1">
+						<image height="30px"
 							src="images/friends.png" />
-						<image sclass="touchable icon"
+						<image height="30px"
 							src="images/messages.png" />
-						<image sclass="touchable icon"
+						<image height="30px"
 							src="images/notification.png" />
 					</hbox>
 				</hbox>
 			</north>
-			<west width="@load(vm.menuAreaWidth)" style="background-color:#B0B0B0">
+			<west width="@load(vm.menuAreaWidth)" >
 				<window mode="@load(vm.windowMode)" visible="@bind(vm.floatingMenuVisible)" width="200px" top="35px" left="10px">
 					<vbox  width="100%" height="80px" pack="center" align="center">
 					<label style="font-size:20px">ZK Car Community</label>
