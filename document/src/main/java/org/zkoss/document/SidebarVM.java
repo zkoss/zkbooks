@@ -17,6 +17,7 @@ public class SidebarVM {
 	private String orientation;
 	private String windowMode = "embedded";
 	private String menuAreaWidth= "200px";
+	private int selectedIndex = 0;
 
 	@AfterCompose
 	public void init(){
@@ -60,6 +61,10 @@ public class SidebarVM {
 		menuAreaWidth = "200px";
 	}
 	
+	@Command @NotifyChange("selectedIndex")
+	public void select(@BindingParam("index") int index){
+		this.selectedIndex = index;
+	}
 	public boolean isFloatingMenuVisible() {
 		return floatingMenuVisible;
 	}
@@ -90,6 +95,14 @@ public class SidebarVM {
 
 	public void setMenuAreaWidth(String menuAreaWidth) {
 		this.menuAreaWidth = menuAreaWidth;
+	}
+
+	public int getSelectedIndex() {
+		return selectedIndex;
+	}
+
+	public void setSelectedIndex(int selectedIndex) {
+		this.selectedIndex = selectedIndex;
 	}
 
 	
