@@ -1,0 +1,7 @@
+<window title="JDBC demo" border="normal" apply="org.zkoss.reference.developer.integration.DatasourceComposer">
+     <vbox>
+         <hbox>Name : <textbox id="name"/></hbox>
+         <hbox>Email: <textbox id="email"/></hbox>
+         <button label="submit"/>
+     </vbox>
+ </window>

@@ -12,6 +12,7 @@ developersreference/.settings/org.maven.ide.eclipse.prefs -text
 developersreference/.settings/org.zkoss.eclipse.preferences.prefs -text
 developersreference/assembly/demo.xml -text
 developersreference/pom.xml -text
+developersreference/src/main/java/org/zkoss/reference/developer/integration/DatasourceComposer.java -text
 developersreference/src/main/java/org/zkoss/reference/developer/integration/JdbcComposer.java -text
 developersreference/src/main/java/org/zkoss/reference/developer/mvvm/advance/CompositeVM.java -text
 developersreference/src/main/java/org/zkoss/reference/developer/mvvm/advance/EditableLabel.java -text
@@ -42,6 +43,7 @@ developersreference/src/main/webapp/collection/listbox.zul -text
 developersreference/src/main/webapp/collection/menu.zul -text
 developersreference/src/main/webapp/collection/radio.zul -text
 developersreference/src/main/webapp/collection/tree.zul -text
+developersreference/src/main/webapp/integration/datasource.zul -text
 developersreference/src/main/webapp/integration/jdbc.zul -text
 developersreference/src/main/webapp/selection-checkbox.zul -text
 developersreference/src/main/webapp/selection-listbox.zul -text
