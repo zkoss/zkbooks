@@ -101,8 +101,8 @@ public class CarServiceImpl implements CarService{
 			result = carList;
 		}else{
 			for (Car c: carList){
-				if (c.getName().toLowerCase().contains(keyword.toLowerCase())
-					||c.getCompany().toLowerCase().contains(keyword.toLowerCase())){
+				if (c.getModel().toLowerCase().contains(keyword.toLowerCase())
+					||c.getMake().toLowerCase().contains(keyword.toLowerCase())){
 					result.add(c);
 				}
 			}

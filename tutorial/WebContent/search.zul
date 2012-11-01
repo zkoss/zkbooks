@@ -6,21 +6,21 @@
 	</hbox>
 	<listbox id="carListbox" height="160px" emptyMessage="No car found in the result">
 		<listhead>
-			<listheader label="Name" />
-			<listheader label="Company" />
+			<listheader label="Model" />
+			<listheader label="Make" />
 			<listheader label="Price" width="20%"/>
 		</listhead>
 	    <listitem>
 	        <listcell label="product name"></listcell>
-	        <listcell label="company"></listcell>
+	        <listcell label="make"></listcell>
 	        <listcell>$<label value="price" /></listcell>
 	    </listitem>
 	</listbox>
 	<hbox style="margin-top:20px">
 		<image id="previewImage" width="250px" />
 		<vbox>
-			<label id="nameLabel" />
-			<label id="companyLabel" />
+			<label id="modelLabel" />
+			<label id="makeLabel" />
 			<label id="priceLabel" />
 			<label id="descriptionLabel" />
 		</vbox>

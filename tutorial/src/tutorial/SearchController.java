@@ -17,9 +17,9 @@ public class SearchController extends SelectorComposer<Component> {
 	@Wire
 	private Listbox carListbox;
 	@Wire
-	private Label nameLabel;
+	private Label modelLabel;
 	@Wire
-	private Label companyLabel;
+	private Label makeLabel;
 	@Wire
 	private Label priceLabel;
 	@Wire
@@ -41,8 +41,8 @@ public class SearchController extends SelectorComposer<Component> {
 	public void showDetail(){
 		Car selected = carListbox.getSelectedItem().getValue();
 		previewImage.setSrc(selected.getPreview());
-		nameLabel.setValue(selected.getName());
-		companyLabel.setValue(selected.getCompany());
+		modelLabel.setValue(selected.getModel());
+		makeLabel.setValue(selected.getMake());
 		priceLabel.setValue(selected.getPrice().toString());
 		descriptionLabel.setValue(selected.getDescription());
 	}

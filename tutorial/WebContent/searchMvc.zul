@@ -7,14 +7,14 @@
 	</hbox>
 	<listbox id="carListbox" height="160px" emptyMessage="No car found in the result">
 		<listhead>
-			<listheader label="Name" />
-			<listheader label="Company" />
+			<listheader label="Model" />
+			<listheader label="Make" />
 			<listheader label="Price" width="20%"/>
 		</listhead>
 		<template name="model">
 			<listitem>
-				<listcell label="${each.name}"></listcell>
-				<listcell label="${each.company}"></listcell>
+				<listcell label="${each.model}"></listcell>
+				<listcell label="${each.make}"></listcell>
 				<listcell>$<label value="${each.price}" /></listcell>
 			</listitem>
 		</template>
@@ -22,8 +22,8 @@
 	<hbox style="margin-top:20px">
 		<image id="previewImage" width="250px" />
 		<vbox>
-			<label id="nameLabel" />
-			<label id="companyLabel" />
+			<label id="modelLabel" />
+			<label id="makeLabel" />
 			<label id="priceLabel" />
 			<label id="descriptionLabel" />
 		</vbox>

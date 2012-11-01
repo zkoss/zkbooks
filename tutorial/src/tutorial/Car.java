@@ -3,8 +3,8 @@ package tutorial;
 public class Car {
 
 	private Integer id;
-	private String name;
-	private String company;
+	private String model;
+	private String make;
 	private String preview;
 	private String description;
 	private Integer price;
@@ -12,27 +12,21 @@ public class Car {
 	public Car(){
 	}
 	
-	public Car(Integer id, String name, String company, String description,  String preview, Integer price){
+	public Car(Integer id, String model, String make, String description,  String preview, Integer price){
 		this.id = id;
-		this.name = name;
-		this.company = company;
+		this.model = model;
+		this.make = make;
 		this.preview = preview;
 		this.description = description;
 		this.price = price;
 	}
-	
 	public Integer getId() {
 		return id;
 	}
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
+
 	public String getPreview() {
 		return preview;
 	}
@@ -52,13 +46,20 @@ public class Car {
 		this.price = price;
 	}
 
-	public String getCompany() {
-		return company;
+	public String getModel() {
+		return model;
 	}
 
-	public void setCompany(String company) {
-		this.company = company;
+	public void setModel(String model) {
+		this.model = model;
 	}
-	
-	
+
+	public String getMake() {
+		return make;
+	}
+
+	public void setMake(String make) {
+		this.make = make;
+	}
+
 }
