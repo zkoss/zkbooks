@@ -1,0 +1,92 @@
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+<style>
+.z-label.red{
+	color:red;
+}
+</style>
+<window title="Order Management" border="normal" width="600px"
+	apply="org.zkoss.bind.BindComposer" viewModel="@id('vm') @init(orderVm)" 
+	validationMessages="@id('vmsgs')">
+	<vbox hflex="true">
+		<listbox model="@bind(vm.orders)" selectedItem="@bind(vm.selected)" hflex="true" height="200px">
+			<listhead>
+				<listheader label="Id"/>
+				<listheader label="Quantity" align="center" width="80px" />
+				<listheader label="Price" align="center" width="80px" />				
+				<listheader label="Creation Date" align="center" width="100px" />
+				<listheader label="Shipping Date" align="center" width="100px" />
+			</listhead>
+			<template name="model" var="item">
+				<listitem >
+					<listcell label="@bind(item.id)"/>				
+					<listcell label="@bind(item.quantity)"/>
+					<listcell label="@bind(item.price) @converter(numberFormatConverter, format='###,##0.00')"/>
+					<listcell label="@bind(item.creationDate) @converter(dateFormatConverter, format='yyyy/MM/dd')"/>
+					<listcell label="@bind(item.shippingDate) @converter(dateFormatConverter, format='yyyy/MM/dd')"/>
+				</listitem>
+			</template>
+		</listbox>
+		<toolbar>
+			<button label="New" onClick="@command('newOrder')" />
+			<button label="Save" onClick="@command('saveOrder')" disabled="@bind(empty vm.selected)" />
+			<!-- show confirm dialog when selected is persisted -->
+			<button label="Delete" onClick="@command(empty vm.selected.id?'deleteOrder':'confirmDelete')" disabled="@bind(empty vm.selected)" />
+		</toolbar>
+		<groupbox visible="@bind(not empty vm.selected)" hflex="true" mold="3d">
+			<grid hflex="true" >
+				<columns>
+					<column width="120px"/>
+					<column/>
+				</columns>
+				<rows>
+					<row>Id <label value="@load(vm.selected.id)"/></row>
+					<row>Description <textbox value="@load(vm.selected.description) @save(vm.selected.description, before='saveOrder')"/></row>
+					<row>Quantity
+						<hlayout> 
+							<intbox id="qbox" value="@load(vm.selected.quantity) @save(vm.selected.quantity, before='saveOrder') 
+							@validator(quantityValidator)"/>
+							<label value="@bind(vmsgs[qbox])" sclass="red" />
+						</hlayout>	
+					</row>					
+					<row>Price 
+						<hlayout>
+							<doublebox id="pbox" value="@load(vm.selected.price) @save(vm.selected.price, before ='saveOrder') 
+							@validator(priceValidator)" format="###,##0.00" />
+							<label value="@bind(vmsgs[pbox])" sclass="red" />
+						</hlayout>
+					</row>
+					<row>Total Price <label value="@bind(vm.selected.totalPrice) @converter(numberFormatConverter, format='###,##0.00')" /></row>
+					<row>Creation Date 
+						<hlayout> 
+							<datebox id="cdbox" value="@load(vm.selected.creationDate) @save(vm.selected.creationDate,before='saveOrder')
+							@validator(creationDateValidator)"/>
+							<label value="@bind(vmsgs[cdbox])" sclass="red" />
+						</hlayout>	
+					</row>
+					<row>Shipping Date 
+						<hlayout> 
+							<datebox id="pdbox" value="@load(vm.selected.shippingDate) @save(vm.selected.shippingDate, before='saveOrder')
+							@validator(shippingDateValidator)"/>
+							<label value="@bind(vmsgs[pdbox])" sclass="red" />
+						</hlayout>
+					</row>	
+				</rows>
+			</grid>
+		</groupbox>
+	</vbox>
+	<window title="Confirm" mode="modal" border="normal" width="300px" visible="@bind(not empty vm.confirmMessage)">
+		<vbox hflex="true">
+			<hlayout height="50px">
+				<image src="~./zul/img/msgbox/question-btn.png"/>
+				<label value="@bind(vm.confirmMessage)"/>
+			</hlayout>
+			<hbox pack="center" hflex="true">
+				<button label="Delete" onClick="@command('deleteOrder')"/>
+				<button label="Cancel" onClick="@command('cancelDelete')"/>
+			</hbox>
+		</vbox>
+	</window>
+</window>
+
+</zk>

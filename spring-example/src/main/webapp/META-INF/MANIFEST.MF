@@ -1,0 +1,5 @@
+Manifest-Version: 1.0
+Specification-Title: zbind-examples
+Specification-Version: 1.0.0-SNAPSHOT
+Implementation-Title: org.zkoss.zk.zbind.examples
+Implementation-Version: 1.0.0-SNAPSHOT
