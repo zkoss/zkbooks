@@ -75,6 +75,7 @@ document/src/main/webapp/responsive/width.zul -text
 spring-example/.classpath -text
 spring-example/.project -text
 spring-example/pom.xml -text
+spring-example/src/main/java/org/zkoss/reference/developer/composer/ResolverComposer.java -text
 spring-example/src/main/java/org/zkoss/reference/developer/composer/SpringComposer.java -text
 spring-example/src/main/java/org/zkoss/reference/developer/scope/PrototypeBean.java -text
 spring-example/src/main/java/org/zkoss/reference/developer/scope/RequestBean.java -text
