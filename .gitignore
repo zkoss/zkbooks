@@ -1,6 +1,7 @@
 developersreference/target
 document/.classpath
 document/.settings
+spring-example/.settings
 tutorial/build
 zkessentials/store/.classpath
 zkessentials/store/.project
