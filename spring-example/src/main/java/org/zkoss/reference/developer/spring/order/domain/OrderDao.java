@@ -24,7 +24,6 @@ public class OrderDao{
 	
 	@Transactional
 	public void save(Order order) {
-		System.out.println(">>>>>entityManager:"+em);
 		em.merge(order);
 	}
 	
