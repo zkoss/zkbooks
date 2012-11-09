@@ -66,7 +66,6 @@ developersreference/integration.cdi/src/main/java/org/zkoss/reference/developer/
 developersreference/integration.cdi/src/main/java/org/zkoss/reference/developer/scope/RequestBean.java -text
 developersreference/integration.cdi/src/main/java/org/zkoss/reference/developer/scope/SystemConfiguration.java -text
 developersreference/integration.cdi/src/main/java/org/zkoss/reference/developer/scope/UserPreference.java -text
-developersreference/integration.cdi/src/main/resources/META-INF/beans.xml -text
 developersreference/integration.cdi/src/main/webapp/WEB-INF/beans.xml -text
 developersreference/integration.cdi/src/main/webapp/WEB-INF/jetty-env.xml -text
 developersreference/integration.cdi/src/main/webapp/WEB-INF/web.xml -text
