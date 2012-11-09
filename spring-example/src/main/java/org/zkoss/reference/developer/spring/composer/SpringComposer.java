@@ -1,4 +1,4 @@
-package org.zkoss.reference.developer.composer;
+package org.zkoss.reference.developer.spring.composer;
 
 import java.util.List;
 

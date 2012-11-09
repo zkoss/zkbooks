@@ -1,4 +1,4 @@
-package org.zkoss.reference.developer.spring.order.domain;
+package org.zkoss.reference.developer.spring.domain;
 
 import java.util.Calendar;
 import java.util.Date;

@@ -8,30 +8,27 @@
 
 Copyright (C) 2011 Potix Corporation. All Rights Reserved.
  */
-package org.zkoss.reference.developer.spring.order.viewmodel;
+package org.zkoss.reference.developer.spring.viewmodel;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Scope;
-import org.springframework.stereotype.Component;
 import org.zkoss.bind.annotation.NotifyChange;
-import org.zkoss.reference.developer.spring.order.domain.Order;
-import org.zkoss.reference.developer.spring.order.domain.OrderService;
+import org.zkoss.reference.developer.spring.domain.Order;
+import org.zkoss.reference.developer.spring.domain.OrderService;
+import org.zkoss.zk.ui.select.annotation.WireVariable;
 
 /**
  * @author Hawk
  * 
  */
-@Component("orderVm")
-@Scope("prototype")
-public class OrderSpringVM {
+public class OrderVM {
 
 	//the order list
 	List<Order> orders;
 	
-	@Autowired
+	@WireVariable
 	OrderService orderService;
+	
 	//the selected order
 	Order selected;
 	
@@ -53,6 +50,5 @@ public class OrderSpringVM {
 	public void setSelected(Order selected) {
 		this.selected = selected;
 	}
-
 		
 }

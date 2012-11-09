@@ -1,13 +1,13 @@
-package org.zkoss.reference.developer.scope;
+package org.zkoss.reference.developer.spring.scope;
 
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 @Component
-@Scope("request")
-public class RequestBean {
+@Scope("prototype")
+public class PrototypeBean {
 
-	private String value = "request bean value"
+	private String value = "prototype bean value"
 			+", hashcode:"+hashCode();
 
 	public String getValue() {

@@ -6,7 +6,7 @@
 }
 </style>
 <window title="Order Management" border="normal" width="600px" apply="org.zkoss.bind.BindComposer" 
-	viewModel="@id('vm') @init('org.zkoss.reference.developer.spring.order.viewmodel.OrderVM')" 
+	viewModel="@id('vm') @init('org.zkoss.reference.developer.spring.viewmodel.OrderVM')" 
 	validationMessages="@id('vmsgs')">
 		<listbox model="@bind(vm.orders)" selectedItem="@bind(vm.selected)" hflex="true" height="200px">
 			<listhead>

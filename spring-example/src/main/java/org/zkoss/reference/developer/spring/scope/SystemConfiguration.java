@@ -1,4 +1,4 @@
-package org.zkoss.reference.developer.scope;
+package org.zkoss.reference.developer.spring.scope;
 
 import org.springframework.stereotype.Component;
 

@@ -1,14 +1,12 @@
-package org.zkoss.reference.developer.scope;
+package org.zkoss.reference.developer.spring.scope;
 
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 @Component
-@Scope("prototype")
-public class PrototypeBean {
-
-	private String value = "prototype bean value"
-			+", hashcode:"+hashCode();
+@Scope("session")
+public class UserPreference {
+	private String value = "user preference value";
 
 	public String getValue() {
 		return value;
