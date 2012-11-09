@@ -2,8 +2,8 @@ package org.zkoss.reference.developer.composer;
 
 import java.util.List;
 
-import org.zkoss.reference.developer.spring.order.domain.Order;
-import org.zkoss.reference.developer.spring.order.domain.OrderService;
+import org.zkoss.reference.developer.spring.domain.Order;
+import org.zkoss.reference.developer.spring.domain.OrderService;
 import org.zkoss.zk.ui.select.SelectorComposer;
 import org.zkoss.zk.ui.select.annotation.VariableResolver;
 import org.zkoss.zk.ui.select.annotation.Wire;
