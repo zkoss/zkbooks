@@ -105,16 +105,10 @@ spring-example/src/main/java/org/zkoss/reference/developer/scope/PrototypeBean.j
 spring-example/src/main/java/org/zkoss/reference/developer/scope/RequestBean.java -text
 spring-example/src/main/java/org/zkoss/reference/developer/scope/SystemConfiguration.java -text
 spring-example/src/main/java/org/zkoss/reference/developer/scope/UserPreference.java -text
-spring-example/src/main/java/org/zkoss/reference/developer/spring/order/converter/DateFormatConverter.java -text
-spring-example/src/main/java/org/zkoss/reference/developer/spring/order/converter/NumberFormatConverter.java -text
 spring-example/src/main/java/org/zkoss/reference/developer/spring/order/domain/Order.java -text
 spring-example/src/main/java/org/zkoss/reference/developer/spring/order/domain/OrderDao.java -text
 spring-example/src/main/java/org/zkoss/reference/developer/spring/order/domain/OrderService.java -text
 spring-example/src/main/java/org/zkoss/reference/developer/spring/order/domain/OrderServiceImpl.java -text
-spring-example/src/main/java/org/zkoss/reference/developer/spring/order/validator/CreationDateValidator.java -text
-spring-example/src/main/java/org/zkoss/reference/developer/spring/order/validator/PriceValidator.java -text
-spring-example/src/main/java/org/zkoss/reference/developer/spring/order/validator/QuantityValidator.java -text
-spring-example/src/main/java/org/zkoss/reference/developer/spring/order/validator/ShippingDateValidator.java -text
 spring-example/src/main/java/org/zkoss/reference/developer/spring/order/viewmodel/OrderSpringVM.java -text
 spring-example/src/main/java/org/zkoss/reference/developer/spring/order/viewmodel/OrderVM.java -text
 spring-example/src/main/resources/META-INF/persistence.xml -text
@@ -127,6 +121,7 @@ spring-example/src/main/webapp/WEB-INF/web.xml -text
 spring-example/src/main/webapp/WEB-INF/zk.xml -text
 spring-example/src/main/webapp/order/order.zul -text
 spring-example/src/main/webapp/order/orderSpring.zul -text
+spring-example/src/main/webapp/scopes.zul -text
 spring-example/src/main/webapp/springutil.zul -text
 spring-example/src/main/webapp/variable-resolver.zul -text
 tutorial/.classpath -text

@@ -15,11 +15,8 @@ import java.util.List;
 
 
 /**
- * @author dennis
  *
  */
 public interface OrderService {
 	public List<Order> list();
-	public void save(Order order);
-	public void delete(Order order);
 }

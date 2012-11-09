@@ -23,14 +23,10 @@ import org.zkoss.bind.annotation.DependsOn;
 import org.zkoss.bind.annotation.NotifyChange;
 
 /**
- * Order is a keyword in SQL syntax, it can't be a table name.
  * @author Hawk
  */
-@Entity
-@Table(name="ORDERS")
 public class Order {
 
-	@Id @GeneratedValue(strategy=GenerationType.AUTO)
 	Integer id;
 	String description;
 	Date creationDate;
@@ -38,7 +34,14 @@ public class Order {
 	double price;
 	int quantity;
 	
-
+	public Order(Integer id,String description, double price, int quantity,Date creationDate,Date shippingDate){
+		this.id= id;
+		this.description = description;
+		this.price = price;
+		this.quantity = quantity;
+		this.creationDate = creationDate;
+		this.shippingDate = shippingDate;
+	}
 
 	public Integer getId() {
 		return id;

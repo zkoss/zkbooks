@@ -51,49 +51,5 @@ public class OrderVM {
 	public void setSelected(Order selected) {
 		this.selected = selected;
 	}
-
-	//action command
-	@NotifyChange({"selected","orders"})
-	@Command
-	public void newOrder(){
-		Order order = new Order();
-		getOrders().add(order);
-		selected = order;//select the new one
-	}
-	
-	@NotifyChange("selected")
-	@Command
-	public void saveOrder(){
-		orderService.save(selected);
-	}
-	
-	@NotifyChange({"selected","orders","confirmMessage"})
-	@Command
-	public void deleteOrder(){
-		orderService.delete(selected);//delete selected
-		orders = orderService.list();//refresh
-		selected = null; //clean the selected
-		confirmMessage = null;
-	}
-
-
-	public String getConfirmMessage(){
-		return confirmMessage;
-	}
-	
-	@NotifyChange("confirmMessage")
-	@Command
-	public void confirmDelete(){
-		//set the message to show to user
-		confirmMessage = "Do you want to delete "+selected.getId()+" ?";
-	}
-	
-	
-	@NotifyChange("confirmMessage")
-	@Command
-	public void cancelDelete(){
-		//clear the message
-		confirmMessage = null; 
-	}
 		
 }

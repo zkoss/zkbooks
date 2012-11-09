@@ -31,18 +31,4 @@ public class OrderServiceImpl implements OrderService {
 		return orderDao.findAll();
 	}
 
-	public void delete(Order order) {
-		orderDao.remove(order);
-	}
-
-	public void save(Order order) {
-		System.out.println(">>>>>DAO>>>> "+orderDao);
-		if (order.getId()==null){
-			orderDao.newOrder(order);
-		}else{
-			orderDao.save(order);
-		}
-		
-	}
-
 }
