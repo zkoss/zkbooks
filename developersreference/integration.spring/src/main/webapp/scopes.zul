@@ -1,0 +1,30 @@
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<!-- for testing -->
+<zk>
+<window title="Access Bean with different scopes" border="normal" width="700px" 
+apply="org.zkoss.reference.developer.spring.composer.ResolverComposer">
+<vlayout>
+	<hlayout>
+		prototype : <label id="prototypeValue">${prototypeBean.value}</label>
+	</hlayout>
+	<hlayout>
+		request : <label id="requestValue">${requestBean.value}</label>
+	</hlayout>
+	<hlayout>
+		User Preference : <label id="sessionValue">${userPreference.value}</label>
+	</hlayout>
+	<hlayout>
+		System Configuration : <label id="singletonValue">${systemConfiguration.value}</label>
+	</hlayout>		
+</vlayout>
+<hlayout>
+<button label="set prototype bean value" onClick="prototypeValue.value=prototypeBean.value"/>
+<button label="set request bean value" onClick="requestValue.value=requestBean.value"/>
+<button label="set session bean value" onClick="sessionValue.value=userPreference.value"/>
+<button label="set singleton bean value" onClick="singletonValue.value=systemConfiguration.value"/>	
+</hlayout>
+<separator height="10px"/>
+<button label="Remove Resolver"/>
+</window>
+
+</zk>

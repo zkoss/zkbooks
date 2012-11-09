@@ -1,0 +1,31 @@
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+<style>
+.z-label.red{
+	color:red;
+}
+</style>
+<window title="Order Management" border="normal" width="600px"
+	apply="org.zkoss.bind.BindComposer" viewModel="@id('vm') @init(orderVm)" 
+	validationMessages="@id('vmsgs')">
+		<listbox model="@bind(vm.orders)" selectedItem="@bind(vm.selected)" hflex="true" height="200px">
+			<listhead>
+				<listheader label="Id"/>
+				<listheader label="Quantity" align="center" width="80px" />
+				<listheader label="Price" align="center" width="80px" />				
+				<listheader label="Creation Date" align="center" width="100px" />
+				<listheader label="Shipping Date" align="center" width="100px" />
+			</listhead>
+			<template name="model" var="item">
+				<listitem >
+					<listcell label="@bind(item.id)"/>				
+					<listcell label="@bind(item.quantity)"/>
+					<listcell label="@bind(item.price) @converter('formattedNumber', format='###,##0.00')"/>
+					<listcell label="@bind(item.creationDate) @converter('formattedDate', format='yyyy/MM/dd')"/>
+					<listcell label="@bind(item.shippingDate) @converter('formattedDate', format='yyyy/MM/dd')"/>
+				</listitem>
+			</template>
+		</listbox>
+</window>
+
+</zk>
