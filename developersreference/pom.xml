@@ -86,5 +86,6 @@
 			</plugin>
 		</plugins>
 	</build>
-	<description>This project contains example codes that are used in ZK Developer's Reference MVVM chapter. </description>
+	<description>This project contains example codes that are used in ZK Developer's Reference MVVM chapter.
+The package name after org.zkoss.reference.developer.[FIRST-LEVEL-HEADER] correspons to first level header of developer reference.</description>
 </project>
