@@ -1,0 +1,34 @@
+<?variable-resolver class="org.zkoss.zkplus.cdi.DelegatingVariableResolver"?>
+<zk>
+	<window title="Access Bean with different scopes" border="normal" width="700px"
+		apply="org.zkoss.reference.developer.composer.ResolverComposer">
+		<vlayout>
+			<hlayout>
+				dependent :
+				<label id="dependentValue">${dependentBean.value}</label>
+			</hlayout>
+			<hlayout>
+				request :
+				<label id="requestValue">${requestBean.value}</label>
+			</hlayout>
+			<hlayout>
+				User Preference :
+				<label id="sessionValue">${userPreference.value}</label>
+			</hlayout>
+			<hlayout>
+				System Configuration :
+				<label id="applicationValue">${systemConfiguration.value}</label>
+			</hlayout>
+		</vlayout>
+		<hlayout>
+			<button label="load dependent bean value"
+				onClick="dependentValue.value=dependentBean.value" />
+			<button label="load request bean value" onClick="requestValue.value=requestBean.value" />
+			<button label="load session bean value"
+				onClick="sessionValue.value=userPreference.value" />
+			<button label="load session bean value"
+				onClick="applicationValue.value=systemConfiguration.value" />
+		</hlayout>
+	</window>
+
+</zk>

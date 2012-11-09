@@ -1,0 +1,13 @@
+<?variable-resolver class="org.zkoss.zkplus.cdi.DelegatingVariableResolver"?>
+<zk>
+	<style>.emphasis{ font-size: 16px; font-weight:bold; }</style>
+	<window title="Composer as a dependent-scoped bean" border="normal" width="500px"
+		apply="${cdiComposer}">
+		<hlayout>
+			value in the composer:
+			<label id="composerValue" sclass="emphasis">${cdiComposer.value}</label>
+		</hlayout>
+		<button id="set" label='set value in the composer to "changed"' />
+		<button label="reload composer's value" onClick="composerValue.value=cdiComposer.value" />
+	</window>
+</zk>

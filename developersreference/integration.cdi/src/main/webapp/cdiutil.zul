@@ -1,0 +1,16 @@
+<window title="CDI utility example" border="normal" width="500px"
+	apply="org.zkoss.reference.developer.composer.DynamicComposer">
+	<hlayout>
+		List Special Order:
+		<checkbox id="specialBox" />
+	</hlayout>
+	<button label="List Order" />
+	<separator/>
+	<grid>
+		<rows>
+			<template name="model">
+				<row>${each}</row>
+			</template>
+		</rows>
+	</grid>
+</window>
