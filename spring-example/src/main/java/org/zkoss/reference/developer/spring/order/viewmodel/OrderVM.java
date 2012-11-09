@@ -12,7 +12,6 @@ package org.zkoss.reference.developer.spring.order.viewmodel;
 
 import java.util.List;
 
-import org.zkoss.bind.annotation.Command;
 import org.zkoss.bind.annotation.NotifyChange;
 import org.zkoss.reference.developer.spring.order.domain.Order;
 import org.zkoss.reference.developer.spring.order.domain.OrderService;

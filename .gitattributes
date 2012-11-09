@@ -112,11 +112,9 @@ spring-example/src/main/java/org/zkoss/reference/developer/spring/order/domain/O
 spring-example/src/main/java/org/zkoss/reference/developer/spring/order/viewmodel/OrderSpringVM.java -text
 spring-example/src/main/java/org/zkoss/reference/developer/spring/order/viewmodel/OrderVM.java -text
 spring-example/src/main/resources/META-INF/persistence.xml -text
-spring-example/src/main/resources/import.sql -text
 spring-example/src/main/resources/log4j.properties -text
 spring-example/src/main/webapp/META-INF/MANIFEST.MF -text
 spring-example/src/main/webapp/WEB-INF/applicationContext.xml -text
-spring-example/src/main/webapp/WEB-INF/dataSource.xml -text
 spring-example/src/main/webapp/WEB-INF/web.xml -text
 spring-example/src/main/webapp/WEB-INF/zk.xml -text
 spring-example/src/main/webapp/order/order.zul -text
