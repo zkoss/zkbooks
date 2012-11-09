@@ -1,29 +1,14 @@
 <?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
-<zk>
-<window title="Access Bean with different scopes" border="normal" width="700px" 
-apply="org.zkoss.reference.developer.composer.ResolverComposer">
-<vlayout>
-	<hlayout>
-		prototype : <label id="prototypeValue">${prototypeBean.value}</label>
-	</hlayout>
-	<hlayout>
-		request : <label id="requestValue">${requestBean.value}</label>
-	</hlayout>
-	<hlayout>
-		session : <label id="sessionValue">${sessionBean.value}</label>
-	</hlayout>
-	<hlayout>
-		singleton : <label id="singletonValue">${singletonBean.value}</label>
-	</hlayout>		
-</vlayout>
-<hlayout>
-<button label="set prototype bean value" onClick="prototypeValue.value=prototypeBean.value"/>
-<button label="set request bean value" onClick="requestValue.value=requestBean.value"/>
-<button label="set session bean value" onClick="sessionValue.value=sessionBean.value"/>
-<button label="set singleton bean value" onClick="singletonValue.value=singletonBean.value"/>	
-</hlayout>
-<separator height="10px"/>
-<button label="Remove Resolver"/>
+<window title="Access Bean with different scopes" border="normal" width="700px"
+	apply="org.zkoss.reference.developer.composer.ResolverComposer">
+	<vlayout>
+		<hlayout>
+			User Preference :
+			<label id="sessionValue">${userPreference.value}</label>
+		</hlayout>
+		<hlayout>
+			System Configuration :
+			<label id="singletonValue">${systemConfiguration.value}</label>
+		</hlayout>
+	</vlayout>
 </window>
-
-</zk>

@@ -1,11 +1,12 @@
 package org.zkoss.reference.developer.scope;
 
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 @Component
-public class SingletonBean {
-	private String value = "singleton bean value"
-			+", hashcode:"+hashCode();
+@Scope("session")
+public class UserPreference {
+	private String value = "user preference value";
 
 	public String getValue() {
 		return value;
