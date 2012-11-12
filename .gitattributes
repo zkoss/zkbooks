@@ -52,6 +52,7 @@ developersreference/developersreference/src/main/webapp/selection-tabbox.zul -te
 developersreference/developersreference/src/main/webapp/selection-tree.zul -text
 developersreference/integration.cdi/.classpath -text
 developersreference/integration.cdi/.project -text
+developersreference/integration.cdi/integration.cdi.launch -text
 developersreference/integration.cdi/pom.xml -text
 developersreference/integration.cdi/src/main/java/org/zkoss/reference/developer/cdi/composer/CdiComposer.java -text
 developersreference/integration.cdi/src/main/java/org/zkoss/reference/developer/cdi/composer/DynamicComposer.java -text
