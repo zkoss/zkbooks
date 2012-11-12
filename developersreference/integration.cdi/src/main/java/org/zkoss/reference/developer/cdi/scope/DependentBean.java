@@ -1,11 +1,10 @@
-package org.zkoss.reference.developer.scope;
+package org.zkoss.reference.developer.cdi.scope;
 
-import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
 
-@RequestScoped @Named
-public class RequestBean {
-	private String value = "Request bean value";
+@Named
+public class DependentBean {
+	private String value = "Dependent bean value";
 
 	public String getValue() {
 		return value;

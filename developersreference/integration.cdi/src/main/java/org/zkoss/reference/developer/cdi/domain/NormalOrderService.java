@@ -1,4 +1,4 @@
-package org.zkoss.reference.developer.domain;
+package org.zkoss.reference.developer.cdi.domain;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -6,13 +6,13 @@ import java.util.List;
 import javax.inject.Named;
 
 @Named
-public class SpecialOrderService implements OrderService{
+public class NormalOrderService implements OrderService{
 
 	private List<String> orderList = new LinkedList<String>();
 	
-	public SpecialOrderService(){
+	public NormalOrderService(){
 		for (int i=0 ; i<10; i++){
-			orderList.add("special-"+i);
+			orderList.add("normal-order-"+i);
 		}
 	}
 	public List<String> findAll(){

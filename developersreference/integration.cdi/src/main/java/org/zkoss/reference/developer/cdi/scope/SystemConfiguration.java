@@ -1,13 +1,13 @@
-package org.zkoss.reference.developer.scope;
+package org.zkoss.reference.developer.cdi.scope;
 
 import java.io.Serializable;
 
-import javax.enterprise.context.SessionScoped;
+import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Named;
 
-@SessionScoped @Named
-public class UserPreference implements Serializable{
-	private String value = "preference setting";
+@ApplicationScoped @Named
+public class SystemConfiguration implements Serializable{
+	private String value = "system configuration value";
 
 	public String getValue() {
 		return value;

@@ -1,4 +1,4 @@
-package org.zkoss.reference.developer.composer;
+package org.zkoss.reference.developer.cdi.composer;
 
 
 import java.util.List;
@@ -7,7 +7,7 @@ import java.util.Set;
 import javax.enterprise.inject.spi.Bean;
 import javax.enterprise.inject.spi.BeanManager;
 
-import org.zkoss.reference.developer.domain.OrderService;
+import org.zkoss.reference.developer.cdi.domain.OrderService;
 import org.zkoss.zk.ui.select.SelectorComposer;
 import org.zkoss.zk.ui.select.annotation.Listen;
 import org.zkoss.zk.ui.select.annotation.VariableResolver;

@@ -1,4 +1,4 @@
-package org.zkoss.reference.developer.domain;
+package org.zkoss.reference.developer.cdi.domain;
 
 import java.util.LinkedList;
 import java.util.List;
