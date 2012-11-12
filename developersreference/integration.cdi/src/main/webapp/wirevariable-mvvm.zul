@@ -1,7 +1,7 @@
 <?variable-resolver class="org.zkoss.zkplus.cdi.DelegatingVariableResolver"?>
 <window border="normal" width="500px"
 	apply="org.zkoss.bind.BindComposer" 
-	viewModel="@id('vm')@init('org.zkoss.reference.developer.composer.MyViewModel')">
+	viewModel="@id('vm')@init('org.zkoss.reference.developer.cdi.composer.MyViewModel')">
 		<hlayout>
 			User Preference :
 			<label value="@load(vm.userPreference.value)"/>

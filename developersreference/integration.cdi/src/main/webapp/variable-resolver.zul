@@ -1,7 +1,7 @@
 <?variable-resolver class="org.zkoss.zkplus.cdi.DelegatingVariableResolver"?>
 <zk>
 	<window title="Access Bean with different scopes" border="normal" width="700px"
-		apply="org.zkoss.reference.developer.composer.ResolverComposer">
+		apply="org.zkoss.reference.developer.cdi.composer.ResolverComposer">
 		<vlayout>
 			<hlayout>
 				dependent :
@@ -18,6 +18,10 @@
 			<hlayout>
 				System Configuration :
 				<label id="applicationValue">${systemConfiguration.value}</label>
+			</hlayout>
+			<hlayout>
+				Total Number of items :
+				<label id="number" />
 			</hlayout>
 		</vlayout>
 		<hlayout>

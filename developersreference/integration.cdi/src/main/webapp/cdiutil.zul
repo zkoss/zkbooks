@@ -1,5 +1,5 @@
 <window title="CDI utility example" border="normal" width="500px"
-	apply="org.zkoss.reference.developer.composer.DynamicComposer">
+	apply="org.zkoss.reference.developer.cdi.composer.DynamicComposer">
 	<hlayout>
 		List Special Order:
 		<checkbox id="specialBox" />
