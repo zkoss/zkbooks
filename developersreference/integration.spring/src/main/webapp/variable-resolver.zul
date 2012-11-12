@@ -10,5 +10,8 @@
 			System Configuration :
 			<label id="singletonValue">${systemConfiguration.value}</label>
 		</hlayout>
+		<hlayout>
+			Total Number of items :<label id="number"/>
+		</hlayout>
 	</vlayout>
 </window>
