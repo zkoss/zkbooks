@@ -1,0 +1,8 @@
+<?page title="" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window title="" border="normal" width="600px" apply="org.zkoss.bind.BindComposer" 
+	viewModel="@id('vm') @init('org.zkoss.reference.developer.hibernate.vm.FilterOrderViewModel')">
+		<checkbox label="Error?"/>
+		<button label="save"/>
+	</window>
+</zk>

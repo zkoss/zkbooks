@@ -97,6 +97,8 @@ developersreference/integration.hibernate/src/main/resources/hibernate.cfg.xml -
 developersreference/integration.hibernate/src/main/resources/import.sql -text
 developersreference/integration.hibernate/src/main/webapp/WEB-INF/applicationContext.xml -text
 developersreference/integration.hibernate/src/main/webapp/WEB-INF/web.xml -text
+developersreference/integration.hibernate/src/main/webapp/filter/order.zul -text
+developersreference/integration.hibernate/src/main/webapp/filter/rollback.zul -text
 developersreference/integration.hibernate/src/main/webapp/order-problem.zul -text
 developersreference/integration.hibernate/src/main/webapp/order.zul -text
 developersreference/integration.hibernate/src/test/java/DaoTest.java -text
