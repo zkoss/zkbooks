@@ -9,11 +9,13 @@ import org.hibernate.Transaction;
 import org.zkoss.reference.developer.hibernate.domain.Order;
 
 /**
- * get session manually
+ * Simple implementation.
+ * Get session and control transaction manually.
  */
-public class OrderDao {
+public class SimpleOrderDao {
 
 	private SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+	
 	public List<Order> findAll() {
 		Session session = sessionFactory.openSession();
 		Query query = session.createQuery("select o from Order as o");
@@ -22,7 +24,7 @@ public class OrderDao {
 		return result;
 	}
 	
-	public Order create(Order newOrder) {
+	public Order save(Order newOrder) {
 		
 		Session session = sessionFactory.openSession();
 		Transaction tx = session.beginTransaction();
@@ -31,5 +33,4 @@ public class OrderDao {
 		session.close();
 		return newOrder;
 	}
-
 }

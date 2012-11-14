@@ -83,7 +83,7 @@ developersreference/integration.hibernate/data/store.script -text
 developersreference/integration.hibernate/pom.xml -text
 developersreference/integration.hibernate/src/main/java/org/zkoss/reference/developer/hibernate/dao/CdiOrderDao.java -text
 developersreference/integration.hibernate/src/main/java/org/zkoss/reference/developer/hibernate/dao/HibernateUtil.java -text
-developersreference/integration.hibernate/src/main/java/org/zkoss/reference/developer/hibernate/dao/OrderDao.java -text
+developersreference/integration.hibernate/src/main/java/org/zkoss/reference/developer/hibernate/dao/SimpleOrderDao.java -text
 developersreference/integration.hibernate/src/main/java/org/zkoss/reference/developer/hibernate/dao/SpringOrderDao.java -text
 developersreference/integration.hibernate/src/main/java/org/zkoss/reference/developer/hibernate/domain/CartItem.java -text
 developersreference/integration.hibernate/src/main/java/org/zkoss/reference/developer/hibernate/domain/Order.java -text
