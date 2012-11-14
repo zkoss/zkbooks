@@ -3,12 +3,17 @@ package org.zkoss.reference.developer.hibernate.vm;
 import java.util.List;
 
 import org.zkoss.bind.annotation.Init;
-import org.zkoss.reference.developer.hibernate.dao.WrongOrderDao;
+import org.zkoss.reference.developer.hibernate.dao.OrderDao;
 import org.zkoss.reference.developer.hibernate.domain.Order;
 
-public class OrderViewModel {
+/**
+ * 
+ * @author Hawk
+ *
+ */
+public class FilterOrderViewModel {
 
-	private WrongOrderDao orderDao = new WrongOrderDao();
+	private OrderDao orderDao = new OrderDao();
 
 	private List<Order> orders ;
 	private Order selectedItem;
@@ -16,6 +21,7 @@ public class OrderViewModel {
 	@Init
 	public void init(){
 		orders = orderDao.findAll();
+		setSelectedItem(orders.get(0));
 	}
 	public List<Order> getOrders() {
 		return orders;

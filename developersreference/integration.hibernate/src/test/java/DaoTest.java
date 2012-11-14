@@ -4,20 +4,20 @@ import java.util.List;
 import junit.framework.Assert;
 
 import org.junit.Test;
-import org.zkoss.reference.developer.hibernate.dao.OrderDao;
+import org.zkoss.reference.developer.hibernate.dao.WrongOrderDao;
 import org.zkoss.reference.developer.hibernate.domain.Order;
 
 
 public class DaoTest {
 
-	OrderDao orderDao = new OrderDao();
+	WrongOrderDao orderDao = new WrongOrderDao();
 
 	@Test
 	public void createOrder(){
 		Order order = new Order();
 		order.setCreateDate(Calendar.getInstance().getTime());
 		order.setDescription("an order for test");
-		order = orderDao.create(order);
+		order = orderDao.save(order);
 		
 		Assert.assertNotNull(order.getId());
 	}

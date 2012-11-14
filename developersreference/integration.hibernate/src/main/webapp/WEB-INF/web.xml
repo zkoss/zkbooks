@@ -23,6 +23,14 @@
 		<listener-class>org.zkoss.zk.ui.http.HttpSessionListener</listener-class>
 	</listener>
 
+	<filter>
+		<filter-name>HibernateSessionRequestFilter</filter-name>
+		<filter-class>org.zkoss.reference.developer.hibernate.web.HibernateSessionRequestFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>HibernateSessionRequestFilter</filter-name>
+		<url-pattern>/filter/*</url-pattern>
+	</filter-mapping>
 	<servlet>
 		<description>ZK loader for ZUML pages</description>
 		<servlet-name>zkLoader</servlet-name>

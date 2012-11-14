@@ -14,6 +14,10 @@
 		<property name="connection.username">sa</property>
 		<property name="connection.password"></property>
 		<property name="hbm2ddl.auto">create</property>
+		<!-- for contextual session, sessionFactory.getCurrentSession() 
+			http://docs.jboss.org/hibernate/core/3.6/reference/en-US/html_single/#architecture-current-session
+		-->
+		<property name="hibernate.current_session_context_class">thread</property>
 
 		<mapping class="org.zkoss.reference.developer.hibernate.domain.Order" />
 		<mapping class="org.zkoss.reference.developer.hibernate.domain.OrderItem" />

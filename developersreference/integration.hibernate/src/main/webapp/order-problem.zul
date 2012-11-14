@@ -1,4 +1,7 @@
 <?page title="" contentType="text/html;charset=UTF-8"?>
+<!--
+	The example page to cause lazy initialization exception. 
+ -->
 <zk>
 	<window title="" border="normal" width="600px" apply="org.zkoss.bind.BindComposer" 
 	viewModel="@id('vm') @init('org.zkoss.reference.developer.hibernate.vm.OrderViewModel')">
@@ -18,7 +21,8 @@
 			</template>
 		</listbox>
 		<separator height="20px"/>
-		<grid model="@load(vm.selectedItem.items)" visible="@load(not empty vm.selectedItem)">
+		<!--the component's model accesses lazy-initialized collection on purpose. -->
+		<grid model="@load(vm.getOrders().get(0).getItems())" visible="@load(not empty vm.selectedItem)">
 			<columns sizable="true">
 				<column label="Name" />
 				<column label="Quantity" />
@@ -34,5 +38,7 @@
 				</template>
 			</rows>
 		</grid>
+<!-- 
+ -->
 	</window>
 </zk>

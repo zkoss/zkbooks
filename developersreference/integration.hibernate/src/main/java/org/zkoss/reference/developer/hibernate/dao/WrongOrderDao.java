@@ -10,10 +10,11 @@ import org.hibernate.Transaction;
 import org.zkoss.reference.developer.hibernate.domain.Order;
 
 /**
- * Simple implementation.
+ * This is a implementation of session-per-operation which is an anti-pattern.
+ * http://docs.jboss.org/hibernate/core/3.6/reference/en-US/html_single/#transactions-basics-uow
  * Get session and control transaction manually.
  */
-public class SimpleOrderDao {
+public class WrongOrderDao {
 
 	private SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
 	
@@ -24,7 +25,7 @@ public class SimpleOrderDao {
 		session.close();
 		return result;
 	}
-	
+
 	public Order save(Order newOrder) throws HibernateException{
 		Session session = sessionFactory.openSession();
 		Transaction tx = null;
@@ -37,8 +38,6 @@ public class SimpleOrderDao {
 				tx.rollback(); 
 			} 
 			throw ex; 
-		}finally{
-			session.close();
 		}
 		return newOrder;
 	}
