@@ -2,6 +2,7 @@ package org.zkoss.reference.developer.hibernate.dao;
 
 import java.util.List;
 
+import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -24,13 +25,21 @@ public class SimpleOrderDao {
 		return result;
 	}
 	
-	public Order save(Order newOrder) {
-		
+	public Order save(Order newOrder) throws HibernateException{
 		Session session = sessionFactory.openSession();
-		Transaction tx = session.beginTransaction();
-		session.save(newOrder);
-		tx.commit();
-		session.close();
+		Transaction tx = null;
+		try{
+			tx = session.beginTransaction();
+			session.save(newOrder);
+			tx.commit();
+		}catch(HibernateException ex){
+			if (tx != null) { 
+				tx.rollback(); 
+			} 
+			throw ex; 
+		}finally{
+			session.close();
+		}
 		return newOrder;
 	}
 }
