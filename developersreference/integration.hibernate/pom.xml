@@ -38,9 +38,10 @@ Hibernate - maven setup: http://docs.jboss.org/hibernate/core/3.6/reference/en-U
   		<version>3.0.7.RELEASE</version>
   	</dependency>
   	<dependency>
-  		<groupId>org.jboss.weld.servlet</groupId>
-  		<artifactId>weld-servlet</artifactId>
-  		<version>1.1.8.Final</version>
+  		<groupId>javax.servlet</groupId>
+  		<artifactId>servlet-api</artifactId>
+  		<version>2.5</version>
+  		<scope>provided</scope>
   	</dependency>
   </dependencies>
 </project>
