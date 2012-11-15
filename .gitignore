@@ -1,5 +1,6 @@
 developersreference/developersreference/target
 developersreference/integration.cdi/.settings
+developersreference/integration.hibernate/.settings
 developersreference/integration.spring/.settings
 document/.classpath
 document/.settings
