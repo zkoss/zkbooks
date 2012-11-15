@@ -9,8 +9,8 @@ import org.zkoss.reference.developer.hibernate.domain.Order;
  */
 public class RollbackViewModel {
 
-
 	private Order newOrder;
+	
 
 	public Order getNewOrder() {
 		return newOrder;

@@ -77,11 +77,7 @@ developersreference/integration.cdi/src/main/webapp/wirevariable-mvvm.zul -text
 developersreference/integration.cdi/src/main/webapp/wirevariable.zul -text
 developersreference/integration.hibernate/.classpath -text
 developersreference/integration.hibernate/.project -text
-developersreference/integration.hibernate/data/store.lck -text
-developersreference/integration.hibernate/data/store.properties -text
-developersreference/integration.hibernate/data/store.script -text
 developersreference/integration.hibernate/pom.xml -text
-developersreference/integration.hibernate/src/main/java/org/zkoss/reference/developer/hibernate/dao/CdiOrderDao.java -text
 developersreference/integration.hibernate/src/main/java/org/zkoss/reference/developer/hibernate/dao/HibernateUtil.java -text
 developersreference/integration.hibernate/src/main/java/org/zkoss/reference/developer/hibernate/dao/OrderDao.java -text
 developersreference/integration.hibernate/src/main/java/org/zkoss/reference/developer/hibernate/dao/SpringOrderDao.java -text
