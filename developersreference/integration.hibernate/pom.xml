@@ -43,5 +43,15 @@ Hibernate - maven setup: http://docs.jboss.org/hibernate/core/3.6/reference/en-U
   		<version>2.5</version>
   		<scope>provided</scope>
   	</dependency>
+  	<dependency>
+  		<groupId>org.springframework</groupId>
+  		<artifactId>spring-orm</artifactId>
+  		<version>3.0.7.RELEASE</version>
+  	</dependency>
+  	<dependency>
+  		<groupId>cglib</groupId>
+  		<artifactId>cglib</artifactId>
+  		<version>2.2</version>
+  	</dependency>
   </dependencies>
 </project>
