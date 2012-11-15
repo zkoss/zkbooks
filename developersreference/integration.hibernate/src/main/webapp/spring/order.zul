@@ -1,0 +1,41 @@
+<?page title="" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window title="Order Viewer" border="normal" width="600px" apply="org.zkoss.bind.BindComposer"
+		viewModel="@id('vm') @init('org.zkoss.reference.developer.hibernate.vm.SpringOrderViewModel')">
+		<listbox model="@load(vm.orders)" selectedItem="@bind(vm.selectedItem)">
+			<listhead>
+				<listheader label="ID" width="50px"/>
+				<listheader label="Description" />
+				<listheader label="Status" />
+			</listhead>
+			<template name="model" var="order">
+				<listitem>
+					<listcell label="@load(order.id) " />
+					<listcell label="@load(order.description)" />
+					<listcell label="@load(order.status)" />
+				</listitem>
+			</template>
+		</listbox>
+		<separator height="20px" />
+		<groupbox>
+			<caption label="Details" />
+			<grid model="@load(vm.selectedItem.items)" visible="@load(not empty vm.selectedItem)">
+				<columns sizable="true">
+					<column label="Name" />
+					<column label="Quantity" width="100px" />
+					<column label="Price" width="100px"/>
+				</columns>
+				<rows>
+					<template name="model" var="item">
+						<row>
+							<label value="@load(item.name)" />
+							<label value="@load(item.quantity)" />
+							<label
+								value="@load(item.price) @converter('formattedNumber', format='###,##0.0#')" />
+						</row>
+					</template>
+				</rows>
+			</grid>
+		</groupbox>
+	</window>
+</zk>
