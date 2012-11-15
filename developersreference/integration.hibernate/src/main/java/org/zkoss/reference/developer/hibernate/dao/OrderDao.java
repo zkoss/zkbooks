@@ -2,6 +2,7 @@ package org.zkoss.reference.developer.hibernate.dao;
 
 import java.util.List;
 
+import org.hibernate.Hibernate;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -21,7 +22,7 @@ public class OrderDao {
 	public List<Order> findAll() {
 		Session session = sessionFactory.getCurrentSession();
 		Query query = session.createQuery("select o from Order as o");
-		List result = query.list();
+		List<Order> result = query.list();
 		return result;
 	}
 
@@ -42,5 +43,18 @@ public class OrderDao {
 		session.save(newOrder);
 		// throw exception to test
 		throw new HibernateException("error save");
+	}
+	/**
+	 * Initialize lazy-loaded collection.
+	 * @param order
+	 * @return
+	 */
+	public Order load(Order order){
+		//check to avoid initializing again
+		if (!Hibernate.isInitialized(order.getItems())){
+			order = (Order)sessionFactory.getCurrentSession().load(Order.class, order.getId());
+			Hibernate.initialize(order.getItems());
+		}
+		return order;
 	}
 }

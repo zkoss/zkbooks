@@ -31,6 +31,7 @@ public class OrderViewModel {
 		this.orders = orders;
 	}
 	public Order getSelectedItem() {
+		selectedItem = orderDao.load(selectedItem); 
 		return selectedItem;
 	}
 	public void setSelectedItem(Order selectedItem) {
