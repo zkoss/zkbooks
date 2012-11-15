@@ -31,6 +31,10 @@
 		<filter-name>HibernateSessionRequestFilter</filter-name>
 		<url-pattern>/filter/*</url-pattern>
 	</filter-mapping>
+	<filter-mapping>
+		<filter-name>HibernateSessionRequestFilter</filter-name>
+		<url-pattern>/zkau/*</url-pattern>
+	</filter-mapping>	
 	<servlet>
 		<description>ZK loader for ZUML pages</description>
 		<servlet-name>zkLoader</servlet-name>

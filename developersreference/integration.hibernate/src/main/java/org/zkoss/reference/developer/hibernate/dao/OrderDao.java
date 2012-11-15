@@ -34,7 +34,13 @@ public class OrderDao {
 	public Order save(Order newOrder) throws HibernateException{
 		Session session = sessionFactory.getCurrentSession();
 		session.save(newOrder);
-		//TODO throw exception to test
 		return newOrder;
+	}
+	
+	public void errorSave(Order newOrder) throws HibernateException{
+		Session session = sessionFactory.getCurrentSession();
+		session.save(newOrder);
+		// throw exception to test
+		throw new HibernateException("error save");
 	}
 }
