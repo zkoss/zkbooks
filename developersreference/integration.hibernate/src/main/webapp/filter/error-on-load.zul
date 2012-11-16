@@ -1,0 +1,29 @@
+<?page title="" contentType="text/html;charset=UTF-8"?>
+<!-- Errors tha happen on loading a zul can be caught by servlet filter.
+Then rollback in filter takes effect.
+  -->
+<zk>
+	<zscript>
+		import org.zkoss.reference.developer.hibernate.dao.OrderDao;
+		import org.zkoss.reference.developer.hibernate.domain.*;
+		OrderDao dao = new OrderDao();
+		dao.errorSave(new Order());
+	</zscript>
+	<window title="" border="normal" width="600px" apply="org.zkoss.bind.BindComposer"
+		viewModel="@id('vm') @init('org.zkoss.reference.developer.hibernate.vm.RollbackViewModel')">
+		<listbox model="@load(vm.orders)" >
+			<listhead>
+				<listheader label="ID" />
+				<listheader label="Description" />
+				<listheader label="Status" />
+			</listhead>
+			<template name="model" var="order">
+				<listitem>
+					<listcell label="@load(order.id) " />
+					<listcell label="@load(order.description)" />
+					<listcell label="@load(order.status)" />
+				</listitem>
+			</template>
+		</listbox>
+	</window>	
+</zk>
