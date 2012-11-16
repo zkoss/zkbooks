@@ -23,7 +23,7 @@ public class SpringOrderDao {
 	@Autowired
 	private SessionFactory sessionFactory;
 	
-	@Transactional
+//	@Transactional
 	public List<Order> findAll() {
 		Session session = sessionFactory.getCurrentSession();
 		Query query = session.createQuery("select o from Order as o");
@@ -48,6 +48,7 @@ public class SpringOrderDao {
 		Session session = sessionFactory.getCurrentSession();
 		session.save(newOrder);
 		// throw exception to test
+		//FIXME no rollback
 		throw new HibernateException("error save");
 	}
 	/**

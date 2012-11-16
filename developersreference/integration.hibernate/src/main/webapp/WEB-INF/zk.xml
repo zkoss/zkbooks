@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- zk.xml Purpose: Description: History: Sun Mar 26 16:29:07 2006, Created by tomyeh Copyright (C) 
+	2006 Potix Corporation. All Rights Reserved. -->
+
+<zk>
+	<!-- <error-page> <exception-type>java.lang.Throwable</exception-type> <location>/filter/error.zul</location> 
+		</error-page> -->
+	<listener>
+		<listener-class>org.zkoss.reference.developer.hibernate.web.OpenSessionInViewListener</listener-class>
+	</listener>
+</zk>

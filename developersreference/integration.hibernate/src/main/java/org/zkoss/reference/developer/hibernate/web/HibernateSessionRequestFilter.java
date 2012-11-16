@@ -11,6 +11,7 @@ import javax.servlet.ServletResponse;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.hibernate.HibernateException;
 import org.hibernate.SessionFactory;
 import org.hibernate.StaleObjectStateException;
 import org.zkoss.reference.developer.hibernate.dao.HibernateUtil;
@@ -43,7 +44,7 @@ public class HibernateSessionRequestFilter implements Filter{
             // give the user of the application a chance to merge some of his work with
             // fresh data... what you do here depends on your applications design.
             throw staleEx;
-        } catch (Throwable ex) {
+        } catch (HibernateException ex) {
             // Rollback only
             ex.printStackTrace();
             try {

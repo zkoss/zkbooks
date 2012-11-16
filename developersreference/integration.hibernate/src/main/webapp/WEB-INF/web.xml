@@ -23,18 +23,6 @@
 		<listener-class>org.zkoss.zk.ui.http.HttpSessionListener</listener-class>
 	</listener>
 
-	<filter>
-		<filter-name>HibernateSessionRequestFilter</filter-name>
-		<filter-class>org.zkoss.reference.developer.hibernate.web.HibernateSessionRequestFilter</filter-class>
-	</filter>
-	<filter-mapping>
-		<filter-name>HibernateSessionRequestFilter</filter-name>
-		<url-pattern>/filter/*</url-pattern>
-	</filter-mapping>
-	<filter-mapping>
-		<filter-name>HibernateSessionRequestFilter</filter-name>
-		<url-pattern>/zkau/*</url-pattern>
-	</filter-mapping>
 	
 	<!-- Spring filter -->
 	<filter>

@@ -92,11 +92,13 @@ developersreference/integration.hibernate/src/main/java/org/zkoss/reference/deve
 developersreference/integration.hibernate/src/main/java/org/zkoss/reference/developer/hibernate/vm/RollbackViewModel.java -text
 developersreference/integration.hibernate/src/main/java/org/zkoss/reference/developer/hibernate/vm/SpringOrderViewModel.java -text
 developersreference/integration.hibernate/src/main/java/org/zkoss/reference/developer/hibernate/web/HibernateSessionRequestFilter.java -text
+developersreference/integration.hibernate/src/main/java/org/zkoss/reference/developer/hibernate/web/OpenSessionInViewListener.java -text
 developersreference/integration.hibernate/src/main/resources/hibernate.cfg.xml -text
 developersreference/integration.hibernate/src/main/resources/import.sql -text
 developersreference/integration.hibernate/src/main/resources/spring.hibernate.cfg.xml -text
 developersreference/integration.hibernate/src/main/webapp/WEB-INF/applicationContext.xml -text
 developersreference/integration.hibernate/src/main/webapp/WEB-INF/web.xml -text
+developersreference/integration.hibernate/src/main/webapp/WEB-INF/zk.xml -text
 developersreference/integration.hibernate/src/main/webapp/filter/error-on-load.zul -text
 developersreference/integration.hibernate/src/main/webapp/filter/order.zul -text
 developersreference/integration.hibernate/src/main/webapp/filter/rollback.zul -text
