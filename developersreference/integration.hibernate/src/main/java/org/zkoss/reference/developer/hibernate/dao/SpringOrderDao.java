@@ -46,10 +46,14 @@ public class SpringOrderDao {
 	
 	public void errorSave(Order newOrder) throws HibernateException{
 		Session session = sessionFactory.getCurrentSession();
-		session.save(newOrder);
-		// throw exception to test
-		//FIXME no rollback
-		throw new HibernateException("error save");
+		try{
+			session.save(newOrder);
+			// throw exception to test
+			//FIXME no rollback
+			throw new HibernateException("error save");
+		}catch (Exception e) {
+			session.getTransaction().rollback();
+		}
 	}
 	/**
 	 * Initialize lazy-loaded collection.
