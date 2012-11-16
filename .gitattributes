@@ -91,6 +91,7 @@ developersreference/integration.hibernate/src/main/java/org/zkoss/reference/deve
 developersreference/integration.hibernate/src/main/java/org/zkoss/reference/developer/hibernate/vm/OrderViewModel.java -text
 developersreference/integration.hibernate/src/main/java/org/zkoss/reference/developer/hibernate/vm/RollbackViewModel.java -text
 developersreference/integration.hibernate/src/main/java/org/zkoss/reference/developer/hibernate/vm/SpringOrderViewModel.java -text
+developersreference/integration.hibernate/src/main/java/org/zkoss/reference/developer/hibernate/vm/SpringRollbackViewModel.java -text
 developersreference/integration.hibernate/src/main/java/org/zkoss/reference/developer/hibernate/web/HibernateSessionRequestFilter.java -text
 developersreference/integration.hibernate/src/main/java/org/zkoss/reference/developer/hibernate/web/OpenSessionInViewListener.java -text
 developersreference/integration.hibernate/src/main/resources/hibernate.cfg.xml -text
