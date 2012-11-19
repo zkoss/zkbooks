@@ -24,6 +24,7 @@ public class RollbackViewModel {
 	@Init
 	public void init(){
 		orders = orderDao.findAll();
+//		orders = orderDao.findAllNewSession();
 	}
 	
 	@Command @NotifyChange("orders")
@@ -38,7 +39,14 @@ public class RollbackViewModel {
 		orders = orderDao.findAll();
 	}
 	
-
+	@Command @NotifyChange("orders")
+	public void noTransactionalAdd(){
+		Order newOrder = new Order();
+		newOrder.setDescription("auto add "+Calendar.getInstance().getTime());
+		orderDao.saveNonTransactional(newOrder);
+//		orders = orderDao.findAll();
+	}
+	
 	public List<Order> getOrders() {
 		return orders;
 	}

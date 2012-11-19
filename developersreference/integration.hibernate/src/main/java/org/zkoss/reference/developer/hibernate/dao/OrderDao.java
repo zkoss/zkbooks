@@ -1,5 +1,6 @@
 package org.zkoss.reference.developer.hibernate.dao;
 
+import java.sql.SQLException;
 import java.util.List;
 
 import org.hibernate.Hibernate;
@@ -56,5 +57,26 @@ public class OrderDao {
 			Hibernate.initialize(order.getItems());
 		}
 		return order;
+	}
+	
+	public void saveNonTransactional(Order newOrder) throws HibernateException{
+		Session session = sessionFactory.openSession();
+//		session.getTransaction().begin();
+		try{
+			System.out.println("autocommit:"+session.connection().getAutoCommit());
+		}catch (SQLException e) {
+			// TODO: handle exception
+		}
+		session.save(newOrder);
+		session.close();
+//		session.getTransaction().commit();
+	}
+	
+	public List<Order> findAllNewSession() {
+		Session session = sessionFactory.openSession();
+		Query query = session.createQuery("select o from Order as o");
+		List<Order> result = query.list();
+		session.close();
+		return result;
 	}
 }

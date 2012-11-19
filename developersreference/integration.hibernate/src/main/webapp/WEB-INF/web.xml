@@ -13,7 +13,8 @@
 			/WEB-INF/applicationContext.xml
 		</param-value>
 	</context-param>
-	<!-- Loads the Spring web application context -->
+	<!-- Loads the Spring web application context 
+	-->
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
@@ -30,7 +31,6 @@
 		<filter-class>org.springframework.orm.hibernate3.support.OpenSessionInViewFilter</filter-class>
 	</filter>
 	<!-- 
-	 -->
 	<filter-mapping>
 		<filter-name>OpenSessionInViewFilter</filter-name>
 		<url-pattern>/spring/*</url-pattern>
@@ -39,6 +39,7 @@
 		<filter-name>OpenSessionInViewFilter</filter-name>
 		<url-pattern>/zkau/*</url-pattern>
 	</filter-mapping>
+	 -->
 	
 	<servlet>
 		<description>ZK loader for ZUML pages</description>

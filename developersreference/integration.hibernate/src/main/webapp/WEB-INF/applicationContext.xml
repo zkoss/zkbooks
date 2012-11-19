@@ -16,6 +16,9 @@
 		<property name="username" value="sa" />
 		<property name="password" value="" />
 	</bean>
+	<!-- 
+		hibernate.current_session_context_class=thread
+ 	-->
 	<bean id="sessionFactory" class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
 		<property name="hibernateProperties">
@@ -23,6 +26,8 @@
 				hibernate.dialect=org.hibernate.dialect.HSQLDialect
 				hibernate.hbm2ddl.auto=crate
 				hibernate.show_sql=true
+				hibernate.connection.pool_size=5
+				hibernate.connection.autocommit=false
 			</value>
 		</property>
 		<property name="annotatedClasses">

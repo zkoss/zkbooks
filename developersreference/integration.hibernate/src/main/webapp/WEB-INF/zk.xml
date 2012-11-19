@@ -7,6 +7,12 @@
 	<!-- <error-page> <exception-type>java.lang.Throwable</exception-type> <location>/filter/error.zul</location> 
 		</error-page> -->
 	<listener>
-		<listener-class>org.zkoss.reference.developer.hibernate.web.OpenSessionInViewListener</listener-class>
+		<listener-class>org.zkoss.reference.developer.hibernate.web.OpenSessionInViewListener
+		</listener-class>
 	</listener>
+	<listener>
+		<listener-class>org.zkoss.reference.developer.hibernate.web.SpringOpenSessionInExecutionListener
+		</listener-class>
+	</listener>
+
 </zk>

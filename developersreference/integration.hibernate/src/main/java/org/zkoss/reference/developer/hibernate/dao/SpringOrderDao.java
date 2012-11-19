@@ -23,7 +23,6 @@ public class SpringOrderDao {
 	@Autowired
 	private SessionFactory sessionFactory;
 	
-//	@Transactional
 	public List<Order> findAll() {
 		Session session = sessionFactory.getCurrentSession();
 		Query query = session.createQuery("select o from Order as o");
@@ -41,19 +40,16 @@ public class SpringOrderDao {
 		//FIXME handle rollback
 		Session session = sessionFactory.getCurrentSession();
 		session.save(newOrder);
+//		session.getTransaction().commit(); no transaction started
 		return newOrder;
 	}
 	
 	public void errorSave(Order newOrder) throws HibernateException{
 		Session session = sessionFactory.getCurrentSession();
-		try{
-			session.save(newOrder);
-			// throw exception to test
-			//FIXME no rollback
-			throw new HibernateException("error save");
-		}catch (Exception e) {
-			session.getTransaction().rollback();
-		}
+		session.save(newOrder);
+		// throw exception to test
+		//FIXME no rollback
+		throw new HibernateException("error save");
 	}
 	/**
 	 * Initialize lazy-loaded collection.
@@ -62,10 +58,16 @@ public class SpringOrderDao {
 	 */
 	public Order load(Order order){
 		//check to avoid initializing again
-		if (!Hibernate.isInitialized(order.getItems())){
+		if (order.getId()!=null && !Hibernate.isInitialized(order.getItems())){
 			order = (Order)sessionFactory.getCurrentSession().load(Order.class, order.getId());
 			Hibernate.initialize(order.getItems());
 		}
+		/* implementation 2
+		Session session = sessionFactory.getCurrentSession(); 
+		if (!session.contains(order)){ //detached to current session
+			order = (Order)session.load(Order.class, order.getId());
+		}
+		 */
 		return order;
 	}
 }

@@ -18,5 +18,7 @@
 		</listbox>
 		<checkbox label="Error during add?" checked="@bind(vm.error)"/>
 		<button label="add" onClick="@command('add')"/>
+		<button label="noTransactionalAdd" onClick="@command('noTransactionalAdd')"/>
+		
 	</window>
 </zk>

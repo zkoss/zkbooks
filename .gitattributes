@@ -94,6 +94,7 @@ developersreference/integration.hibernate/src/main/java/org/zkoss/reference/deve
 developersreference/integration.hibernate/src/main/java/org/zkoss/reference/developer/hibernate/vm/SpringRollbackViewModel.java -text
 developersreference/integration.hibernate/src/main/java/org/zkoss/reference/developer/hibernate/web/HibernateSessionRequestFilter.java -text
 developersreference/integration.hibernate/src/main/java/org/zkoss/reference/developer/hibernate/web/OpenSessionInViewListener.java -text
+developersreference/integration.hibernate/src/main/java/org/zkoss/reference/developer/hibernate/web/SpringOpenSessionInExecutionListener.java -text
 developersreference/integration.hibernate/src/main/resources/hibernate.cfg.xml -text
 developersreference/integration.hibernate/src/main/resources/import.sql -text
 developersreference/integration.hibernate/src/main/resources/log4j.properties -text
