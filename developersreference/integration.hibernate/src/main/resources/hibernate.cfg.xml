@@ -6,19 +6,23 @@
 <hibernate-configuration>
 
 	<session-factory>
-		<property name="show_sql">true</property>
-		<property name="format_sql">true</property>
-		<property name="dialect">org.hibernate.dialect.HSQLDialect</property>
+		<!-- JDBC connection -->
 		<property name="connection.driver_class">org.hsqldb.jdbcDriver</property>
 		<property name="connection.url">jdbc:hsqldb:file:data/store</property>
 		<property name="connection.username">sa</property>
 		<property name="connection.password"></property>
+		<property name="connection.pool_size">5</property>
+		<property name="connection.autocommit">false</property>
+		<!-- Optional configuration -->
+		<property name="show_sql">true</property>
+		<property name="format_sql">true</property>
+		<property name="dialect">org.hibernate.dialect.HSQLDialect</property>
 		<property name="hbm2ddl.auto">create</property>
 		<!-- for contextual session, sessionFactory.getCurrentSession() 
 			http://docs.jboss.org/hibernate/core/3.6/reference/en-US/html_single/#architecture-current-session
 		-->
-		<property name="hibernate.current_session_context_class">thread</property>
-
+		<property name="current_session_context_class">thread</property>
+		
 		<mapping class="org.zkoss.reference.developer.hibernate.domain.Order" />
 		<mapping class="org.zkoss.reference.developer.hibernate.domain.OrderItem" />
 	</session-factory>
