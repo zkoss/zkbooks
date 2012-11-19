@@ -4,15 +4,17 @@ import java.util.List;
 import junit.framework.Assert;
 
 import org.junit.Test;
+import org.zkoss.reference.developer.hibernate.dao.OrderDao;
 import org.zkoss.reference.developer.hibernate.dao.WrongOrderDao;
 import org.zkoss.reference.developer.hibernate.domain.Order;
 
 
 public class DaoTest {
 
-	WrongOrderDao orderDao = new WrongOrderDao();
-
-	@Test
+	WrongOrderDao wrongOrderDao = new WrongOrderDao();
+	OrderDao orderDao = new OrderDao();
+	
+//	@Test
 	public void createOrder(){
 		Order order = new Order();
 		order.setCreateDate(Calendar.getInstance().getTime());
@@ -21,10 +23,20 @@ public class DaoTest {
 		
 		Assert.assertNotNull(order.getId());
 	}
+	@Test
+	public void saveNonTransaction(){
+		Order order = new Order();
+		order.setCreateDate(Calendar.getInstance().getTime());
+		order.setDescription("an order for test");
+		orderDao.saveNonTransactional(order);
+		List result = orderDao.findAllNewSession();
+		Assert.assertEquals(3, result.size());
+	}
 	
 	@Test
 	public void findAll(){
-		List result = orderDao.findAll();
+		List result = orderDao.findAllNewSession();
 		Assert.assertEquals(2, result.size());
 	}
+	
 }
