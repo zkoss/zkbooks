@@ -17,6 +17,13 @@
 			</template>
 		</listbox>
 		<checkbox label="Error during add?" checked="@bind(vm.error)"/>
-		<button label="add" onClick="@command('add')" />
+		<groupbox>
+			<caption>Use DAO Layer</caption>
+			<button label="add" onClick="@command('add')" />
+		</groupbox>
+		<groupbox>
+			<caption>Use Service Layer</caption>
+			<button label="add" onClick="@command('create')"/>
+		</groupbox>
 	</window>
 </zk>

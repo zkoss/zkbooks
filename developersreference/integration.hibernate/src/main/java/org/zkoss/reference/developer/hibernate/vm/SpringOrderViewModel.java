@@ -36,7 +36,7 @@ public class SpringOrderViewModel {
 	}
 	public Order getSelectedItem() {
 		if (selectedItem!=null){
-//			selectedItem = springOrderDao.load(selectedItem);
+			selectedItem = springOrderDao.load(selectedItem);
 		}
 		return selectedItem;
 	}

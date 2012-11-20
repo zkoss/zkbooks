@@ -87,6 +87,7 @@ developersreference/integration.hibernate/src/main/java/org/zkoss/reference/deve
 developersreference/integration.hibernate/src/main/java/org/zkoss/reference/developer/hibernate/domain/OrderItem.java -text
 developersreference/integration.hibernate/src/main/java/org/zkoss/reference/developer/hibernate/domain/Product.java -text
 developersreference/integration.hibernate/src/main/java/org/zkoss/reference/developer/hibernate/domain/User.java -text
+developersreference/integration.hibernate/src/main/java/org/zkoss/reference/developer/hibernate/service/OrderService.java -text
 developersreference/integration.hibernate/src/main/java/org/zkoss/reference/developer/hibernate/vm/OldOrderViewModel.java -text
 developersreference/integration.hibernate/src/main/java/org/zkoss/reference/developer/hibernate/vm/OrderViewModel.java -text
 developersreference/integration.hibernate/src/main/java/org/zkoss/reference/developer/hibernate/vm/RollbackViewModel.java -text
@@ -107,6 +108,7 @@ developersreference/integration.hibernate/src/main/webapp/filter/rollback.zul -t
 developersreference/integration.hibernate/src/main/webapp/order-problem.zul -text
 developersreference/integration.hibernate/src/main/webapp/order.zul -text
 developersreference/integration.hibernate/src/main/webapp/spring/order.zul -text
+developersreference/integration.hibernate/src/main/webapp/spring/rollback-test.zul -text
 developersreference/integration.hibernate/src/main/webapp/spring/rollback.zul -text
 developersreference/integration.hibernate/src/test/java/DaoTest.java -text
 developersreference/integration.spring/.classpath -text
