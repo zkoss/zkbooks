@@ -10,7 +10,7 @@
 			<property name="hibernate.connection.password" value="" />
 			<property name="hibernate.show_sql" value="true" />
 			<property name="hibernate.connection.url" value="jdbc:hsqldb:file:data/store" />
-			<property name="hibernate.hbm2ddl.auto" value="create-drop" />
+			<property name="hibernate.hbm2ddl.auto" value="update" />
 		</properties>
 	</persistence-unit>
 </persistence>
