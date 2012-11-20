@@ -102,9 +102,9 @@ developersreference/integration.hibernate/src/main/resources/log4j.properties -t
 developersreference/integration.hibernate/src/main/webapp/WEB-INF/applicationContext.xml -text
 developersreference/integration.hibernate/src/main/webapp/WEB-INF/web.xml -text
 developersreference/integration.hibernate/src/main/webapp/WEB-INF/zk.xml -text
-developersreference/integration.hibernate/src/main/webapp/filter/error-on-load.zul -text
-developersreference/integration.hibernate/src/main/webapp/filter/order.zul -text
-developersreference/integration.hibernate/src/main/webapp/filter/rollback.zul -text
+developersreference/integration.hibernate/src/main/webapp/homemade/error-on-load.zul -text
+developersreference/integration.hibernate/src/main/webapp/homemade/order.zul -text
+developersreference/integration.hibernate/src/main/webapp/homemade/rollback.zul -text
 developersreference/integration.hibernate/src/main/webapp/order-problem.zul -text
 developersreference/integration.hibernate/src/main/webapp/order.zul -text
 developersreference/integration.hibernate/src/main/webapp/spring/order.zul -text
