@@ -82,11 +82,8 @@ developersreference/integration.hibernate/src/main/java/org/zkoss/reference/deve
 developersreference/integration.hibernate/src/main/java/org/zkoss/reference/developer/hibernate/dao/OrderDao.java -text
 developersreference/integration.hibernate/src/main/java/org/zkoss/reference/developer/hibernate/dao/SpringOrderDao.java -text
 developersreference/integration.hibernate/src/main/java/org/zkoss/reference/developer/hibernate/dao/WrongOrderDao.java -text
-developersreference/integration.hibernate/src/main/java/org/zkoss/reference/developer/hibernate/domain/CartItem.java -text
 developersreference/integration.hibernate/src/main/java/org/zkoss/reference/developer/hibernate/domain/Order.java -text
 developersreference/integration.hibernate/src/main/java/org/zkoss/reference/developer/hibernate/domain/OrderItem.java -text
-developersreference/integration.hibernate/src/main/java/org/zkoss/reference/developer/hibernate/domain/Product.java -text
-developersreference/integration.hibernate/src/main/java/org/zkoss/reference/developer/hibernate/domain/User.java -text
 developersreference/integration.hibernate/src/main/java/org/zkoss/reference/developer/hibernate/service/OrderService.java -text
 developersreference/integration.hibernate/src/main/java/org/zkoss/reference/developer/hibernate/vm/OldOrderViewModel.java -text
 developersreference/integration.hibernate/src/main/java/org/zkoss/reference/developer/hibernate/vm/OrderViewModel.java -text
