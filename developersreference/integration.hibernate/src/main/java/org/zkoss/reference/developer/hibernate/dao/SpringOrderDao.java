@@ -29,12 +29,6 @@ public class SpringOrderDao {
 		return result;
 	}
 
-	/**
-	 * rollback is handled in filter.
-	 * @param newOrder
-	 * @return
-	 * @throws HibernateException
-	 */
 	@Transactional
 	public Order save(Order newOrder) throws HibernateException{
 		Session session = sessionFactory.getCurrentSession();
