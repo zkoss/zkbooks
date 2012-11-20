@@ -1,0 +1,22 @@
+<?page title="" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window title="" border="normal" width="600px" apply="org.zkoss.bind.BindComposer"
+		viewModel="@id('vm') @init('org.zkoss.reference.developer.jpa.vm.SpringRollbackViewModel')">
+		<listbox model="@load(vm.orders)" >
+			<listhead>
+				<listheader label="ID" />
+				<listheader label="Description" />
+				<listheader label="Status" />
+			</listhead>
+			<template name="model" var="order">
+				<listitem>
+					<listcell label="@load(order.id) " />
+					<listcell label="@load(order.description)" />
+					<listcell label="@load(order.status)" />
+				</listitem>
+			</template>
+		</listbox>
+		<checkbox label="Error during add?" checked="@bind(vm.error)"/>
+		<button label="add" onClick="@command('add')" />
+	</window>
+</zk>
