@@ -23,7 +23,8 @@ public class SpringOrderDao {
 	@Autowired
 	private SessionFactory sessionFactory;
 	
-	public List<Order> findAll() {
+	@Transactional(readOnly=true)
+	public List<Order> queryAll() {
 		Session session = sessionFactory.getCurrentSession();
 		Query query = session.createQuery("select o from Order as o");
 		List<Order> result = query.list();
@@ -36,6 +37,7 @@ public class SpringOrderDao {
 	 * @return
 	 * @throws HibernateException
 	 */
+	@Transactional
 	public Order save(Order newOrder) throws HibernateException{
 		//FIXME handle rollback
 		Session session = sessionFactory.getCurrentSession();
@@ -44,11 +46,12 @@ public class SpringOrderDao {
 		return newOrder;
 	}
 	
-	public void errorSave(Order newOrder) throws HibernateException{
+	@Transactional(rollbackFor=HibernateException.class)
+	public void errorSave(Order newOrder){
 		Session session = sessionFactory.getCurrentSession();
 		session.save(newOrder);
+		session.flush(); //force flush
 		// throw exception to test
-		//FIXME no rollback
 		throw new HibernateException("error save");
 	}
 	/**

@@ -8,6 +8,7 @@ import org.zkoss.bind.annotation.Init;
 import org.zkoss.bind.annotation.NotifyChange;
 import org.zkoss.reference.developer.hibernate.dao.SpringOrderDao;
 import org.zkoss.reference.developer.hibernate.domain.Order;
+import org.zkoss.reference.developer.hibernate.service.OrderService;
 import org.zkoss.zk.ui.select.annotation.VariableResolver;
 import org.zkoss.zk.ui.select.annotation.WireVariable;
 
@@ -22,12 +23,15 @@ public class SpringRollbackViewModel {
 	@WireVariable
 	private SpringOrderDao springOrderDao; 
 	
+	@WireVariable
+	private OrderService orderService; 
+	
 	private List<Order> orders ;
 	private boolean error= false;
 	
 	@Init
 	public void init(){
-		orders = springOrderDao.findAll();
+		orders = springOrderDao.queryAll();
 	}
 	
 	@Command @NotifyChange("orders")
@@ -39,8 +43,18 @@ public class SpringRollbackViewModel {
 		}else{
 			springOrderDao.save(newOrder);
 		}
-		orders = springOrderDao.findAll();
+		orders = springOrderDao.queryAll();
 	}
+	
+	@Command @NotifyChange("orders")
+	public void create(){
+		if (error){
+			orderService.createAndError();
+		}else{
+			orderService.create();
+		}
+		orders = orderService.findAll();
+	}	
 	
 
 	public List<Order> getOrders() {

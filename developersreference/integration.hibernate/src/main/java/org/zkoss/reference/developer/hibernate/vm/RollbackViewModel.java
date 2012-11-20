@@ -23,8 +23,8 @@ public class RollbackViewModel {
 	
 	@Init
 	public void init(){
-		orders = orderDao.findAll();
-//		orders = orderDao.findAllNewSession();
+//		orders = orderDao.findAll();
+		orders = orderDao.findAllNewSession();
 	}
 	
 	@Command @NotifyChange("orders")

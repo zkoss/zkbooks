@@ -3,11 +3,14 @@ package org.zkoss.reference.developer.hibernate.dao;
 import java.sql.SQLException;
 import java.util.List;
 
+import javax.transaction.Synchronization;
+
 import org.hibernate.Hibernate;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.zkoss.reference.developer.hibernate.domain.Order;
 
 /**
@@ -36,12 +39,14 @@ public class OrderDao {
 	public Order save(Order newOrder) throws HibernateException{
 		Session session = sessionFactory.getCurrentSession();
 		session.save(newOrder);
+		session.flush();
 		return newOrder;
 	}
 	
 	public void errorSave(Order newOrder) throws HibernateException{
 		Session session = sessionFactory.getCurrentSession();
 		session.save(newOrder);
+		session.flush();
 		// throw exception to test
 		throw new HibernateException("error save");
 	}
@@ -61,21 +66,21 @@ public class OrderDao {
 	
 	public void saveNonTransactional(Order newOrder) throws HibernateException{
 		Session session = sessionFactory.openSession();
-//		session.getTransaction().begin();
 		try{
 			System.out.println("autocommit:"+session.connection().getAutoCommit());
 		}catch (SQLException e) {
 			// TODO: handle exception
 		}
 		session.save(newOrder);
+		session.flush();
 		session.close();
-//		session.getTransaction().commit();
 	}
 	
 	public List<Order> findAllNewSession() {
 		Session session = sessionFactory.openSession();
 		Query query = session.createQuery("select o from Order as o");
 		List<Order> result = query.list();
+		session.flush();
 		session.close();
 		return result;
 	}
