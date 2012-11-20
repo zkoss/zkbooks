@@ -7,7 +7,6 @@ import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -19,7 +18,6 @@ import org.zkoss.reference.developer.hibernate.domain.Order;
 @Repository
 public class SpringOrderDao {
 
-//	private SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
 	@Autowired
 	private SessionFactory sessionFactory;
 	
@@ -42,7 +40,7 @@ public class SpringOrderDao {
 		//FIXME handle rollback
 		Session session = sessionFactory.getCurrentSession();
 		session.save(newOrder);
-//		session.getTransaction().commit(); no transaction started
+		session.flush();
 		return newOrder;
 	}
 	
@@ -62,15 +60,8 @@ public class SpringOrderDao {
 	public Order load(Order order){
 		//check to avoid initializing again
 		if (order.getId()!=null && !Hibernate.isInitialized(order.getItems())){
-			order = (Order)sessionFactory.getCurrentSession().load(Order.class, order.getId());
-			Hibernate.initialize(order.getItems());
+			sessionFactory.getCurrentSession().refresh(order);
 		}
-		/* implementation 2
-		Session session = sessionFactory.getCurrentSession(); 
-		if (!session.contains(order)){ //detached to current session
-			order = (Order)session.load(Order.class, order.getId());
-		}
-		 */
 		return order;
 	}
 }

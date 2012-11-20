@@ -57,9 +57,8 @@ public class OrderDao {
 	 */
 	public Order load(Order order){
 		//check to avoid initializing again
-		if (!Hibernate.isInitialized(order.getItems())){
-			order = (Order)sessionFactory.getCurrentSession().load(Order.class, order.getId());
-			Hibernate.initialize(order.getItems());
+		if (order.getId()!=null && !Hibernate.isInitialized(order.getItems())){
+			sessionFactory.getCurrentSession().refresh(order);
 		}
 		return order;
 	}
