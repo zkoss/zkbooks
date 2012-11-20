@@ -37,7 +37,6 @@ public class SpringOrderDao {
 	 */
 	@Transactional
 	public Order save(Order newOrder) throws HibernateException{
-		//FIXME handle rollback
 		Session session = sessionFactory.getCurrentSession();
 		session.save(newOrder);
 		session.flush();

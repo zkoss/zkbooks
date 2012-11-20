@@ -44,5 +44,5 @@
 	<tx:annotation-driven />
 	
 	<!-- Scans for application @Components to deploy -->
-	<context:component-scan base-package="org.zkoss.reference.developer.hibernate.dao, org.zkoss.reference.developer.hibernate.service" />
+	<context:component-scan base-package="org.zkoss.reference.developer.hibernate" />
 </beans>
