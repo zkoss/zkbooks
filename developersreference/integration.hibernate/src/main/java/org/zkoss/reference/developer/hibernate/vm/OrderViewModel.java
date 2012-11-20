@@ -24,18 +24,19 @@ public class OrderViewModel {
 		setSelectedItem(orders.get(0));
 	}
 	
+	public Order getSelectedItem() {
+		selectedItem = orderDao.refresh(selectedItem); 
+		return selectedItem;
+	}
+	public void setSelectedItem(Order selectedItem) {
+		this.selectedItem = selectedItem;
+	}
+	
 	public List<Order> getOrders() {
 		return orders;
 	}
 	public void setOrders(List<Order> orders) {
 		this.orders = orders;
-	}
-	public Order getSelectedItem() {
-		selectedItem = orderDao.load(selectedItem); 
-		return selectedItem;
-	}
-	public void setSelectedItem(Order selectedItem) {
-		this.selectedItem = selectedItem;
 	}
 	
 }

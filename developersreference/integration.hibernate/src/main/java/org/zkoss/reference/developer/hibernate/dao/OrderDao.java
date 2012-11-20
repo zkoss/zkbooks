@@ -55,8 +55,8 @@ public class OrderDao {
 	 * @param order
 	 * @return
 	 */
-	public Order load(Order order){
-		//check to avoid initializing again
+	public Order refresh(Order order){
+		//check it's detached object and to avoid initializing again
 		if (order.getId()!=null && !Hibernate.isInitialized(order.getItems())){
 			sessionFactory.getCurrentSession().refresh(order);
 		}
