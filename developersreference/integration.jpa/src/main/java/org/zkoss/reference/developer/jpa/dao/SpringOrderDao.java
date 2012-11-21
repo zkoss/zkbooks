@@ -13,7 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.zkoss.reference.developer.jpa.domain.Order;
 
 /**
- * get session manually
+ * Spring injected EntityManager and declarative transaction management.
  */
 @Repository
 public class SpringOrderDao {
@@ -39,7 +39,7 @@ public class SpringOrderDao {
 	public void errorSave(Order newOrder){
 		em.persist(newOrder);
 		em.flush(); //force flush
-		// throw exception to test
+		// throw exception on purpose
 		throw new RuntimeException("error save");
 	}
 	/**
@@ -47,6 +47,7 @@ public class SpringOrderDao {
 	 * @param order
 	 * @return
 	 */
+	@Transactional(readOnly=true)
 	public Order reload(Order order){
 		//check it's detached object
 		PersistenceUnitUtil unitUtil = em.getEntityManagerFactory().getPersistenceUnitUtil();

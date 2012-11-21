@@ -34,6 +34,7 @@ public class SpringOrderViewModel {
 	public void setOrders(List<Order> orders) {
 		this.orders = orders;
 	}
+	
 	public Order getSelectedItem() {
 		if (selectedItem!=null){
 			selectedItem = springOrderDao.reload(selectedItem);
@@ -41,6 +42,7 @@ public class SpringOrderViewModel {
 		}
 		return selectedItem;
 	}
+	
 	public void setSelectedItem(Order selectedItem) {
 		this.selectedItem = selectedItem;
 	}

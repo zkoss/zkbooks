@@ -2,6 +2,8 @@ developersreference/developersreference/target
 developersreference/integration.cdi/.settings
 developersreference/integration.hibernate/.settings
 developersreference/integration.hibernate/data
+developersreference/integration.jpa/.settings
+developersreference/integration.jpa/data
 developersreference/integration.spring/.settings
 document/.classpath
 document/.settings

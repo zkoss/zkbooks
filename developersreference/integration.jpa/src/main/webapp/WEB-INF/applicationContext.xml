@@ -16,6 +16,7 @@
 		<property name="username" value="sa" />
 		<property name="password" value="" />
 	</bean>
+	
 	<bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalEntityManagerFactoryBean">
 		<property name="persistenceUnitName" value="order"/>
 	</bean>
@@ -26,6 +27,5 @@
 
 	<tx:annotation-driven />
 	
-	<!-- Scans for application @Components to deploy -->
 	<context:component-scan base-package="org.zkoss.reference.developer.jpa" />
 </beans>
