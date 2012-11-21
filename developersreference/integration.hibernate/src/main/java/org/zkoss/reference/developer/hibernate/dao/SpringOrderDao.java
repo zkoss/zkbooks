@@ -13,7 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.zkoss.reference.developer.hibernate.domain.Order;
 
 /**
- * get session manually
+ * Spring injected EntityManager and declarative transaction management.
  */
 @Repository
 public class SpringOrderDao {

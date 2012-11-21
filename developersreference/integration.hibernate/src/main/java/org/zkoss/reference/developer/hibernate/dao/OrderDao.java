@@ -3,14 +3,11 @@ package org.zkoss.reference.developer.hibernate.dao;
 import java.sql.SQLException;
 import java.util.List;
 
-import javax.transaction.Synchronization;
-
 import org.hibernate.Hibernate;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
 import org.zkoss.reference.developer.hibernate.domain.Order;
 
 /**
