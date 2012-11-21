@@ -47,7 +47,7 @@ public class SpringOrderDao {
 	 * @param order
 	 * @return
 	 */
-	public Order refresh(Order order){
+	public Order reload(Order order){
 		//check it's detached object
 		PersistenceUnitUtil unitUtil = em.getEntityManagerFactory().getPersistenceUnitUtil();
 		if (order.getId()!=null && !unitUtil.isLoaded(order, "items")){
