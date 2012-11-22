@@ -30,7 +30,7 @@ public class SpringOrderDao {
 	}
 
 	@Transactional
-	public Order save(Order newOrder) throws HibernateException{
+	public Order save(Order newOrder){
 		Session session = sessionFactory.getCurrentSession();
 		session.save(newOrder);
 		session.flush();
@@ -50,14 +50,7 @@ public class SpringOrderDao {
 	 * @param order
 	 * @return
 	 */
-	public Order refresh(Order order){
-		//check it's detached object and to avoid initializing again
-		if (order.getId()!=null && !Hibernate.isInitialized(order.getItems())){
-			sessionFactory.getCurrentSession().refresh(order);
-//			alternative:			
-//			sessionFactory.getCurrentSession().load(Order.class, order.getId());
-//			Hibernate.initialize(order.getItems());
-		}
-		return order;
+	public Order reload(Order order){
+		return (Order)sessionFactory.getCurrentSession().load(Order.class,order.getId());
 	}
 }

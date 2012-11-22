@@ -38,7 +38,7 @@ public class SpringOrderViewModel {
 	}
 	public Order getSelectedItem() {
 		if (selectedItem!=null){
-			selectedItem = springOrderDao.refresh(selectedItem);
+			springOrderDao.reload(selectedItem);
 			//you could replace the item in model list with initialized one
 		}
 		return selectedItem;

@@ -46,15 +46,13 @@ public class OrderDao {
 	}
 	/**
 	 * Initialize lazy-loaded collection.
+	 * session.refresh() re-read object's state from database that turn initialized collection 
+	 * back to uninitialized.
 	 * @param order
 	 * @return
 	 */
-	public Order refresh(Order order){
-		//check it's detached object and to avoid initializing again
-		if (order.getId()!=null && !Hibernate.isInitialized(order.getItems())){
-			HibernateUtil.getSessionFactory().getCurrentSession().refresh(order);
-		}
-		return order;
+	public Order reload(Order order){
+		return (Order)HibernateUtil.getSessionFactory().getCurrentSession().load(Order.class,order.getId());
 	}
 	
 	public void saveNonTransactional(Order newOrder) throws HibernateException{

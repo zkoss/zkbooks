@@ -27,7 +27,9 @@ public class OrderViewModel {
 	}
 	
 	public Order getSelectedItem() {
-		selectedItem = orderDao.refresh(selectedItem); 
+		if (selectedItem!=null){
+			selectedItem = orderDao.reload(selectedItem);
+		}
 		return selectedItem;
 	}
 	public void setSelectedItem(Order selectedItem) {
