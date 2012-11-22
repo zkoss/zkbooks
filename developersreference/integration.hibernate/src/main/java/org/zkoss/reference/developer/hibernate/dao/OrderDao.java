@@ -7,7 +7,6 @@ import org.hibernate.Hibernate;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 import org.zkoss.reference.developer.hibernate.domain.Order;
 
 /**
@@ -18,10 +17,8 @@ import org.zkoss.reference.developer.hibernate.domain.Order;
  */
 public class OrderDao {
 
-	private SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
-	
 	public List<Order> findAll() {
-		Session session = sessionFactory.getCurrentSession();
+		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 		Query query = session.createQuery("select o from Order as o");
 		List<Order> result = query.list();
 		return result;
@@ -34,14 +31,14 @@ public class OrderDao {
 	 * @throws HibernateException
 	 */
 	public Order save(Order newOrder) throws HibernateException{
-		Session session = sessionFactory.getCurrentSession();
+		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 		session.save(newOrder);
 		session.flush();
 		return newOrder;
 	}
 	
 	public void errorSave(Order newOrder) throws HibernateException{
-		Session session = sessionFactory.getCurrentSession();
+		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 		session.save(newOrder);
 		session.flush();
 		// throw exception to test
@@ -55,17 +52,16 @@ public class OrderDao {
 	public Order refresh(Order order){
 		//check it's detached object and to avoid initializing again
 		if (order.getId()!=null && !Hibernate.isInitialized(order.getItems())){
-			sessionFactory.getCurrentSession().refresh(order);
+			HibernateUtil.getSessionFactory().getCurrentSession().refresh(order);
 		}
 		return order;
 	}
 	
 	public void saveNonTransactional(Order newOrder) throws HibernateException{
-		Session session = sessionFactory.openSession();
+		Session session = HibernateUtil.getSessionFactory().openSession();
 		try{
 			System.out.println("autocommit:"+session.connection().getAutoCommit());
 		}catch (SQLException e) {
-			// TODO: handle exception
 		}
 		session.save(newOrder);
 		session.flush();
@@ -73,7 +69,7 @@ public class OrderDao {
 	}
 	
 	public List<Order> findAllNewSession() {
-		Session session = sessionFactory.openSession();
+		Session session = HibernateUtil.getSessionFactory().openSession();
 		Query query = session.createQuery("select o from Order as o");
 		List<Order> result = query.list();
 		session.flush();

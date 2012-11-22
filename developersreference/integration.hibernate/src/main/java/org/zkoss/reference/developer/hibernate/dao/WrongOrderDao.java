@@ -5,7 +5,6 @@ import java.util.List;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.zkoss.reference.developer.hibernate.domain.Order;
 
@@ -16,10 +15,9 @@ import org.zkoss.reference.developer.hibernate.domain.Order;
  */
 public class WrongOrderDao {
 
-	private SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
 	
 	public List<Order> findAll() {
-		Session session = sessionFactory.openSession();
+		Session session = HibernateUtil.getSessionFactory().openSession();
 		Query query = session.createQuery("select o from Order as o");
 		List result = query.list();
 		session.close();
@@ -27,7 +25,7 @@ public class WrongOrderDao {
 	}
 
 	public Order save(Order newOrder) throws HibernateException{
-		Session session = sessionFactory.openSession();
+		Session session = HibernateUtil.getSessionFactory().openSession();
 		Transaction tx = null;
 		try{
 			tx = session.beginTransaction();
