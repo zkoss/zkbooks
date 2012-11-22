@@ -146,5 +146,15 @@ public class Order {
 	public void setUserId(long userId) {
 		this.userId = userId;
 	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		return ((obj instanceof Order) &&
+			 this.id.equals(((Order)obj).getId()));
+	}
 
+	@Override
+	public int hashCode() {
+		return id.hashCode();
+	}
 }

@@ -35,7 +35,7 @@ public class SpringOrderDao {
 		return newOrder;
 	}
 	
-	@Transactional(rollbackFor=RuntimeException.class)
+	@Transactional
 	public void errorSave(Order newOrder){
 		em.persist(newOrder);
 		em.flush(); //force flush
@@ -49,11 +49,6 @@ public class SpringOrderDao {
 	 */
 	@Transactional(readOnly=true)
 	public Order reload(Order order){
-		//check it's detached object
-		PersistenceUnitUtil unitUtil = em.getEntityManagerFactory().getPersistenceUnitUtil();
-		if (order.getId()!=null && !unitUtil.isLoaded(order, "items")){
-			order = em.find(Order.class, order.getId());
-		}
-		return order;
+		return em.find(Order.class, order.getId());
 	}
 }

@@ -19,13 +19,15 @@ public class SpringOrderViewModel {
 	@WireVariable
 	private SpringOrderDao springOrderDao;
 
-	private List<Order> orders ;
+	private List<Order> orders;
 	private Order selectedItem;
 	
 	@Init
 	public void init(){
 		orders = springOrderDao.queryAll();
-		setSelectedItem(orders.get(0));
+		if (!orders.isEmpty()){
+			setSelectedItem(orders.get(0));
+		}
 	}
 	
 	public List<Order> getOrders() {
