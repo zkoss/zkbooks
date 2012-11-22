@@ -32,62 +32,23 @@ public class OpenSessionInViewListener implements ExecutionInit, ExecutionCleanu
 		}
 	}
 
+	/*
+	 * http://docs.jboss.org/hibernate/core/3.6/reference/en-US/html_single/#tutorial-firstapp-workingpersistence
+	 * A org.hibernate.Session begins when the first call to getCurrentSession() is made for 
+	 * the current thread. It is then bound by Hibernate to the current thread. When 
+	 * the transaction ends, either through commit or rollback, Hibernate automatically unbinds
+	 *  the org.hibernate.Session from the thread and closes it for you.
+	 */
 	public void cleanup(Execution exec, Execution parent, List errs) {
 		if (parent == null) { //the root execution of a servlet request
-			try {
-				if (errs == null || errs.isEmpty()) {
-					log.debug("Committing the database transaction: "+exec);
-					HibernateUtil.getSessionFactory().getCurrentSession().getTransaction().commit();
-				} else {
-					final Throwable ex = (Throwable) errs.get(0);
-					if (ex instanceof StaleObjectStateException) {
-						handleStaleObjectStateException(exec, (StaleObjectStateException)ex);
-					} else {
-						handleOtherException(exec, ex);
-					}
-				}
-			}finally{
-				//commit() and rollback() both close the current session
+			if (errs == null || errs.isEmpty()) {
+				log.debug("Committing the database transaction: "+exec);
+				HibernateUtil.getSessionFactory().getCurrentSession().getTransaction().commit();
+			} else {
+				final Throwable ex = (Throwable) errs.get(0);
+				rollback(exec, ex);
 			}
 		}
-	}
-
-	/**
-	 * <p>Default StaleObjectStateException handler. This implementation
-	 * does not implement optimistic concurrency control! It simply rollback 
-	 * the transaction.</p>
-	 * 
-	 * <p>Application developer might want to extends this class and override 
-	 * this method to do other things like compensate for any permanent changes 
-	 * during the conversation, and finally restart business conversation. 
-	 * Or maybe give the user of the application a chance to merge some of his 
-	 * work with fresh data... what can be done here depends on the applications 
-	 * design.</p>
-	 *
-	 * @param exec the exection to clean up.
-	 * @param ex the StaleObjectStateException being thrown (and not handled) during the execution
-	 */			
-	protected void handleStaleObjectStateException(Execution exec, StaleObjectStateException ex) {
-		log.error("This listener does not implement optimistic concurrency control!");
-		rollback(exec, ex);
-	}
-
-	/**
-	 * <p>Default other exception (other than StaleObjectStateException) handler. 
-	 * This implementation simply rollback the transaction.</p>
-	 * 
-	 * <p>Application developer might want to extends this class and override 
-	 * this method to do other things like compensate for any permanent changes 
-	 * during the conversation, and finally restart business conversation... 
-	 * what can be done here depends on the applications design.</p>
-	 *
-	 * @param exec the execution to clean up.
-	 * @param ex the Throwable other than StaleObjectStateException being thrown (and not handled) during the execution
-	 */			
-	protected void handleOtherException(Execution exec, Throwable ex) {
-		// Rollback only
-		ex.printStackTrace();
-		rollback(exec, ex);
 	}
 
 	/**
