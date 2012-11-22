@@ -150,7 +150,8 @@ public class Order {
 	@Override
 	public boolean equals(Object obj) {
 		return ((obj instanceof Order) &&
-			 this.id.equals(((Order)obj).getId()));
+			this.id != null &&
+			this.id.equals(((Order)obj).getId()));
 	}
 
 	@Override
