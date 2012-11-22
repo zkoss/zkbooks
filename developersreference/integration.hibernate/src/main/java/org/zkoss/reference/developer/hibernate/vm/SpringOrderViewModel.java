@@ -25,7 +25,9 @@ public class SpringOrderViewModel {
 	@Init
 	public void init(){
 		orders = springOrderDao.queryAll();
-		setSelectedItem(orders.get(0));
+		if (!orders.isEmpty()){
+			setSelectedItem(orders.get(0));
+		}
 	}
 	
 	public List<Order> getOrders() {

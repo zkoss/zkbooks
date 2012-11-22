@@ -21,7 +21,9 @@ public class OrderViewModel {
 	@Init
 	public void init(){
 		orders = orderDao.findAll();
-		setSelectedItem(orders.get(0));
+		if (!orders.isEmpty()){
+			setSelectedItem(orders.get(0));
+		}
 	}
 	
 	public Order getSelectedItem() {
