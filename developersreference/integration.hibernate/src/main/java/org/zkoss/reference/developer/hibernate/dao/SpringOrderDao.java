@@ -37,12 +37,12 @@ public class SpringOrderDao {
 		return newOrder;
 	}
 	
-	@Transactional(rollbackFor=HibernateException.class)
+	@Transactional
 	public void errorSave(Order newOrder){
 		Session session = sessionFactory.getCurrentSession();
 		session.save(newOrder);
 		session.flush(); //force flush
-		// throw exception to test
+		// throw exception
 		throw new HibernateException("error save");
 	}
 	/**
