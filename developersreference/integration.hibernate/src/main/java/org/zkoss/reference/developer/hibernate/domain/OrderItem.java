@@ -18,7 +18,7 @@ public class OrderItem {
 
 	@Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 	private long orderId;
 	private long prodId;
 
@@ -26,8 +26,6 @@ public class OrderItem {
 	private float price;
 	private int quantity;
 
-	public OrderItem() {
-	}
 
 	public OrderItem(Long id, Long orderId, long prodId, String name,
 			float price, int quantity) {
@@ -40,11 +38,11 @@ public class OrderItem {
 		this.quantity = quantity;
 	}
 
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -88,4 +86,14 @@ public class OrderItem {
 		this.orderId = orderId;
 	}
 
+	@Override
+	public boolean equals(Object obj) {
+		return ((obj instanceof OrderItem) &&
+				 this.id.equals(((OrderItem)obj).getId()));
+	}
+	
+	@Override
+	public int hashCode() {
+		return id.hashCode();
+	}
 }
