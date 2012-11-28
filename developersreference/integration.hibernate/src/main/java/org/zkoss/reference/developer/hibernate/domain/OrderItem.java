@@ -4,6 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**
@@ -19,19 +21,22 @@ public class OrderItem {
 	@Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
-	private long orderId;
+	@ManyToOne @JoinColumn(name="orderId")
+	private Order order;
+//	private long orderId;
 	private long prodId;
 
 	private String name;
 	private float price;
 	private int quantity;
 
+	public OrderItem() {
+	}
 
-	public OrderItem(Long id, Long orderId, long prodId, String name,
+	public OrderItem(Long id, long prodId, String name,
 			float price, int quantity) {
 		super();
 		if (id != null) this.id = id;
-		if (orderId != null)this.orderId = orderId;
 		this.prodId = prodId;
 		this.name = name;
 		this.price = price;
@@ -78,13 +83,13 @@ public class OrderItem {
 		this.quantity = quantity;
 	}
 
-	public long getOrderId() {
-		return orderId;
-	}
-
-	public void setOrderId(long orderId) {
-		this.orderId = orderId;
-	}
+//	public long getOrderId() {
+//		return orderId;
+//	}
+//
+//	public void setOrderId(long orderId) {
+//		this.orderId = orderId;
+//	}
 
 	@Override
 	public boolean equals(Object obj) {
@@ -95,5 +100,13 @@ public class OrderItem {
 	@Override
 	public int hashCode() {
 		return id.hashCode();
+	}
+
+	public Order getOrder() {
+		return order;
+	}
+
+	public void setOrder(Order order) {
+		this.order = order;
 	}
 }

@@ -6,6 +6,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -35,12 +36,11 @@ public class Order {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	private long userId;
 	private String status = PROCESSING;
 	private String description;
 
 //	@OneToMany(mappedBy="orderId", fetch=FetchType.EAGER)
-	@OneToMany(mappedBy="orderId", fetch=FetchType.LAZY)
+	@OneToMany(mappedBy="order", fetch=FetchType.LAZY, cascade=CascadeType.ALL)
 	private List<OrderItem> items = new ArrayList<OrderItem>();
 
 	@Temporal(TemporalType.TIMESTAMP)
@@ -52,11 +52,10 @@ public class Order {
 	public Order() {
 	}
 
-	public Order(Long id, long userId, String status, Date createDate,
+	public Order(Long id, String status, Date createDate,
 			String description) {
 		super();
 		this.id = id;
-		this.userId = userId;
 		this.status = status;
 		this.description = description;
 		this.createDate = createDate;
@@ -92,8 +91,13 @@ public class Order {
 		return items.size();
 	}
 
-	public void addItem(OrderItem item) {
-		items.add(item);
+	public String getItemContent(){
+		StringBuffer content = new StringBuffer();
+		for (OrderItem i : items){
+			content.append(i.getName()+" ");
+		}
+		
+		return content.toString();
 	}
 
 	public String getStatus() {
@@ -139,13 +143,6 @@ public class Order {
 		this.updateDate = updateDate;
 	}
 
-	public long getUserId() {
-		return userId;
-	}
-
-	public void setUserId(long userId) {
-		this.userId = userId;
-	}
 
 	@Override
 	public boolean equals(Object obj) {

@@ -6,6 +6,13 @@
   <packaging>war</packaging>
   <description>hibernate example codes.
 Hibernate - maven setup: http://docs.jboss.org/hibernate/core/3.6/reference/en-US/html_single/#tutorial-firstapp-setup</description>
+  <repositories>
+    <repository>
+      <id>ZK EVAL</id>
+      <name>ZK Evaluation Repository</name>
+      <url>http://mavensync.zkoss.org/eval</url>
+    </repository>
+  </repositories>
   <dependencies>
   	<dependency>
   		<groupId>org.zkoss.zk</groupId>
@@ -57,6 +64,11 @@ Hibernate - maven setup: http://docs.jboss.org/hibernate/core/3.6/reference/en-U
   		<groupId>org.slf4j</groupId>
   		<artifactId>slf4j-log4j12</artifactId>
   		<version>1.6.1</version>
+  	</dependency>
+  	<dependency>
+  		<groupId>org.zkoss.zk</groupId>
+  		<artifactId>zkmax</artifactId>
+  		<version>6.5.0</version>
   	</dependency>
   </dependencies>
   <name>Hibernate Example</name>

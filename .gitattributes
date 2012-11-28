@@ -84,9 +84,11 @@ developersreference/integration.hibernate/src/main/java/org/zkoss/reference/deve
 developersreference/integration.hibernate/src/main/java/org/zkoss/reference/developer/hibernate/dao/WrongOrderDao.java -text
 developersreference/integration.hibernate/src/main/java/org/zkoss/reference/developer/hibernate/domain/Order.java -text
 developersreference/integration.hibernate/src/main/java/org/zkoss/reference/developer/hibernate/domain/OrderItem.java -text
+developersreference/integration.hibernate/src/main/java/org/zkoss/reference/developer/hibernate/model/ReloadListModel.java -text
 developersreference/integration.hibernate/src/main/java/org/zkoss/reference/developer/hibernate/service/OrderService.java -text
 developersreference/integration.hibernate/src/main/java/org/zkoss/reference/developer/hibernate/vm/OldOrderViewModel.java -text
 developersreference/integration.hibernate/src/main/java/org/zkoss/reference/developer/hibernate/vm/OrderViewModel.java -text
+developersreference/integration.hibernate/src/main/java/org/zkoss/reference/developer/hibernate/vm/RodViewModel.java -text
 developersreference/integration.hibernate/src/main/java/org/zkoss/reference/developer/hibernate/vm/RollbackViewModel.java -text
 developersreference/integration.hibernate/src/main/java/org/zkoss/reference/developer/hibernate/vm/SpringOrderViewModel.java -text
 developersreference/integration.hibernate/src/main/java/org/zkoss/reference/developer/hibernate/vm/SpringRollbackViewModel.java -text
@@ -101,6 +103,8 @@ developersreference/integration.hibernate/src/main/webapp/WEB-INF/zk.xml -text
 developersreference/integration.hibernate/src/main/webapp/error-on-load.zul -text
 developersreference/integration.hibernate/src/main/webapp/homemade/error-on-load.zul -text
 developersreference/integration.hibernate/src/main/webapp/homemade/order.zul -text
+developersreference/integration.hibernate/src/main/webapp/homemade/rod-error.zul -text
+developersreference/integration.hibernate/src/main/webapp/homemade/rod.zul -text
 developersreference/integration.hibernate/src/main/webapp/homemade/rollback.zul -text
 developersreference/integration.hibernate/src/main/webapp/order.zul -text
 developersreference/integration.hibernate/src/main/webapp/spring/order.zul -text

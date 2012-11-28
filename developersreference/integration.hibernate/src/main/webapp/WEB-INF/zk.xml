@@ -8,4 +8,10 @@
 		<listener-class>org.zkoss.reference.developer.hibernate.web.OpenSessionInViewListener
 		</listener-class>
 	</listener>
+	<!-- 
+	<library-property>
+		<name>org.zkoss.zul.client.rod</name>
+		<value>false</value>
+	</library-property>
+	 -->
 </zk>

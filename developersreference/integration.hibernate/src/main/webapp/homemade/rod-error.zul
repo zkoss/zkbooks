@@ -1,0 +1,22 @@
+<?page title="" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window title="" border="normal" width="600px" apply="org.zkoss.bind.BindComposer"
+		viewModel="@id('vm') @init('org.zkoss.reference.developer.hibernate.vm.RodViewModel')">
+		A component enabled "Render on Demand" contains objects with lazy-loaded collection.
+		<listbox model="@load(vm.orders)" rows="10">
+		<custom-attributes org.zkoss.zul.listbox.initRodSize="30"/>
+			<listhead>
+				<listheader label="ID" width="50px"/>
+				<listheader label="Description" />
+				<listheader label="Item Content" width="250px"/>
+			</listhead>
+			<template name="model" var="order">
+				<listitem>
+					<listcell label="@load(order.id) " />
+					<listcell label="@load(order.description)" />
+					<listcell label="@load(order.itemContent)" />
+				</listitem>
+			</template>
+		</listbox>
+	</window>
+</zk>
