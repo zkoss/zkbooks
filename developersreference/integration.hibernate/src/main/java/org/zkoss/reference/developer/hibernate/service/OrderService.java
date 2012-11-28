@@ -25,7 +25,7 @@ public class OrderService {
 	public List<Order> findAll(){
 		return springOrderDao.queryAll();
 	}
-//	@Transactional(propagation=Propagation.SUPPORTS)
+
 	@Transactional(propagation=Propagation.REQUIRES_NEW)
 	public void create(){
 		Order newOrder = new Order();
@@ -33,8 +33,10 @@ public class OrderService {
 		springOrderDao.save(newOrder);
 	}
 	
-	@Transactional(propagation=Propagation.REQUIRES_NEW,rollbackFor=Exception.class)
-//	@Transactional(propagation=Propagation.REQUIRES_NEW)
+	/*
+	 * Spring transaction roll-backs for all RuntimeException by default. 
+	 */
+	@Transactional(propagation=Propagation.REQUIRES_NEW)
 	public void createError(){
 		Order newOrder = new Order( );
 		newOrder.setDescription("Service layer added "+Calendar.getInstance().getTime());
