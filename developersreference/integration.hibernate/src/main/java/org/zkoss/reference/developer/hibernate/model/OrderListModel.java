@@ -7,6 +7,12 @@ import org.zkoss.reference.developer.hibernate.dao.OrderDao;
 import org.zkoss.reference.developer.hibernate.domain.Order;
 import org.zkoss.zul.AbstractListModel;
 
+/**
+ * Simple solution for lazy initialization issue under ROD.
+ * It's simple but has worse performance for redundant queries. 
+ * @author Hawk
+ *
+ */
 public class OrderListModel extends AbstractListModel<Order>{
 
 	private static final long serialVersionUID = -7982684413905984053L;
@@ -22,6 +28,7 @@ public class OrderListModel extends AbstractListModel<Order>{
 	@Override
 	public Order getElementAt(int index) {
 		Order renewOrder = orderDao.reload(orderList.get(index));
+		//TODO throw exception if not found
 		return renewOrder;
 	}
 

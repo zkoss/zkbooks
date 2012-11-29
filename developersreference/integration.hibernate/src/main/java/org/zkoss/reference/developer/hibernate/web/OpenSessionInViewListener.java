@@ -1,7 +1,6 @@
 package org.zkoss.reference.developer.hibernate.web;
 import java.util.List;
 
-import org.hibernate.StaleObjectStateException;
 import org.zkoss.reference.developer.hibernate.dao.HibernateUtil;
 import org.zkoss.util.logging.Log;
 import org.zkoss.zk.ui.Execution;

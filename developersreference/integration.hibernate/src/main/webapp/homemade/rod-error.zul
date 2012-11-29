@@ -4,7 +4,6 @@
 		viewModel="@id('vm') @init('org.zkoss.reference.developer.hibernate.vm.RodViewModel')">
 		A component enabled "Render on Demand" contains objects with lazy-loaded collection.
 		<listbox model="@load(vm.orders)" rows="10">
-		<custom-attributes org.zkoss.zul.listbox.initRodSize="30"/>
 			<listhead>
 				<listheader label="ID" width="50px"/>
 				<listheader label="Description" />

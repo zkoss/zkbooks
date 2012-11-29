@@ -48,7 +48,6 @@ public class OrderItem {
 		this.id = id;
 	}
 
-
 	public String getName() {
 		return name;
 	}

@@ -1,15 +1,11 @@
 package org.zkoss.reference.developer.hibernate.vm;
 
-import java.util.Calendar;
 import java.util.List;
-import java.util.Random;
 
-import org.zkoss.bind.annotation.Command;
 import org.zkoss.bind.annotation.Init;
-import org.zkoss.bind.annotation.NotifyChange;
 import org.zkoss.reference.developer.hibernate.dao.OrderDao;
 import org.zkoss.reference.developer.hibernate.domain.Order;
-import org.zkoss.reference.developer.hibernate.domain.OrderItem;
+import org.zkoss.reference.developer.hibernate.model.LiveOrderListModel;
 import org.zkoss.reference.developer.hibernate.model.OrderListModel;
 
 /**
@@ -22,12 +18,15 @@ public class RodViewModel {
 	
 	private List<Order> orders ;
 	
-	private OrderListModel reloadOrderList;
+	private OrderListModel orderListModel;
+	
+	private LiveOrderListModel liveOrderListModel;
 	
 	@Init
 	public void init(){
 		orders = orderDao.findAll();
-		reloadOrderList = new OrderListModel(orders, orderDao);
+		orderListModel = new OrderListModel(orders, orderDao);
+		liveOrderListModel = new LiveOrderListModel(orderDao);
 	}
 	
 	
@@ -40,13 +39,23 @@ public class RodViewModel {
 	}
 
 
-	public OrderListModel getReloadOrderList() {
-		return reloadOrderList;
+	public OrderListModel getOrderListModel() {
+		return orderListModel;
 	}
 
 
-	public void setReloadOrderList(OrderListModel reloadOrderList) {
-		this.reloadOrderList = reloadOrderList;
+	public void setOrderListModel(OrderListModel orderListModel) {
+		this.orderListModel = orderListModel;
+	}
+
+
+	public LiveOrderListModel getLiveOrderListModel() {
+		return liveOrderListModel;
+	}
+
+
+	public void setLiveOrderListModel(LiveOrderListModel liveOrderListModel) {
+		this.liveOrderListModel = liveOrderListModel;
 	}
 
 }

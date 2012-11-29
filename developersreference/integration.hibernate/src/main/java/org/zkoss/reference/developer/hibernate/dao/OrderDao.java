@@ -1,9 +1,7 @@
 package org.zkoss.reference.developer.hibernate.dao;
 
-import java.sql.SQLException;
 import java.util.List;
 
-import org.hibernate.Hibernate;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -19,11 +17,25 @@ public class OrderDao {
 
 	public List<Order> findAll() {
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
-		Query query = session.createQuery("select o from Order as o");
+		Query query = session.createQuery("from Order");
 		List<Order> result = query.list();
 		return result;
 	}
 
+	public List<Order> findAll(int offset, int max) {
+		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+		Query query = session.createQuery("from Order")
+				.setFirstResult(offset)
+				.setMaxResults(max);
+		List<Order> result = query.list();
+		return result;
+	}
+	
+	public Long findAllSize() {
+		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+		return (Long)session.createQuery("select count(*) from Order as o").uniqueResult();
+	}	
+	
 	/**
 	 * rollback is handled in filter.
 	 * @param newOrder
@@ -36,6 +48,7 @@ public class OrderDao {
 		session.flush();
 		return newOrder;
 	}
+	
 	
 	public void errorSave(Order newOrder) throws HibernateException{
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
