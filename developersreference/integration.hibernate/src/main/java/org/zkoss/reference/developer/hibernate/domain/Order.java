@@ -91,15 +91,6 @@ public class Order {
 		return items.size();
 	}
 
-	public String getItemContent(){
-		StringBuffer content = new StringBuffer();
-		for (OrderItem i : items){
-			content.append(i.getName()+" ");
-		}
-		
-		return content.toString();
-	}
-
 	public String getStatus() {
 		return status;
 	}

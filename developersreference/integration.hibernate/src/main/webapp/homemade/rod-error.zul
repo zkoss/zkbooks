@@ -7,13 +7,13 @@
 			<listhead>
 				<listheader label="ID" width="50px"/>
 				<listheader label="Description" />
-				<listheader label="Item Content" width="250px"/>
+				<listheader label="Item Count" width="150px"/>
 			</listhead>
 			<template name="model" var="order">
 				<listitem>
 					<listcell label="@load(order.id) " />
 					<listcell label="@load(order.description)" />
-					<listcell label="@load(order.itemContent)" />
+					<listcell label="@load(order.items.size())" />
 				</listitem>
 			</template>
 		</listbox>

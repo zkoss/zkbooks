@@ -7,13 +7,13 @@
 			<listhead>
 				<listheader label="ID" width="50px" />
 				<listheader label="Description" />
-				<listheader label="Item Content" width="250px" />
+				<listheader label="Item Count" width="150px" />
 			</listhead>
 			<template name="model">
 				<listitem>
 					<listcell label="@load(each.id) " />
 					<listcell label="@load(each.description)" />
-					<listcell label="@load(each.itemContent)" />
+					<listcell label="@load(each.items.size())" />
 				</listitem>
 			</template>
 		</listbox>
@@ -23,13 +23,13 @@
 			<listhead>
 				<listheader label="ID" width="50px" />
 				<listheader label="Description" />
-				<listheader label="Item Content" width="250px" />
+				<listheader label="Item Count" width="150px" />
 			</listhead>
 			<template name="model">
 				<listitem>
 					<listcell label="@load(each.id) " />
 					<listcell label="@load(each.description)" />
-					<listcell label="@load(each.itemContent)" />
+					<listcell label="@load(each.items.size())" />
 				</listitem>
 			</template>
 		</listbox>
