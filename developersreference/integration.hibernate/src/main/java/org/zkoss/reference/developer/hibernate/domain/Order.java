@@ -143,16 +143,28 @@ public class Order {
 		this.updateDate = updateDate;
 	}
 
-
 	@Override
-	public boolean equals(Object obj) {
-		return ((obj instanceof Order) &&
-			this.id != null &&
-			this.id.equals(((Order)obj).getId()));
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		return result;
 	}
 
 	@Override
-	public int hashCode() {
-		return id.hashCode();
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (!(obj instanceof Order))
+			return false;
+		Order other = (Order) obj;
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
+			return false;
+		return true;
 	}
 }

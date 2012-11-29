@@ -84,7 +84,7 @@ developersreference/integration.hibernate/src/main/java/org/zkoss/reference/deve
 developersreference/integration.hibernate/src/main/java/org/zkoss/reference/developer/hibernate/dao/WrongOrderDao.java -text
 developersreference/integration.hibernate/src/main/java/org/zkoss/reference/developer/hibernate/domain/Order.java -text
 developersreference/integration.hibernate/src/main/java/org/zkoss/reference/developer/hibernate/domain/OrderItem.java -text
-developersreference/integration.hibernate/src/main/java/org/zkoss/reference/developer/hibernate/model/ReloadListModel.java -text
+developersreference/integration.hibernate/src/main/java/org/zkoss/reference/developer/hibernate/model/OrderListModel.java -text
 developersreference/integration.hibernate/src/main/java/org/zkoss/reference/developer/hibernate/service/OrderService.java -text
 developersreference/integration.hibernate/src/main/java/org/zkoss/reference/developer/hibernate/vm/OldOrderViewModel.java -text
 developersreference/integration.hibernate/src/main/java/org/zkoss/reference/developer/hibernate/vm/OrderViewModel.java -text

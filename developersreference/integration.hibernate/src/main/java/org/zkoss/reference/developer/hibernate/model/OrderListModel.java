@@ -7,15 +7,16 @@ import org.zkoss.reference.developer.hibernate.dao.OrderDao;
 import org.zkoss.reference.developer.hibernate.domain.Order;
 import org.zkoss.zul.AbstractListModel;
 
-public class ReloadListModel extends AbstractListModel<Order>{
+public class OrderListModel extends AbstractListModel<Order>{
 
 	private static final long serialVersionUID = -7982684413905984053L;
 	
-	private OrderDao orderDao = new OrderDao();
+	private OrderDao orderDao;
 	List<Order> orderList = new LinkedList<Order>();
 	
-	public ReloadListModel(List<Order> orders){
+	public OrderListModel(List<Order> orders,OrderDao orderDao){
 		this.orderList = orders;
+		this.orderDao = orderDao;
 	}
 	
 	@Override

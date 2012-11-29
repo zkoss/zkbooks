@@ -55,12 +55,8 @@ public class OrderDao {
 		return (Order)HibernateUtil.getSessionFactory().getCurrentSession().load(Order.class,order.getId());
 	}
 	
-	public void saveNonTransactional(Order newOrder) throws HibernateException{
+	public void saveInNewSession(Order newOrder) throws HibernateException{
 		Session session = HibernateUtil.getSessionFactory().openSession();
-		try{
-			System.out.println("autocommit:"+session.connection().getAutoCommit());
-		}catch (SQLException e) {
-		}
 		session.save(newOrder);
 		session.flush();
 		session.close();

@@ -23,8 +23,6 @@ public class OrderItem {
     private Long id;
 	@ManyToOne @JoinColumn(name="orderId")
 	private Order order;
-//	private long orderId;
-	private long prodId;
 
 	private String name;
 	private float price;
@@ -33,11 +31,10 @@ public class OrderItem {
 	public OrderItem() {
 	}
 
-	public OrderItem(Long id, long prodId, String name,
+	public OrderItem(Long id,String name,
 			float price, int quantity) {
 		super();
 		if (id != null) this.id = id;
-		this.prodId = prodId;
 		this.name = name;
 		this.price = price;
 		this.quantity = quantity;
@@ -51,13 +48,6 @@ public class OrderItem {
 		this.id = id;
 	}
 
-	public long getProdId() {
-		return prodId;
-	}
-
-	public void setProdId(long prodId) {
-		this.prodId = prodId;
-	}
 
 	public String getName() {
 		return name;

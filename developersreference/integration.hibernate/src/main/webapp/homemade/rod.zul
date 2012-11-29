@@ -3,6 +3,7 @@
 	<window title="" border="normal" width="600px" apply="org.zkoss.bind.BindComposer"
 		viewModel="@id('vm') @init('org.zkoss.reference.developer.hibernate.vm.RodViewModel')">
 		Contain a customized model that reload lazy-loaded collection from database
+		<custom-attributes org.zkoss.zul.listbox.rod="false" />
 		<listbox model="@load(vm.reloadOrderList)" rows="10">
 			<listhead>
 				<listheader label="ID" width="50px"/>

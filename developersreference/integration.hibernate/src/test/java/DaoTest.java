@@ -28,7 +28,7 @@ public class DaoTest {
 		Order order = new Order();
 		order.setCreateDate(Calendar.getInstance().getTime());
 		order.setDescription("an order for test");
-		orderDao.saveNonTransactional(order);
+		orderDao.saveInNewSession(order);
 		List result = orderDao.findAllNewSession();
 		Assert.assertEquals(3, result.size());
 	}

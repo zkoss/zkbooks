@@ -43,7 +43,7 @@ public class RollbackViewModel {
 	public void noTransactionalAdd(){
 		Order newOrder = new Order();
 		newOrder.setDescription("auto add "+Calendar.getInstance().getTime());
-		orderDao.saveNonTransactional(newOrder);
+		orderDao.saveInNewSession(newOrder);
 //		orders = orderDao.findAll();
 	}
 	
