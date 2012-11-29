@@ -35,7 +35,7 @@ public class LiveOrderListModel extends AbstractListModel<Order>{
 	public Order getElementAt(int index) {
 		Map<Integer, Order> cache = getCache();
 		if (!cache.containsKey(index)){
-			//if non-existed, query a page starting from the index
+			//if cache doesn't contain target object, query a page starting from the index
 			List<Order> pageResult = orderDao.findAll(index, pageSize);
 			int indexKey = index;
 			for (Order o : pageResult ){
@@ -43,14 +43,13 @@ public class LiveOrderListModel extends AbstractListModel<Order>{
 				indexKey++;
 			}
 		}
-		System.out.println(index);
-		//if cache contains the target object return it
 		return cache.get(index);
 	}
 
 	private Map<Integer, Order> getCache(){
 		Execution execution = Executions.getCurrent();
-		//we only reuse this cache in one execution for objects' session is open for request scope.
+		//we only reuse this cache in one execution to avoid accessing detached objects.
+		//our filter open a session during a HTTP request
 		Map<Integer, Order> cache = (Map)execution.getAttribute(CACHE_KEY);
 		if (cache == null){
 			cache = new HashMap<Integer, Order>();
