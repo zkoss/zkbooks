@@ -5,7 +5,9 @@
   <version>0.0.1-SNAPSHOT</version>
   <packaging>war</packaging>
   <description>hibernate example codes.
-Hibernate - maven setup: http://docs.jboss.org/hibernate/core/3.6/reference/en-US/html_single/#tutorial-firstapp-setup</description>
+Hibernate - maven setup: http://docs.jboss.org/hibernate/core/3.6/reference/en-US/html_single/#tutorial-firstapp-setup
+
+If we use Hibernate 4.1.x, we must use Spring 3.1.x. Because of org.springframework.orm.hibernate4.LocalSessionFactoryBean that supports Hibernate 4 only exists in Spring 3.1.x. Use org.springframework.orm.hibernate4.HibernateTransactionManager.</description>
   <repositories>
     <repository>
       <id>ZK EVAL</id>
@@ -27,7 +29,7 @@ Hibernate - maven setup: http://docs.jboss.org/hibernate/core/3.6/reference/en-U
   	<dependency>
   		<groupId>org.hibernate</groupId>
   		<artifactId>hibernate-core</artifactId>
-  		<version>3.6.10.Final</version>
+  		<version>4.0.0.Final</version>
   	</dependency>
   	<dependency>
   		<groupId>org.hsqldb</groupId>
@@ -42,7 +44,7 @@ Hibernate - maven setup: http://docs.jboss.org/hibernate/core/3.6/reference/en-U
   	<dependency>
   		<groupId>org.springframework</groupId>
   		<artifactId>spring-web</artifactId>
-  		<version>3.0.7.RELEASE</version>
+  		<version>3.1.2.RELEASE</version>
   	</dependency>
   	<dependency>
   		<groupId>javax.servlet</groupId>
@@ -53,7 +55,7 @@ Hibernate - maven setup: http://docs.jboss.org/hibernate/core/3.6/reference/en-U
   	<dependency>
   		<groupId>org.springframework</groupId>
   		<artifactId>spring-orm</artifactId>
-  		<version>3.0.7.RELEASE</version>
+  		<version>3.1.2.RELEASE</version>
   	</dependency>
   	<dependency>
   		<groupId>cglib</groupId>

@@ -103,8 +103,8 @@ developersreference/integration.hibernate/src/main/webapp/WEB-INF/web.xml -text
 developersreference/integration.hibernate/src/main/webapp/WEB-INF/zk.xml -text
 developersreference/integration.hibernate/src/main/webapp/error-on-load.zul -text
 developersreference/integration.hibernate/src/main/webapp/homemade/error-on-load.zul -text
+developersreference/integration.hibernate/src/main/webapp/homemade/error-rod.zul -text
 developersreference/integration.hibernate/src/main/webapp/homemade/order.zul -text
-developersreference/integration.hibernate/src/main/webapp/homemade/rod-error.zul -text
 developersreference/integration.hibernate/src/main/webapp/homemade/rod.zul -text
 developersreference/integration.hibernate/src/main/webapp/homemade/rollback.zul -text
 developersreference/integration.hibernate/src/main/webapp/order.zul -text
