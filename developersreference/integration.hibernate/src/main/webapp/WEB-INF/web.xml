@@ -13,15 +13,16 @@
 			/WEB-INF/applicationContext.xml
 		</param-value>
 	</context-param>
-	<!-- Loads the Spring web application context 
-	-->
-	<listener>
-		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-	</listener>
 	<!-- ZK -->
 	<listener>
 		<description>ZK listener for session cleanup</description>
 		<listener-class>org.zkoss.zk.ui.http.HttpSessionListener</listener-class>
+	</listener>
+	
+	<!-- Loads the Spring web application context 
+	-->
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
 
 	

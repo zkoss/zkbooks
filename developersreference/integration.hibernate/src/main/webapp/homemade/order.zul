@@ -37,5 +37,6 @@
 				</rows>
 			</grid>
 		</groupbox>
+		<button label="Delete" disabled="@load(empty vm.selectedItem)" onClick="@command('delete')"/>
 	</window>
 </zk>

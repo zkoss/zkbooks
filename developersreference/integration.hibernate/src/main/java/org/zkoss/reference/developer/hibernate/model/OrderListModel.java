@@ -8,7 +8,7 @@ import org.zkoss.reference.developer.hibernate.domain.Order;
 import org.zkoss.zul.AbstractListModel;
 
 /**
- * Simple solution for lazy initialization issue under ROD.
+ * Simple solution for lazy initialization issue under Render On Demand.
  * It's simple but has worse performance for redundant queries. 
  * @author Hawk
  *

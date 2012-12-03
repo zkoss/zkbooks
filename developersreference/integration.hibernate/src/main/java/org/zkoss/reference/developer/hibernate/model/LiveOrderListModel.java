@@ -12,6 +12,10 @@ import org.zkoss.zk.ui.Executions;
 import org.zkoss.zul.AbstractListModel;
 
 /**
+ * Advanced implementation for lazy initialization issue under ROD.
+ * It queries from a database one page size a time when elements are requested, and
+ * store the query result as a cache in an Execution attribute to avoid returning
+ * detached objects.
  * 
  * @author Hawk
  *
@@ -48,9 +52,11 @@ public class LiveOrderListModel extends AbstractListModel<Order>{
 		}else{
 			return targetOrder;
 		}
-		
+
+		//get the target after query from database
 		targetOrder = cache.get(index);
 		if (targetOrder == null){
+			//if we still cannot find the target object from database, there is inconsistency in the database
 			throw new HibernateException("Element at index "+index+" cannot be found in the database.");
 		}else{
 			return targetOrder;

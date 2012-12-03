@@ -67,6 +67,10 @@ public class OrderDao {
 	public Order reload(Order order){
 		return (Order)HibernateUtil.getSessionFactory().getCurrentSession().load(Order.class,order.getId());
 	}
+
+	public void delete(Order order){
+		HibernateUtil.getSessionFactory().getCurrentSession().delete(order);
+	}
 	
 	public void saveInNewSession(Order newOrder) throws HibernateException{
 		Session session = HibernateUtil.getSessionFactory().openSession();
