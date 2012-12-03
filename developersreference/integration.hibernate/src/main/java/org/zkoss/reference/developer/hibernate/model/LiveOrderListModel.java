@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.hibernate.HibernateException;
 import org.zkoss.reference.developer.hibernate.dao.OrderDao;
 import org.zkoss.reference.developer.hibernate.domain.Order;
 import org.zkoss.zk.ui.Execution;
@@ -22,7 +23,7 @@ public class LiveOrderListModel extends AbstractListModel<Order>{
 	private OrderDao orderDao;
 	
 	private int pageSize = 30;
-	private final String CACHE_KEY= "cache";
+	private final String CACHE_KEY= LiveOrderListModel.class+"_cache";
 	
 	public LiveOrderListModel(OrderDao orderDao){
 		this.orderDao = orderDao;
@@ -34,7 +35,9 @@ public class LiveOrderListModel extends AbstractListModel<Order>{
 	@Override
 	public Order getElementAt(int index) {
 		Map<Integer, Order> cache = getCache();
-		if (!cache.containsKey(index)){
+
+		Order targetOrder = cache.get(index);
+		if (targetOrder == null){
 			//if cache doesn't contain target object, query a page starting from the index
 			List<Order> pageResult = orderDao.findAll(index, pageSize);
 			int indexKey = index;
@@ -42,14 +45,22 @@ public class LiveOrderListModel extends AbstractListModel<Order>{
 				cache.put(indexKey, o);
 				indexKey++;
 			}
+		}else{
+			return targetOrder;
 		}
-		return cache.get(index);
+		
+		targetOrder = cache.get(index);
+		if (targetOrder == null){
+			throw new HibernateException("Element at index "+index+" cannot be found in the database.");
+		}else{
+			return targetOrder;
+		}
 	}
 
 	private Map<Integer, Order> getCache(){
 		Execution execution = Executions.getCurrent();
 		//we only reuse this cache in one execution to avoid accessing detached objects.
-		//our filter open a session during a HTTP request
+		//our filter opens a session during a HTTP request
 		Map<Integer, Order> cache = (Map)execution.getAttribute(CACHE_KEY);
 		if (cache == null){
 			cache = new HashMap<Integer, Order>();

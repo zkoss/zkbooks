@@ -27,7 +27,7 @@ public class OrderListModel extends AbstractListModel<Order>{
 	
 	@Override
 	public Order getElementAt(int index) {
-		//throw exception if not found at the moment
+		//throw an exception if not found
 		Order renewOrder = orderDao.reload(orderList.get(index));
 		return renewOrder;
 	}
