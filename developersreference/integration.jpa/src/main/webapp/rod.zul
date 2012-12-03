@@ -1,0 +1,37 @@
+<?page title="" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window title="" border="normal" width="600px" apply="org.zkoss.bind.BindComposer"
+		viewModel="@id('vm') @init('org.zkoss.reference.developer.jpa.vm.RodViewModel')">
+		Contain a customized model that reload lazy-loaded collection from database
+		<listbox model="@load(vm.orderListModel)" rows="10">
+			<listhead>
+				<listheader label="ID" width="50px" />
+				<listheader label="Description" />
+				<listheader label="Item Count" width="150px" />
+			</listhead>
+			<template name="model">
+				<listitem>
+					<listcell label="@load(each.id) " />
+					<listcell label="@load(each.description)" />
+					<listcell label="@load(each.items.size())" />
+				</listitem>
+			</template>
+		</listbox>
+		<separator height="40px"/>
+		Contain a customized model that query a page size when requested
+		<listbox model="@load(vm.liveOrderListModel)" rows="10">
+			<listhead>
+				<listheader label="ID" width="50px" />
+				<listheader label="Description" />
+				<listheader label="Item Count" width="150px" />
+			</listhead>
+			<template name="model">
+				<listitem>
+					<listcell label="@load(each.id) " />
+					<listcell label="@load(each.description)" />
+					<listcell label="@load(each.items.size())" />
+				</listitem>
+			</template>
+		</listbox>
+	</window>
+</zk>

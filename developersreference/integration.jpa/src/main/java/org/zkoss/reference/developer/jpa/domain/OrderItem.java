@@ -20,25 +20,10 @@ public class OrderItem {
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
 	private long orderId;
-	private long prodId;
-
 	private String name;
 	private float price;
 	private int quantity;
 
-	public OrderItem() {
-	}
-
-	public OrderItem(Long id, Long orderId, long prodId, String name,
-			float price, int quantity) {
-		super();
-		if (id != null) this.id = id;
-		if (orderId != null)this.orderId = orderId;
-		this.prodId = prodId;
-		this.name = name;
-		this.price = price;
-		this.quantity = quantity;
-	}
 
 	public Long getId() {
 		return id;
@@ -46,14 +31,6 @@ public class OrderItem {
 
 	public void setId(Long id) {
 		this.id = id;
-	}
-
-	public long getProdId() {
-		return prodId;
-	}
-
-	public void setProdId(long prodId) {
-		this.prodId = prodId;
 	}
 
 	public String getName() {

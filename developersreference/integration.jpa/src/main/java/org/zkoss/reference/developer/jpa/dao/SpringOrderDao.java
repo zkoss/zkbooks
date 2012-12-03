@@ -4,7 +4,6 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.PersistenceUnitUtil;
 import javax.persistence.Query;
 
 import org.hibernate.HibernateException;
@@ -51,4 +50,16 @@ public class SpringOrderDao {
 	public Order reload(Order order){
 		return em.find(Order.class, order.getId());
 	}
+
+	public List<Order> queryAll(int offset, int max) {
+		Query query = em.createQuery("from Order as o")
+				.setFirstResult(offset)
+				.setMaxResults(max);
+		List<Order> result = query.getResultList();
+		return result;
+	}
+	
+	public Long queryAllSize() {
+		return (Long)em.createQuery("select count(*) from Order as o").getSingleResult();
+	}		
 }

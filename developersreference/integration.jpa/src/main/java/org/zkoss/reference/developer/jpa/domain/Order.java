@@ -35,7 +35,6 @@ public class Order {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	private long userId;
 	private String status = PROCESSING;
 	private String description;
 
@@ -49,19 +48,6 @@ public class Order {
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date updateDate = createDate;
 
-	public Order() {
-	}
-
-	public Order(Long id, long userId, String status, Date createDate,
-			String description) {
-		super();
-		this.id = id;
-		this.userId = userId;
-		this.status = status;
-		this.description = description;
-		this.createDate = createDate;
-		this.updateDate = createDate;
-	}
 
 	public Long getId() {
 		return id;
@@ -139,14 +125,6 @@ public class Order {
 		this.updateDate = updateDate;
 	}
 
-	public long getUserId() {
-		return userId;
-	}
-
-	public void setUserId(long userId) {
-		this.userId = userId;
-	}
-	
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)

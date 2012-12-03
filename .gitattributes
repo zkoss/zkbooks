@@ -118,6 +118,9 @@ developersreference/integration.jpa/pom.xml -text
 developersreference/integration.jpa/src/main/java/org/zkoss/reference/developer/jpa/dao/SpringOrderDao.java -text
 developersreference/integration.jpa/src/main/java/org/zkoss/reference/developer/jpa/domain/Order.java -text
 developersreference/integration.jpa/src/main/java/org/zkoss/reference/developer/jpa/domain/OrderItem.java -text
+developersreference/integration.jpa/src/main/java/org/zkoss/reference/developer/jpa/model/LiveOrderListModel.java -text
+developersreference/integration.jpa/src/main/java/org/zkoss/reference/developer/jpa/model/OrderListModel.java -text
+developersreference/integration.jpa/src/main/java/org/zkoss/reference/developer/jpa/vm/RodViewModel.java -text
 developersreference/integration.jpa/src/main/java/org/zkoss/reference/developer/jpa/vm/SpringOrderViewModel.java -text
 developersreference/integration.jpa/src/main/java/org/zkoss/reference/developer/jpa/vm/SpringRollbackViewModel.java -text
 developersreference/integration.jpa/src/main/resources/META-INF/persistence.xml -text
@@ -125,6 +128,7 @@ developersreference/integration.jpa/src/main/resources/import.sql -text
 developersreference/integration.jpa/src/main/webapp/WEB-INF/applicationContext.xml -text
 developersreference/integration.jpa/src/main/webapp/WEB-INF/web.xml -text
 developersreference/integration.jpa/src/main/webapp/order.zul -text
+developersreference/integration.jpa/src/main/webapp/rod.zul -text
 developersreference/integration.jpa/src/main/webapp/rollback.zul -text
 developersreference/integration.spring/.classpath -text
 developersreference/integration.spring/.project -text
