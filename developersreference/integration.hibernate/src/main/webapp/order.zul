@@ -2,7 +2,7 @@
 <zk>
 	<window title="" border="normal" width="600px" apply="org.zkoss.bind.BindComposer" 
 	viewModel="@id('vm') @init('org.zkoss.reference.developer.hibernate.vm.OldOrderViewModel')">
-		<listbox model="@load(vm.orders)" selectedItem="@bind(vm.selectedItem)">
+		<listbox model="@load(vm.orders)" selectedItem="@bind(vm.selectedItem)" rows="10">
 			<listhead>
 				<listheader label="ID" />
 				<listheader label="Description" />
