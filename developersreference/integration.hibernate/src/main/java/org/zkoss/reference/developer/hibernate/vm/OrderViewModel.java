@@ -28,6 +28,10 @@ public class OrderViewModel {
 		}
 	}
 	
+	/*
+	 * onSelect event will invoke this method several times but only execution one query
+	 * because first query makes target object exist in persistence context.
+	 */
 	public Order getSelectedItem() {
 		if (selectedItem!=null){
 			selectedItem = orderDao.reload(selectedItem);
