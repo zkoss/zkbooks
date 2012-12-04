@@ -41,11 +41,7 @@ public class SpringOrderDao {
 		// throw exception on purpose
 		throw new RuntimeException("error save");
 	}
-	/**
-	 * Initialize lazy-loaded collection.
-	 * @param order
-	 * @return
-	 */
+
 	@Transactional(readOnly=true)
 	public Order reload(Order order){
 		return em.find(Order.class, order.getId());

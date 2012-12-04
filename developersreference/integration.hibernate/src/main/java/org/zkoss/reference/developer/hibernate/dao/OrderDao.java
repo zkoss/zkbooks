@@ -57,13 +57,7 @@ public class OrderDao {
 		// throw exception to test
 		throw new HibernateException("error save");
 	}
-	/**
-	 * Initialize lazy-loaded collection.
-	 * session.refresh() re-read object's state from database that turn initialized collection 
-	 * back to uninitialized.
-	 * @param order
-	 * @return
-	 */
+
 	public Order reload(Order order){
 		return (Order)HibernateUtil.getSessionFactory().getCurrentSession().load(Order.class,order.getId());
 	}

@@ -44,11 +44,7 @@ public class SpringOrderDao {
 		// throw exception
 		throw new HibernateException("error save");
 	}
-	/**
-	 * Initialize lazy-loaded collection.
-	 * @param order
-	 * @return
-	 */
+
 	public Order reload(Order order){
 		return (Order)sessionFactory.getCurrentSession().load(Order.class,order.getId());
 	}
