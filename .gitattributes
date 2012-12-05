@@ -223,6 +223,7 @@ tutorial/WebContent/WEB-INF/lib/zkbind.jar -text
 tutorial/WebContent/WEB-INF/lib/zul.jar -text
 tutorial/WebContent/WEB-INF/lib/zweb.jar -text
 tutorial/WebContent/WEB-INF/readme.txt -text
+tutorial/WebContent/WEB-INF/zk.xml -text
 tutorial/WebContent/hello.zul -text
 tutorial/WebContent/img/car1.png -text
 tutorial/WebContent/img/car2.png -text
@@ -240,6 +241,7 @@ tutorial/src/tutorial/CarService.java -text
 tutorial/src/tutorial/CarServiceImpl.java -text
 tutorial/src/tutorial/SearchController.java -text
 tutorial/src/tutorial/SearchViewModel.java -text
+tutorial/src/tutorial/richlet/SearchRichlet.java -text
 zkessentials/store/WebContent/image/Bullet-10x10.png -text
 zkessentials/store/WebContent/image/CasualUserMale-16x16.png -text
 zkessentials/store/WebContent/image/DeleteCross-16x16.png -text
