@@ -35,6 +35,7 @@ public class SearchRichlet extends GenericRichlet {
 
 	private CarService carService = new CarServiceImpl();
 
+	@Override
 	public void service(Page page) throws Exception {
 		Component rootComponent = buildUserInterface();
 		rootComponent.setPage(page);
@@ -125,13 +126,11 @@ public class SearchRichlet extends GenericRichlet {
 
 	@Override
 	public void init(RichletConfig config) {
-		super.init(config);
-		//initialize resources
+		//initialize resources, e.g. get initial parameters
 	}
 	
 	@Override
 	public void destroy() {
-		super.destroy();
 		//destroy resources
 	}
 }
