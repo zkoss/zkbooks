@@ -23,6 +23,7 @@ import org.zkoss.zul.Listcell;
 import org.zkoss.zul.Listhead;
 import org.zkoss.zul.Listheader;
 import org.zkoss.zul.Listitem;
+import org.zkoss.zul.ListitemRenderer;
 import org.zkoss.zul.Textbox;
 import org.zkoss.zul.Vbox;
 import org.zkoss.zul.Window;
@@ -65,9 +66,9 @@ public class SearchRichlet extends GenericRichlet {
 		final Listbox carListbox = new Listbox();
 		carListbox.setHeight("160px");
 		carListbox.setEmptyMessage("No car found in the result");
+//		carListbox.setItemRenderer(carRenderer)
 		carListbox.setTemplate("model", new ListboxTemplate());
 		carListbox.appendChild(listhead);
-		
 		
 		//build Detail Area
 		final Label modelLabel = new Label();
@@ -169,4 +170,18 @@ class ListboxTemplate implements Template {
 		//parameters.put("var","car");
 		return null;
 	}
+}
+
+class CarRenderer implements ListitemRenderer<Car>{
+
+	@Override
+	public void render(Listitem listitem, Car car, int index) throws Exception {
+		listitem.appendChild(new Listcell(car.getModel()));
+		listitem.appendChild(new Listcell(car.getMake()));
+		Listcell priceCell = new Listcell();
+		priceCell.appendChild(new Label("$"));
+		priceCell.appendChild(new Label(car.getPrice().toString()));
+		listitem.appendChild(priceCell);
+	}
+	
 }
