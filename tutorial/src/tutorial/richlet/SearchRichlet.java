@@ -1,6 +1,5 @@
 package tutorial.richlet;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -42,7 +41,6 @@ public class SearchRichlet extends GenericRichlet {
 	}
 	
 	private Component buildUserInterface(){
-
 
 		//build search area
 		final Textbox keywordBox = new Textbox();
@@ -101,7 +99,7 @@ public class SearchRichlet extends GenericRichlet {
 		});
 		
 		carListbox.addEventListener(Events.ON_SELECT, new EventListener<Event>() {
-			//show detail
+			//show selected item's detail
 			@Override
 			public void onEvent(Event event) throws Exception {
 				Car selected = carListbox.getSelectedItem().getValue();
@@ -136,23 +134,6 @@ public class SearchRichlet extends GenericRichlet {
 		super.destroy();
 		//destroy resources
 	}
-	
-//	@Listen("onClick = #searchButton")
-//	public void search(){
-//		String keyword = keywordBox.getValue();
-//		List<Car> result = carService.search(keyword);
-//		carListbox.setModel(new ListModelList<Car>(result));
-//	}
-	
-//	@Listen("onSelect = #carListbox")
-//	public void showDetail(){
-//		Car selected = carListbox.getSelectedItem().getValue();
-//		previewImage.setSrc(selected.getPreview());
-//		modelLabel.setValue(selected.getModel());
-//		makeLabel.setValue(selected.getMake());
-//		priceLabel.setValue(selected.getPrice().toString());
-//		descriptionLabel.setValue(selected.getDescription());
-//	}
 }
 
 class ListboxTemplate implements Template {
@@ -185,9 +166,8 @@ class ListboxTemplate implements Template {
 
 	@Override
 	public Map<String, Object> getParameters() {
-		Map<String,Object> parameters = new HashMap<String, Object>();
-		//set  variable
-		parameters.put("var","each");
+		// you could set variable name, we use default name, "each" 
+		//parameters.put("var","car");
 		return null;
 	}
 }
