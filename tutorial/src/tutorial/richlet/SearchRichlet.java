@@ -2,6 +2,7 @@ package tutorial.richlet;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import org.zkoss.xel.VariableResolver;
 import org.zkoss.zk.ui.Component;
@@ -11,6 +12,7 @@ import org.zkoss.zk.ui.RichletConfig;
 import org.zkoss.zk.ui.event.Event;
 import org.zkoss.zk.ui.event.EventListener;
 import org.zkoss.zk.ui.event.Events;
+import org.zkoss.zk.ui.event.SelectEvent;
 import org.zkoss.zk.ui.util.Composer;
 import org.zkoss.zk.ui.util.Template;
 import org.zkoss.zul.Button;
@@ -27,6 +29,7 @@ import org.zkoss.zul.ListitemRenderer;
 import org.zkoss.zul.Textbox;
 import org.zkoss.zul.Vbox;
 import org.zkoss.zul.Window;
+import org.zkoss.zul.ext.Selectable;
 
 import tutorial.Car;
 import tutorial.CarService;
@@ -66,8 +69,8 @@ public class SearchRichlet extends GenericRichlet {
 		final Listbox carListbox = new Listbox();
 		carListbox.setHeight("160px");
 		carListbox.setEmptyMessage("No car found in the result");
-//		carListbox.setItemRenderer(carRenderer)
-		carListbox.setTemplate("model", new ListboxTemplate());
+		carListbox.setItemRenderer(new CarRenderer());
+//		carListbox.setTemplate("model", new CarListTemplate());
 		carListbox.appendChild(listhead);
 		
 		//build Detail Area
@@ -100,16 +103,20 @@ public class SearchRichlet extends GenericRichlet {
 			
 		});
 		
-		carListbox.addEventListener(Events.ON_SELECT, new EventListener<Event>() {
+		carListbox.addEventListener(Events.ON_SELECT, new EventListener<SelectEvent>() {
 			//show selected item's detail
 			@Override
-			public void onEvent(Event event) throws Exception {
-				Car selected = carListbox.getSelectedItem().getValue();
-				previewImage.setSrc(selected.getPreview());
-				modelLabel.setValue(selected.getModel());
-				makeLabel.setValue(selected.getMake());
-				priceLabel.setValue(selected.getPrice().toString());
-				descriptionLabel.setValue(selected.getDescription());
+			public void onEvent(SelectEvent event) throws Exception {
+				//get selection from listbox's model
+				Set<Car> selection = ((Selectable<Car>)carListbox.getModel()).getSelection();
+				if (selection!=null && !selection.isEmpty()){
+					Car selected = selection.iterator().next();
+					previewImage.setSrc(selected.getPreview());
+					modelLabel.setValue(selected.getModel());
+					makeLabel.setValue(selected.getMake());
+					priceLabel.setValue(selected.getPrice().toString());
+					descriptionLabel.setValue(selected.getDescription());
+				}
 			}
 		});
 		
@@ -136,7 +143,7 @@ public class SearchRichlet extends GenericRichlet {
 	}
 }
 
-class ListboxTemplate implements Template {
+class CarListTemplate implements Template {
 
 	@SuppressWarnings("rawtypes")
 	public Component[] create(Component parent, Component insertBefore,
@@ -185,3 +192,4 @@ class CarRenderer implements ListitemRenderer<Car>{
 	}
 	
 }
+
