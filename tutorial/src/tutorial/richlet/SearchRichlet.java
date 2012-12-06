@@ -69,8 +69,8 @@ public class SearchRichlet extends GenericRichlet {
 		final Listbox carListbox = new Listbox();
 		carListbox.setHeight("160px");
 		carListbox.setEmptyMessage("No car found in the result");
-		carListbox.setItemRenderer(new CarRenderer());
-//		carListbox.setTemplate("model", new CarListTemplate());
+//		carListbox.setItemRenderer(new CarRenderer());
+		carListbox.setTemplate("model", new CarListTemplate());
 		carListbox.appendChild(listhead);
 		
 		//build Detail Area
@@ -145,10 +145,9 @@ public class SearchRichlet extends GenericRichlet {
 
 class CarListTemplate implements Template {
 
-	@SuppressWarnings("rawtypes")
 	public Component[] create(Component parent, Component insertBefore,
 			VariableResolver resolver, Composer composer){
-		
+
 		Car car = (Car)resolver.resolveVariable("each");
 		Listitem listitem = new Listitem();
 		listitem.appendChild(new Listcell(car.getModel()));
@@ -157,14 +156,14 @@ class CarListTemplate implements Template {
 		priceCell.appendChild(new Label("$"));
 		priceCell.appendChild(new Label(car.getPrice().toString()));
 		listitem.appendChild(priceCell);
-		
-		 //append to the parent
-        if (insertBefore ==null){
-                parent.appendChild(listitem);
-        }else{
-                parent.insertBefore(listitem, insertBefore);
-        }
-        
+
+		//append to the parent
+		if (insertBefore ==null || parent != insertBefore.getParent()){
+			parent.appendChild(listitem);
+		}else{
+			parent.insertBefore(listitem, insertBefore);
+		}
+
 		Component[] components = new Component[1];
 		components [0] = listitem;
 
@@ -190,6 +189,5 @@ class CarRenderer implements ListitemRenderer<Car>{
 		priceCell.appendChild(new Label(car.getPrice().toString()));
 		listitem.appendChild(priceCell);
 	}
-	
 }
 
