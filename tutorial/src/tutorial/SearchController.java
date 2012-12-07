@@ -2,11 +2,13 @@ package tutorial;
 
 
 import java.util.List;
+import java.util.Set;
 
 import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.select.SelectorComposer;
 import org.zkoss.zk.ui.select.annotation.*;
 import org.zkoss.zul.*;
+import org.zkoss.zul.ext.Selectable;
 
 public class SearchController extends SelectorComposer<Component> {
 
@@ -39,11 +41,14 @@ public class SearchController extends SelectorComposer<Component> {
 	
 	@Listen("onSelect = #carListbox")
 	public void showDetail(){
-		Car selected = carListbox.getSelectedItem().getValue();
-		previewImage.setSrc(selected.getPreview());
-		modelLabel.setValue(selected.getModel());
-		makeLabel.setValue(selected.getMake());
-		priceLabel.setValue(selected.getPrice().toString());
-		descriptionLabel.setValue(selected.getDescription());
+		Set<Car> selection = ((Selectable<Car>)carListbox.getModel()).getSelection();
+		if (selection!=null && !selection.isEmpty()){
+			Car selected = selection.iterator().next();
+			previewImage.setSrc(selected.getPreview());
+			modelLabel.setValue(selected.getModel());
+			makeLabel.setValue(selected.getMake());
+			priceLabel.setValue(selected.getPrice().toString());
+			descriptionLabel.setValue(selected.getDescription());
+		}
 	}
 }
