@@ -1,10 +1,8 @@
 package tutorial.richlet;
 
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
 
-import org.zkoss.xel.VariableResolver;
 import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.GenericRichlet;
 import org.zkoss.zk.ui.Page;
@@ -13,8 +11,6 @@ import org.zkoss.zk.ui.event.Event;
 import org.zkoss.zk.ui.event.EventListener;
 import org.zkoss.zk.ui.event.Events;
 import org.zkoss.zk.ui.event.SelectEvent;
-import org.zkoss.zk.ui.util.Composer;
-import org.zkoss.zk.ui.util.Template;
 import org.zkoss.zul.Button;
 import org.zkoss.zul.Hbox;
 import org.zkoss.zul.Image;
@@ -41,6 +37,7 @@ public class SearchRichlet extends GenericRichlet {
 
 	@Override
 	public void service(Page page) throws Exception {
+		//build the user interface
 		Component rootComponent = buildUserInterface();
 		rootComponent.setPage(page);
 	}
@@ -69,8 +66,7 @@ public class SearchRichlet extends GenericRichlet {
 		final Listbox carListbox = new Listbox();
 		carListbox.setHeight("160px");
 		carListbox.setEmptyMessage("No car found in the result");
-//		carListbox.setItemRenderer(new CarRenderer());
-		carListbox.setTemplate("model", new CarListTemplate());
+		carListbox.setItemRenderer(new CarRenderer());
 		carListbox.appendChild(listhead);
 		
 		//build Detail Area
@@ -140,41 +136,6 @@ public class SearchRichlet extends GenericRichlet {
 	@Override
 	public void destroy() {
 		//destroy resources
-	}
-}
-
-class CarListTemplate implements Template {
-
-	public Component[] create(Component parent, Component insertBefore,
-			VariableResolver resolver, Composer composer){
-
-		Car car = (Car)resolver.resolveVariable("each");
-		Listitem listitem = new Listitem();
-		listitem.appendChild(new Listcell(car.getModel()));
-		listitem.appendChild(new Listcell(car.getMake()));
-		Listcell priceCell = new Listcell();
-		priceCell.appendChild(new Label("$"));
-		priceCell.appendChild(new Label(car.getPrice().toString()));
-		listitem.appendChild(priceCell);
-
-		//append to the parent
-		if (insertBefore ==null || parent != insertBefore.getParent()){
-			parent.appendChild(listitem);
-		}else{
-			parent.insertBefore(listitem, insertBefore);
-		}
-
-		Component[] components = new Component[1];
-		components [0] = listitem;
-
-		return components;
-	}
-
-	@Override
-	public Map<String, Object> getParameters() {
-		//it's used for data binding.
-		//we don't use it in this example.
-		return null;
 	}
 }
 

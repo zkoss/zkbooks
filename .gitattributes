@@ -241,6 +241,7 @@ tutorial/src/tutorial/CarService.java -text
 tutorial/src/tutorial/CarServiceImpl.java -text
 tutorial/src/tutorial/SearchController.java -text
 tutorial/src/tutorial/SearchViewModel.java -text
+tutorial/src/tutorial/richlet/CarListTemplate.java -text
 tutorial/src/tutorial/richlet/SearchRichlet.java -text
 zkessentials/store/WebContent/image/Bullet-10x10.png -text
 zkessentials/store/WebContent/image/CasualUserMale-16x16.png -text
