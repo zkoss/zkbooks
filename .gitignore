@@ -8,6 +8,7 @@ developersreference/integration.spring/.settings
 document/.classpath
 document/.settings
 spring-example/.settings
+tutorial/.settings/org.zkoss.*
 tutorial/build
 zkessentials/store/.classpath
 zkessentials/store/.project
