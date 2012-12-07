@@ -37,6 +37,11 @@ public class SearchRichlet extends GenericRichlet {
 
 	@Override
 	public void service(Page page) throws Exception {
+//		if ("/search/admin".equals(page.getRequestPath())){
+//			//build admin UI
+//		}else{
+//			//build normal UI
+//		}
 		//build the user interface
 		Component rootComponent = buildUserInterface();
 		rootComponent.setPage(page);
