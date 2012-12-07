@@ -172,8 +172,8 @@ class CarListTemplate implements Template {
 
 	@Override
 	public Map<String, Object> getParameters() {
-		// you could set variable name, we use default name, "each" 
-		//parameters.put("var","car");
+		//it's used for data binding.
+		//we don't use it in this example.
 		return null;
 	}
 }
