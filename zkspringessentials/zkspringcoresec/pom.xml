@@ -7,7 +7,7 @@
 	<version>3.1.1</version>
 	<properties>
 		<zk.version>6.0.2</zk.version>
-		<zkspring.version>3.1</zkspring.version>
+		<zkspring.version>3.1.1</zkspring.version>
 		<spring.version>3.0.7.RELEASE</spring.version>
 		<springsecurity.version>3.1.2.RELEASE</springsecurity.version>
 		<commons-fileupload.version>1.2.1</commons-fileupload.version>
