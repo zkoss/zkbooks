@@ -25,7 +25,7 @@ public class LiveOrderListModel extends AbstractListModel<Order>{
 	private static final long serialVersionUID = -7982684413905984053L;
 	
 	private OrderDao orderDao;
-	
+	private Integer totalSize;
 	private int pageSize = 30;
 	private final String CACHE_KEY= LiveOrderListModel.class+"_cache";
 	
@@ -77,6 +77,9 @@ public class LiveOrderListModel extends AbstractListModel<Order>{
 	
 	@Override
 	public int getSize() {
-		return orderDao.findAllSize().intValue();
+		if (totalSize == null){
+			totalSize = orderDao.findAllSize().intValue();
+		}
+		return totalSize; 
 	}
 }
