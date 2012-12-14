@@ -29,7 +29,7 @@ public class JdbcComposer extends SelectorComposer<Window> {
 			//load driver and get a database connection
 			Class.forName("com.mysql.jdbc.Driver");
 			conn = DriverManager.getConnection(
-					"jdbc:mysql://localhost/test?user=root&password=R3f@ct0r");
+					"jdbc:mysql://localhost/test?user=root&password=root");
 			stmt = conn.prepareStatement("INSERT INTO user values(?, ?)");
 
 			//insert what end user entered into database table
