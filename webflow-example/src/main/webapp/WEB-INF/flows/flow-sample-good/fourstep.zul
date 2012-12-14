@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" ?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+
+<zk>
+	Show result of accessing Conversation Scope variables
+	<window >
+		<panel title="4th Step">
+			<panelchildren>
+				<listbox id="myList" model="@{myConversationVar.myList}">
+					<listitem self="@{each=entry}" value="@{entry}">
+						<listcell value="@{entry}" label="@{entry}" />
+					</listitem>
+				</listbox>
+			</panelchildren>
+		</panel>
+		<button label="End" onClick="" self="@{action(end)}" />
+	</window>
+</zk>

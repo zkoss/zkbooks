@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<zk>
+    
+    <preference>
+        <name>org.zkoss.zk.ui.WebApp.name</name>
+        <value>Orpheus Webfrontend</value>
+    </preference>
+
+
+    <system-config>
+
+		<!--
+		Spring binds web scoped beans to the thread so we instructed ZK not
+		to fork threads. That will prevent you from using certain suspend/resume
+		features. The line within the web.xml that requires that we disable
+		the event thread is
+		<listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
+		-->
+        <disable-event-thread />
+    </system-config>
+    <!-- 
+    <desktop-config> 
+        <theme-uri>/css/telekom.css.dsp</theme-uri>    
+    </desktop-config>
+     
+    <listener>
+        <description>Spring Web Flow Controller Listener</description>
+        <listener-class>org.zkoss.spring.webflow.mvc.servlet.ZkFlowControllerListener</listener-class>
+    </listener>
+
+    <listener>
+        <description>Spring Web Flow URL and FlowId Listener</description>
+        <listener-class>org.zkoss.spring.webflow.context.servlet.ZkFlowResourceListener</listener-class>
+    </listener>
+    
+    <session-config>
+        <session-timeout>60</session-timeout>
+        <timer-keep-alive>false</timer-keep-alive>
+        <timer-as-inactive>false</timer-as-inactive>
+    </session-config>
+     -->
+
+    <system-config>
+        <cache-provider-class>org.zkoss.zk.ui.impl.SessionDesktopCacheProvider</cache-provider-class>
+    </system-config>
+
+    <client-config>
+        <keep-across-visits>false</keep-across-visits>
+    </client-config>
+    
+    
+     <desktop-config> 
+         <theme-uri>/css/telekom.css.dsp</theme-uri> 
+        <!-- deactivate zk default theme complete - USE WITH CAUTION ! --> 
+        <!-- <disable-theme-uri>~./zul/css/zk.wcs</disable-theme-uri> -->
+    </desktop-config>
+
+    <!--
+    <listener>
+        <description>ThreadLocal Synchronization Listener
+        </description>
+        <listener-class>org.zkoss.zkplus.util.ThreadLocalListener
+        </listener-class>
+    </listener>
+
+    <preference>
+        <name>ThreadLocal</name>
+        <value>
+			org.springframework.security.context.ThreadLocalSecurityContextHolderStrategy=contextHolder;
+                        org.springframework.transaction.support.TransactionSynchronizationManager=resources,synchronizations,currentTransactionName,currentTransactionReadOnly,actualTransactionActive;
+			org.springframework.orm.hibernate3.SessionFactoryUtils=deferredCloseHolder;
+			org.springframework.transaction.interceptor.TransactionAspectSupport=transactionInfoHolder;
+        </value>
+    </preference>
+
+    <session-config>
+        <session-timeout>60</session-timeout>
+        <timer-keep-alive>false</timer-keep-alive>
+        <timer-as-inactive>false</timer-as-inactive>
+    </session-config>
+
+    <system-config>
+        <cache-provider-class>org.zkoss.zk.ui.impl.SessionDesktopCacheProvider</cache-provider-class>
+    </system-config>
+
+    <client-config>
+        <keep-across-visits>false</keep-across-visits>
+    </client-config>
+-->
+</zk>
