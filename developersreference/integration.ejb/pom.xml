@@ -11,4 +11,5 @@
   		<scope>provided</scope>
   	</dependency>
   </dependencies>
+  <name>EJB example</name>
 </project>
