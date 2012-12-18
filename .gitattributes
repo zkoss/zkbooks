@@ -76,6 +76,11 @@ developersreference/integration.cdi/src/main/webapp/dependent-composer.zul -text
 developersreference/integration.cdi/src/main/webapp/variable-resolver.zul -text
 developersreference/integration.cdi/src/main/webapp/wirevariable-mvvm.zul -text
 developersreference/integration.cdi/src/main/webapp/wirevariable.zul -text
+developersreference/integration.ejb/.classpath -text
+developersreference/integration.ejb/.project -text
+developersreference/integration.ejb/pom.xml -text
+developersreference/integration.ejb/src/main/java/org/zkoss/reference/developer/integration/ejb/Account.java -text
+developersreference/integration.ejb/src/main/java/org/zkoss/reference/developer/integration/ejb/AccountBean.java -text
 developersreference/integration.hibernate/.classpath -text
 developersreference/integration.hibernate/.project -text
 developersreference/integration.hibernate/pom.xml -text
