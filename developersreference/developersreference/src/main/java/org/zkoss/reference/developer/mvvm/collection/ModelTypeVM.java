@@ -15,8 +15,10 @@ public class ModelTypeVM extends SingleSelectionVM{
 	
 	@Init
 	public void init(){
+		pickedItem = new Item();
 		itemService = new ItemService(100);
 		itemList = itemService.getAllItems();
+		itemListModel = new ListModelList<Item>(itemService.getAllItems());
 	}
 	
 	@Command @NotifyChange({"pickedItem","itemList"})
@@ -36,13 +38,44 @@ public class ModelTypeVM extends SingleSelectionVM{
 	
 	@Command @NotifyChange("pickedItem")
 	public void update(){
-		//directly modify target object's content, no need more actions 
+		//data binding directly modifies target object's property in the item list  
 	}
 	
 	@Command @NotifyChange("pickedItem")
 	public void reset(){
 		pickedItem = new Item();
 	}
+
+	public ListModelList<Item> getItemListModel() {
+		return itemListModel;
+	}
+
+	public void setItemListModel(ListModelList<Item> itemListModel) {
+		this.itemListModel = itemListModel;
+	}
 	
+	@Command @NotifyChange("pickedItem")
+	public void modelAdd(){
+		itemListModel.add(pickedItem);
+	}
 	
+	@Command  @NotifyChange("pickedItem")
+	public void modelDelete(){
+		int index = itemListModel.indexOf(pickedItem);
+		if (index != -1){
+			itemListModel.remove(index);
+			pickedItem = new Item();
+		}
+		
+	}	
+	
+	@Command @NotifyChange("pickedItem")
+	public void modelUpdate(){
+		update();
+	}
+	
+	@Command @NotifyChange("pickedItem")
+	public void modelReset(){
+		reset();
+	}	
 }

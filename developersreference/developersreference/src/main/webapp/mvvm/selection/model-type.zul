@@ -1,6 +1,8 @@
 <zk>
 	<div width="400px" apply="org.zkoss.bind.BindComposer"
 		viewModel="@id('vm') @init('org.zkoss.reference.developer.mvvm.collection.ModelTypeVM')">
+		Demonstrate the limitation of using a Java List as a component's model:
+		Lose scroll position when model's size changes, e.g. add, delete
 		<listbox model="@bind(vm.itemList)" selectedItem="@bind(vm.pickedItem)" rows="10">
 			<listhead>
 				<listheader label="index" />
@@ -26,6 +28,32 @@
 				</row>
 			</rows>
 		</grid>
-		
+		<separator height="50px" bar="true"/>
+		Scroll position is kept when using ListModelList object as the component's model, e.g. add, delete
+		<listbox model="@bind(vm.itemListModel)" selectedItem="@bind(vm.pickedItem)" rows="10">
+			<listhead>
+				<listheader label="index" />
+				<listheader label="name" />
+			</listhead>
+			<template name="model" var="item" status="s">
+				<listitem>
+					<listcell label="@bind(s.index)" />
+					<listcell label="@bind(item.name)" />
+				</listitem>
+			</template>
+		</listbox>
+		<grid form="@id('fx') @load(vm.pickedItem) @save(vm.pickedItem, before={'modelUpdate','modelAdd'})">
+			<rows>
+				<row>
+					name: <textbox value="@bind(fx.name)" />
+				</row>
+				<row>
+					<button label="Add" onClick="@command('modelAdd')"/>
+					<button label="Delete" onClick="@command('modelDelete')"/>
+					<button label="Save" onClick="@command('modelUpdate')"/>
+					<button label="Reset" onClick="@command('modelReset')"/>
+				</row>
+			</rows>
+		</grid>				
 	</div>
 </zk>
