@@ -39,8 +39,9 @@
 			</grid>
 		</groupbox>
 		<separator height="50px" bar="true"/>
+		
 		Use Java List:
-		<listbox width="400px" model="@bind(vm.personList)" mold="paging" pageSize="10">
+		<listbox model="@bind(vm.personList)" selectedItem="@bind(vm.selectedPerson)" rows="10">
 			<listhead>
 				<listheader label="ID" />
 				<listheader label="First Name" />
@@ -55,6 +56,23 @@
 					<listcell label="@bind(each.age)" />
 				</listitem>
 			</template>
-		</listbox>		
+		</listbox>
+			<grid form="@id('fx') @load(vm.selectedPerson) @save(vm.selectedPerson, before={'listAdd'})">
+				<rows>
+					<row>
+						First Name:<textbox value="@bind(fx.firstName)" />
+					</row>
+					<row>
+						Last Name: <textbox value="@bind(fx.lastName)"/>
+					</row>
+					<row>
+						Age: <intbox value="@bind(fx.age)"/>
+					</row>
+					<row spans="2" align="right">
+						<button label="Add" onClick="@command('listAdd')"/>
+						<button label="Delete" onClick="@command('listDelete')"/>
+					</row>
+				</rows>
+			</grid>				
 	</window>
 </zk>
