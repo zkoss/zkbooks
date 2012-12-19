@@ -1,0 +1,22 @@
+<window apply="org.zkoss.bind.BindComposer"
+	viewModel="@id('vm') @init('org.zkoss.reference.developer.mvvm.collection.TreeSelectionVM')">
+	<tree id="tree" model="@bind(vm.itemTree) " width="600px" 
+	selectedItem="@bind(vm.pickedItem)">
+		<treecols>
+			<treecol label="name" />
+			<treecol label="index" />
+		</treecols>
+		<template name="model" var="node" status="s">
+			<treeitem open="@bind(node.open)">
+				<treerow>
+					<treecell label="@bind(node.data)" />
+					<treecell label="@bind(s.index)" />
+				</treerow>
+			</treeitem>
+		</template>
+	</tree>
+	Selected Item:<label value="@load(vm.pickedItem)"/>	
+	<separator/>
+	<button label="print" onClick="@command('print')"/>
+	<button label="open" onClick="@command('open')"/>
+</window>

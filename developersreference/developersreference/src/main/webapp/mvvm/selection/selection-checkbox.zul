@@ -1,0 +1,11 @@
+<window apply="org.zkoss.bind.BindComposer"
+	viewModel="@id('vm') @init('org.zkoss.reference.developer.mvvm.collection.CustomMultipleSelectionsVM')">
+	<vlayout id="vlayout" children="@load(vm.itemList)">
+		<template name="children">
+			<checkbox label="@load(each.name)"
+				onCheck="@command('pick', checked=self.checked, picked=each)">
+			</checkbox>
+		</template>
+	</vlayout>
+	<label value="@bind(vm.pickedItemSet)"/>
+</window>

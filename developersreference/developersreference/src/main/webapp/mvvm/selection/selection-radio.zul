@@ -1,0 +1,63 @@
+<window apply="org.zkoss.bind.BindComposer"
+	viewModel="@id('vm') @init('org.zkoss.reference.developer.mvvm.collection.RadioSelectionVM')">
+	<vlayout>
+		<radiogroup model="@bind(vm.itemList)" selectedItem="@bind(vm.pickedItem)">
+			<template name="model">
+				<radio label="@load(each)" ></radio>
+			</template>
+		</radiogroup>
+		<hlayout>
+			selected item:
+			<label value="@load(vm.pickedItem)" />
+		</hlayout>
+		<radiogroup model="@bind(vm.itemList)" selectedIndex="@bind(vm.pickedIndex)">
+			<template name="model">
+				<radio label="@load(each)" value="@load(each)"></radio>
+			</template>
+		</radiogroup>		
+		<hlayout>
+			selected index:
+			<label value="@load(vm.pickedIndex)" />
+		</hlayout>		
+		<separator bar="true" />
+		Static data model
+		<radiogroup selectedItem="@bind(vm.pickedItemName)">
+			<radio label="Item 0" value="Item 0" />
+			<radio label="Item 1" value="Item 1" />
+			<radio label="Item 2" value="Item 2" />
+			<radio label="Item 3" value="Item 3" />
+		</radiogroup>
+		<hlayout>
+			selected item name:
+			<label value="@load(vm.pickedItemName)" />
+		</hlayout>
+		<separator bar="true"/>
+		Custom layout - Children binding. 
+		(radiogroup cannot restore selection state with selectedItem, unless we put radiogroup after radio to make selectedItem work.
+		The is component creation life cycle issue.
+		<!--
+			since 6.5.1, we can bind it with any object, not only String 
+			<radiogroup selectedItem="@bind(vm.pickedItem)"> 
+		 -->
+		 <vlayout children="@load(vm.itemList)">
+			<template name="children">
+				<radio label="@load(each.name)" value="@load(each)" radiogroup="rg" />
+			</template>
+		</vlayout>
+		<radiogroup id="rg" selectedItem="@bind(vm.pickedItem)"/>
+		<hbox>
+			Selection :
+			<label value="@load(vm.pickedItem)" />
+		</hbox>
+		<separator bar="true" />
+		Custom layout - Use "forEach" attribute
+		(&lt;radiogroup&gt; can successfully restore selection state specified by "selectedItem"" on &lt;radio&gt;)
+		<!-- 
+		<radiogroup selectedItem="@bind(vm.pickedItemName)">
+			<vlayout >
+				<radio forEach="${vm.itemList}" label="${each}" value="${each}" />
+			</vlayout>
+		</radiogroup>
+		 -->
+	</vlayout>
+</window>

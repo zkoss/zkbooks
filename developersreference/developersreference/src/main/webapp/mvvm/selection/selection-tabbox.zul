@@ -1,0 +1,19 @@
+<div apply="org.zkoss.bind.BindComposer" width="600px"
+	viewModel="@id('vm') @init('org.zkoss.reference.developer.mvvm.collection.CustomSingleSelectionVM')">
+	<tabbox>
+		<tabs children="@load(vm.itemList)">
+			<template name="children">
+				<tab label="@load(each.name)" selected="@load(vm.pickedItem eq each)"
+					onSelect="@command('select',item=each)" />
+			</template>
+		</tabs>
+		<tabpanels children="@load(vm.itemList)">
+			<template name="children">
+				<tabpanel height="200px">
+					<label value="@load(each.name)" />
+				</tabpanel>
+			</template>
+		</tabpanels>
+	</tabbox>
+	Selected Tab: <label value="@load(vm.pickedItem)"/>
+</div>

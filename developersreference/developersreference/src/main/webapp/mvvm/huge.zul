@@ -1,0 +1,60 @@
+<zk>
+	<window  width="400px" apply="org.zkoss.bind.BindComposer"
+		viewModel="@id('vm') @init('org.zkoss.reference.developer.mvvm.advance.HugeDataVM')">
+		 Use custom ListModel:
+		<listbox model="@bind(vm.personListModel)" selectedItem="@bind(vm.selectedPerson)" rows="10">
+			<listhead>
+				<listheader label="ID" />
+				<listheader label="First Name" />
+				<listheader label="Last Name" />
+				<listheader label="Age" />
+			</listhead>
+			<template name="model">
+				<listitem>
+					<listcell label="@bind(each.id)" />
+					<listcell label="@bind(each.firstName)" />
+					<listcell label="@bind(each.lastName)" />
+					<listcell label="@bind(each.age)" />
+				</listitem>
+			</template>
+		</listbox>
+		Selected Item:
+		<groupbox>
+			<grid>
+				<rows>
+					<row>
+						First Name:<textbox value="@bind(vm.selectedPerson.firstName)" />
+					</row>
+					<row>
+						Last Name: <textbox value="@bind(vm.selectedPerson.lastName)"/>
+					</row>
+					<row>
+						Age: <intbox value="@bind(vm.selectedPerson.age)"/>
+					</row>
+					<row spans="2" align="right">
+						<button label="Add" onClick="@command('add')"/>
+						<button label="Delete" onClick="@command('delete')"/>
+					</row>
+				</rows>
+			</grid>
+		</groupbox>
+		<separator height="50px" bar="true"/>
+		Use Java List:
+		<listbox width="400px" model="@bind(vm.personList)" mold="paging" pageSize="10">
+			<listhead>
+				<listheader label="ID" />
+				<listheader label="First Name" />
+				<listheader label="Last Name" />
+				<listheader label="Age" />
+			</listhead>
+			<template name="model">
+				<listitem>
+					<listcell label="@bind(each.id)" />
+					<listcell label="@bind(each.firstName)" />
+					<listcell label="@bind(each.lastName)" />
+					<listcell label="@bind(each.age)" />
+				</listitem>
+			</template>
+		</listbox>		
+	</window>
+</zk>

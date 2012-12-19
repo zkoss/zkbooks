@@ -1,0 +1,71 @@
+<window apply="org.zkoss.bind.BindComposer"
+	viewModel="@id('vm') @init('org.zkoss.reference.developer.mvvm.collection.TreeVM')">
+	<tree model="@bind(vm.itemTree)" width="400px" >
+		<treecols>
+			<treecol label="name" />
+			<treecol label="index" />
+		</treecols>
+		<template name="model" var="node" status="s">
+			<treeitem>
+				<treerow>
+					<treecell label="@bind(node.data)" />
+					<treecell label="@bind(s.index)" />
+				</treerow>
+			</treeitem>
+		</template>
+	</tree>
+		
+	<tree model="@bind(vm.itemTree) @template(forEachStatus.index lt 2?'model1':'model2')"
+		width="400px" >
+		<treecols>
+			<treecol label="name" />
+			<treecol label="index" />
+			<treecol label="template" />
+		</treecols>
+		<!-- Use template in tree, don't need treechildren -->
+		<template name="model1" var="node" status="s">
+			<treeitem open="@bind(node.open)">
+				<treerow>
+					<treecell label="@bind(node.data)" />
+					<treecell label="@bind(s.index)" />
+					<treecell label="template 1" />
+				</treerow>
+			</treeitem>
+		</template>
+		<!-- open doesn't work when binding a model -->
+		<template name="model2" var="node" status="s">
+			<treeitem open="true" >
+				<treerow>
+					<treecell label="@bind(node.data)" />
+					<treecell label="@bind(s.index)" />
+					<treecell label="template 2" />
+				</treerow>
+			</treeitem>
+		</template>
+	</tree>
+	<tree >
+		<treecols>
+			<treecol label="index" />
+			<treecol label="name" />
+			<treecol label="template" />
+		</treecols>
+		<treechildren>
+			<treeitem open="true">
+				<treerow>
+					<treecell label="99" />
+					<treecell label="test" />
+					<treecell label="no" />
+				</treerow>
+				<treechildren>
+					<treeitem >
+						<treerow>
+							<treecell label="99" />
+							<treecell label="test" />
+							<treecell label="no" />
+						</treerow>
+					</treeitem>
+				</treechildren>
+			</treeitem>
+		</treechildren>
+	</tree>
+</window>
