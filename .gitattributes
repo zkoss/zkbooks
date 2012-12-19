@@ -22,6 +22,7 @@ developersreference/developersreference/src/main/java/org/zkoss/reference/develo
 developersreference/developersreference/src/main/java/org/zkoss/reference/developer/mvvm/collection/ItemsVM.java -text
 developersreference/developersreference/src/main/java/org/zkoss/reference/developer/mvvm/collection/ListboxViewModel.java -text
 developersreference/developersreference/src/main/java/org/zkoss/reference/developer/mvvm/collection/MenuVM.java -text
+developersreference/developersreference/src/main/java/org/zkoss/reference/developer/mvvm/collection/ModelTypeVM.java -text
 developersreference/developersreference/src/main/java/org/zkoss/reference/developer/mvvm/collection/MultipleSelectionsVM.java -text
 developersreference/developersreference/src/main/java/org/zkoss/reference/developer/mvvm/collection/RadioSelectionVM.java -text
 developersreference/developersreference/src/main/java/org/zkoss/reference/developer/mvvm/collection/SingleSelectionVM.java -text
@@ -53,6 +54,7 @@ developersreference/developersreference/src/main/webapp/mvvm/collection/menu.zul
 developersreference/developersreference/src/main/webapp/mvvm/collection/radio.zul -text
 developersreference/developersreference/src/main/webapp/mvvm/collection/tree.zul -text
 developersreference/developersreference/src/main/webapp/mvvm/huge.zul -text
+developersreference/developersreference/src/main/webapp/mvvm/selection/model-type.zul -text
 developersreference/developersreference/src/main/webapp/mvvm/selection/selection-checkbox.zul -text
 developersreference/developersreference/src/main/webapp/mvvm/selection/selection-listbox.zul -text
 developersreference/developersreference/src/main/webapp/mvvm/selection/selection-radio.zul -text

@@ -1,0 +1,31 @@
+<zk>
+	<div width="400px" apply="org.zkoss.bind.BindComposer"
+		viewModel="@id('vm') @init('org.zkoss.reference.developer.mvvm.collection.ModelTypeVM')">
+		<listbox model="@bind(vm.itemList)" selectedItem="@bind(vm.pickedItem)" rows="10">
+			<listhead>
+				<listheader label="index" />
+				<listheader label="name" />
+			</listhead>
+			<template name="model" var="item" status="s">
+				<listitem>
+					<listcell label="@bind(s.index)" />
+					<listcell label="@bind(item.name)" />
+				</listitem>
+			</template>
+		</listbox>
+		<grid form="@id('fx') @load(vm.pickedItem) @save(vm.pickedItem, before={'update','add'})">
+			<rows>
+				<row>
+					name: <textbox value="@bind(fx.name)" />
+				</row>
+				<row>
+					<button label="Add" onClick="@command('add')"/>
+					<button label="Delete" onClick="@command('delete')"/>
+					<button label="Save" onClick="@command('update')"/>
+					<button label="Reset" onClick="@command('reset')"/>
+				</row>
+			</rows>
+		</grid>
+		
+	</div>
+</zk>

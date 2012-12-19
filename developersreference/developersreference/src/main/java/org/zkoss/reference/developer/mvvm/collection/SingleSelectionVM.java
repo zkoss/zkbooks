@@ -8,10 +8,10 @@ import org.zkoss.reference.developer.mvvm.collection.model.ItemService;
 
 public class SingleSelectionVM {
 
-	private ItemService itemService = new ItemService();
-	private List<Item> itemList = itemService.getAllItems();
-	private int pickedIndex;
-	private Item pickedItem;
+	protected ItemService itemService = new ItemService();
+	protected List<Item> itemList = itemService.getAllItems();
+	protected int pickedIndex;
+	protected Item pickedItem;
 	
 	private Set pickedItemSet;
 	private int pickedIndex2;

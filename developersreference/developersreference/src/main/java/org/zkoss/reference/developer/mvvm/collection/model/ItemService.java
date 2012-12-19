@@ -21,5 +21,15 @@ public class ItemService {
 		return itemList;
 	}
 	
+	public void add(Item item){
+		itemList.add(item);
+	}
+	
+	public void delete(Item item){
+		int index = itemList.indexOf(item);
+		if (index != -1){
+			itemList.remove(index);
+		}
+	}
 }
 	
