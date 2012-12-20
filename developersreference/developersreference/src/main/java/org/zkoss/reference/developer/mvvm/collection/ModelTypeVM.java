@@ -1,7 +1,5 @@
 package org.zkoss.reference.developer.mvvm.collection;
 
-import java.util.Calendar;
-
 import org.zkoss.bind.annotation.Command;
 import org.zkoss.bind.annotation.Init;
 import org.zkoss.bind.annotation.NotifyChange;
@@ -17,16 +15,17 @@ public class ModelTypeVM extends SingleSelectionVM{
 	public void init(){
 		pickedItem = new Item();
 		itemService = new ItemService(100);
-		itemList = itemService.getAllItems();
+		itemList = itemService.getAllItems();  //return a java.util.List
 		itemListModel = new ListModelList<Item>(itemService.getAllItems());
 	}
 	
-	@Command @NotifyChange({"pickedItem","itemList"})
+	@Command @NotifyChange({"itemList","pickedItem"})
 	public void add(){
 		itemList.add(pickedItem);
+		pickedItem = new Item();
 	}
 	
-	@Command  @NotifyChange({"pickedItem","itemList"})
+	@Command  @NotifyChange({"itemList","pickedItem"})
 	public void delete(){
 		int index = itemList.indexOf(pickedItem);
 		if (index != -1){
@@ -57,6 +56,7 @@ public class ModelTypeVM extends SingleSelectionVM{
 	@Command @NotifyChange("pickedItem")
 	public void modelAdd(){
 		itemListModel.add(pickedItem);
+		pickedItem = new Item();
 	}
 	
 	@Command  @NotifyChange("pickedItem")

@@ -1,16 +1,18 @@
 <zk>
-	<div width="400px" apply="org.zkoss.bind.BindComposer"
+	<div width="500px" apply="org.zkoss.bind.BindComposer"
 		viewModel="@id('vm') @init('org.zkoss.reference.developer.mvvm.collection.ModelTypeVM')">
-		Demonstrate the limitation of using a Java List as a component's model:
-		Lose scroll position when model's size changes, e.g. add, delete
+		<label style="font-size:16px" multiline="true">
+		Java List as a component's model:
+		Limitation, Lose scroll position when model's size changes, e.g. add, delete
+		</label>
 		<listbox model="@bind(vm.itemList)" selectedItem="@bind(vm.pickedItem)" rows="10">
 			<listhead>
-				<listheader label="id" />
+				<listheader label="index" />
 				<listheader label="name" />
 			</listhead>
 			<template name="model" var="item" status="s">
 				<listitem>
-					<listcell label="@bind(item.id)" />
+					<listcell label="@bind(s.index)" />
 					<listcell label="@bind(item.name)" />
 				</listitem>
 			</template>
@@ -29,8 +31,11 @@
 			</rows>
 		</grid>
 		<separator height="50px" bar="true"/>
+		<label style="font-size:16px" multiline="true">
+		ListModelList as a Model:
 		Scroll position is kept when using ListModelList object as the component's model, e.g. add, delete
-		<listbox model="@bind(vm.itemListModel)" selectedItem="@bind(vm.pickedItem)" mold="paging" pageSize="10">
+		</label>
+		<listbox model="@bind(vm.itemListModel)" selectedItem="@bind(vm.pickedItem)" rows="10">
 			<listhead>
 				<listheader label="index" />
 				<listheader label="name" />
