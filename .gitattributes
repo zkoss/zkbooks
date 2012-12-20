@@ -43,12 +43,6 @@ developersreference/developersreference/src/main/webapp/WEB-INF/component/editab
 developersreference/developersreference/src/main/webapp/WEB-INF/web.xml -text
 developersreference/developersreference/src/main/webapp/WEB-INF/zk.xml -text
 developersreference/developersreference/src/main/webapp/advance/custom-component.zul -text
-developersreference/developersreference/src/main/webapp/collection/checkbox.zul -text
-developersreference/developersreference/src/main/webapp/collection/grid.zul -text
-developersreference/developersreference/src/main/webapp/collection/listbox.zul -text
-developersreference/developersreference/src/main/webapp/collection/menu.zul -text
-developersreference/developersreference/src/main/webapp/collection/radio.zul -text
-developersreference/developersreference/src/main/webapp/collection/tree.zul -text
 developersreference/developersreference/src/main/webapp/integration/datasource.zul -text
 developersreference/developersreference/src/main/webapp/integration/jdbc.zul -text
 developersreference/developersreference/src/main/webapp/mvvm/collection/checkbox.zul -text
@@ -64,11 +58,6 @@ developersreference/developersreference/src/main/webapp/mvvm/selection/selection
 developersreference/developersreference/src/main/webapp/mvvm/selection/selection-radio.zul -text
 developersreference/developersreference/src/main/webapp/mvvm/selection/selection-tabbox.zul -text
 developersreference/developersreference/src/main/webapp/mvvm/selection/selection-tree.zul -text
-developersreference/developersreference/src/main/webapp/selection-checkbox.zul -text
-developersreference/developersreference/src/main/webapp/selection-listbox.zul -text
-developersreference/developersreference/src/main/webapp/selection-radio.zul -text
-developersreference/developersreference/src/main/webapp/selection-tabbox.zul -text
-developersreference/developersreference/src/main/webapp/selection-tree.zul -text
 developersreference/integration.cdi/.classpath -text
 developersreference/integration.cdi/.project -text
 developersreference/integration.cdi/integration.cdi.launch -text

@@ -5,12 +5,12 @@
 		Lose scroll position when model's size changes, e.g. add, delete
 		<listbox model="@bind(vm.itemList)" selectedItem="@bind(vm.pickedItem)" rows="10">
 			<listhead>
-				<listheader label="index" />
+				<listheader label="id" />
 				<listheader label="name" />
 			</listhead>
 			<template name="model" var="item" status="s">
 				<listitem>
-					<listcell label="@bind(s.index)" />
+					<listcell label="@bind(item.id)" />
 					<listcell label="@bind(item.name)" />
 				</listitem>
 			</template>
@@ -30,7 +30,7 @@
 		</grid>
 		<separator height="50px" bar="true"/>
 		Scroll position is kept when using ListModelList object as the component's model, e.g. add, delete
-		<listbox model="@bind(vm.itemListModel)" selectedItem="@bind(vm.pickedItem)" rows="10">
+		<listbox model="@bind(vm.itemListModel)" selectedItem="@bind(vm.pickedItem)" mold="paging" pageSize="10">
 			<listhead>
 				<listheader label="index" />
 				<listheader label="name" />
