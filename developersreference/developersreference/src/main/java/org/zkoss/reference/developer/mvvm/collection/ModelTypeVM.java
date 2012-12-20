@@ -59,7 +59,9 @@ public class ModelTypeVM extends SingleSelectionVM{
 		pickedItem = new Item();
 	}
 	
-	@Command  @NotifyChange("pickedItem")
+//	@NotifyChange({"pickedItem","itemListModel"}) this cause reload and render whole model
+	@NotifyChange("pickedItem")
+	@Command  
 	public void modelDelete(){
 		int index = itemListModel.indexOf(pickedItem);
 		if (index != -1){
