@@ -38,41 +38,5 @@
 				</rows>
 			</grid>
 		</groupbox>
-		<separator height="50px" bar="true"/>
-		
-		Use Java List:
-		<listbox model="@bind(vm.personList)" selectedItem="@bind(vm.selectedPerson)" rows="10">
-			<listhead>
-				<listheader label="ID" />
-				<listheader label="First Name" />
-				<listheader label="Last Name" />
-				<listheader label="Age" />
-			</listhead>
-			<template name="model">
-				<listitem>
-					<listcell label="@bind(each.id)" />
-					<listcell label="@bind(each.firstName)" />
-					<listcell label="@bind(each.lastName)" />
-					<listcell label="@bind(each.age)" />
-				</listitem>
-			</template>
-		</listbox>
-			<grid form="@id('fx') @load(vm.selectedPerson) @save(vm.selectedPerson, before={'listAdd'})">
-				<rows>
-					<row>
-						First Name:<textbox value="@bind(fx.firstName)" />
-					</row>
-					<row>
-						Last Name: <textbox value="@bind(fx.lastName)"/>
-					</row>
-					<row>
-						Age: <intbox value="@bind(fx.age)"/>
-					</row>
-					<row spans="2" align="right">
-						<button label="Add" onClick="@command('listAdd')"/>
-						<button label="Delete" onClick="@command('listDelete')"/>
-					</row>
-				</rows>
-			</grid>				
-	</window>
+	</window>		
 </zk>
