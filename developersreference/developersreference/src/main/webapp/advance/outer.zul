@@ -1,0 +1,15 @@
+<zk>
+	<div apply="org.zkoss.bind.BindComposer"
+		viewModel="@id('vm') @init('org.zkoss.reference.developer.mvvm.advance.IncludeVM')">
+		Recommended Usages:
+		<include type="outerPageLiteralValue" src="inner.zul" />
+		<include type="@load(vm.myArgument)" src="@load(vm.innerZul)"/>
+		
+		Worked Usages:
+		<include type="outerPageTypeValue" src="@load(vm.innerZul)" />
+		
+		Not Worked Usages:
+		<include type="@load(vm.myArgument)" src="inner.zul" mode="instant"/>
+		<include src="@load(vm.innerZul)" myArg="@load(vm.myArgument)"/>
+	</div>
+</zk>

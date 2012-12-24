@@ -1,0 +1,7 @@
+<zk>
+	<custom-attributes type="${arg.type}" />
+	<groupbox width="400px">
+		Argument passed from outter page: <label value="@load(empty type?'Argument Not Available':type)" style="@load(empty type?'color:red':'')"/>
+		<button label="MyCommand" onClick="@command('mycommand', mytype=type)" />
+	</groupbox>
+</zk>
