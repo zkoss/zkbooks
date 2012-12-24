@@ -20,7 +20,7 @@
 		</listbox>
 		Selected Item:
 		<groupbox>
-			<grid>
+			<grid visible="@load(not empty vm.selectedPerson)">
 				<rows>
 					<row>
 						First Name:<textbox value="@bind(vm.selectedPerson.firstName)" />
@@ -32,8 +32,9 @@
 						Age: <intbox value="@bind(vm.selectedPerson.age)"/>
 					</row>
 					<row spans="2" align="right">
-						<button label="Add" onClick="@command('add')"/>
+						<button label="Save" onClick="@command('save')"/>
 						<button label="Delete" onClick="@command('delete')"/>
+						<button label="Reset" onClick="@command('reset')"/>
 					</row>
 				</rows>
 			</grid>

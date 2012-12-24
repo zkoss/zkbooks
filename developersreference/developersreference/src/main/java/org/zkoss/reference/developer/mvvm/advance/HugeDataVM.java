@@ -28,19 +28,15 @@ public class HugeDataVM {
 	}
 	
 	@Command @NotifyChange("personListModel")
-	public void add(){
-		
-			Person p = new Person();
-			p.setFirstName("AA");
-			p.setLastName("BB");
-			p.setAge(10);
-			personDao.add(p);
+	public void save(){
+		personDao.add(selectedPerson);
 	}
 	
-	@Command
-	public void save(){
-		
+	@Command @NotifyChange("selectedPerson")
+	public void reset(){
+		selectedPerson = new Person();
 	}
+	
 	
 	
 	public LivePersonListModel getPersonListModel() {
