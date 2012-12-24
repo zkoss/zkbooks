@@ -1,7 +1,7 @@
 <div apply="org.zkoss.bind.BindComposer"
 		viewModel="@id('vm') @init('org.zkoss.reference.developer.mvvm.advance.InnerVM')">
 	<groupbox width="400px">
-		Argument passed from outter page:
+		Argument passed from outer page:
 		<label value="@load(vm.typeFromOuter)"/>
 	</groupbox>
 </div>
