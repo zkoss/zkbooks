@@ -19,6 +19,7 @@ developersreference/developersreference/src/main/java/org/zkoss/reference/develo
 developersreference/developersreference/src/main/java/org/zkoss/reference/developer/mvvm/advance/EditableLabelXml.java -text
 developersreference/developersreference/src/main/java/org/zkoss/reference/developer/mvvm/advance/HugeDataVM.java -text
 developersreference/developersreference/src/main/java/org/zkoss/reference/developer/mvvm/advance/IncludeVM.java -text
+developersreference/developersreference/src/main/java/org/zkoss/reference/developer/mvvm/advance/InnerVM.java -text
 developersreference/developersreference/src/main/java/org/zkoss/reference/developer/mvvm/advance/LivePersonListModel.java -text
 developersreference/developersreference/src/main/java/org/zkoss/reference/developer/mvvm/advance/domain/Person.java -text
 developersreference/developersreference/src/main/java/org/zkoss/reference/developer/mvvm/advance/domain/PersonDao.java -text
