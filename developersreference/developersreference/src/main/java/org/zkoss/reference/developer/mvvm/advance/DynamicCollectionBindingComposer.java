@@ -36,12 +36,12 @@ public class DynamicCollectionBindingComposer extends SelectorComposer {
 		
 		binder = (Binder)div.getAttribute("binder");
 
-		listbox.setItemRenderer(new ListboxRenderer());
+		listbox.setItemRenderer(new MyListboxRenderer());
 		
 		binder.loadComponent(div, true);
 	}
 	
-	class ListboxRenderer implements ListitemRenderer{
+	class MyListboxRenderer implements ListitemRenderer{
 
 		public void render(Listitem listitem, Object data, int index)
 				throws Exception {
@@ -91,7 +91,7 @@ public class DynamicCollectionBindingComposer extends SelectorComposer {
 		
 	}
 	
-	class ListboxTemplate implements Template{
+	class MyListboxTemplate implements Template{
 		
 		public Component[] create(Component parent, Component insertBefore,
 				VariableResolver resolver, Composer arg3) {

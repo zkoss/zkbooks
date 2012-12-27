@@ -1,7 +1,11 @@
 <zk>
 	<window apply="org.zkoss.reference.developer.mvvm.advance.DynamicCollectionBindingComposer"
 		width="600px">
-		<label multiline="true">1. in-line edit. 2. delete an item. 3. print item list.</label>
+		<label multiline="true">
+		1. in-line edit. 
+		2. delete an item. 
+		3. print item list.
+		</label>
 		<div apply="org.zkoss.bind.BindComposer"
 			viewModel="@id('vm') @init('org.zkoss.reference.developer.mvvm.advance.DynamicCollectionBindingVM')">
 			<listbox model="@load(vm.personList)" selectedItem="@bind(vm.selectedPerson)" rows="10">
