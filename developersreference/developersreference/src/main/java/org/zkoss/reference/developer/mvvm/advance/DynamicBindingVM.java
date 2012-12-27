@@ -2,7 +2,6 @@ package org.zkoss.reference.developer.mvvm.advance;
 
 import org.zkoss.bind.annotation.Command;
 import org.zkoss.bind.annotation.Init;
-import org.zkoss.bind.annotation.NotifyChange;
 import org.zkoss.reference.developer.mvvm.advance.domain.Person;
 
 

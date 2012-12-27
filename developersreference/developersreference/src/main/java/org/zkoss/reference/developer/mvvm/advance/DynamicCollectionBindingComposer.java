@@ -30,9 +30,6 @@ public class DynamicCollectionBindingComposer extends SelectorComposer {
 	@Wire("listbox")
 	private Listbox listbox;
 	
-	@Wire("button[label='Print']")
-	private Button button;
-	
 	@Override
 	public void doAfterCompose(Component comp) throws Exception {
 		super.doAfterCompose(comp);

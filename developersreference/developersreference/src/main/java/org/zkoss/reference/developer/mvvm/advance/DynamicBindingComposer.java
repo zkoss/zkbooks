@@ -1,6 +1,5 @@
 package org.zkoss.reference.developer.mvvm.advance;
 
-import org.w3c.dom.events.EventTarget;
 import org.zkoss.bind.Binder;
 import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.event.Events;
