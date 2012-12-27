@@ -1,0 +1,37 @@
+<zk>
+	<window apply="org.zkoss.reference.developer.mvvm.advance.DynamicFormBindingComposer" width="600px">
+	<label multiline="true">
+	* We establish data binding in the composer with a binder.
+	* first name and last name has a empty-string validation.
+	
+	</label>
+	<div apply="org.zkoss.bind.BindComposer"
+	viewModel="@id('vm') @init('org.zkoss.reference.developer.mvvm.advance.DynamicFormBindingVM')"
+	validationMessages="@id('vmsgs')">
+		<grid>
+			<rows>
+				<row>
+					First Name:
+					<textbox id="fn"/>
+					<label id="fnError" style="color:red" />
+				</row>
+				<row>
+					Last Name:
+					<textbox id="ln"/>
+					<label id="lnError" style="color:red" />
+				</row>
+				<row>
+					Age:
+					<intbox/>
+				</row>
+				<row spans="3" align="right">
+					<button label="Submit"/>
+				</row>
+			</rows>
+		</grid>
+		<div >
+			My name is <label id="fnLabel"/> <label id="lnLabel"/>. I am <label id="ageLabel"/> years old.
+		</div>
+	</div>
+	</window>
+</zk>
