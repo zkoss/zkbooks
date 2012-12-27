@@ -17,8 +17,11 @@ public class PersonDao {
 	private Random random = new Random(Calendar.getInstance().getTimeInMillis());
 	
 	public void generateData(){
+		generateData(200);
+	}
+	public void generateData(int maxSize){
 		personList = new ArrayList<Person>();
-		for (int i = 0; i<200 ; i++){
+		for (int i = 0; i<maxSize ; i++){
 			personList.add(createNewPerson());
 		}
 	}

@@ -17,7 +17,7 @@ public class DynamicCollectionBindingVM {
 	
 	@Init
 	public void init(){
-		personDao.generateData();
+		personDao.generateData(20);
 		personList = personDao.findAll();
 	}
 	
