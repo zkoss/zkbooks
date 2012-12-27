@@ -49,6 +49,9 @@ public class DynamicCollectionBindingComposer extends SelectorComposer {
 		public void render(Listitem listitem, Object data, int index)
 				throws Exception {
 
+			//TODO explain why
+			listitem.setAttribute("each", data);
+			
 			//first name
 			Listcell fnCell = new Listcell();
 			listitem.appendChild(fnCell);
@@ -84,9 +87,6 @@ public class DynamicCollectionBindingComposer extends SelectorComposer {
 			actionCell.appendChild(button);
 
 			Map<String, Object> commandArgs = new HashMap<String, Object>();
-
-			//I can't make a "delete" button for each row because the resolver is null
-			//it should have a inner resolver of BindListitemRenderer 
 			commandArgs.put("index", index);
 			binder.addCommandBinding(button, Events.ON_CLICK, "'delete'", commandArgs);
 
