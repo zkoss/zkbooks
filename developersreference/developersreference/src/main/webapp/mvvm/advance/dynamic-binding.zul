@@ -1,0 +1,27 @@
+<zk>
+	<window apply="org.zkoss.reference.developer.mvvm.advance.DynamicBindingComposer" width="600px">
+		<grid  apply="org.zkoss.bind.BindComposer"
+	viewModel="@id('vm') @init('org.zkoss.reference.developer.mvvm.advance.DynamicBindingVM')">
+			<rows>
+				<row>
+					First Name:
+					<textbox id="fn"/>
+				</row>
+				<row>
+					Last Name:
+					<textbox id="ln"/>
+				</row>
+				<row>
+					Age:
+					<intbox/>
+				</row>
+				<row spans="2">
+					<div>
+					<button label="Submit"/>
+					My name is <label id="fnLabel"/> <label id="lnLabel"/>. I am <label id="ageLabel"/> years old. 
+					</div>
+				</row>
+			</rows>
+		</grid>
+	</window>
+</zk>

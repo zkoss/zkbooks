@@ -15,6 +15,10 @@ developersreference/developersreference/pom.xml -text
 developersreference/developersreference/src/main/java/org/zkoss/reference/developer/integration/DatasourceComposer.java -text
 developersreference/developersreference/src/main/java/org/zkoss/reference/developer/integration/JdbcComposer.java -text
 developersreference/developersreference/src/main/java/org/zkoss/reference/developer/mvvm/advance/CompositeVM.java -text
+developersreference/developersreference/src/main/java/org/zkoss/reference/developer/mvvm/advance/DynamicBindingComposer.java -text
+developersreference/developersreference/src/main/java/org/zkoss/reference/developer/mvvm/advance/DynamicBindingVM.java -text
+developersreference/developersreference/src/main/java/org/zkoss/reference/developer/mvvm/advance/DynamicCollectionBindingComposer.java -text
+developersreference/developersreference/src/main/java/org/zkoss/reference/developer/mvvm/advance/DynamicCollectionBindingVM.java -text
 developersreference/developersreference/src/main/java/org/zkoss/reference/developer/mvvm/advance/EditableLabel.java -text
 developersreference/developersreference/src/main/java/org/zkoss/reference/developer/mvvm/advance/EditableLabelXml.java -text
 developersreference/developersreference/src/main/java/org/zkoss/reference/developer/mvvm/advance/HugeDataVM.java -text
@@ -49,6 +53,8 @@ developersreference/developersreference/src/main/webapp/advance/inner.zul -text
 developersreference/developersreference/src/main/webapp/advance/outer.zul -text
 developersreference/developersreference/src/main/webapp/integration/datasource.zul -text
 developersreference/developersreference/src/main/webapp/integration/jdbc.zul -text
+developersreference/developersreference/src/main/webapp/mvvm/advance/dynamic-binding.zul -text
+developersreference/developersreference/src/main/webapp/mvvm/advance/dynamic-collection.zul -text
 developersreference/developersreference/src/main/webapp/mvvm/collection/checkbox.zul -text
 developersreference/developersreference/src/main/webapp/mvvm/collection/grid.zul -text
 developersreference/developersreference/src/main/webapp/mvvm/collection/listbox.zul -text
