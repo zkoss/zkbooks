@@ -1,7 +1,7 @@
 package org.zkoss.reference.developer.mvvm.advance;
 
-import org.zkoss.bind.AnnotateBinder;
 import org.zkoss.bind.Binder;
+import org.zkoss.bind.DefaultBinder;
 import org.zkoss.bind.annotation.Command;
 import org.zkoss.reference.developer.mvvm.advance.domain.Person;
 import org.zkoss.zk.ui.Component;
@@ -16,7 +16,7 @@ import org.zkoss.zul.Textbox;
 
 public class DynamicBindingComposer extends SelectorComposer {
 
-	private Binder binder = new AnnotateBinder();
+	private Binder binder = new DefaultBinder();
 	@Wire("grid")
 	private Grid grid;
 	

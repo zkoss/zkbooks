@@ -1,9 +1,17 @@
 package org.zkoss.reference.developer.mvvm.advance;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
+import org.zkoss.bind.AnnotateBinder;
 import org.zkoss.bind.Binder;
+import org.zkoss.bind.DefaultBinder;
+import org.zkoss.bind.annotation.BindingParam;
+import org.zkoss.bind.annotation.Command;
+import org.zkoss.bind.annotation.NotifyChange;
+import org.zkoss.reference.developer.mvvm.advance.domain.Person;
+import org.zkoss.reference.developer.mvvm.advance.domain.PersonDao;
 import org.zkoss.xel.VariableResolver;
 import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.event.Events;
@@ -14,6 +22,7 @@ import org.zkoss.zk.ui.util.Template;
 import org.zkoss.zul.Button;
 import org.zkoss.zul.Div;
 import org.zkoss.zul.Intbox;
+import org.zkoss.zul.Label;
 import org.zkoss.zul.Listbox;
 import org.zkoss.zul.Listcell;
 import org.zkoss.zul.Listitem;
@@ -22,24 +31,100 @@ import org.zkoss.zul.Textbox;
 
 public class DynamicCollectionBindingComposer extends SelectorComposer {
 
-	private Binder binder;
+	private Binder binder = new DefaultBinder();
 	
 	@Wire("div")
 	private Div div;
 	
 	@Wire("listbox")
 	private Listbox listbox;
+	@Wire("button[label='Print']")
+	private Button printButton;
+	@Wire("#selected")
+	private Label selectedLabel;
+	@Wire("#result")
+	private Label resultLabel;
+
+	private PersonDao personDao = new PersonDao();
+	private List<Person> personList;
+	private Person selectedPerson = null; 
+	private String printedResult;
 	
 	@Override
 	public void doAfterCompose(Component comp) throws Exception {
 		super.doAfterCompose(comp);
 		
-		binder = (Binder)div.getAttribute("binder");
+		personDao.generateData(20);
+		personList = personDao.findAll();
+		
+		binder.init(div, this, null);
+		
+		div.setAttribute("vm", this);
 
+		//add data binding
+		binder.addPropertyLoadBindings(listbox, "model", "vm.personList", null, null, null, null, null);
+		binder.addPropertyLoadBindings(listbox, "selectedItem", "vm.selectedPerson"
+				, null, null, null, null, null);
+		binder.addPropertySaveBindings(listbox, "selectedItem", "vm.selectedPerson"
+				, null, null, null, null, null, null, null);
+		
+		binder.addCommandBinding(printButton, Events.ON_CLICK, "'print'", null);
+		
+		binder.addPropertyLoadBindings(selectedLabel, "value", "vm.selectedPerson.firstName", null, null, null, null, null);
+		binder.addPropertyLoadBindings(resultLabel, "value", "vm.printedResult", null, null, null, null, null);
+		
 		listbox.setItemRenderer(new MyListboxRenderer());
+//		listbox.setTemplate("model", new MyListboxTemplate());
 		
 		binder.loadComponent(div, true);
 	}
+	
+	@NotifyChange("personList")
+	@Command
+	public void delete(@BindingParam("index") int index){
+		personList.remove(index);
+	}
+	
+	@NotifyChange("printedResult")
+	@Command
+	public void print(){
+		StringBuilder result = new StringBuilder();
+		for (Person p : personList){
+			result.append(p.getFirstName()+" "+p.getLastName()+"\n");
+		}
+		printedResult = result.toString();
+	}
+
+	public List<Person> getPersonList() {
+		return personList;
+	}
+
+	public void setPersonList(List<Person> personList) {
+		this.personList = personList;
+	}
+
+
+	public Person getSelectedPerson() {
+		return selectedPerson;
+	}
+
+
+	public void setSelectedPerson(Person selectedPerson) {
+		this.selectedPerson = selectedPerson;
+	}
+
+
+	public String getPrintedResult() {
+		return printedResult;
+	}
+
+
+	public void setPrintedResult(String printedResult) {
+		this.printedResult = printedResult;
+	}
+	
+	
+	
 	
 	class MyListboxRenderer implements ListitemRenderer{
 

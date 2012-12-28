@@ -1,7 +1,7 @@
 package org.zkoss.reference.developer.mvvm.advance;
 
-import org.zkoss.bind.AnnotateBinder;
 import org.zkoss.bind.Binder;
+import org.zkoss.bind.DefaultBinder;
 import org.zkoss.bind.ValidationContext;
 import org.zkoss.bind.Validator;
 import org.zkoss.bind.annotation.Command;
@@ -21,7 +21,7 @@ import org.zkoss.zul.Textbox;
 
 public class DynamicFormBindingComposer extends SelectorComposer {
 
-	private Binder binder = new AnnotateBinder();
+	private Binder binder = new DefaultBinder();
 	@Wire("div")
 	private Div div;
 	@Wire("grid")

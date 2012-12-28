@@ -6,15 +6,14 @@
 		2. delete an item. 
 		3. print item list.
 		</label>
-		<div apply="org.zkoss.bind.BindComposer"
-			viewModel="@id('vm') @init('org.zkoss.reference.developer.mvvm.advance.DynamicCollectionBindingVM')">
-			<listbox model="@load(vm.personList)" selectedItem="@bind(vm.selectedPerson)" rows="10">
+		<div >
+			<listbox  rows="10">
 
 			</listbox>
-			<button label="Print" onClick="@command('print')"/>
-			selected: <label value="@load(vm.selectedPerson.firstName)"/>
+			<button label="Print" />
+			selected: <label id="selected" />
 			<div>
-			<label  value="@load(vm.printedResult)"  multiline="true"/>
+			<label id="result" multiline="true"/>
 			</div>
 		</div>
 	</window>
