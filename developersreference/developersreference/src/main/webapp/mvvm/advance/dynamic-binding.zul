@@ -1,7 +1,6 @@
 <zk>
 	<window apply="org.zkoss.reference.developer.mvvm.advance.DynamicBindingComposer" width="600px">
-		<grid  apply="org.zkoss.bind.BindComposer"
-	viewModel="@id('vm') @init('org.zkoss.reference.developer.mvvm.advance.DynamicBindingVM')">
+		<grid >
 			<rows>
 				<row>
 					First Name:

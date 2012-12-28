@@ -1,6 +1,13 @@
 package org.zkoss.reference.developer.mvvm.advance;
 
+import org.zkoss.bind.AnnotateBinder;
 import org.zkoss.bind.Binder;
+import org.zkoss.bind.ValidationContext;
+import org.zkoss.bind.Validator;
+import org.zkoss.bind.annotation.Command;
+import org.zkoss.bind.impl.ValidationMessagesImpl;
+import org.zkoss.bind.validator.AbstractValidator;
+import org.zkoss.reference.developer.mvvm.advance.domain.Person;
 import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.event.Events;
 import org.zkoss.zk.ui.select.SelectorComposer;
@@ -14,7 +21,7 @@ import org.zkoss.zul.Textbox;
 
 public class DynamicFormBindingComposer extends SelectorComposer {
 
-	private Binder binder;
+	private Binder binder = new AnnotateBinder();
 	@Wire("div")
 	private Div div;
 	@Wire("grid")
@@ -41,11 +48,22 @@ public class DynamicFormBindingComposer extends SelectorComposer {
 	@Wire("button[label='Submit']")
 	private Button button;
 	
+	private Person person;
+	
 	@Override
 	public void doAfterCompose(Component comp) throws Exception {
 		super.doAfterCompose(comp);
 		
-		binder = (Binder)div.getAttribute("binder");
+		person = new Person();
+		person.setFirstName("Barrack");
+		person.setLastName("Obama");
+		person.setAge(53);
+		
+		binder.init(div, this,null);
+		//set ViewModel
+		div.setAttribute("vm", this);
+		//set validation message holder
+		div.setAttribute("vmsgs", new ValidationMessagesImpl());
 		
 		String[] command = {"submit"};
 		binder.addFormLoadBindings(grid, "fx", "vm.person", null, null, null);
@@ -68,5 +86,28 @@ public class DynamicFormBindingComposer extends SelectorComposer {
 		
 		binder.loadComponent(grid, true);
 	}
+
+	@Command
+	public void submit(){
+		
+	}
+
+	public Person getPerson() {
+		return person;
+	}
+
+	public void setPerson(Person person) {
+		this.person = person;
+	}
 	
+	public Validator getEmptyValidator(){
+		return new AbstractValidator(){
+			public void validate(ValidationContext ctx) {
+				Object value = ctx.getProperty().getValue();
+				if(value==null || value.toString().length()==0){
+					addInvalidMessage(ctx, "must not be empty");
+				}
+			}
+		};
+	}
 }

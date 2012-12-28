@@ -16,11 +16,9 @@ developersreference/developersreference/src/main/java/org/zkoss/reference/develo
 developersreference/developersreference/src/main/java/org/zkoss/reference/developer/integration/JdbcComposer.java -text
 developersreference/developersreference/src/main/java/org/zkoss/reference/developer/mvvm/advance/CompositeVM.java -text
 developersreference/developersreference/src/main/java/org/zkoss/reference/developer/mvvm/advance/DynamicBindingComposer.java -text
-developersreference/developersreference/src/main/java/org/zkoss/reference/developer/mvvm/advance/DynamicBindingVM.java -text
 developersreference/developersreference/src/main/java/org/zkoss/reference/developer/mvvm/advance/DynamicCollectionBindingComposer.java -text
 developersreference/developersreference/src/main/java/org/zkoss/reference/developer/mvvm/advance/DynamicCollectionBindingVM.java -text
 developersreference/developersreference/src/main/java/org/zkoss/reference/developer/mvvm/advance/DynamicFormBindingComposer.java -text
-developersreference/developersreference/src/main/java/org/zkoss/reference/developer/mvvm/advance/DynamicFormBindingVM.java -text
 developersreference/developersreference/src/main/java/org/zkoss/reference/developer/mvvm/advance/EditableLabel.java -text
 developersreference/developersreference/src/main/java/org/zkoss/reference/developer/mvvm/advance/EditableLabelXml.java -text
 developersreference/developersreference/src/main/java/org/zkoss/reference/developer/mvvm/advance/HugeDataVM.java -text

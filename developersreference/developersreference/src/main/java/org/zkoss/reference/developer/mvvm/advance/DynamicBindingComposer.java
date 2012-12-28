@@ -1,6 +1,9 @@
 package org.zkoss.reference.developer.mvvm.advance;
 
+import org.zkoss.bind.AnnotateBinder;
 import org.zkoss.bind.Binder;
+import org.zkoss.bind.annotation.Command;
+import org.zkoss.reference.developer.mvvm.advance.domain.Person;
 import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.event.Events;
 import org.zkoss.zk.ui.select.SelectorComposer;
@@ -13,7 +16,7 @@ import org.zkoss.zul.Textbox;
 
 public class DynamicBindingComposer extends SelectorComposer {
 
-	private Binder binder;
+	private Binder binder = new AnnotateBinder();
 	@Wire("grid")
 	private Grid grid;
 	
@@ -33,12 +36,21 @@ public class DynamicBindingComposer extends SelectorComposer {
 	
 	@Wire("button[label='Submit']")
 	private Button button;
+
+	private Person person;
 	
 	@Override
 	public void doAfterCompose(Component comp) throws Exception {
 		super.doAfterCompose(comp);
+	
+		//initialized
+		person = new Person();
+		person.setFirstName("Barrack");
+		person.setLastName("Obama");
+		person.setAge(53);
 		
-		binder = (Binder)grid.getAttribute("binder");
+		binder.init(grid, this, null);
+		comp.setAttribute("vm", this);
 		
 		binder.addPropertyLoadBindings(firstNameBox, "value", "vm.person.firstName", null, null, null, null, null);
 		binder.addPropertySaveBindings(firstNameBox, "value", "vm.person.firstName", null, null, null, null, null,null,null);
@@ -55,6 +67,19 @@ public class DynamicBindingComposer extends SelectorComposer {
 		binder.addCommandBinding(button, Events.ON_CLICK, "'submit'", null);
 		
 		binder.loadComponent(grid, true);
+	}
+	
+	@Command
+	public void submit(){
+		
+	}
+
+	public Person getPerson() {
+		return person;
+	}
+
+	public void setPerson(Person person) {
+		this.person = person;
 	}
 	
 }

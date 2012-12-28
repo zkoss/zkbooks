@@ -5,9 +5,7 @@
 	* first name and last name has a empty-string validation.
 	
 	</label>
-	<div apply="org.zkoss.bind.BindComposer"
-	viewModel="@id('vm') @init('org.zkoss.reference.developer.mvvm.advance.DynamicFormBindingVM')"
-	validationMessages="@id('vmsgs')">
+	<div >
 		<grid>
 			<rows>
 				<row>
