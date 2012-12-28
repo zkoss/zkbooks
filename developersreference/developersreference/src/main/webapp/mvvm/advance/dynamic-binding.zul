@@ -17,7 +17,7 @@
 				<row spans="2">
 					<div>
 					<button label="Submit"/>
-					My name is <label id="fnLabel"/> <label id="lnLabel"/>. I am <label id="ageLabel"/> years old. 
+					<label id="introduction"/> 
 					</div>
 				</row>
 			</rows>

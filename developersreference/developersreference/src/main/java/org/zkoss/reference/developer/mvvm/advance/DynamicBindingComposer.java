@@ -2,18 +2,20 @@ package org.zkoss.reference.developer.mvvm.advance;
 
 import org.zkoss.bind.Binder;
 import org.zkoss.bind.DefaultBinder;
-import org.zkoss.bind.annotation.Command;
 import org.zkoss.reference.developer.mvvm.advance.domain.Person;
 import org.zkoss.zk.ui.Component;
-import org.zkoss.zk.ui.event.Events;
 import org.zkoss.zk.ui.select.SelectorComposer;
+import org.zkoss.zk.ui.select.annotation.Listen;
 import org.zkoss.zk.ui.select.annotation.Wire;
-import org.zkoss.zul.Button;
 import org.zkoss.zul.Grid;
 import org.zkoss.zul.Intbox;
 import org.zkoss.zul.Label;
 import org.zkoss.zul.Textbox;
 
+/**
+ * This usage fit the requirement that users want component's data are automatically saved to beans.
+ * It eliminates getting data by a component's getter methods.
+ */
 public class DynamicBindingComposer extends SelectorComposer {
 
 	private Binder binder = new DefaultBinder();
@@ -27,16 +29,9 @@ public class DynamicBindingComposer extends SelectorComposer {
 	@Wire("intbox")
 	private Intbox ageBox;
 	
-	@Wire("#fnLabel")
-	private Label firstNameLabel;
-	@Wire("#lnLabel")
-	private Label lastNameLabel;
-	@Wire("#ageLabel")
-	private Label ageLabel;
+	@Wire("#introduction")
+	private Label introductionLabel;
 	
-	@Wire("button[label='Submit']")
-	private Button button;
-
 	private Person person;
 	
 	@Override
@@ -49,29 +44,23 @@ public class DynamicBindingComposer extends SelectorComposer {
 		person.setLastName("Obama");
 		person.setAge(53);
 		
-		binder.init(grid, this, null);
-		comp.setAttribute("vm", this);
+		binder.init(grid,this, null);
 		
-		binder.addPropertyLoadBindings(firstNameBox, "value", "vm.person.firstName", null, null, null, null, null);
-		binder.addPropertySaveBindings(firstNameBox, "value", "vm.person.firstName", null, null, null, null, null,null,null);
-		binder.addPropertyLoadBindings(lastNameBox, "value", "vm.person.lastName", null, null, null, null, null);
-		binder.addPropertySaveBindings(lastNameBox, "value", "vm.person.lastName", null, null, null, null, null,null,null);
-		binder.addPropertyLoadBindings(ageBox, "value", "vm.person.age", null, null, null, null, null);
-		binder.addPropertySaveBindings(ageBox, "value", "vm.person.age", null, null, null, null, null,null,null);
+		comp.setAttribute("person", person);
 		
-		String[] command = {"submit"};
-		binder.addPropertyLoadBindings(firstNameLabel, "value", "vm.person.firstName", null, command, null, null, null);
-		binder.addPropertyLoadBindings(lastNameLabel, "value", "vm.person.lastName", null, command, null, null, null);
-		binder.addPropertyLoadBindings(ageLabel, "value", "vm.person.age", null, command, null, null, null);
-		
-		binder.addCommandBinding(button, Events.ON_CLICK, "'submit'", null);
+		binder.addPropertyLoadBindings(firstNameBox, "value", "person.firstName", null, null, null, null, null);
+		binder.addPropertySaveBindings(firstNameBox, "value", "person.firstName", null, null, null, null, null,null,null);
+		binder.addPropertyLoadBindings(lastNameBox, "value", "person.lastName", null, null, null, null, null);
+		binder.addPropertySaveBindings(lastNameBox, "value", "person.lastName", null, null, null, null, null,null,null);
+		binder.addPropertyLoadBindings(ageBox, "value", "person.age", null, null, null, null, null);
+		binder.addPropertySaveBindings(ageBox, "value", "person.age", null, null, null, null, null,null,null);
 		
 		binder.loadComponent(grid, true);
 	}
 	
-	@Command
+	@Listen("onClick = button[label='Submit']")
 	public void submit(){
-		
+		introductionLabel.setValue("I am "+firstNameBox.getValue()+" "+lastNameBox.getValue()+". I am "+ageBox.getValue()+" years old.");
 	}
 
 	public Person getPerson() {
