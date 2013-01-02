@@ -2,6 +2,8 @@ package org.zkoss.reference.developer.mvvm.advance;
 
 import org.zkoss.bind.Binder;
 import org.zkoss.bind.DefaultBinder;
+import org.zkoss.bind.impl.BinderImpl;
+import org.zkoss.bind.tracker.impl.TrackerImpl;
 import org.zkoss.reference.developer.mvvm.advance.domain.Person;
 import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.select.SelectorComposer;
@@ -11,6 +13,7 @@ import org.zkoss.zul.Grid;
 import org.zkoss.zul.Intbox;
 import org.zkoss.zul.Label;
 import org.zkoss.zul.Textbox;
+import org.zkoss.zul.Window;
 
 /**
  * This usage fit the requirement that users want component's data are automatically saved to beans.
@@ -19,6 +22,9 @@ import org.zkoss.zul.Textbox;
 public class DynamicBindingComposer extends SelectorComposer {
 
 	private Binder binder = new DefaultBinder();
+	
+	@Wire("window")
+	private Window window;
 	@Wire("grid")
 	private Grid grid;
 	
@@ -48,21 +54,29 @@ public class DynamicBindingComposer extends SelectorComposer {
 		
 		comp.setAttribute("person", person);
 		
-		binder.addPropertyLoadBindings(firstNameBox, "value", "person.firstName", null, null, null, null, null);
 		binder.addPropertySaveBindings(firstNameBox, "value", "person.firstName", null, null, null, null, null,null,null);
-		binder.addPropertyLoadBindings(lastNameBox, "value", "person.lastName", null, null, null, null, null);
+		binder.addPropertyLoadBindings(firstNameBox, "value", "person.firstName", null, null, null, null, null);
 		binder.addPropertySaveBindings(lastNameBox, "value", "person.lastName", null, null, null, null, null,null,null);
-		binder.addPropertyLoadBindings(ageBox, "value", "person.age", null, null, null, null, null);
+		binder.addPropertyLoadBindings(lastNameBox, "value", "person.lastName", null, null, null, null, null);
 		binder.addPropertySaveBindings(ageBox, "value", "person.age", null, null, null, null, null,null,null);
+		binder.addPropertyLoadBindings(ageBox, "value", "person.age", null, null, null, null, null);
 		
-		binder.loadComponent(grid, true);
+		binder.loadComponent(grid, false); //load beans' data to initialize components
 	}
 	
 	@Listen("onClick = button[label='Submit']")
 	public void submit(){
-		introductionLabel.setValue("I am "+firstNameBox.getValue()+" "+lastNameBox.getValue()+". I am "+ageBox.getValue()+" years old.");
+		introductionLabel.setValue("I am "+person.getFirstName()+" "
+			+person.getLastName()+". I am "+person.getAge()+" years old.");
 	}
 
+	@Listen("onClick = button[label='Reset']")
+	public void reset(){
+		person = new Person();
+		window.setAttribute("person", person);
+		binder.loadComponent(grid, false);
+	}
+	
 	public Person getPerson() {
 		return person;
 	}
@@ -70,5 +84,10 @@ public class DynamicBindingComposer extends SelectorComposer {
 	public void setPerson(Person person) {
 		this.person = person;
 	}
+	
+	@Listen("onClick = button[label='Dump']")
+	public void dump(){
+		((TrackerImpl)((BinderImpl)binder).getTracker()).dump();
+	}	
 	
 }

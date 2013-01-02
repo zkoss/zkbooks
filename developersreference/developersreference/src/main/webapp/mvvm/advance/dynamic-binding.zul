@@ -17,10 +17,12 @@
 				<row spans="2">
 					<div>
 					<button label="Submit"/>
+					<button label="Reset"/>
 					<label id="introduction"/> 
 					</div>
 				</row>
 			</rows>
 		</grid>
+		<button label="Dump" />
 	</window>
 </zk>
