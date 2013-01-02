@@ -54,18 +54,16 @@ public class DynamicCollectionBindingComposer extends SelectorComposer {
 		div.setAttribute("selectedPerson", selectedPerson);
 
 		//add data binding
-		binder.addPropertyLoadBindings(listbox, "selectedItem", "vm.selectedPerson"
+		binder.addPropertyLoadBindings(listbox, "selectedItem", "selectedPerson"
 				, null, null, null, null, null);
-		binder.addPropertySaveBindings(listbox, "selectedItem", "vm.selectedPerson"
+		binder.addPropertySaveBindings(listbox, "selectedItem", "selectedPerson"
 				, null, null, null, null, null, null, null);
-		
-		
-		binder.addPropertyLoadBindings(selectedLabel, "value", "vm.selectedPerson.firstName", null, null, null, null, null);
+		binder.addPropertyLoadBindings(selectedLabel, "value", "selectedPerson.firstName", null, null, null, null, null);
 		
 		listbox.setModel(personList);
 		listbox.setItemRenderer(new MyListboxRenderer());
 		
-		binder.loadComponent(div, true);//optionally, call for loading data beans for first time
+		binder.loadComponent(div, false);//load beans' data to initialize components
 	}
 	
 	
@@ -104,8 +102,10 @@ public class DynamicCollectionBindingComposer extends SelectorComposer {
 			Textbox fnBox = new Textbox();
 			fnBox.setInplace(true);
 			fnCell.appendChild(fnBox);
-			binder.addPropertyLoadBindings(fnBox, "value", "bean.firstName", null, null, null, null, null);
-			binder.addPropertySaveBindings(fnBox, "value", "bean.firstName", null, null, null, null, null, null, null);
+			binder.addPropertyLoadBindings(fnBox, "value", "bean.firstName"
+					, null, null, null, null, null);
+			binder.addPropertySaveBindings(fnBox, "value", "bean.firstName"
+					, null, null, null, null, null, null, null);
 
 			//last name
 			Listcell lnCell = new Listcell();

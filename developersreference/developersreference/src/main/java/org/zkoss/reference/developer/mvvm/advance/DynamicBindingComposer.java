@@ -85,6 +85,10 @@ public class DynamicBindingComposer extends SelectorComposer {
 		person = new Person();
 		grid.setAttribute("person", person);
 		binder.loadComponent(grid, false);
+//		person.setFirstName("");
+//		person.setLastName("");
+//		person.setAge(0);
+//		binder.notifyChange(person, "*");
 	}
 	
 	public Person getPerson() {
