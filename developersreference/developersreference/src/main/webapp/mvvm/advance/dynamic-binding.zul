@@ -16,9 +16,13 @@
 				</row>
 				<row spans="2">
 					<div>
-					<button label="Submit"/>
-					<button label="Reset"/>
-					<label id="introduction"/> 
+						<button label="Submit" />
+						<button label="Reset" />
+					</div>
+				</row>
+				<row spans="2">
+					<div>
+					Preview: I am <label id="fnLabel" /> <label id="lnLabel" />, <label id="ageLabel"/> years old.
 					</div>
 				</row>
 			</rows>
