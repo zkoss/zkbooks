@@ -51,10 +51,9 @@ public class DynamicCollectionBindingComposer extends SelectorComposer {
 		
 		binder.init(div, this, null);
 		
-		div.setAttribute("vm", this);
+		div.setAttribute("selectedPerson", selectedPerson);
 
 		//add data binding
-		binder.addPropertyLoadBindings(listbox, "model", "vm.personList", null, null, null, null, null);
 		binder.addPropertyLoadBindings(listbox, "selectedItem", "vm.selectedPerson"
 				, null, null, null, null, null);
 		binder.addPropertySaveBindings(listbox, "selectedItem", "vm.selectedPerson"
@@ -63,9 +62,10 @@ public class DynamicCollectionBindingComposer extends SelectorComposer {
 		
 		binder.addPropertyLoadBindings(selectedLabel, "value", "vm.selectedPerson.firstName", null, null, null, null, null);
 		
+		listbox.setModel(personList);
 		listbox.setItemRenderer(new MyListboxRenderer());
 		
-		binder.loadComponent(div, true);
+		binder.loadComponent(div, true);//optionally, call for loading data beans for first time
 	}
 	
 	
