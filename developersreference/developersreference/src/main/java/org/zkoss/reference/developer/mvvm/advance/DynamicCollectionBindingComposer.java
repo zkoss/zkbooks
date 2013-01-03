@@ -93,7 +93,7 @@ public class DynamicCollectionBindingComposer extends SelectorComposer {
 		public void render(Listitem listitem, Object data, int index)
 				throws Exception {
 
-			//store as an attribute which can be accessed by EL expression
+			//store the data bean as an attribute which can be accessed by EL expression
 			listitem.setAttribute("bean", data);
 			
 			//first name
