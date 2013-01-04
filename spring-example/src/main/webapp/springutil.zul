@@ -1,3 +1,0 @@
-<window apply="org.zkoss.reference.developer.spring.composer.SpringComposer">
-Total Number of items :<label id="number"/>
-</window>
