@@ -317,6 +317,7 @@ zkspringessentials/zkspringcoresec/src/main/webapp/customScopesMain.zul -text
 zkspringessentials/zkspringcoresec/src/main/webapp/customScopesWindow.zul -text
 zkspringessentials/zkspringcoresec/src/main/webapp/databinding.zul -text
 zkspringessentials/zkspringcoresec/src/main/webapp/elexpression.zul -text
+zkspringessentials/zkspringcoresec/src/main/webapp/errors/denied.zul -text
 zkspringessentials/zkspringcoresec/src/main/webapp/home.zul -text
 zkspringessentials/zkspringcoresec/src/main/webapp/home1.zul -text
 zkspringessentials/zkspringcoresec/src/main/webapp/index.zul -text

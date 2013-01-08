@@ -1,7 +1,10 @@
 <?page id="testZul" title="CUSTOM ZK + SPRING SECURITY LOGIN(popup)"?>
-<window id="loginwin" title="CUSTOM ZK + SPRING SECURITY LOGIN(popup)" border="normal" width="350px">
+<window id="loginwin" title="CUSTOM ZK + SPRING SECURITY LOGIN(popup)" 
+	border="normal" width="350px">
+	
     <!-- this form-login-page form is also used as the
          form-error-page to ask for a login again. -->
+         
     <html style="color:red" if="${not empty param.login_error}">
       <![CDATA[
         Your login attempt was not successful, try again.<br/><br/>

@@ -6,7 +6,7 @@
 	<name>zkspringcoresec</name>
 	<version>3.1.1</version>
 	<properties>
-		<zk.version>6.0.2</zk.version>
+		<zk.version>6.5.2-SNAPSHOT</zk.version>
 		<zkspring.version>3.1.1</zkspring.version>
 		<spring.version>3.0.7.RELEASE</spring.version>
 		<springsecurity.version>3.1.2.RELEASE</springsecurity.version>
@@ -228,7 +228,7 @@ Project version corresponds to zkspring core version that the project uses.</des
 		<dependency>
 			<groupId>org.zkoss.zk</groupId>
 			<artifactId>zkspring-core</artifactId>
-			<version>3.1.1</version>
+			<version>${zkspring.version}</version>
 			<exclusions>
 				<exclusion>
 					<groupId>org.springframework</groupId>
@@ -259,7 +259,7 @@ Project version corresponds to zkspring core version that the project uses.</des
 		<dependency>
 			<groupId>org.zkoss.zk</groupId>
 			<artifactId>zkspring-security</artifactId>
-			<version>3.1.1</version>
+			<version>${zkspring.version}</version>
 			<scope>runtime</scope>
 		</dependency>
 		<dependency>

@@ -1,12 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-modules id="moduleCoreId" project-version="1.5.0">
     <wb-module deploy-name="zksecurity">
-        <wb-resource deploy-path="/" source-path="/src/main/webapp"/>
+        <wb-resource deploy-path="/" source-path="/target/m2e-wtp/web-resources"/>
+        <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
-        <dependent-module archiveName="zkspring-core-3.1.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/zkspring-core/zkspring-core">
+        <dependent-module archiveName="zul-6.5.2-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/zul/zul">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <dependent-module archiveName="zkspring-security-3.1.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/zkspring-security/zkspring-security">
+        <dependent-module archiveName="zk-6.5.2-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/zk/zk">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="zweb-6.5.2-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/zweb/zweb">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="zcommon-6.5.2-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/zcommon/zcommon">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="zel-6.5.2-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/zel/zel">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="zhtml-6.5.2-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/zhtml/zhtml">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="zkspring-core-3.1.1.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/zkspring-core/zkspring-core">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="zkplus-6.5.2-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/zkplus/zkplus">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="zkex-6.5.2-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/zkex/zkex">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="zkbind-6.5.2-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/zkbind/zkbind">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="zkmax-6.5.2-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/zkmax/zkmax">
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <property name="java-output-path" value="/zksecurity/target/classes"/>

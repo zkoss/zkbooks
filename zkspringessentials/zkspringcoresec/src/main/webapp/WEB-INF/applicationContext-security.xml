@@ -26,7 +26,7 @@
 		<intercept-url pattern="/zkau/**" access="IS_AUTHENTICATED_ANONYMOUSLY" />
 		<!-- <intercept-url pattern="/**" access="IS_AUTHENTICATED_ANONYMOUSLY" /> -->
 		<form-login login-page="/login.zul" authentication-failure-url="/login.zul?login_error=1" />
-		<logout logout-success-url="/home.zul" invalidate-session="true" />
+		<logout logout-success-url="/index.zul" invalidate-session="true" />
 		<!-- Following is list of ZK Spring Security custom filters. They needs to be exactly in the same order 
 			as shown below in order to work. -->
 		<custom-filter ref="zkDesktopReuseFilter" position="FIRST" />
@@ -56,7 +56,7 @@
 		<zksp:intercept-event event="onClick" path="//**/btn_*" access="ROLE_TELLER" />
 		<zksp:intercept-event path="/**" access="IS_AUTHENTICATED_ANONYMOUSLY" />
 		<!-- Configuring Ajax popup login -->
-		<zksp:form-login login-page="/popupLogin.zul" />
+		<zksp:form-login login-page="/login.zul" />
 	</zksp:zk-event>
 
 	<beans:bean id="aclService" class="org.zkoss.zkspringessentials.acl.InMemoryAclService" />
