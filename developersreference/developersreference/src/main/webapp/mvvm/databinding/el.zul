@@ -1,0 +1,9 @@
+<?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c"?>
+<zk>
+	<vlayout apply="org.zkoss.bind.BindComposer"
+		viewModel="@id('vm') @init('org.zkoss.reference.developer.mvvm.databinding.InitVM', arg1='myValue')">
+		<label value="@load(c:cat('A-',vm.value))" />
+		<label value="@load(c:cat3('abc',vm.value,'def'))" />
+		<textbox value="@load(c:cat(c:cat('abc','def'), 'ghi'))" />
+	</vlayout>
+</zk>

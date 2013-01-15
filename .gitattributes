@@ -60,6 +60,7 @@ developersreference/developersreference/src/main/webapp/mvvm/collection/listbox.
 developersreference/developersreference/src/main/webapp/mvvm/collection/menu.zul -text
 developersreference/developersreference/src/main/webapp/mvvm/collection/radio.zul -text
 developersreference/developersreference/src/main/webapp/mvvm/collection/tree.zul -text
+developersreference/developersreference/src/main/webapp/mvvm/databinding/el.zul -text
 developersreference/developersreference/src/main/webapp/mvvm/databinding/init.zul -text
 developersreference/developersreference/src/main/webapp/mvvm/huge.zul -text
 developersreference/developersreference/src/main/webapp/mvvm/selection/model-type.zul -text
