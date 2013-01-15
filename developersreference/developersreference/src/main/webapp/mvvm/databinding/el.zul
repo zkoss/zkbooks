@@ -3,7 +3,7 @@
 	<vlayout apply="org.zkoss.bind.BindComposer"
 		viewModel="@id('vm') @init('org.zkoss.reference.developer.mvvm.databinding.InitVM', arg1='myValue')">
 		<label value="@load(c:cat('A-',vm.value))" />
-		<label value="@load(c:cat3('abc',vm.value,'def'))" />
-		<textbox value="@load(c:cat(c:cat('abc','def'), 'ghi'))" />
+		<intbox value="@bind(vm.price)"/>
+		<label value="@load(c:cat3('$',c:formatNumber(vm.price, '00'), ' per person'))" />
 	</vlayout>
 </zk>

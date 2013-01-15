@@ -6,6 +6,7 @@ import org.zkoss.bind.annotation.Init;
 public class InitVM {
 
 	private String value="my-test-value";
+	private int price= 14;
 	
 	@Init
 	public void init(@BindingParam("arg1") String arg1){
@@ -18,5 +19,13 @@ public class InitVM {
 
 	public void setValue(String value) {
 		this.value = value;
+	}
+
+	public int getPrice() {
+		return price;
+	}
+
+	public void setPrice(int price) {
+		this.price = price;
 	}
 }
