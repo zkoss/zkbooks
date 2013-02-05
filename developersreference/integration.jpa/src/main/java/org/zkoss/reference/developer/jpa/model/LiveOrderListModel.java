@@ -27,7 +27,7 @@ public class LiveOrderListModel extends AbstractListModel<Order>{
 	private SpringOrderDao orderDao;
 	private Integer totalSize;	
 	private int pageSize = 30;
-	private final String CACHE_KEY= LiveOrderListModel.class+"_cache";
+	private static final String CACHE_KEY= LiveOrderListModel.class+"_cache";
 	
 	public LiveOrderListModel(SpringOrderDao orderDao){
 		this.orderDao = orderDao;
