@@ -16,7 +16,7 @@ public class LivePersonListModel extends AbstractListModel<Person>{
 	
 	private PersonDao personDao;
 	private int pageSize = 10;
-	private final String CACHE_KEY= LivePersonListModel.class+"_cache";
+	private final static String CACHE_KEY= LivePersonListModel.class+"_cache";
 	
 	public LivePersonListModel(PersonDao personDao){
 		this.personDao = personDao;
