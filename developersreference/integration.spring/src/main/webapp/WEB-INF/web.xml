@@ -24,11 +24,11 @@ Copyright (C) 2004 Potix Corporation. All Rights Reserved.
 			/WEB-INF/applicationContext.xml
 		</param-value>
 	</context-param>
-	<!-- Loads the Spring web application context -->
+	<!-- Loads the Spring application context configuration -->
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
-	<!-- For using session scoped bean -->
+	<!-- For using web scoped bean -->
 	<listener>
 		<listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
 	</listener>
