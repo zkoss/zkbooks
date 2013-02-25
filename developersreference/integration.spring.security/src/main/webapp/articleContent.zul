@@ -1,0 +1,27 @@
+<?page title="Article Content - ZK + Spring Security Integration"?>
+<?taglib uri="http://www.zkoss.org/demo/integration/security" prefix="sec"?>
+<window title="User: ${empty execution.userPrincipal.name? 
+	'anonymous' : execution.userPrincipal.name }" 
+	border="normal" width="1000px" 
+	apply="org.zkoss.demo.springsec.ui.ArticleContentViewCtrl">
+	<caption>
+		<!--  add a Chapter to talk about this in small-talk and DOC (the relationship between this, Spring Security and JEE Spec) -->
+		<button label="Login" if="${empty execution.userPrincipal}" href="/login.zul"/>
+		<button label="Logout" unless="${empty execution.userPrincipal}" href="/j_spring_security_logout"/>
+	</caption>
+	<vlayout id="container">
+		<label id="titleLbl" hflex="1"/>
+		<html id="contentHtml" hflex="1" />
+		<hlayout>
+			<button label="Back" href="/"/>
+			<button id="openEditorBtn" label="To Editing"/>
+			<!-- disabled="true" and visible="false" in CE are merely UI effect, to protect it you need to use EE's function -->
+			
+			<button id="deleteBtn" label="Delete"
+				if="${sec:isAllGranted('ROLE_USER')}"
+				disabled="${not sec:isAllGranted('ROLE_EDITOR')}"/>
+
+		</hlayout>
+	</vlayout>
+</window>
+

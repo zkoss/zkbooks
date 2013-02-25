@@ -1,0 +1,4 @@
+<zk>
+	<label value="${arg.reason}"/>
+	<toolbarbutton href="/" label="back to homepage"/>
+</zk>

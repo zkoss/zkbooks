@@ -1,0 +1,16 @@
+<zk>
+	<session-config>
+	    <device-type>ajax</device-type>
+	    <timeout-uri></timeout-uri>
+	</session-config>
+	
+	<error-page>
+		<exception-type>org.springframework.security.access.AccessDeniedException</exception-type>
+		<location>security_process.zul</location>
+	</error-page>
+
+	<error-page>
+		<exception-type>java.lang.Throwable</exception-type>
+		<location>/WEB-INF/zk_error_handle/err_throwable.zul</location>
+	</error-page>
+</zk>
