@@ -218,9 +218,6 @@ developersreference/integration.spring/src/main/webapp/order/orderSpring.zul -te
 developersreference/integration.spring/src/main/webapp/scopes.zul -text
 developersreference/integration.spring/src/main/webapp/springutil.zul -text
 developersreference/integration.spring/src/main/webapp/variable-resolver.zul -text
-developersreference/integration.spring/target/m2e-wtp/web-resources/META-INF/MANIFEST.MF -text
-developersreference/integration.spring/target/m2e-wtp/web-resources/META-INF/maven/org.zkoss.zk/zkbind-springdemo/pom.properties -text
-developersreference/integration.spring/target/m2e-wtp/web-resources/META-INF/maven/org.zkoss.zk/zkbind-springdemo/pom.xml -text
 document/.project -text
 document/assembly/demo.xml -text
 document/pom.xml -text
