@@ -1,9 +1,0 @@
-<?page id="main" title="New Article - ZK + Spring Security Integration"?>
-<window title="New Article" border="normal" width="1000px" 
-	apply="org.zkoss.demo.springsec.ui.NewArticleViewCtrl">
-	<vlayout>
-		<textbox id="titleTxb" hflex="1"/>
-		<textbox id="contentTxb" hflex="1" rows="5" />
-		<button id="postBtn" label="Post"/>
-	</vlayout>
-</window>

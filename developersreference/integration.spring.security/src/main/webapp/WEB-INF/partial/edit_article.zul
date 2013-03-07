@@ -1,8 +1,0 @@
-<zk>
-	<!-- edit_article.zul -->
-	<vlayout>
-		<textbox id="titleTxb" hflex="1"/>
-		<textbox id="contentTxb" hflex="1" rows="5" />
-		<button id="submitChangeBtn" label="Submit Change"/>
-	</vlayout>
-</zk>
