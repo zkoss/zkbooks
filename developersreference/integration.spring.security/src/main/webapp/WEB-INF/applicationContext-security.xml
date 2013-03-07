@@ -27,7 +27,6 @@
 		<logout logout-success-url="/index.zul" invalidate-session="true" />
 	</http>
 
-	
 	<authentication-manager>
 		<authentication-provider user-service-ref="myUserDetailsService">
 			<password-encoder hash="md5" />
@@ -37,4 +36,16 @@
 	<beans:bean id="myUserDetailsService" 
 		class="org.zkoss.reference.developer.spring.security.model.MyUserDetailsService"/>
 
+	<!-- 
+	<authentication-manager>
+		<authentication-provider>
+			<user-service>
+				<user name="rod" password="1234" authorities="ROLE_USER, ROLE_EDITOR" />
+				<user name="dianne" password="1234" authorities="ROLE_USER, ROLE_EDITOR" />
+				<user name="scott" password="1234" authorities="ROLE_USER" />
+				<user name="peter" password="1234" authorities="ROLE_USER" />
+			</user-service>
+		</authentication-provider>
+	</authentication-manager>
+	 -->
 </beans:beans>

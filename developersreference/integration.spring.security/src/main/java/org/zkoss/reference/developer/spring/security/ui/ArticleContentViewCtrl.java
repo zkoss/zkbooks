@@ -6,10 +6,10 @@ package org.zkoss.reference.developer.spring.security.ui;
 import java.util.Date;
 
 import org.springframework.security.access.AccessDeniedException;
+import org.springframework.security.core.userdetails.User;
 import org.zkoss.reference.developer.spring.security.SecurityUtil;
 import org.zkoss.reference.developer.spring.security.model.Article;
 import org.zkoss.reference.developer.spring.security.model.ArticleService;
-import org.zkoss.reference.developer.spring.security.model.MyUser;
 import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.Execution;
 import org.zkoss.zk.ui.Executions;
@@ -75,7 +75,7 @@ public class ArticleContentViewCtrl extends SelectorComposer<Component> {
 	}
 	
 	private boolean isOwner(){
-		MyUser user = SecurityUtil.getUser();
+		User user = SecurityUtil.getUser();
 		if(user ==null)return false;
 		return article.getAuthor().equals(user.getUsername());
 	}

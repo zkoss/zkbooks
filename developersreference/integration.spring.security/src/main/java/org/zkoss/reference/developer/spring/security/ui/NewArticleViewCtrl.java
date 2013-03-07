@@ -5,10 +5,10 @@ package org.zkoss.reference.developer.spring.security.ui;
 
 import java.util.Date;
 
+import org.springframework.security.core.userdetails.User;
 import org.zkoss.reference.developer.spring.security.SecurityUtil;
 import org.zkoss.reference.developer.spring.security.model.Article;
 import org.zkoss.reference.developer.spring.security.model.ArticleService;
-import org.zkoss.reference.developer.spring.security.model.MyUser;
 import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.Execution;
 import org.zkoss.zk.ui.Executions;
@@ -18,7 +18,6 @@ import org.zkoss.zk.ui.select.annotation.VariableResolver;
 import org.zkoss.zk.ui.select.annotation.Wire;
 import org.zkoss.zk.ui.select.annotation.WireVariable;
 import org.zkoss.zkplus.spring.DelegatingVariableResolver;
-import org.zkoss.zkplus.spring.SpringUtil;
 import org.zkoss.zul.Textbox;
 
 /**
@@ -43,7 +42,7 @@ public class NewArticleViewCtrl extends SelectorComposer<Component> {
 	@Listen("onClick=#postBtn")
 	public void doPostArticle(){
 		Execution exec = Executions.getCurrent();
-		MyUser u = SecurityUtil.getUser();
+		User u = SecurityUtil.getUser();
 		
 		Article article = 
 			new Article(titleTxb.getValue(), contentTxb.getValue(), u.getUsername(), new Date());

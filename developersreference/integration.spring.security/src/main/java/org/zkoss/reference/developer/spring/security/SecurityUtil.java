@@ -52,6 +52,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.User;
 import org.zkoss.reference.developer.spring.security.model.MyUser;
 
 /**
@@ -63,12 +64,12 @@ public class SecurityUtil {
 	/**
 	 * Return the current Authentication object.
 	 */
-	public static MyUser getUser() {
+	public static User getUser() {
 		final Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         if (auth != null) {
         	try{
         		Object p = auth.getPrincipal();
-        		if(p instanceof MyUser) return (MyUser) p;	
+        		if(p instanceof User) return (User) p;	
         	}catch(RuntimeException e){
         		e.printStackTrace();
         		throw e;
