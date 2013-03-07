@@ -8,7 +8,6 @@
 	
 	<bean id="articleDao" class="org.zkoss.reference.developer.spring.security.model.ArticleDaoImpl"/>
 	
-
 	<bean id="articleService" class="org.zkoss.reference.developer.spring.security.model.ArticleServiceImpl">
 		<property name="articleDao" ref="articleDao"/>
 		<aop:scoped-proxy/>
