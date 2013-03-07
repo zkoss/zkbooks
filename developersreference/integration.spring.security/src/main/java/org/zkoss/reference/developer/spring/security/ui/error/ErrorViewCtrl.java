@@ -1,7 +1,7 @@
 /**
  * 
  */
-package org.zkoss.demo.springsec.ui.error;
+package org.zkoss.reference.developer.spring.security.ui.error;
 
 import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.Execution;

@@ -1,7 +1,7 @@
 /**
  * 
  */
-package org.zkoss.demo.springsec.model;
+package org.zkoss.reference.developer.spring.security.model;
 
 import java.util.HashMap;
 import java.util.Map;

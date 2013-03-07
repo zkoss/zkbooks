@@ -1,6 +1,6 @@
 
 <window title="Error Console" border="normal" width="800px" mode="highlighted"
-	apply="org.zkoss.demo.springsec.ui.error.ErrorViewCtrl">
+	apply="org.zkoss.reference.developer.spring.security.ui.error.ErrorViewCtrl">
 
 	<grid>
 		<columns>

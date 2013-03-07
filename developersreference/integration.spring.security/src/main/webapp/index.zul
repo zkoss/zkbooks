@@ -4,7 +4,7 @@
 
 <zk>
 	<window title="Articles" border="normal" width="1000px"
-		apply="org.zkoss.demo.springsec.ui.HomePageViewCtrl">
+		apply="org.zkoss.reference.developer.spring.security.ui.HomePageViewCtrl">
 		<caption>
 			<button label="Login" if="${empty execution.userPrincipal}" href="/login.zul"/>
 			<button label="Logout" disabled="${empty execution.userPrincipal}" href="/j_spring_security_logout"/>

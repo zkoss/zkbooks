@@ -1,12 +1,12 @@
 /**
  * 
  */
-package org.zkoss.demo.springsec.ui;
+package org.zkoss.reference.developer.spring.security.ui;
 
 import org.springframework.security.access.AccessDeniedException;
 import org.zkoss.bind.annotation.Command;
 import org.zkoss.bind.annotation.NotifyChange;
-import org.zkoss.demo.springsec.SecurityUtil;
+import org.zkoss.reference.developer.spring.security.SecurityUtil;
 
 /**
  * @author Ian YT Tsai (zanyking)

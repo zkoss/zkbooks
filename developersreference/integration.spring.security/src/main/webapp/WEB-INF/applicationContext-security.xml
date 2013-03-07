@@ -41,6 +41,6 @@
 	</authentication-manager>
 	
 	<beans:bean id="myUserDetailsService" 
-		class="org.zkoss.demo.springsec.model.MyUserDetailsService"/>
+		class="org.zkoss.reference.developer.spring.security.model.MyUserDetailsService"/>
 
 </beans:beans>

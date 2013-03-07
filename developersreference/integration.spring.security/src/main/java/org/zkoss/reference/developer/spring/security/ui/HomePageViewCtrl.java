@@ -1,12 +1,12 @@
 /**
  * 
  */
-package org.zkoss.demo.springsec.ui;
+package org.zkoss.reference.developer.spring.security.ui;
 
 import java.security.Principal;
 
-import org.zkoss.demo.springsec.model.Article;
-import org.zkoss.demo.springsec.model.ArticleService;
+import org.zkoss.reference.developer.spring.security.model.Article;
+import org.zkoss.reference.developer.spring.security.model.ArticleService;
 import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.Executions;
 import org.zkoss.zk.ui.select.SelectorComposer;

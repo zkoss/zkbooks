@@ -1,12 +1,12 @@
 /**
  * 
  */
-package org.zkoss.demo.springsec.ui;
+package org.zkoss.reference.developer.spring.security.ui;
 
 import java.util.Map;
 
 import org.springframework.security.access.AccessDeniedException;
-import org.zkoss.demo.springsec.SecurityUtil;
+import org.zkoss.reference.developer.spring.security.SecurityUtil;
 import org.zkoss.zk.ui.Page;
 import org.zkoss.zk.ui.util.GenericInitiator;
 

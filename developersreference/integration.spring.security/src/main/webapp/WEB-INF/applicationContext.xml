@@ -11,13 +11,13 @@
 		http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.1.xsd
 		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd">
 	
-	<bean id="articleDao" class="org.zkoss.demo.springsec.model.ArticleDaoImpl"/>
+	<bean id="articleDao" class="org.zkoss.reference.developer.spring.security.model.ArticleDaoImpl"/>
 	
 
-	<bean id="articleService" class="org.zkoss.demo.springsec.model.ArticleServiceImpl">
+	<bean id="articleService" class="org.zkoss.reference.developer.spring.security.model.ArticleServiceImpl">
 		<property name="articleDao" ref="articleDao"/>
 		<aop:scoped-proxy/>
 	</bean>
-	
+	<import resource="applicationContext-security.xml"/>
 </beans>
 	

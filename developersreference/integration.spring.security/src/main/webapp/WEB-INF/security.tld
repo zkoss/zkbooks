@@ -3,17 +3,12 @@
 <taglib>
 	<uri>http://www.zkoss.org/demo/integration/security</uri>
 	<description>
-	Methods and actions for ZK + Spring Security
+		Methods and actions for ZK + Spring Security
 	</description>
-
-	<!--           -->
-	<!-- Functions -->
-	<!--           -->
-
 
 	<function>
 		<name>isNoneGranted</name>
-		<function-class>org.zkoss.demo.springsec.SecurityUtil</function-class>
+		<function-class>org.zkoss.reference.developer.spring.security.SecurityUtil</function-class>
 		<function-signature>
 	boolean isNoneGranted(java.lang.String authorities) {
 		</function-signature>
@@ -25,7 +20,7 @@
 
 	<function>
 		<name>isAllGranted</name>
-		<function-class>org.zkoss.demo.springsec.SecurityUtil</function-class>
+		<function-class>org.zkoss.reference.developer.spring.security.SecurityUtil</function-class>
 		<function-signature>
 	boolean isAllGranted(java.lang.String authorities) {
 		</function-signature>
@@ -37,7 +32,7 @@
 
 	<function>
 		<name>isAnyGranted</name>
-		<function-class>org.zkoss.demo.springsec.SecurityUtil</function-class>
+		<function-class>org.zkoss.reference.developer.spring.security.SecurityUtil</function-class>
 		<function-signature>
 	boolean isAnyGranted(java.lang.String authorities) {
 		</function-signature>

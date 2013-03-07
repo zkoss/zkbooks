@@ -1,14 +1,14 @@
 /**
  * 
  */
-package org.zkoss.demo.springsec.ui;
+package org.zkoss.reference.developer.spring.security.ui;
 
 import java.util.Date;
 
-import org.zkoss.demo.springsec.SecurityUtil;
-import org.zkoss.demo.springsec.model.Article;
-import org.zkoss.demo.springsec.model.ArticleService;
-import org.zkoss.demo.springsec.model.MyUser;
+import org.zkoss.reference.developer.spring.security.SecurityUtil;
+import org.zkoss.reference.developer.spring.security.model.Article;
+import org.zkoss.reference.developer.spring.security.model.ArticleService;
+import org.zkoss.reference.developer.spring.security.model.MyUser;
 import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.Execution;
 import org.zkoss.zk.ui.Executions;

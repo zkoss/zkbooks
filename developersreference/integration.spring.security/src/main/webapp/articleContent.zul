@@ -3,7 +3,7 @@
 <window title="User: ${empty execution.userPrincipal.name? 
 	'anonymous' : execution.userPrincipal.name }" 
 	border="normal" width="1000px" 
-	apply="org.zkoss.demo.springsec.ui.ArticleContentViewCtrl">
+	apply="org.zkoss.reference.developer.spring.security.ui.ArticleContentViewCtrl">
 	<caption>
 		<!--  add a Chapter to talk about this in small-talk and DOC (the relationship between this, Spring Security and JEE Spec) -->
 		<button label="Login" if="${empty execution.userPrincipal}" href="/login.zul"/>
