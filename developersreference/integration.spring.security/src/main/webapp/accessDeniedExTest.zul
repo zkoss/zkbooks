@@ -1,0 +1,6 @@
+<?init class="org.zkoss.demo.springsec.ui.AccessDeniedExInit"?>
+<zk>
+
+	<label value="restricted information"/>
+
+</zk>

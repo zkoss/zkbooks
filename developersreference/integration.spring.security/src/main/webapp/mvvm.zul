@@ -1,0 +1,19 @@
+<window title="Search" width="600px" border="normal" apply="org.zkoss.bind.BindComposer"
+    viewModel="@id('vm') @init('org.zkoss.demo.springsec.ui.TestVModel')">
+
+	<grid>
+		<columns>
+			<column width="200px"/>
+			<column />
+		</columns>
+		<rows>
+			<row>First Name: <textbox value="@bind(vm.firstName)" /></row>
+			<row>Last Name:  <textbox value="@bind(vm.lastName)" /></row>
+			<row>Full Name:  <label value="@load(vm.fullName)" /></row>
+		</rows>
+	</grid>
+	<button label="do change" onClick="@command('doChange')" />
+	
+    
+
+</window>

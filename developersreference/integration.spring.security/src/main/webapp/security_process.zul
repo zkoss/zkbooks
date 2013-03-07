@@ -1,0 +1,4 @@
+<?init class="org.zkoss.demo.springsec.ui.error.SpringSecurityHandleInit"?>
+<zk>
+<!-- DO NOTHING! -->
+</zk>

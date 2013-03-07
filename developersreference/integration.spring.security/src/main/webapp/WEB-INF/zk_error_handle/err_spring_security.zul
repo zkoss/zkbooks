@@ -1,0 +1,7 @@
+<?init class="org.zkoss.integration.springsec.ui.error.SpringSecurityErrorInit" ?>
+
+<zk>
+
+ERROR: ${javax.servlet.error.message}
+
+</zk>
