@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!-- - Sample namespace-based configuration - - $Id: applicationContext-security.xml 3019 2008-05-01 
-	17:51:48Z luke_t $ -->
-
 <beans:beans xmlns="http://www.springframework.org/schema/security" 
 	xmlns:beans="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
