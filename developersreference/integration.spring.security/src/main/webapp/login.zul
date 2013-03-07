@@ -13,13 +13,13 @@
 					rod <label value="1234"/><label value=" ROLE_USER, ROLE_EDITOR"/>
 				</row>
 				<row>
-					dianne <label value="emu"/><label value="ROLE_USER,ROLE_EDITOR"/>
+					dianne <label value="1234"/><label value="ROLE_USER, ROLE_EDITOR"/>
 				</row>
 				<row>
-					scott <label value="emu"/><label value="ROLE_USER"/>
+					scott <label value="1234"/><label value="ROLE_USER"/>
 				</row>
 				<row>
-					peter <label value="emu"/><label value="ROLE_USER"/>
+					peter <label value="1234"/><label value="ROLE_USER"/>
 				</row>
 			</rows>
 		</grid>

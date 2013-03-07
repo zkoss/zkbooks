@@ -34,14 +34,14 @@ public class MyUserDetailsService implements UserDetailsService {
 		add(new MyUser("rod","81dc9bdb52d04dc20036dbd8313ed055", 
 				new String[]{"ROLE_USER", "ROLE_EDITOR"} ));//1234
 		
-		add(new MyUser("dianne","65d15fe9156f9c4bbffd98085992a44e", 
-				new String[]{"ROLE_USER", "ROLE_EDITOR"} ));//emu
+		add(new MyUser("dianne","81dc9bdb52d04dc20036dbd8313ed055", 
+				new String[]{"ROLE_USER", "ROLE_EDITOR"} ));//1234
 		
-		add(new MyUser("scott","65d15fe9156f9c4bbffd98085992a44e", 
-				new String[]{"ROLE_USER"} ));//emu
+		add(new MyUser("scott","81dc9bdb52d04dc20036dbd8313ed055", 
+				new String[]{"ROLE_USER"} ));//1234
 		
-		add(new MyUser("peter","65d15fe9156f9c4bbffd98085992a44e", 
-				new String[]{"ROLE_USER"} ));//emu
+		add(new MyUser("peter","81dc9bdb52d04dc20036dbd8313ed055", 
+				new String[]{"ROLE_USER"} ));//1234
 		
 	}
 	
