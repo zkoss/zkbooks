@@ -25,7 +25,10 @@
 		</grid>
 	</groupbox>
     <!-- this form-login-page form is also used as the
-         form-error-page to ask for a login again. -->
+         form-error-page to ask for a login again. 
+         If authentication fails, Spring Security will put AuthenticationException 
+         into the HttpSession with the attribute key: "SPRING_SECURITY_LAST_EXCEPTION".
+    -->
          
     <html style="color:red" if="${not empty param.login_error}">
       <![CDATA[
