@@ -19,9 +19,6 @@
 		<intercept-url pattern="/newArticle.zul" access="ROLE_USER" requires-channel="https" />
 		<intercept-url pattern="/login.zul" access="IS_AUTHENTICATED_ANONYMOUSLY" requires-channel="https" />
 		<intercept-url pattern="/j_spring_security_check" access="IS_AUTHENTICATED_ANONYMOUSLY" requires-channel="https" />
-		<intercept-url pattern="/**" access="IS_AUTHENTICATED_ANONYMOUSLY" requires-channel="any" />
-		
-		<session-management session-fixation-protection="none" /> 
 		 
 		<form-login login-page="/login.zul" 
 			authentication-failure-url="/login.zul?login_error=1" 
