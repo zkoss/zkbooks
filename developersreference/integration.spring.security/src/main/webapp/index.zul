@@ -19,13 +19,14 @@
 			<columns>
 				<column width="160px" />
 				<column />
+				<column width="100px"/>
 			</columns>
 			<template name="model">
 		        <row>
-		        	<datebox width="140px" value="${each.lastModifiedDate}" 
-		        		format="yyyy/MM/dd HH:mm:ss" disabled="true"/>
+		        	<label value="${each.lastModifiedDateString}" />
 		            <toolbarbutton label="${each.title}" 
 		            	href="/articleContent.zul?articleId=${each.id}" />
+		            <label value="${each.author}" />
 		        </row>
 		    </template>
 		</grid>

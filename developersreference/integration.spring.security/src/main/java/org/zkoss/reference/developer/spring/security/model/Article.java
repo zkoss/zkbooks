@@ -1,5 +1,6 @@
 package org.zkoss.reference.developer.spring.security.model;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 
@@ -14,7 +15,7 @@ public class Article {
 	private String content;
 	private String author;
 	private Date lastModifiedDate;
-	
+	private static SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 	public Article() {}
 	
 	/**
@@ -63,6 +64,9 @@ public class Article {
 		this.lastModifiedDate = lastModifiedDate;
 	}
 
+	public String getLastModifiedDateString(){
+		return dateFormat.format(lastModifiedDate);
+	}
 	public String toString() {
 		return "Article [id=" + id + ", title=" + title + ", content="
 				+ content + ", author=" + author + "]";
