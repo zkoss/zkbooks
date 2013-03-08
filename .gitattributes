@@ -174,7 +174,6 @@ developersreference/integration.spring.security/src/main/java/org/zkoss/referenc
 developersreference/integration.spring.security/src/main/java/org/zkoss/reference/developer/spring/security/ui/TestVModel.java -text
 developersreference/integration.spring.security/src/main/java/org/zkoss/reference/developer/spring/security/ui/error/ErrorViewCtrl.java -text
 developersreference/integration.spring.security/src/main/java/org/zkoss/reference/developer/spring/security/ui/error/SpringSecurityHandleInit.java -text
-developersreference/integration.spring.security/src/main/resources/log4j.properties -text
 developersreference/integration.spring.security/src/main/webapp/WEB-INF/applicationContext-security.xml -text
 developersreference/integration.spring.security/src/main/webapp/WEB-INF/applicationContext.xml -text
 developersreference/integration.spring.security/src/main/webapp/WEB-INF/errors/error.zul -text

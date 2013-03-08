@@ -11,11 +11,7 @@
   
 	<properties>
 		<zk.version>6.5.1.1</zk.version>
-
-		<spring.version>3.0.5.RELEASE</spring.version>
 		<springsecurity.version>3.1.2.RELEASE</springsecurity.version>
-
-
 		<packname>-${maven.build.timestamp}</packname>
 	</properties>
 	
@@ -48,29 +44,20 @@
 	</repositories>
 	
 	
-	<dependencies><!-- *****  ***** -->
-		<dependency>
-			<groupId>cglib</groupId>
-			<artifactId>cglib</artifactId>
-			<version>2.2</version>
-		</dependency>
-		
-		<!-- Spring core, web, orm, security -->
-		
+	<dependencies>
+
+		<!-- Spring Security -->
 		<dependency>
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-config</artifactId>
 			<version>${springsecurity.version}</version>
-			<scope>runtime</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-web</artifactId>
 			<version>${springsecurity.version}</version>
 		</dependency>
-		
-		
-		
+		<!-- ZK -->
 		<dependency>
 			<groupId>org.zkoss.zk</groupId>
 			<artifactId>zkplus</artifactId>
@@ -128,16 +115,16 @@
 			<artifactId>zkbind</artifactId>
 			<version>${zk.version}</version>
 		</dependency>
-
+		<!-- extra -->
 		<dependency>
 			<groupId>commons-logging</groupId>
 			<artifactId>commons-logging</artifactId>
 			<version>1.1.1</version>
 		</dependency>
 		<dependency>
-			<groupId>log4j</groupId>
-			<artifactId>log4j</artifactId>
-			<version>1.2.16</version>
+			<groupId>cglib</groupId>
+			<artifactId>cglib</artifactId>
+			<version>2.2</version>
 		</dependency>
 	</dependencies><!-- END OF dependencies -->
 	
