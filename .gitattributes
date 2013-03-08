@@ -182,8 +182,6 @@ developersreference/integration.spring.security/src/main/webapp/WEB-INF/security
 developersreference/integration.spring.security/src/main/webapp/WEB-INF/web.xml -text
 developersreference/integration.spring.security/src/main/webapp/WEB-INF/zk-log.properties -text
 developersreference/integration.spring.security/src/main/webapp/WEB-INF/zk.xml -text
-developersreference/integration.spring.security/src/main/webapp/WEB-INF/zk_error_handle/err_spring_security.zul -text
-developersreference/integration.spring.security/src/main/webapp/WEB-INF/zk_error_handle/err_throwable.zul -text
 developersreference/integration.spring.security/src/main/webapp/accessDeniedExTest.zul -text
 developersreference/integration.spring.security/src/main/webapp/articleContent.zul -text
 developersreference/integration.spring.security/src/main/webapp/index.zul -text

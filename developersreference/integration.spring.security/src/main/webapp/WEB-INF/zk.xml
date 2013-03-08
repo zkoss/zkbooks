@@ -9,8 +9,11 @@
 		<location>security_process.zul</location>
 	</error-page>
 
+	<!-- You can handle other exceptions with another <error-page> element 	 -->
+	 <!-- 
 	<error-page>
 		<exception-type>java.lang.Throwable</exception-type>
-		<location>/WEB-INF/zk_error_handle/err_throwable.zul</location>
+		<location>/errorHandling.zul</location>
 	</error-page>
+	  -->
 </zk>

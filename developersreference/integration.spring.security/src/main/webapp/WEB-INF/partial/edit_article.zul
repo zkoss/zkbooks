@@ -1,5 +1,5 @@
 <zk>
-	<!-- edit_article.zul -->
+	<!-- used when editting an article -->
 	<vlayout>
 		<textbox id="titleTxb" hflex="1"/>
 		<textbox id="contentTxb" hflex="1" rows="5" />
