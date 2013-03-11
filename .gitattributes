@@ -185,7 +185,6 @@ developersreference/integration.spring.security/src/main/webapp/WEB-INF/zk.xml -
 developersreference/integration.spring.security/src/main/webapp/accessDeniedExTest.zul -text
 developersreference/integration.spring.security/src/main/webapp/articleContent.zul -text
 developersreference/integration.spring.security/src/main/webapp/index.zul -text
-developersreference/integration.spring.security/src/main/webapp/invalidAccess.zul -text
 developersreference/integration.spring.security/src/main/webapp/login.zul -text
 developersreference/integration.spring.security/src/main/webapp/mvvm.zul -text
 developersreference/integration.spring.security/src/main/webapp/newArticle.zul -text
