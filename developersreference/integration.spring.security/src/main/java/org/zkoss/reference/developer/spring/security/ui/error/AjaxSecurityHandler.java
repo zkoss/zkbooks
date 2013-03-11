@@ -88,9 +88,9 @@ public class AjaxSecurityHandler extends GenericInitiator {
 	 * @return
 	 */
 	private static String getAccessDeniedHandlingPageUrl(AccessDeniedException ex){
-		Configuration sConfiguration = WebApps.getCurrent().getConfiguration();
-		String ePage = sConfiguration.getErrorPage("ajax", ex);// need to append query part back...
-		return ePage;
+		Configuration zkConfiguration = WebApps.getCurrent().getConfiguration();
+		String errorPage = zkConfiguration.getErrorPage("ajax", ex);// need to append query part back...
+		return errorPage;
 	}
 	
 }
