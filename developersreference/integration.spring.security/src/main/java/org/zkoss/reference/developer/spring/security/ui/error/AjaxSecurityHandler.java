@@ -17,9 +17,10 @@ import org.zkoss.zk.ui.util.GenericInitiator;
 
 /**
  * @author Ian YT Tsai (zanyking)
+ * @author Hawk
  *
  */
-public class SpringSecurityHandleInit extends GenericInitiator {
+public class AjaxSecurityHandler extends GenericInitiator {
 
 	private static final String SPRING_SECURITY_ERROR_KEY = "SPRING_SECURITY_ERROR_KEY";
 	private static final String ORIGINAL_REQUEST_URL = "ORIGINAL_REQUEST_URL";
@@ -60,13 +61,12 @@ public class SpringSecurityHandleInit extends GenericInitiator {
 				
 			}else if(originalRequestUrl!=null){
 				System.out.println(">>>> Security Process: STEP 3");
-				//STEP 3: if Spring Security Authentication was triggered at STEP 2, 
+				//STEP 3: after Spring Security Authentication is triggered at STEP 2, 
 				//then we need STEP 3 to redirect back to original URI the very first desktop belongs to.
 				sess.removeAttribute(ORIGINAL_REQUEST_URL);
 				exec.sendRedirect(originalRequestUrl);
 				
-			}else{// User Direct Access, meaningless
-				System.out.println(">>>> Security Process: ELSE");
+			}else{// directly access the security process page, meaningless
 				exec.sendRedirect("/");
 			}
 		}

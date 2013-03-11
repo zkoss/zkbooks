@@ -1,4 +1,4 @@
-<?init class="org.zkoss.reference.developer.spring.security.ui.error.SpringSecurityHandleInit"?>
+<?init class="org.zkoss.reference.developer.spring.security.ui.error.AjaxSecurityHandler"?>
 <zk>
-<!-- DO NOTHING! The page initiator handles exceptions. -->
+<!-- DO NOTHING! The page initiator handles AJAX security issue. -->
 </zk>
