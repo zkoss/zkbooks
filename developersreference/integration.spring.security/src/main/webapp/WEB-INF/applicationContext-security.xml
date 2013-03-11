@@ -9,7 +9,8 @@
 	 http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
 	 http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.1.xsd">
 
-
+ 	<!--  a HTTP example -->  
+ 	<!-- HTTPS configuration sample -->
 	<http auto-config="true">
 		<port-mappings>
 			<port-mapping http="8080" https="8443"/>
@@ -17,13 +18,17 @@
 		
 		<intercept-url pattern="/zkau/**" access="IS_AUTHENTICATED_ANONYMOUSLY" 
 		requires-channel="any"/>
-		<intercept-url pattern="/newArticle.zul" access="ROLE_USER" 
-		requires-channel="https" />
+		<intercept-url pattern="/" access="IS_AUTHENTICATED_ANONYMOUSLY" 
+		requires-channel="any" />
+		<intercept-url pattern="/index.zul" access="IS_AUTHENTICATED_ANONYMOUSLY" 
+		requires-channel="any" />
+		<intercept-url pattern="/articleContent.zul" access="IS_AUTHENTICATED_ANONYMOUSLY" 
+		requires-channel="any" />
 		<intercept-url pattern="/login.zul" access="IS_AUTHENTICATED_ANONYMOUSLY" 
 		requires-channel="https" />
-		<intercept-url pattern="/j_spring_security_check" access="IS_AUTHENTICATED_ANONYMOUSLY" 
+		<intercept-url pattern="/**" access="ROLE_USER" 
 		requires-channel="https" />
-		 
+		
 		<form-login login-page="/login.zul" 
 			authentication-failure-url="/login.zul?login_error=1" 
 			login-processing-url="/j_spring_security_check"/>
@@ -31,7 +36,11 @@
 		<logout logout-success-url="/index.zul" invalidate-session="true" />
 	</http>
 
-	<authentication-manager>
+	<!--
+	According to Spring SEcurity Reference Documentation
+	http://static.springsource.org/spring-security/site/docs/3.1.x/reference/core-services.html#core-services-erasing-credentials 
+	 -->
+	<authentication-manager erase-credentials="false">
 		<authentication-provider user-service-ref="myUserDetailsService">
 			<password-encoder hash="md5" />
 		</authentication-provider>

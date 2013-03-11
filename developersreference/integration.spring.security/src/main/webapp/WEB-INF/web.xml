@@ -11,9 +11,11 @@
 	<listener>
 		<listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
 	</listener>
+	<!-- 
 	<listener>
 		<listener-class>org.springframework.security.web.session.HttpSessionEventPublisher</listener-class>
 	</listener>
+	 -->
 	<listener>
 		<description>Used to cleanup when a session is destroyed</description>
 		<display-name>ZK Session Cleaner</display-name>
