@@ -23,7 +23,7 @@ import org.zkoss.zk.ui.util.GenericInitiator;
 public class AjaxSecurityHandler extends GenericInitiator {
 
 	private static final String SPRING_SECURITY_ERROR_KEY = "SPRING_SECURITY_ERROR_KEY";
-	private static final String ORIGINAL_REQUEST_URL = "ORIGINAL_REQUEST_URL";
+	private static final String ORIGINAL_DESKTOP_URI = "ORIGINAL_DESKTOP_URI";
 	
 	public void doInit(Page page, Map<String, Object> args) throws Exception {
 		// when this initiator has been executed that means users encounter access denied problem.
@@ -39,7 +39,7 @@ public class AjaxSecurityHandler extends GenericInitiator {
 			//STEP 1: convert an AJAX Request to a page request(Error Handling Page Request)
 			System.out.println(">>>> Security Process: STEP 1");
 			if(ex instanceof AccessDeniedException){
-				sess.setAttribute(ORIGINAL_REQUEST_URL, getOriginalDesktopUri());
+				sess.setAttribute(ORIGINAL_DESKTOP_URI, getOriginalDesktopUri());
 				sess.setAttribute(SPRING_SECURITY_ERROR_KEY, ex);
 				
 				Executions.sendRedirect(getAccessDeniedHandlingPageUrl((AccessDeniedException) ex));// GOTO STEP 2 by redirection.
@@ -52,7 +52,7 @@ public class AjaxSecurityHandler extends GenericInitiator {
 			//This initiator should only accept AccessDeniedException.
 			AccessDeniedException accessDeniedException = 
 				(AccessDeniedException) sess.getAttribute(SPRING_SECURITY_ERROR_KEY);
-			String originalRequestUrl = (String) sess.getAttribute(ORIGINAL_REQUEST_URL);
+			String originalRequestUrl = (String) sess.getAttribute(ORIGINAL_DESKTOP_URI);
 			if(accessDeniedException !=null){
 				//STEP 2: throw Error in Error Handling Page Request.
 				System.out.println(">>>> Security Process: STEP 2");
@@ -63,7 +63,7 @@ public class AjaxSecurityHandler extends GenericInitiator {
 				System.out.println(">>>> Security Process: STEP 3");
 				//STEP 3: after Spring Security Authentication is triggered at STEP 2, 
 				//then we need STEP 3 to redirect back to original URI the very first desktop belongs to.
-				sess.removeAttribute(ORIGINAL_REQUEST_URL);
+				sess.removeAttribute(ORIGINAL_DESKTOP_URI);
 				exec.sendRedirect(originalRequestUrl);
 				
 			}else{// directly access the security process page, meaningless
