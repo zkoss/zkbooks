@@ -21,12 +21,11 @@ import org.zkoss.zk.ui.util.GenericInitiator;
  */
 public class SpringSecurityHandleInit extends GenericInitiator {
 
-	private static final String VAR_SPRING_SECURITY_ERROR = "VAR_SPRING_SECURITY_ERROR";
-	private static final String VAR_DESKTOP_REQ_URI = "VAR_DESKTOP_REQ_URI";
+	private static final String SPRING_SECURITY_ERROR_KEY = "SPRING_SECURITY_ERROR_KEY";
+	private static final String ORIGINAL_REQUEST_URL = "ORIGINAL_REQUEST_URL";
 	
 	public void doInit(Page page, Map<String, Object> args) throws Exception {
-		System.out.println(">>>> Security Process: In Proccessing...");
-		// when this initiator has been executed that means user encountered AA problem.
+		// when this initiator has been executed that means users encounter access denied problem.
 		
 		Execution exec = Executions.getCurrent();
 		
@@ -36,13 +35,13 @@ public class SpringSecurityHandleInit extends GenericInitiator {
 		
 		
 		if(exec.isAsyncUpdate(null) ){
-			//STEP 1: convert Ajax Request to Page Request(Error Handling Page Request)
+			//STEP 1: convert an AJAX Request to a page request(Error Handling Page Request)
 			System.out.println(">>>> Security Process: STEP 1");
 			if(ex instanceof AccessDeniedException){
-				sess.setAttribute(VAR_DESKTOP_REQ_URI, getOriginalDesktopUri());
-				sess.setAttribute(VAR_SPRING_SECURITY_ERROR, ex);
+				sess.setAttribute(ORIGINAL_REQUEST_URL, getOriginalDesktopUri());
+				sess.setAttribute(SPRING_SECURITY_ERROR_KEY, ex);
 				
-				Executions.sendRedirect(toSecurityProcessUrl((AccessDeniedException) ex));// GOTO STEP 2 by redirection.
+				Executions.sendRedirect(getAccessDeniedHandlingPageUrl((AccessDeniedException) ex));// GOTO STEP 2 by redirection.
 			}else{
 				throw new IllegalArgumentException(
 					"How come an unexpected Exception type will be mapped to this handler? " +
@@ -50,21 +49,21 @@ public class SpringSecurityHandleInit extends GenericInitiator {
 			}
 		}else{
 			//This initiator should only accept AccessDeniedException.
-			AccessDeniedException adEx = 
-				(AccessDeniedException) sess.getAttribute(VAR_SPRING_SECURITY_ERROR);
-			String dtPath = (String) sess.getAttribute(VAR_DESKTOP_REQ_URI);
-			if(adEx !=null){
+			AccessDeniedException accessDeniedException = 
+				(AccessDeniedException) sess.getAttribute(SPRING_SECURITY_ERROR_KEY);
+			String originalRequestUrl = (String) sess.getAttribute(ORIGINAL_REQUEST_URL);
+			if(accessDeniedException !=null){
 				//STEP 2: throw Error in Error Handling Page Request.
 				System.out.println(">>>> Security Process: STEP 2");
-				sess.removeAttribute(VAR_SPRING_SECURITY_ERROR);
-				throw adEx;// we suppose Spring Security Error Filter Chain will handle this properly.
+				sess.removeAttribute(SPRING_SECURITY_ERROR_KEY);
+				throw accessDeniedException;// we suppose Spring Security Error Filter Chain will handle this properly.
 				
-			}else if(dtPath!=null){
+			}else if(originalRequestUrl!=null){
 				System.out.println(">>>> Security Process: STEP 3");
 				//STEP 3: if Spring Security Authentication was triggered at STEP 2, 
 				//then we need STEP 3 to redirect back to original URI the very first desktop belongs to.
-				sess.removeAttribute(VAR_DESKTOP_REQ_URI);
-				exec.sendRedirect(dtPath);
+				sess.removeAttribute(ORIGINAL_REQUEST_URL);
+				exec.sendRedirect(originalRequestUrl);
 				
 			}else{// User Direct Access, meaningless
 				System.out.println(">>>> Security Process: ELSE");
@@ -88,7 +87,7 @@ public class SpringSecurityHandleInit extends GenericInitiator {
 	 * @param request 
 	 * @return
 	 */
-	private static String toSecurityProcessUrl(AccessDeniedException ex){
+	private static String getAccessDeniedHandlingPageUrl(AccessDeniedException ex){
 		Configuration sConfiguration = WebApps.getCurrent().getConfiguration();
 		String ePage = sConfiguration.getErrorPage("ajax", ex);// need to append query part back...
 		return ePage;

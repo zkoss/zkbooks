@@ -1,4 +1,4 @@
 <?init class="org.zkoss.reference.developer.spring.security.ui.error.SpringSecurityHandleInit"?>
 <zk>
-<!-- DO NOTHING! -->
+<!-- DO NOTHING! The page initiator handles exceptions. -->
 </zk>
