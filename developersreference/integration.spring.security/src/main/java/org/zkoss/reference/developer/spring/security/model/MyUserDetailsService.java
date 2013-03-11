@@ -53,7 +53,10 @@ public class MyUserDetailsService implements UserDetailsService {
 			System.out.println(">>> cannot find user: "+username);
 			throw new UsernameNotFoundException("cannot found user: "+username);
 		}
-		return user;
+		//Return a clone object to avoid a user's credentials data being erased after success authentication.
+		//This behavior only happens from Spring Security 3.1 onwards.
+		//please refer to http://static.springsource.org/spring-security/site/docs/3.1.x/reference/core-services.html#core-services-erasing-credentials
+		return new MyUser(user.getUsername(), user.getPassword(), user.getAuthorities());
 	}
 
 

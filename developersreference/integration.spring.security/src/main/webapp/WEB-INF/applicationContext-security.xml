@@ -11,7 +11,7 @@
 
  	<!--  HTTP configuration sample -->
 	<http auto-config="true">
-		<!-- ZK AU reqeust -->
+		<!-- ZK AU requests -->
 		<intercept-url pattern="/zkau/**" access="IS_AUTHENTICATED_ANONYMOUSLY" />
 		<!-- the login page -->
 		<intercept-url pattern="/login.zul" access="IS_AUTHENTICATED_ANONYMOUSLY" />
@@ -25,8 +25,7 @@
 		<intercept-url pattern="/**" access="ROLE_USER" />
 		
 		<form-login login-page="/login.zul" 
-			authentication-failure-url="/login.zul?login_error=1" 
-			login-processing-url="/j_spring_security_check"/>
+			authentication-failure-url="/login.zul?login_error=1" />
 			
 		<logout logout-success-url="/index.zul" invalidate-session="true" />
 	</http> 	  
@@ -61,10 +60,11 @@
  	-->
 
 	<!--
-	According to Spring SEcurity Reference Documentation
-	http://static.springsource.org/spring-security/site/docs/3.1.x/reference/core-services.html#core-services-erasing-credentials 
+	According to Spring Security Reference Documentation
+	http://static.springsource.org/spring-security/site/docs/3.1.x/reference/core-services.html#core-services-erasing-credentials
+	We need to avoid the credentials data of user objects being cleared with "erase-credentials". 
 	 -->
-	<authentication-manager erase-credentials="false">
+	<authentication-manager>
 		<authentication-provider user-service-ref="myUserDetailsService">
 			<password-encoder hash="md5" />
 		</authentication-provider>

@@ -39,6 +39,7 @@
 
 	<groupbox>
 		<caption>Login</caption>
+		<!-- j_spring_security_check is default post URL processed by Spring Security AuthenticationFilter -->
 		<html:form id="f" name="f" action="j_spring_security_check" method="POST" 
 			xmlns:html="native">
     	<grid>
@@ -47,11 +48,8 @@
     			<row>Password: <textbox id="p" type="password" name="j_password"/></row>
     			<row spans="2">
     				<hbox>
-    					<html:input type="reset" value="Reset"/>	
-    					<html:input type="submit" value="Submit Query"/>
-    					<button type="submit" label="Accedi_trendy" mold="trendy"/>
-    					<button type="submit" label="Accedi_os" />
-  	  					
+    					<button type="reset" label="Reset" />
+    					<button type="submit" label="Submit" />
     				</hbox>
     			</row>
     		</rows>
