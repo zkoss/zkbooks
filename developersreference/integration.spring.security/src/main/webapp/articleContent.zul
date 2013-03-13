@@ -18,8 +18,8 @@
 			<!-- disabled="true" and visible="false" in CE are merely UI effect, to protect it you need to use EE's function -->
 			
 			<button id="deleteBtn" label="Delete"
-				if="${sec:isAllGranted('ROLE_USER')}"
-				disabled="${not sec:isAllGranted('ROLE_EDITOR')}"/>
+			if="${sec:isAllGranted('ROLE_USER')}"
+			disabled="${not sec:isAllGranted('ROLE_EDITOR')}"/>
 
 		</hlayout>
 	</vlayout>

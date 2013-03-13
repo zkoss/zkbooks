@@ -40,7 +40,7 @@
 	<groupbox>
 		<caption>Login</caption>
 		<!-- j_spring_security_check is default post URL processed by Spring Security AuthenticationFilter -->
-		<html:form id="f" name="f" action="j_spring_security_check" method="POST" 
+		<html:form action="j_spring_security_check" method="POST" 
 			xmlns:html="native">
     	<grid>
     		<rows>

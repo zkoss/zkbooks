@@ -59,11 +59,6 @@
 	</http>
  	-->
 
-	<!--
-	According to Spring Security Reference Documentation
-	http://static.springsource.org/spring-security/site/docs/3.1.x/reference/core-services.html#core-services-erasing-credentials
-	We need to avoid the credentials data of user objects being cleared with "erase-credentials". 
-	 -->
 	<authentication-manager>
 		<authentication-provider user-service-ref="myUserDetailsService">
 			<password-encoder hash="md5" />
