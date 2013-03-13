@@ -13,7 +13,6 @@ import org.zkoss.zk.ui.Page;
 import org.zkoss.zk.ui.util.GenericInitiator;
 
 /**
- * @author Ian YT Tsai (zanyking)
  * @author Hawk
  *
  */
@@ -32,6 +31,4 @@ public class AjaxAccessDeniedHandler extends GenericInitiator {
 			}
 		}
 	}
-
-	
 }

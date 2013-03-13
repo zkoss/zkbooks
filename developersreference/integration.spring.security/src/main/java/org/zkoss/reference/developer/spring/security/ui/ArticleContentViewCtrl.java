@@ -65,7 +65,7 @@ public class ArticleContentViewCtrl extends SelectorComposer<Component> {
 	@Listen("onClick=#openEditorBtn")
 	public void edit(){
 		//ownership & permission check.
-		if(!isOwner() && SecurityUtil.isNoneGranted("ROLE_EDITOR")){
+		if(!(isOwner() || SecurityUtil.isAllGranted("ROLE_EDITOR"))){
 			throw new AccessDeniedException(
 				"The user is neither the author, nor a privileged user.");
 		}
