@@ -1,0 +1,4 @@
+<?init class="org.zkoss.reference.developer.spring.security.ui.error.AjaxAccessDeniedHandler"?>
+<zk>
+<!-- Forward a unauthenticated user to login page. -->
+</zk>

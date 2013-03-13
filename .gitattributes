@@ -172,11 +172,12 @@ developersreference/integration.spring.security/src/main/java/org/zkoss/referenc
 developersreference/integration.spring.security/src/main/java/org/zkoss/reference/developer/spring/security/ui/HomePageViewCtrl.java -text
 developersreference/integration.spring.security/src/main/java/org/zkoss/reference/developer/spring/security/ui/NewArticleViewCtrl.java -text
 developersreference/integration.spring.security/src/main/java/org/zkoss/reference/developer/spring/security/ui/TestVModel.java -text
-developersreference/integration.spring.security/src/main/java/org/zkoss/reference/developer/spring/security/ui/error/AjaxSecurityHandler.java -text
+developersreference/integration.spring.security/src/main/java/org/zkoss/reference/developer/spring/security/ui/error/AjaxAccessDeniedHandler.java -text
 developersreference/integration.spring.security/src/main/java/org/zkoss/reference/developer/spring/security/ui/error/ErrorViewCtrl.java -text
 developersreference/integration.spring.security/src/main/webapp/WEB-INF/applicationContext-security.xml -text
 developersreference/integration.spring.security/src/main/webapp/WEB-INF/applicationContext.xml -text
 developersreference/integration.spring.security/src/main/webapp/WEB-INF/errors/error.zul -text
+developersreference/integration.spring.security/src/main/webapp/WEB-INF/errors/handleAccessDenied.zul -text
 developersreference/integration.spring.security/src/main/webapp/WEB-INF/partial/edit_article.zul -text
 developersreference/integration.spring.security/src/main/webapp/WEB-INF/security.tld -text
 developersreference/integration.spring.security/src/main/webapp/WEB-INF/web.xml -text
@@ -188,7 +189,6 @@ developersreference/integration.spring.security/src/main/webapp/index.zul -text
 developersreference/integration.spring.security/src/main/webapp/login.zul -text
 developersreference/integration.spring.security/src/main/webapp/mvvm.zul -text
 developersreference/integration.spring.security/src/main/webapp/newArticle.zul -text
-developersreference/integration.spring.security/src/main/webapp/security_process.zul -text
 developersreference/integration.spring/.classpath -text
 developersreference/integration.spring/.project -text
 developersreference/integration.spring/pom.xml -text

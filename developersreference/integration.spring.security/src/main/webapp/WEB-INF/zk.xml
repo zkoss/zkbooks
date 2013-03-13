@@ -5,7 +5,7 @@
 	</session-config>
 	<error-page>
 		<exception-type>org.springframework.security.access.AccessDeniedException</exception-type>
-		<location>security_process.zul</location>
+		<location>/WEB-INF/errors/handleAccessDenied.zul</location>
 	</error-page>
 
 	<!-- You can handle other exceptions with another <error-page> element 	 -->
