@@ -23,12 +23,10 @@ public class AjaxAccessDeniedHandler extends GenericInitiator {
 		
 		Execution exec = Executions.getCurrent();
 		
-		if(exec.isAsyncUpdate(null) ){
-			if (null == SecurityUtil.getUser()){ //unauthenticated user
-				exec.sendRedirect("/login.zul");
-			}else{
-				throw (AccessDeniedException)exec.getAttribute("javax.servlet.error.exception");
-			}
+		if (null == SecurityUtil.getUser()){ //unauthenticated user
+			exec.sendRedirect("/login.zul");
+		}else{ //throw original exception to display errors
+			throw (AccessDeniedException)exec.getAttribute("javax.servlet.error.exception");
 		}
 	}
 }
