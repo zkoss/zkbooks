@@ -7,18 +7,6 @@
 	</description>
 
 	<function>
-		<name>isNoneGranted</name>
-		<function-class>org.zkoss.reference.developer.spring.security.SecurityUtil</function-class>
-		<function-signature>
-	boolean isNoneGranted(java.lang.String authorities) {
-		</function-signature>
-		<description>
-	Return true if the authenticated principal is granted authorities 
-	of NONE the specified roles.
-		</description>
-	</function>
-
-	<function>
 		<name>isAllGranted</name>
 		<function-class>org.zkoss.reference.developer.spring.security.SecurityUtil</function-class>
 		<function-signature>
@@ -27,6 +15,18 @@
 		<description>
 	Return true if the authenticated principal is granted authorities 
 	of ALL the specified roles.
+		</description>
+	</function>
+
+	<function>
+		<name>isNoneGranted</name>
+		<function-class>org.zkoss.reference.developer.spring.security.SecurityUtil</function-class>
+		<function-signature>
+	boolean isNoneGranted(java.lang.String authorities) {
+		</function-signature>
+		<description>
+	Return true if the authenticated principal is granted authorities 
+	of NONE the specified roles.
 		</description>
 	</function>
 
