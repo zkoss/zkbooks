@@ -2,18 +2,19 @@
 <?taglib uri="/WEB-INF/security.tld" prefix="sec"?>
 <window title="User: ${empty execution.userPrincipal.name? 
 	'anonymous' : execution.userPrincipal.name }" 
-	border="normal" width="1000px" 
+	border="normal" width="500px" 
 	apply="org.zkoss.reference.developer.spring.security.ui.ArticleContentViewCtrl">
 	<caption>
 		<!--  add a Chapter to talk about this in small-talk and DOC (the relationship between this, Spring Security and JEE Spec) -->
 		<button label="Login" if="${empty execution.userPrincipal}" href="/login.zul"/>
 		<button label="Logout" unless="${empty execution.userPrincipal}" href="/j_spring_security_logout"/>
 	</caption>
-	<vlayout id="container">
-		<label id="titleLbl" hflex="1"/>
-		<html id="contentHtml" hflex="1" />
+	<vbox id="container"  hflex="1">
+		<label id="titleLbl"  style="font-size:16px"/>
+		<label id="content" />
+		<separator height="20px" bar="true"/>
 		<hlayout>
-			<button label="Back" href="/"/>
+			<button label="Back" href="/index.zul"/>
 			<button id="openEditorBtn" label="To Editing"/>
 			<!-- disabled="true" and visible="false" in CE are merely UI effect, to protect it you need to use EE's function -->
 			
@@ -22,6 +23,6 @@
 			disabled="${not sec:isAllGranted('ROLE_EDITOR')}"/>
 
 		</hlayout>
-	</vlayout>
+	</vbox>
 </window>
 

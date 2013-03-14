@@ -10,7 +10,7 @@
 		<name>isAllGranted</name>
 		<function-class>org.zkoss.reference.developer.spring.security.SecurityUtil</function-class>
 		<function-signature>
-	boolean isAllGranted(java.lang.String authorities) {
+	boolean isAllGranted(java.lang.String authorities) 
 		</function-signature>
 		<description>
 	Return true if the authenticated principal is granted authorities 
@@ -22,7 +22,7 @@
 		<name>isNoneGranted</name>
 		<function-class>org.zkoss.reference.developer.spring.security.SecurityUtil</function-class>
 		<function-signature>
-	boolean isNoneGranted(java.lang.String authorities) {
+	boolean isNoneGranted(java.lang.String authorities) 
 		</function-signature>
 		<description>
 	Return true if the authenticated principal is granted authorities 
@@ -34,7 +34,7 @@
 		<name>isAnyGranted</name>
 		<function-class>org.zkoss.reference.developer.spring.security.SecurityUtil</function-class>
 		<function-signature>
-	boolean isAnyGranted(java.lang.String authorities) {
+	boolean isAnyGranted(java.lang.String authorities) 
 		</function-signature>
 		<description>
 	Return true if the authenticated principal is granted authorities 

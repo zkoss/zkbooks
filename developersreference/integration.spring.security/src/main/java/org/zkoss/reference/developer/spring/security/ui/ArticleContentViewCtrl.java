@@ -23,7 +23,7 @@ import org.zkoss.zkplus.spring.DelegatingVariableResolver;
 import org.zkoss.zul.Html;
 import org.zkoss.zul.Label;
 import org.zkoss.zul.Textbox;
-import org.zkoss.zul.Vlayout;
+import org.zkoss.zul.Vbox;
 import org.zkoss.zul.Window;
 
 /**
@@ -35,9 +35,9 @@ public class ArticleContentViewCtrl extends SelectorComposer<Component> {
 	@Wire
 	private Label titleLbl;
 	@Wire
-	private Html contentHtml;
+	private Label content;
 	@Wire
-	private Vlayout container;
+	private Vbox container;
 	
 	@WireVariable
 	private ArticleService articleService;
@@ -82,7 +82,7 @@ public class ArticleContentViewCtrl extends SelectorComposer<Component> {
 	
 	private void refresh(){
 		titleLbl.setValue(article.getTitle());
-		contentHtml.setContent("<pre>"+article.getContent()+"</pre>");
+		content.setValue(article.getContent());
 	}
 	
 	

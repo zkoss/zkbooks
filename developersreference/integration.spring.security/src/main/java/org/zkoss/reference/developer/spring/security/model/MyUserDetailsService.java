@@ -34,18 +34,17 @@ public class MyUserDetailsService implements UserDetailsService {
 	}
 	static{
 		
-		add(new MyUser("rod","81dc9bdb52d04dc20036dbd8313ed055", 
-				new String[]{"ROLE_USER", "ROLE_EDITOR"} ));//1234
+		add(new MyUser("rod","81dc9bdb52d04dc20036dbd8313ed055", //password:1234 
+			new String[]{"ROLE_USER", "ROLE_EDITOR"} ));
 		
 		add(new MyUser("dianne","81dc9bdb52d04dc20036dbd8313ed055", 
-				new String[]{"ROLE_USER", "ROLE_EDITOR"} ));//1234
+			new String[]{"ROLE_USER", "ROLE_EDITOR"} ));
 		
 		add(new MyUser("scott","81dc9bdb52d04dc20036dbd8313ed055", 
-				new String[]{"ROLE_USER"} ));//1234
+			new String[]{"ROLE_USER"} ));
 		
 		add(new MyUser("peter","81dc9bdb52d04dc20036dbd8313ed055", 
-				new String[]{"ROLE_USER"} ));//1234
-		
+			new String[]{"ROLE_USER"} ));
 	}
 	
 	// must return a value or throw UsernameNotFoundException
