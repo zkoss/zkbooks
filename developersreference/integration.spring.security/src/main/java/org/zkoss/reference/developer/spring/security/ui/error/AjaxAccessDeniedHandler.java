@@ -5,7 +5,6 @@ package org.zkoss.reference.developer.spring.security.ui.error;
 
 import java.util.Map;
 
-import org.springframework.security.access.AccessDeniedException;
 import org.zkoss.reference.developer.spring.security.SecurityUtil;
 import org.zkoss.zk.ui.Execution;
 import org.zkoss.zk.ui.Executions;
@@ -25,8 +24,9 @@ public class AjaxAccessDeniedHandler extends GenericInitiator {
 		
 		if (null == SecurityUtil.getUser()){ //unauthenticated user
 			exec.sendRedirect("/login.zul");
-		}else{ //throw original exception to display errors
-			throw (AccessDeniedException)exec.getAttribute("javax.servlet.error.exception");
+		}else{
+			//display error's detail
+			Executions.createComponents("/WEB-INF/errors/error.zul", null, args);
 		}
 	}
 }
