@@ -183,9 +183,9 @@ developersreference/integration.spring.security/src/main/webapp/WEB-INF/web.xml 
 developersreference/integration.spring.security/src/main/webapp/WEB-INF/zk-log.properties -text
 developersreference/integration.spring.security/src/main/webapp/WEB-INF/zk.xml -text
 developersreference/integration.spring.security/src/main/webapp/articleContent.zul -text
+developersreference/integration.spring.security/src/main/webapp/editorOnly.zul -text
 developersreference/integration.spring.security/src/main/webapp/index.zul -text
 developersreference/integration.spring.security/src/main/webapp/login.zul -text
-developersreference/integration.spring.security/src/main/webapp/mvvm.zul -text
 developersreference/integration.spring.security/src/main/webapp/newArticle.zul -text
 developersreference/integration.spring/.classpath -text
 developersreference/integration.spring/.project -text

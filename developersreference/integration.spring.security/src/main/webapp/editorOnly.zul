@@ -1,0 +1,6 @@
+<?init class="org.zkoss.reference.developer.spring.security.ui.AccessDeniedExInit"?>
+<zk>
+
+	<label value="restricted information for ROLE_EDITOR"/>
+
+</zk>
