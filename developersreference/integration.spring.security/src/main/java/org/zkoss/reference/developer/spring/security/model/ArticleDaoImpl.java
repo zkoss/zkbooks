@@ -10,11 +10,13 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.InitializingBean;
+import org.springframework.stereotype.Repository;
 
 /**
  * @author Ian YT Tsai (zanyking)
  *
  */
+@Repository
 public class ArticleDaoImpl implements ArticleDao, InitializingBean {
 
 	private long id = 0;

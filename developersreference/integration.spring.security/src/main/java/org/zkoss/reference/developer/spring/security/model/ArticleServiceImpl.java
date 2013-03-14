@@ -6,13 +6,21 @@ package org.zkoss.reference.developer.spring.security.model;
 import java.util.Date;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
+import org.springframework.context.annotation.ScopedProxyMode;
+import org.springframework.stereotype.Service;
+
 
 /**
  * @author Ian YT Tsai (zanyking)
  *
  */
+@Service("articleService")
+@Scope(proxyMode=ScopedProxyMode.TARGET_CLASS)
 public class ArticleServiceImpl implements ArticleService {
 
+	@Autowired
 	private ArticleDao articleDao;
 	
 

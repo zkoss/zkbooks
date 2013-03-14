@@ -64,9 +64,6 @@
 			<password-encoder hash="md5" />
 		</authentication-provider>
 	</authentication-manager>
-	
-	<beans:bean id="myUserDetailsService" 
-		class="org.zkoss.reference.developer.spring.security.model.MyUserDetailsService"/>
 
 	<!-- In-Memory Authentication sample
 	<authentication-manager>
