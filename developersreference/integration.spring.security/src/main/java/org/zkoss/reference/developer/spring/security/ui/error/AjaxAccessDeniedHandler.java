@@ -26,7 +26,7 @@ public class AjaxAccessDeniedHandler extends GenericInitiator {
 			exec.sendRedirect("/login.zul");
 		}else{
 			//display error's detail
-			Executions.createComponents("/WEB-INF/errors/error.zul", null, args);
+			Executions.createComponents("/WEB-INF/errors/displayAccessDeniedException.zul", null, args);
 		}
 	}
 }

@@ -175,7 +175,7 @@ developersreference/integration.spring.security/src/main/java/org/zkoss/referenc
 developersreference/integration.spring.security/src/main/java/org/zkoss/reference/developer/spring/security/ui/error/AjaxAccessDeniedHandler.java -text
 developersreference/integration.spring.security/src/main/webapp/WEB-INF/applicationContext-security.xml -text
 developersreference/integration.spring.security/src/main/webapp/WEB-INF/applicationContext.xml -text
-developersreference/integration.spring.security/src/main/webapp/WEB-INF/errors/error.zul -text
+developersreference/integration.spring.security/src/main/webapp/WEB-INF/errors/displayAccessDeniedException.zul -text
 developersreference/integration.spring.security/src/main/webapp/WEB-INF/errors/handleAccessDenied.zul -text
 developersreference/integration.spring.security/src/main/webapp/WEB-INF/partial/edit_article.zul -text
 developersreference/integration.spring.security/src/main/webapp/WEB-INF/security.tld -text
