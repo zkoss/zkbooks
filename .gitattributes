@@ -156,7 +156,6 @@ developersreference/integration.jpa/src/main/webapp/rod.zul -text
 developersreference/integration.jpa/src/main/webapp/rollback.zul -text
 developersreference/integration.spring.security/.classpath -text
 developersreference/integration.spring.security/.project -text
-developersreference/integration.spring.security/ZK[!!-~]and[!!-~]Spring[!!-~]Security[!!-~]Integration.pptx -text
 developersreference/integration.spring.security/demo.xml -text
 developersreference/integration.spring.security/pom.xml -text
 developersreference/integration.spring.security/src/main/java/org/zkoss/reference/developer/spring/security/SecurityUtil.java -text
