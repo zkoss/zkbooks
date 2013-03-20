@@ -1,0 +1,28 @@
+<div apply="org.zkoss.bind.BindComposer"
+	viewModel="@id('vm') @init('org.zkoss.reference.developer.mvvm.advance.SpecialAttributeVM')">
+
+	<!--  
+		"if" versus "visible"
+	-->
+	<!-- wrong usage, no effect -->
+	<button label="Delete" if="@load(vm.currentUser.admin)" />
+	<!-- determined at the beginning -->
+	<button label="Delete (EL)" if="${vm.currentUser.admin}" />
+	<!-- can change during user interaction -->
+	<button label="Delete (visible)" visible="@load(vm.currentUser.admin)" />
+	<button label="Delete (disabled)" disabled="@load(not vm.currentUser.admin)" />
+	<checkbox label="Is Admin" checked="@bind(vm.currentUser.admin)" />
+	<separator bar="true" height="20px" />
+
+	<!-- "forEach" versus children binding  -->
+	<!-- wrong usage, no effect -->
+	<checkbox label="@load(each.firstName)" forEach="@load(vm.personList)" />
+	<!-- determined at the beginning -->
+	<checkbox label="${each.firstName}" forEach="${vm.personList}" />
+	<!-- children binding -->
+	<div children="@load(vm.personList)">
+		<template name="children">
+			<checkbox label="@load(each.firstName)" />
+		</template>
+	</div>
+</div>

@@ -23,6 +23,7 @@ developersreference/developersreference/src/main/java/org/zkoss/reference/develo
 developersreference/developersreference/src/main/java/org/zkoss/reference/developer/mvvm/advance/IncludeVM.java -text
 developersreference/developersreference/src/main/java/org/zkoss/reference/developer/mvvm/advance/InnerVM.java -text
 developersreference/developersreference/src/main/java/org/zkoss/reference/developer/mvvm/advance/LivePersonListModel.java -text
+developersreference/developersreference/src/main/java/org/zkoss/reference/developer/mvvm/advance/SpecialAttributeVM.java -text
 developersreference/developersreference/src/main/java/org/zkoss/reference/developer/mvvm/advance/domain/Person.java -text
 developersreference/developersreference/src/main/java/org/zkoss/reference/developer/mvvm/advance/domain/PersonDao.java -text
 developersreference/developersreference/src/main/java/org/zkoss/reference/developer/mvvm/collection/CustomMultipleSelectionsVM.java -text
@@ -50,6 +51,7 @@ developersreference/developersreference/src/main/webapp/WEB-INF/zk.xml -text
 developersreference/developersreference/src/main/webapp/advance/custom-component.zul -text
 developersreference/developersreference/src/main/webapp/advance/inner.zul -text
 developersreference/developersreference/src/main/webapp/advance/outer.zul -text
+developersreference/developersreference/src/main/webapp/advance/specialAttribute.zul -text
 developersreference/developersreference/src/main/webapp/integration/datasource.zul -text
 developersreference/developersreference/src/main/webapp/integration/jdbc.zul -text
 developersreference/developersreference/src/main/webapp/mvvm/advance/dynamic-binding.zul -text

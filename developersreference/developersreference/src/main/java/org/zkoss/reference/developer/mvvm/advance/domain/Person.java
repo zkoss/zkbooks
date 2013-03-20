@@ -6,6 +6,7 @@ public class Person {
 	private String firstName;
 	private String lastName;
 	private int age;
+	private boolean admin = true;
 	
 	public int getId() {
 		return id;
@@ -69,5 +70,11 @@ public class Person {
 		} else if (!lastName.equals(other.lastName))
 			return false;
 		return true;
+	}
+	public boolean isAdmin() {
+		return admin;
+	}
+	public void setAdmin(boolean admin) {
+		this.admin = admin;
 	} 
 }
