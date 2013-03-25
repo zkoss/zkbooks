@@ -7,9 +7,9 @@
 	String msg = simple.getMessage();
 </zscript>
 <window title="Example for SpringUtil#getBean" width="640px" border="normal" >
-
  <vbox>
  	<hbox>
+	<!-- expected: Hello from a simple bean -->
   	<label value="${msg}"></label>
     </hbox>
  </vbox> 

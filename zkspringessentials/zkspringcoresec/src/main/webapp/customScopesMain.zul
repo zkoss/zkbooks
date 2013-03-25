@@ -5,8 +5,8 @@
 	<label value="Enter Message Text:"></label>
 	<textbox id="name" />
 	<button id="setAppNameBtn" label="Set" />
-	<button id="showAppNameBtn" label="Show Message" />
-	<button id="showPageBtn" label="Show Window">
+	<button id="showAppNameBtn" label="Show Message" /> <!-- expected: what you enter in textbox -->
+	<button id="showPageBtn" label="Show Window"> <!-- expected: what you enter in textbox -->
 		<attribute name="onClick">
 		Window win = (Window) Executions.getCurrent().createComponents("customScopesWindow.zul", null, null);
 		win.doHighlighted();

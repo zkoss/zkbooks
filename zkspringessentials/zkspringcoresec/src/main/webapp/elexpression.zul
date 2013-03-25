@@ -2,10 +2,10 @@
 <?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
 <zk xmlns="http://www.zkoss.org/2005/zul">
 <window title="Bean in EL Expression" width="640px" border="normal" >
-
  <vbox>
  	<hbox>
-  	<label value="${simpleBean.message}"></label>
+		<!-- expected: Hello from a simple bean -->
+ 		<label value="${simpleBean.message}"></label>
     </hbox>
  </vbox> 
 </window>

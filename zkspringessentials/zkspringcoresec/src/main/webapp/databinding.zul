@@ -3,7 +3,7 @@
 <?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
 <zk xmlns="http://www.zkoss.org/2005/zul">
 <window title="Bean in ZK databinding annotations" width="640px" border="normal" >
-
+<!-- expected change first name or last name and full name will also be changed -->
  <grid width="400px">
         <rows>
             <row> First Name: <textbox value="@{person.firstName}"/></row>

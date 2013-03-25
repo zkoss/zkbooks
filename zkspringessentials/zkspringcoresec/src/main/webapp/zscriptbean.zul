@@ -5,6 +5,7 @@
 	String msg = simpleBean.message;
 	</zscript>
 	<window title="Bean in ZScript" width="640px" border="normal">
+		<!-- expected: Hello from a simple bean -->
 		<label value="${msg}"></label>
 	</window>
 </zk>
