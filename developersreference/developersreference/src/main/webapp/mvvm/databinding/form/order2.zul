@@ -1,0 +1,76 @@
+<zk>
+<style>
+.z-label.red{
+	color:red;
+}
+</style>
+<window title="Order Management" border="normal" width="600px"
+	apply="org.zkoss.bind.BindComposer" viewModel="@id('vm') @init('org.zkoss.reference.developer.mvvm.databinding.form.OrderVM2')" >
+	<vbox hflex="true">
+		<listbox model="@load(vm.orders)" selectedItem="@bind(vm.selected)" hflex="true" height="200px">
+			<listhead>
+				<listheader label="Id"/>
+				<listheader label="Quantity" align="center" width="80px" />
+				<listheader label="Price" align="center" width="80px" />				
+				<listheader label="Creation Date" align="center" width="100px" />
+				<listheader label="Shipping Date" align="center" width="100px" />
+			</listhead>
+			<template name="model" var="item">
+				<listitem >
+					<listcell label="@load(item.id)"/>				
+					<listcell label="@load(item.quantity)"/>
+					<listcell label="@load(item.price) @converter('formatedNumber', format='###,##0.00')"/>
+					<listcell label="@load(item.creationDate) @converter('formatedDate', format='yyyy/MM/dd')"/>
+					<listcell label="@load(item.shippingDate) @converter('formatedDate', format='yyyy/MM/dd')"/>
+				</listitem>
+			</template>
+		</listbox>
+		<toolbar>
+			<button label="New" onClick="@command('newOrder')" />
+			<button label="Save" onClick="@command('saveOrder')" disabled="@load(empty vm.selected)" />
+			<button label="Delete" onClick="@command('deleteOrder')" disabled="@load(empty vm.selected)" />
+		</toolbar>
+		<groupbox visible="@load(not empty vm.selected)" hflex="true" mold="3d">
+			<grid hflex="true" >
+				<columns>
+					<column width="120px"/>
+					<column/>
+				</columns>
+				<rows>
+					<row>Id <label value="@load(vm.selected.id)"/></row>
+					<row>Description <textbox value="@load(vm.selected.description) @save(vm.selected.description, before='saveOrder')"/></row>
+					<row>Quantity
+						<hlayout> 
+							<intbox value="@load(vm.selected.quantity) @save(vm.selected.quantity, before='saveOrder') 
+							@validator(vm.quantityValidator)"/>
+							<label value="@load(vm.validationMessages['quantity'])" sclass="red" />
+						</hlayout>	
+					</row>					
+					<row>Price 
+						<hlayout>
+							<doublebox value="@load(vm.selected.price) @save(vm.selected.price,before='saveOrder') 
+							@validator(vm.priceValidator)" format="###,##0.00" />
+							<label value="@load(vm.validationMessages['price'])" sclass="red" />
+						</hlayout>
+					</row>
+					<row>Total Price <label value="@load(vm.selected.totalPrice) @converter('formatedNumber', format='###,##0.00')" /></row>
+					<row>Creation Date 
+						<hlayout> 
+							<datebox value="@load(vm.selected.creationDate) @save(vm.selected.creationDate,before='saveOrder')
+							@validator(vm.creationDateValidator)"/>
+							<label value="@bind(vm.validationMessages['creationDate'])" sclass="red" />
+						</hlayout>	
+					</row>
+					<row>Shipping Date 
+						<hlayout> 
+							<datebox value="@load(vm.selected.shippingDate) @save(vm.selected.shippingDate,before='saveOrder')
+							@validator(vm.shippingDateValidator)"/>
+							<label value="@load(vm.validationMessages['shippingDate'])" sclass="red" />
+						</hlayout>
+					</row>	
+				</rows>
+			</grid>
+		</groupbox>
+	</vbox>
+</window>
+</zk>

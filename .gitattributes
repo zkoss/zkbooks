@@ -42,6 +42,13 @@ developersreference/developersreference/src/main/java/org/zkoss/reference/develo
 developersreference/developersreference/src/main/java/org/zkoss/reference/developer/mvvm/collection/model/MyTreeNode.java -text
 developersreference/developersreference/src/main/java/org/zkoss/reference/developer/mvvm/collection/model/MyTreeNodeData.java -text
 developersreference/developersreference/src/main/java/org/zkoss/reference/developer/mvvm/databinding/InitVM.java -text
+developersreference/developersreference/src/main/java/org/zkoss/reference/developer/mvvm/databinding/form/FakeOrderService.java -text
+developersreference/developersreference/src/main/java/org/zkoss/reference/developer/mvvm/databinding/form/Order.java -text
+developersreference/developersreference/src/main/java/org/zkoss/reference/developer/mvvm/databinding/form/OrderFormVM.java -text
+developersreference/developersreference/src/main/java/org/zkoss/reference/developer/mvvm/databinding/form/OrderService.java -text
+developersreference/developersreference/src/main/java/org/zkoss/reference/developer/mvvm/databinding/form/OrderVM.java -text
+developersreference/developersreference/src/main/java/org/zkoss/reference/developer/mvvm/databinding/form/OrderVM2.java -text
+developersreference/developersreference/src/main/java/org/zkoss/reference/developer/mvvm/databinding/form/OrderVM3.java -text
 developersreference/developersreference/src/main/java/org/zkoss/reference/developer/uicomposing/TestRichlet.java -text
 developersreference/developersreference/src/main/resources/metainfo/zk/lang-addon.xml -text
 developersreference/developersreference/src/main/webapp/META-INF/MANIFEST.MF -text
@@ -63,6 +70,11 @@ developersreference/developersreference/src/main/webapp/mvvm/collection/menu.zul
 developersreference/developersreference/src/main/webapp/mvvm/collection/radio.zul -text
 developersreference/developersreference/src/main/webapp/mvvm/collection/tree.zul -text
 developersreference/developersreference/src/main/webapp/mvvm/databinding/el.zul -text
+developersreference/developersreference/src/main/webapp/mvvm/databinding/form/exclamation.png -text
+developersreference/developersreference/src/main/webapp/mvvm/databinding/form/order.zul -text
+developersreference/developersreference/src/main/webapp/mvvm/databinding/form/order2.zul -text
+developersreference/developersreference/src/main/webapp/mvvm/databinding/form/order3.zul -text
+developersreference/developersreference/src/main/webapp/mvvm/databinding/form/orderForm.zul -text
 developersreference/developersreference/src/main/webapp/mvvm/databinding/init.zul -text
 developersreference/developersreference/src/main/webapp/mvvm/huge.zul -text
 developersreference/developersreference/src/main/webapp/mvvm/selection/model-type.zul -text
