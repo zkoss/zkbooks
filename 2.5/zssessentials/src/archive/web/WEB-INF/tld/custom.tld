@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<taglib>
+	<uri>http://www.zkoss.org/zssessentials/example/custom</uri>
+	<description>
+		User defined functions.
+	</description>
+	<import>
+		<import-name>CurrencyFns</import-name>
+		<import-class>org.zkoss.zssessentials.functions.CurrencyFns</import-class>
+	</import>
+
+	<function>
+		<name>toTWD</name>
+		<function-class>org.zkoss.zssessentials.functions.CurrencyFns
+		</function-class>
+		<function-signature>double toTWD(double,double);</function-signature>
+		<description>
+			Returns equivalent amount in TWD for the given USD
+			amount.
+		</description>
+	</function>
+</taglib>
+

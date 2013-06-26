@@ -1,0 +1,38 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+   xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:f="http://java.sun.com/jsf/core" 
+   xmlns:zk="http://www.zkoss.org/jsf/zss">    
+   <h:head>
+        <title>ZK Spreadsheet in JSF Demo</title>
+         <script language="javascript">
+        	function exportToPdf() {
+        		jsf.ajax.request(this, event);
+        	}
+        </script>
+    </h:head>
+    <h:body>
+        <h:form>
+            <h:outputText value="Cell"></h:outputText>
+            <h:inputText id="cellReference" value="${myBean.cellReference}"></h:inputText>
+            
+            <h:commandButton id="show" value="Show" actionListener="${myBean.showCellValue}">
+            	<f:ajax render="cvalue" execute="@all"></f:ajax>
+            </h:commandButton>
+            
+            <h:outputText value="Value"></h:outputText>
+            <h:inputText id="cvalue" value="${myBean.cvalue}"></h:inputText>
+            
+            <h:commandButton id="set" value="Set" onclick="jsf.ajax.request(this, event, {execute:'@all'}); return false;" actionListener="${myBean.setCellText}">
+            </h:commandButton>
+            
+            <h:commandButton id="export" value="Print to Pdf" onclick="exportToPdf(); return false;" actionListener="${myBean.exportToPdf}">
+            </h:commandButton>
+		      
+		   <zk:spreadsheet id="myspreadsheet" maxcolumns="20" width="100%" height="100%" binding="${myBean.myBeanSpreadsheet}" apply="${myBean}" maxrows="100" src="/WEB-INF/excel/jsf/Timesheet1.xls">
+		   </zk:spreadsheet>
+		   
+		   <br>
+		   </br>
+        </h:form>
+    </h:body>
+ </html>

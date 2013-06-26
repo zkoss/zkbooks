@@ -1,0 +1,10 @@
+<window apply="org.zkoss.zssessentials.cellaction.StockComposer" width="100%" vflex="1">
+	<spreadsheet id="stock"
+	    maxrows="200"
+	    maxcolumns="40"
+	    vflex="1"
+	    width="100%">
+	</spreadsheet>
+	<vlayout id="message" height="200px" width="100%" style="overflow:auto">
+	</vlayout>
+</window>

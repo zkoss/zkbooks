@@ -1,0 +1,34 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+<div height="100%" width="100%" apply="org.zkoss.zssessentials.config.AutofillComposer">
+	<div height="3px"></div>
+	<hlayout>
+		<vlayout>
+			<div>
+				1. Fill cells <intbox id="fillCells" value="2"/>
+				<combobox id="fillOrientation" >
+					<comboitem label="Fill Down" value="down"/>
+					<comboitem label="Fill Right" value="right"/>
+					<comboitem label="Fill Left" value="left"/>
+					<comboitem label="Fill Up" value="up"/>
+				</combobox>
+				<button id="fill" label="Fill" mold="trendy"></button>
+			</div>
+		</vlayout>
+		<div>
+			2. AutoFill
+			<intbox id="autoFillCells" value="6"/>
+			<combobox id="autofillType">
+				<comboitem label="Default" value="default"/>
+				<comboitem label="Copy" value="copy"/>
+			</combobox>
+			<button id="autofill" label="Auto fill" mold="trendy"></button>
+		</div>
+	</hlayout>
+	<spreadsheet id="spreadsheet" src="/WEB-INF/excel/config/autofill.xlsx"	
+			maxrows="200" 
+			maxcolumns="40"
+			width="100%"
+			height="450px"></spreadsheet>
+</div>
+</zk>

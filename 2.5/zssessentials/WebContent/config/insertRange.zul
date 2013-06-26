@@ -1,0 +1,17 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+<div height="100%" width="100%" apply="org.zkoss.zssessentials.config.InsertRangeComposer">
+	<div height="3px"></div>
+	<menupopup id="cellMenupopup">
+		<menuitem id="shiftCellRight" label="Shift cells right"></menuitem>
+		<menuitem id="shiftCellDown" label="Shift cells down"/>
+		<menuitem id="insertEntireRow" label="Entire row" />
+		<menuitem id="insertEntireColumn" label="Entire column" />
+	</menupopup>
+	<spreadsheet id="spreadsheet"  src="/WEB-INF/excel/config/demo_sample.xls"	
+			maxrows="200" 
+			maxcolumns="40"
+			width="100%"
+			vflex="1"></spreadsheet>
+</div>
+</zk>

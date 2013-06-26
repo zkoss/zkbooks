@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ 
+<zk>
+	<library-property>
+		<name>org.zkoss.zss.formula.FunctionResolver</name>
+		<value>org.zkoss.zssex.formula.ZKFunctionResolver</value>
+	</library-property>
+	
+	<!-- ActionHandler -->
+	<library-property>
+		<name>org.zkoss.zss.ui.ActionHandler.class</name>
+		<value>org.zkoss.zssessentials.config.CustomizedActionHandler</value>
+	</library-property>
+</zk>

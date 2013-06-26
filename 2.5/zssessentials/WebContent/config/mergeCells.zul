@@ -1,0 +1,14 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+<div height="100%" width="100%" apply="org.zkoss.zssessentials.config.MergeCellComposer">
+	<div>
+		<button id="mergeCells" label="Merge Cells" mold="trendy"></button>
+		<button id="splitMergedCells" label="Split Merged Cells" mold="trendy"></button>
+	</div>
+	<spreadsheet id="spreadsheet" src="/WEB-INF/excel/config/merge.xlsx"	
+				maxrows="200" 
+				maxcolumns="40"
+				width="100%"
+				height="450px"></spreadsheet>
+</div>
+</zk>

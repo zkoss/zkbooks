@@ -1,0 +1,107 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+<div height="100%" width="100%" apply="org.zkoss.zssessentials.config.CellStyleComposer">
+	<style>
+		.arialFont .z-menu-item-cnt, .arialFont .z-combo-item-text{
+			font-size:14px; 
+			font-family:arial; 
+		} 
+		.calibriFont .z-menu-item-cnt, .calibriFont .z-combo-item-text{
+			font-size:14px; 
+			font-family:calibri; 
+			} 
+		.timeFont .z-menu-item-cnt,.timeFont .z-combo-item-text{ 
+			font-size:14px;
+			font-family:time new roman; 
+			} 
+		.courierFont .z-menu-item-cnt,.courierFont .z-combo-item-text{
+			font-size:14px; 
+			font-family:courier new; 
+		} 
+		.comicFont .z-menu-item-cnt,.comicFont .z-combo-item-text{ 
+			font-size:14px;
+			font-family:comic Sans MS; 
+		} 
+		.centuryFont .z-menu-item-cnt,.centuryFont .z-combo-item-text{
+			font-size:14px; 
+			font-family:century gothic; } 
+		.georgiaFont .z-menu-item-cnt,.georgiaFont .z-combo-item-text{
+			font-size:14px; 
+			font-family:georgia; 
+		} 
+		.impactFont	.z-menu-item-cnt,.impactFont .z-combo-item-text{ font-size:14px;
+			font-family:impact; 
+		}
+	</style>
+	<hlayout style="vertical-align:middle;">
+		<combobox id="dateFormat">
+			<comboitem label="*3/14/2001" value="m/d/yyyy"></comboitem>
+			<comboitem label="3/14/01" value="m/d/yy;@"></comboitem>
+			<comboitem label="03/14/01" value="mm/dd/yy;@"></comboitem>
+			<comboitem label="14-Mar-2001" value="d-mmm-yyyy;@"></comboitem>
+			<comboitem label="04-Mar-01" value="dd-mmm-yy;@"></comboitem>
+			<comboitem label="3/14" value="m/d;@"></comboitem>
+			<comboitem label="14-Mar" value="d-mmm;@"></comboitem>
+			<comboitem label="Mar-01" value="mmm-yy;@"></comboitem>
+			<comboitem label="March-01" value="mmmm-yy;@"></comboitem>
+			<comboitem label="3/14/01 13:30" value="m/d/yy h:mm;@"></comboitem>
+			<comboitem label="3/14/01 1:30 PM" value="m/d/yy h:mm AM/PM;@"></comboitem>
+		</combobox>
+		<combobox id="fontFamily" mold="rounded" width="125px">
+			<comboitem label="Calibri" sclass="calibriFont" />
+			<comboitem label="Courier New" sclass="courierFont" />
+			<comboitem label="Comic Sans MS" sclass="comicFont" />
+			<comboitem label="Times New Roman" sclass="timeFont" />
+			<comboitem label="Century Gothic" sclass="centuryFont" />
+			<comboitem label="Georgia" sclass="georgiaFont" />
+			<comboitem label="Impact" sclass="impactFont" />
+		</combobox>
+		<combobox  id="fontSize" mold="rounded" width="50px">
+			<comboitem label="8" />
+			<comboitem label="9" />
+			<comboitem label="10" />
+			<comboitem label="11" />
+			<comboitem label="12" />
+			<comboitem label="14" />
+			<comboitem label="16" />
+			<comboitem label="18" />
+			<comboitem label="20" />
+			<comboitem label="22" />
+			<comboitem label="24" />
+			<comboitem label="26" />
+			<comboitem label="28" />
+			<comboitem label="36" />
+			<comboitem label="48" />
+			<comboitem label="72" />
+		</combobox>
+		<toolbarbutton id="boldBtn" label="Bold" ></toolbarbutton>
+		<toolbarbutton id="italicBtn" label="Italic" ></toolbarbutton>
+		<toolbarbutton id="underlineBtn" label="Underline"></toolbarbutton>
+		<toolbarbutton id="strikethroughBtn" label="Strikethrough" ></toolbarbutton>
+		<label value="Border"></label>
+		<combobox id="borderCombobox">
+			<comboitem label="bottom"/>
+			<comboitem label="top"/>
+			<comboitem label="left"/>
+			<comboitem label="right"/>
+			<comboitem label="none"/>
+			<comboitem label="full"/>
+		</combobox>
+		<label value="Font Color"></label>
+		<colorbox id="fontColor"></colorbox>
+		<label value="Cell Color"></label>
+		<colorbox id="cellColor"></colorbox>
+		<toolbarbutton id="alignLeftBtn" label="Align left" forward="onClick=onAlignClick(left)">	</toolbarbutton>
+		<toolbarbutton id="alignCenterBtn" label="Align center"	forward="onClick=onAlignClick(center)"></toolbarbutton>
+		<toolbarbutton id="alignRightBtn" label="Align right" forward="onClick=onAlignClick(right)" ></toolbarbutton>
+		<toolbarbutton id="alignTopBtn" label="Align top" forward="onClick=onAlignClick(top)" ></toolbarbutton>
+		<toolbarbutton id="alignMiddleBtn" label="Align middle" forward="onClick=onAlignClick(middle)" ></toolbarbutton>
+		<toolbarbutton id="alignBottomBtn" label="Align bottom" forward="onClick=onAlignClick(bottom)" ></toolbarbutton>
+	</hlayout>
+	<spreadsheet id="spreadsheet" src="/WEB-INF/excel/config/ZSS-demo_sample.xlsx"	
+			maxrows="200" 
+			maxcolumns="40"
+			width="100%"
+			height="450px"></spreadsheet>
+</div>
+</zk>

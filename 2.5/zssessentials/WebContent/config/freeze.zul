@@ -1,0 +1,31 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<div height="100%" width="100%" apply="org.zkoss.zssessentials.config.FreezeComposer">
+		<div height="3px"></div>
+		<spreadsheet id="spreadsheet" src="/WEB-INF/excel/config/demo_sample.xls"	
+			maxrows="200" 
+			maxcolumns="40"
+			width="100%"
+			height="450px"></spreadsheet>
+		<menupopup id="cellMenu">
+			<menu label="Freeze Row">
+				<menupopup>
+					<menuitem id="unfreezeRows" label="Unfreeze all rows" />
+					<menuseparator />
+					<menuitem label="Freeze Row 1" forward="onFreezeRow(0)"/>
+					<menuitem label="Freeze Row 2" forward="onFreezeRow(1)"/>
+					<menuitem label="Freeze Row 3" forward="onFreezeRow(2)"/>
+				</menupopup>
+			</menu>
+			<menu label="Freeze Col">
+				<menupopup>
+					<menuitem id="unfreezeCols" label="Unfreeze all cols" />
+					<menuseparator />
+					<menuitem label="Freeze Col 1" forward="onFreezeCol(0)"/>
+					<menuitem label="Freeze Col 2" forward="onFreezeCol(1)"/>
+					<menuitem label="Freeze Col 3" forward="onFreezeCol(2)"/>
+				</menupopup>
+			</menu>
+		</menupopup>
+	</div>
+</zk>

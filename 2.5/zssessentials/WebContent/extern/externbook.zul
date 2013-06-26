@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?page id="p1" title="ZK Spreadsheet External Reference to a Source Workbook Example"?>
+<window width="100%" vflex="1" apply="org.zkoss.zssessentials.extern.ExternBookComposer">
+	<vlayout vflex="1">
+	Source Book:
+	<spreadsheet id="src" width="100%" vflex="1"></spreadsheet>
+	Destination Book:
+	<spreadsheet id="dst" width="100%" vflex="1"></spreadsheet>
+	</vlayout>
+</window>

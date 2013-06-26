@@ -1,0 +1,9 @@
+<zk>
+	<window vflex="1" width="100%" apply="org.zkoss.zssessentials.config.ToolbarComposer">
+		<button id="toggleToolbar" label="Toggle toolbar"/>
+		<spreadsheet showToolbar="true"
+			id="spreadsheet" vflex="true" width="100%"
+			src="/WEB-INF/excel/config/ZSS-demo_sample.xlsx" maxcolumns="40" maxrows="200"
+			></spreadsheet>
+	</window>
+</zk>

@@ -1,0 +1,29 @@
+<zk>
+    <zscript>
+    <![CDATA[
+        import org.zkoss.zssessentials.bean.java.DataBean;
+        DataBean dataBean = new DataBean();
+        // initialize dataBean attributes ...
+        dataBean.setLiquidAssets(146504221);
+		dataBean.setFundInvestment(23181709);
+		dataBean.setFixedAssets(7168392);
+		dataBean.setIntangibleAsset(221426);
+		dataBean.setOtherAssets(2270018);
+		dataBean.setCurrentLiabilities(102515784);
+		dataBean.setLongTermLiabilities(3000);
+		dataBean.setOtherLiabilities(456175);
+		dataBean.setCapitalStock(33630080);
+		dataBean.setCapitalSurplus(7127901);
+		dataBean.setRetainedEarnings(34420905);
+		dataBean.setOtherEquity(1826731);
+		dataBean.setTreasuryStock(-634810);
+    ]]>
+    </zscript>
+    <spreadsheet id="bsheet"
+        src="/WEB-INF/excel/bean/bsheet.xls"
+        maxrows="200"
+        maxcolumns="40"
+        vflex="1"
+        width="100%">
+    </spreadsheet>
+</zk>

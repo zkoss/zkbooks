@@ -1,0 +1,14 @@
+<?page title="ZSS" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window title="ZSS Editing Events" border="normal" width="100%"
+		height="100%"
+		apply="org.zkoss.zssessentials.events.EditingEventsComposer">
+		<hlayout>
+			<label value="Edit Box:"></label>
+			<textbox id="editBox"></textbox>
+		</hlayout>
+		<spreadsheet id="ss" width="800px" height="800px" maxrows="20"
+			maxcolumns="10" src="/WEB-INF/excel/events/events.xlsx">
+		</spreadsheet>
+	</window>
+</zk>

@@ -1,0 +1,27 @@
+<?page title="ZSS Display Excel Book using setBook() API" contentType="text/html;charset=UTF-8"?>
+<window id="mainwin" width="100" height="100%">
+	<button id="uploadBtn" label="Upload Spreadsheet" upload="true"
+		onUpload="showBook(event)" />
+	<zscript>
+	import org.zkoss.zk.ui.event.UploadEvent;
+	import org.zkoss.zss.model.Book;
+	import org.zkoss.zss.model.Importer;
+	import org.zkoss.zss.model.Importers;
+	import org.zkoss.zss.ui.Spreadsheet;
+	void showBook(UploadEvent event) {
+		org.zkoss.util.media.Media media = event.getMedia();
+		if (media.isBinary()) {
+			Importer importer = Importers.getImporter("excel");
+			Book book = importer
+					.imports(media.getStreamData(), media.getName());
+			Spreadsheet spreadsheet = new Spreadsheet();
+			spreadsheet.setBook(book);
+			spreadsheet.setMaxcolumns(40);
+			spreadsheet.setMaxrows(200);
+			spreadsheet.setWidth("800px");
+			spreadsheet.setHeight("800px");
+			mainwin.appendChild(spreadsheet);
+		}
+	}
+</zscript>
+</window>

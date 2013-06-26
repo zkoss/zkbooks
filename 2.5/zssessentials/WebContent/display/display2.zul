@@ -1,0 +1,22 @@
+<?page title="ZSS Display Excel Book using setSrc() API" contentType="text/html;charset=UTF-8"?>
+<window width="100%" height="100%">
+	Excel Book Files:
+	<listbox id="books" mold="select" rows="1"
+		onSelect="changeBook()">
+		<listitem label="Default Book"
+			value="/WEB-INF/excel/display/display.xlsx" />
+		<listitem label="Engineering"
+			value="/WEB-INF/excel/display/engineering.xlsx" />
+		<listitem label="Financial"
+			value="/WEB-INF/excel/display/financial.xlsx" />
+	</listbox>
+	<zscript>
+	void changeBook() {
+		spreadsheet.setSrc(books.getSelectedItem().getValue().toString());
+	}
+</zscript>
+	<spreadsheet id="spreadsheet"
+		src="/WEB-INF/excel/display/display.xlsx" maxrows="200"
+		maxcolumns="40" vflex="1" width="100%">
+	</spreadsheet>
+</window>

@@ -1,0 +1,42 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+<div style="padding: 10px;" width="580px">
+	<radiogroup id="pasteSelector">
+		<grid>
+			<rows>
+				<row>
+					<radio id="all" label="All"	value="all" />
+					<radio id="allExcpetBorder"	label="All Excpet Border" value="allExcpetBorder" />
+				</row>
+				<row>
+					<radio id="colWidth" label="Column widths" value="columnWidth" />
+					<radio id="comment" value="comment"	label="Comment" />
+				</row>
+				<row>
+					<radio id="formula" value="formula"	label="Formulas" />
+					<radio id="formulaWithNum"	value="formulaWithNumFmt" label="Formulas and number formats" />
+				</row>
+				<row>
+					<radio id="value" value="value"	label="Values" />
+					<radio id="valueWithNumFmt"	value="valueWithNumFmt" label="Values and number formats" />
+				</row>
+				<row>
+					<radio id="fmt" value="format"	label="Formats" />
+					<radio id="validation" value="validation" label="Validation" />
+				</row>
+			</rows>
+		</grid>
+	</radiogroup>
+	<radiogroup>
+		<grid>
+			<rows>
+				<row>
+					<checkbox id="skipBlanks" label="Skip blanks" />
+					<checkbox id="transpose" label="Transpose" />
+				</row>
+			</rows>
+		</grid>
+	</radiogroup>
+	<button id="okBtn" label="OK" style="padding-top: 10px;" mold="trendy"></button>
+</div>
+</zk>

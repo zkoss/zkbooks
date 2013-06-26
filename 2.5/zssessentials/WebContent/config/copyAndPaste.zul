@@ -1,0 +1,17 @@
+<zk>
+	<div height="100%" width="100%" apply="org.zkoss.zssessentials.config.CopyPasteComposer">
+		<spreadsheet id="spreadsheet" 
+			src="/WEB-INF/excel/config/demo_sample.xls"	
+			maxrows="200" 
+			maxcolumns="40" 
+			vflex="1" 
+			width="100%"
+			ctrlKeys="^c^v^x">
+		</spreadsheet>
+		<menupopup id="cellMenu">
+			<menuitem id="cutMenu" label="Cut" />
+			<menuitem id="copyMenu" label="Copy" />
+			<menuitem id="pasteMenu" label="Paste" />
+		</menupopup>
+	</div>
+</zk>

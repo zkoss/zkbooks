@@ -1,0 +1,16 @@
+<?page title="ZSS" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window title="ZSS Selection Events" border="normal" width="100%"
+		height="100%" apply="org.zkoss.zssessentials.events.SelectionEventsComposer">
+		<hlayout>
+			<label value="Current Selection:"></label>
+			<label id="currentAreaLbl" value="None" width="200px"></label>
+			<label value="Original Selection:"></label>
+			<label id="origAreaLbl" value="None" width="200px"></label>
+			<button id="selectbtn" label="Select"/>
+		</hlayout>
+		<spreadsheet id="ss" width="800px" height="800px" maxrows="35"
+			maxcolumns="10" src="/WEB-INF/excel/events/events.xlsx">
+		</spreadsheet>
+	</window>
+</zk>
