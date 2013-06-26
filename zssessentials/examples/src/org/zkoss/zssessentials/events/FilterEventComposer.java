@@ -150,7 +150,7 @@ public class FilterEventComposer extends GenericForwardComposer {
 		criteriaListbox.setItemRenderer(new ListitemRenderer() {
 			
 			@Override
-			public void render(Listitem item, Object data) throws Exception {
+			public void render(Listitem item, Object data, int index) throws Exception {
 				RowInfo info = (RowInfo)data;
 				item.setLabel("" + info.display);
 			}

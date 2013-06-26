@@ -21,7 +21,7 @@ import org.zkoss.zss.model.Ranges;
 import org.zkoss.zss.ui.Spreadsheet;
 import org.zkoss.zss.ui.event.CellSelectionEvent;
 import org.zkoss.zul.Button;
-import org.zkoss.zul.api.Intbox;
+import org.zkoss.zul.Intbox;
 
 /**
  * MoveRangeComposer demonstrate how to move cell's value

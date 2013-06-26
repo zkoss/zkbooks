@@ -89,15 +89,9 @@ public class CustomizedActionHandler extends ActionHandler {
 			try {
 				outputStream = new FileOutputStream(new File(filePath));
 				exporter.export(spreadsheet.getBook(), outputStream);
-				try {
 					Messagebox.show("Saved");
-				} catch (InterruptedException e) {
-				}
 			} catch (FileNotFoundException e) {
-				try {
 					Messagebox.show("Save excel failed");
-				} catch (InterruptedException e1) {
-				}
 			} finally {
 				if (outputStream != null) {
 					try {
@@ -118,8 +112,8 @@ public class CustomizedActionHandler extends ActionHandler {
 			try {
 				dialog.doModal();
 			} catch (SuspendNotAllowedException e) {
-			} catch (InterruptedException e) {
-			}	
+				
+			}
 		}
 	}
 	
@@ -132,8 +126,8 @@ public class CustomizedActionHandler extends ActionHandler {
 			try {
 				dialog.doModal();
 			} catch (SuspendNotAllowedException e) {
-			} catch (InterruptedException e) {
-			}	
+				
+			}
 		}
 	}
 	
@@ -146,7 +140,6 @@ public class CustomizedActionHandler extends ActionHandler {
 			try {
 				dialog.doModal();
 			} catch (SuspendNotAllowedException e) {
-			} catch (InterruptedException e) {
 			};	
 		}
 	}
@@ -160,8 +153,7 @@ public class CustomizedActionHandler extends ActionHandler {
 			try {
 				dialog.doModal();
 			} catch (SuspendNotAllowedException e) {
-			} catch (InterruptedException e) {
-			};	
+			}	
 		}
 	}
 	
@@ -175,7 +167,6 @@ public class CustomizedActionHandler extends ActionHandler {
 			try {
 				dialog.doModal();
 			} catch (SuspendNotAllowedException e) {
-			} catch (InterruptedException e) {
 			};	
 		}
 	}
@@ -190,7 +181,6 @@ public class CustomizedActionHandler extends ActionHandler {
 			try {
 				dialog.doModal();
 			} catch (SuspendNotAllowedException e) {
-			} catch (InterruptedException e) {
 			};	
 		}
 	}
@@ -205,7 +195,6 @@ public class CustomizedActionHandler extends ActionHandler {
 			try {
 				dialog.doModal();
 			} catch (SuspendNotAllowedException e) {
-			} catch (InterruptedException e) {
 			};	
 		}
 	}
@@ -219,7 +208,6 @@ public class CustomizedActionHandler extends ActionHandler {
 			try {
 				dialog.doModal();
 			} catch (SuspendNotAllowedException e) {
-			} catch (InterruptedException e) {
 			};	
 		}
 	}
@@ -404,7 +392,7 @@ public class CustomizedActionHandler extends ActionHandler {
 		ComboitemRenderer sortByRenderer = new ComboitemRenderer() {
 			
 			@Override
-			public void render(Comboitem item, Object data) throws Exception {
+			public void render(Comboitem item, Object data, int i) throws Exception {
 				Integer index = (Integer) data;
 				
 				if (sortByRow) {
@@ -414,6 +402,7 @@ public class CustomizedActionHandler extends ActionHandler {
 				}
 				item.setValue(index);
 			}
+
 		};
 		
 		public CustomSortDialog(Rect selection) {
@@ -655,7 +644,7 @@ public class CustomizedActionHandler extends ActionHandler {
 				
 				Range pasteFrom = Ranges.range(srcSheet, srcRect.getTop(), srcRect.getLeft(), srcRect.getBottom(), srcRect.getRight());
 				Range pasteTo = Ranges.range(_spreadsheet.getSelectedSheet(), selection.getTop(), selection.getLeft(), selection.getBottom(), selection.getRight());
-				pasteFrom.pasteSpecial(pasteTo, getPasteType(pasteSelector.getSelectedItem().getValue()), Range.PASTEOP_NONE, skipBlanks.isChecked(), transpose.isChecked());
+				pasteFrom.pasteSpecial(pasteTo, getPasteType(pasteSelector.getSelectedItem().getValue().toString()), Range.PASTEOP_NONE, skipBlanks.isChecked(), transpose.isChecked());
 				
 				if (clipboard.type == Clipboard.Type.CUT) {
 					actionHandler.doClearAll(srcRect); //clear cell context and style
