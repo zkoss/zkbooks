@@ -6,6 +6,10 @@
 	SimpleBean simple = SpringUtil.getBean("simpleBean");
 	String msg = simple.getMessage();
 </zscript>
+<label multiline="true">
+Expected text in the window below: 
+	Hello from a simple bean
+</label>	
 <window title="Example for SpringUtil#getBean" width="640px" border="normal" >
  <vbox>
  	<hbox>

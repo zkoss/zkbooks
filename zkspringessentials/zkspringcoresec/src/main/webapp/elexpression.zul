@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
 <zk xmlns="http://www.zkoss.org/2005/zul">
+<label multiline="true">
+Expected text in the window below: 
+	Hello from a simple bean
+</label>
 <window title="Bean in EL Expression" width="640px" border="normal" >
  <vbox>
  	<hbox>
-		<!-- expected: Hello from a simple bean -->
  		<label value="${simpleBean.message}"></label>
     </hbox>
  </vbox> 
