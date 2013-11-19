@@ -10,6 +10,7 @@ developersreference/integration.spring/.settings
 developersreference/integration.spring/target
 document/.classpath
 document/.settings
+gettingStarted/learnZk/target
 tutorial/.settings/org.zkoss.*
 tutorial/build
 zkessentials/store/.classpath
