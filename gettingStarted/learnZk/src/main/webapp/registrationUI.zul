@@ -6,7 +6,7 @@
 	<window border="normal" width="400px" style="padding-top:20px;padding-left:20px;" title="Welcome! New User">
 		<grid hflex="1">
 			<auxhead>
-				<auxheader colspan="2" label="Registration Form" style="font-size:16px" image="../images/picture.png"/>
+				<auxheader colspan="2" label="Registration Form" style="font-size:16px" image="/images/picture.png"/>
 			</auxhead>
 			<columns/>
 			<rows >
@@ -16,8 +16,8 @@
 				<row>
 					Gender:
 					<radiogroup id="genderRadio">
-						<radio label="Male" value="male" image="../images/male.png" checked="true"/>
-						<radio label="Female" value="female" image="../images/female.png"/>
+						<radio label="Male" value="male" image="/images/male.png" checked="true"/>
+						<radio label="Female" value="female" image="/images/female.png"/>
 					</radiogroup>
 				</row>
 				<row >

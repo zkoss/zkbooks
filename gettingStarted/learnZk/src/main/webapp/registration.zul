@@ -7,7 +7,7 @@
 	apply="org.zkoss.simple.RegistrationComposer">
 		<grid id="formGrid" hflex="1" ctrlKeys="^h" >
 			<auxhead>
-				<auxheader colspan="2" label="Registration Form" style="font-size:16px" image="../images/picture.png"/>
+				<auxheader colspan="2" label="Registration Form" style="font-size:16px" image="/images/picture.png"/>
 			</auxhead>
 			<columns>
 			</columns>
@@ -18,8 +18,8 @@
 				<row>
 					Gender:
 					<radiogroup id="genderRadio">
-						<radio label="Male" value="male" image="../images/male.png" checked="true"/>
-						<radio label="Female" value="female" image="../images/female.png"/>
+						<radio label="Male" value="male" image="/images/male.png" checked="true"/>
+						<radio label="Female" value="female" image="/images/female.png"/>
 					</radiogroup>
 				</row>
 				<row >
