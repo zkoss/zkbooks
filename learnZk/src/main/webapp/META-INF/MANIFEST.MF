@@ -1,0 +1,5 @@
+Manifest-Version: 1.0
+Specification-Title: getstarted
+Specification-Version: 0.0.1-SNAPSHOT
+Implementation-Title: org.zkoss.start
+Implementation-Version: 0.0.1-SNAPSHOT

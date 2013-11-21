@@ -1,0 +1,32 @@
+<window title="Search" width="600px" border="normal" apply="org.zkoss.bind.BindComposer"
+	viewModel="@id('vm') @init('tutorial.SearchViewModel')">
+	<hbox align="center">
+		Keyword:
+		<textbox value="@bind(vm.keyword)" />
+		<button label="Search" image="/img/search.png" onClick="@command('search')" />
+	</hbox>
+	<listbox height="160px" model="@bind(vm.carList)" emptyMessage="No car found in the result"
+	selectedItem="@bind(vm.selectedCar)">
+		<listhead>
+			<listheader label="Model" />
+			<listheader label="Make" />
+			<listheader label="Price" width="20%"/>
+		</listhead>
+		<template name="model">
+			<listitem>
+				<listcell label="@bind(each.model)"></listcell>
+				<listcell label="@bind(each.make)"></listcell>
+				<listcell>$<label value="@bind(each.price)" /></listcell>
+			</listitem>
+		</template>
+	</listbox>
+	<hbox style="margin-top:20px">
+		<image width="250px" src="@bind(vm.selectedCar.preview)" />
+		<vbox>
+			<label value="@bind(vm.selectedCar.model)" />
+			<label value="@bind(vm.selectedCar.make)" />
+			<label value="@bind(vm.selectedCar.price)" />
+			<label value="@bind(vm.selectedCar.description)" />
+		</vbox>
+	</hbox>
+</window>

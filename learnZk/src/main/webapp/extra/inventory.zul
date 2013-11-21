@@ -1,0 +1,69 @@
+<zk>
+<style>
+.z-listcell.red .z-listcell-cnt, .z-label.red{
+	color:red;
+}
+</style>
+<window id="searchWin" title="" border="normal" width="600px" apply="org.zkoss.start.InventoryComposer" 
+style="padding-top:10px;padding-left:10px;">
+	<caption>
+		<image src="images/inventory.png" style="float:left"/>
+		<label value="Invertory Management" style="float:left;font-size:28px"/>
+	</caption>
+	<vbox hflex="true">
+		<menubar>
+			<menu label="Item">
+				<menupopup>
+					<menuitem label="Filter" image="images/filter.png"/>
+					<menuitem label="Add" image="images/add.png"/>
+				</menupopup>
+			</menu>
+			<menuitem label="About"/>
+		</menubar>
+		<listbox id="itemListbox" hflex="true" height="300px">
+			<listhead>
+				<listheader label="Name"/>
+				<listheader label="Cost" align="right" width="80px" />
+				<listheader label="Quantity" align="center" width="80px" />
+			</listhead>
+			<template name="model">
+				<listitem>
+					<listcell label="${each.name}"/>
+					<listcell label="${each.formatedCost}"/>
+					<listcell label="${each.quantity}"  if="${each.quantity gt 3}"/>
+					<listcell label="${each.quantity}" if="${each.quantity le 3}" sclass="red"/>
+				</listitem>
+			</template>
+		</listbox>
+		<hbox visible="false">
+			Filter : 
+			<textbox id="filterBox" value="*" instant="true"/> 
+			<button id="searchButton" label="Search" />
+		</hbox>
+		<groupbox id="detailBox" visible="false" hflex="true" mold="3d">
+			<caption id="detailCaption" />
+			<grid hflex="true" >
+				<columns>
+					<column width="120px"/>
+					<column/>
+				</columns>
+				<rows>
+					<row>Name <textbox id="nameBox" /></row>
+					<row>Description <textbox id="descriptionLabel" /></row>
+					<row>Cost <doublebox id="costLabel" format="$ ###,###,###,##0.00"/></row>
+					<row>Quantity <intbox id="quantityLabel" /></row>
+					<row spans="2" align="right">
+						<hlayout>
+							<button label="Save" image="images/save.png"/>
+							<button label="Delete" image="images/delete.png" />
+						</hlayout>
+					</row>
+				</rows>
+			</grid>
+		</groupbox>
+	</vbox>
+	<popup>
+		show description
+	</popup>
+</window>
+</zk>

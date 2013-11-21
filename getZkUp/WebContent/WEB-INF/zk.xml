@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- zk.xml Purpose: Description: History: Sun Mar 26 16:29:07 2006, Created by tomyeh Copyright (C) 
+	2006 Potix Corporation. All Rights Reserved. -->
+
+<zk>
+
+
+	<richlet>
+		<richlet-name>SearchRichlet</richlet-name>
+		<richlet-class>tutorial.richlet.SearchRichlet</richlet-class>
+	</richlet>
+	
+	<richlet-mapping>
+		<richlet-name>SearchRichlet</richlet-name>
+		<url-pattern>/search</url-pattern>
+	</richlet-mapping>
+</zk>
