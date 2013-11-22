@@ -1,17 +1,17 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>org.zkoss</groupId>
-	<artifactId>getstarted</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<groupId>org.zkoss.gettingstarted</groupId>
+	<artifactId>learnzk</artifactId>
+	<version>0.0.1</version>
 	<properties>
-		<zk.version>6.0.0</zk.version>
+		<zk.version>7.0.0.FL.20131121</zk.version>
 		<maven.build.timestamp.format>yyyy-MM-dd</maven.build.timestamp.format>
 		<packname>-0.0.1-SNAPSHOT-FL-${maven.build.timestamp}</packname>
 	</properties>
 	<packaging>war</packaging>
-	<name>The getstarted Project</name>
-	<description>The getstarted Project</description>
+	<name>The learn zk Project</name>
+	<description>The sample code project for &quot;Getting Started&quot; \ Learn ZK in 10 Minutes under ZK 7</description>
 	<licenses>
 		<license>
 			<name>GNU LESSER GENERAL PUBLIC LICENSE, Version 3</name>
