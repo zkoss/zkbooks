@@ -1,6 +1,5 @@
-<!-- 
-  ZK Getting Started/Simple ZK
-  Construct Great UI  Fast 
+<!--
+This page is simply for code demo. It cannot run correctly because there is no Spring beans configured.  
  -->
 <zk>
 	<window border="normal" width="400px" style="margin-top:20px;margin-left:20px;" title="Welcome! New User"

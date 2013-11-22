@@ -1,7 +1,3 @@
-<!-- 
-  ZK Getting Started/Simple ZK
-  Control UI Component Directly  
- -->
 <zk>
 	<window border="normal" width="400px" style="margin-top:20px;margin-left:20px;" title="Welcome! New User"
 	apply="org.zkoss.simple.RegistrationComposer">
