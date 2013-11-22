@@ -3,13 +3,15 @@
   Construct Great UI  Fast 
  -->
 <zk>
-	<window border="normal" width="400px" style="padding-top:20px;padding-left:20px;" title="Welcome! New User"
+	<window border="normal" width="400px" style="margin-top:20px;margin-left:20px;" title="Welcome! New User"
 	apply="org.zkoss.simple.RegistrationSpringComposer">
 		<grid hflex="1">
 			<auxhead>
 				<auxheader colspan="2" label="Registration Form" style="font-size:16px" image="/images/picture.png"/>
 			</auxhead>
-			<columns>
+			<columns visible="false">
+				<column/>
+				<column/>
 			</columns>
 			<rows >
 				<row >

@@ -3,14 +3,17 @@
   Construct Great UI  Fast 
  -->
 <zk>
-	<window border="normal" width="400px" style="padding-top:20px;padding-left:20px;" title="Welcome! New User">
-		<grid hflex="1">
+	<window border="normal" width="400px" style="margin-top:20px;margin-left:20px;" title="Welcome! New User">
+		<grid >
 			<auxhead>
 				<auxheader colspan="2" label="Registration Form" style="font-size:16px" image="/images/picture.png"/>
 			</auxhead>
-			<columns/>
+	 		<columns visible="false">
+	 			<column></column>
+	 			<column></column>
+	 		</columns>
 			<rows >
-				<row >
+				<row>
 					User Name <textbox id="nameBox" hflex="1" constraint="no empty"/>
 				</row>
 				<row>

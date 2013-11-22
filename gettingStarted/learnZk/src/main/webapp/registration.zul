@@ -3,17 +3,20 @@
   Control UI Component Directly  
  -->
 <zk>
-	<window border="normal" width="400px" style="padding-top:20px;padding-left:20px;" title="Welcome! New User"
+	<window border="normal" width="400px" style="margin-top:20px;margin-left:20px;" title="Welcome! New User"
 	apply="org.zkoss.simple.RegistrationComposer">
 		<grid id="formGrid" hflex="1" ctrlKeys="^h" >
 			<auxhead>
 				<auxheader colspan="2" label="Registration Form" style="font-size:16px" image="/images/picture.png"/>
 			</auxhead>
-			<columns>
+			<columns visible="false">
+				<column/>
+				<column/>
 			</columns>
 			<rows >
 				<row id="nameRow">
-					User Name <textbox id="nameBox" hflex="1" constraint="no empty"/>
+				<!-- constraint="no empty" -->
+					User Name <textbox id="nameBox" hflex="1" />
 				</row>
 				<row>
 					Gender:
