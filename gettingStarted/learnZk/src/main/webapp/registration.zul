@@ -16,7 +16,7 @@
 			<rows >
 				<row id="nameRow">
 				<!-- constraint="no empty" -->
-					User Name <textbox id="nameBox" hflex="1" />
+					User Name <textbox id="nameBox" hflex="1" constraint="no empty"/>
 				</row>
 				<row>
 					Gender:
