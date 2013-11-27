@@ -258,13 +258,14 @@ gettingStarted/getZkUp/WebContent/META-INF/MANIFEST.MF -text
 gettingStarted/getZkUp/WebContent/WEB-INF/lib/bsh.jar -text
 gettingStarted/getZkUp/WebContent/WEB-INF/lib/commons-fileupload.jar -text
 gettingStarted/getZkUp/WebContent/WEB-INF/lib/commons-io.jar -text
+gettingStarted/getZkUp/WebContent/WEB-INF/lib/slf4j-api.jar -text
+gettingStarted/getZkUp/WebContent/WEB-INF/lib/slf4j-jdk14.jar -text
 gettingStarted/getZkUp/WebContent/WEB-INF/lib/zcommon.jar -text
 gettingStarted/getZkUp/WebContent/WEB-INF/lib/zel.jar -text
 gettingStarted/getZkUp/WebContent/WEB-INF/lib/zk.jar -text
 gettingStarted/getZkUp/WebContent/WEB-INF/lib/zkbind.jar -text
 gettingStarted/getZkUp/WebContent/WEB-INF/lib/zul.jar -text
 gettingStarted/getZkUp/WebContent/WEB-INF/lib/zweb.jar -text
-gettingStarted/getZkUp/WebContent/WEB-INF/readme.txt -text
 gettingStarted/getZkUp/WebContent/WEB-INF/zk.xml -text
 gettingStarted/getZkUp/WebContent/hello.zul -text
 gettingStarted/getZkUp/WebContent/img/car1.png -text
