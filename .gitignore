@@ -10,6 +10,7 @@ developersreference/integration.spring/.settings
 developersreference/integration.spring/target
 document/.classpath
 document/.settings
+gettingStarted/getZkUp/.settings/org.eclipse.m2e.core.prefs
 gettingStarted/getZkUp/.settings/org.zkoss.*
 gettingStarted/getZkUp/build
 gettingStarted/learnZk/target
