@@ -5,7 +5,7 @@
 	<artifactId>learnzk</artifactId>
 	<version>0.0.1</version>
 	<properties>
-		<zk.version>7.0.0.FL.20131121</zk.version>
+		<zk.version>7.0.0</zk.version>
 		<maven.build.timestamp.format>yyyy-MM-dd</maven.build.timestamp.format>
 		<packname>-0.0.1-SNAPSHOT-FL-${maven.build.timestamp}</packname>
 	</properties>
