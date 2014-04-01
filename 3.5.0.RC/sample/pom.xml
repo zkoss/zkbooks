@@ -1,0 +1,61 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.zkoss.zss</groupId>
+    <artifactId>sample</artifactId>
+    <description>A project to demonstrate sample pom.xml.</description>
+    <properties>
+        <zss.version>3.0.1</zss.version>
+        <!--
+        <zk.version>6.5.5</zk.version>
+        -->
+    </properties>
+    <version>3.0.1</version>
+    <packaging>war</packaging>
+    <name>zss maven sample</name>
+    <repositories>
+		<repository>
+			<id>ZK EVAL</id>
+      		<name>ZK Evaluation Repository</name>
+			<url>http://mavensync.zkoss.org/eval</url>
+		</repository>        
+    </repositories>
+    <dependencies>        
+        <!-- Using ZK Spreadsheet  -->
+		<dependency>
+			<groupId>org.zkoss.zss</groupId>
+			<artifactId>zss</artifactId>
+			<version>${zss.version}</version>
+		</dependency>
+        <!-- [Optional] Using ZK Spreadsheet EE -->
+        <dependency>
+            <groupId>org.zkoss.zss</groupId>
+            <artifactId>zssex</artifactId>
+            <version>${zss.version}</version>
+        </dependency>
+        <!-- [Optional] Using ZK Spreadsheet PDF Exporter -->
+        <dependency>
+            <groupId>org.zkoss.zss</groupId>
+            <artifactId>zsspdf</artifactId>
+            <version>${zss.version}</version>
+        </dependency>
+        <!-- ZK -->
+        <!-- Uncomment to use alternative ZK dependencies, e.g. 6.5.5              
+        <dependency>
+            <groupId>org.zkoss.common</groupId>
+            <artifactId>zcommon</artifactId>
+            <version>${zk.version}</version>
+        </dependency>     
+        <dependency>
+            <groupId>org.zkoss.zk</groupId>
+            <artifactId>zkplus</artifactId>
+            <version>${zk.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.zkoss.zk</groupId>
+            <artifactId>zkex</artifactId>
+            <version>${zk.version}</version>
+        </dependency>
+         -->        
+    </dependencies>
+</project>
