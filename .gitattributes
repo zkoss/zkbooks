@@ -59,6 +59,7 @@ developersreference/developersreference/src/main/webapp/advance/custom-component
 developersreference/developersreference/src/main/webapp/advance/inner.zul -text
 developersreference/developersreference/src/main/webapp/advance/outer.zul -text
 developersreference/developersreference/src/main/webapp/advance/specialAttribute.zul -text
+developersreference/developersreference/src/main/webapp/eventHandling/eventQueue-chat.zul -text
 developersreference/developersreference/src/main/webapp/integration/datasource.zul -text
 developersreference/developersreference/src/main/webapp/integration/jdbc.zul -text
 developersreference/developersreference/src/main/webapp/longOperation/eventQueue.zul -text
