@@ -61,6 +61,7 @@ developersreference/developersreference/src/main/webapp/advance/outer.zul -text
 developersreference/developersreference/src/main/webapp/advance/specialAttribute.zul -text
 developersreference/developersreference/src/main/webapp/integration/datasource.zul -text
 developersreference/developersreference/src/main/webapp/integration/jdbc.zul -text
+developersreference/developersreference/src/main/webapp/longOperation/eventQueue.zul -text
 developersreference/developersreference/src/main/webapp/mvvm/advance/dynamic-binding.zul -text
 developersreference/developersreference/src/main/webapp/mvvm/advance/dynamic-collection.zul -text
 developersreference/developersreference/src/main/webapp/mvvm/collection/checkbox.zul -text
