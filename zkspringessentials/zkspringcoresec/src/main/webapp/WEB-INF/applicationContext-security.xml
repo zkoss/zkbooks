@@ -18,7 +18,6 @@
 
 	<!-- test for spring security 3.1 multiple <http> allowed -->
 	<http pattern="/test.zul" security="none" />
-	<http pattern="/login.zul**" security="none" />
 
 	<http auto-config="true">
 		<intercept-url pattern="/secure/extreme/**" access="ROLE_SUPERVISOR" />
