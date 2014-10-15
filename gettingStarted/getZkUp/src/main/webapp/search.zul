@@ -1,0 +1,28 @@
+<window title="Search" width="600px" border="normal">
+	<hbox align="center">
+		Keyword:
+		<textbox id="keywordBox" />
+		<button id="searchButton" label="Search" image="/img/search.png" />
+	</hbox>
+	<listbox id="carListbox" height="160px" emptyMessage="No car found in the result">
+		<listhead>
+			<listheader label="Model" />
+			<listheader label="Make" />
+			<listheader label="Price" width="20%"/>
+		</listhead>
+	    <listitem>
+	        <listcell label="product name"></listcell>
+	        <listcell label="make"></listcell>
+	        <listcell>$<label value="price" /></listcell>
+	    </listitem>
+	</listbox>
+	<hbox style="margin-top:20px">
+		<image id="previewImage" width="250px" />
+		<vbox>
+			<label id="modelLabel" />
+			<label id="makeLabel" />
+			<label id="priceLabel" />
+			<label id="descriptionLabel" />
+		</vbox>
+	</hbox>
+</window>

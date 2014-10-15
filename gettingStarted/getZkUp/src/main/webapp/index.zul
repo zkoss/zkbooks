@@ -1,0 +1,10 @@
+<zk>
+<window border="normal" title="Get ZK Up and Running">
+	<vlayout>
+		<a href="hello.zul">hello.zul</a>
+		<a href="search.zul">search.zul</a>
+		<a href="searchMvc.zul">searchMvc.zul</a>
+		<a href="searchMvvm.zul">searchMvvm.zul</a>
+	</vlayout>
+</window>
+</zk>
