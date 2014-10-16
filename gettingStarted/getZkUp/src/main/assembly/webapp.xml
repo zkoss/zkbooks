@@ -8,18 +8,20 @@
 	</formats>
 	<fileSets>
 		<fileSet>
-			<directory>${project.basedir}/src/main/java</directory>
+			<directory>${project.basedir}/src</directory>
 			<outputDirectory>/${project.artifactId}/src</outputDirectory>
-		</fileSet>
-		<fileSet>
-			<directory>${project.basedir}/src/main/webapp</directory>
-			<outputDirectory>/${project.artifactId}/WebContent</outputDirectory>
 		</fileSet>
 	</fileSets>
 	<files>
 		<file>
+			<source>${project.basedir}/pom.xml</source>
+			<outputDirectory>/${project.artifactId}</outputDirectory>
+		</file>	
+		<!-- 
+		<file>
 			<source>${project.build.directory}/${project.artifactId}.war</source>
 			<outputDirectory>/</outputDirectory>
 		</file>
+		 -->
 	</files>
 </assembly>
