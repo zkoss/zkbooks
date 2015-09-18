@@ -1,0 +1,4 @@
+<zk>
+include a secure page
+<include src="/secure/beIncluded.zul" />
+</zk>
