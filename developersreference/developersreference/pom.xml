@@ -5,7 +5,7 @@
 	<artifactId>reference.developer</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<properties>
-		<zk.version>6.5.1</zk.version>
+		<zk.version>7.0.6-Eval</zk.version>
 		<maven.build.timestamp.format>yyyy-MM-dd</maven.build.timestamp.format>
 		<packname>-0.0.1-SNAPSHOT-FL-${maven.build.timestamp}</packname>
 	</properties>
@@ -38,7 +38,7 @@
 	<dependencies>
 		<dependency>
 			<groupId>org.zkoss.zk</groupId>
-			<artifactId>zkbind</artifactId>
+			<artifactId>zkmax</artifactId>
 			<version>${zk.version}</version>
 		</dependency>
 		<dependency>
