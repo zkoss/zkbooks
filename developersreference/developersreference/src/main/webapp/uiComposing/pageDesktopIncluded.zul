@@ -1,0 +1,7 @@
+<zk>
+<vlayout>
+	<label value="${session}"/>
+	<label value="${desktop}"/>
+	<label value="${page}"/>
+</vlayout>
+</zk>

@@ -1,0 +1,22 @@
+<zk>
+<vlayout>
+	<label value="${session}"/>
+	<label value="${desktop}"/>
+	<label value="${page}"/>
+</vlayout>
+
+instant mode include
+<window border="normal" >
+<include src="pageDesktopIncluded.zul"/>
+</window>
+
+defer mode include
+<window border="normal" >
+<include src="pageDesktopIncluded.zul" mode="defer"/>
+</window>
+
+<vlayout>
+iframe
+<iframe src="pageDesktopIncluded.zul" width="100%"/>
+</vlayout>
+</zk>
