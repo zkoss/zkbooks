@@ -1,0 +1,7 @@
+<zk>
+<window border="normal" apply="org.zkoss.reference.developer.mvc.SubscribeComposer">
+	Included 
+	<button id="send" label="send event"/>
+	<div id="msg"/>
+</window>
+</zk>
