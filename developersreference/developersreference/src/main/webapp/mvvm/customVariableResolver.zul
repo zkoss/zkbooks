@@ -1,0 +1,9 @@
+<?variable-resolver class="org.zkoss.reference.developer.mvvm.ViewModelResolver"?>
+<!-- If you use Spring bean as a view model, use the resolver.
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?> 
+ -->
+<zk>
+	<div apply="org.zkoss.bind.BindComposer" viewModel="@id('vm')@init(myvm)">
+		<label value="@load(vm)" />
+	</div>
+</zk>
