@@ -5,7 +5,7 @@
 	<artifactId>reference.developer</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<properties>
-		<zk.version>7.0.6-Eval</zk.version>
+		<zk.version>7.0.7-Eval</zk.version>
 		<maven.build.timestamp.format>yyyy-MM-dd</maven.build.timestamp.format>
 		<packname>-0.0.1-SNAPSHOT-FL-${maven.build.timestamp}</packname>
 	</properties>
