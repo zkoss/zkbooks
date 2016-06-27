@@ -1,0 +1,19 @@
+<?page id="P"?>
+<zk>
+page: ${page.id}
+<window id="A" border="normal">
+    <window id="B" border="normal">
+         <div id="C">
+             <label id="D"/>
+         </div>
+    </window>
+</window>
+<include  id="P2" src="path-included.zul"></include>
+<textbox id="pathBox" value="/A/B/D"></textbox>
+<button onClick="get()">get</button>
+<zscript><![CDATA[
+public void get(){
+	System.out.println(Path.getComponent(pathBox.getValue()));
+}
+]]></zscript>
+</zk>

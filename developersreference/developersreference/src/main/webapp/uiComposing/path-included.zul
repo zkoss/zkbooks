@@ -1,0 +1,11 @@
+<?page id="I"?>
+<zk>
+page: ${page.id}
+<window id="A2" border="normal">
+    <window id="B2" border="normal">
+         <div id="C2">
+             <label id="D2"/>
+         </div>
+    </window>
+</window>
+</zk>
