@@ -1,0 +1,29 @@
+<zk>
+    <zscript>
+        String[][] datas = new String[][] {
+            new String[] { //group 1
+                // Today
+                "RE: Bandbox Autocomplete Problem",
+                "RE: It's not possible to navigate a listbox' ite",
+                "RE: FileUpload"
+            },
+            new String[] { //group 2
+                // Yesterday
+                "RE: Opening more than one new browser window",
+                "RE: SelectedItemConverter Question"
+            },
+            new String[] { //group 3
+                "RE: Times_Series Chart help",
+                "RE: SelectedItemConverter Question"
+            }            
+        };
+        GroupsModel model = new SimpleGroupsModel(datas,
+            new String[]{"Date: Today", "Date: Yesterday", "Date: Last Week"});
+            //the 2nd argument is a list of group head
+    </zscript>
+    <grid model="${model}">
+        <columns sizable="true">
+            <column label="Subject"/>
+        </columns>
+    </grid>
+</zk>

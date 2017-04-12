@@ -1,0 +1,10 @@
+<grid apply="org.zkoss.reference.developer.mvc.model.FoodComposer">
+    <columns menupopup="auto"> <!-- turn on column's menupopup -->
+        <column label="Category" sort="auto(0)"
+         sortDirection="ascending"/> <!-- since it is initialized as sorted -->
+        <column label="Name" sort="auto(1)"/>
+        <column label="Top Nutrients" sort="auto(2)"/>
+        <column label="% of Daily" sort="auto(3)"/>
+        <column label="Calories" sort="auto(4)"/>
+    </columns>
+</grid>
