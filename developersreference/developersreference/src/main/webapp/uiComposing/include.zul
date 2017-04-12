@@ -1,0 +1,13 @@
+<?component name="another" templateURI="~./another.zul" ?>
+<zk>
+	<vlayout>
+		apply templateURI:
+		<apply templateURI="~./another.zul" />
+
+		component directive:
+		<another/>
+		
+		image src:
+		<image src="~./zklogo.png" />
+	</vlayout>
+</zk>
