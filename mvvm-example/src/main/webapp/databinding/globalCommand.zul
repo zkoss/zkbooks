@@ -1,0 +1,33 @@
+<hlayout>
+	<vbox id="mainArea" width="200px" height="300px"
+		style="border:dashed 2px" visible="@bind(vm.visible)"
+		apply="org.zkoss.bind.BindComposer"
+		viewModel="@id('vm') @init('org.zkoss.mvvm.databinding.AddViewModel')"
+		validationMessages="@id('vmsgs')">
+		<label value="Main Panel" style="font-size:30px" />
+		Enter a Item (at least 3 characters):
+		<textbox id="iBox"
+			value="@load(vm.item)@save(vm.item, before='add') @validator(vm.itemValidator)" />
+		<label value="@load(vmsgs[iBox])" style="color:red" />
+		<button label="Add"
+			onClick="@command('add') @global-command('refresh')" />
+		<separator height="20px" />
+		<label value="@load(vm.msg)" />
+	</vbox>
+	<vbox id="listArea" width="400px" height="300px"
+		visible="@bind(vm.visible)" apply="org.zkoss.bind.BindComposer"
+		style="border:solid 2px"
+		viewModel="@id('vm') @init('org.zkoss.mvvm.databinding.ListViewModel')">
+		<listbox model="@load(vm.items)">
+			<listhead>
+				<listheader label="Items" />
+			</listhead>
+			<template name="model">
+				<listitem>
+					<listcell label="@load(each)" />
+				</listitem>
+			</template>
+		</listbox>
+		<label value="@load(vm.lastUpdate)" />
+	</vbox>
+</hlayout>
