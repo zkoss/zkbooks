@@ -1,72 +1,94 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>org.zkoss</groupId>
-  <artifactId>reference.developer.integration.hibernate</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  <packaging>war</packaging>
-  <description>hibernate example codes.
-Hibernate - maven setup: http://docs.jboss.org/hibernate/core/3.6/reference/en-US/html_single/#tutorial-firstapp-setup
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.zkoss</groupId>
+    <artifactId>reference.developer.integration.hibernate</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>war</packaging>
+    <description>hibernate example codes.
+        Hibernate - maven setup:
+        http://docs.jboss.org/hibernate/core/3.6/reference/en-US/html_single/#tutorial-firstapp-setup
 
-If we use Hibernate 4.1.x, we must use Spring 3.1.x. Because of org.springframework.orm.hibernate4.LocalSessionFactoryBean that supports Hibernate 4 only exists in Spring 3.1.x. Use org.springframework.orm.hibernate4.HibernateTransactionManager.</description>
-  <repositories>
-    <repository>
-      <id>ZK EVAL</id>
-      <name>ZK Evaluation Repository</name>
-      <url>http://mavensync.zkoss.org/eval</url>
-    </repository>
-  </repositories>
-  <dependencies>
-  	<dependency>
-  		<groupId>org.zkoss.zk</groupId>
-  		<artifactId>zkplus</artifactId>
-  		<version>6.5.0</version>
-  	</dependency>
-  	<dependency>
-  		<groupId>org.zkoss.zk</groupId>
-  		<artifactId>zkbind</artifactId>
-  		<version>6.5.0</version>
-  	</dependency>
-  	<dependency>
-  		<groupId>org.hibernate</groupId>
-  		<artifactId>hibernate-core</artifactId>
-  		<version>4.0.0.Final</version>
-  	</dependency>
-  	<dependency>
-  		<groupId>org.hsqldb</groupId>
-  		<artifactId>hsqldb</artifactId>
-  		<version>2.2.6</version>
-  	</dependency>
-  	<dependency>
-  		<groupId>org.springframework</groupId>
-  		<artifactId>spring-web</artifactId>
-  		<version>3.1.2.RELEASE</version>
-  	</dependency>
-  	<dependency>
-  		<groupId>javax.servlet</groupId>
-  		<artifactId>servlet-api</artifactId>
-  		<version>2.5</version>
-  		<scope>provided</scope>
-  	</dependency>
-  	<dependency>
-  		<groupId>org.springframework</groupId>
-  		<artifactId>spring-orm</artifactId>
-  		<version>3.1.2.RELEASE</version>
-  	</dependency>
-  	<dependency>
-  		<groupId>cglib</groupId>
-  		<artifactId>cglib</artifactId>
-  		<version>2.2</version>
-  	</dependency>
-  	<dependency>
-  		<groupId>org.slf4j</groupId>
-  		<artifactId>slf4j-log4j12</artifactId>
-  		<version>1.6.1</version>
-  	</dependency>
-  	<dependency>
-  		<groupId>org.zkoss.zk</groupId>
-  		<artifactId>zkmax</artifactId>
-  		<version>6.5.0</version>
-  	</dependency>
-  </dependencies>
-  <name>Hibernate Example</name>
+        If we use Hibernate 4.1.x, we must use Spring 3.1.x. Because of
+        org.springframework.orm.hibernate4.LocalSessionFactoryBean that supports Hibernate 4 only exists in Spring
+        3.1.x. Use org.springframework.orm.hibernate4.HibernateTransactionManager.
+    </description>
+    <repositories>
+        <repository>
+            <id>ZK EVAL</id>
+            <name>ZK Evaluation Repository</name>
+            <url>http://mavensync.zkoss.org/eval</url>
+        </repository>
+    </repositories>
+    <dependencies>
+        <dependency>
+            <groupId>org.zkoss.zk</groupId>
+            <artifactId>zkplus</artifactId>
+            <version>6.5.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.zkoss.zk</groupId>
+            <artifactId>zkbind</artifactId>
+            <version>6.5.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>4.0.0.Final</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hsqldb</groupId>
+            <artifactId>hsqldb</artifactId>
+            <version>2.2.6</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
+            <version>3.1.2.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>servlet-api</artifactId>
+            <version>2.5</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-orm</artifactId>
+            <version>3.1.2.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>cglib</groupId>
+            <artifactId>cglib</artifactId>
+            <version>2.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>1.6.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.zkoss.zk</groupId>
+            <artifactId>zkmax</artifactId>
+            <version>6.5.0</version>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+    <name>Hibernate Example</name>
+    <build>
+        <finalName>${project.artifactId}</finalName>
+        <plugins>
+            <!-- Run with Jetty -->
+            <plugin>
+                <groupId>org.mortbay.jetty</groupId>
+                <artifactId>maven-jetty-plugin</artifactId>
+                <version>6.1.10</version>
+            </plugin>
+        </plugins>
+    </build>
 </project>
