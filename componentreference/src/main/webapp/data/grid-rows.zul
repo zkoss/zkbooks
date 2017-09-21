@@ -1,0 +1,12 @@
+<zk>
+	<zscript><![CDATA[
+	List model = new ListModelList(Locale.getAvailableLocales());
+	]]></zscript>
+	<grid model="${model}" visibleRows="5">
+		<template name="model">
+			<row>
+				${each}
+			</row>
+		</template>
+	</grid>
+</zk>

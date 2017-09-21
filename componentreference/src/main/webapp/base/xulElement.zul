@@ -1,0 +1,29 @@
+<zk>
+    <style>
+        .bigFont{
+            font-size: 24px;
+        }
+    </style>
+<vlayout>
+    <label id="label1" sclass="bigFont" value="tooltips"/>
+    <label id="label2" sclass="bigFont" value="popup"/>
+</vlayout>
+<popup id="tt">
+    my tooltips
+</popup>
+<popup id="pp">
+    my popup
+</popup>
+    <button label="add tooltips" onClick="addTooltips()"/>
+    <button label="add popup" onClick="addPopup()"/>
+    <zscript><![CDATA[
+public void addTooltips(){
+    label1.setTooltipAttributes(tt, "end_after", null, null, 300);
+}
+
+public void addPopup(){
+    label2.setPopupAttributes(pp, null, "50" , "50", "toggle");
+}
+    ]]></zscript>
+
+</zk>

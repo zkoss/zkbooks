@@ -1,0 +1,53 @@
+<zk>
+    <zscript>
+        <![CDATA[
+        String[] userName = { "Tony", "Ryan", "Jumper", "Wing", "Sam" };
+        ListModelList model = new ListModelList(userName);
+    ]]></zscript>
+    <selectbox model="${model}" onSelect='alert(model.get(event.getData()));'>
+        <template name="model">
+            Name is ${each}
+        </template>
+    </selectbox>
+
+    <zscript><![CDATA[
+    public class MyUserBean {
+        private String[] userList = { "Tony", "Ryan", "Jumper", "Wing", "Sam" };
+        private int index = 0;
+
+        public ListModelList getUserList() {
+            return new ListModelList(Arrays.asList(userList));
+        }
+
+        public void setUserList() {
+        }
+
+        public void setIndex(int ind) {
+            index = ind;
+        }
+
+        public int getIndex() {
+            return index;
+        }
+
+    }
+    MyUserBean mybean = new MyUserBean();
+/**   Implements ItemRenderer without using template
+       org.zkoss.zul.ItemRenderer render = new org.zkoss.zul.ItemRenderer() {
+        public String render(Component owner, Object data, int index) throws Exception {
+            return data.toString();
+        }
+    };
+*/
+    ]]></zscript>
+    <div apply="org.zkoss.bind.BindComposer">
+        Select User:
+        <selectbox id="box" model="@init(mybean.userList)"
+                   selectedIndex="@bind(mybean.index)">
+            <template name="model">${each}</template>
+        </selectbox>
+
+    Selected:
+    <label id="val" value="@load(mybean.index)" />
+    </div>
+</zk>
