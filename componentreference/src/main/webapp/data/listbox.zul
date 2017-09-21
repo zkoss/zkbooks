@@ -1,0 +1,51 @@
+<zk>
+<style>
+	.z-listbox{
+		margin: 20px;
+	}
+</style>
+	<listbox id="box">
+		<listhead sizable="true">
+			<listheader label="name" sort="auto" />
+			<listheader label="gender" sort="auto" />
+		</listhead>
+		<listitem>
+			<listcell label="Mary" />
+			<listcell label="FEMALE" />
+		</listitem>
+		<listitem>
+			<listcell label="John" />
+			<listcell label="MALE" />
+		</listitem>
+		<listitem>
+			<listcell label="Jane" />
+			<listcell label="FEMALE" />
+		</listitem>
+		<listitem>
+			<listcell label="Henry" />
+			<listcell label="MALE" />
+		</listitem>
+		<listfoot>
+			<listfooter>
+				<label value="This is footer1" />
+			</listfooter>
+			<listfooter>
+				<label value="This is footer2" />
+			</listfooter>
+		</listfoot>
+	</listbox>
+	<zscript><![CDATA[
+List Items = new ArrayList();
+for (int i = 0; i < 100; i++) {
+    Items.add("data "+i);
+}
+ListModelList model = new ListModelList(Items);
+model.setMultiple(true);
+
+	]]></zscript>
+<listbox model="${model}" rows="10">
+	<listhead>
+		<listheader label="listbox header"/>
+	</listhead>
+</listbox>
+</zk>
