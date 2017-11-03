@@ -5,7 +5,7 @@
 	<artifactId>reference.component</artifactId>
 	<version>1.0-SNAPSHOT</version>
 	<properties>
-		<zk.version>8.5.0.FL.20170920-Eval</zk.version>
+		<zk.version>8.5.0-Eval</zk.version>
 		<commons-io>2.4</commons-io>
 		<maven.build.timestamp.format>yyyy-MM-dd</maven.build.timestamp.format>
 		<packname>-${project.version}-FL-${maven.build.timestamp}</packname>
