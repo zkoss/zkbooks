@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" ?>
+<nodom viewModel="@id('vm') @init('org.zkoss.reference.component.misc.FragmentVM')">
+  <fragment id="fg" exps="@bind(vm.expenses)" toggleEdit="@bind(vm.toggleEdit)" newExp="@bind(vm.newExpense)" editExp="@bind(vm.editExpense)" total="@bind(vm.totalExpenses)"><![CDATA[
+		<div class="container">
+			<div>
+				<h1 class="heading">ZK Client Binding with Fragment</h1>
+			</div>
+			<div class="row">
+				<div class="col-xs-6 col-md-5 col-md-offset-1 list-group">
+					<forEach items="@load(exps)" begin="0" end="" step="1" varStatus="s">
+						<if test="@load(s.first)">
+							<div class="headerFooter row list-group-item">
+								<div class="col-xs-4">
+									<span>Date</span>
+								</div>
+								<div class="col-xs-4">
+									<span>Category</span>
+								</div>
+								<div class="col-xs-3">
+									<span>Amount</span>
+								</div>
+								<div class="col-xs-1">
+									<span>Edit</span>
+								</div>
+							</div>
+						</if>
+						<if test="@load(editExp.id != each.id)">
+							<div class="eachrow row list-group-item" onClick="@command('toggleEditMethod', id = each.id)">
+								<div class="col-xs-4">
+									<span textContent="@load(each.date)"/>
+								</div>
+								<div class="col-xs-4">
+									<span textContent="@load(each.category)"/>
+								</div>
+								<div class="col-xs-3">
+									<span textContent="@load(each.amount)"/>
+								</div>
+								<div class="col-xs-1">
+									<span class="glyphicon glyphicon-edit"/>
+								</div>
+							</div>
+						</if>
+						<if test="@load(editExp.id == each.id)">
+							<div class="row list-group-item" onClick="@command('toggleEditMethod', id = each.id)" style="background-color: #ccc;">
+								<div class="col-xs-4">
+									<span textContent="@load(each.date)"/>
+								</div>
+								<div class="col-xs-4">
+									<span textContent="@load(each.category)"/>
+								</div>
+								<div class="col-xs-3">
+									<span textContent="@load(each.amount)"/>
+								</div>
+								<div class="col-xs-1">
+									<span class="glyphicon glyphicon-edit"/>
+								</div>
+							</div>
+						</if>
+						<if test="@load(s.last)">
+							<div class="headerFooter row list-group-item">
+								<div class="col-xs-4">
+									<span>Total</span>
+								</div>
+								<div class="col-xs-4">
+								</div>
+								<div class="col-xs-3">
+									<span textContent="@load(total)"/>
+								</div>
+								<div class="col-xs-1">
+								</div>
+							</div>
+						</if>
+					</forEach>
+				</div>
+				<div class="col-xs-6 col-md-5">
+					<if test="@load(toggleEdit == false)">
+						<form class="form-horizontal">
+							<div class="form-group">
+								<label class="col-xs-2 control-label">Date</label>
+								<div class="col-xs-10">
+									<p class="form-control-static"><span textContent="@load(newExp.date)"/></p>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="inputPassword" class="col-xs-2 control-label">Category</label>
+								<div class="col-xs-10">
+									<input type="text" class="form-control" placeholder="category" value="@bind(newExp.category)"/>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="inputPassword" class="col-xs-2 control-label">Amount</label>
+								<div class="col-xs-10">
+									<input type="text" class="form-control" placeholder="amount" value="@bind(newExp.amount)"/>
+								</div>
+							</div>
+						</form>
+						<button class="formBtn btn btn-primary" onClick="@command('submitNewExpense')">ADD</button>
+					</if>
+					<if test="@load(toggleEdit == true)">
+						<form class="form-horizontal">
+							<div class="form-group">
+								<label class="col-xs-2 control-label">Date</label>
+								<div class="col-xs-10">
+									<p class="form-control-static"><span textContent="@bind(editExp.date)"/></p>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="inputPassword" class="col-xs-2 control-label">Category</label>
+								<div class="col-xs-10">
+									<input type="text" class="form-control" placeholder="category" value="@bind(editExp.category)"/>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="inputPassword" class="col-xs-2 control-label">Amount</label>
+								<div class="col-xs-10">
+									<input type="text" class="form-control" placeholder="amount" value="@bind(editExp.amount)"/>
+								</div>
+							</div>
+						</form>
+						<button class="formBtn btn btn-primary" onClick="@command('submitEditExpense')">EDIT</button>
+						<button class="formBtn btn btn-danger" onClick="@command('addExpense')">CANCEL</button>
+					</if>
+				</div>
+			</div>
+		</div>
+		<zk>
+		</zk>
+	]]></fragment>
+</nodom>

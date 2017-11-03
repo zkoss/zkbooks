@@ -1,0 +1,15 @@
+<zk xmlns:n="native">
+    <div id="root" width="500px" style="margin:100px auto 0px auto"
+         viewModel="@id('vm')@init('org.zkoss.reference.component.misc.SliderViewModel')">
+        <style src="slider.css"/>
+        <fragment value="@bind(vm.value)" ><![CDATA[
+            <div style="margin:15px">
+			<input type="range" min="0" max="50" value="@bind(value)" />
+                <div style="margin:10px auto 0px auto; width:30px" >
+                    <span textContent="@load(value)" style="font-size:36px; margin-left: 5px"/>
+                </div>
+			</div>
+		]]>
+        </fragment>
+    </div>
+</zk>
