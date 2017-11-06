@@ -9,5 +9,8 @@
 		<value>reference.component</value>
 	</preference>
 	-->
-	
+	<client-config>
+		<debug-js>true</debug-js>
+		<enable-source-map>true</enable-source-map>
+	</client-config>
 </zk>

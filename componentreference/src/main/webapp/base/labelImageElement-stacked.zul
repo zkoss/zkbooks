@@ -12,7 +12,7 @@
 </window>
     <a iconSclass="z-icon-square-o z-icon-stack-2x, z-icon-twitter z-icon-stack-1x">a hyperlink</a>
     <combobox>
-        <comboitem iconSclass="z-icon-square-o z-icon-stack-2x,z-icon-twitter z-icon-stack-1x" label="twitter"></comboitem>
+        <comboitem iconSclass="z-icon-square-o z-icon-stack-2x,z-icon-twitter z-icon-stack-1x" label="twitter"/>
     </combobox>
 
     <menubar>
