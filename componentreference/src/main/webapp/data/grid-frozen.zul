@@ -1,0 +1,52 @@
+<zk xmlns:n="native">
+	<div>
+	<apply template="frozen-grid" title="Smooth Scrolling:" smooth="true"/>
+	<apply template="frozen-grid" title="Smooth Scrolling Disabled:" smooth="false"/>
+
+	<template name="frozen-grid">
+		<n:h3>${title}</n:h3>
+		<grid width="600px">
+			<custom-attributes org.zkoss.zul.frozen.smooth="${smooth}"/>
+			<frozen columns="2" />
+			<columns>
+				<column width="50px">ID</column>
+				<column width="100px">Priority</column>
+				<column width="100px">Status</column>
+				<column width="250px">Summary</column>
+				<column width="350px">Detail</column>
+				<column width="150px">Group</column>
+				<column width="100px">Assign</column>
+			</columns>
+			<rows>
+				<row>
+					<cell>0001</cell>
+					<cell>1</cell>
+					<cell>closed</cell>
+					<cell>Fix login issue</cell>
+					<cell>Login does not work at all</cell>
+					<cell>Account</cell>
+					<cell>Bob</cell>
+				</row>
+				<row>
+					<cell>0002</cell>
+					<cell>3</cell>
+					<cell>open</cell>
+					<cell>Button style broken</cell>
+					<cell>Check main.css</cell>
+					<cell>Styling</cell>
+					<cell>Alice</cell>
+				</row>
+				<row>
+					<cell>0003</cell>
+					<cell>2</cell>
+					<cell>open</cell>
+					<cell>Client search result</cell>
+					<cell>Search service returns incomplete result</cell>
+					<cell>Service</cell>
+					<cell>Bob</cell>
+				</row>
+			</rows>
+		</grid>
+	</template>
+	</div>
+</zk>
