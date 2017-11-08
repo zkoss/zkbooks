@@ -1,0 +1,24 @@
+<zk>
+    <combobox>
+        <comboitem label="Simple and Rich"/>
+        <comboitem label="Cool!"/>
+        <comboitem label="Ajax and RIA"/>
+    </combobox>
+    <zscript><![CDATA[
+        ListModelList model = new ListModelList(Arrays.asList(new String[] { "David",
+                "Thomas", "Steven" }));
+    ]]></zscript>
+
+    <combobox model="${model}" onAfterRender="self.setSelectedIndex(2)"/>
+    <combobox id="combobox" width="100px">
+        <attribute name="onCreate"><![CDATA[
+        List list2 = new ArrayList();
+        list2.add("David");
+        list2.add("Thomas");
+        list2.add("Steven");
+        ListModelList model2 = new ListModelList(list2);
+        model2.addToSelection(model2.get(0));
+        combobox.setModel(model2);
+    ]]></attribute>
+    </combobox>
+</zk>
