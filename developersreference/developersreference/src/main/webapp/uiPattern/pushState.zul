@@ -6,14 +6,14 @@
     </style>
 <div viewModel="@id('vm')@init('org.zkoss.reference.developer.uipattern.PushStateVM')" >
     <hlayout style="margin:10px;" >
-        <button onClick='@command("goPage", title="Page 1", url="#p1", page=1)'>Page 1</button>
-        <button onClick='@command("goPage", title="Page 2", url="#p2", page=2)'>Page 2</button>
-        <button onClick='@command("goPage", title="Page 3", url="#p3", page=3)'>Page 3</button>
-        <button onClick='@command("goPage", title="Page 4", url="#p4", page=4)'>Page 4</button>
-        <button onClick='@command("goPage", title="Page 5", url="#p5", page=5)'>Page 5</button>
+        <button onClick='@command("goPage", title="Page 1", page=1)'>Page 1</button>
+        <button onClick='@command("goPage", title="Page 2", page=2)'>Page 2</button>
+        <button onClick='@command("goPage", title="Page 3", page=3)'>Page 3</button>
+        <button onClick='@command("goPage", title="Page 4", page=4)'>Page 4</button>
+        <button onClick='@command("goPage", title="Page 5", page=5)'>Page 5</button>
     </hlayout>
     <tabbox id="tb"  selectedIndex="@load(vm.tabIndex)"
-            onSelect='@command("pushHistoryState", title="", url="", page=self.selectedIndex+1)'>
+            onSelect='@command("pushHistoryState", title="", page=self.selectedIndex+1)'>
         <tabs>
             <tab label="page 1"></tab>
             <tab label="page 2"></tab>

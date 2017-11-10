@@ -15,10 +15,10 @@ public class PushStateVM {
     @HistoryPopState
     @NotifyChange("tabIndex")
     public void handleHistoryPopState(@ContextParam(ContextType.TRIGGER_EVENT) HistoryPopStateEvent event) {
-        Clients.log("[By @HistoryPopState]");
+//        Clients.log("[By @HistoryPopState]");
         Map state = (Map) event.getState();
-        Clients.log("State: " + state);
-        Clients.log("Url: " + event.getUrl());
+//        Clients.log("State: " + state);
+//        Clients.log("Url: " + event.getUrl());
 
         tabIndex = 0;
         if (state != null) {
@@ -32,18 +32,16 @@ public class PushStateVM {
     @Command
     @NotifyChange("tabIndex")
     public void goPage(@BindingParam("title") String title,
-                       @BindingParam("url") String url,
                        @BindingParam("page") int page) {
         tabIndex = page - 1;
-        pushHistoryState(title, url, page);
+        pushHistoryState(title, page);
     }
 
     @Command
     public void pushHistoryState(@BindingParam("title") String title,
-                                 @BindingParam("url") String url,
                                  @BindingParam("page") int page) {
         Desktop desktop = Executions.getCurrent().getDesktop();
-        desktop.pushHistoryState(Collections.singletonMap("page", page), title, url);
+        desktop.pushHistoryState(Collections.singletonMap("page", page), title, null);
         System.out.println(page);
     }
 
