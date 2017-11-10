@@ -15,15 +15,16 @@ Copyright (C) 2006 Potix Corporation. All Rights Reserved.
 	<!-- Defines the application's name -->
 	<preference>
 		<name>org.zkoss.zk.ui.WebApp.name</name>
-		<value>reference.developer</value>
+		<value>MVVM reference</value>
 	</preference>
 
 	<!-- Turn on if you want to debug JavaScript.
 		Once turned on, the uncompressed JavaScript files will be loaded.
+	-->
 	<client-config>
 		<debug-js>true</debug-js>
+		<enable-source-map>true</enable-source-map>
 	</client-config>
-	-->
 	<!-- Uncomment if you turn off the caching of resources loaded from
 		the class path (aka., class Web resources).
 		By default, class Web resources are cached by the browser until
