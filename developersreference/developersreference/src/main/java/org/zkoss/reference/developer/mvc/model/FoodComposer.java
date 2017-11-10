@@ -8,7 +8,7 @@ import org.zkoss.zul.*;
 public class FoodComposer extends SelectorComposer<Component> {
 
 	//Data
-	Object[][] _foods = new Object[][] { //Note: the order does not matter
+	static public Object[][] _foods = new Object[][] { //Note: the order does not matter
 	    new Object[] { "Vegetables", "Asparagus", "Vitamin K", 115, 43},
 	    new Object[] { "Vegetables", "Beets", "Folate", 33, 74},
 	    new Object[] { "Vegetables", "Bell peppers", "Vitamin C", 291, 24},

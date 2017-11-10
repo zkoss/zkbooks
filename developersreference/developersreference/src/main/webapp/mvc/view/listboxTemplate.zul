@@ -1,0 +1,89 @@
+<zk xmlns:n="native">
+
+<window apply="org.zkoss.reference.developer.mvc.view.FruitProvider">
+    <listbox model="${$composer.fruits}">
+        <listhead>
+            <listheader label="Name" sort="auto"/>
+            <listheader label="Weight" sort="auto"/>
+        </listhead>
+        <template name="model">
+            <listitem>
+                <listcell label="${each[0]}"/>
+                <listcell label="${each[1]}"/>
+            </listitem>
+        </template>
+    </listbox>
+    <listbox model="${$composer.fruits}" >
+        <template name="model">
+            <listitem>
+                <listcell label="${arg.foo}"/> <!-- Wrong! it is always empty -->
+                <listcell label="${each}"/>
+            </listitem>
+        </template>
+    </listbox>
+    <listbox model="${$composer.fruits}" >
+        <custom-attributes foo="${arg.foo}"/><!-- store it for later use -->
+        <template name="model">
+            <listitem>
+                <listcell label="${foo}"/> <!-- Correct! Use the stored copy. -->
+                <listcell label="${each}"/>
+            </listitem>
+        </template>
+    </listbox>
+</window>
+
+    <n:h3>Nested Listbox</n:h3>
+    <zscript><![CDATA[
+    ListModel quarters = new ListModelArray(new String[] {"Q1", "Q2", "Q3", "Q4"});
+    Map months = new HashMap();
+    months.put("Q1", new ListModelArray(new String[] {"Jan", "Feb", "Mar"}));
+    months.put("Q2", new ListModelArray(new String[] {"Apr", "May", "Jun"}));
+    months.put("Q3", new ListModelArray(new String[] {"Jul", "Aug", "Sep"}));
+    months.put("Q4", new ListModelArray(new String[] {"Oct", "Nov", "Dec"}));
+    ListModel qs = (quarters);
+    ]]></zscript>
+    <listbox model="${quarters}">
+        <template name="model">
+            <listitem>
+                <listcell>${each}</listcell>
+                <listcell>
+                    <listbox model="${months[each]}">
+                        <template name="model">
+                            <listitem label="${each}"/>
+                        </template>
+                    </listbox>
+                </listcell>
+            </listitem>
+        </template>
+    </listbox>
+    <listbox model="${quarters}">
+        <template name="model">
+            <listitem>
+                <listcell>
+                    <listbox model="${months[each]}">
+                        <template name="model">
+                            <listitem>
+                                <listcell label="${forEachStatus.index}" />
+                                <listcell>${self.parent.parent.parent.parent.parent.value}</listcell>
+                                <listcell>${each}</listcell>
+                            </listitem>
+                        </template>
+                    </listbox>
+                </listcell>
+            </listitem>
+        </template>
+    </listbox>
+    <n:h3></n:h3>
+    <zscript><![CDATA[
+import org.zkoss.reference.developer.mvc.model.*;
+GroupsModelArray fooGroupsModel = new GroupsModelArray(FoodComposer._foods, new ArrayComparator(0, true));
+    ]]></zscript>
+    <listbox model="${fooGroupsModel}">
+        <template name="model:group">
+            <listgroup open="${groupingInfo.open}" label="${each}"/>
+        </template>
+        <template name="model:groupfoot">
+            <listgroupfoot>....</listgroupfoot>
+        </template>
+    </listbox>
+</zk>
