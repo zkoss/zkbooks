@@ -1,0 +1,45 @@
+<zk xmlns:n="http://www.zkoss.org/2005/zk/native">
+    <zscript><![CDATA[
+        Map map = new LinkedHashMap();
+        String[] packs = new String[]{"", "start", "center", "end"};
+        String[] aligns = new String[]{"", "stretch", "start", "center", "end"};
+
+        for (int i = 0; i < packs.length; i++) {
+            String pack = packs[i];
+            List list = new ArrayList();
+            for (int j = 0; j < aligns.length; j++) {
+                list.add(aligns[j]);
+            }
+            map.put(pack, list);
+        }
+
+    ]]></zscript>
+    <tablelayout columns="6">
+        <tablechildren >
+            <panel border="normal" height="200px" width="100px"
+                   forEach='"align / pack", "", "stretch", "start", "center", "end"'>
+                <panelchildren>
+                    <n:h3>${each}</n:h3>
+                </panelchildren>
+            </panel>
+        </tablechildren>
+        <tablechildren forEach="${map}">
+            <variables key="${each.key}"/>
+            <panel border="normal" height="200px" width="300px">
+                <panelchildren>
+                    <n:h3>${key}</n:h3>
+                </panelchildren>
+            </panel>
+            <panel border="normal" height="200px" width="300px" forEach="${each.value}" >
+                <panelchildren>
+                    <hbox pack="${key}" align="${each}" height="90%" width="100%">
+                        <!--<button label="1" />-->
+                        test
+                        <button label="2" />
+                        <button label="3" />
+                    </hbox>
+                </panelchildren>
+            </panel>
+        </tablechildren>
+    </tablelayout>
+</zk>
