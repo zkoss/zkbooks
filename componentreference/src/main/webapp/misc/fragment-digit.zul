@@ -1,0 +1,18 @@
+<zk xmlns:n="native">
+    <style src="digit.css"/>
+    <div id="root" width="500px" style="margin:100px auto 0px auto" viewModel="@id('vm')@init('org.zkoss.reference.component.misc.DigitViewModel')">
+        <fragment digits="@load(vm.digits)" edit="@load(vm.edit)" value="@bind(vm.value)"><![CDATA[
+        <div>
+            <if test="@load(!edit)">
+                <forEach items="@load(digits)">
+                    <span class="@load(each)"  onClick="@command('toggle')" tooltip="click to edit"/>
+                </forEach>
+            </if>
+            <if test="@load(edit)">
+                <input maxlength="4" value="@bind(value)" onBlur="@command('toggle')"/>
+            </if>
+        </div>
+		]]>
+        </fragment>
+    </div>
+</zk>

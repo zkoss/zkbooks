@@ -1,0 +1,138 @@
+body{
+  background-color:#222;
+  margin:100px auto;
+  text-align:center;
+}
+
+.digit, .colon{
+  position:relative;
+  display:inline-block;
+  width:10px;
+  height:110px;
+  margin:5px;
+}
+
+
+.colon{
+  background: linear-gradient(-90deg, #333 10px, transparent 10px),
+              linear-gradient(-90deg, #333 10px, transparent 10px);
+  
+ 
+  background-position: 0 40px, 0 65px;
+  background-repeat:no-repeat;
+  background-size:10px 10px, 10px 10px;
+  
+}
+
+.digit{
+  width:60px;
+  
+  background-image: linear-gradient(90deg, transparent 10px, #333 10px, #333 50px, transparent 50px),   /*  Top  */
+                    linear-gradient(90deg, transparent 10px, #333 10px, #333 50px, transparent 50px),   /* Middle*/
+                    linear-gradient(90deg, transparent 10px, #333 10px, #333 50px, transparent 50px),   /* Bottom*/
+          
+                    linear-gradient(90deg, #333 10px, transparent 10px, transparent 50px, #333 50px),   /* Topleft */
+                    linear-gradient(90deg, #333 10px, transparent 10px, transparent 50px, #333 50px);   /* Bottomleft */
+  
+  background-position: 0 0, 0 50px, 0 100px, 0 10px, 0 60px;
+  background-repeat:no-repeat;
+  background-size:60px 10px, 60px 10px, 60px 10px, 60px 40px, 60px 40px;
+}
+
+.zero{
+  background-image: linear-gradient(90deg, transparent 10px, #82FA58 10px, #82FA58 50px, transparent 50px),   /*  Top  */
+                    linear-gradient(90deg, transparent 10px, #333 10px, #333 50px, transparent 50px),   /* Middle*/
+                    linear-gradient(90deg, transparent 10px, #82FA58 10px, #82FA58 50px, transparent 50px),   /* Bottom*/
+          
+                    linear-gradient(90deg, #82FA58 10px, transparent 10px, transparent 50px, #82FA58 50px),   /* Topleft */
+                    linear-gradient(90deg, #82FA58 10px, transparent 10px, transparent 50px, #82FA58 50px);   /* Bottomleft */
+}
+
+.one{
+  background-image: linear-gradient(90deg, transparent 10px, #333 10px, #333 50px, transparent 50px),   /*  Top  */
+                    linear-gradient(90deg, transparent 10px, #333 10px, #333 50px, transparent 50px),   /* Middle*/
+                    linear-gradient(90deg, transparent 10px, #333 10px, #333 50px, transparent 50px),   /* Bottom*/
+          
+                    linear-gradient(90deg, #333 10px, transparent 10px, transparent 50px, #82FA58 50px),   /* Topleft */
+                    linear-gradient(90deg, #333 10px, transparent 10px, transparent 50px, #82FA58 50px);   /* Bottomleft */
+}
+
+.two{
+  background-image: linear-gradient(90deg, transparent 10px, #82FA58 10px, #82FA58 50px, transparent 50px),   /*  Top  */
+                    linear-gradient(90deg, transparent 10px, #82FA58 10px, #82FA58 50px, transparent 50px),   /* Middle*/
+                    linear-gradient(90deg, transparent 10px, #82FA58 10px, #82FA58 50px, transparent 50px),   /* Bottom*/
+          
+                    linear-gradient(90deg, #333 10px, transparent 10px, transparent 50px, #82FA58 50px),   /* Topleft */
+                    linear-gradient(90deg, #82FA58 10px, transparent 10px, transparent 50px, #333 50px);   /* Bottomleft */
+}
+
+.three{
+  background-image: linear-gradient(90deg, transparent 10px, #82FA58 10px, #82FA58 50px, transparent 50px),   /*  Top  */
+                    linear-gradient(90deg, transparent 10px, #82FA58 10px, #82FA58 50px, transparent 50px),   /* Middle*/
+                    linear-gradient(90deg, transparent 10px, #82FA58 10px, #82FA58 50px, transparent 50px),   /* Bottom*/
+          
+                    linear-gradient(90deg, #333 10px, transparent 10px, transparent 50px, #82FA58 50px),   /* Topleft */
+                    linear-gradient(90deg, #333 10px, transparent 10px, transparent 50px, #82FA58 50px);   /* Bottomleft */
+}
+
+.four{
+  background-image: linear-gradient(90deg, transparent 10px, #333 10px, #333 50px, transparent 50px),   /*  Top  */
+                    linear-gradient(90deg, transparent 10px, #82FA58 10px, #82FA58 50px, transparent 50px),   /* Middle*/
+                    linear-gradient(90deg, transparent 10px, #333 10px, #333 50px, transparent 50px),   /* Bottom*/
+          
+                    linear-gradient(90deg, #82FA58 10px, transparent 10px, transparent 50px, #82FA58 50px),   /* Topleft */
+                    linear-gradient(90deg, #333 10px, transparent 10px, transparent 50px, #82FA58 50px);   /* Bottomleft */
+}
+
+.five{
+  background-image: linear-gradient(90deg, transparent 10px, #82FA58 10px, #82FA58 50px, transparent 50px),   /*  Top  */
+                    linear-gradient(90deg, transparent 10px, #82FA58 10px, #82FA58 50px, transparent 50px),   /* Middle*/
+                    linear-gradient(90deg, transparent 10px, #82FA58 10px, #82FA58 50px, transparent 50px),   /* Bottom*/
+          
+                    linear-gradient(90deg, #82FA58 10px, transparent 10px, transparent 50px, #333 50px),   /* Topleft */
+                    linear-gradient(90deg, #333 10px, transparent 10px, transparent 50px, #82FA58 50px);   /* Bottomleft */
+}
+
+
+.six{
+  background-image: linear-gradient(90deg, transparent 10px, #333 10px, #333 50px, transparent 50px),   /*  Top  */
+                    linear-gradient(90deg, transparent 10px, #82FA58 10px, #82FA58 50px, transparent 50px),   /* Middle*/
+                    linear-gradient(90deg, transparent 10px, #82FA58 10px, #82FA58 50px, transparent 50px),   /* Bottom*/
+          
+                    linear-gradient(90deg, #82FA58 10px, transparent 10px, transparent 50px, #333 50px),   /* Topleft */
+                    linear-gradient(90deg, #82FA58 10px, transparent 10px, transparent 50px, #82FA58 50px);   /* Bottomleft */
+}
+
+
+.seven{
+  background-image: linear-gradient(90deg, transparent 10px, #82FA58 10px, #82FA58 50px, transparent 50px),   /*  Top  */
+                    linear-gradient(90deg, transparent 10px, #333 10px, #333 50px, transparent 50px),   /* Middle*/
+                    linear-gradient(90deg, transparent 10px, #333 10px, #333 50px, transparent 50px),   /* Bottom*/
+          
+                    linear-gradient(90deg, #333 10px, transparent 10px, transparent 50px, #82FA58 50px),   /* Topleft */
+                    linear-gradient(90deg, #333 10px, transparent 10px, transparent 50px, #82FA58 50px);   /* Bottomleft */
+}
+
+
+.eight{
+  background-image: linear-gradient(90deg, transparent 10px, #82FA58 10px, #82FA58 50px, transparent 50px),   /*  Top  */
+                    linear-gradient(90deg, transparent 10px, #82FA58 10px, #82FA58 50px, transparent 50px),   /* Middle*/
+                    linear-gradient(90deg, transparent 10px, #82FA58 10px, #82FA58 50px, transparent 50px),   /* Bottom*/
+          
+                    linear-gradient(90deg, #82FA58 10px, transparent 10px, transparent 50px, #82FA58 50px),   /* Topleft */
+                    linear-gradient(90deg, #82FA58 10px, transparent 10px, transparent 50px, #82FA58 50px);   /* Bottomleft */
+}
+
+.nine{
+  background-image: linear-gradient(90deg, transparent 10px, #82FA58 10px, #82FA58 50px, transparent 50px),   /*  Top  */
+                    linear-gradient(90deg, transparent 10px, #82FA58 10px, #82FA58 50px, transparent 50px),   /* Middle*/
+                    linear-gradient(90deg, transparent 10px, #82FA58 10px, #82FA58 50px, transparent 50px),   /* Bottom*/
+          
+                    linear-gradient(90deg, #82FA58 10px, transparent 10px, transparent 50px, #82FA58 50px),   /* Topleft */
+                    linear-gradient(90deg, #333 10px, transparent 10px, transparent 50px, #82FA58 50px);   /* Bottomleft */
+}
+
+input{
+    font-size: 35px;
+    border-radius: 5px;
+}
