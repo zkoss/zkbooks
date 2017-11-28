@@ -3,6 +3,9 @@
 	List model = new ListModelList(Locale.getAvailableLocales());
 	]]></zscript>
 	<grid model="${model}" visibleRows="5">
+		<columns>
+			<column label="Locale"/>
+		</columns>
 		<template name="model">
 			<row>
 				${each}

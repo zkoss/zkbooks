@@ -1,0 +1,26 @@
+<grid >
+	<columns>
+		<column label="Type" width="100px"/>
+		<column label="Content"/>
+	</columns>
+	<rows>
+		<row>
+			<label value="File:"/>
+			<textbox width="99%"/>
+		</row>
+		<row>
+			<label value="Type:"/>
+			<hbox>
+				<listbox rows="1" mold="select">
+					<listitem label="Java Files,(*.java)"/>
+					<listitem label="All Files,(*.*)"/>
+				</listbox>
+				<button label="Browse..."/>
+			</hbox>
+		</row>
+	</rows>
+	<foot>
+		<footer>footer1</footer>
+		<footer>footer2</footer>
+	</foot>
+</grid>
