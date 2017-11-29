@@ -1,0 +1,21 @@
+<zk xmlns:n="native">
+    <n:h3>Validator Decorator</n:h3>
+    <label multiline="true">
+        requirement:
+        1. submit to validate and show an error message
+        2. user input can clear the error message
+    </label>
+    <div viewModel="@id('vm')@init('org.zkoss.mvvm.databinding.ValidationErrorMsgVM')" validationMessages="@id('vmsgs')"
+         form="@id('fx')@load(vm)@save(vm, before='submit')">
+
+        <checkbox checked="@load(fx.flag)@save(fx.flag) @validator(vm.myValidator)"/>
+        <n:br/>
+        <selectbox model="@init(vm.model)" selectedIndex="@bind(fx.selectedIndex)@validator(vm.intValidator)">
+            <template name="model">
+                ${each}
+            </template>
+        </selectbox>
+        <n:br/>
+        <button label="submit" onClick="@command('submit')"/>
+    </div>
+</zk>

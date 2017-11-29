@@ -1,0 +1,5 @@
+<zk>
+<div>
+This is a page in classpath web resource folder, access it by ~./another.zul
+</div>
+</zk>

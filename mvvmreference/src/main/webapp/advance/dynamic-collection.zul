@@ -1,0 +1,20 @@
+<zk>
+	<window apply="org.zkoss.mvvm.advance.DynamicCollectionBindingComposer"
+		width="600px">
+		<label multiline="true">
+		1. in-line edit. 
+		2. delete an item. 
+		3. print item list.
+		</label>
+		<div >
+			<listbox  rows="10">
+
+			</listbox>
+			<button label="Print" />
+			selected: <label id="selected" />
+			<div>
+			<label id="result" multiline="true"/>
+			</div>
+		</div>
+	</window>
+</zk>
