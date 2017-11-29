@@ -1,0 +1,21 @@
+<zk>
+    an MVVM way to create a messagebox
+    <div viewModel="@id('vm')@init('org.zkoss.mvvm.advance.DialogVM')">
+        <button label="open message box" onClick="@command('open')"/>
+        <apply template="dialog" dialog="@load(vm.dialog)"/>
+    </div>
+    
+    <template name="dialog">
+        <if test="@load(dialog.open)">
+            <window mode="modal" border="normal">
+                <caption iconSclass="@init(dialog.iconClass)" label="@init(dialog.title)" style="font-size: 18px"/>
+                    <label value="@init(dialog.message)"/>
+                <div>
+                    <forEach items="@init(dialog.buttons)">
+                        <button label="@init(each.label)" onClick="@command(each.command)"/>
+                    </forEach>
+                </div>
+            </window>
+        </if>
+    </template>
+</zk>
