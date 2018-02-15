@@ -9,6 +9,6 @@ This is a protected page. You can only see me if you are a supervisor.
 <separator bar="true" spacing="10px"/>
 <hbox>
 <button label="Home" href="../../"/>
-<button label="Logout" href="../../j_spring_security_logout"/>
+<button label="Logout" href="../../logout"/>
 </hbox>
 </window>

@@ -26,6 +26,6 @@
 			</rows>
 		</grid>
 	</window>
-	<button label="Logout" href="/j_spring_security_logout"/>
+	<button label="Logout" href="/logout"/>
 	*Any one can view this page
 </zk>

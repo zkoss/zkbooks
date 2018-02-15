@@ -35,12 +35,11 @@
 
 	<groupbox>
 	<caption>Login</caption>
-    <h:form id="f" name="f" action="j_spring_security_check" method="POST"
-    xmlns:h="http://www.w3.org/1999/xhtml">
+    <h:form id="f" name="f" action="login" method="POST" xmlns:h="native">
     	<grid>
     		<rows>
-    			<row>User: <textbox id="u" name="j_username"/></row>
-    			<row>Password: <textbox id="p" type="password" name="j_password"/></row>
+    			<row>User: <textbox id="u" name="username" focus="true"/></row>
+    			<row>Password: <textbox id="p" type="password" name="password"/></row>
     			<row><checkbox id="r" name="_spring_security_remember_me"/>Don't ask for my password for two weeks</row>
     			<row spans="2"><hbox>
     				<h:input type="submit" value="Submit Query"/>
@@ -48,6 +47,7 @@
     			</hbox></row>
     		</rows>
     	</grid>
+		<!--<h:input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>-->
     </h:form>
     </groupbox>
 </window>

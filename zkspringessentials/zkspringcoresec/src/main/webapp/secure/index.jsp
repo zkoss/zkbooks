@@ -29,7 +29,7 @@ or if you've authenticated this session.
 </z:grid>
 <z:separator bar="true"></z:separator>
 <z:button label="Home" href="../home.zul"/>
-<z:button label="Logout" href="../j_spring_security_logout"/>
+<z:button label="Logout" href="../logout"/>
 </z:window>
 </z:page>
 </body>
