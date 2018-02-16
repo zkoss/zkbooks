@@ -34,5 +34,5 @@
 	</grid>
 </window>
 <button label="Home" href="/home1.zul"/>
-<button label="Logout" href="/j_spring_security_logout"/>
+<button label="Logout" href="/logout"/>
 </zk>

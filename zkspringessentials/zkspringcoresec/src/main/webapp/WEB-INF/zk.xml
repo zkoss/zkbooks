@@ -1,9 +1,9 @@
 <zk>
-<!-- 
 	<client-config>
 		<debug-js>true</debug-js>
 	</client-config>
- 
+<!--
+
 
 	<system-config>
 	<disable-event_thread>false</disable-event-thread>

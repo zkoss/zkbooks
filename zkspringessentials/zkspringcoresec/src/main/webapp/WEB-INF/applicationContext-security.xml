@@ -29,7 +29,8 @@
 	<http auto-config="true" use-expressions="false" access-decision-manager-ref="accessDecisionManager" >
 		<intercept-url pattern="/secure/extreme/**" access="ROLE_SUPERVISOR" />
 		<intercept-url pattern="/secure/**" access="ROLE_USER" />
-		<intercept-url pattern="/**" access="ROLE_ANONYMOUS, ROLE_USER" />
+		<!-- allow anonymous access: no specify or both ROLE_ANONYMOUS, ROLE_USER
+		<intercept-url pattern="/**" access="ROLE_ANONYMOUS, ROLE_USER" />-->
 		<!--<intercept-url pattern="/zkau/**" access="ROLE_ANONYMOUS, ROLE_USER" />-->
 		<form-login login-page="/login.zul" authentication-failure-url="/login.zul?login_error=1" />
 		<logout logout-success-url="/index.zul" invalidate-session="true" />
@@ -40,8 +41,11 @@
 		<custom-filter ref="zkEnableSessionInvalidateFilter" before="FILTER_SECURITY_INTERCEPTOR" />
 		<custom-filter ref="zkLoginOKFilter" after="FILTER_SECURITY_INTERCEPTOR" />
 		<custom-filter ref="zkError403Filter" after="LOGOUT_FILTER" />
-		<!-- disable CSRF to make ajax popup work-->
+		<!-- to make ajax login work-->
 		<csrf disabled="true"/>
+		<headers>
+			<frame-options policy="SAMEORIGIN" />
+		</headers>
 	</http>
 
 	<!-- - Usernames/Passwords are - rod/koala - dianne/emu - scott/wombat -peter/opal -->
@@ -62,9 +66,10 @@
 	</zkc:zk-config>
 	<zksp:zk-event login-template-close-delay="5">
 		<zksp:intercept-event event="onClick" path="//**/btn_*" access="ROLE_TELLER" />
-		<zksp:intercept-event path="/**" access="ROLE_ANONYMOUS" />
+		<!-- allow anonymous access: no specify or both ROLE_ANONYMOUS, ROLE_USER
+		<zksp:intercept-event path="/**" access="ROLE_ANONYMOUS, ROLE_USER" />-->
 		<!-- for Ajax login popup -->
-		<zksp:form-login login-page="/login.zul" login-ok-url="/home.zul" />
+		<zksp:form-login login-page="/login.zul" />
 	</zksp:zk-event>
 
 	<b:bean id="aclService" class="org.zkoss.zkspringessentials.acl.InMemoryAclService" />
