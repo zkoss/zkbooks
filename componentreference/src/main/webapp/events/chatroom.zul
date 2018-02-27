@@ -1,0 +1,8 @@
+<?page title="Chat Room" ?>
+<zk>
+	<window id="win" title="Chat" border="normal" apply="org.zkoss.reference.component.events.ChatComposer">
+		User: <textbox id="user" value="" /> Say <textbox id="message" />
+		<separator bar="true"/>
+		<vlayout id="info" />
+	</window>
+</zk>

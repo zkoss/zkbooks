@@ -1,0 +1,7 @@
+<window title="window" border="normal">
+    <attribute name="onVisibilityChange">
+        if (!event.isHidden())
+        lbl.setValue("Welcome back");
+    </attribute>
+    <label id="lbl"></label>
+</window>
