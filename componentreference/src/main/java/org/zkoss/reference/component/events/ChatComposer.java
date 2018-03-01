@@ -56,7 +56,7 @@ public class ChatComposer extends SelectorComposer<Window> {
 				username = "Unknow user";
 			Map<String, String> data = new HashMap<String, String>();
 			data.put("username", username);
-			data.put("status", evt.isHidden() ? " Leaved" : " Come back");
+			data.put("status", evt.isHidden() ? " left" : " Come back");
 			
 			EventQueue<Event> que = EventQueues.lookup("visibilityChange", EventQueues.APPLICATION, true);
 			que.publish(new Event("onShowNotification", null, data));
