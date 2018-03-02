@@ -1,0 +1,24 @@
+<zk>
+
+    <ckeditor width="850px">
+        <attribute name="value"><![CDATA[
+<table width="200" cellspacing="1" cellpadding="1" border="1">
+    <tbody>
+        <tr style="background: #B7B313; color:white;">
+            <td>First Name</td>
+            <td>Last Name</td>
+        </tr>
+        <tr>
+            <td>Jone</td>
+            <td>Hayes</td>
+        </tr>
+        <tr>
+            <td>Mary</td>
+            <td>Bally</td>
+        </tr>
+    </tbody>
+</table>
+]]></attribute>
+    </ckeditor>
+    <ckeditor customConfigurationsPath="/input/config.js"/>
+</zk>

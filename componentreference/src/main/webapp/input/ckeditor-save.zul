@@ -1,0 +1,4 @@
+<zk>
+    <ckeditor customConfigurationsPath="/input/customSaveConfig.js"/>
+    <script src="customsave.js"/>
+</zk>
