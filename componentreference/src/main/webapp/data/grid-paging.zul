@@ -1,0 +1,47 @@
+<zk>
+    <zscript><![CDATA[
+    import org.zkoss.zul.ext.Pageable;
+
+	List model = new ListModelList(Locale.getAvailableLocales());
+	public void next(){
+	     int activePage = ((Pageable)model).getActivePage();
+        ((Pageable)model).setActivePage(activePage + 1);
+	}
+
+    public void previous(){
+        int activePage = ((Pageable)model).getActivePage();
+        if (--activePage < 0 ){
+            activePage = 0;
+        }
+        ((Pageable)model).setActivePage(activePage);
+    }
+	]]></zscript>
+    <grid model="${model}" mold="paging" pageSize="5">
+        <columns>
+            <column label="Locale"/>
+        </columns>
+        <template name="model">
+            <row>
+                ${each}
+            </row>
+        </template>
+    </grid>
+    <button label="Next" onClick="next()"/>
+    <button label="Previous" onClick="previous()"/>
+    <!-- require the fix of ZK-3861
+    <div viewModel="@id('vm')@init('org.zkoss.reference.component.data.PagingVM')" >
+        <grid model="@init(vm.model)" mold="paging">
+            <columns>
+                <column label="Locale"/>
+            </columns>
+            <template name="model">
+                <row>
+                    ${each}
+                </row>
+            </template>
+        </grid>
+        <button label="Previous" onClick="@command('previous')"/>
+        <button label="Next" onClick="@command('next')"/>
+    </div>
+    -->
+</zk>
