@@ -6,10 +6,10 @@ public class Food {
     private String topNutrients;
     private Integer dailyPercent;
     private Integer calories;
-    private String quantity;
+    private Integer quantity;
 
     public Food(String category, String name, String topNutrients,
-                Integer dailyPercent, Integer calories, String quantity) {
+                Integer dailyPercent, Integer calories, Integer quantity) {
         this.category = category;
         this.name = name;
         this.topNutrients = topNutrients;
@@ -58,11 +58,11 @@ public class Food {
         this.calories = calories;
     }
 
-    public String getQuantity() {
+    public Integer getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(String quantity) {
+    public void setQuantity(Integer quantity) {
         this.quantity = quantity;
     }
 

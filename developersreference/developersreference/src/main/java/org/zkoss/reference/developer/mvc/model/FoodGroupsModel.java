@@ -6,7 +6,7 @@ import org.zkoss.zul.GroupsModelArray;
 import java.util.List;
 
 public class FoodGroupsModel extends GroupsModelArray {
-    public FoodGroupsModel(Food[][] foods) {
+    public FoodGroupsModel(Food[] foods) {
         super(foods, new FieldComparator("category", true));
     }
 

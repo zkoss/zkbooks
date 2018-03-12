@@ -1,6 +1,6 @@
 <zk xmlns:n="native">
 
-<window apply="org.zkoss.reference.developer.mvc.view.FruitProvider">
+<div apply="org.zkoss.reference.developer.mvc.view.FruitProvider">
     <listbox model="${$composer.fruits}">
         <listhead>
             <listheader label="Name" sort="auto"/>
@@ -13,6 +13,7 @@
             </listitem>
         </template>
     </listbox>
+    <n:h1>Lifecycle and the arg Variable</n:h1>
     <listbox model="${$composer.fruits}" >
         <template name="model">
             <listitem>
@@ -30,9 +31,9 @@
             </listitem>
         </template>
     </listbox>
-</window>
+</div>
 
-    <n:h3>Nested Listbox</n:h3>
+    <n:h1>Nested Listbox</n:h1>
     <zscript><![CDATA[
     ListModel quarters = new ListModelArray(new String[] {"Q1", "Q2", "Q3", "Q4"});
     Map months = new HashMap();
@@ -73,17 +74,56 @@
             </listitem>
         </template>
     </listbox>
-    <n:h3></n:h3>
+
+    <n:h1>Template for GroupsModel</n:h1>
     <zscript><![CDATA[
 import org.zkoss.reference.developer.mvc.model.*;
 GroupsModelArray fooGroupsModel = new GroupsModelArray(FoodComposer._foods, new ArrayComparator(0, true));
     ]]></zscript>
+<div >
     <listbox model="${fooGroupsModel}">
+        <listhead>
+            <listheader label="Name" />
+            <listheader label="Top Nutrients" />
+            <listheader label="Daily Percent" />
+        </listhead>
         <template name="model:group">
             <listgroup open="${groupingInfo.open}" label="${each}"/>
         </template>
+        <template name="model">
+            <listitem>
+                <listcell label="${each[1]}"/>
+                <listcell label="${each[2]}"/>
+                <listcell >
+                    ${each[3]}
+                </listcell>
+            </listitem>
+        </template>
         <template name="model:groupfoot">
-            <listgroupfoot>....</listgroupfoot>
+        <listgroupfoot  span="3" align="right">....</listgroupfoot>
         </template>
     </listbox>
+    <listbox apply="org.zkoss.reference.developer.mvc.view.FoodComposer">
+        <listhead>
+            <listheader label="Name" />
+            <listheader label="Top Nutrients" />
+            <listheader label="Daily Percent" />
+        </listhead>
+        <template name="model:group">
+            <listgroup open="${groupingInfo.open}" label="${each[0].category}"/>
+        </template>
+        <template name="model">
+            <listitem>
+                <listcell label="${each.name}"/>
+                <listcell label="${each.topNutrients}"/>
+                <listcell >
+                    ${each.dailyPercent}%
+                </listcell>
+            </listitem>
+        </template>
+        <template name="model:groupfoot">
+            <listgroupfoot  span="3" align="right">....</listgroupfoot>
+        </template>
+    </listbox>
+</div>
 </zk>
