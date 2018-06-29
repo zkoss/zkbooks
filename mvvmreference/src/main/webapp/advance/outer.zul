@@ -1,0 +1,6 @@
+<zk>
+    <div viewModel="@id('vm')@init('org.zkoss.mvvm.advance.CompositeVM')">
+        <include type="outerPageLiteralValue" src="inner.zul"/>
+        <include type="@load(vm.title)" src="@load('inner.zul')"/>
+    </div>
+</zk>

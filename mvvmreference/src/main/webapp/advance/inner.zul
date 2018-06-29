@@ -1,0 +1,6 @@
+<div viewModel="@id('vm') @init('org.zkoss.mvvm.advance.InnerVM')">
+    <groupbox width="400px">
+        Argument passed from outer page:
+        <label value="@load(vm.typeFromOuter)"/>
+    </groupbox>
+</div>
