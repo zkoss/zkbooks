@@ -1,0 +1,27 @@
+<zk xmlns:n="native">
+    <n:h1>Define, Apply</n:h1>
+    <template name="layout">
+        <!-- UI components or shadow components -->
+        inside a template named "layout"
+    </template>
+    <apply template="layout"/>
+    <n:h1>Passing parameters</n:h1>
+    <div viewModel="@id('vm')@init('org.zkoss.mvvm.shadow.DynamicTemplateVM')" style="width: 50%" >
+        <button label="@load(vm.edit? 'Done' : 'Edit')" onClick="@command('toggle')"/>
+        <vlayout sclass="personal-data">
+            <!--<image src="@init(vm.person.icon)"/>-->
+            <apply template="@load(vm.edit?'edit':'normal')" />
+        </vlayout>
+    </div>
+
+    <template name="normal">
+        <label value="@init(vm.person.firstName)" />
+        <label value="@init(vm.person.lastName)" />
+        <label value="@init(vm.person.age)" />
+    </template>
+    <template name="edit">
+        <textbox value="@bind(vm.person.firstName)" />
+        <textbox value="@bind(vm.person.lastName)" />
+        <intbox value="@bind(vm.person.age)" />
+    </template>
+</zk>

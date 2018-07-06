@@ -7,7 +7,18 @@ public class Person {
 	private String lastName;
 	private int age;
 	private boolean admin = true;
-	
+
+	public Person(){
+
+	}
+
+	public Person(int id, String firstName, String lastName, int age) {
+		this.id = id;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.age = age;
+	}
+
 	public int getId() {
 		return id;
 	}
