@@ -1,0 +1,12 @@
+<zk>
+	<label multiline="true">
+	After loading this page, if you stop your application server and click the button below.
+	You will see "The server is temporarily out of service" error message.
+	</label>
+	<button label="produce runtime exception" onClick="exception()"/>
+	<zscript><![CDATA[
+	public void exception(){
+		throw new RuntimeException("a runtime exception on-purpose");
+	}
+	]]></zscript>
+</zk>
