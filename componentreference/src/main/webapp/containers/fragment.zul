@@ -1,0 +1,9 @@
+<zk>
+	<fragment viewModel="@id('vm') @init('org.zkoss.reference.component.containers.FragmentVM')"
+			  prop1="@bind(vm.prop1)"
+			  prop2="@bind(vm.prop2)"><![CDATA[
+        <p><input type="text" value="@bind(prop1)"/></p>
+        <p><input type="text" value="@bind(prop2)"/></p>
+        <button onclick="@command('submit')">Submit</button>
+    ]]></fragment>
+</zk>
