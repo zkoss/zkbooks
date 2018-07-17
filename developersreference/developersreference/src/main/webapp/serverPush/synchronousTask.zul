@@ -1,0 +1,8 @@
+<zk>
+	<div viewModel="@id('vm')@init('org.zkoss.reference.developer.serverpush.ServerPushVM')">
+		<button label="start a working thread" onClick="@command('start')"/>
+        <forEach items="@load(vm.data)">
+		    <label value="@load(each)"/>
+        </forEach>
+	</div>
+</zk>
