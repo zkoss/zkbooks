@@ -1,0 +1,5 @@
+<zk>
+    <label id="now" />
+    <timer id="timer" delay="1000" repeats="true"
+           onTimer="now.setValue(new Date().toString());"/>
+</zk>
