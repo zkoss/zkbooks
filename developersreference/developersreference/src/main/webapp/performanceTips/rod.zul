@@ -1,0 +1,8 @@
+<zk>
+	<zscript><![CDATA[
+import java.util.*;
+ListModelList model = new ListModelList(Locale.getAvailableLocales());
+]]></zscript>
+	<custom-attributes org.zkoss.zul.listbox.rod="true" />
+	<listbox id="box" model="${model}"  multiple="true"  rows="10"/>
+</zk>
