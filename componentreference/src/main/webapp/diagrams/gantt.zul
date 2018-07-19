@@ -1,12 +1,5 @@
 <zk>
-<zscript><![CDATA[
-        import org.zkoss.reference.component.diagrams.*;
-        import org.zkoss.zkex.zul.impl.JFreeChartEngine;
-
-        JFreeChartEngine myJfreeChartEngine = new org.zkoss.reference.component.diagrams.MyJfreeChartEngine();
-
-]]></zscript>
-   <chart id="gantt" title="Gantt Chart" width="700" height="400" engine="${myJfreeChartEngine}"
+   <chart id="gantt" title="Gantt Chart" width="700" height="400"
                type="gantt" threeD="false" fgAlpha="128" dateFormat="yyyy/MM/dd" >
             <zscript><![CDATA[
         import org.zkoss.zul.GanttModel.GanttTask;
