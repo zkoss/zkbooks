@@ -1,0 +1,23 @@
+<zk>
+    <zscript>
+        import java.awt.Font;
+        String fontname = "Dialog";
+        Font tfont = new Font(fontname, Font.BOLD, 26); //for title
+        Font lfont = new Font(fontname, Font.PLAIN, 10); //for legend
+        Font lbfont = new Font(fontname, Font.PLAIN, 12); //for label
+
+
+        CategoryModel catmodel = new SimpleCategoryModel();
+        catmodel.setValue("2001", "第一季", new Integer(20));
+        catmodel.setValue("2001", "第二季", new Integer(35));
+        catmodel.setValue("2001", "第三季", new Integer(40));
+        catmodel.setValue("2001", "第四季", new Integer(55));
+        catmodel.setValue("2002", "第一季", new Integer(40));
+        catmodel.setValue("2002", "第二季", new Integer(60));
+        catmodel.setValue("2002", "第三季", new Integer(70));
+        catmodel.setValue("2002", "第四季", new Integer(90));
+    </zscript>
+
+    <chart id="barchart" title="長條圖  Bar Chart" width="500" height="250" type="bar" threeD="false" fgAlpha="128"
+           titleFont="${tfont}" legendFont="${lfont}" xAxisFont="${lbfont}" xAxisTickFont="${lbfont}" model="${catmodel}"/>
+</zk>

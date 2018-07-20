@@ -1,0 +1,6 @@
+<zk>
+    <chart id="gantt" title="Gantt Chart" width="700" height="400"
+           type="gantt" threeD="false" fgAlpha="128" dateFormat="yyyy/MM/dd"
+           apply="org.zkoss.reference.component.diagrams.ClickComposer">
+    </chart>
+</zk>
