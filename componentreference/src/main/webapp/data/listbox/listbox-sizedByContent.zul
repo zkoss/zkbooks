@@ -1,0 +1,67 @@
+<zk xmlns:n="native">
+    <n:h2>Equally Distributed: sizedByContent="false" without specified width</n:h2>
+    <listbox sizedByContent="false" >
+        <listhead sizable="true">
+            <listheader label="default"  />
+            <listheader label="default" />
+            <listheader label="default" />
+        </listhead>
+        <listitem>
+            <listcell label="Row 1" />
+            <listcell label="Hello World" />
+            <listcell label="Hello World" />
+        </listitem>
+    </listbox>
+    <n:h2> Partially Fixed: sizedByContent="false" with specified width</n:h2>
+    <listbox   sizedByContent="false" >
+        <listhead sizable="true">
+            <listheader label="Fixed" width="100px" />
+            <listheader label="Flexed" />
+            <listheader label="Flexed" />
+        </listhead>
+        <listitem>
+            <listcell label="Row 1" />
+            <listcell label="Hello World" />
+            <listcell label="Hello World" />
+        </listitem>
+    </listbox>
+    <n:h2> Partially Fixed: fixed width with hflex</n:h2>
+    <listbox>
+        <listhead sizable="true">
+            <listheader label="Fixed" width="100px" />
+            <listheader label="Proportional Flex 1/3" hflex="1"/>
+            <listheader label="Proportional Flex 2/3" hflex="2"/>
+        </listhead>
+        <listitem>
+            <listcell label="Row 1" />
+            <listcell label="Hello World" />
+            <listcell label="Hello World" />
+        </listitem>
+    </listbox>
+    <n:h2> sizedByContent="true" span="false"</n:h2>
+    <listbox sizedByContent="true"  >
+        <listhead sizable="true">
+            <listheader label="Fixed" width="100px" />
+            <listheader label="Flexed" />
+            <listheader label="Flexed" />
+        </listhead>
+        <listitem>
+            <listcell label="Row 1" />
+            <listcell label="Hello World" />
+            <listcell label="Hello World" />
+        </listitem>
+    </listbox>
+    <n:h2> Fully Auto-Width: sizedByContent="true" span="true", specified width on a listheader has no effect</n:h2>
+    <listbox sizedByContent="true"  span="true" >
+        <listhead sizable="true">
+            <listheader label="Fixed" width="100px" />
+            <listheader label="Flexed" />
+            <listheader label="Flexed" />
+        </listhead>
+        <listitem>
+            <listcell label="Row 1" />
+            <listcell label="Hello World" />
+            <listcell label="Hello World" />
+        </listitem>
+    </listbox>
+</zk>
