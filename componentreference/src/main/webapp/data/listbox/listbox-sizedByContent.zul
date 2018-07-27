@@ -51,7 +51,7 @@
             <listcell label="Hello World" />
         </listitem>
     </listbox>
-    <n:h2> Fully Auto-Width: sizedByContent="true" span="true", specified width on a listheader has no effect</n:h2>
+    <n:h2> Fully Auto-Width: sizedByContent="true" span="true", specified width takes no effect on a listheader</n:h2>
     <listbox sizedByContent="true"  span="true" >
         <listhead sizable="true">
             <listheader label="Fixed" width="100px" />

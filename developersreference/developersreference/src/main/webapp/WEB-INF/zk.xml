@@ -22,7 +22,7 @@ Copyright (C) 2006 Potix Corporation. All Rights Reserved.
 	-->
 	<client-config>
 		<debug-js>true</debug-js>
-		<enable-source-map>true</enable-source-map>
+		<!--<enable-source-map>true</enable-source-map>-->
 	</client-config>
 	<!-- Uncomment if you turn off the caching of resources loaded from
 		the class path (aka., class Web resources).

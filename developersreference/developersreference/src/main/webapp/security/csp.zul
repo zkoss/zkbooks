@@ -1,0 +1,12 @@
+<?header name="Content-Security-Policy-Report-Only"
+		value="default-src 'none';
+		script-src 'self' 'unsafe-inline' 'unsafe-eval';
+		frame-src 'self';
+		connect-src 'self' ws://your.server.name:8080/;
+		img-src 'self';
+		style-src 'self' 'unsafe-inline';
+		font-src 'self'" ?>
+<zk>
+	check content policy header
+
+</zk>
