@@ -1,0 +1,5 @@
+<zk xmlns:w="client">
+    <div apply="org.zkoss.reference.client.ClientFireComposer">
+        <button label="client fire" w:onClick="zAu.send(new zk.Event(this, 'onMyEvent', {myKey: 'my data'}, {toServer:true}))"/>
+    </div>
+</zk>
