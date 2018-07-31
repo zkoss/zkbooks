@@ -5,7 +5,9 @@ Example source code used in ZK documentions including:
 
 * [ZK MVVM Reference](http://books.zkoss.org/zk-mvvm-book/8.0/index.html)
  
- # Naming Conventions
+* [ZK Client-side Reference](http://books.zkoss.org/wiki/ZK_Client-side_Reference)
+
+# Naming Conventions
 ## Chapter -> Folder
 Folder is named by a chapter or a subsection.
 *  chapter name - [`eventHandling`](https://www.zkoss.org/wiki/ZK%20Developer's%20Reference/Event%20Handling)
