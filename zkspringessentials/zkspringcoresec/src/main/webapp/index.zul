@@ -1,7 +1,0 @@
-<window title="ZK Spring Essentials Example links" border="normal" width="100%">
-<vbox>
-Example 1 (Page-based)<a href="home.zul"> here</a>
-<separator />
-Example 2 (Ajax-based)<a href="home1.zul"> here</a>
-</vbox>
-</window>

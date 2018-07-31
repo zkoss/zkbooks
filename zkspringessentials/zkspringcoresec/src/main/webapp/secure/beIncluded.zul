@@ -1,8 +1,0 @@
-<?page title="Secure Page"?>
-<?taglib uri="http://www.zkoss.org/zkspring/security" prefix="sec"?>
-<zk>
-If the page is included. The content below for supervisor is protected by sec:isAllGranted('ROLE_SUPERVISOR') 
-<div if="${sec:isAllGranted('ROLE_SUPERVISOR')}">
-  some hidden content for supervisor role
-</div>
-</zk>
