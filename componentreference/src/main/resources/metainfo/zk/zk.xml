@@ -1,0 +1,8 @@
+<zk>
+    <config-name>component-reference</config-name>
+    <system-config>
+        <!--from META-INF/resources-->
+        <label-location>/resource.properties</label-location>
+        <label-location>/WEB-INF/msg.properties</label-location>
+    </system-config>
+</zk>

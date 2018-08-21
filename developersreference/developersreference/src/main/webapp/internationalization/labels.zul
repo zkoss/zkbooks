@@ -1,3 +1,9 @@
 <zk>
-    <window title="${labels.s1}"/>
+    <window title="${labels.s1}">
+            ${labels.s2}
+            ${labels.app.$}
+    </window>
+            ${labels.resource}
+            ${labels.mylabel}
+            ${labels.msg}
 </zk>
