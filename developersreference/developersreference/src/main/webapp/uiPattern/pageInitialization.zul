@@ -1,0 +1,9 @@
+<?init class="org.zkoss.reference.developer.uipattern.AllCustomerFinder" name="customers"?>
+<listbox id="personList">
+    <listhead>
+        <listheader label="Name"/>
+    </listhead>
+    <listitem value="${each}" forEach="${pageScope.customers}">
+        <listcell label="${each}"/>
+    </listitem>
+</listbox>
