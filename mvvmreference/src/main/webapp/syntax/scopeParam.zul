@@ -1,0 +1,10 @@
+<zk>
+	<zscript><![CDATA[
+        WebApps.getCurrent().setAttribute("config", "my sys config");
+        Sessions.getCurrent().setAttribute("user", "Hawk");
+	]]></zscript>
+	<div viewModel="@id('vm')@init('org.zkoss.mvvm.syntax.ScopeParamVM')">
+		<label value="@load(vm.sysConfig)"/>
+		<label value="@load(vm.userCredential)"/>
+	</div>
+</zk>
