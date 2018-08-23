@@ -1,0 +1,13 @@
+<zk>
+    <textbox value="text..." />
+    <textbox value="secret" type="password" />
+    <textbox constraint="/.+@.+\.[a-z]+/: Please enter an e-mail address" />
+    <textbox rows="5" cols="40">
+        <attribute name="value">
+            text line1...
+            text line2...
+        </attribute>
+    </textbox>
+    <textbox value="Line 1&#x0d;Line 2" rows="3"/>
+    <textbox tabbable="true"/>
+</zk>
