@@ -27,6 +27,9 @@ Copyright (C) 2006 Potix Corporation. All Rights Reserved.
 	<system-config>
 		<label-location>/WEB-INF/zk-label.properties</label-location>
 	</system-config>
+	<language-config>
+		<addon-uri>/WEB-INF/lang-addon.xml</addon-uri>
+	</language-config>
 	<!--<listener>-->
 		<!--<listener-class>org.zkoss.reference.developer.i18n.LocatorInit</listener-class>-->
 	<!--</listener>-->

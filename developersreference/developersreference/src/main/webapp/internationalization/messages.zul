@@ -1,0 +1,4 @@
+<zk>
+    type text in the datebox to trigger an error message
+    <datebox/>
+</zk>

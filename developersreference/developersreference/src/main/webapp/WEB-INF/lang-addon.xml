@@ -1,0 +1,6 @@
+<language-addon>
+    <addon-name>message</addon-name>
+    <language-name>xul/html</language-name>
+
+    <javascript src="/js/msg*.js" />
+</language-addon>
