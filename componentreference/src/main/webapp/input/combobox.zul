@@ -1,4 +1,4 @@
-<zk>
+<zk xmlns:n="native">
     <combobox>
         <comboitem label="Simple and Rich"/>
         <comboitem label="Cool!"/>
@@ -20,5 +20,27 @@
         model2.addToSelection(model2.get(0));
         combobox.setModel(model2);
     ]]></attribute>
+    </combobox>
+<n:h1>
+    Autocomplete
+</n:h1>
+    <zscript><![CDATA[
+public List getMatched(String value){
+    List list = new LinkedList();
+    for (String item : model){
+        if (item.contains(value)){
+            list.add(item);
+        }
+    }
+    return list;
+}
+    ]]></zscript>
+    <combobox model="${model}">
+        <attribute name="onChanging"><![CDATA[
+  self.getChildren().clear(); //remove all children
+  for (String value: getMatched(event.getValue())){
+    self.appendChild(new Comboitem(value));
+  }
+        ]]></attribute>
     </combobox>
 </zk>
