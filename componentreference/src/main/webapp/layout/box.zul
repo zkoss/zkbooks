@@ -1,0 +1,60 @@
+<zk xmlns:n="native">
+    <box orient="vertical">
+        <button label="Button 1"/>
+        <button label="Button 2"/>
+    </box>
+    <box  orient="horizontal">
+        <button label="Button 3"/>
+        <button label="Button 4"/>
+    </box>
+    <n:h1>Spacing</n:h1>
+    <vbox spacing="5em">
+        <textbox/>
+        <datebox/>
+    </vbox>
+    <window title="Box Layout Demo" border="normal">
+        <hbox spacing="0">
+            <window border="normal">0</window>
+            <vbox spacing="0">
+                <hbox spacing="0">
+                    <window border="normal">1</window>
+                    <window border="normal">2</window>
+                    <vbox spacing="0">
+                        <window border="normal">3</window>
+                        <window border="normal">4</window>
+                    </vbox>
+                </hbox>
+                <hbox spacing="0">
+                    <vbox spacing="0">
+                        <window border="normal">5</window>
+                        <window border="normal">6</window>
+                    </vbox>
+                    <window border="normal">7</window>
+                    <window border="normal">8</window>
+                    <window border="normal">9</window>
+                </hbox>
+            </vbox>
+        </hbox>
+    </window>
+    <n:h1>Spacing</n:h1>
+    <hbox width="100%" height="100px" widths="10%,20%,30%,40%">
+        <label value="10%"/>
+        <label value="20%"/>
+        <label value="30%"/>
+        <label value="40%"/>
+    </hbox>
+    <vbox width="100%" height="500px" heights="10%,20%,30%,40%">
+        <div style="border: solid 1px">
+            1
+        </div>
+        <div style="border: solid 1px">
+            2
+        </div>
+        <div style="border: solid 1px">
+            3
+        </div>
+        <div style="border: solid 1px">
+            4
+        </div>
+    </vbox>
+</zk>

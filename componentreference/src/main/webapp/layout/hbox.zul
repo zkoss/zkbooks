@@ -33,8 +33,7 @@
             <panel border="normal" height="200px" width="300px" forEach="${each.value}" >
                 <panelchildren>
                     <hbox pack="${key}" align="${each}" height="90%" width="100%">
-                        <!--<button label="1" />-->
-                        test
+                        <button label="1" />
                         <button label="2" />
                         <button label="3" />
                     </hbox>
