@@ -22,4 +22,13 @@
 			</attribute>
 		</annotation>
 	</component>
+	<!-- initialize a component's property with a default value in the application scope -->
+	<component>
+		<component-name>button</component-name>
+		<extends>button</extends>
+		<property>
+			<property-name>sclass</property-name>
+			<property-value>custom-css</property-value>
+		</property>
+	</component>
 </language-addon>
