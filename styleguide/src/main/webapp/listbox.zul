@@ -1,0 +1,26 @@
+<zk>
+    <style>
+        .z-listheader{
+            border: initial;
+        }
+        .z-listheader::after{
+            content: '';
+            border-right: solid 2px;
+            position: absolute;
+            top: 7px;
+            height: 0.8em;
+        }
+    </style>
+    a custom border
+    <listbox>
+        <listhead>
+                <listheader label="header 1"/>
+                <listheader label="header 2"/>
+                <listheader label="header 3"/>
+                <listheader label="header 4"/>
+                <listheader label="header 5"/>
+        </listhead>
+        <listitem>
+        </listitem>
+    </listbox>
+</zk>
