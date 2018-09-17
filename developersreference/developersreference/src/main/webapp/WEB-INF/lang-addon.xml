@@ -3,4 +3,5 @@
     <language-name>xul/html</language-name>
 
     <javascript src="/js/msg*.js" />
+    <javascript src="/js/myjs.js" />
 </language-addon>
