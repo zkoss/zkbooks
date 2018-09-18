@@ -583,4 +583,16 @@ Copyright (C) 2006 Potix Corporation. All Rights Reserved.
 		<evaluator-class>org.zkoss.zkmax.xel.el21.ApacheELFactory</evaluator-class>
 	</xel-config>
 	-->
+	
+<!-- 	Uncomment to declare a custom webapp class. -->
+<!-- 	Webapp class to force resource cache breaking on build ID change -->
+<!-- 	<system-config> -->
+<!-- 	  <web-app-class>org.zkoss.reference.developer.performance.controlcache.ForceResourcesUpdateOnBuildChangeWebapp</web-app-class> -->
+<!-- 	</system-config> -->
+
+<!-- 	Webapp class to force resource cache breaking on every webapp restart-->
+<!-- 	<system-config> -->
+<!-- 	  <web-app-class>org.zkoss.reference.developer.performance.controlcache.ForceResourcesUpdateOnRestartWebapp</web-app-class> -->
+<!-- 	</system-config> -->
+	
 </zk>
