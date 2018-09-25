@@ -1,0 +1,48 @@
+<zk>
+    click to select anyway
+    <listbox nonselectableTags="">
+        <listitem>
+            <listcell>
+                <textbox/>
+            </listcell>
+        </listitem>
+        <listitem>
+            <listcell>
+                <button label="button"/>
+            </listcell>
+        </listitem>
+        <listitem>
+            <listcell>
+                <h:input xmlns:h="native"/>
+            </listcell>
+        </listitem>
+        <listitem>
+            <listcell>
+                <datebox/>
+            </listcell>
+        </listitem>
+    </listbox>
+    click a checkbox to select only
+    <listbox checkmark="true" nonselectableTags="*">
+        <listitem>
+            <listcell>
+                <textbox/>
+            </listcell>
+        </listitem>
+        <listitem>
+            <listcell>
+                <button label="button"/>
+            </listcell>
+        </listitem>
+        <listitem>
+            <listcell>
+                <h:input xmlns:h="native"/>
+            </listcell>
+        </listitem>
+        <listitem>
+            <listcell>
+                you can copy the text with ctrl+c
+            </listcell>
+        </listitem>
+    </listbox>
+</zk>

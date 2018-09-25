@@ -1,0 +1,22 @@
+<zk xmlns:n="native">
+    <n:h1>select mold</n:h1>
+	<listbox mold="select">
+		<listitem label="Matthew"/>
+		<listitem label="Macus"/>
+		<listitem label="Lucas"/>
+		<listitem label="John"/>
+	</listbox>
+    <n:h1>select mold with grouping</n:h1>
+    <listbox mold="select">
+        <listgroup label="2018"/>
+        <listitem label="2018 Q1"/>
+        <listitem label="2018 Q2"/>
+        <listitem label="2018 Q3"/>
+        <listitem label="2018 Q4"/>
+        <listgroup label="2017"/>
+        <listitem label="2017 Q1"/>
+        <listitem label="2017 Q2"/>
+        <listitem label="2017 Q3"/>
+        <listitem label="2017 Q4"/>
+    </listbox>
+</zk>
