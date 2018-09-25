@@ -1,0 +1,14 @@
+<zk>
+	<div apply="org.zkoss.reference.developer.mvc.model.PartialLoadingComposer">
+		<custom-attributes org.zkoss.zul.listbox.rod="true" />
+		<custom-attributes org.zkoss.zul.listbox.initRodSize="20"/>
+		<custom-attributes org.zkoss.zul.listbox.preloadSize="10"/>
+		<listbox id="personListbox" rows="10">
+			<listhead sizable="true">
+				<listheader label="First Name"></listheader>
+				<listheader label="Last Name"></listheader>
+				<listheader label="Married"></listheader>
+			</listhead>
+		</listbox>
+	</div>
+</zk>
