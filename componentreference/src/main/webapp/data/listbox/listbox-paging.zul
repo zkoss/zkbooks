@@ -1,0 +1,26 @@
+<zk xmlns:n="native">
+	<zscript><![CDATA[
+List Items = new ArrayList();
+for (int i = 0; i < 100; i++) {
+    Items.add("data "+i);
+}
+ListModelList model = new ListModelList(Items);
+ListModelList model2 = new ListModelList(Items);
+model.setMultiple(true);
+
+	]]></zscript>
+<listbox model="${model}" mold="paging" pageSize="5">
+	<listhead>
+		<listheader label="listbox header"/>
+	</listhead>
+</listbox>
+
+<n:h1>Autopaging</n:h1>
+	<div height="400px">
+	<listbox model="${model2}" mold="paging" autopaging="true" vflex="1">
+		<listhead>
+			<listheader label="listbox header"/>
+		</listhead>
+	</listbox>
+	</div>
+</zk>
