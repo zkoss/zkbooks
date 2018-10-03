@@ -26,6 +26,14 @@ public class SelectionControlComposer extends SelectorComposer<Component> {
         listModel.setMultiple(true);
         listModel.setSelectionControl(new PageSelection(listModel));
         listbox.setModel(listModel);
+        /*
+        listModel.setSelectionControl(new AbstractListModel.DefaultSelectionControl(listModel) {
+            public boolean isSelectable(Object e) {
+                int i = listModel.indexOf(e);
+                return i % 2 == 0;
+            }
+        });
+        */
     }
 
     /**
