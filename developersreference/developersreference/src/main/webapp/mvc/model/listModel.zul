@@ -1,4 +1,4 @@
-<zk>
+<zk xmlns:n="native">
 	<div apply="org.zkoss.reference.developer.mvc.model.PartialLoadingComposer">
 		<custom-attributes org.zkoss.zul.listbox.rod="true" />
 		<custom-attributes org.zkoss.zul.listbox.initRodSize="20"/>
@@ -11,4 +11,15 @@
 			</listhead>
 		</listbox>
 	</div>
+
+	<n:h1>Selection Control</n:h1>
+	<n:h2>current page selection</n:h2>
+	<listbox mold="paging" pageSize="10" checkmark="true" apply="org.zkoss.reference.developer.mvc.model.SelectionControlComposer">
+		<listhead>
+			<listheader label="locale"></listheader>
+		</listhead>
+		<template name="model">
+			<listitem label="${each}"></listitem>
+		</template>
+	</listbox>
 </zk>
