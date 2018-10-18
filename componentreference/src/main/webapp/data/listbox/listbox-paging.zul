@@ -23,4 +23,30 @@ model.setMultiple(true);
 		</listhead>
 	</listbox>
 	</div>
+<n:h1>Custom listeitem height</n:h1>
+		<style>
+			.custom .z-listbox-autopaging .z-listitem {
+				height: 80px; /* set custom height */
+			}
+			.custom .z-listbox-autopaging .z-listcell-content {
+				height: auto;     /* remove the default height */
+                max-height: 58px; /* limit the height to avoid long text increasing the height */
+			}
+		</style>
+	<listbox model="${model2}" mold="paging" autopaging="true" sclass="custom">
+		<listhead>
+			<listheader label="header 1"/>
+			<listheader label="header 2"/>
+		</listhead>
+		<template name="model">
+			<listitem>
+				<listcell>
+				    ${each}
+				</listcell>
+				<listcell>
+                    <intbox/>
+				</listcell>
+			</listitem>
+		</template>
+	</listbox>
 </zk>
