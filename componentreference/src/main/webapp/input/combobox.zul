@@ -24,6 +24,7 @@
 <n:h1>
     Autocomplete
 </n:h1>
+    <n:h2>in a Brute-force Way</n:h2>
     <zscript><![CDATA[
 public List getMatched(String value){
     List list = new LinkedList();
@@ -43,4 +44,7 @@ public List getMatched(String value){
   }
         ]]></attribute>
     </combobox>
+    <n:h2>by ListSubModel</n:h2>
+    <combobox apply="org.zkoss.reference.component.input.MyAutoCompleteComposer"/>
+
 </zk>
