@@ -9,6 +9,7 @@ import org.zkoss.zk.ui.event.Event;
 import org.zkoss.zk.ui.event.EventListener;
 import org.zkoss.zk.ui.event.Events;
 import org.zkoss.zk.ui.event.InputEvent;
+import org.zkoss.zk.ui.event.KeyEvent;
 import org.zkoss.zk.ui.select.annotation.Wire;
 import org.zkoss.zk.ui.select.annotation.WireVariable;
 import org.zkoss.zul.Bandbox;
@@ -35,13 +36,13 @@ public class BandboxSelectMacroComponent extends HtmlMacroComponent {
 	public BandboxSelectMacroComponent() {
 		compose();
 		final Component self = this;
-		bb.addEventListener("onOK", new EventListener<Event>() {
+		bb.addEventListener(Events.ON_OK, new EventListener<Event>() {
 			@Override
 			public void onEvent(Event event) throws Exception {
 				bb.open();
 			}
 		});
-		lb.addEventListener("onSelect", new EventListener<Event>() {
+		lb.addEventListener(Events.ON_OK, new EventListener<Event>() {
 			@Override
 			public void onEvent(Event event) throws Exception {
 				selectedItem = lb.getSelectedItem().getValue();
@@ -49,7 +50,15 @@ public class BandboxSelectMacroComponent extends HtmlMacroComponent {
 				updateBandboxAfterSelect();
 			}
 		});
-		tb.addEventListener("onOK", new EventListener<Event>() {
+		lb.addEventListener(Events.ON_CLICK, new EventListener<Event>() {
+			@Override
+			public void onEvent(Event event) throws Exception {
+				selectedItem = lb.getSelectedItem().getValue();
+				Events.postEvent("onSelect", self, selectedItem);
+				updateBandboxAfterSelect();
+			}
+		});
+		tb.addEventListener(Events.ON_OK, new EventListener<Event>() {
 			@Override
 			public void onEvent(Event event) throws Exception {
 				selectedItem = submodel.get(0);
@@ -57,14 +66,23 @@ public class BandboxSelectMacroComponent extends HtmlMacroComponent {
 				updateBandboxAfterSelect();
 			}
 		});
-		tb.addEventListener("onChange", new EventListener<InputEvent>() {
+		tb.addEventListener(Events.ON_CHANGE, new EventListener<InputEvent>() {
 			@Override
 			public void onEvent(InputEvent event) throws Exception {
 				submodel = getSubModelFromString(event.getValue());
 				lb.setModel(submodel);
 			}
 		});
+		tb.setCtrlKeys("#up#down");
+		tb.addEventListener(Events.ON_CTRL_KEY, new EventListener<KeyEvent>() {
+			public void onEvent(KeyEvent event) {
+				if (event.getKeyCode() == KeyEvent.DOWN || event.getKeyCode() == KeyEvent.UP) {
+					lb.setFocus(true);
+				}
+			}
+		});
 	}
+
 	private ListModelList<BandboxExampleBean> getSubModelFromString(String value) {
 		ListModelList<BandboxExampleBean> tempModel = new ListModelList<BandboxExampleBean>();
 		Comparator comp = new BandboxExampleBeanComparator();
@@ -76,7 +94,7 @@ public class BandboxSelectMacroComponent extends HtmlMacroComponent {
 		}
 		return tempModel;
 	}
-	
+
 	private void updateBandboxAfterSelect() {
 		bb.setValue(selectedItem.getCode());
 		bb.close();
@@ -84,10 +102,10 @@ public class BandboxSelectMacroComponent extends HtmlMacroComponent {
 		submodel.clear();
 	}
 
-	public void setModel(ListModelList model){
+	public void setModel(ListModelList model) {
 		this.model = model;
 	}
-	
+
 	public void setSelectedItem(BandboxExampleBean selectedItem) {
 		this.selectedItem = selectedItem;
 	}
