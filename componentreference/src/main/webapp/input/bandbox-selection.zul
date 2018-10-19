@@ -1,0 +1,21 @@
+<zk xmlns:w="client">
+	<bandbox id="bb"
+		w:open="function(open){this.$open(open);self=this;setTimeout(function(){zk.$(jq(self.getPopupNode_()).find('.openFocusAnchor')).focus()},0)}"
+		readonly="true">
+		<custom-attributes org.zkoss.zul.client.rod="false" />
+		<bandpopup width="400px" height="600px">
+			<vlayout hflex="1" vflex="1">
+				<textbox id="tb" sclass="openFocusAnchor" hflex="1" instant="true"
+					placeholder="Enter a value to filter" />
+				<listbox id="lb" hflex='1' vflex='1'
+					emptyMessage="No entry found">
+					<template name="model">
+						<listitem>
+							<listcell label="${each.code}" />
+						</listitem>
+					</template>
+				</listbox>
+			</vlayout>
+		</bandpopup>
+	</bandbox>
+</zk>
