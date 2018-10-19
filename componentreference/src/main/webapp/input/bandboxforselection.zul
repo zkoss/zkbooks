@@ -1,0 +1,23 @@
+<zk>
+	<div viewModel="@id('vm')@init('org.zkoss.reference.component.input.BandboxSelectionVm')">
+		<bandbox id="bb" value="@load(vm.selectedItem.code)" readonly="true">
+			<bandpopup width="400px" height="600px">
+				<vlayout hflex="1" vflex="1">
+					<textbox hflex="1" placeholder="Enter your filter"
+						instant="true" value="@save(vm.searchValue)" />
+					<listbox hflex='1' vflex="1"
+						onSelect="bb.close()"
+						emptyMessage="No entry found"
+						selectedItem="@save(vm.selectedItem)"
+						model="@load(vm.subModel)">
+						<template name="model">
+							<listitem>
+								<listcell label="${each.code}" />
+							</listitem>
+						</template>
+					</listbox>
+				</vlayout>
+			</bandpopup>
+		</bandbox>
+	</div>
+</zk>
