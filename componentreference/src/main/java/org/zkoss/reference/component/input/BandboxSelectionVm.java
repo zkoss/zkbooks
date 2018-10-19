@@ -1,26 +1,24 @@
 package org.zkoss.reference.component.input;
 
-import org.zkoss.zk.ui.*;
-import org.zkoss.zk.ui.event.*;
-import org.zkoss.zk.ui.util.*;
-import org.zkoss.zk.ui.ext.*;
-import org.zkoss.zk.au.*;
-import org.zkoss.zk.au.out.*;
-import org.zkoss.zul.*;
-
 import java.util.Comparator;
 
 import org.zkoss.bind.BindUtils;
+import org.zkoss.bind.annotation.BindingParam;
+import org.zkoss.bind.annotation.Command;
 import org.zkoss.bind.annotation.Init;
 import org.zkoss.bind.annotation.NotifyChange;
+import org.zkoss.zk.ui.util.Clients;
+import org.zkoss.zul.ListModel;
+import org.zkoss.zul.ListModelList;
 
 public class BandboxSelectionVm {
 
-	private ListModelList subModel;
+	private ListModelList<BandboxExampleBean> subModel;
 	private BandboxExampleBean selectedItem;
-	ListModelList model;
-
-	public ListModel getSubModel() {
+	private ListModelList<BandboxExampleBean> model;
+	private boolean open;
+	
+	public ListModel<BandboxExampleBean> getSubModel() {
 		return this.subModel;
 	}
 
@@ -36,18 +34,44 @@ public class BandboxSelectionVm {
 		this.generateSubModel(searchValue);
 	}
 
+	public boolean isOpen() {
+		return this.open;
+	}
+
+	public void setOpen(boolean open){
+		this.open = open;
+	}
+	
 	private void generateSubModel(String searchValue) {
-		subModel = new ListModelList();
+		subModel = new ListModelList<BandboxExampleBean>();
 		Comparator comp = new BandboxExampleBeanComparator();
 		for (Object object : model) {
-			if(object instanceof BandboxExampleBean){
-				BandboxExampleBean bean = (BandboxExampleBean) object;
-				if(comp.compare(searchValue, bean)==0){
-					subModel.add(bean);
-				}
+			BandboxExampleBean bean = (BandboxExampleBean) object;
+			if (comp.compare(searchValue, bean) == 0) {
+				subModel.add(bean);
 			}
 		}
 		BindUtils.postNotifyChange(null, null, this, "subModel");
+	}
+
+	@NotifyChange("selectedItem")
+	@Command
+	public void selectFromText(@BindingParam("input") String input) {
+		// set first available bean as selected;
+		if (subModel.size() != 0) {
+			this.selectedItem = subModel.get(0);
+		} else {
+			this.selectedItem = null;
+		}
+		this.open = false;
+		BindUtils.postNotifyChange(null, null, this, "open");
+	}
+	@NotifyChange("selectedItem")
+	@Command
+	public void selectFromListbox() {
+		this.open = false;
+		BindUtils.postNotifyChange(null, null, this, "open");
+		Clients.log(selectedItem.getCode());
 	}
 
 	@Init
