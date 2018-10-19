@@ -42,6 +42,12 @@ public class BandboxSelectionVm {
 		this.open = open;
 	}
 	
+	@Init
+	public void init(@BindingParam("model") ListModelList model) {
+		this.model = model;
+	}
+
+	
 	private void generateSubModel(String searchValue) {
 		subModel = new ListModelList<BandboxExampleBean>();
 		Comparator comp = new BandboxExampleBeanComparator();
@@ -73,21 +79,4 @@ public class BandboxSelectionVm {
 		BindUtils.postNotifyChange(null, null, this, "open");
 		Clients.log(selectedItem.getCode());
 	}
-
-	@Init
-	public void init() {
-		model = new ListModelList();
-		model.setMultiple(false);
-		model.add(new BandboxExampleBean("item1"));
-		model.add(new BandboxExampleBean("item11"));
-		model.add(new BandboxExampleBean("item111"));
-		model.add(new BandboxExampleBean("item12"));
-		model.add(new BandboxExampleBean("item2"));
-		model.add(new BandboxExampleBean("item20"));
-		model.add(new BandboxExampleBean("item21"));
-		model.add(new BandboxExampleBean("item22"));
-
-		generateSubModel("");
-	}
-
 }

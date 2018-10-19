@@ -1,0 +1,17 @@
+<zk>
+	<zscript>
+		ListModelList model = new ListModelList();
+		model.add(new org.zkoss.reference.component.input.BandboxExampleBean("item1"));
+		model.add(new org.zkoss.reference.component.input.BandboxExampleBean("item11"));
+		model.add(new org.zkoss.reference.component.input.BandboxExampleBean("item111"));
+		model.add(new org.zkoss.reference.component.input.BandboxExampleBean("item12"));
+		model.add(new org.zkoss.reference.component.input.BandboxExampleBean("item121"));
+		model.add(new org.zkoss.reference.component.input.BandboxExampleBean("item122"));
+		model.add(new org.zkoss.reference.component.input.BandboxExampleBean("item13"));
+		model.add(new org.zkoss.reference.component.input.BandboxExampleBean("item131"));
+		model.add(new org.zkoss.reference.component.input.BandboxExampleBean("item1311"));
+		model.add(new org.zkoss.reference.component.input.BandboxExampleBean("item132"));
+		model.add(new org.zkoss.reference.component.input.BandboxExampleBean("item1321"));
+		</zscript>
+		<apply templateURI="./bandbox-for-selection.zul" model="${model}"/>
+</zk>

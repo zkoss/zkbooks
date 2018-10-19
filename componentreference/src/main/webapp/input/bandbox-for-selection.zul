@@ -1,6 +1,6 @@
 <zk xmlns:w="client">
 	<vlayout
-		viewModel="@id('vm')@init('org.zkoss.reference.component.input.BandboxSelectionVm')">
+		viewModel="@id('vm')@init('org.zkoss.reference.component.input.BandboxSelectionVm', model=model)">
 		<textbox></textbox>
 		<bandbox onOK="self.open();" open="@bind(vm.open)" w:open="function(open){this.$open(open);self=this;setTimeout(function(){zk.$(jq(self.getPopupNode_()).find('.openFocusAnchor')).focus()},0)}"
 			value="@load(vm.selectedItem.code)" readonly="true">
