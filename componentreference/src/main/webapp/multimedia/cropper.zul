@@ -1,0 +1,6 @@
+<zk xmlns:n="native">
+    <cropper x="50" y="100" w="100" h="100" onCrop="img.setContent(event.getMedia())" width="600px" toolbarVisible="true"
+             src="swimming-pool.jpg"/>
+    <n:h2>Cropped Image:</n:h2>
+    <image id="img" />
+</zk>
