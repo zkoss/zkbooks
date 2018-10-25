@@ -1,9 +1,10 @@
 <zk xmlns:n="native">
-    <video src="zk.mp4" controls="true" autoplay="true" loop="true"/>
+    <video src="zk.mp4"  controls="true" autoplay="true" loop="true"/>
 
     <n:h1>enableFullScreen</n:h1>
-    <video id="player" src="zk.mp4" controls="true"/>
+    <video id="player" src="zk.mp4" width="400px" controls="true"/>
     <button label="Full Screen" xmlns:w="client" w:onClick="zk.$('$player').enableFullScreen()" />
+    <button label="to 10s" onClick="player.setCurrentTime(10)" />
 
     <n:h1>StateChangeEvent</n:h1>
     <div viewModel="@id('vm')@init('org.zkoss.reference.component.multimedia.VideoVM')">
