@@ -1,5 +1,5 @@
 <zk>
-    <window title="Toolbar window" border="normal" width="300px">
+    <window title="Toolbar window" border="normal" width="300px" style="margin: 20px">
         <toolbar>
             <toolbarbutton label="Left"/>
             <space/>
