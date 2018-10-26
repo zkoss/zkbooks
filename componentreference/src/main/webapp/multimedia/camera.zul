@@ -1,25 +1,40 @@
 <zk xmlns:n="native">
-    <camera id="camera" width="600px" maxsize="-1" lengthLimit="60"
-            onVideoUpload='video.setContent(event.getMedia())'
-            onSnapshotUpload='image.setContent(event.getMedia())'
-            onLengthLimitExceed='Clients.log(event.getName())'
-            onStateChange="Clients.log(event.getState().toString())">
+<style>
+    .z-camera-pause{
+        width: 30px;
+        height: 30px;
+        top: 30px;
+        left: 30px;
+        position: absolute;
+        border-left: 10px solid red;
+        border-right: 10px solid red;
+    }
+</style>
+    <button onClick="camera.start()" label="Start"/>
+    <button onClick="camera.pause()" label="Pause"/>
+    <button onClick="camera.stop()" label="Stop"/>
+    <button onClick="camera.snapshot()" label="Snapshot"/>
+    <button onClick="camera.requestCamera()" label="Request camera"/>
+    <button onClick="camera.resume()" label="Resume record video"/>
+
+    <separator/>
+    <camera id="camera" height="300px"  width="400px" maxsize="-1" lengthLimit="60"
+    onVideoUpload='video.setContent(event.getMedia())'
+    onSnapshotUpload='image.setContent(event.getMedia())'
+    onLengthLimitExceed='Clients.log(event.getName())'
+    onStateChange="Clients.log(event.getState().toString())">
         <attribute name="onMaxsizeExceed">
             Clients.log(event.getName() + ": dataSize is " + event.getData().toString() + "KB.");
         </attribute>
     </camera>
 
     <separator/>
-
-    <button onClick="camera.requestCamera()" label="Request camera"/>
-    <button onClick="camera.start()" label="Start record video"/>
-    <button onClick="camera.stop()" label="Stop record video"/>
-    <button onClick="camera.pause()" label="Pause record video"/>
-    <button onClick="camera.resume()" label="Resume record video"/>
-    <button onClick="camera.snapshot()" label="Snapshot"/>
+    <image id="image" height="300px" width="400px"/>
 
     <separator/>
+    <video id="video" width="400px" controls="true"/>
 
+    <separator/>
     <button onClick='camera.setPreviewRecord(true)' label="setPreviewRecord(true)"/>
     <button onClick='camera.setPreviewRecord(false)' label="setPreviewRecord(false)"/>
     <button onClick='camera.setRecording(true)' label="setRecording(true)"/>
@@ -29,15 +44,6 @@
     <button onClick='Clients.log(camera.isPaused().toString())' label="isPaused()"/>
 
     <separator/>
-
-    <image id="image"/>
-
-    <separator/>
-
-    <video width="600px" id="video" controls="true"/>
-
-    <separator/>
-
     <button label="LogContentName">
         <attribute name="onClick">
             Object media = video.getContent();
