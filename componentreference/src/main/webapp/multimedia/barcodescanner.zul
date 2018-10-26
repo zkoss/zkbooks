@@ -1,0 +1,4 @@
+<zk xmlns:n="native">
+<barcodescanner type="ean" continuous="true" interval="100" height="225px" width="300px"
+        onDetect='Clients.showNotification(event.getType() + ": " + event.getResult(), self)'/>
+</zk>
