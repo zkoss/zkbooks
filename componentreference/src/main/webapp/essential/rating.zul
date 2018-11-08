@@ -1,0 +1,22 @@
+<zk xmlns:n="native">
+    <style>
+        .myGiftIcon:before {
+            content: '🎁';
+        }
+        .gift .z-rating-icon{
+            opacity: 0.5;
+        }
+        .gift .z-rating-selected{
+            opacity: 1;
+        }
+    </style>
+    <vlayout style="margin: 20px">
+        <n:h1>default</n:h1>
+        <rating rating="3"/>
+        <n:h1>custom icon</n:h1>
+        <rating iconSclass="z-icon-bolt" rating="3" max="7"/>
+        <div sclass="gift">
+            <rating iconSclass="myGiftIcon" rating="3"/>
+        </div>
+    </vlayout>
+</zk>

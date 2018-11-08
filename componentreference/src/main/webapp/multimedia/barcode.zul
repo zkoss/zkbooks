@@ -1,0 +1,6 @@
+<zk xmlns:n="native">
+    <n:h1>QR code</n:h1>
+    <barcode type="qr" value="https://www.zkoss.org/" height="100px"/>
+    <n:h1>code128</n:h1>
+    <barcode type="code128" value="https://www.zkoss.org/" height="100px"/>
+</zk>

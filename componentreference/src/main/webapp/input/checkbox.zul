@@ -1,0 +1,47 @@
+<zk xmlns:n="native">
+    <n:h1>toggle</n:h1>
+    <checkbox mold="toggle"/>
+    <checkbox mold="toggle" checked="true"/>
+    <n:h1>custom style</n:h1>
+    <div sclass="custom">
+        <style>
+            .custom .z-checkbox-toggle-off > .z-checkbox-mold {
+            background-color: red;
+            }
+            .custom .z-checkbox-toggle-on > .z-checkbox-mold {
+            background-color: green;
+            }
+        </style>
+        <checkbox mold="toggle"/>
+        <checkbox mold="toggle" checked="true"/>
+    </div>
+
+
+    <n:h1>switch</n:h1>
+    <checkbox mold="switch"/>
+    <checkbox mold="switch" checked="true"/>
+    <div sclass="custom">
+    <n:h1>custom style</n:h1>
+        <style>
+            .custom .z-checkbox-switch-off > .z-checkbox-mold {
+            background-color: red;
+            }
+            .custom .z-checkbox-switch-on > .z-checkbox-mold {
+            background-color: green;
+            }
+            .custom .z-checkbox-switch-off > .z-checkbox-mold:before {
+            background-color: black;
+            }
+            .custom .z-checkbox-switch-on > .z-checkbox-mold:before {
+            background-color: white;
+            }
+        </style>
+        <checkbox mold="switch"/>
+        <checkbox mold="switch" checked="true"/>
+    </div>
+    <n:h1>3 states</n:h1>
+
+    <checkbox checked="false" label="unchecked"/>
+    <checkbox indeterminate="true" checked="true" label="indeterminate"/>
+    <checkbox checked="true" label="checked"/>
+</zk>

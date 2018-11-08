@@ -8,7 +8,7 @@
         ListModelList model = new ListModelList(Arrays.asList(new String[] { "David",
                 "Thomas", "Steven" }));
     ]]></zscript>
-
+    <n:h1>Default Selection</n:h1>
     <combobox model="${model}" onAfterRender="self.setSelectedIndex(2)"/>
     <combobox id="combobox" width="100px">
         <attribute name="onCreate"><![CDATA[

@@ -1,0 +1,30 @@
+<zk>
+    <div viewModel="@id('vm') @init('org.zkoss.mvvm.advance.MyVM')">
+        <apply level="@load(vm.navModel.root)">
+            Name: <label value="@load(level.current.name)" />
+            <vlayout>
+                <forEach items="@load(level.items)">
+                    <a label="@init(each.x)"
+                       onClick="@command('navTo', level=level, key=self.label)" />
+                </forEach>
+                <a label="Navigate to BBB"
+                   onClick="@command('navTo', level=level, key='BBB')" />
+                <a label="Navigate to AAA/AAA1"
+                   onClick="@command('navByPath', path='AAA/AAA1')" />
+            </vlayout>
+
+            <apply level2="@load(level.child)">
+                <div>
+                    <vlayout>
+                        <forEach items="@load(level2.items)">
+                            <a label="@init(each.x)"
+                               onClick="@command('navTo', level=level2, key=self.label)" />
+                        </forEach>
+                    </vlayout>
+                    Name: <label value="@load(level2.current.name)" />
+                    Description: <label value="@load(level2.current.description)" />
+                </div>
+            </apply>
+        </apply>
+    </div>
+</zk>

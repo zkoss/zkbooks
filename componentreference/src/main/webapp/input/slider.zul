@@ -1,0 +1,6 @@
+<zk>
+    <slider id="slider" orient="vertical"/>
+    <slider curpos="1" maxpos="20"/>
+
+    <slider mold="knob" minpos="0.0" maxpos="100.0" curpos="80.5" step="0.5" strokeWidth="40"/>
+</zk>

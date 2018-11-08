@@ -1,0 +1,20 @@
+<zk>
+    <menubar>
+        <menu id="targetMenu" label="File">
+            <menupopup>
+                <menuitem label="New" onClick="alert(self.label)"/>
+                <menuitem label="Open" onClick="alert(self.label)"/>
+                <menuitem label="Save" onClick="alert(self.label)"/>
+                <menuseparator/>
+                <menuitem label="Exit" onClick="alert(self.label)"/>
+            </menupopup>
+        </menu>
+    </menubar>
+    <button onClick="activeMenuPopup(targetMenu, 0)" label='Show "New" item'  style="margin-top:200px"/>
+    <zscript><![CDATA[
+    void activeMenuPopup(Menu menu, int i) {
+        menu.open();
+        menu.getMenupopup().setActive(i);
+    }
+    ]]></zscript>
+</zk>

@@ -1,0 +1,27 @@
+<zk>
+    <organigram width="600px" onSelect="label.setValue(self.getSelectedItem().getLabel())">
+        <orgchildren>
+            <orgitem label="Item1">
+                <orgchildren>
+                    <orgitem label="Item2" open="false">
+                        <orgchildren>
+                            <orgitem label="Item3"/>
+                            <orgitem label="Item4">
+                                <orgchildren>
+                                    <orgitem label="Item5"/>
+                                </orgchildren>
+                            </orgitem>
+                        </orgchildren>
+                    </orgitem>
+                    <orgitem label="Item6" >
+                        <orgchildren>
+                            <orgitem label="Item7"/>
+                            <orgitem label="Item8"/>
+                        </orgchildren>
+                    </orgitem>
+                </orgchildren>
+            </orgitem>
+        </orgchildren>
+    </organigram>
+    selected: <label id="label"/>
+</zk>
