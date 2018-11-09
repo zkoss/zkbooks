@@ -12,28 +12,28 @@
 		<rows>
 			<row>
 				<detail>
-					<hbox>
+					<hlayout>
 						<image width="200px" height="200px" src="/img/icon_update.png" />
-						<vbox>
+						<vlayout>
 							<label value="Item Specifics - Item Condition    " style="font-weight:bold;font-style: italic;" />
-							<hbox>
+							<hlayout>
 								<label value="Condition:" />
 								<label value="Used" style="font-weight:bold;" />
-							</hbox>
-							<hbox>
+							</hlayout>
+							<hlayout>
 								<label value="Brand:" />
 								<label value="Apple" style="font-weight:bold;" />
-							</hbox>
-							<hbox>
+							</hlayout>
+							<hlayout>
 								<label value="Technology:" />
 								<label value="DVI" style="font-weight:bold;" />
-							</hbox>
-							<hbox>
+							</hlayout>
+							<hlayout>
 								<label value="Monitor Type:" />
 								<label value="LCD/Flat Panel" style="font-weight:bold;" />
-							</hbox>
-						</vbox>
-					</hbox>
+							</hlayout>
+						</vlayout>
+					</hlayout>
 				</detail>
 				<label value="Apple 20-inch Aluminum Cinema Display M9177/A" />
 				<label style="color:green;float:right;" value="US $202.50" />
