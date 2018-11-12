@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.zkoss.reference</groupId>
 	<artifactId>mvvm</artifactId>
-	<version>8.6.0.FL.20181026-Eval</version>
+	<version>8.6.0-Eval</version>
 	<properties>
 		<maven.build.timestamp.format>yyyy-MM-dd</maven.build.timestamp.format>
 		<packname>-0.0.1-SNAPSHOT-FL-${maven.build.timestamp}</packname>
@@ -12,6 +12,8 @@
 	</properties>
 	<packaging>war</packaging>
 	<name>ZK MVVM Reference source code</name>
+	<description>This project contains source codes used in &quot;ZK MVVM Book&quot;.
+The package naming convention follows the first level header of the book like org.zkoss.mvvm.[FIRST-LEVEL-HEADER]</description>
 	<licenses>
 		<license>
 			<name>GNU LESSER GENERAL PUBLIC LICENSE, Version 3</name>
@@ -52,11 +54,6 @@
 			<artifactId>zkplus</artifactId>
 			<version>${project.version}</version>
 		</dependency>
-		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-			<version>5.1.22</version>
-		</dependency>
 	</dependencies>
 	<build>
 		<finalName>${project.artifactId}</finalName>
@@ -71,6 +68,4 @@
 			</plugin>
 		</plugins>
 	</build>
-	<description>This project contains source codes used in &quot;ZK MVVM Book&quot;.
-The package naming convention follows the first level header of the book like org.zkoss.mvvm.[FIRST-LEVEL-HEADER]</description>
 </project>
