@@ -2,6 +2,7 @@
 <language-addon>
 	<addon-name>myaddon</addon-name>
 	<language-name>xul/html</language-name>
+	<depends>zkbind</depends>
 	<component>
 		<component-name>editableLabel</component-name>
 		<component-class>org.zkoss.mvvm.advance.EditableLabel</component-class>
