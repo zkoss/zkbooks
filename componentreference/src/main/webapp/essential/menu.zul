@@ -1,4 +1,4 @@
-<zk>
+<zk xmlns:n="native">
     <menubar>
         <menu id="targetMenu" label="File">
             <menupopup>
@@ -17,4 +17,7 @@
         menu.getMenupopup().setActive(i);
     }
     ]]></zscript>
+
+    <n:h1>Fileupload</n:h1>
+    <menuitem upload="true" label="Upload" onUpload='alert(event.media)'/>
 </zk>
