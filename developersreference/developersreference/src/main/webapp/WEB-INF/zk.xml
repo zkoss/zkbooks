@@ -1,16 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<!-- zk.xml
-	Purpose:
-		
-	Description:
-		
-	History:
-		Sun Mar 26 16:29:07     2006, Created by tomyeh
-
-Copyright (C) 2006 Potix Corporation. All Rights Reserved.
--->
-
 <zk>
 	<!-- Defines the application's name -->
 	<preference>
@@ -33,6 +21,11 @@ Copyright (C) 2006 Potix Corporation. All Rights Reserved.
 	<!--<listener>-->
 		<!--<listener-class>org.zkoss.reference.developer.i18n.LocatorInit</listener-class>-->
 	<!--</listener>-->
+	<!-- separatezk configuration -->
+	<!--<library-property>-->
+		<!--<name>org.zkoss.zk.config.path</name>-->
+		<!--<value>/WEB-INF/zk-dev.xml</value>-->
+	<!--</library-property>-->
 	<!-- Uncomment if you turn off the caching of resources loaded from
 		the class path (aka., class Web resources).
 		By default, class Web resources are cached by the browser until

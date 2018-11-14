@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+a recommended configuration for development-time.
+created by Hawk Chen
+-->
+<zk>
+	<system-config>
+		<disable-zscript>false</disable-zscript>
+	</system-config>
+	<!-- show debug information -->
+	<client-config>
+		<debug-js>true</debug-js>
+	</client-config>
+	<library-property>
+		<name>org.zkoss.zk.ui.versionInfo.enabled</name>
+		<value>true</value>
+	</library-property>
+	<!-- disable various caches -->
+	<library-property>
+		<name>org.zkoss.zk.ZUML.cache </name>
+		<value>false</value>
+	</library-property>
+	<library-property>
+		<name>org.zkoss.zk.WPD.cache</name>
+		<value>false</value>
+	</library-property>
+	<library-property>
+		<name>org.zkoss.zk.WCS.cache</name>
+		<value>false</value>
+	</library-property>
+	<library-property>
+		<name>org.zkoss.web.classWebResource.cache</name>
+		<value>false</value>
+	</library-property>
+	<library-property>
+		<name>org.zkoss.util.label.cache</name>
+		<value>false</value>
+	</library-property>
+</zk>
