@@ -1,0 +1,13 @@
+<zk>
+    Load an image in this web app:
+    <textbox value="/multimedia/swimming-pool.jpg" onChange="load(self.value)"/>
+    <image id="image" width="600px"/>
+    <zscript><![CDATA[
+        void load(String path) {
+            String path = desktop.getWebApp().getRealPath(path);
+            org.zkoss.image.AImage img = new org.zkoss.image.AImage(path);
+            image.setContent(img);
+        }
+    ]]>
+    </zscript>
+</zk>
