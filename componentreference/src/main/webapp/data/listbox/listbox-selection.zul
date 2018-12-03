@@ -1,4 +1,5 @@
-<zk>
+<zk xmlns:n="native">
+    <n:h1>Nonselectable Tags</n:h1>
     click to select anyway
     <listbox nonselectableTags="">
         <listitem>
@@ -44,5 +45,25 @@
                 you can copy the text with ctrl+c
             </listcell>
         </listitem>
+    </listbox>
+
+    <n:h1>Multiple Selection</n:h1>
+    <zscript><![CDATA[
+List Items = new ArrayList();
+for (int i = 0; i < 100; i++) {
+    Items.add("data "+i);
+}
+ListModelList model = new ListModelList(Items);
+model.setMultiple(true);
+
+	]]></zscript>
+    <listbox viewModel="@id('vm')@init('org.zkoss.reference.component.data.MultipleSelectionVM')" model="@load(vm.model)" rows="10"
+    selectedItems="@bind(vm.selectedItems)">
+        <listhead>
+            <listheader label="listbox header"/>
+        </listhead>
+        <template name="model">
+            <listitem label="${each}"/>
+        </template>
     </listbox>
 </zk>
