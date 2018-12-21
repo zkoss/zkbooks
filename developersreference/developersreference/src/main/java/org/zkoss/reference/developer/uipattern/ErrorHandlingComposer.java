@@ -24,6 +24,7 @@ public class ErrorHandlingComposer extends SelectorComposer<Component> {
         //via requestScope map
         Exception ex2 = (Exception) requestScope.get("javax.servlet.error.exception");
 
+        //log source zul, so that when you see the error in the log, you can locate the page
         logger.error("from " + getPage().getRequestPath());
     }
 }
