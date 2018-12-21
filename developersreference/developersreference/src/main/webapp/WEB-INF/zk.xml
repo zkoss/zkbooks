@@ -18,6 +18,11 @@
 	<language-config>
 		<addon-uri>/WEB-INF/lang-addon.xml</addon-uri>
 	</language-config>
+
+	<error-page>
+		<exception-type>java.lang.Throwable</exception-type>
+		<location>/WEB-INF/sys/error.zul</location>
+	</error-page>
 	<!--<listener>-->
 		<!--<listener-class>org.zkoss.reference.developer.i18n.LocatorInit</listener-class>-->
 	<!--</listener>-->
@@ -350,12 +355,6 @@
 		<description>[Optional] Mointor the statistic</description>
 		<listener-class>org.zkoss.zk.ui.util.Statistic</listener-class>
 	</listener>
-	-->
-	<!-- Configure the error page
-	<error-page>
-		<exception-type>java.lang.Throwable</exception-type>
-		<location>/WEB-INF/sys/error.zul</location>
-	</error-page>
 	-->
 
 	<!-- Configure additional theme URIs
