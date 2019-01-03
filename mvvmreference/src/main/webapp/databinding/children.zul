@@ -1,0 +1,21 @@
+<div viewModel="@id('vm') @init('org.zkoss.mvvm.databinding.ChildrenSimpleVM')">
+	Simple - Init
+	<vlayout id="init" children="@init(vm.nodes)">
+		<template name="children" var="node">
+			<label value="@bind(node)" style="padding-left:10px"/>
+		</template>
+	</vlayout>
+	Simple - load
+	<vlayout id="load" children="@load(vm.nodes)">
+		<template name="children" var="node">
+			<label value="@bind(node)" style="padding-left:10px"/>
+		</template>
+	</vlayout>
+	Simple - load after cmd
+	<vlayout id="aftercmd" children="@load(vm.nodes, after='cmd')">
+		<template name="children" var="node">
+			<label value="@bind(node)" style="padding-left:10px"/>
+		</template>
+	</vlayout>
+	<button label="reload 1" onClick="@command('cmd')"/>
+</div>
