@@ -1,5 +1,5 @@
 <zk>
-	<div viewModel="@id('vm')@init('org.zkoss.mvvm.shadow.ParameterChildVM">
+	<div viewModel="@id('vm')@init('org.zkoss.mvvm.shadow.ParameterChildVM')">
 		<label value="@load(myparam)"/>
 	</div>
 </zk>

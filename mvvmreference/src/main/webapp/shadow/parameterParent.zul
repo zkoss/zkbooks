@@ -1,5 +1,5 @@
 <zk>
-	<div viewModel="@id('vm')@init('org.zkoss.mvvm.shadow.ParameterParentVM)">
+	<div viewModel="@id('vm')@init('org.zkoss.mvvm.shadow.ParameterParentVM')">
 		<button label="set attribute" onClick="@command('set')"/>
 		<apply templateURI="@load(vm.templateName)"  myparam="@load(vm.param)"/>
 	</div>
