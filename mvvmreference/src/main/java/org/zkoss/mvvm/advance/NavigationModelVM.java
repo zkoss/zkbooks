@@ -6,10 +6,10 @@ import org.zkoss.mvvm.advance.domain.MyObject;
 import org.zkoss.zuti.zul.NavigationLevel;
 import org.zkoss.zuti.zul.NavigationModel;
 
-public class MyVM {
+public class NavigationModelVM {
     private NavigationModel<MyObject> navModel = new NavigationModel<MyObject>();
  
-    public MyVM() {
+    public NavigationModelVM() {
         navModel.put("AAA", new MyObject("AAA", "desc 1"));
         navModel.put("AAA/AAA1", new MyObject("AAA1", "desc 2"));
         navModel.put("BBB", new MyObject("BBB", "desc 3"));

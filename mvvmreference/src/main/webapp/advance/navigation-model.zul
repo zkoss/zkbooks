@@ -1,5 +1,5 @@
 <zk>
-    <div viewModel="@id('vm') @init('org.zkoss.mvvm.advance.MyVM')">
+    <div viewModel="@id('vm') @init('org.zkoss.mvvm.advance.NavigationModelVM')">
         <apply level="@load(vm.navModel.root)">
             Name: <label value="@load(level.current.name)" />
             <vlayout>
