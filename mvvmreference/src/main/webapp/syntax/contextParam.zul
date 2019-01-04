@@ -1,0 +1,5 @@
+<zk>
+	<div viewModel="@id('vm') @init('org.zkoss.mvvm.syntax.ContextParamVM')">
+		<button id="cmd" label="cmd" onClick="@command('cmd')"/>
+	</div>
+</zk>
