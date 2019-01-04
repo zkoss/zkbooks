@@ -23,4 +23,17 @@
 			</attribute>
 		</annotation>
 	</component>
+	<!-- override built-in converter -->
+	<!--<component>-->
+		<!--<component-name>listbox</component-name>-->
+		<!--<extends>listbox</extends>-->
+		<!--<annotation>-->
+			<!--<annotation-name>ZKBIND</annotation-name>-->
+			<!--<property-name>model</property-name>-->
+			<!--<attribute>-->
+				<!--<attribute-name>CONVERTER</attribute-name>-->
+				<!--<attribute-value>org.zkoss.mvvm.converter.MyListboxConverter</attribute-value>-->
+			<!--</attribute>-->
+		<!--</annotation>-->
+	<!--</component>-->
 </language-addon>
