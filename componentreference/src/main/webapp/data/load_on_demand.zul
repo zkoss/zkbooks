@@ -1,0 +1,9 @@
+<zk>			                                 
+	<zscript><![CDATA[
+		TreeModel btm = new org.zkoss.reference.component.data.tree.BinaryTreeModel(
+				new ArrayList(
+						new org.zkoss.reference.component.data.tree.BigList(1000)));
+	]]></zscript>
+	<tree id="tree" model="${btm}"/>
+</zk>
+			

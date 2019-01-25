@@ -1,0 +1,27 @@
+<zk>
+    <tree width="400px">
+        <treecols>
+            <treecol label="Subject"/>
+            <treecol label="From"/>
+        </treecols>
+        <treechildren>
+            <treeitem open="false" onOpen="load()">
+                <treerow>
+                    <treecell label="Intel Snares XML"/>
+                    <treecell label="David Needle"/>
+                </treerow>
+                <treechildren/>
+            </treeitem>
+        </treechildren>
+        <zscript>
+            void load() {
+                Treechildren tc = self.getTreechildren();
+                if (tc.getChildren().isEmpty()) {
+                    Treeitem ti = new Treeitem();
+                    ti.setLabel("New added");
+                    ti.setParent(tc);
+                }
+            }
+        </zscript>
+    </tree>
+</zk>

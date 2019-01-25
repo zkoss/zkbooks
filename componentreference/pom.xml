@@ -10,7 +10,7 @@
 		<packname>-${project.version}-FL-${maven.build.timestamp}</packname>
 	</properties>
 	<packaging>war</packaging>
-	<name>The reference.component Project</name>
+	<name>The Component Reference Example Project</name>
 	<description>The reference.component Project</description>
 	<licenses>
 		<license>
