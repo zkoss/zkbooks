@@ -1,5 +1,7 @@
-# ZK Books
-Example source code used in ZK documentions including:
+# Overview
+Runnable codes speak more clear than static code snippets.
+
+This repository contains example source code used in ZK documentations including:
 * [ZK Developer's Reference](http://books.zkoss.org/wiki/ZK_Developer%27s_Reference)
 * [ZK Component Reference](http://books.zkoss.org/wiki/ZK_Component_Reference)
 
@@ -17,5 +19,5 @@ Folder is named by a chapter or a subsection.
  e.g. , `eventQueue` -> [Use Event Queues](https://www.zkoss.org/wiki/ZK%20Developer's%20Reference/UI%20Patterns/Long%20Operations/Use%20Event%20Queues)
 
 
-## Branching
+## Branches
 master - for the latest ZK
