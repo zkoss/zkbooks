@@ -1,0 +1,8 @@
+<div apply="org.zkoss.reference.developer.mvc.model.FileInfoTreeController">
+	<tree id="tree">
+		<treecols>
+			<treecol label="Path"/>
+			<treecol label="Description"/>
+		</treecols>
+	</tree>
+</div>
