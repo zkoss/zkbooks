@@ -1,0 +1,4 @@
+<zk>
+	<custom-attributes org.zkoss.zul.tree.initRodSize="10"/>
+<tree id="tree" apply="org.zkoss.reference.developer.mvc.model.RodController" height="400px"></tree>
+</zk>

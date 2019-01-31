@@ -1,5 +1,6 @@
 package org.zkoss.reference.developer.mvc.model;
 
+import org.zkoss.zul.Tree;
 import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.select.SelectorComposer;
 import org.zkoss.zk.ui.select.annotation.Wire;
