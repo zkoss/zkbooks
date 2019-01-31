@@ -40,4 +40,13 @@
             </treefoot>
         </tree>
     </window>
+    <zscript><![CDATA[
+    DefaultTreeModel stm = new DefaultTreeModel(new DefaultTreeNode("ROOT",
+        Arrays.asList(new DefaultTreeNode[]{
+                new DefaultTreeNode("David",new ArrayList()),
+                new DefaultTreeNode("Thomas",new ArrayList()),
+                new DefaultTreeNode("Steven",new ArrayList())})));
+    ]]></zscript>
+
+    <tree width="300px" model="${stm}" onAfterRender="self.setSelectedItem(self.getTreechildren().getLastChild())"/>
 </zk>
