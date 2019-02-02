@@ -1,0 +1,9 @@
+<zk xmlns:n="native">
+    <n:h1>Time Zones</n:h1>
+    <datebox id="datebox1" format="M/d/yy KK:mm:ss a" width="250px" displayedTimeZones="GMT+12,GMT+8" timeZone="GMT+8" timeZonesReadonly="false"/>
+
+    <n:h1>Format</n:h1>
+    <datebox format="M/d/yy KK:mm:ss a" width="250px"/>
+    <datebox format="short"/>
+    <datebox format="long"/>
+</zk>
