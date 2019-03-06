@@ -1,0 +1,32 @@
+<zk xmlns:n="native">
+    <fileupload label="Upload">
+        <attribute name="onUpload">
+            org.zkoss.util.media.Media media = event.getMedia();
+            System.out.println(media.toString());
+        </attribute>
+    </fileupload>
+    <n:h1>static method</n:h1>
+    <div onUpload="processMedia(event.getMedias());">
+        <zscript deferred="true"><![CDATA[
+    import org.zkoss.util.media.Media;
+
+    public void processMedia(Media[] media) {
+        if (media != null) {
+            for (int i = 0; i < media.length; i++) {
+                if (media[i] instanceof org.zkoss.image.Image) {
+                    image.setContent(media[i]);
+                } else {
+                    Messagebox.show("Not an image: " + media[i], "Error",
+                            Messagebox.OK, Messagebox.ERROR);
+                    break; //not to show too many errors
+                }
+            }
+        }
+    }
+]]></zscript>
+        <vbox>
+            <button label="Upload" onClick="Fileupload.get(1);" />
+            <image id="image" />
+        </vbox>
+    </div>
+</zk>
