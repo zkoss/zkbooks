@@ -9,6 +9,13 @@ This repository contains example source code used in ZK documentations including
  
 * [ZK Client-side Reference](http://books.zkoss.org/wiki/ZK_Client-side_Reference)
 
+# How to Run a Project
+Each project has a Maven jetty plugin configured, just run the goal below:
+`mvn jetty:run`
+
+* Notice: All projecta are Maven project, so you need to install [Maven](https://maven.apache.org/) first to run.
+
+
 # Naming Conventions
 ## Chapter -> Folder
 Folder is named by a chapter or a subsection.
@@ -21,3 +28,5 @@ Folder is named by a chapter or a subsection.
 
 ## Branches
 master - for the latest ZK
+
+
