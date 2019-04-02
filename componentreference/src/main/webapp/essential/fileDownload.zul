@@ -1,0 +1,10 @@
+<button label="Download">
+    <attribute name="onClick">{
+        java.io.InputStream is = desktop.getWebApp().getResourceAsStream("/essential/download.html");
+        if (is != null)
+            Filedownload.save(is, "text/html", "download.html");
+        else
+            alert("/essential/download.html not found");
+        }
+    </attribute>
+</button>
