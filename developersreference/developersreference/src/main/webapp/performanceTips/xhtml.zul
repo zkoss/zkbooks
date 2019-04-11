@@ -1,0 +1,39 @@
+<zk xmlns:n="native">
+    <style>
+        table{
+        border: solid 1px;
+        }
+    </style>
+    <n:h1>XHTML</n:h1>
+    <table xmlns="xhtml" xmlns:z="zul">
+        <tr>
+            <td>Name</td>
+            <td>
+                <z:textbox/>
+            </td>
+        </tr>
+    </table>
+
+    <n:h1>Native HTML</n:h1>
+    Don't support data binding
+    <table xmlns="native" xmlns:z="zul">
+        <tr>
+            <td>Name</td>
+            <td>
+                <z:textbox/>
+            </td>
+        </tr>
+    </table>
+
+    <n:h1>XHTML with data binding (MVVM)</n:h1>
+    <table xmlns="xhtml" xmlns:z="zul" viewModel="@id('vm')@init('org.zkoss.reference.developer.performance.XhtmlVM')">
+        <tr><th colspan="2">${vm.title}</th></tr>
+        <tr>
+            <td>name</td>
+            <td>
+                <z:textbox value="@bind(vm.name)"/>
+            </td>
+        </tr>
+    </table>
+
+</zk>
