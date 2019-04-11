@@ -15,7 +15,7 @@
     </table>
 
     <n:h1>Native HTML</n:h1>
-    Don't support data binding
+    Don't support data binding, but can use with EL
     <table xmlns="native" xmlns:z="zul">
         <tr>
             <td>Name</td>
