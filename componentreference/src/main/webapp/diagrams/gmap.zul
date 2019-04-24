@@ -1,0 +1,27 @@
+<window title="Gmaps Demo" border="normal" width="520px">
+    <script type="text/javascript" content="zk.googleAPIkey='Your-Google-API-Key';"/>
+
+    <!-- you may wish specify the version of google map api manually for some reason,
+        use version="[version]" to do it.
+        ex: <gmaps version="3.25" id="mymap" ... /> -->
+    <gmaps id="mymap" width="500px" height="300px" showSmallCtrl="true">
+        <ginfo id="myinfo" open="true">
+            <![CDATA[
+               Hello, <a href="http://www.zkoss.org">ZK</a>.
+           ]]>
+        </ginfo>
+
+        <gmarker id="mymark" lat="37.4410" lng="-122.1490">
+            <![CDATA[
+               Hello, <a href="http://www.zkoss.org">ZK</a> on top of Gmarker.
+           ]]>
+        </gmarker>
+
+        <attribute name="onMapClick">
+            Gmarker gmarker = event.getGmarker();
+            if (gmarker != null) {
+            gmarker.setOpen(true);
+            }
+        </attribute>
+    </gmaps>
+</window>
