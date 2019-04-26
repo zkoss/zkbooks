@@ -1,0 +1,20 @@
+<zk xmlns:n="native" xmlns:w="client">
+    <n:h1>Declare a Client-side Listener in ZUML</n:h1>
+    <combobox w:onFocus="this.open()"/>
+    <window id="wnd" title="main">
+        <combobox xmlns:w="client" w:onFocus="zk.log('${wnd.title}')"/>
+    </window>
+
+    <n:h1>The Relationship between the Client and Server-side Event Listener</n:h1>
+    <combobox xmlns:w="client" w:onFocus="this.open()"
+              onFocus='self.parent.appendChild(new Label("focus"))'/>
+    Not fire to a server
+    <combobox xmlns:w="client" w:onFocus="this.open(); event.stop();"
+              onFocus='self.parent.appendChild(new Label("focus"))'/>
+
+    <n:h1>Declare a Client-side Listener in Java</n:h1>
+    <combobox id="combobox"></combobox>
+    <zscript><![CDATA[
+    combobox.setWidgetListener("onFocus", "this.open()");
+    ]]></zscript>
+</zk>
