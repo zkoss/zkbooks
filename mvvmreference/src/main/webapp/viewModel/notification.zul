@@ -1,0 +1,26 @@
+<zk xmlns:n="native">
+    <n:h1>Enabled by Default</n:h1>
+    <div viewModel="@id('vm')@init('org.zkoss.mvvm.viewmodel.MessageViewModel')">
+        <textbox value="@bind(vm.message)" style="display:block"/>
+        what you input:
+        <label value="@load(vm.message)"/>
+    </div>
+    <n:h1>@NotifyChange on Setter</n:h1>
+    <div viewModel="@id('vm')@init('org.zkoss.mvvm.viewmodel.FullnameViewModel')">
+        <textbox value="@bind(vm.firstname)" placeholder="first name" style="display:block"/>
+        <textbox value="@bind(vm.lastname)" placeholder="last name" style="display:block"/>
+        full name:
+        <label value="@load(vm.fullname)"/>
+    </div>
+    <n:h1>Notify Programmatically</n:h1>
+    <div viewModel="@id('vm')@init('org.zkoss.mvvm.viewmodel.NotifyChangeMethodVM')">
+        type 'A' or 'B', click update to refresh value1 or value2
+        <textbox value="@bind(vm.data)" /> <button label="update" onClick="@command('update')"/>
+        <div>
+        value1: <label value="@load(vm.value1)"/>
+        </div>
+        <div>
+        value2: <label value="@load(vm.value2)"/>
+        </div>
+    </div>
+</zk>
