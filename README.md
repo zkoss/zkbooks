@@ -1,5 +1,5 @@
 # Overview
-Runnable codes speak more clear than static code snippets.
+Runnable codes speak louder than static code snippets.
 
 This repository contains example source code used in ZK documentations including:
 * [ZK Developer's Reference](http://books.zkoss.org/wiki/ZK_Developer%27s_Reference)
@@ -11,6 +11,7 @@ This repository contains example source code used in ZK documentations including
 
 # How to Run a Project
 Each project has a Maven jetty plugin configured, just run the goal below:
+
 `mvn jetty:run`
 
 * Notice: All projecta are Maven project, so you need to install [Maven](https://maven.apache.org/) first to run.
