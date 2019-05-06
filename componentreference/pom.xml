@@ -72,7 +72,7 @@
 		<dependency>
 			<groupId>org.zkoss.zkforge</groupId>
 			<artifactId>ckez</artifactId>
-			<version>4.7.0.0</version>
+			<version>4.11.1.0</version>
 		</dependency>
 	</dependencies>
 	<build>
