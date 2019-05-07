@@ -1,0 +1,12 @@
+<zk xmlns:n="native">
+    <n:h1>Example</n:h1>
+    <vbox>
+        <button label="Button 1"/>
+        <button label="Button 2"/>
+    </vbox>
+    <hbox>
+        <button label="Button 3"/>
+        <button label="Button 4"/>
+    </hbox>
+
+</zk>
