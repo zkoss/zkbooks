@@ -19,7 +19,7 @@
 
     <n:h1>Start ~ End</n:h1>
     <bandbox buttonVisible="false" placeholder="start - end" readonly="true" onClick="self.open()"
-    viewModel="@id('vm')@init('org.zkoss.reference.component.input.StartEndCalendarVM')" value="@load(vm.dateRange)">
+    viewModel="@id('vm')@init('org.zkoss.reference.component.input.DateRangeSelectorVM')" value="@load(vm.dateRange)">
         <bandpopup>
             <hlayout>
                 <calendar constraint="no past" value="@bind(vm.startDate)" onChange="@command('updateConstraint')"/>
