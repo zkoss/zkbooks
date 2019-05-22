@@ -1,0 +1,31 @@
+<zk xmlns:n="native">
+    <calendar id="cal" onChange="in.value = cal.value" width="50%"/>
+    <datebox id="in" onChange="cal.value = in.value"/>
+
+    <n:h1>Calendar Day Renderer</n:h1>
+    <!--
+    <script><![CDATA[
+        zk.afterLoad('zul.db', function(){
+            zul.db.Renderer.cellHTML = function (cal, y, m, day, monthofs) {
+                return '<a href="javascript:;" style="color:red;">' + day + '</a>';
+            };
+        });
+    ]]></script>
+    -->
+    <calendar/>
+
+    <n:h1>Show Week Number</n:h1>
+    <calendar weekOfYear="true" />
+
+    <n:h1>Start ~ End</n:h1>
+    <bandbox buttonVisible="false" placeholder="start - end" readonly="true" onClick="self.open()"
+    viewModel="@id('vm')@init('org.zkoss.reference.component.input.StartEndCalendarVM')" value="@load(vm.dateRange)">
+        <bandpopup>
+            <hlayout>
+                <calendar constraint="no past" value="@bind(vm.startDate)" onChange="@command('updateConstraint')"/>
+                <calendar constraint="@load(vm.endDateConstraint)" value="@bind(vm.endDate)" onChange="@command('updateDateRange')"/>
+            </hlayout>
+        </bandpopup>
+    </bandbox>
+    <separator height="300px"/>
+</zk>
