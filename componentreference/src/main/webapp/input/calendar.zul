@@ -1,4 +1,4 @@
-<zk xmlns:n="native">
+<zk xmlns:n="native" xmlns:w="client">
     <calendar id="cal" onChange="in.value = cal.value" width="50%"/>
     <datebox id="in" onChange="cal.value = in.value"/>
 
@@ -12,13 +12,14 @@
         });
     ]]></script>
     -->
-    <calendar/>
+    <calendar width="50%"/>
 
     <n:h1>Show Week Number</n:h1>
-    <calendar weekOfYear="true" />
+    <calendar weekOfYear="true" width="50%"/>
 
     <n:h1>Start ~ End</n:h1>
-    <bandbox buttonVisible="false" placeholder="start - end" readonly="true" onClick="self.open()"
+    <bandbox buttonVisible="true" placeholder="start - end" readonly="true" onClick="self.open()"
+             w:getIconClass_="() => 'z-icon-calendar'"
     viewModel="@id('vm')@init('org.zkoss.reference.component.input.DateRangeSelectorVM')" value="@load(vm.dateRange)">
         <bandpopup>
             <hlayout>
