@@ -1,0 +1,29 @@
+<zk>
+    <style>
+        .z-row:last-child .z-cell:last-child{
+            border-top: solid;
+            border-bottom: solid;
+        }
+    </style>
+    <zscript><![CDATA[
+ListModel model = new ListModelList();
+for (int i = 1 ; i < 4 ; i++){
+    model.add( i + "");
+}
+    ]]></zscript>
+    <grid model="${model}">
+        <columns>
+            <column>Number</column>
+        </columns>
+        <template name="model">
+            <row>
+                <cell>
+                    <label value="${each}"/>
+                </cell>
+                <cell>
+                    <label value="${each}"/>
+                </cell>
+            </row>
+        </template>
+    </grid>
+</zk>

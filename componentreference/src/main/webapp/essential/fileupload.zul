@@ -1,10 +1,12 @@
 <zk xmlns:n="native">
+    <n:h1>Use as a Component</n:h1>
     <fileupload label="Upload">
         <attribute name="onUpload">
             org.zkoss.util.media.Media media = event.getMedia();
             System.out.println(media.toString());
         </attribute>
     </fileupload>
+
     <n:h1>static method</n:h1>
     <div onUpload="processMedia(event.getMedias());">
         <zscript deferred="true"><![CDATA[
