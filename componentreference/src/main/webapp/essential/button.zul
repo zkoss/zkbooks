@@ -1,0 +1,13 @@
+<zk xmlns:n="native">
+    <n:h1>File Upload</n:h1>
+    <button upload="true" label="Fileupload" onUpload="myProcessUpload(event.getMedia())"/>
+    <zscript><![CDATA[
+import org.zkoss.util.media.*;
+public void myProcessUpload(Media media){
+    Clients.showNotification(media.getName() + " uploaded");
+}
+    ]]></zscript>
+    <n:h1>Upload</n:h1>
+    <button label="Upload"
+            upload="true,maxsize=10,multiple=true,accept=audio/*|video/*|image/*|MIME_type, native"/>
+</zk>
