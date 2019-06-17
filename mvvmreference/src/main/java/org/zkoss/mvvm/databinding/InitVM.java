@@ -8,6 +8,7 @@ public class InitVM {
 
     private String value = "my-test-value";
     private int price = 14;
+    private String[] array = {"array v1", "array v2", "array v3"};
 
     @Init
     public void init(@BindingParam("arg1") String arg1, @ContextParam(ContextType.DESKTOP)Desktop desktop) {
@@ -34,5 +35,9 @@ public class InitVM {
 
     public void setPrice(int price) {
         this.price = price;
+    }
+
+    public String[] getArray() {
+        return array;
     }
 }
