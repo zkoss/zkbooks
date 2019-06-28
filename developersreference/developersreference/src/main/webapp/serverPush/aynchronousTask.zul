@@ -1,0 +1,7 @@
+<zk>
+	<div apply="org.zkoss.reference.developer.serverpush.AsyncTaskComposer">
+		<button id="start" label="start"/>
+		<button  label="click" onClick='Clients.showNotification("response")'/>
+		<label id="status"/>
+	</div>
+</zk>
