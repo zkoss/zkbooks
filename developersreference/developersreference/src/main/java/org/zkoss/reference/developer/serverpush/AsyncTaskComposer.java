@@ -10,32 +10,36 @@ import org.zkoss.zul.Label;
 import java.time.LocalDateTime;
 import java.util.concurrent.*;
 
+/**
+ * Run a long operation in a separate thread to avoid blocking users.
+ * Update the result to UI with {@link Executions#schedule(Desktop, EventListener, Event)}
+ */
 public class AsyncTaskComposer extends SelectorComposer<Component> {
 
     @Wire
     private Label status;
+    private Desktop desktop;
 
     @Override
     public void doAfterCompose(Component comp) throws Exception {
         super.doAfterCompose(comp);
-        getPage().getDesktop().enableServerPush(true);
+        desktop = comp.getDesktop();
+        desktop.enableServerPush(true);
     }
 
     @Listen("onClick = #start")
     public void start() throws ExecutionException, InterruptedException {
-        final Desktop desktop = getPage().getDesktop();
-        
         // run in a separate thread
         CompletableFuture.runAsync(() -> {
             Threads.sleep(3000); //simulate a long task
             Executions.schedule(desktop,
-                    new EventListener<Event>() {
-                        public void onEvent(Event event) {
-                            //update UI
-                            status.setValue("done at " + LocalDateTime.now());
-                        }
-                    }, new Event("myEvent"));
-        }, Executors.newCachedThreadPool());
+                new EventListener<Event>() {
+                    public void onEvent(Event event) {
+                        //update UI
+                        status.setValue("done at " + LocalDateTime.now());
+                    }
+                }, new Event("myEvent"));
+        });
     }
 
 }
