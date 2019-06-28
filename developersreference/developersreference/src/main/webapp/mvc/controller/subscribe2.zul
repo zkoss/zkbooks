@@ -1,0 +1,8 @@
+<zk>
+<label multiline="true">
+Refresh the included page and send an event to see how many listeners print a messages at the console.
+</label>
+<button label="refresh included" onClick='area.setSrc(null);area.setSrc("subscribeIncluded.zul");'/>
+<include id="area" src="subscribeIncluded.zul"/>
+
+</zk>
