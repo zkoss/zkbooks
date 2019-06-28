@@ -1,5 +1,5 @@
 <zk>
-<window border="normal" apply="org.zkoss.reference.developer.mvc.SubscribeComposer">
+<window border="normal" apply="org.zkoss.reference.developer.mvc.controller.SubscribeComposer">
 	Included 
 	<button id="send" label="send event"/>
 	<div id="msg"/>

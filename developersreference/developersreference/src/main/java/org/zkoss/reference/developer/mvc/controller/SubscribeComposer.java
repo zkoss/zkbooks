@@ -1,4 +1,4 @@
-package org.zkoss.reference.developer.mvc;
+package org.zkoss.reference.developer.mvc.controller;
 
 import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.event.Event;
