@@ -1,0 +1,27 @@
+<zk xmlns:n="native">
+    <vlayout>
+        <button label="Button 1"/>
+        <button label="Button 2"/>
+    </vlayout>
+    <hlayout>
+        <button label="Button 3"/>
+        <button label="Button 4"/>
+    </hlayout>
+
+    <n:h1>Spacing</n:h1>
+    <vlayout spacing="0">
+        <textbox/>
+        <button label="Click Me"/>
+    </vlayout>
+
+    <n:h1>Resize Child Components' Height Dynamically</n:h1>
+    <vlayout height="400px" style="border: solid 1px" >
+        <button onClick="div.setVisible(false)" label="hide the blue box below"/>
+        <div style="height: 400px;background-color: lightblue" id="div">
+            box
+        </div>
+        <window border="normal" vflex="1">
+            0px height at first
+        </window>
+    </vlayout>
+</zk>
