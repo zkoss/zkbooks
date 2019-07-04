@@ -10,7 +10,7 @@ public class ItemService {
 	
 	public ItemService(int maxSize){
 		for (int i = 0 ; i< maxSize ; i++){
-			itemList.add(new Item(id++, "Item "+i));
+			itemList.add(new Item(id++));
 		}
 	}
 	
@@ -32,6 +32,10 @@ public class ItemService {
 		if (index != -1){
 			itemList.remove(index);
 		}
+	}
+
+	public Item create(){
+		return new Item(id++);
 	}
 }
 	

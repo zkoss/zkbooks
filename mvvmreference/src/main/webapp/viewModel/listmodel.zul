@@ -1,0 +1,16 @@
+<zk xmlns:n="native">
+    <n:h1>Notify Change for ListModel</n:h1>
+    <div viewModel="@id('vm')@init('org.zkoss.mvvm.viewmodel.NotifyListModelVM')">
+        <listbox model="@init(vm.model)" rows="10">
+
+            <template name="model">
+                <listitem >
+                    <listcell label="@init(each.id)"/>
+                    <listcell label="@load(each.name)"/>
+                </listitem>
+            </template>
+        </listbox>
+        <button label="Update Item Content" onClick="@command('updateContent')"/>
+        <button label="Add 1 Item" onClick="@command('add')"/>
+    </div>
+</zk>
