@@ -1,0 +1,26 @@
+<zk xmlns:n="native">
+    <style>
+        .z-rowlayout{
+        margin: 10px 0 10px 0;
+        }
+    </style>
+    <rowlayout ncols="12">
+        <forEach begin="1" end="3">
+            <rowchildren colspan="4" style="background-color: skyblue">
+                1/3
+            </rowchildren>
+        </forEach>
+    </rowlayout>
+    <rowlayout ncols="12">
+        <rowchildren colspan="4" style="background-color: skyblue" offset="2">
+            offset 2 columns
+        </rowchildren>
+    </rowlayout>
+    <rowlayout ncols="12" spacing="100%">
+        <forEach begin="1" end="3">
+            <rowchildren colspan="4" style="background-color: skyblue">
+                spacing = 100%
+            </rowchildren>
+        </forEach>
+    </rowlayout>
+</zk>
