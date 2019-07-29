@@ -1,6 +1,6 @@
 <zk xmlns:n="native">
     <n:h1>nav</n:h1>
-    <navbar orient="vertical" width="200px">
+    <navbar orient="vertical" width="200px" viewModel="@id('vm')@init('org.zkoss.reference.component.essential.ImageVM')">
         <navitem label="Home" iconSclass="z-icon-home" />
         <nav label="Get Started" iconSclass="z-icon-th-list" badgeText="3">
             <navitem label="Step One" />
@@ -22,6 +22,7 @@
         <navitem label="About" iconSclass="z-icon-flag" />
         <navitem label="Contact" iconSclass="z-icon-envelope"/>
     </navbar>
+<!--
     <n:h1>Autoclose</n:h1>
     <navbar orient="vertical" autoclose="false">
         <nav label="nav 1">
@@ -33,4 +34,5 @@
             <navitem label="nav 2.2"/>
         </nav>
     </navbar>
+-->
 </zk>
