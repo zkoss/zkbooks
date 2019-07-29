@@ -22,7 +22,6 @@
         <navitem label="About" iconSclass="z-icon-flag" />
         <navitem label="Contact" iconSclass="z-icon-envelope"/>
     </navbar>
-<!--
     <n:h1>Autoclose</n:h1>
     <navbar orient="vertical" autoclose="false">
         <nav label="nav 1">
@@ -34,5 +33,4 @@
             <navitem label="nav 2.2"/>
         </nav>
     </navbar>
--->
 </zk>
