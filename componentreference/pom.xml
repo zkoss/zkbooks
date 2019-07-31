@@ -5,7 +5,6 @@
 	<artifactId>component</artifactId>
 	<version>8.6.2-Eval</version>
 	<properties>
-		<commons-io>2.4</commons-io>
 		<maven.build.timestamp.format>yyyy-MM-dd</maven.build.timestamp.format>
 		<packname>-${project.version}-FL-${maven.build.timestamp}</packname>
 	</properties>
@@ -45,11 +44,6 @@
 	<dependencies>
 		<dependency>
 			<groupId>org.zkoss.zk</groupId>
-			<artifactId>zkbind</artifactId>
-			<version>${project.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.zkoss.zk</groupId>
 			<artifactId>zkmax</artifactId>
 			<version>${project.version}</version>
 		</dependency>
@@ -62,12 +56,6 @@
 			<groupId>org.zkoss.zk</groupId>
 			<artifactId>zhtml</artifactId>
 			<version>${project.version}</version>
-		</dependency>
-		
-		<dependency>
-			<groupId>commons-io</groupId>
-			<artifactId>commons-io</artifactId>
-			<version>${commons-io}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.zkoss.zkforge</groupId>
@@ -100,12 +88,6 @@
 					<source>1.7</source>
 					<target>1.7</target>
 				</configuration>
-			</plugin>
-			<!-- Build war -->
-			<plugin>
-				<artifactId>maven-war-plugin</artifactId>
-				<groupId>org.apache.maven.plugins</groupId>
-				<version>2.1.1</version>
 			</plugin>
 			<!-- Pack zips -->
 			<plugin>
