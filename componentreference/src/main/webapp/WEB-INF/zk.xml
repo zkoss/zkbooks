@@ -1,14 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zk xmlns="http://www.zkoss.org/2005/zk/config"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.zkoss.org/2005/zk/config http://www.zkoss.org/2005/zk/config/zk.xsd">
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.zkoss.org/2005/zk/config http://www.zkoss.org/2005/zk/config/zk.xsd">
 
-	<preference>
-		<name>org.zkoss.zk.ui.WebApp.name</name>
-		<value>reference.component</value>
-	</preference>
-	<client-config>
-		<debug-js>true</debug-js>
-		<!--<enable-source-map>true</enable-source-map>-->
-	</client-config>
+    <preference>
+        <name>org.zkoss.zk.ui.WebApp.name</name>
+        <value>reference.component</value>
+    </preference>
+    <client-config>
+        <debug-js>true</debug-js>
+        <!--<enable-source-map>true</enable-source-map>-->
+    </client-config>
+    <!--
+    <library-property>
+        <name>org.zkoss.theme.preferred</name>
+        <value>iceblue_c</value>
+    </library-property>
+        -->
 </zk>
