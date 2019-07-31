@@ -21,6 +21,8 @@
         combobox.setModel(model2);
     ]]></attribute>
     </combobox>
+    <n:h1>Selection only</n:h1>
+    <combobox model="${model}" readonly="true"/>
 <n:h1>
     Autocomplete
 </n:h1>
