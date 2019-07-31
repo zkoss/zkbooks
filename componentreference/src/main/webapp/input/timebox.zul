@@ -1,0 +1,24 @@
+<?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c"?>
+<zk xmlns:n="native">
+    <n:h1>Usage</n:h1>
+    <timebox cols="11"/>
+
+    <n:h1>Constraint</n:h1>
+    <timebox constraint="no empty: cannot be empty"/>
+    <timebox constraint="no empty: ${c:l('err.time.required')}"/>
+
+    <n:h1>Format</n:h1>
+    <timebox cols="8" format="a hh:mm:ss"/>
+    <timebox cols="8" format="HH:mm:ss"/>
+
+    <timebox format="short" cols="8"/>
+    <timebox format="long" cols="15"/>
+
+    <n:h1>Locale</n:h1>
+    <timebox format="medium" locale="de_DE" cols="15"/>
+    <timebox format="long" locale="fr" cols="15"/>
+
+    <n:h1>text</n:h1>
+    <timebox format="hh:mm:ss a" locale="en" text="12:00:00 AM"/>
+
+</zk>
