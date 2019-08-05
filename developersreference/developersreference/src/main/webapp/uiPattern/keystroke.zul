@@ -1,0 +1,41 @@
+<zk xmlns:h="native">
+    <h:h1>ENTER and ESC</h:h1>
+    <grid id="form" apply="org.zkoss.reference.developer.uipattern.KeystrokeComposer">
+        <rows>
+            <row>Username:
+                <textbox id="username"/>
+            </row>
+            <row>Password:
+                <textbox id="password" type="password"/>
+            </row>
+            <row>
+                <button label="Login" forward="form.onOK"/>
+                <button label="Reset" forward="form.onCancel"/>
+            </row>
+        </rows>
+    </grid>
+    
+    <h:h1>Control Keys</h:h1>
+    <vbox ctrlKeys="@c^a#f10^#f3" onCtrlKey="System.out.println(event.getKeyCode())">
+        <textbox/>
+        <datebox/>
+    </vbox>
+
+    <h:h1>Document-level Keystrokes</h:h1>
+    <div onOK="doSomething(event)" ctrlKeys="^K" onCtrlKey="show(event)" >
+        press enter key or ctrl+k.
+        <zscript><![CDATA[
+public void show(KeyEvent e){
+    Clients.showNotification(e.getKeyCode()+"");
+}
+]]></zscript>
+    </div>
+
+    <h:h1>Nested Components</h:h1>
+    <div onOK='Clients.showNotification("outer");'>
+        <textbox id="t1"/>
+        <div onOK='Clients.showNotification("inner");'>
+            <textbox id="t2"/>
+        </div>
+    </div>
+</zk>
