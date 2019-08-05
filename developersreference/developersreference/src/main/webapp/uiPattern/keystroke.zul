@@ -14,12 +14,11 @@
             </row>
         </rows>
     </grid>
-    
+
     <h:h1>Control Keys</h:h1>
-    <vbox ctrlKeys="@c^a#f10^#f3" onCtrlKey="System.out.println(event.getKeyCode())">
+    <div ctrlKeys="@c^a#f10^#f3" apply="org.zkoss.reference.developer.uipattern.KeystrokeComposer">
         <textbox/>
-        <datebox/>
-    </vbox>
+    </div>
 
     <h:h1>Document-level Keystrokes</h:h1>
     <div onOK="doSomething(event)" ctrlKeys="^K" onCtrlKey="show(event)" >
