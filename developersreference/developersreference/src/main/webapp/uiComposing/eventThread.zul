@@ -1,0 +1,24 @@
+<?component name="another" templateURI="~./another.zul" ?>
+<zk>
+	<button label="modal window" onClick="doModal()"/>
+	<window id="win" title="event thread">
+	</window>
+	<zscript><![CDATA[
+public void doModal(){
+	win.doModal(); //returns once the mode is changed; not suspended
+	System.out.println("next");
+}
+
+	]]></zscript>
+
+	<button label="message box">
+		<attribute name="onClick"><![CDATA[
+if (Messagebox.show("Delete?", "Prompt", Messagebox.YES|Messagebox.NO,
+    Messagebox.QUESTION) == Messagebox.YES) {
+    this_never_executes();
+}
+		]]></attribute>
+	</button>
+
+
+</zk>
