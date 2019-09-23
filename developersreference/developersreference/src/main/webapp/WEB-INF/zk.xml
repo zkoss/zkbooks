@@ -250,7 +250,6 @@
 	</language-mapping>
 	-->
 
-	<session-config>
 		<!-- Turn on the following if you want a different timeout
 			Note: The unit is seconds (while that of web.xml is minute)
 		<session-timeout>1800</session-timeout>
@@ -261,7 +260,6 @@
 		a timer.
 		<timer-keep-alive>true</timer-keep-alive>
 		-->
-	</session-config>
 	<session-config>
 		<!-- 
 		 Uncomment it and set it to android, if you want to configure for
