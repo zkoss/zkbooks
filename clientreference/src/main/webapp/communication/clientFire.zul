@@ -1,4 +1,9 @@
 <zk xmlns:w="client" xmlns:n="native">
+    <n:h1>Fire Events to Widgets</n:h1>
+    <groupbox title="my groupbox" open="true" w:onClick="this.fire('onFocus');" w:onFocus="console.log('focus');">
+        open developer tool/console to see the message 'focus'
+    </groupbox>
+
     <n:h1>Fire Event Directly to Server</n:h1>
     <div apply="org.zkoss.reference.client.ClientFireComposer">
         <button label="client fire" w:onClick="zAu.send(new zk.Event(this, 'onMyEvent', {myKey: 'my data'}, {toServer:true}))"/>
