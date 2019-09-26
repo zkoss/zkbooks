@@ -1,0 +1,8 @@
+<zk>
+    <nodom apply="org.zkoss.reference.developer.uipattern.MessageboxComposer">
+        <button id="info" label="info"/>
+        <button id="error" label="error"/>
+        <button id="confirm" label="confirm"/>
+        <button label="alert" onClick='alert("The file has been removed successfully.")'/>
+    </nodom>
+</zk>
