@@ -1,0 +1,26 @@
+<zk xmlns:n="native">
+    <n:h1>Rendering All</n:h1>
+    <zscript>
+        ListModelList model = new ListModelList(Locale.getAvailableLocales());
+    </zscript>
+    <chosenbox width="400px" model="${model}"/>
+
+    <n:h1>Lazy Rendering</n:h1>
+    <zscript><![CDATA[
+        ListSubModel subModel = ListModels.toListSubModel(model);
+    ]]></zscript>
+    <chosenbox width="400px" model="${subModel}"/>
+
+    <n:h1>Typical Usage</n:h1>
+    <chosenbox width="400px"
+               model="${model}" creatable="true"
+               emptyMessage=" Please select some items."
+               noResultsText=" No such item - {0} - and it is already in the model."
+               createMessage=" No such item -{0} - but it is not in model either, you can try to create it.">
+        <attribute name="onSearch">
+            Object obj = event.getValue();
+            ((ListModelList)model).add(obj);
+            self.addItemToSelection(obj);
+        </attribute>
+    </chosenbox>
+</zk>
