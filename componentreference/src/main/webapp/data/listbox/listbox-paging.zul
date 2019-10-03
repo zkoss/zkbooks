@@ -49,4 +49,12 @@ model.setMultiple(true);
 			</listitem>
 		</template>
 	</listbox>
+<n:h1>Active Page</n:h1>
+	page index (0-based):<intbox value="0"/>
+	<button label="set active page" onClick="pagingBox.setActivePage(self.previousSibling.value)"/>
+	<listbox id="pagingBox" model="${model}" mold="paging" pageSize="5">
+		<listhead>
+			<listheader label="listbox header"/>
+		</listhead>
+	</listbox>
 </zk>
