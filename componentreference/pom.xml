@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.zkoss.reference</groupId>
 	<artifactId>component</artifactId>
-	<version>8.6.2-Eval</version>
+	<version>8.6.3-Eval</version>
 	<properties>
 		<maven.compiler.source>1.7</maven.compiler.source>
 		<maven.compiler.target>1.7</maven.compiler.target>
