@@ -1,0 +1,15 @@
+<zk xmlns:n="native">
+    <n:h1>Customize the Toolbar</n:h1>
+    <pdfviewer id="pv2" src="Bill.pdf">
+        <toolbar>
+            <toolbarbutton iconSclass="z-icon-fw z-icon-fast-backward"
+                           onClick="pv2.firstPage()"/>
+            <toolbarbutton iconSclass="z-icon-fw z-icon-chevron-left"
+                           onClick="pv2.previousPage()"/>
+            <toolbarbutton iconSclass="z-icon-fw z-icon-chevron-right"
+                           onClick="pv2.nextPage()"/>
+            <toolbarbutton iconSclass="z-icon-fw z-icon-fast-forward"
+                           onClick="pv2.lastPage()"/>
+        </toolbar>
+    </pdfviewer>
+</zk>
