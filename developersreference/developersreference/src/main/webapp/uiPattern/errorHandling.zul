@@ -1,3 +1,7 @@
 <zk>
+    Error Handling When Serving AU Requests
     <button label="Cause Error" onClick='throw new NullPointerException("An error on purpose")'/>
+    <div viewModel="@id('vm')@init('org.zkoss.reference.developer.uipattern.ErrorVM')">
+        <button label="cause error in VM" onClick="@command('error')"/>
+    </div>
 </zk>
