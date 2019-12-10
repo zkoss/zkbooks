@@ -138,6 +138,8 @@ public class DynamicCollectionBindingComposer extends SelectorComposer {
 					personList.remove(p);
 				}
 			});
+
+			binder.loadComponent(listitem, false);
 		}
 		
 	}
