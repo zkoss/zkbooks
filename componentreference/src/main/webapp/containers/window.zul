@@ -1,0 +1,18 @@
+<zk xmlns:n="native" xmlns:ca="client/attribute">
+    <window title="Embedded Style" border="normal" width="200px">Hello,
+        Embedded!
+    </window>
+    <window title="Overlapped Style" mode="overlapped" border="normal"
+            width="200px">Hello, Overlapped!
+    </window>
+    <window title="Popup Style" mode="popup" border="normal"
+            width="200px">Hello, Popup!
+    </window>
+
+    <window title="Modal Style" mode="modal" border="normal"
+            width="200px">Hello, Modal!
+    </window>
+    <window title="Highlight Style" mode="highlighted" border="normal"
+            width="200px">Hello, Highlighted!
+    </window>
+</zk>
