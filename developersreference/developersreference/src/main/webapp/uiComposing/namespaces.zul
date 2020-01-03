@@ -1,0 +1,22 @@
+<zk xmlns:n="native" xmlns:ca="client/attribute">
+    <n:h1>client</n:h1>
+    For specifying a ZK JavaScript widget's event listeners and attributes<n:br/>
+    <combobox xmlns:w="client" w:onFocus="this.open()" onChange="doOnChange()"/>
+
+    <n:h1>client/attribute</n:h1>
+    for specifying client-side DOM attributes.<n:br/>
+    <button ca:data-toggle="modal" label="has data attributes"/>
+
+    <n:h1>native</n:h1>
+    ZK renders them directly. Just like you write HTML tags.
+    <n:table >
+        <n:tr>
+            <n:td>Username</n:td>
+            <n:td><textbox/></n:td>
+        </n:tr>
+        <n:tr>
+            <n:td>Password</n:td>
+            <n:td><textbox type="password"/></n:td>
+        </n:tr>
+    </n:table>
+</zk>
