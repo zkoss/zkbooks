@@ -1,9 +1,6 @@
 <zk>
+    load by &lt;script&gt;
     <script src="https://code.jquery.com/jquery-2.1.4.min.js" />
-    <script>
-        var jQuery2 = jQuery.noConflict(true);
-        console.log(jq.fn.jquery);
-        console.log(jQuery2.fn.jquery);
-    </script>
+    <script src="jquery-version.js"/>
     <!-- other components -->
 </zk>
