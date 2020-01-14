@@ -1,0 +1,57 @@
+<?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c"?>
+<zk xmlns:n="native">
+    <n:h1>Constraint</n:h1>
+    <n:h2>Built-in Constraints</n:h2>
+    <intbox constraint="no negative,no zero"/>
+    <textbox constraint="no empty"/><n:br/>
+    if input value violates the constraint, getValue() throws an WrongValueException
+    <button label="print values" onClick="org.zkoss.zk.ui.util.Notification.show(self.previousSibling.value)"/>
+
+    <n:h2>Regular Expression</n:h2>
+    <textbox constraint="/.+@.+\.[a-z]+/"/>
+
+    <n:h2>Multiple Constraints</n:h2>
+    <textbox constraint="/.+@.+\.[a-z]+/: e-mail address only"/>
+    <datebox constraint="no empty, no future: now or never"/>
+    of course, it supports multiple custom messages
+    <intbox constraint="no negative: forbid negative, no positive: forbid positive" />
+
+    <n:h2>i18n Error Message</n:h2>
+    <textbox constraint="/.+@.+\.[a-z]+/: ${c:l('err.email.required')}"/>
+
+    <n:h2>Escape a Comma</n:h2>
+    <textbox constraint="no empty: {Sorry, no empty allowed}, /.+@.+\.[a-z]+/: email only"></textbox>
+
+    <n:h2>Custom Constraint</n:h2>
+    <textbox constraint="${c:new('org.zkoss.reference.component.base.EvenNumberConstraint')}"/>
+
+    <window title="Custom Constraint" border="normal">
+        <zscript><![CDATA[
+        class MyConst implements Constraint, CustomConstraint {
+            //Constraint//
+            public void validate(Component comp, Object value) {
+                if (value == null || ((Integer)value).intValue() < 100)
+                    throw new WrongValueException(comp, "At least 100 must be specified");
+            }
+            //CustomConstraint//
+            public void showCustomError(Component comp, WrongValueException ex) {
+                errmsg.setValue(ex != null ? ex.getMessage(): "");
+            }
+        }
+        Constraint ctt = new MyConst();
+    ]]>
+        </zscript>
+        <hlayout>
+            Enter a number at least 100:
+            <intbox constraint="${ctt}" />
+            <label id="errmsg" />
+        </hlayout>
+    </window>
+
+    <n:h2>Show Validation Error</n:h2>
+    <div apply="org.zkoss.reference.component.base.ShowErrorComposer">
+        <textbox id="username" placeholder="${self.id}"/>
+        <textbox id="password" placeholder="${self.id}"/>
+        <button id="login" label="login"/>
+    </div>
+</zk>
