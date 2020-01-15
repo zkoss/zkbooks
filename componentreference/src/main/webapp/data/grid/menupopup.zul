@@ -1,0 +1,54 @@
+<zk>
+	<grid>
+		<columns menupopup="auto">
+			<column label="Name" sort="auto" draggable="true" droppable="true"/>
+			<column label="Gender" sort="auto" draggable="true" droppable="true"/>
+			<column label="Age"  sort="auto" draggable="true" droppable="true"/>
+			<column label="Description"  sort="auto" draggable="true" droppable="true"/>
+		</columns>
+		<rows>
+			<row>
+				<label value="Mary" />
+				<label value="FEMALE" />
+				<label value="18" />
+				<label value="A young lady." />
+			</row>
+			<row>
+				<label value="Emma" />
+				<label value="FEMALE" />
+				<label value="19" />
+				<label value="A young lady." />
+			</row>
+			<row>
+				<label value="John" />
+				<label value="MALE" />
+				<label value="20" />
+				<label value="A college student." />
+			</row>
+			<row>
+				<label value="Jane" />
+				<label value="FEMALE" />
+				<label value="32" />
+				<label value="A remarkable artist." />
+			</row>
+			<row>
+				<label value="Judy" />
+				<label value="FEMALE" />
+				<label value="34" />
+				<label value="A remarkable artist." />
+			</row>
+			<row>
+				<label value="Henry" />
+				<label value="MALE" />
+				<label value="29" />
+				<label value="A graduate." />
+			</row>
+			<row>
+				<label value="Howard" />
+				<label value="MALE" />
+				<label value="21" />
+				<label value="A graduate." />
+			</row>
+		</rows>
+	</grid>
+</zk>
