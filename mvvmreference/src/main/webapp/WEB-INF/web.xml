@@ -109,19 +109,6 @@ Copyright (C) 2004 Potix Corporation. All Rights Reserved.
 		<url-pattern>/zkau/*</url-pattern>
 	</servlet-mapping>
 
-	<servlet>
-		<servlet-name>dspLoader</servlet-name>
-		<servlet-class>org.zkoss.web.servlet.dsp.InterpreterServlet</servlet-class>
-		<init-param>
-			<param-name>class-resource</param-name>
-			<param-value>true</param-value>
-		</init-param>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>dspLoader</servlet-name>
-		<url-pattern>*.dsp</url-pattern>
-	</servlet-mapping>
-
 	<!-- /////////// -->
 	<!-- Miscellaneous -->
 	<session-config>
@@ -188,9 +175,6 @@ Copyright (C) 2004 Potix Corporation. All Rights Reserved.
 
 	<welcome-file-list>
 		<welcome-file>index.zul</welcome-file>
-		<welcome-file>index.zhtml</welcome-file>
-		<welcome-file>index.html</welcome-file>
-		<welcome-file>index.htm</welcome-file>
 	</welcome-file-list>
 
 	<!--<resource-ref>-->
