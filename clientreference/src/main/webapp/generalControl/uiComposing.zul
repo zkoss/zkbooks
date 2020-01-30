@@ -1,0 +1,55 @@
+<zk xmlns:w="client" xmlns:h="native">
+    <h:h1>Instantiate Widget at Client</h:h1>
+    Notice that zk widget javascript files are loaded on demand, e.g. if there is no window component created, ZK doesn't load window widget javascript.
+    <script defer="true"><![CDATA[
+new zul.wnd.Window({
+    title: 'Hello, World',
+    border: 'normal',
+    children: [
+        new zul.wgt.Label({value: 'Hi, '}),
+        new zul.wgt.Button({
+            label: 'Click Me!',
+            listeners:  {
+                onClick: function (evt) {
+                    alert('Hi, you clicked me');
+                }
+            }
+        })
+    ]
+});
+    ]]></script>
+    <h:h1>Attach Widget to DOM</h:h1>
+    <vlayout>
+        <button label="Click Me" xmlns:w="client"
+                w:onClick="this.parent.appendChild(new zul.wgt.Label({value: 'Clicked'}))"/>
+    </vlayout>
+    <n:div id="anchor" xmlns:n="native"/>
+    <button label="Click Me" xmlns:w="client"
+            w:onClick="new zul.wgt.Label({value: 'Clicked'}).replaceHTML('#anchor')"/>
+
+    <h:h1>A complete example</h:h1>
+    <script><![CDATA[
+		zk.load('zul.wnd');
+		function createWindow(parentWidget, eventName) {
+			var wnd = new zul.wnd.Window({
+			    title: 'Hello, World',
+			    border: 'normal',
+			    children: [
+			        new zul.wgt.Label({value: 'Hi, '}),
+			        new zul.wgt.Button({
+			            label: 'Click Me!',
+			            listeners:  {
+			                onClick: function (event) {
+								parentWidget.fire(eventName, {someInfo: "clickMeButton", eventName: event.name}, {toServer: true});
+			                }
+			            }
+			        })
+			    ]
+			});
+			parentWidget.appendChild(wnd);
+		}
+	]]></script>
+    <div w:onBind="createWindow(this, 'onAnyServerEvent');"
+         onAnyServerEvent="Clients.log(event.toString() + event.data.toString())">
+    </div>
+</zk>
