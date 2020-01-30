@@ -1,0 +1,48 @@
+<zk>
+	<zscript><![CDATA[
+		public void logStubEvent(StubEvent event) {
+			Clients.log(event.toString());
+			Clients.log("Event Info: " + event.command + "@" + event.uuid + " " + event.requestData);
+		}
+	]]></zscript>
+	<div stubonly="true">
+		<div>
+			<button stubonly="false" onClick="Clients.log(event.toString());" label="normal nested non-stub component"/>
+			<button onClick="logStubEvent(event);" label="stub"/>
+			<div><!-- root of the StubsComponent  -->
+				<label value="whole subtree merged into a single stubs component"/>
+				<separator/>
+				<button onClick='logStubEvent(event);' label="stub"/>
+				<borderlayout height="400px" width="400px">
+					<center>
+						<button onClick="logStubEvent(event);" label="stub"/>
+					</center>
+					<south>
+						<div>
+							<combobox onChange="logStubEvent(event);">
+								<comboitem label="1"/>
+								<comboitem label="2"/>
+								<comboitem label="3"/>
+								<comboitem label="4"/>
+								<comboitem label="5"/>
+								<comboitem label="6"/>
+								<comboitem label="7"/>
+							</combobox>
+							<div>
+								<div>
+									<button onClick="logStubEvent(event);" label="stub"/>
+								</div>
+								<div>
+									<button onClick="logStubEvent(event);" label="stub"/>
+									<textbox onChange="logStubEvent(event);"/>
+								</div>
+							</div>
+						</div>
+					</south>
+				</borderlayout>
+			</div>
+		</div>
+	</div>
+	<button label="number of components at server side"
+			onClick='Clients.log("number of components in desktop: " + new HashSet(desktop.getComponents()).size())'/>
+</zk>
