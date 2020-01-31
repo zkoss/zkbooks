@@ -1,21 +1,21 @@
-<div viewModel="@id('vm') @init('org.zkoss.mvvm.databinding.ChildrenSimpleVM')">
-	Simple - Init
+<div xmlns:h="native" viewModel="@id('vm') @init('org.zkoss.mvvm.databinding.ChildrenSimpleVM')">
+	<h:h1>Simple - Init</h:h1>
 	<vlayout id="init" children="@init(vm.nodes)">
 		<template name="children" var="node">
 			<label value="@bind(node)" style="padding-left:10px"/>
 		</template>
 	</vlayout>
-	Simple - load
+	<h:h1>Simple - load</h:h1>
 	<vlayout id="load" children="@load(vm.nodes)">
 		<template name="children" var="node">
 			<label value="@bind(node)" style="padding-left:10px"/>
 		</template>
 	</vlayout>
-	Simple - load after cmd
+	<h:h1>Simple - load after cmd</h:h1>
 	<vlayout id="aftercmd" children="@load(vm.nodes, after='cmd')">
 		<template name="children" var="node">
 			<label value="@bind(node)" style="padding-left:10px"/>
 		</template>
 	</vlayout>
-	<button label="reload 1" onClick="@command('cmd')"/>
+	<button label="load" onClick="@command('cmd')"/>
 </div>
