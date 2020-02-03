@@ -1,3 +1,7 @@
 <zk xmlns:n="native">
     <pdfviewer src="Bill.pdf" />
+    <n:h1>Partially visible</n:h1>
+    <div height="500px">
+        <pdfviewer src="Bill.pdf" vflex="1" />
+    </div>
 </zk>
