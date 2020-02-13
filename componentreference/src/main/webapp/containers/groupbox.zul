@@ -1,0 +1,25 @@
+<zk>
+    <groupbox width="350px" >
+        <caption label="Fruits"/>
+        <radiogroup>
+            <radio label="Apple"/>
+            <radio label="Orange"/>
+            <radio label="Banana"/>
+        </radiogroup>
+    </groupbox>
+    <style>
+        .mygroupbox-cnt {
+        border: 3px blue dashed;
+        border-top:0px
+        }
+    </style>
+    <groupbox width="350px" mold="3d"
+              contentSclass="mygroupbox-cnt">
+        <caption label="Fruits"/>
+        <radiogroup>
+            <radio label="Apple"/>
+            <radio label="Orange"/>
+            <radio label="Banana"/>
+        </radiogroup>
+    </groupbox>
+</zk>
