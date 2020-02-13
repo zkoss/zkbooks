@@ -1,0 +1,25 @@
+<zk>
+    <button label="Show File Info" onClick="fi.open()"/>
+    <drawer id="fi" title="File information">
+        <grid>
+            <columns>
+                <column/>
+                <column/>
+            </columns>
+            <rows>
+                <row>
+                    <label value="Name"/>
+                    1.jpg
+                </row>
+                <row>
+                    <label value="Size"/>
+                    1.8 Megabytes
+                </row>
+                <row>
+                    <label value="Dimensions"/>
+                    1920x1080
+                </row>
+            </rows>
+        </grid>
+    </drawer>
+</zk>
