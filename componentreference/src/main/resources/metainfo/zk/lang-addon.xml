@@ -1,0 +1,6 @@
+<language-addon>
+    <addon-name>component-reference</addon-name>
+    <depends>zul</depends>
+    <language-name>xul/html</language-name>
+    <stylesheet href="~./common.css" type="text/css"/>
+</language-addon>
