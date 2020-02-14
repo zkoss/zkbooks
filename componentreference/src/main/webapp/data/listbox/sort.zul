@@ -1,0 +1,87 @@
+<zk xmlns:h="native">
+
+	<h:h1>Sort</h:h1>
+	<listbox width="200px">
+		<listhead>
+			<listheader label="name" sort="auto" sortDirection="ascending"/>
+			<listheader label="gender" sort="auto"/>
+		</listhead>
+		<listitem>
+			<listcell label="Mary"/>
+			<listcell label="FEMALE"/>
+		</listitem>
+		<listitem>
+			<listcell label="John"/>
+			<listcell label="MALE"/>
+		</listitem>
+		<listitem>
+			<listcell label="Jane"/>
+			<listcell label="FEMALE"/>
+		</listitem>
+		<listitem>
+			<listcell label="Henry"/>
+			<listcell label="MALE"/>
+		</listitem>
+	</listbox>
+<h:h2>case-insensitive</h:h2>
+	<zscript><![CDATA[
+ListModelList model = new ListModelList();
+model.add("CC");
+model.add("AA");
+model.add("bb");
+model.add("dd");
+	]]></zscript>
+	<listbox width="200px" model="${model}">
+		<listhead>
+			<listheader label="ID" sort="auto"/>
+		</listhead>
+	</listbox>
+
+	<h:h1>auto sorting on fields</h:h1>
+	<zscript>
+		<![CDATA[
+
+class Person {
+      private String firstName;
+      private String lastName;
+      private int age;
+
+      public Person(String f, String l, int a) {
+          firstName = f;
+          lastName = l;
+          age = a;
+      }
+
+      public String getFirstName() {
+          return firstName;
+      }
+      public String getLastName() {
+          return lastName;
+      }
+      public String getFullName() {
+          return firstName + " " + lastName;
+      }
+      public int getAge() {
+          return age;
+      }
+  }
+
+  ListModelList persons = new ListModelList();
+  persons.add(new Person("Tom", "Cheng", 43));
+  persons.add(new Person("Henri", "Smith", 41));
+  persons.add(new Person("Jim", "Xavier", 39));
+]]>
+	</zscript>
+	<listbox model="${persons}">
+		<listhead>
+			<listheader label="Full Name" sort="auto(lastName, firstName)" />
+			<listheader label="Age" sort="auto(age)" />
+		</listhead>
+		<template name="model">
+			<listitem>
+				<listcell label="${each.fullName}" />
+				<listcell label="${each.age}" />
+			</listitem>
+		</template>
+	</listbox>
+</zk>
