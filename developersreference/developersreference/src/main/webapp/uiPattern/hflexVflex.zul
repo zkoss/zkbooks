@@ -1,0 +1,60 @@
+<zk xmlns:n="native">
+    <n:h1 style="display: inline-block">Parent Requires Width/Height Specified</n:h1>
+    <div><!--Wrong! The height is required since it is minimal height by default-->
+        <datebox/>
+        <div vflex="1" style="background: yellow"/><!--height will be zero since height not specified in parent div-->
+    </div>
+    <n:h1>Fit-the-Rest Flexibility</n:h1>
+    <div height="200px">
+        <datebox/>
+        <div vflex="1" style="background: yellow"/>
+    </div>
+    <n:h2>the 2nd example</n:h2>
+    <div height="200px">
+        <datebox/>
+        <tabbox vflex="1">
+            <tabs>
+                <tab label="Home"/>
+                <tab label="Direction"/>
+            </tabs>
+            <tabpanels>
+                <tabpanel style="overflow: auto">
+                    <div height="500px" width="100%" style="background: yellow"/>
+                </tabpanel>
+                <tabpanel>
+                </tabpanel>
+            </tabpanels>
+        </tabbox>
+    </div>
+    <n:h1>Proportional Flexibility</n:h1>
+    <div width="200px" height="50px">
+        <div style="background: blue" vflex="1" hflex="1"/>
+        <div style="background: yellow" vflex="2" hflex="1"/>
+    </div>
+    <n:h2>another example</n:h2>
+    <hlayout width="200px">
+        <div style="background: blue" hflex="1">1</div>
+        <div style="background: yellow" hflex="2">2</div>
+    </hlayout>
+    <n:h1>Minimum Flexibility</n:h1>
+    <borderlayout height="200px" width="400px">
+        <north title="North" vflex="min">
+            <borderlayout vflex="min">
+                <west title="West" size="40%" flex="true" vflex="min">
+                    <div style="background:#B8D335">
+                        <label value="40%" style="color:white;font-size:50px"/>
+                    </div>
+                </west>
+                <center flex="true" vflex="min">
+                    <div style="background:#E6D92C">
+                        <label value="60%" style="color:white;font-size:50px"/>
+                    </div>
+                </center>
+            </borderlayout>
+        </north>
+        <center>
+            <label value="This is the working area"
+                   style="font-size:30px" />
+        </center>
+    </borderlayout>
+</zk>
