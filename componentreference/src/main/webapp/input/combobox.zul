@@ -7,9 +7,10 @@
     <zscript><![CDATA[
         ListModelList model = new ListModelList(Arrays.asList(new String[] { "David",
                 "Thomas", "Steven" }));
+        model.addToSelection(model.get(2));
     ]]></zscript>
     <n:h1>Default Selection</n:h1>
-    <combobox model="${model}" onAfterRender="self.setSelectedIndex(2)"/>
+    <combobox model="${model}" />
     <combobox id="combobox" width="100px">
         <attribute name="onCreate"><![CDATA[
         List list2 = new ArrayList();
