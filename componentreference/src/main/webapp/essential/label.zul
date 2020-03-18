@@ -1,0 +1,39 @@
+<zk xmlns:n="native" xmlns:x="xhtml">
+    <window title="Label Demo" >
+        <grid>
+            <rows>
+                <row>Label(normal): <label id="lb1"/></row>
+                <row>Label(color): <label id="lb2" style="color:red"/></row>
+                <row>Label(font): <label id="lb3" style="font-weight:bold"/></row>
+                <row>Label(size): <label id="lb4" style="font-size:14pt"/></row>
+                <row>Label(maxlength): <label id="lb5" maxlength="5"/></row>
+                <row>Label(pre): <label id="lb6" pre="true"/></row>
+                <row>input:
+                    <textbox id="txt" rows="3"><attribute name="onChange">
+                        lb1.value=self.value;
+                        lb2.value=self.value;
+                        lb3.value=self.value;
+                        lb4.value=self.value;
+                        lb5.value=self.value;
+                        lb6.value=self.value;
+                    </attribute></textbox>
+                </row>
+            </rows>
+        </grid>
+    </window>
+    <n:h1>
+    label for in input component
+    </n:h1>
+    <n:label>
+        click me
+        <textbox/>
+    </n:label>
+
+    <div apply="org.zkoss.bind.BindComposer">
+    <n:h2>
+    MVVM
+    </n:h2>
+    <x:label id="boxLabel" for="@init(box.uuid)">click me</x:label>
+    <textbox id="box" />
+    </div>
+</zk>
