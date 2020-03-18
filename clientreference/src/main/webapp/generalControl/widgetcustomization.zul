@@ -1,0 +1,19 @@
+<zk xmlns:w="http://www.zkoss.org/2005/zk/client">
+    Override a Widget Method
+    <label>
+        <attribute w:name="setValue">
+            function (value) {
+                this.$setValue(value); //call the original method
+                if (this.desktop) {
+                    this._flag = !this._flag;
+                    this.setStyle('background:'+(this._flag ? 'red':'green'));
+                }
+            }
+        </attribute>
+    </label>
+    disable an event listener - disable key handling for a combobox
+    <combobox w:doKeyDown_="zk.$void">
+        <comboitem label="1-1"/>
+        <comboitem label="2-1"/>
+    </combobox>
+</zk>

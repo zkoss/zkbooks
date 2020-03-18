@@ -12,7 +12,7 @@ zk.afterLoad('zul.inp', function() { //specify zk widget package name
     });
 
 });
-if(zk.version != ){
+if(zk.version != '9.0.0'){
 	console.warn('This override script version compatibility was tested for ZK version ' + ''
 	    + 'If you are running a different version, please check this script compatibility ')
 }
