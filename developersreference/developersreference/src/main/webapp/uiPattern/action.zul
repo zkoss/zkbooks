@@ -1,0 +1,14 @@
+<zk>
+    How to Apply Client-side Actions
+    <button label="Show a modal window" onClick="wnd.doModal()"/>
+    <window id="wnd" title="Modal" border="normal" width="300px"
+            action="show: slideDown" visible="false">
+        This is a modal window.
+    </window>
+
+    Predefined Options for Effects
+    <button label="show/hide" onClick="box.visible = !box.visible"/>
+    <window id="box" border="normal" title="custom effect" action="show: slideIn({anchor: 'r'})" visible="false">
+        slide in from left to right
+    </window>
+</zk>
