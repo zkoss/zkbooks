@@ -4,4 +4,6 @@
     <div height="500px">
         <pdfviewer src="Bill.pdf" vflex="1" />
     </div>
+    content
+    <pdfviewer id="viewer" apply="org.zkoss.reference.component.multimedia.PdfviewerController"/>
 </zk>
