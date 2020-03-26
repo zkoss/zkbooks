@@ -4,4 +4,16 @@
 
     <javascript src="/js/msg*.js" />
     <javascript src="/js/myjs.js" />
+
+    <!-- application-wide property initialization    -->
+<!--
+    <component>
+        <component-name>window</component-name>
+        <extends>window</extends>
+        <property>
+            <property-name>border</property-name>
+            <property-value>normal</property-value>
+        </property>
+    </component>
+-->
 </language-addon>
