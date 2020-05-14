@@ -1,3 +1,1 @@
-msgzul = {
-	DATE_REQUIRED: '格式應該是：',
-};
+msgzul.DATE_REQUIRED= '格式應該是：';

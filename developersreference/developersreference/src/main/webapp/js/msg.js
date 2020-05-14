@@ -1,3 +1,1 @@
-msgzul = {
-	DATE_REQUIRED: 'format should be：',
-};
+msgzul.DATE_REQUIRED ='format should be：';
