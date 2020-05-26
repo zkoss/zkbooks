@@ -1,0 +1,4 @@
+<zk>
+    <include src="includedHello.zul" argument="${anyValue}" other="${anotherValue}" />
+    <include src="mypage.html?some=any" />
+</zk>
