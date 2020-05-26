@@ -22,7 +22,7 @@
     </tabbox>
 
     <n:h1>Tollbar in Tabbox</n:h1>
-    <tabbox width="550px">
+    <tabbox >
         <tabs>
             <tab label="Tab 1" closable="true" />
             <tab label="Tab 2" closable="true" />
@@ -31,10 +31,10 @@
             <tab label="Tab 5" closable="true" />
         </tabs>
         <toolbar>
-            <toolbarbutton image="/img/live.gif" onClick='alert("Live")' />
-            <toolbarbutton image="/img/defender.gif"
-                           onClick='alert("Defender")' />
-            <toolbarbutton image="/img/battery.gif"
+            <toolbarbutton iconSclass="z-icon-address-book" onClick='alert("Address")' />
+            <toolbarbutton iconSclass="z-icon-id-card"
+                           onClick='alert("Card")' />
+            <toolbarbutton iconSclass="z-icon-battery"
                            onClick='alert("Battery")' />
         </toolbar>
         <tabpanels>
@@ -56,10 +56,10 @@
             <tab label="Tab 5" closable="true" />
         </tabs>
         <toolbar>
-            <toolbarbutton image="/img/live.gif" onClick='alert("Live")' />
-            <toolbarbutton image="/img/defender.gif"
-                           onClick='alert("Defender")' />
-            <toolbarbutton image="/img/battery.gif"
+            <toolbarbutton iconSclass="z-icon-address-book" onClick='alert("Address")' />
+            <toolbarbutton iconSclass="z-icon-id-card"
+                           onClick='alert("Card")' />
+            <toolbarbutton iconSclass="z-icon-battery"
                            onClick='alert("Battery")' />
         </toolbar>
         <tabpanels>
