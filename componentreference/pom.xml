@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.zkoss.reference</groupId>
 	<artifactId>component</artifactId>
-	<version>9.0.0-Eval</version>
+	<version>9.0.1.2-Eval</version>
 	<properties>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
@@ -77,7 +77,7 @@
 		<dependency>
 			<groupId>org.zkoss.zkforge</groupId>
 			<artifactId>ckez</artifactId>
-			<version>4.11.1.0</version>
+			<version>4.14.0.0</version>
 		</dependency>
 	</dependencies>
 	<build>
