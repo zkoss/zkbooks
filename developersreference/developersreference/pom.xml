@@ -3,12 +3,11 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.zkoss.reference</groupId>
     <artifactId>developer</artifactId>
-    <version>9.0.0-Eval</version>
+    <version>9.0.1.2-Eval</version>
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <maven.build.timestamp.format>yyyy-MM-dd</maven.build.timestamp.format>
-        <packname>-0.0.1-SNAPSHOT-FL-${maven.build.timestamp}</packname>
     </properties>
     <packaging>war</packaging>
     <name>The Developer Reference Example Project</name>
@@ -81,9 +80,9 @@
         <finalName>${project.artifactId}</finalName>
         <plugins>
             <plugin>
-                <groupId>org.mortbay.jetty</groupId>
+                <groupId>org.eclipse.jetty</groupId>
                 <artifactId>jetty-maven-plugin</artifactId>
-                <version>7.2.0.v20101020</version>
+                <version>9.4.27.v20200227</version>
                 <configuration>
                     <scanIntervalSeconds>5</scanIntervalSeconds>
                     <webAppConfig>
