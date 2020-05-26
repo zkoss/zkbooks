@@ -1,0 +1,3 @@
+<zk>
+    <button label="hi" onClick='org.zkoss.lang.Threads.sleep(3000);'/>
+</zk>
