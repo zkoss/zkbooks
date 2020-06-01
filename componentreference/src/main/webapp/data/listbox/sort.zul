@@ -37,7 +37,7 @@ model.add("dd");
 		</listhead>
 	</listbox>
 
-	<h:h1>auto sorting on fields</h:h1>
+	<h:h1>auto-sorting on fields</h:h1>
 	<zscript>
 		<![CDATA[
 
@@ -84,4 +84,44 @@ class Person {
 			</listitem>
 		</template>
 	</listbox>
+
+	<h:h1>The SortAscending and SortDescending Properties</h:h1>
+	<zscript>
+		import org.zkoss.zul.*;
+		Comparator asc = new ListitemComparator(-1, true, true);
+		Comparator dsc = new ListitemComparator(-1, false, true);
+	</zscript>
+	<listbox width="200px" model="${model}">
+		<listhead>
+			<listheader label="ID" sortAscending="${asc}" sortDescending="${dsc}"/>
+		</listhead>
+	</listbox>
+
+	<h:h1>The onSort Event</h:h1>
+	<listbox width="200px" model="${model}">
+		<listhead>
+			<listheader label="ID" onSort="sort(event)" sortAscending="${asc}" sortDescending="${dsc}"/>
+		</listhead>
+	</listbox>
+	<button label="print list" onClick="print()"/>
+	<zscript><![CDATA[
+	import org.zkoss.zkmax.ui.util.*;
+public void sort(SortEvent e){
+	Toast.show("handle onSort manually");
+	e.stopPropagation();
+}
+
+public void print(){
+	System.out.println(Arrays.toString(model.toArray()));
+}
+	]]></zscript>
+
+	<h:h1>The Sort method</h:h1>
+	<listbox width="200px" model="${model}">
+		<listhead>
+			<listheader id="header" label="ID"  sortAscending="${asc}" sortDescending="${dsc}"/>
+		</listhead>
+	</listbox>
+	<button label="sort asc" onClick="header.sort(true)"/>
+	<button label="sort dsc" onClick="header.sort(false)"/>
 </zk>
