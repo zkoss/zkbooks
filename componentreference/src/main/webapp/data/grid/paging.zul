@@ -28,7 +28,7 @@
     </grid>
     <button label="Next" onClick="next()"/>
     <button label="Previous" onClick="previous()"/>
-    <!-- it works since  9.0.1
+    
     <div viewModel="@id('vm')@init('org.zkoss.reference.component.data.PagingVM')" >
         <grid model="@init(vm.model)" mold="paging" >
             <columns>
@@ -43,5 +43,4 @@
         <button label="Previous" onClick="@command('previous')"/>
         <button label="Next" onClick="@command('next')"/>
     </div>
-    -->
 </zk>
