@@ -1,17 +1,19 @@
 package org.zkoss.reference.developer.mvc.model;
 
+import org.slf4j.*;
 import org.zkoss.zul.AbstractListModel;
 
 import java.util.List;
 
 /**
- * The model only contains the specified page size data at any moment instead of the complete data from the data source.
+ * The model only contains the specified page size of data at any moment instead of the complete data from the data source.
  * @author Hawk
  *
  */
 public class PagingListModel<T> extends AbstractListModel<T> {
 
 	private static final long serialVersionUID = 1015524612541054426L;
+	Logger logger = LoggerFactory.getLogger(PagingListModel.class);
 
 	private final int pageSize;
 	private int totalSize; //the actual number of the data, not the cached page size
@@ -33,11 +35,11 @@ public class PagingListModel<T> extends AbstractListModel<T> {
 		int targetPageIndex = index / pageSize;
 
 		if (currentPageIndex != targetPageIndex){
-			System.out.println(">>> page fault, fetching from DB page index:" + targetPageIndex);
+			logger.debug("page fault, fetching from DB page index:" + targetPageIndex);
 			cachedPage = dataProvider.getData(pageSize, targetPageIndex);
 			currentPageIndex = targetPageIndex;
 		}
-		System.out.println(" getElementAt:" + index);
+		logger.debug(" getElementAt:" + index);
 		return cachedPage.get(offset);
 	}
 
