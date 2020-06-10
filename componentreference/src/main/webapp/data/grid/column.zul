@@ -1,0 +1,30 @@
+<zk>
+	<window title="Grid Demo" border="normal" width="50%">
+		<grid>
+			<columns sizable="true">
+				<column label="Type" hflex="min"/>
+				<column label="Content" />
+			</columns>
+			<rows>
+				<row>
+					<label value="File:" />
+					<textbox width="99%" />
+				</row>
+				<row>
+					<label value="Type:" />
+					<hbox>
+						<listbox mold="select">
+							<listitem label="Java Files,(*.java)" />
+							<listitem label="All Files,(*.*)" />
+						</listbox>
+						<button label="Browse..." />
+					</hbox>
+				</row>
+				<row>
+					<label value="Options:" />
+					<textbox rows="3" width="99%" />
+				</row>
+			</rows>
+		</grid>
+	</window>
+</zk>
