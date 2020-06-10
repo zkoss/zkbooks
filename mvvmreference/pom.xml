@@ -3,17 +3,16 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.zkoss.reference</groupId>
 	<artifactId>mvvm</artifactId>
-	<version>9.0.0-Eval</version>
-<!--	<version>9.0.0.FL.20191205-Eval</version>-->
+	<version>9.0.1.2-Eval</version>
 	<properties>
 		<maven.build.timestamp.format>yyyy-MM-dd</maven.build.timestamp.format>
 		<packname>-0.0.1-SNAPSHOT-FL-${maven.build.timestamp}</packname>
-		<maven.compiler.source>1.7</maven.compiler.source>
-		<maven.compiler.target>1.7</maven.compiler.target>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
 	</properties>
 	<packaging>war</packaging>
 	<name>ZK MVVM Reference source code</name>
-	<description>This project contains source codes used in &quot;ZK MVVM Book&quot;.
+	<description>This project contains source codes used in &quot;ZK MVVM Reference&quot;.
 The package naming convention follows the first level header of the book like org.zkoss.mvvm.[FIRST-LEVEL-HEADER]</description>
 	<licenses>
 		<license>
