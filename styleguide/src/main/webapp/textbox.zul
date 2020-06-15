@@ -1,0 +1,11 @@
+<zk xmlns:h="native">
+
+    <style><![CDATA[
+.z-textbox[disabled]{
+    color: initial !important;
+}
+    ]]>
+
+    </style>
+    <textbox disabled="true" value="non-editable"/>
+</zk>
