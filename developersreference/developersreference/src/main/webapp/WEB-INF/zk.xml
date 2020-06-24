@@ -200,19 +200,19 @@
 		goes through the invisible widgets.
 		Once turned on, the request from an invisible widget is blocked.
 		See also org.zkoss.zkmax.au.IWBS.events
+	-->
 	<listener>
 		<listener-class>org.zkoss.zkmax.au.InaccessibleWidgetBlockService$DesktopInit</listener-class>
 	</listener>
-	-->
 	<!-- [ZK EE]
 		Turn on if you use InaccessibleWidgetBlockService (IWBS) and
 		want to block only particular events.
 		Default: all
+	-->
 	<library-property>
 		<name>org.zkoss.zkmax.au.IWBS.events</name>
 		<value>onClick,onChange,onSelect</value>
 	</library-property>
-	-->
 
 	<!-- [ZK EE]
 		Turn on if you want to recycle the desktop if an user navigates

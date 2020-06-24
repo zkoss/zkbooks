@@ -1,0 +1,5 @@
+<zk>
+    open developer tool and make the invisible components visible, click a component:
+    <button label="invisible" visible="false" onClick='alert("clicked");'/>
+    <datebox visible="false" onClick='alert("clicked");'/>
+</zk>
