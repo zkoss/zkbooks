@@ -1,0 +1,24 @@
+<hlayout viewModel="@id('vm') @init('org.zkoss.mvvm.collection.DragDropVM')">
+	available locales:
+	<listbox  width="400px" model="@bind(vm.availableLocales)" droppable="true" onDrop="@command('deselect')">
+		<listhead>
+			<listheader label="language"/>
+		</listhead>
+		<template name="model" >
+			<listitem draggable="true" >
+				<listcell label="@init(each.language)"/>
+			</listitem>
+		</template>
+	</listbox>
+	<separator orient="vertical" spacing="10px"/>
+	<listbox  width="400px" model="@bind(vm.selectedLocales)" emptyMessage="no data" droppable="true" onDrop="@command('select')">
+		<listhead>
+			<listheader label="language"/>
+		</listhead>
+		<template name="model" >
+			<listitem draggable="true" >
+				<listcell label="@init(each.language)"/>
+			</listitem>
+		</template>
+	</listbox>
+</hlayout>
