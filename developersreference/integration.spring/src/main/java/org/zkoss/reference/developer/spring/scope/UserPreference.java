@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 @Component
 @Scope("session")
 public class UserPreference {
-	private String value = "user preference value";
+	private String value = "my preference value";
 
 	public String getValue() {
 		return value;

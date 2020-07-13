@@ -4,7 +4,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class SystemConfiguration {
-	private String value = "configuration value";
+	private String value = "my configuration";
 
 	public String getValue() {
 		return value;
