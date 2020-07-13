@@ -1,6 +1,6 @@
 <?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
 <zk>
-<window title="Access Bean with different scopes" border="normal" width="700px">
+<window title="Access Bean with different scopes" border="normal" >
 <vlayout>
 	<hlayout>
 		prototype : <label id="prototypeValue">${prototypeBean.value}</label>

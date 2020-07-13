@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>org.zkoss</groupId>
-	<artifactId>reference.developer.integration.spring</artifactId>
+	<groupId>org.zkoss.reference</groupId>
+	<artifactId>integration.spring</artifactId>
 	<packaging>war</packaging>
-	<name>spring-example</name>
-	<version>1.0.0</version>
+	<version>9.1.0-Eval</version>
 	<properties>
-		<zk.version>6.5.0</zk.version>
 		<spring.version>3.0.5.RELEASE</spring.version>
-		<zkspring.version>3.1</zkspring.version>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
 	</properties>
 	<description>a project contains spring integration example code used in developer reference.</description>
 	<repositories>
@@ -45,7 +44,7 @@
 		<dependency>
 			<groupId>org.zkoss.zk</groupId>
 			<artifactId>zkplus</artifactId>
-			<version>${zk.version}</version>
+			<version>${project.version}</version>
 			<exclusions>
 				<exclusion>
 					<groupId>org.acegisecurity</groupId>
@@ -108,7 +107,7 @@
 		<dependency>
 			<groupId>org.zkoss.zk</groupId>
 			<artifactId>zkbind</artifactId>
-			<version>${zk.version}</version>
+			<version>${project.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>cglib</groupId>

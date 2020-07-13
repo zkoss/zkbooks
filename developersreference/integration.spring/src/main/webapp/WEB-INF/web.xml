@@ -143,6 +143,6 @@ Copyright (C) 2004 Potix Corporation. All Rights Reserved.
 	</mime-mapping>
 
 	<welcome-file-list>
-		<welcome-file>order/order.zul</welcome-file>
+		<welcome-file>scopes.zul</welcome-file>
 	</welcome-file-list>
 </web-app>

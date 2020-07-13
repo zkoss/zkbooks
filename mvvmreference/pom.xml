@@ -23,7 +23,7 @@ The package naming convention follows the first level header of the book like or
 	</licenses>
 	<repositories>
 		<repository>
-			<id>zk repository</id>
+			<id>ZK CE</id>
 			<url>http://mavensync.zkoss.org/maven2</url>
 		</repository>
 		<repository>

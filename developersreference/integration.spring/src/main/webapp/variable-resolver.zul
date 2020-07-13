@@ -1,5 +1,5 @@
 <?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
-<window title="Access Bean with different scopes" border="normal" width="700px"
+<window title="Access Bean with different scopes" border="normal"
 	apply="org.zkoss.reference.developer.spring.composer.ResolverComposer">
 	<vlayout>
 		<hlayout>
