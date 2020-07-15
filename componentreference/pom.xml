@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.zkoss.reference</groupId>
 	<artifactId>component</artifactId>
-	<version>9.0.1.2-Eval</version>
+	<version>9.5.0.FL.20200714-Eval</version>
 	<properties>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
@@ -57,6 +57,11 @@
 		<dependency>
 			<groupId>org.zkoss.zk</groupId>
 			<artifactId>zhtml</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.zkoss.zk</groupId>
+			<artifactId>za11y</artifactId>
 			<version>${project.version}</version>
 		</dependency>
 		<dependency>
