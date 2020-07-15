@@ -6,4 +6,7 @@
     <datebox format="M/d/yy KK:mm:ss a" width="250px"/>
     <datebox format="short"/>
     <datebox format="long"/>
+
+    <n:h1>Constraint</n:h1>
+    <datebox format="M/d/yy KK:mm:ss a" constraint="no past;no negative;no zero;no empty"/>
 </zk>
