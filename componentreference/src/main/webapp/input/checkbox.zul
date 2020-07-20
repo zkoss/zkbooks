@@ -1,6 +1,7 @@
-<zk xmlns:n="native">
+<zk xmlns:n="native" xmlns:ca="client/attribute">
+    <checkbox checked="true" disabled="true"/>
     <n:h1>toggle</n:h1>
-    <checkbox mold="toggle"/>
+    <checkbox mold="toggle" />
     <checkbox mold="toggle" checked="true"/>
     <n:h1>custom style</n:h1>
     <div sclass="custom">
