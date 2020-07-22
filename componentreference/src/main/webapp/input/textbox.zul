@@ -1,4 +1,4 @@
-<zk>
+<zk xmlns:h="native" xmlns:ca="client/attribute">
     <textbox value="text..." />
     <textbox value="secret" type="password" />
     <textbox constraint="/.+@.+\.[a-z]+/: Please enter an e-mail address" />
@@ -10,4 +10,13 @@
     </textbox>
     <textbox value="Line 1&#x0d;Line 2" rows="3"/>
     <textbox tabbable="true"/>
+
+    <h:h1>Label for Textbox</h:h1>
+    <h:label>Address
+        <textbox/>
+    </h:label>
+
+    <custom-attributes field="Account:"/>
+    ${field}
+    <textbox ca:aria-label="${field}"/>
 </zk>
