@@ -1,0 +1,50 @@
+<zk xmlns:h="native">
+    <vlayout>
+        <radiogroup onCheck="fruit.value = self.selectedItem.label">
+            <radio label="Apple"/>
+            <radio label="Orange"/>
+            <radio label="Banana"/>
+        </radiogroup>
+        You have selected :
+        <label id="fruit" style="color:red"/>
+    </vlayout>
+
+    <h:h1>Separate Radiogroup and Radio</h:h1>
+    <radiogroup id="popular"/>
+    <radiogroup id="fun"/>
+    <grid>
+        <columns>
+            <column label="Question"/>
+            <column label="Option 1"/>
+            <column label="Option 2"/>
+            <column label="Option 3"/>
+            <column label="Comment"/>
+        </columns>
+        <rows>
+            <row>
+                Most popular
+                <radio label="Java" radiogroup="popular"/>
+                <radio label="Groovy" radiogroup="popular"/>
+                <radio label="C#" radiogroup="popular"/>
+                <textbox/>
+            </row>
+            <row>
+                Most fun
+                <radio label="Open Source" radiogroup="fun"/>
+                <radio label="Social Networking" radiogroup="fun"/>
+                <radio label="Searching" radiogroup="fun"/>
+                <textbox/>
+            </row>
+        </rows>
+    </grid>
+
+    <h:h1>Live Data</h:h1>
+    <zscript><![CDATA[
+        String[] data = new String[5];
+        for(int j=0; j < data.length; ++j) {
+            data[j] = "option "+j;
+        }
+        ListModel strset = new SimpleListModel(data);
+        ]]></zscript>
+    <radiogroup  model="${strset}" />
+</zk>
