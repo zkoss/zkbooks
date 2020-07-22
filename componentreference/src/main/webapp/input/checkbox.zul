@@ -3,6 +3,7 @@
     <n:h1>toggle</n:h1>
     <checkbox mold="toggle" />
     <checkbox mold="toggle" checked="true"/>
+    <checkbox mold="toggle" disabled="true"/>
     <n:h1>custom style</n:h1>
     <div sclass="custom">
         <style>
@@ -42,7 +43,7 @@
     </div>
     <n:h1>3 states</n:h1>
 
-    <checkbox checked="false" label="unchecked"/>
-    <checkbox indeterminate="true" checked="true" label="indeterminate"/>
-    <checkbox checked="true" label="checked"/>
+    <checkbox id="cb" checked="false" label="" onAfterSize="self.setIndeterminate(true)"/>
+    <checkbox indeterminate="true" checked="true" />ca:aria-checked="mixed"
+    <checkbox checked="true" label=""/>
 </zk>
