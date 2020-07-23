@@ -1,0 +1,8 @@
+<zk xmlns:h="native">
+    <h:h1>Usage</h:h1>
+    <panel height="20%" title="Panel1" border="normal" maximizable="true" closable="true"
+           collapsible="true" minimizable="true">
+        <caption iconSclass="z-icon-home"/>
+        <panelchildren>PanelContent</panelchildren>
+    </panel>
+</zk>
