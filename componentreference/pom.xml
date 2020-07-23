@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.zkoss.reference</groupId>
 	<artifactId>component</artifactId>
-	<version>9.5.0.FL.20200714-Eval</version>
+	<version>9.5.0.FL.20200721-Eval</version>
 	<properties>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
@@ -12,7 +12,7 @@
 	</properties>
 	<packaging>war</packaging>
 	<name>The Component Reference Example Project</name>
-	<description>The reference.component Project</description>
+	<description>The example code mentioned in ZK Component Reference</description>
 	<licenses>
 		<license>
 			<name>GNU LESSER GENERAL PUBLIC LICENSE, Version 3</name>
