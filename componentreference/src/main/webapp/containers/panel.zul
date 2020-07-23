@@ -1,8 +1,26 @@
-<zk xmlns:h="native">
+<zk xmlns:h="native" xmlns:c="client">
     <h:h1>Usage</h:h1>
     <panel height="20%" title="Panel1" border="normal" maximizable="true" closable="true"
            collapsible="true" minimizable="true">
         <caption iconSclass="z-icon-home"/>
         <panelchildren>PanelContent</panelchildren>
     </panel>
+
+    <h:h1>Scrollable</h:h1>
+    <panel title="Scrollable" height="200px">
+        <panelchildren style="overflow: auto">
+            <div style="background: #999966" height="195px" />
+            <div style="background: #669999">Div Content</div>
+        </panelchildren>
+    </panel>
+
+    <h:h1>Extra Icon</h:h1>
+    <panel height="20%" title="Panel1" border="normal" maximizable="true" closable="true" c:onBind="addIcon()" >
+        <panelchildren>PanelContent</panelchildren>
+    </panel>
+    <script><![CDATA[
+function addIcon(){
+    jq('<div class="z-panel-icon"><i class="z-icon-home"></i></div>').insertAfter('.z-panel-maximize');
+}
+    ]]></script>
 </zk>
