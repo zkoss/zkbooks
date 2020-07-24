@@ -14,13 +14,25 @@
         </panelchildren>
     </panel>
 
+
     <h:h1>Extra Icon</h:h1>
-    <panel height="20%" title="Panel1" border="normal" maximizable="true" closable="true" c:onBind="addIcon()" >
-        <panelchildren>PanelContent</panelchildren>
+    <style>
+        .custom .z-caption-content{
+            display: flex;
+        }
+        .custom .z-label{
+            flex-grow: 1;
+        }
+    </style>
+    <panel title="Custom Icon" border="normal" sclass="custom">
+        <caption>
+            <label value="title"/>
+            <div  zclass="z-panel-icon">
+                <h:i class="z-icon-expand"/>
+            </div>
+            <div  zclass="z-panel-icon">
+                <h:i class="z-icon-trash"/>
+            </div>
+        </caption>
     </panel>
-    <script><![CDATA[
-function addIcon(){
-    jq('<div class="z-panel-icon"><i class="z-icon-home"></i></div>').insertAfter('.z-panel-maximize');
-}
-    ]]></script>
 </zk>
