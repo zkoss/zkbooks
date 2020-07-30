@@ -19,4 +19,8 @@
     <custom-attributes field="Account:"/>
     ${field}
     <textbox ca:aria-label="${field}"/>
+
+    <label value="price" id="priceLabel"/>
+    <textbox ca:aria-labelledby="${priceLabel.uuid}"/>
+
 </zk>

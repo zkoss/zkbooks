@@ -42,8 +42,7 @@
         <checkbox mold="switch" checked="true"/>
     </div>
     <n:h1>3 states</n:h1>
+    <checkbox indeterminate="true" checked="true" />
 
-    <checkbox id="cb" checked="false" label="" onAfterSize="self.setIndeterminate(true)"/>
-    <checkbox indeterminate="true" checked="true" />ca:aria-checked="mixed"
-    <checkbox checked="true" label=""/>
+
 </zk>
