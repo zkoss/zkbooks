@@ -1,0 +1,6 @@
+<zk>
+    <decimalbox value="155"/>
+    <decimalbox format="#,##0.##" value="123456.78"/>
+
+    <decimalbox id="box" constraint="no negative,no empty"/>
+</zk>

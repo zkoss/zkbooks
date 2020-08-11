@@ -1,0 +1,7 @@
+<zk xmlns:ca="client/attribute">
+    <a label="OK" autodisable="self" />
+
+    <a id="ok" label="OK" autodisable="ok,cancel" />
+    <a id="cancel" label="Cancel" autodisable="ok,cancel" />
+    <a label="submit" disabled="true" href="https://www.zkoss.org"/>
+</zk>

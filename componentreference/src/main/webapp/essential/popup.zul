@@ -1,0 +1,10 @@
+<zk>
+    <label value="Tooptip for Another Popup" tooltip="any" />
+    <popup id="any" width="300px">
+        <vlayout>
+            ZK simply rich.
+            <toolbarbutton label="ZK your killer Web application now!"
+                           href="http://www.zkoss.org" />
+        </vlayout>
+    </popup>
+</zk>

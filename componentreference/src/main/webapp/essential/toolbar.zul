@@ -1,10 +1,10 @@
 <zk>
-    <window title="Toolbar window" border="normal" width="300px" style="margin: 20px">
+    <window title="Toolbar window" border="normal" style="margin: 20px">
         <toolbar>
-            <toolbarbutton label="Left"/>
+            <toolbarbutton label="Left" iconSclass="z-icon-align-left" onClick='org.zkoss.zk.ui.util.Notification.show(self.label);'/>
             <space/>
             <toolbarbutton label="Right" iconSclass="z-icon-align-right"
-                           dir="reverse"/>
+                           dir="reverse" onClick='org.zkoss.zk.ui.util.Notification.show(self.label);'/>
         </toolbar>
         <toolbar orient="vertical">
             <button label="Left" width="125px"/>
@@ -15,10 +15,18 @@
 
     <toolbar overflowPopup="true" width="350px" style="border: 1px black solid;">
         <toolbarbutton label="one" iconSclass="z-icon-home"/>
-        <toolbarbutton label="two" iconSclass="z-icon-home"/>
-        <toolbarbutton label="three" iconSclass="z-icon-home"/>
-        <toolbarbutton label="four" iconSclass="z-icon-home"/>
-        <toolbarbutton label="five" iconSclass="z-icon-home"/>
-        <toolbarbutton label="six" iconSclass="z-icon-home"/>
+        <toolbarbutton label="two" iconSclass="z-icon-file"/>
+        <toolbarbutton label="three" iconSclass="z-icon-address-book"/>
+        <toolbarbutton label="four" iconSclass="z-icon-meetup"/>
+        <toolbarbutton label="five" iconSclass="z-icon-user-circle"/>
+        <toolbarbutton label="six" iconSclass="z-icon-anchor"/>
+    </toolbar>
+    <toolbar>
+        <toolbarbutton label="one" />
+        <toolbarbutton label="two" />
+        <toolbarbutton label="three"  disabled="true"/>
+        <toolbarbutton label="four" />
+        <toolbarbutton label="five" />
+        <toolbarbutton label="six" disabled="true" />
     </toolbar>
 </zk>

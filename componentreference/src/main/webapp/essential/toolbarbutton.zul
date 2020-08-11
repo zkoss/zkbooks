@@ -1,0 +1,36 @@
+<zk xmlns:h="native">
+    <window title="toolbar demo" border="normal" >
+        <caption>
+            <toolbarbutton label="button3" image="/img/network.gif" />
+            <space />
+            <toolbarbutton label="button4" image="/img/network.gif"
+                           dir="reverse" />
+        </caption>
+        <toolbar>
+            <toolbarbutton label="button1" image="/img/network.gif" />
+            <space />
+            <toolbarbutton label="button2" image="/img/network.gif" />
+        </toolbar>
+        <hbox>
+            <toolbarbutton label="button5" image="/img/network.gif"
+                           orient="vertical" />
+            <space />
+            <toolbarbutton label="button6" image="/img/network.gif"
+                           orient="vertical" dir="reverse" />
+        </hbox>
+    </window>
+    <toolbar>
+        <toolbarbutton label="one" />
+        <toolbarbutton label="two" />
+        <toolbarbutton label="three"  disabled="true"/>
+        <toolbarbutton label="four" />
+        <toolbarbutton label="five" />
+        <toolbarbutton label="six" disabled="true" />
+    </toolbar>
+    <h:h1>Toggle Mode</h:h1>
+    <toolbar>
+        <toolbarbutton label="toggle 1" mode="toggle"/>
+        <toolbarbutton label="toggle 2" mode="toggle"/>
+    </toolbar>
+    <button disabled="true" label="disabled"/>
+</zk>
