@@ -1,0 +1,47 @@
+<zk xmlns:h="native">
+    <panel height="20%"  style="margin-bottom:10px"
+           title="Panel1" border="normal" maximizable="true" closable="true"
+           collapsible="true">
+        <caption iconSclass="z-icon-home"/>
+        <panelchildren>PanelContent</panelchildren>
+    </panel>
+
+    <h:h1>Sizable</h:h1>
+    <panel sizable="true" id="panel" framable="true" width="500px" height="400px"
+           title="Panel"
+           maximizable="true" minimizable="true" border="normal"
+           collapsible="true" closable="true">
+        <panelchildren>
+            <textbox width="100%" height="100%" />
+        </panelchildren>
+    </panel>
+
+    <h:h1>Scrollable</h:h1>
+    <panel height="200px" title="Scrollable" border="normal">
+        <panelchildren style="overflow: auto">
+            <div height="300px">panel Content</div>
+        </panelchildren>
+    </panel>
+
+    <h:h1>Toolbar positions</h:h1>
+    <panel framable="true" width="500px" height="550px"
+           title="Panel component" floatable="true" movable="true"
+           maximizable="true" minimizable="true" border="normal"
+           collapsible="true" closable="true">
+        <toolbar>
+            <!-- Top Toolbar of the panel -->
+            <toolbarbutton label="top"/>
+        </toolbar>
+        <panelchildren>
+            ... // Each added child will show into the body content of the panel
+        </panelchildren>
+        <toolbar>
+            <toolbarbutton label="bottom"/>
+            <!--            Bottom Toolbar of the panel-->
+        </toolbar>
+        <toolbar>
+            <button label="foot"/>
+<!--            Foot Toolbar of the panel-->
+        </toolbar>
+    </panel>
+</zk>

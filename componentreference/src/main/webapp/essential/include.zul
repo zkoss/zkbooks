@@ -1,4 +1,7 @@
-<zk>
+<zk xmlns:h="native">
     <include src="includedHello.zul" argument="${anyValue}" other="${anotherValue}" />
     <include src="mypage.html?some=any" />
+
+    <h:h1>Enclosing Tag</h:h1>
+    <include src="footer.zul" enclosingTag="footer"/>
 </zk>
