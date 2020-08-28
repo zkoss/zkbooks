@@ -1,0 +1,12 @@
+<zk>
+    <cardlayout id="card" width="300px" height="200px" style="border:3px solid orange" selectedIndex="1">
+        <div vflex="1" hflex="1" style="background-color:yellow;padding:20px">card 1</div>
+        <div vflex="1" hflex="1" style="background-color:green;padding:20px">card 2</div>
+        <div vflex="1" hflex="1" style="background-color:skyblue;padding:20px">card 3</div>
+    </cardlayout>
+    <hlayout>
+        <button onClick="card.previous()">previous</button>
+        <button onClick="card.next()">next</button>
+        <button onClick='card.setOrient("horizontal".equals(card.getOrient()) ? "vertical" : "horizontal")'>change orient</button>
+    </hlayout>
+</zk>
