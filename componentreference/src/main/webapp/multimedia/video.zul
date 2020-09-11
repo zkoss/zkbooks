@@ -10,6 +10,12 @@
     <div viewModel="@id('vm')@init('org.zkoss.reference.component.multimedia.VideoVM')">
     <video src="zk.mp4"  controls="true" onStateChange="@command('stateChange')" />
     </div>
+
     <n:h1>streaming</n:h1>
     <video src="http://yt-dash-mse-test.commondatastorage.googleapis.com/media/car-20120827-85.mp4" controls="true"/>
+
+    <n:h1>track</n:h1>
+    <video src="zk.mp4"  controls="true">
+        <track kind="captions" srclang="en" src="sub.vtt"/>
+    </video>
 </zk>
