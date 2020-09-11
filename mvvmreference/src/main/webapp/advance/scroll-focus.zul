@@ -1,0 +1,29 @@
+<zk xmlns:h="native">
+    <h:h1>Focus - Scroll Into View Usage</h:h1>
+    <nodom viewModel="@id('vm')@init('org.zkoss.mvvm.advance.ScrollFocusVM')">
+        <textbox value="@(selectorString)" placeholder="selector syntax"/>
+        <button label="focus" onClick="@('focus')"/>
+        <button label="scroll in view" onClick="@('scroll')"/>
+        <groupbox title="examples">
+        listitem:nth-child(50)  checkbox  datebox
+        </groupbox>
+        <separator height="10px"/>
+        <button label="focus textbox" onClick="@('focusTextbox')"/>
+        <button label="focus listitem" onClick="@('focusListitem')"/>
+        <separator height="50px"/>
+        <textbox/>
+        <custom-attributes org.zkoss.zul.listbox.rod="false"/>
+        <listbox model="@(dataModel)" height="800px">
+            <template name="model">
+                <listitem>
+                    <listcell label="${forEachStatus.index}"/>
+                    <listcell label="${each}"/>
+                </listitem>
+            </template>
+        </listbox>
+        <separator height="10px"/>
+        <checkbox label=""/>
+        <!-- invisible -->
+        <datebox visible="false"/>
+    </nodom>
+</zk>
