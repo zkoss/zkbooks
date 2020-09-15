@@ -90,13 +90,17 @@
 		<plugins>
 			<!-- Run with Jetty -->
 			<plugin>
-				<groupId>org.mortbay.jetty</groupId>
+				<!-- starts up faster but no JSP, JSF supported	-->
+				<groupId>org.eclipse.jetty</groupId>
 				<artifactId>jetty-maven-plugin</artifactId>
-				<version>7.6.8.v20121106</version>
+				<version>9.4.27.v20200227</version>
 				<configuration>
+					<jvmArgs>-Xmx4096m</jvmArgs>
 					<webAppConfig>
 						<contextPath>/${project.artifactId}</contextPath>
-						<allowDuplicateFragmentNames>true</allowDuplicateFragmentNames>
+						<!-- disable web fragment scanning to speed up startup time-->
+						<webInfIncludeJarPattern>^$</webInfIncludeJarPattern>
+						<containerIncludeJarPattern>^$</containerIncludeJarPattern>
 					</webAppConfig>
 					<scanIntervalSeconds>5</scanIntervalSeconds>
 				</configuration>
