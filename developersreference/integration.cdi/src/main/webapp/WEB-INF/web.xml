@@ -13,7 +13,7 @@ Copyright (C) 2004 Potix Corporation. All Rights Reserved.
 
 <web-app version="2.4" xmlns="http://java.sun.com/xml/ns/j2ee"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"> 
+ xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
 
 	<description><![CDATA[CDI example]]></description>
 	<display-name>ZK CDI example</display-name>
@@ -24,7 +24,14 @@ Copyright (C) 2004 Potix Corporation. All Rights Reserved.
 		<description>ZK listener for session cleanup</description>
 		<listener-class>org.zkoss.zk.ui.http.HttpSessionListener</listener-class>
 	</listener>
-	
+	<servlet>
+		<servlet-name>hello</servlet-name>
+		<servlet-class>MainServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>hello</servlet-name>
+		<url-pattern>/hello</url-pattern>
+	</servlet-mapping>
 	<servlet>
 		<description>ZK loader for ZUML pages</description>
 		<servlet-name>zkLoader</servlet-name>
@@ -70,7 +77,8 @@ Copyright (C) 2004 Potix Corporation. All Rights Reserved.
 		<url-pattern>*.dsp</url-pattern>
 	</servlet-mapping>
 
-	<!-- Weld CDI bootstrap 
+	<!-- Weld CDI bootstrap
+	https://docs.jboss.org/weld/reference/2.0.1.Final/en-US/html/environments.html
 	-->
 	<listener>
 		<listener-class>org.jboss.weld.environment.servlet.Listener</listener-class>
