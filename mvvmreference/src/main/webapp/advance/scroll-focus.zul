@@ -5,15 +5,22 @@
         <button label="focus" onClick="@('focus')"/>
         <button label="scroll in view" onClick="@('scroll')"/>
         <groupbox title="examples">
-        listitem:nth-child(50)  checkbox  datebox
+            <hlayout stubonly="true">
+                <button label="listitem:nth-child(50)" onClick="@('setSelector', selector=self.label)"/>
+                <button label="checkbox" onClick="@('setSelector', selector=self.label)"/>
+                <button label="datebox" onClick="@('setSelector', selector=self.label)"/>
+                <button label="treeitem:nth-child(1)" onClick="@('setSelector', selector=self.label)"/>
+            </hlayout>
         </groupbox>
         <separator height="10px"/>
         <button label="focus textbox" onClick="@('focusTextbox')"/>
         <button label="focus listitem" onClick="@('focusListitem')"/>
         <separator height="50px"/>
         <textbox/>
+
+        <h:h2>Works with ROD disabled</h:h2>
         <custom-attributes org.zkoss.zul.listbox.rod="false"/>
-        <listbox model="@(dataModel)" height="800px">
+        <listbox model="@(dataModel)" height="800px" width="80%">
             <template name="model">
                 <listitem>
                     <listcell label="${forEachStatus.index}"/>
@@ -22,8 +29,24 @@
             </template>
         </listbox>
         <separator height="10px"/>
-        <checkbox label=""/>
         <!-- invisible -->
+        <h:h2>Can't focus/scroll into an invisible component</h:h2>
         <datebox visible="false"/>
+        <tree viewModel="@id('vm') @init('org.zkoss.mvvm.collection.TreeVM')" model="@init(vm.itemTree)" width="80%" >
+            <treecols>
+                <treecol label="name" />
+                <treecol label="index" />
+            </treecols>
+            <template name="model" var="node" status="s">
+                <treeitem>
+                    <treerow>
+                        <treecell label="@init(node.data)" />
+                        <treecell label="@init(s.index)" />
+                    </treerow>
+                </treeitem>
+            </template>
+        </tree>
     </nodom>
+    <h:h2>Focus/Scroll to a component out of the visible range</h:h2>
+    <checkbox label=""/>
 </zk>

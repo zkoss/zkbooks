@@ -1,5 +1,6 @@
 package org.zkoss.mvvm.advance;
 
+import org.zkoss.bind.annotation.NotifyChange;
 import org.zkoss.zk.ui.util.Clients;
 import org.zkoss.zul.ListModelList;
 
@@ -19,6 +20,11 @@ public class ScrollFocusVM {
 
     public void focusListitem(){
         Clients.focus("listitem:nth-child(50)");
+    }
+
+    @NotifyChange("selectorString")
+    public void setSelector(String selector){
+        this.selectorString = selector;
     }
 
     public void focus(){
