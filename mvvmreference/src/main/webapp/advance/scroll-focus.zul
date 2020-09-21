@@ -1,4 +1,10 @@
 <zk xmlns:h="native">
+    <style>
+        :focus {
+            box-shadow: 0 0 3px 3px lightpink;
+            background-color: lightyellow;
+        }
+    </style>
     <h:h1>Focus - Scroll Into View Usage</h:h1>
     <nodom viewModel="@id('vm')@init('org.zkoss.mvvm.advance.ScrollFocusVM')">
         <textbox value="@(selectorString)" placeholder="selector syntax"/>
@@ -9,7 +15,7 @@
                 <button label="listitem:nth-child(50)" onClick="@('setSelector', selector=self.label)"/>
                 <button label="checkbox" onClick="@('setSelector', selector=self.label)"/>
                 <button label="datebox" onClick="@('setSelector', selector=self.label)"/>
-                <button label="treeitem:nth-child(1)" onClick="@('setSelector', selector=self.label)"/>
+                <button label="treeitem[label='B1']" onClick="@('setSelector', selector=self.label)"/>
             </hlayout>
         </groupbox>
         <separator height="10px"/>
@@ -35,14 +41,9 @@
         <tree viewModel="@id('vm') @init('org.zkoss.mvvm.collection.TreeVM')" model="@init(vm.itemTree)" width="80%" >
             <treecols>
                 <treecol label="name" />
-                <treecol label="index" />
             </treecols>
             <template name="model" var="node" status="s">
-                <treeitem>
-                    <treerow>
-                        <treecell label="@init(node.data)" />
-                        <treecell label="@init(s.index)" />
-                    </treerow>
+                <treeitem label="@init(node.data)">
                 </treeitem>
             </template>
         </tree>
