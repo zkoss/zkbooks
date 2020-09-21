@@ -1,5 +1,4 @@
-<window apply="org.zkoss.bind.BindComposer"
-	viewModel="@id('vm') @init('org.zkoss.mvvm.collection.TreeVM')">
+<window viewModel="@id('vm') @init('org.zkoss.mvvm.collection.TreeVM')">
 	<tree model="@init(vm.itemTree)" width="400px" >
 		<treecols>
 			<treecol label="name" />

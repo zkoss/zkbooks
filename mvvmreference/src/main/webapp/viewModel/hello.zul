@@ -1,0 +1,10 @@
+<zk>
+    <vlayout viewModel="@id('vm')@init('org.zkoss.mvvm.viewmodel.HelloVM')">
+        <hlayout>
+            Your name: <textbox value="@bind(vm.name)"/>
+        </hlayout>
+        <hlayout>
+        Hello! <label value="@load(vm.name)"/>
+        </hlayout>
+    </vlayout>
+</zk>
