@@ -1,0 +1,40 @@
+<zk xmlns:h="native">
+    <h:h1>Standard Syntax</h:h1>
+    <vlayout viewModel="@id('vm')@init('org.zkoss.mvvm.viewmodel.HelloVM')">
+        <button label="hello world" onClick="@command('hello')"/>
+        <hlayout>
+            Your name:
+            <textbox value="@bind(vm.name)"/>
+        </hlayout>
+        <hlayout>
+            <label value="@init(vm.greeting)"/>
+            <label value="@load(vm.name)"/>
+        </hlayout>
+    </vlayout>
+
+    <h:h1>Simplified Syntax</h:h1>
+    <vlayout viewModel="@('org.zkoss.mvvm.viewmodel.HelloVM')">
+        <button label="hello world" onClick="@('hello')"/>
+        <hlayout>
+            Your name:
+            <textbox value="@bind(name)"/>
+        </hlayout>
+        <hlayout>
+            <label value="@(greeting)"/>
+            <label value="@load(name)"/>
+        </hlayout>
+    </vlayout>
+
+    <h:h1>Mixed Simplified and Standard Syntax</h:h1>
+    <vlayout viewModel="@('org.zkoss.mvvm.viewmodel.HelloVM')">
+        <hlayout>
+            Your name:
+            <textbox value="@bind(vm.name)"/>
+        </hlayout>
+        <hlayout>
+            <label value="@init(greeting)"/>
+            <label value="@load(vm.name)"/>
+        </hlayout>
+    </vlayout>
+
+</zk>

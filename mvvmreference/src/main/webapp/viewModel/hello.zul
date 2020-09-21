@@ -4,7 +4,7 @@
             Your name: <textbox value="@bind(vm.name)"/>
         </hlayout>
         <hlayout>
-        Hello! <label value="@load(vm.name)"/>
+        <label value="@init(vm.greeting)"/><label value="@load(vm.name)"/>
         </hlayout>
     </vlayout>
 </zk>
