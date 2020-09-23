@@ -1,0 +1,24 @@
+<zk>
+    <nodom viewModel="@('org.zkoss.mvvm.parameters.ParametersVM')">
+
+    <grid id="outergrid" width="700px" model="@bind(vm.items)">
+        <columns>
+            <column label="index"/>
+            <column label="name"/>
+            <column label="action" width="300px"/>
+        </columns>
+
+        <template name="model" var="item">
+            <row>
+                <label value="@bind(itemStatus.index)"/>
+                <label value="@bind(item)"/>
+                <hbox>
+                    <button label="Index" onClick="@command('showIndex', index=itemStatus.index)"/>
+                    <button label="Delete" onClick="@command('delete', item=item)"/>
+                </hbox>
+            </row>
+        </template>
+    </grid>
+        <label value="@load(vm.message)"/>
+    </nodom>
+</zk>

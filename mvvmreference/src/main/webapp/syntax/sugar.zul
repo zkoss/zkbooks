@@ -12,29 +12,16 @@
         </hlayout>
     </vlayout>
 
-    <h:h1>Simplified Syntax</h:h1>
+    <h:h1>Shortcut Syntax</h:h1>
     <vlayout viewModel="@('org.zkoss.mvvm.viewmodel.HelloVM')">
         <button label="hello world" onClick="@('hello')"/>
-        <hlayout>
-            Your name:
-            <textbox value="@bind(name)"/>
-        </hlayout>
-        <hlayout>
-            <label value="@(greeting)"/>
-            <label value="@load(name)"/>
-        </hlayout>
-    </vlayout>
-
-    <h:h1>Mixed Simplified and Standard Syntax</h:h1>
-    <vlayout viewModel="@('org.zkoss.mvvm.viewmodel.HelloVM')">
         <hlayout>
             Your name:
             <textbox value="@bind(vm.name)"/>
         </hlayout>
         <hlayout>
-            <label value="@init(greeting)"/>
+            <label value="@(vm.greeting)"/>
             <label value="@load(vm.name)"/>
         </hlayout>
     </vlayout>
-
 </zk>
