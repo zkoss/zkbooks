@@ -59,11 +59,13 @@
 			<artifactId>zhtml</artifactId>
 			<version>${project.version}</version>
 		</dependency>
+<!--
 		<dependency>
 			<groupId>org.zkoss.zk</groupId>
 			<artifactId>za11y</artifactId>
 			<version>${project.version}</version>
 		</dependency>
+-->
 		<dependency>
 			<groupId>org.zkoss.zkforge</groupId>
 			<artifactId>gmapsz</artifactId>
