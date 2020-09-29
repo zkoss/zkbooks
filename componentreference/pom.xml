@@ -93,7 +93,7 @@
 				<!-- starts up faster but no JSP, JSF supported	-->
 				<groupId>org.eclipse.jetty</groupId>
 				<artifactId>jetty-maven-plugin</artifactId>
-				<version>9.4.27.v20200227</version>
+				<version>9.4.31.v20200723</version>
 				<configuration>
 					<jvmArgs>-Xmx4096m</jvmArgs>
 					<webAppConfig>
@@ -103,6 +103,8 @@
 						<containerIncludeJarPattern>^$</containerIncludeJarPattern>
 					</webAppConfig>
 					<scanIntervalSeconds>5</scanIntervalSeconds>
+				<!-- http://juplo.de/configure-https-for-jetty-maven-plugin-9-0-x/	-->
+					<jettyXml>jetty.xml,jetty-http.xml, jetty-ssl.xml,jetty-https.xml</jettyXml>
 				</configuration>
 			</plugin>
 		</plugins>
