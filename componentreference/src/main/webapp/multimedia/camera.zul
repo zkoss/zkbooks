@@ -1,4 +1,4 @@
-<zk xmlns:n="native">
+<zk xmlns:h="native">
 <style>
     .z-camera-pause{
         width: 30px;
@@ -51,4 +51,7 @@
             Clients.log(media.getName());
         </attribute>
     </button>
+    <h:h1>Enforce Specific Camera</h:h1>
+    <camera height="300px" width="400px" maxsize="-1" lengthLimit="60"
+            constraintsString='{"video": {    "facingMode": {      "exact": "user"    }}}'/>
 </zk>

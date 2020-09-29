@@ -1,0 +1,28 @@
+<zk xmlns:h="native">
+    <button popup="popup_id"/>
+    <button tooltip="popup_id"/>
+    <button context="popup_id"/>
+
+    <label value="Tooptip for Another Popup" tooltip="any" />
+    <popup id="any" width="300px">
+        <vlayout>
+            ZK simply rich.
+            <toolbarbutton label="ZK your killer Web application now!"
+                           href="http://www.zkoss.org" />
+        </vlayout>
+    </popup>
+
+    <h:h1>Position</h:h1>
+    <button label="show a relative position popup" popup="popup_id, position=overlap_end"/>
+    <button label="show a popup by coordinate" popup="popup_id, x=50,y=50"/>
+    <popup id="popup_id">
+        this is a popup
+    </popup>
+
+    <h:h1>Toggle</h:h1>
+    <button label="Popup" popup="popup_id, type=toggle"/>
+
+    <h:h1>Delay</h:h1>
+    <label value="Tooltip" tooltip="popup_id, position=before_start, delay=500"/>
+
+</zk>

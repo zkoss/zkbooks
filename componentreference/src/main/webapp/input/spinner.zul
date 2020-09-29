@@ -1,0 +1,19 @@
+<zk xmlns:n="native">
+
+    <n:h1>Example</n:h1>
+    <spinner/>
+    <spinner disabled="true"/>
+
+    <n:h1>In-place Editing</n:h1>
+    <spinner width="100px" inplace="true" value="30" />
+
+    <n:h1>Format</n:h1>
+    <spinner format="#,##0.##"/>
+    <spinner format="locale:zh-TW"/>
+
+
+    <n:h1>Constraint</n:h1>
+    <spinner constraint="no empty,min -2 max 6: between -2 to 6"/>
+
+    <n:input type="number" role="spinbutton"/>
+</zk>

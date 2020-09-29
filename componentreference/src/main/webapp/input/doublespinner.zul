@@ -1,0 +1,11 @@
+<zk xmlns:n="native">
+
+    <n:h1>Example</n:h1>
+    <doublespinner step="0.5" />
+
+    <n:h1>In-place Editing</n:h1>
+    <doublespinner width="100px" inplace="true" value="30" />
+
+    <n:h1>Constraint</n:h1>
+    <doublespinner step="0.5" constraint="no empty,min -2.5 max 6.5"/>
+</zk>

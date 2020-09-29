@@ -1,18 +1,30 @@
-<zk xmlns:n="native" xmlns:ca="client/attribute">
+<zk xmlns:h="native" xmlns:ca="client/attribute">
+    <h:h1>Mode</h:h1>
     <window title="Embedded Style" border="normal" width="200px">Hello,
         Embedded!
-    </window>
-    <window title="Overlapped Style" mode="overlapped" border="normal"
-            width="200px">Hello, Overlapped!
     </window>
     <window title="Popup Style" mode="popup" border="normal"
             width="200px">Hello, Popup!
     </window>
-
-    <window title="Modal Style" mode="modal" border="normal"
-            width="200px">Hello, Modal!
+<!--
+    <window title="Overlapped Style" mode="overlapped" border="normal"
+            width="200px">Hello, Overlapped!
     </window>
     <window title="Highlight Style" mode="highlighted" border="normal"
             width="200px">Hello, Highlighted!
+    </window>
+-->
+    <window title="Modal Style" mode="modal" border="normal"
+            width="200px"   closable="true" contentStyle="overflow:auto">
+         hello, modal
+    </window>
+    <h:h1>Closable</h:h1>
+    <window closable="true" title="Detach on Close" border="normal" width="200px"
+            onClose="self.visible = false; event.stopPropagation();">
+        In this example, this window hides itself when the close button is clicked.
+    </window>
+    <h:h1>contentStyle</h:h1>
+    <window title="Scrollable content" height="200px" contentStyle="overflow:auto" sizable="true">
+        <div height="300px">focusable content, scroll up/down with arrow keys</div>
     </window>
 </zk>

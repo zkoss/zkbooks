@@ -1,0 +1,11 @@
+<?import org.zkoss.zk.ui.util.*?>
+<zk xmlns:h="native">
+
+    <h:h1>Notification</h:h1>
+    <zscript><![CDATA[
+String msg = "this is a notification";
+    ]]></zscript>
+<button label="notification info" onClick="Notification.show(msg)"/>
+<button label="notification warning" onClick='Notification.show(msg, Notification.TYPE_WARNING, null, "middle_center", 5000)'/>
+<button label="notification error" onClick='Notification.show(msg, Notification.TYPE_ERROR, null, "middle_center", 5000)'/>
+</zk>

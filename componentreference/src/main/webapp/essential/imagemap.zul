@@ -1,0 +1,3 @@
+<zk xmlns:ca="client/attribute">
+    <imagemap src="/multimedia/zklogo3.png" onClick="alert(event.x + &quot;, &quot; +event.y)" ca:alt="logo"/>
+</zk>

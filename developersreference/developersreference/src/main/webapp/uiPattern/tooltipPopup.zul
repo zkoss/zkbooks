@@ -1,0 +1,9 @@
+<zk xmlns:h="native">
+    <h:h1>Specify Reference Component</h:h1>
+    <textbox id="address" placeholder="target address" style="margin-bottom: 30px; display:block"/>
+    <button label="show more" popup="pp, ref=address, position=end_after"/>
+
+    <popup id="pp">
+        more info
+    </popup>
+</zk>

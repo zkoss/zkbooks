@@ -1,0 +1,16 @@
+<zk xmlns:h="native" xmlns:ca="client/attribute">
+    <h:h1>Label an Input Component</h:h1>
+    <h:h2>Enclose with a label</h:h2>
+    <h:label>Address
+        <textbox/>
+    </h:label>
+
+    <h:h2>Specify at aria-label</h:h2>
+    <custom-attributes field="Account:"/>
+    ${field}
+    <textbox ca:aria-label="${field}"/>
+
+    <h:h2>specify at aria-labelledby</h:h2>
+    <label value="price" id="priceLabel"/>
+    <textbox ca:aria-labelledby="${priceLabel.uuid}"/>
+</zk>

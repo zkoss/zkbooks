@@ -2,3 +2,8 @@
 h1{
     margin-top: 0px;
 }
+
+:focus {
+    box-shadow: 0 0 3px 3px lightpink;
+    background-color: lightyellow;
+}

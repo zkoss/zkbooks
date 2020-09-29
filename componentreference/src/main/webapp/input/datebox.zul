@@ -1,4 +1,4 @@
-<zk xmlns:n="native">
+<zk xmlns:n="native" xmlns:ca="client/attribute">
     <n:h1>Time Zones</n:h1>
     <datebox id="datebox1" format="M/d/yy KK:mm:ss a" width="250px" displayedTimeZones="GMT+12,GMT+8" timeZone="GMT+8" timeZonesReadonly="false"/>
 
@@ -9,4 +9,15 @@
 
     <n:h1>Constraint</n:h1>
     <datebox format="M/d/yy KK:mm:ss a" constraint="no past;no negative;no zero;no empty"/>
+
+    <n:label>Birthday
+        <datebox/>
+    </n:label>
+
+    <label value="Target Date" id="target"/>
+    <datebox ca:aria-labelledby="${target.uuid}"/>
+
+    <datebox disabled="true"/>
+
+
 </zk>

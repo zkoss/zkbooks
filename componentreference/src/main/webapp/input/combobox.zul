@@ -50,10 +50,6 @@ public List getMatched(String value){
     <n:h2>by ListSubModel</n:h2>
     <combobox apply="org.zkoss.reference.component.input.MyAutoCompleteComposer"/>
 
-    <zscript><![CDATA[
-String value = "";
-    ]]></zscript>
-
     <n:h2>value and selectedItem</n:h2>
     <div viewModel="@id('vm')@init('org.zkoss.reference.component.input.ComboboxVM')">
         <combobox value="@bind(vm.inputValue)" selectedItem="@bind(vm.selectedValue)" >

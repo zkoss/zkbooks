@@ -9,8 +9,8 @@
 		<template name="model" var="node" status="s">
 			<treeitem open="@bind(node.open)">
 				<treerow>
-					<treecell label="@bind(node.data)" />
-					<treecell label="@bind(s.index)" />
+					<treecell label="@init(node.data)" />
+					<treecell label="@init(s.index)" />
 				</treerow>
 			</treeitem>
 		</template>

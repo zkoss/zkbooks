@@ -58,7 +58,7 @@
 						<hlayout> 
 							<datebox value="@load(vm.selected.creationDate) @save(vm.selected.creationDate,before='saveOrder')
 							@validator(vm.creationDateValidator)"/>
-							<label value="@bind(vm.validationMessages['creationDate'])" sclass="red" />
+							<label value="@init(vm.validationMessages['creationDate'])" sclass="red" />
 						</hlayout>	
 					</row>
 					<row>Shipping Date 

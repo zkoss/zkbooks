@@ -1,7 +1,9 @@
-<zk xmlns:n="native">
+<zk xmlns:n="native" xmlns:ca="client/attribute">
+    <checkbox checked="true" disabled="true"/>
     <n:h1>toggle</n:h1>
-    <checkbox mold="toggle"/>
+    <checkbox mold="toggle" />
     <checkbox mold="toggle" checked="true"/>
+    <checkbox mold="toggle" disabled="true"/>
     <n:h1>custom style</n:h1>
     <div sclass="custom">
         <style>
@@ -40,8 +42,7 @@
         <checkbox mold="switch" checked="true"/>
     </div>
     <n:h1>3 states</n:h1>
+    <checkbox indeterminate="true" checked="true" />
 
-    <checkbox checked="false" label="unchecked"/>
-    <checkbox indeterminate="true" checked="true" label="indeterminate"/>
-    <checkbox checked="true" label="checked"/>
+
 </zk>

@@ -1,35 +1,56 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>org.zkoss</groupId>
-  <artifactId>reference.developer.integration.cdi</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  <packaging>war</packaging>
-  <dependencies>
-  	<dependency>
-  		<groupId>org.zkoss.zk</groupId>
-  		<artifactId>zkbind</artifactId>
-  		<version>6.5.0</version>
-  	</dependency>
-  	<dependency>
-  		<groupId>org.zkoss.zk</groupId>
-  		<artifactId>zkplus</artifactId>
-  		<version>6.5.0</version>
-  	</dependency>
-  	<dependency>
-  		<groupId>org.jboss.weld.servlet</groupId>
-  		<artifactId>weld-servlet</artifactId>
-  		<version>1.1.8.Final</version>
-  	</dependency>
-  </dependencies>
-  <build>
-  	<plugins>
-  		<plugin>
-  			<groupId>org.mortbay.jetty</groupId>
-  			<artifactId>maven-jetty-plugin</artifactId>
-  			<version>6.1.26</version>
-  		</plugin>
-  	</plugins>
-  </build>
-  <description>CDI Example project for developer's reference.
-[Notice]: To run with RunJettyRun, require META-INF/beans.xml</description>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.zkoss</groupId>
+    <artifactId>reference.developer.integration.cdi</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>war</packaging>
+    <description>CDI Example project for developer's reference.
+        [Notice]: To run with RunJettyRun, require META-INF/beans.xml
+    </description>
+    <properties>
+        <zk.version>6.5.0</zk.version>
+    </properties>
+    <dependencies>
+        <dependency>
+            <groupId>org.zkoss.zk</groupId>
+            <artifactId>zkbind</artifactId>
+            <version>${zk.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.zkoss.zk</groupId>
+            <artifactId>zkplus</artifactId>
+            <version>${zk.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>3.0.1</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.jboss.weld.servlet</groupId>
+            <artifactId>weld-servlet</artifactId>
+            <version>1.1.10.Final</version>
+        </dependency>
+    </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.mortbay.jetty</groupId>
+                <artifactId>maven-jetty-plugin</artifactId>
+                <version>6.1.26</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.tomcat.maven</groupId>
+                <artifactId>tomcat7-maven-plugin</artifactId>
+                <version>2.2</version>
+                <configuration>
+                    <port>8080</port>
+                    <path>/cdi</path>
+                    <contextFile>${project.basedir}/context.xml</contextFile>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>

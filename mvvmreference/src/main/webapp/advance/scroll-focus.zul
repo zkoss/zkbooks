@@ -1,0 +1,53 @@
+<zk xmlns:h="native">
+    <style>
+        :focus {
+            box-shadow: 0 0 3px 3px lightpink;
+            background-color: lightyellow;
+        }
+    </style>
+    <h:h1>Focus - Scroll Into View Usage</h:h1>
+    <nodom viewModel="@id('vm')@init('org.zkoss.mvvm.advance.ScrollFocusVM')">
+        <textbox value="@(selectorString)" placeholder="selector syntax"/>
+        <button label="focus" onClick="@('focus')"/>
+        <button label="scroll in view" onClick="@('scroll')"/>
+        <groupbox title="examples">
+            <hlayout stubonly="true">
+                <button label="listitem:nth-child(50)" onClick="@('setSelector', selector=self.label)"/>
+                <button label="checkbox" onClick="@('setSelector', selector=self.label)"/>
+                <button label="datebox" onClick="@('setSelector', selector=self.label)"/>
+                <button label="treeitem[label='B1']" onClick="@('setSelector', selector=self.label)"/>
+            </hlayout>
+        </groupbox>
+        <separator height="10px"/>
+        <button label="focus textbox" onClick="@('focusTextbox')"/>
+        <button label="focus listitem" onClick="@('focusListitem')"/>
+        <separator height="50px"/>
+        <textbox/>
+
+        <h:h2>Works with ROD disabled</h:h2>
+        <custom-attributes org.zkoss.zul.listbox.rod="false"/>
+        <listbox model="@(dataModel)" height="800px" width="80%">
+            <template name="model">
+                <listitem>
+                    <listcell label="${forEachStatus.index}"/>
+                    <listcell label="${each}"/>
+                </listitem>
+            </template>
+        </listbox>
+        <separator height="10px"/>
+        <!-- invisible -->
+        <h:h2>Can't focus/scroll into an invisible component</h:h2>
+        <datebox visible="false"/>
+        <tree viewModel="@id('vm') @init('org.zkoss.mvvm.collection.TreeVM')" model="@init(vm.itemTree)" width="80%" >
+            <treecols>
+                <treecol label="name" />
+            </treecols>
+            <template name="model" var="node" status="s">
+                <treeitem label="@init(node.data)">
+                </treeitem>
+            </template>
+        </tree>
+    </nodom>
+    <h:h2>Focus/Scroll to a component out of the visible range</h:h2>
+    <checkbox label=""/>
+</zk>

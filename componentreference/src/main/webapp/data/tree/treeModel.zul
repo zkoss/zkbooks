@@ -1,7 +1,7 @@
 <groupbox id="grp" closable="false" mold='3d' apply="org.zkoss.reference.component.data.tree.BinaryPackageController">
 	<caption label="ZK Binary Package" />
 	<!--<custom-attributes org.zkoss.zul.tree.rod="true"/>-->
-	<tree id="tree" hflex="1" model="${grp$composer.treeModel}">
+	<tree id="tree" hflex="1" >
 		<treecols>
 			<treecol hflex="1" label="Path" />
 			<treecol hflex="1" label="Description" />
@@ -16,4 +16,5 @@
 	        </treeitem>
     </template>
 	</tree>
+	<style src="tree-line.css"/>
 </groupbox>

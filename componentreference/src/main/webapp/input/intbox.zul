@@ -1,0 +1,5 @@
+<zk xmlns:h="native">
+    <intbox/>
+    <intbox value="10" readonly="true"/>
+    <intbox value="20" disabled="true"/>
+</zk>

@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.zkoss.reference</groupId>
 	<artifactId>component</artifactId>
-	<version>9.1.0-Eval</version>
+	<version>9.5.0-Eval</version>
 	<properties>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
@@ -12,7 +12,7 @@
 	</properties>
 	<packaging>war</packaging>
 	<name>The Component Reference Example Project</name>
-	<description>The reference.component Project</description>
+	<description>The example code mentioned in ZK Component Reference</description>
 	<licenses>
 		<license>
 			<name>GNU LESSER GENERAL PUBLIC LICENSE, Version 3</name>
@@ -60,6 +60,11 @@
 			<version>${project.version}</version>
 		</dependency>
 		<dependency>
+			<groupId>org.zkoss.zk</groupId>
+			<artifactId>za11y</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
 			<groupId>org.zkoss.zkforge</groupId>
 			<artifactId>gmapsz</artifactId>
 			<version>3.0.2</version>
@@ -85,15 +90,21 @@
 		<plugins>
 			<!-- Run with Jetty -->
 			<plugin>
-				<groupId>org.mortbay.jetty</groupId>
+				<!-- starts up faster but no JSP, JSF supported	-->
+				<groupId>org.eclipse.jetty</groupId>
 				<artifactId>jetty-maven-plugin</artifactId>
-				<version>7.6.8.v20121106</version>
+				<version>9.4.31.v20200723</version>
 				<configuration>
+					<jvmArgs>-Xmx4096m</jvmArgs>
 					<webAppConfig>
 						<contextPath>/${project.artifactId}</contextPath>
-						<allowDuplicateFragmentNames>true</allowDuplicateFragmentNames>
+						<!-- disable web fragment scanning to speed up startup time-->
+						<webInfIncludeJarPattern>^$</webInfIncludeJarPattern>
+						<containerIncludeJarPattern>^$</containerIncludeJarPattern>
 					</webAppConfig>
 					<scanIntervalSeconds>5</scanIntervalSeconds>
+				<!-- http://juplo.de/configure-https-for-jetty-maven-plugin-9-0-x/	-->
+					<jettyXml>jetty.xml,jetty-http.xml, jetty-ssl.xml,jetty-https.xml</jettyXml>
 				</configuration>
 			</plugin>
 		</plugins>

@@ -1,0 +1,8 @@
+<zk xmlns:h="native">
+    <longbox width="250px" value="123456"/>
+    <longbox width="250px" disabled="true" value="123456"/>
+    <longbox format="#,##0" value="123456"/>
+    <longbox format="locale:zh-TW" value="987654"/>
+
+    <longbox constraint="no negative,no empty"/>
+</zk>

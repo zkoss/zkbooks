@@ -1,4 +1,4 @@
-<zk>
+<zk xmlns:h="native">
     <groupbox width="350px" >
         <caption label="Fruits"/>
         <radiogroup>
@@ -7,6 +7,7 @@
             <radio label="Banana"/>
         </radiogroup>
     </groupbox>
+    <h:h1>Custom Style</h:h1>
     <style>
         .mygroupbox-cnt {
         border: 3px blue dashed;

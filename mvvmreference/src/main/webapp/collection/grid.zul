@@ -26,8 +26,8 @@ viewModel="@id('vm') @init('org.zkoss.mvvm.collection.ItemsVM')">
 		</template>
 		<template name="model2" var="item" status="s">
 			<row>
-				<label value="@bind(s.index)" />
-				<label value="@bind(item.name)" />
+				<label value="@init(s.index)" />
+				<label value="@init(item.name)" />
 			</row>
 		</template>
 	</grid>

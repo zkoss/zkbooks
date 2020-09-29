@@ -1,0 +1,13 @@
+<zk>
+    line 1 by separator
+    <separator />
+    line 2 by separator
+    <separator />
+    line 3 by separator
+    <space bar="true" />
+    another piece
+    <separator spacing="20px" />
+    line 4 by separator
+    <space bar="true" spacing="20px" />
+    another piece
+</zk>
