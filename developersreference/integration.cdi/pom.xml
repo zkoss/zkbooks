@@ -1,26 +1,22 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>org.zkoss</groupId>
-    <artifactId>reference.developer.integration.cdi</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <groupId>org.zkoss.reference</groupId>
+    <artifactId>cdi</artifactId>
+    <version>6.5.0</version>
     <packaging>war</packaging>
     <description>CDI Example project for developer's reference.
-        [Notice]: To run with RunJettyRun, require META-INF/beans.xml
     </description>
-    <properties>
-        <zk.version>6.5.0</zk.version>
-    </properties>
     <dependencies>
         <dependency>
             <groupId>org.zkoss.zk</groupId>
             <artifactId>zkbind</artifactId>
-            <version>${zk.version}</version>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>org.zkoss.zk</groupId>
             <artifactId>zkplus</artifactId>
-            <version>${zk.version}</version>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>javax.servlet</groupId>
