@@ -1,0 +1,10 @@
+<zk>
+
+    <nodom viewModel="@id('vm')@init('org.zkoss.mvvm.databinding.CommandVM')">
+        <button label="hello" onClick="@('hello')"/>
+    </nodom>
+    <separator/>
+    <nodom viewModel="@id('vmInit')@init('org.zkoss.mvvm.databinding.InitVM')">
+        <button label="call the previous VM" onClick="@('$vm.hello')"/>
+    </nodom>
+</zk>

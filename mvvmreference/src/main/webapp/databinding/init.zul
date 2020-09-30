@@ -1,5 +1,5 @@
 <zk>
-	<window  width="400px" apply="org.zkoss.bind.BindComposer"
+	<window  width="400px"
 	viewModel="@id('vm') @init('org.zkoss.mvvm.databinding.InitVM', arg1='myValue')">
 		
 	</window>		
