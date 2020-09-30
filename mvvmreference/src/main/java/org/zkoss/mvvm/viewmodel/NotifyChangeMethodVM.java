@@ -13,11 +13,11 @@ public class NotifyChangeMethodVM {
         if (data.equals("A")) {
             //other codes...
             value1 = System.currentTimeMillis() +hashCode() + "";
-            BindUtils.postNotifyChange(null, null, this, "value1");
+            BindUtils.postNotifyChange(this, "value1");
         } else {
             //other codes...
             value2 = System.currentTimeMillis() +hashCode() + "";
-            BindUtils.postNotifyChange(null, null, this, "value2");
+            BindUtils.postNotifyChange(this, "value2");
         }
     }
 
