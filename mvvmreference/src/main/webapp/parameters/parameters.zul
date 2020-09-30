@@ -1,4 +1,4 @@
-<zk>
+<zk xmlns:h="native">
     <nodom viewModel="@('org.zkoss.mvvm.parameters.ParametersVM')">
 
     <grid id="outergrid" width="700px" model="@bind(vm.items)">
@@ -21,4 +21,24 @@
     </grid>
         <label value="@load(vm.message)"/>
     </nodom>
+
+    <h:h1>Bean creation from @BindingParams</h:h1>
+    <div viewModel="@('org.zkoss.mvvm.parameters.BeanCreationVM')">
+    Item creation
+    <hlayout>
+        ID: <intbox id="idbox"/>
+    </hlayout>
+    <hlayout>
+        Name: <textbox id="namebox"/>
+    </hlayout>
+        <button label="create" onClick="@('create', id=idbox.value, name=namebox.value)"/>
+        <listbox model="@(vm.itemList)" emptyMessage="no items">
+            <template name="model">
+                <listitem>
+                    <listcell label="@(each.id)"/>
+                    <listcell label="@(each.name)"/>
+                </listitem>
+            </template>
+        </listbox>
+    </div>
 </zk>
