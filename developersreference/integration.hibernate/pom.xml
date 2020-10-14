@@ -23,12 +23,12 @@
     <dependencies>
         <dependency>
             <groupId>org.zkoss.zk</groupId>
-            <artifactId>zkplus</artifactId>
+            <artifactId>zkmax</artifactId>
             <version>6.5.0</version>
         </dependency>
         <dependency>
             <groupId>org.zkoss.zk</groupId>
-            <artifactId>zkbind</artifactId>
+            <artifactId>zkplus</artifactId>
             <version>6.5.0</version>
         </dependency>
         <dependency>
@@ -66,11 +66,6 @@
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-log4j12</artifactId>
             <version>1.6.1</version>
-        </dependency>
-        <dependency>
-            <groupId>org.zkoss.zk</groupId>
-            <artifactId>zkmax</artifactId>
-            <version>6.5.0</version>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
