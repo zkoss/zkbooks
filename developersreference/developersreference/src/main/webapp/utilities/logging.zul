@@ -1,5 +1,6 @@
 <zk>
     <div apply="org.zkoss.reference.developer.utilities.LoggerComposer">
         a page to test logging, check your server console
+        <button label="pring error log"/>
     </div>
 </zk>
