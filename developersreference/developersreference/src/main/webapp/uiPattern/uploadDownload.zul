@@ -1,17 +1,25 @@
-<zk>
+<zk xmlns:h="native">
+    <h:h1>File Upload</h:h1>
+    <h:h2>Enable Built-in Upload Features</h:h2>
     <zscript>
         void upload(UploadEvent event) {
-            org.zkoss.util.media.Media media = event.getMedia();
-            if (media instanceof org.zkoss.image.Image) {
-                org.zkoss.zul.Image image = new org.zkoss.zul.Image();
-                image.setContent( (org.zkoss.image.Image) media);
-                image.setParent(pics);
-            } else {
-                    Messagebox.show("Not an image: "+media, "Error", Messagebox.OK, Messagebox.ERROR);
-            }
+        org.zkoss.util.media.Media media = event.getMedia();
+        if (media instanceof org.zkoss.image.Image) {
+        org.zkoss.zul.Image image = new org.zkoss.zul.Image();
+        image.setContent( (org.zkoss.image.Image) media);
+        image.setParent(pics);
+        } else {
+        Messagebox.show("Not an image: "+media, "Error", Messagebox.OK, Messagebox.ERROR);
+        }
         }
     </zscript>
     <button label="Upload" upload="true" onUpload="upload(event)"/>
-    <vlayout id="pics" />
+    <vlayout id="pics"/>
+
+    <h:h2>Open Upload Dialog</h:h2>
+    <a iconSclass="z-icon-upload" style="font-size: 32px; border: 2px solid; padding: 5px;"
+       apply="org.zkoss.reference.developer.uipattern.UploadComposer"/>
+
+    <h:h1>File Download</h:h1>
     <button label="Download a file" onClick='Filedownload.save("~./zklogo.png", null);'/>
 </zk>
