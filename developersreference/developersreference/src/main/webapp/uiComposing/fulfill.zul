@@ -1,0 +1,48 @@
+<zk xmlns:h="native">
+    <h:h1>Load-on-Demand with the fulfill Attribute</h:h1>
+    <combobox fulfill="onOpen">
+        <comboitem label="First Option"/>
+    </combobox>
+
+    <h:h1>Specify Target with ID or Implicit Variable</h:h1>
+    <button id="btn" label="show" onClick="content.visible = true"/>
+    <div id="content" fulfill="btn.onClick">
+        Any content created automatically when btn is clicked
+    </div>
+
+    <tabbox>
+        <tabs>
+            <tab selected="true">tab 1</tab>
+            <tab>tab 2</tab>
+        </tabs>
+        <tabpanels>
+            <tabpanel>
+                <window title="In tab 1" border="normal">a heavy component</window>
+            </tabpanel>
+            <tabpanel fulfill="self.linkedTab.onSelect">
+                <window title="In tab 2" border="normal" onCreate="System.out.println(self.title)">a heavy component</window>
+            </tabpanel>
+        </tabpanels>
+    </tabbox>
+
+
+    <h:h1>Specify Target with its Path</h:h1>
+    <button id="btn2" label="show" onClick="content.visible = true"/>
+    <window id="content2" fulfill="../btn2.onClick">
+        Any content created automatically when btn is clicked
+    </window>
+
+    <h:h1>Specify Target with EL Expressions</h:h1>
+    <button id="foo" label="click me to show"/>
+    <div fulfill="${foo}.onClick">
+        created on demand
+    </div>
+
+
+    <h:h1>Specify Multiple Fulfill Conditions</h:h1>
+    <groupbox id="another" title="click to open" open="false"></groupbox>
+    <button id="b1" label="click me to show"/>
+    <div fulfill="b1.onClick, ${another}.onOpen">
+        created upon multiple conditions
+    </div>
+</zk>
