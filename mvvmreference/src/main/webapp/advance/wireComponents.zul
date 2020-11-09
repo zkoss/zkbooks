@@ -1,0 +1,7 @@
+<zk>
+
+    <div viewModel="@id('vm')@init('org.zkoss.mvvm.advance.SearchAutowireVM')">
+        <popup id="msgPopup"/>
+        <label id="msg"/>
+    </div>
+</zk>
