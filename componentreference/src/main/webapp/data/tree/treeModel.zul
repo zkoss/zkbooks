@@ -1,7 +1,10 @@
 <groupbox id="grp" closable="false" mold='3d' apply="org.zkoss.reference.component.data.tree.BinaryPackageController">
 	<caption label="ZK Binary Package" />
-	<!--<custom-attributes org.zkoss.zul.tree.rod="true"/>-->
-	<tree id="tree" hflex="1" >
+	<custom-attributes org.zkoss.zul.tree.rod="true"/>
+	<button id="scroll" label="scroll to WEB-INF"/>
+	<button id="selectModel" label="select by path {1,1} (model)"/>
+	<button id="selectTree" label="select WEB-INF (tree)"/>
+	<tree id="tree" hflex="1" height="200px">
 		<treecols>
 			<treecol hflex="1" label="Path" />
 			<treecol hflex="1" label="Description" />
@@ -16,5 +19,4 @@
 	        </treeitem>
     </template>
 	</tree>
-	<style src="tree-line.css"/>
 </groupbox>

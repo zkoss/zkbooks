@@ -22,9 +22,34 @@ public class BinaryPackageController extends SelectorComposer<Component> {
 		tree.setModel(treeModel);
 	}
 
-	@Listen("onClick = #show")
-	public void scrollIntoView(){
+	/**
+	 * To scroll a tree item into view, the item's each ancestor should be open.
+	 * select the item also make it scroll into the view.
+	 */
+	@Listen("onClick = #selectModel")
+	public void selectModel(){
 		treeModel.setOpenObjects(treeModel.getRoot().getChildren());
 		treeModel.addToSelection(treeModel.getChild(path));
+	}
+
+	/**
+	 * To scroll a tree item into view, the item's each ancestor should be open.
+	 * select the item also make it scroll into the view.
+	 */
+	@Listen("onClick = #selectTree")
+	public void select(){
+		treeModel.setOpenObjects(treeModel.getRoot().getChildren());
+		Treeitem[] items = tree.getItems().toArray(new Treeitem[0]);
+		tree.setSelectedItem(items[items.length - 1]);
+	}
+
+	/**
+	 * To scroll a tree item into view, the item's each ancestor should be open.
+	 */
+	@Listen("onClick = #scroll")
+	public void scrollIntoView() {
+		treeModel.setOpenObjects(treeModel.getRoot().getChildren());
+		Treeitem[] items = tree.getItems().toArray(new Treeitem[0]);
+		Clients.scrollIntoView(items[items.length - 1]);
 	}
 }
