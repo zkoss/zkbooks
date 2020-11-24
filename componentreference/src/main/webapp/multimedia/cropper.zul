@@ -3,4 +3,8 @@
              src="swimming-pool.jpg"/>
     <n:h2>Cropped Image:</n:h2>
     <image id="img" />
+    <n:h2>MVVM</n:h2>
+    <cropper x="50" y="100" w="100" h="100" src="swimming-pool.jpg"
+             viewModel="@id('vm')@init('org.zkoss.reference.component.multimedia.CropperVM')"
+             onCrop="@command('crop', image=event.media)" width="600px" toolbarVisible="true"/>
 </zk>
