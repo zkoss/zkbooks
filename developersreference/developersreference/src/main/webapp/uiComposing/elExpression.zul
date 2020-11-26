@@ -1,0 +1,35 @@
+<zk xmlns:h="native">
+    <zscript><![CDATA[
+Map translator = new HashMap();
+translator.put("mycom.title", "Potix");
+String customerCompany = "mycom";
+
+String firstname = "Hawk";
+String lastname = "Chen";
+
+    ]]></zscript>
+
+    Map: ${translator['mycom.title']} <h:br/>
+    <h:h1>String concatenation</h:h1>
+    ${'Hi, ' += firstname += ' ' += lastname} <h:br/>
+    ${customerCompany+='.title'} <h:br/>
+    Within Map key: ${translator[customerCompany+='.title']}
+
+    <h:h1>Assignment and Semicolon operators</h:h1>
+    ${increase= x -> x + 1; increase(5)}
+
+    <zscript><![CDATA[
+int meter = 10;
+    ]]></zscript>
+
+    <h:h1>Lambda Expressions</h:h1>
+    ${meter} meters = ${(x -> (x * 100) / 2.54)(meter)} inches
+
+    <h:h1>Collection Operations</h:h1>
+    <label value="${[1, 2, 3, 4].stream().sum()}" />
+
+    <h:h1>Access Static Field and Method</h:h1>
+    if the referenced class is not imported, you need import directive <h:br/>
+    ${Math.sqrt(16)}<h:br/>
+    Current ZK version: ${Version.UID}
+</zk>
