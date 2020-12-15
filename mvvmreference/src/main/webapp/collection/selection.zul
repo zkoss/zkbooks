@@ -1,0 +1,11 @@
+<zk>
+    <div viewModel="@id('vm') @init('org.zkoss.mvvm.collection.CheckboxGroupVM')">
+        <forEach items="@init(vm.choices)">
+            <checkbox checked="
+                        @bind(vm.selection)
+                        @converter(vm.selectionConverter, selection=vm.selection, item=each)
+                        @validator(vm.selectionValidator)"
+                      label="${each}"/>
+        </forEach>
+    </div>
+</zk>
