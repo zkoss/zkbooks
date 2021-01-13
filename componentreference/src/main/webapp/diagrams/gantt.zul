@@ -1,5 +1,5 @@
 <zk>
-   <chart id="gantt" title="Gantt Chart" width="700" height="400"
+   <chart id="gantt" title="Gantt Chart" width="900" height="400"
                type="gantt" threeD="false" fgAlpha="128" dateFormat="yyyy/MM/dd" >
             <zscript><![CDATA[
         import org.zkoss.zul.GanttModel.GanttTask;
@@ -25,10 +25,10 @@
         ganttmodel.addValue("Scheduled", new GanttTask("Final Implementation", date(2008,11,1), date(2008,11,15), 0.0));
         ganttmodel.addValue("Scheduled", new GanttTask("Signoff", date(2008,11,28), date(2008,11,30), 0.0));
 
-        ganttmodel.addValue("Actual", new GanttTask("Write Proposal", date(2008,4,1), date(2008,4,3), 0.0));
-        ganttmodel.addValue("Actual", new GanttTask("Obtain Approval", date(2008,4,9), date(2008,4,9), 0.0));
-        ganttmodel.addValue("Actual", new GanttTask("Requirements Analysis", date(2008,4,10), date(2008,5,15), 0.0));
-        ganttmodel.addValue("Actual", new GanttTask("Design Phase", date(2008,5,15), date(2008,6,17), 0.0));
+        ganttmodel.addValue("Actual", new GanttTask("Write Proposal", date(2008,4,1), date(2008,4,3), 1.0));
+        ganttmodel.addValue("Actual", new GanttTask("Obtain Approval", date(2008,4,9), date(2008,4,9), 0.6));
+        ganttmodel.addValue("Actual", new GanttTask("Requirements Analysis", date(2008,4,10), date(2008,5,15), 0.6));
+        ganttmodel.addValue("Actual", new GanttTask("Design Phase", date(2008,5,15), date(2008,6,17), 0.8));
         ganttmodel.addValue("Actual", new GanttTask("Design Signoff", date(2008,6,30), date(2008,6,30), 0.0));
         ganttmodel.addValue("Actual", new GanttTask("Alpha Implementation", date(2008,7,1), date(2008,9,12), 0.0));
         ganttmodel.addValue("Actual", new GanttTask("Design Review", date(2008,9,12), date(2008,9,22), 0.0));

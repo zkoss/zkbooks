@@ -10,6 +10,7 @@
     <n:h1>Constraint</n:h1>
     <datebox format="M/d/yy KK:mm:ss a" constraint="no past;no negative;no zero;no empty"/>
 
+    <n:h1>Label for Accessibility</n:h1>
     <n:label>Birthday
         <datebox/>
     </n:label>
@@ -19,5 +20,6 @@
 
     <datebox disabled="true"/>
 
+    <datebox format="G yyyy/mm/dd"/>
 
 </zk>
