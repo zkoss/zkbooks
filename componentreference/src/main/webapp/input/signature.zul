@@ -1,8 +1,13 @@
 <zk xmlns:h="native" xmlns:w="client">
+    <h:h1>Pen Style</h:h1>
     <signature width="600px" height="300px" penColor="white" backgroundColor="#AED6F1" penSize="6"/>
 
     <h:h1>Save as Image</h:h1>
-    <signature id="sig" width="600px" height="300px" onSave="image.setContent(event.getMedia())" w:onBind="initBackground()"/>
+    <signature width="600px" height="300px" onSave="image.setContent(event.getMedia())" w:onBind="initBackground()"/>
     <image id="image"/>
+
+    <h:h1>Load a background image</h:h1>
+    <signature id="sig" width="600px" height="300px" onSave="image2.setContent(event.getMedia())" w:onBind="initBackground()"/>
+    <image id="image2"/>
     <script src="signature-background.js"/>
 </zk>
