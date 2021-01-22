@@ -1,3 +1,8 @@
-<zk>
+<zk xmlns:h="native" xmlns:w="client">
     <signature width="600px" height="300px" penColor="white" backgroundColor="#AED6F1" penSize="6"/>
+
+    <h:h1>Save as Image</h:h1>
+    <signature id="sig" width="600px" height="300px" onSave="image.setContent(event.getMedia())" w:onBind="initBackground()"/>
+    <image id="image"/>
+    <script src="signature-background.js"/>
 </zk>
