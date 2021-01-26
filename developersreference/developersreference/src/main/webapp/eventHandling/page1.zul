@@ -1,0 +1,3 @@
+<window title="ZUL page 1" border="normal" apply="org.zkoss.reference.developer.eventHandling.eventQueue.Page1Composer">
+    <button id="btn" label="change label in ZUL page 2" />
+</window>

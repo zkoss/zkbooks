@@ -1,0 +1,4 @@
+<zk>
+    <include src="page1.zul"></include>
+    <include src="page2.zul"></include>
+</zk>
