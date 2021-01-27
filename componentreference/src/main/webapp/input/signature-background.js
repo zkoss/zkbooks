@@ -17,12 +17,14 @@ zk.afterLoad('zkmax.wgt', function() {
             this.drawBackgroundImage();
 		},
         drawBackgroundImage: function(){
-            var signatureWidget = this;
-            var img = new Image();
-            img.src = '/component/multimedia/zklogo3.png';
-            img.onload = function(){
-                var context = signatureWidget.$n('canvas').getContext('2d');
-                context.drawImage(img, 0, 0);
+            if (this.src != null){
+                var signatureWidget = this;
+                var img = new Image();
+                img.src = this.src;
+                img.onload = function(){
+                    var context = signatureWidget.$n('canvas').getContext('2d');
+                    context.drawImage(img, 0, 0);
+                }
             }
         }
     });

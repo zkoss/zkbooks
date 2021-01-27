@@ -7,7 +7,7 @@
     <image id="image"/>
 
     <h:h1>Load a background image</h:h1>
-    <signature id="sig" width="600px" height="300px" onSave="image2.setContent(event.getMedia())" />
+    <signature id="sig" width="600px" height="300px" onSave="image2.setContent(event.getMedia())" w:src="encodeURI('/component/multimedia/zklogo3.png')"/>
     <image id="image2"/>
     <script src="signature-background.js"/>
 </zk>
