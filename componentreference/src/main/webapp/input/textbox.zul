@@ -10,6 +10,8 @@
     </textbox>
     <textbox value="Line 1&#x0d;Line 2" rows="3"/>
     <textbox tabbable="true"/>
+    <textbox disabled="true"/>
+    <textbox readonly="true"/>
 
     <h:h1>Label for Textbox</h:h1>
     <h:label>Address
