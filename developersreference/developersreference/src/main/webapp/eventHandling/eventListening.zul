@@ -1,3 +1,10 @@
 <zk>
-    <button label="hi" onClick='org.zkoss.lang.Threads.sleep(3000);'/>
+    <button label="hi" onClick='alert("Hello")'/>
+    <button label="print and wait" >
+        <attribute name="onClick"><![CDATA[
+            //multiline listener
+            System.out.println(event);
+            org.zkoss.lang.Threads.sleep(3000);
+        ]]></attribute>
+    </button>
 </zk>
