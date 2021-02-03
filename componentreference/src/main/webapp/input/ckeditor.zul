@@ -26,6 +26,15 @@
     <ckeditor filebrowserImageBrowseUrl="input" filebrowserImageUploadUrl="input"/>
 
     <n:h1>Custom Configuration</n:h1>
+    <n:h2>By JavaScript</n:h2>
     <ckeditor customConfigurationsPath="/input/config.js"/>
 
+    <n:h2>By Java</n:h2>
+
+    <ckeditor id="editor"/>
+    <zscript><![CDATA[
+Map configMap = new HashMap();
+configMap.put("language", "de");
+editor.setConfig(configMap);
+    ]]></zscript>
 </zk>
