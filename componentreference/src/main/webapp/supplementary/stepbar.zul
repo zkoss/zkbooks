@@ -1,0 +1,27 @@
+<zk xmlns:h="native">
+    <stepbar linear="false" activeIndex="2" width="600px">
+        <step title="First Step" iconSclass="z-icon-home"/>
+        <step title="Second Step" complete="true"/>
+        <step title="Third Step" error="true"/>
+    </stepbar>
+
+    <h:h1>model</h:h1>
+    <div apply="org.zkoss.reference.component.supplementary.StepbarComposer">
+    <stepbar wrappedLabels="true">
+        <template name="model">
+            <step title="${each.title}"/>
+        </template>
+    </stepbar>
+        <button id="back" label="back"/>
+        <button id="next" label="next"/>
+
+    </div>
+
+
+    <h:h1>Custom Icon</h:h1>
+    <stepbar width="800px">
+        <step title="Custom Step icon" iconSclass="z-icon-star-o"/>
+        <step title="Custom Error" error="true" iconSclass="z-icon-bug"/>
+        <step title="Custom Complete" iconSclass="z-icon-home"/>
+    </stepbar>
+</zk>
