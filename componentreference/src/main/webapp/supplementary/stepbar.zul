@@ -1,8 +1,8 @@
 <zk xmlns:h="native">
-    <stepbar linear="false" activeIndex="2" width="600px">
-        <step title="First Step" iconSclass="z-icon-home"/>
-        <step title="Second Step" complete="true"/>
-        <step title="Third Step" error="true"/>
+    <stepbar activeIndex="1" width="600px">
+        <step title="First Step" />
+        <step title="Second Step" />
+        <step title="Third Step"/>
     </stepbar>
 
     <h:h1>model</h:h1>
