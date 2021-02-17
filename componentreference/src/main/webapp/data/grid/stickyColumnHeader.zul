@@ -1,0 +1,25 @@
+<zk>
+	<zscript><![CDATA[
+	List model = new ListModelList(Locale.getAvailableLocales());
+	]]></zscript>
+	<grid model="${model}">
+		<columns>
+			<column label="Locale"/>
+		</columns>
+		<template name="model">
+			<row>
+				${each}
+			</row>
+		</template>
+	</grid>
+	<style>
+		.z-grid-header{
+			position: sticky;
+			top: 0;
+			z-index: 500;
+		}
+		.z-grid{
+			overflow: visible;
+		}
+	</style>
+</zk>
