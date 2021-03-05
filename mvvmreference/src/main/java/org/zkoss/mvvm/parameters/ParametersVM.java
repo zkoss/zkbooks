@@ -1,6 +1,6 @@
 package org.zkoss.mvvm.parameters;
 
-import org.zkoss.bind.annotation.NotifyChange;
+import org.zkoss.bind.annotation.*;
 import org.zkoss.zul.ListModelList;
 
 import java.util.Arrays;
@@ -15,7 +15,7 @@ public class ParametersVM {
     }
 
     @NotifyChange("message")
-    public void delete(String item){
+    public void delete(@BindingParam("item") String item){
         items.remove(item);
         message = "remove item: " + item;
     }

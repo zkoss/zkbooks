@@ -7,7 +7,7 @@
     </style>
     <h:h1>Focus - Scroll Into View Usage</h:h1>
     <nodom viewModel="@id('vm')@init('org.zkoss.mvvm.advance.ScrollFocusVM')">
-        <textbox value="@(selectorString)" placeholder="selector syntax"/>
+        <textbox value="@bind(vm.selectorString)" placeholder="selector syntax"/>
         <button label="focus" onClick="@('focus')"/>
         <button label="scroll in view" onClick="@('scroll')"/>
         <groupbox title="examples">
@@ -26,7 +26,7 @@
 
         <h:h2>Works with ROD disabled</h:h2>
         <custom-attributes org.zkoss.zul.listbox.rod="false"/>
-        <listbox model="@(dataModel)" height="800px" width="80%">
+        <listbox model="@(vm.dataModel)" height="800px" width="80%">
             <template name="model">
                 <listitem>
                     <listcell label="${forEachStatus.index}"/>
@@ -35,10 +35,9 @@
             </template>
         </listbox>
         <separator height="10px"/>
-        <!-- invisible -->
-        <h:h2>Can't focus/scroll into an invisible component</h:h2>
-        <datebox visible="false"/>
-        <tree viewModel="@id('vm') @init('org.zkoss.mvvm.collection.TreeVM')" model="@init(vm.itemTree)" width="80%" >
+        <h:h2>Can only focus/scroll to a treeitem whose parent is open</h:h2>
+        <custom-attributes org.zkoss.zul.tree.rod="false"/>
+        <tree viewModel="@id('vm') @init('org.zkoss.mvvm.collection.TreeVM')" model="@init(vm.itemTree)" width="80%" height="300px">
             <treecols>
                 <treecol label="name" />
             </treecols>
@@ -47,6 +46,9 @@
                 </treeitem>
             </template>
         </tree>
+        <!-- invisible -->
+        <h:h2>Can't focus/scroll into an invisible component</h:h2>
+        <datebox visible="false"/>
     </nodom>
     <h:h2>Focus/Scroll to a component out of the visible range</h:h2>
     <checkbox label=""/>

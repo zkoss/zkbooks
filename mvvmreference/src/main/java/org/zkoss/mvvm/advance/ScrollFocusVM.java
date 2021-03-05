@@ -1,6 +1,6 @@
 package org.zkoss.mvvm.advance;
 
-import org.zkoss.bind.annotation.NotifyChange;
+import org.zkoss.bind.annotation.*;
 import org.zkoss.zk.ui.util.Clients;
 import org.zkoss.zul.ListModelList;
 
@@ -23,7 +23,7 @@ public class ScrollFocusVM {
     }
 
     @NotifyChange("selectorString")
-    public void setSelector(String selector){
+    public void setSelector(@BindingParam("selector") String selector){
         this.selectorString = selector;
     }
 
