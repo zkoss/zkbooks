@@ -1,4 +1,17 @@
-<zk>
+<zk xmlns:h="native">
+    <h:h1>Model-Driven Display</h:h1>
+    <zscript><![CDATA[
+    DefaultTreeNode root = new DefaultTreeNode(null, new DefaultTreeNode[]{
+        new DefaultTreeNode("Item1", new DefaultTreeNode[]{
+            new DefaultTreeNode("Item2"), new DefaultTreeNode("Item3"), new DefaultTreeNode("Item4")
+        })
+    });
+    DefaultTreeModel model = new DefaultTreeModel(root);
+    model.addOpenPath(new int[]{0});
+]]></zscript>
+    <organigram width="600px" model="${model}"/>
+
+    <h:h1>Selection</h:h1>
     <organigram width="600px" onSelect="label.setValue(self.getSelectedItem().getLabel())">
         <orgchildren>
             <orgitem label="Item1">
@@ -24,4 +37,16 @@
         </orgchildren>
     </organigram>
     selected: <label id="label"/>
+
+    <h:h1>Custom Node</h:h1>
+    <organigram model="${model}">
+        <template name="model">
+            <orgitem>
+                <orgnode label="[${each.data}]" style="background: skyblue"/>
+            </orgitem>
+        </template>
+    </organigram>
+    <h:h1>Custom Renderer</h:h1>
+    <organigram model="${model}" itemRenderer="org.zkoss.reference.component.layout.MyOrgItemRenderer">
+    </organigram>
 </zk>
