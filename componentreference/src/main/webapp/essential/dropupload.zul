@@ -1,5 +1,5 @@
 <zk>
-    <dropupload maxsize="5120" detection="none" onUpload="handleUpload(event)">
+    <dropupload maxsize="5120" detection="none" apply="org.zkoss.reference.component.essential.DropUploadComposer">
         <attribute name="content"><![CDATA[
         <b>Drop Here</b><br/>
         size < 5MB
@@ -11,12 +11,4 @@
         Upload your hot shot:
         <dropupload maxsize="-1" content="content" detection="browser" onUpload="img.setContent(event.media)" />
     </vlayout>
-
-    <zscript><![CDATA[
-import org.zkoss.util.media.*;
-public void handleUpload(UploadEvent e){
-    Media media = e.getMedia();
-    Clients.showNotification(media.getName() + " uploaded");
-}
-    ]]></zscript>
 </zk>
