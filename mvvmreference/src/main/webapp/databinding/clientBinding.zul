@@ -1,0 +1,7 @@
+<zk xmlns:ca="client/attribute" xmlns:n="native">
+    <div id="root" viewModel="@id('vm')@init('org.zkoss.mvvm.databinding.ClientBindingVM')">
+        <button label="hello from client" ca:onclick="hello()"/>
+        <button label="server say hello" onClick="@command('sayHello')" />
+    </div>
+    <script defer="true" src="clientBinding.js"/>
+</zk>
