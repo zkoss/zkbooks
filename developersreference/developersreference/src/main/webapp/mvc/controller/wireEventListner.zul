@@ -1,0 +1,9 @@
+<zk>
+
+    <button id="btn0" label="a button"/>
+    <listbox id="listbox0">
+        <listitem label="Jedi"/>
+        <listitem label="Sith"/>
+    </listbox>
+    <div apply="org.zkoss.reference.developer.mvc.controller.WireListenerComposer"></div>
+</zk>

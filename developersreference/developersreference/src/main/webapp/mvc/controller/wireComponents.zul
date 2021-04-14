@@ -1,0 +1,12 @@
+<zk>
+    <div apply="org.zkoss.reference.developer.mvc.controller.WireComponents">
+        <apply  dynamicValue="true">
+        <forEach >
+            <checkbox />
+        </forEach>
+        </apply>
+        <if test="true" dynamicValue="true">
+            in if
+        </if>
+    </div>
+</zk>
