@@ -5,7 +5,7 @@
 	<artifactId>reference.client</artifactId>
 	<version>9.5.0-Eval</version>
 	<properties>
-		<commons-io>2.4</commons-io>
+		<commons-io>2.7</commons-io>
 		<maven.compiler.source>1.5</maven.compiler.source>
 		<maven.compiler.target>1.5</maven.compiler.target>
 	</properties>
