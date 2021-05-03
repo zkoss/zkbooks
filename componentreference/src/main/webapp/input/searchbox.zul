@@ -12,4 +12,12 @@
        ]]></html>
         </template>
     </searchbox>
+
+    <h:h1>Initialize on Focus</h:h1>
+    <searchbox id="box" onFocus="init()"/>
+    <zscript><![CDATA[
+public void init(){
+    box.setModel(model);
+}
+    ]]></zscript>
 </zk>
