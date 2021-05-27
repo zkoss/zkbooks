@@ -1,3 +1,4 @@
+<?import org.zkoss.xel.fn.* ?>
 <zk xmlns:h="native">
     <zscript><![CDATA[
 Map translator = new HashMap();
@@ -32,4 +33,9 @@ int meter = 10;
     if the referenced class is not imported, you need import directive <h:br/>
     ${Math.sqrt(16)}<h:br/>
     Current ZK version: ${Version.UID}
+
+    <h:h1>EL 3.0</h:h1>
+    CommonFns.formatNumber(Object, String, Locale) : ${CommonFns.formatNumber(12345, '$ ###,###,###.00', null)}
+    <h:br/>
+    ${Math.sqrt(16)}
 </zk>
