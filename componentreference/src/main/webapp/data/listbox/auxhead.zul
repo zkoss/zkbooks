@@ -1,0 +1,35 @@
+<zk>
+    <listbox>
+        <auxhead>
+            <auxheader label="H1'07" colspan="6" />
+        </auxhead>
+        <listhead>
+            <listheader label="Jan" />
+            <listheader label="Feb" />
+            <listheader label="Mar" />
+            <listheader label="Apr" />
+            <listheader label="May" />
+            <listheader label="Jun" />
+        </listhead>
+        <listitem>
+            <listcell>
+                <label value="1,000" />
+            </listcell>
+            <listcell>
+                <label value="1,100" />
+            </listcell>
+            <listcell>
+                <label value="1,200" />
+            </listcell>
+            <listcell>
+                <label value="1,300" />
+            </listcell>
+            <listcell>
+                <label value="1,400" />
+            </listcell>
+            <listcell>
+                <label value="1,500" />
+            </listcell>
+        </listitem>
+    </listbox>
+</zk>
