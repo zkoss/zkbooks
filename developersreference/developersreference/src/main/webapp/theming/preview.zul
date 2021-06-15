@@ -1,0 +1,38 @@
+<zk>
+    <div apply="org.zkoss.reference.developer.theming.PreviewComposer">
+        Preview here.
+        <selectbox id="themeBox"/>
+        <window border="normal">
+            <button label="submit"/>
+        </window>
+        <script><![CDATA[
+        function replaceStylesheet(linkSelector, matchPattern, replacePattern) {
+            var linkNodeOld = document.querySelector(linkSelector);
+            if (linkNodeOld) {
+                if(zk.ie == 9) {
+                    linkNodeOld.href = linkNodeOld.getAttribute('href').replace(matchPattern, replacePattern);
+                } else {
+                    linkNodeNew = linkNodeOld.cloneNode();
+                    linkNodeNew.href = linkNodeNew.getAttribute('href').replace(matchPattern, replacePattern);
+                    var removeFunc = function() {
+                        if (linkNodeOld.parentNode) {
+                            linkNodeOld.parentNode.removeChild(linkNodeOld);
+                        }
+                    }
+                    linkNodeNew.addEventListener('load', removeFunc);
+                    setTimeout(removeFunc, 4000);
+                    linkNodeOld.parentNode.insertBefore(linkNodeNew, linkNodeOld);
+                }
+            }
+        }
+
+        function switchTheme(themeName) {
+            replaceStylesheet('link[href*="zk.wcs"]', /(\/_zkiju-\w*?)?(\/zul\/css\/zk\.wcs)/,'/_zkiju-' + themeName + '$2');
+            var tabletThemeFolder = 'iceblue' != themeName ? '/' + themeName : '';
+            replaceStylesheet('link[href*="tablet.css.dsp"]', /(\/zkau\/web\/[0-9a-f]*)(\/\w*?)?(\/zkmax\/css\/tablet\.css\.dsp)/, '$1' + tabletThemeFolder + '$3');
+        }
+    ]]></script>
+    </div>
+</zk>
+
+

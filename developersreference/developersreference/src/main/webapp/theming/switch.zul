@@ -1,0 +1,6 @@
+<zk>
+    <groupbox>
+    preview and switch in the area below:
+    </groupbox>
+    <iframe src="preview.zul" style="border:1px solid" width="100%"/>
+</zk>
