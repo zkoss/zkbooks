@@ -1,3 +1,7 @@
+body{
+    font-family: Helvetica;
+}
+
 .messageArea {
     padding: 10px;
     background: #e0f2ff;
@@ -58,11 +62,13 @@
 }
 
 .preview span{
-    padding: 10px;
+    padding: 4px;
 }
 
 .title {
     font-weight: bold;
     display: block;
-    margin-bottom: 10px;
+}
+.description{
+    display: inline-block;
 }

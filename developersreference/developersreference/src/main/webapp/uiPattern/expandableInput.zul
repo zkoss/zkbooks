@@ -9,6 +9,9 @@
                 <a iconSclass="z-icon-map-marker"/>
                 <a iconSclass="z-icon-camera"/>
                 <a iconSclass="z-icon-image"/>
+                <span>
+                <button label="Send" />
+                </span>
             </div>
         </div>
         <h:div sclass="messageBox">
