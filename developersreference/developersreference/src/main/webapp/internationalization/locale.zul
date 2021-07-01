@@ -1,0 +1,5 @@
+<zk>
+    current locale (determined by ServletRequest):  ${execution.nativeRequest.locale}
+    <button label='show "processing"' onClick="org.zkoss.lang.Threads.sleep(3000)"/>
+    <button label="show message box" onClick='Messagebox.show("my msg");'/>
+</zk>
