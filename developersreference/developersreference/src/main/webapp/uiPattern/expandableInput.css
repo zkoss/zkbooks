@@ -1,0 +1,67 @@
+body{
+    font-family: Helvetica;
+    font-size:16px;
+}
+
+.messageArea {
+    padding: 10px;
+    background: #e0f2ff;
+}
+
+.userPicture {
+    display: inline-block;
+    width: 72px;
+    height: 72px;
+    margin-right: 16px;
+    text-align: center;
+    vertical-align: top;
+    float: left;
+}
+
+
+.toolbar [class^="z-icon"] {
+    padding: 10px;
+    font-size: 22px;
+}
+
+.userName {
+    font-weight: bold;
+    display: block;
+}
+
+.messageBox {
+    padding: 16px;
+    border: solid 1px #E3E3E3;
+}
+
+.preview {
+    border-radius: 10px;
+    border: solid 1px #E3E3E3;
+    display: flex;
+    overflow: hidden;
+    margin: 10px 0;
+}
+
+.previewImage {
+    background-color: #008db7;
+    width: 120px;
+    height: 120px;
+    padding: 15px;
+    flex: 0 0 120px;
+}
+
+.preview p {
+    padding: 10px;
+}
+
+.preview span{
+    padding: 4px;
+}
+
+.title {
+    font-weight: bold;
+    display: block;
+}
+.description{
+    display: inline-block;
+}

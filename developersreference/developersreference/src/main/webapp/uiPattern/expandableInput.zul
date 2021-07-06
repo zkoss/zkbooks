@@ -1,0 +1,36 @@
+<zk xmlns:h="native">
+    <div style="margin: 1em" width="690px">
+        <div sclass="messageArea" apply="org.zkoss.reference.developer.uipattern.ExpandableInputComposer">
+            <div style="display: flex">
+                <textbox placeholder="What's happening?" style="flex: 1 0 0" rows="1" multiline="true"/>
+            </div>
+            <div sclass="toolbar" visible="false">
+                <a iconSclass="z-icon-map-marker"/>
+                <a iconSclass="z-icon-camera"/>
+                <a iconSclass="z-icon-image"/>
+                <span>
+                <button label="Send" />
+                </span>
+            </div>
+        </div>
+        <h:div sclass="messageBox">
+            <div width="100%">
+                <h:img class="userPicture" src="user.png"/>
+                <div hflex="1">
+                    <h:span class="userName">Hawk</h:span>
+                    <h:span>ZK helps you achieve various UI patterns</h:span>
+                    <h:div class="preview">
+                        <h:img class="previewImage" src="https://www.zkoss.org/resource/img/logo/ZK-logo.svg"/>
+                        <h:span>
+                            <h:span class="title">Expandable input helps users focus on the main input</h:span>
+                            <h:span class="description">
+                                When a user focuses the textbox, it expands. When the textbox loses focus, it restores back to the smaller size.
+                            </h:span>
+                        </h:span>
+                    </h:div>
+                </div>
+            </div>
+        </h:div>
+    </div>
+    <style src="expandableInput.css"></style>
+</zk>

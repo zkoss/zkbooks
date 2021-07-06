@@ -1,0 +1,66 @@
+<zk>
+    <nodom apply="org.zkoss.reference.developer.uipattern.InputFeedbackComposer">
+    <groupbox title="client-side validation" width="30%">
+        Email:
+        <textbox placeholder="enter your email"
+                 constraint='/^(([^&lt;>()\[\]\\.,;:\s@"]+(\.[^&lt;>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/: email is incorrect' hflex="1"/>
+    </groupbox>
+    <groupbox title="server-side validation" width="30%">
+        <label sclass="errorMessage" visible="false"/>
+        <grid hflex="1">
+            <rows>
+                <row>
+                    Username
+                    <textbox id="nameBox" placeholder="enter your user name" hflex="1"/>
+                </row>
+                <row align="right">
+                    <cell colspan="2">
+                        <button id="create" label="Create my account"/>
+                    </cell>
+                </row>
+            </rows>
+        </grid>
+    </groupbox>
+    <separator height="100px"/>
+    <groupbox title="Custom feedback" sclass="custom" width="30%" xmlns:x="xhtml">
+        <div sclass="grid">
+            Name <textbox sclass="form-field" placeholder="shall not empty"/>
+            <a/>
+            Birthday <datebox sclass="form-field" placeholder="shall be over 18 years"/>
+            <a/>
+            <button id="register" label="Register" width="100px"/>
+        </div>
+    </groupbox>
+    </nodom>
+    <style>
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 3fr 25px;
+            row-gap: 10px;
+            align-items: center;
+            width: 100%
+        }
+        .grid > .z-button{
+            grid-column-start: 2;
+            justify-self: end;
+        }
+        .errorMessage{
+            background-color: bisque;
+            padding: 10px;
+            display: inline-block;
+            color: orangered;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+        .grid .z-a{
+            justify-self: center;
+        }
+        .z-icon-times-circle{
+            color: red;
+            font-family: FontAwesome;
+        }
+        .z-icon-check-circle{
+            color: green;
+        }
+    </style>
+</zk>
