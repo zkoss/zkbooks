@@ -1,8 +1,7 @@
 <zk xmlns:h="native">
-    <window border="normal" style="margin: 1em" width="50%">
+    <div style="margin: 1em" width="690px">
         <div sclass="messageArea" apply="org.zkoss.reference.developer.uipattern.ExpandableInputComposer">
             <div style="display: flex">
-                <a iconSclass="z-icon-wechat" sclass="leadingIcon" style=""/>
                 <textbox placeholder="What's happening?" style="flex: 1 0 0" rows="1" multiline="true"/>
             </div>
             <div sclass="toolbar" visible="false">
@@ -16,7 +15,7 @@
         </div>
         <h:div sclass="messageBox">
             <div width="100%">
-                <a sclass="userPicture" iconSclass="z-icon-user-circle-o" width="100px"/>
+                <h:img class="userPicture" src="user.png"/>
                 <div hflex="1">
                     <h:span class="userName">Hawk</h:span>
                     <h:span>ZK helps you achieve various UI patterns</h:span>
@@ -32,6 +31,6 @@
                 </div>
             </div>
         </h:div>
-    </window>
+    </div>
     <style src="expandableInput.css"></style>
 </zk>
