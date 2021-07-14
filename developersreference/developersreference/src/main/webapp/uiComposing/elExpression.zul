@@ -1,5 +1,37 @@
 <?import org.zkoss.xel.fn.* ?>
 <zk xmlns:h="native">
+<h:h1>Resolving EL Variables</h:h1>
+<!-- self is an implicit object referring to the component itself -->
+<textbox id="tb" value="${self.parent.title}"/>
+<!-- tb, the ID of a textbox, is the object reference of the textbox component -->
+${tb.value}
+<!-- param is an implicit object   -->
+<button label="Enter" if="${not empty param.edit}"/>
+<zscript><![CDATA[
+     Date now = new Date();
+]]></zscript>
+<!-- now is a variable defined in zscript -->
+<datebox value="${now}"/>
+
+
+<h:h1>Resolving Order</h:h1>
+Comment out the code in zscript to see the variable resolving result.
+<div id="parent">
+    <zscript><![CDATA[
+    //the smaller scope (lower one) can shadow the upper one
+    application.setAttribute("myname", "in application");
+    session.setAttribute("myname", "in session");
+    desktop.setAttribute("myname", "in desktop");
+    page.setAttribute("myname", "in page");
+    parent.setAttribute("myname", "in component");
+    execution.setAttribute("myname", "in execution");
+    ]]></zscript>
+    Resolved result:
+    <label style="font-weight: bold" value="${myname}"/>
+</div>
+
+
+<h:h1>Map</h:h1>
     <zscript><![CDATA[
 Map translator = new HashMap();
 translator.put("mycom.title", "Potix");
