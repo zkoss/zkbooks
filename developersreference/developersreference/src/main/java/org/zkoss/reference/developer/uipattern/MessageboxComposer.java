@@ -22,14 +22,38 @@ public class MessageboxComposer extends SelectorComposer {
     public void confirm() {
         Messagebox.show("Are you sure you want to remove the file?", null,
                 Messagebox.YES + Messagebox.NO, Messagebox.QUESTION,
-                new EventListener<Event>() {
-                    public void onEvent(Event event) {
-                        if (Messagebox.ON_YES.equals(event.getName())) {
-                            //delete the file
-                            Clients.showNotification("deleted");
-                        }
+            new EventListener<Event>() {
+                public void onEvent(Event event) {
+                    if (Messagebox.ON_YES.equals(event.getName())) {
+                        //delete the file
+                        Clients.showNotification("deleted");
                     }
-                });
+                }
+            });
+
+        /* another way
+        MessageboxHelper.confirm("title", "message", event -> {
+            if (Messagebox.ON_YES.equals(event.getName())) {
+                //delete the file
+                Clients.showNotification("deleted");
+            }
+        });
+
+        MessageboxHelper.confirm("title", "message", new EventListener() {
+            @Override
+            public void onEvent(Event event) throws Exception {
+            if (Messagebox.ON_YES.equals(event.getName())) {
+                    //delete the file
+                    Clients.showNotification("deleted");
+                }
+            }
+        });
+
+        MessageboxHelper.confirm("title", "message", () -> {
+                Clients.showNotification("deleted");
+            }
+        , null);
+        */
     }
 
 }
