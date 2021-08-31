@@ -1,8 +1,23 @@
 <zk>
 	<zscript><![CDATA[
 	List model = new ListModelList(Locale.getAvailableLocales());
+	model = model.subList(0, 9);
 	]]></zscript>
-	<grid model="${model}">
+	<style>
+		.block{
+			text-align: center;
+		}
+		.block .z-label{
+			font-size:40px;
+			display: inline-block;
+			margin: 10px auto;
+			width: fit-content;
+		}
+	</style>
+	<div height="100px" sclass="block">
+		header
+	</div>
+	<grid model="${model}" sclass="z-sticky-header"  >
 		<columns>
 			<column label="Locale"/>
 		</columns>
@@ -12,14 +27,7 @@
 			</row>
 		</template>
 	</grid>
-	<style>
-		.z-grid-header{
-			position: sticky;
-			top: 0;
-			z-index: 500;
-		}
-		.z-grid{
-			overflow: visible;
-		}
-	</style>
+	<div height="1000px" sclass="block">
+		bottom
+	</div>
 </zk>
