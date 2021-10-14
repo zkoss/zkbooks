@@ -1,0 +1,33 @@
+<zk>
+    <window id="win" width="200px" title="Show echoEvent" border="normal">
+        <attribute name="onLater">
+            doLongOperation(); //take long to execute
+            Clients.clearBusy(); //remove the busy message
+        </attribute>
+
+        <button label="Echo Event" autodisable="self">
+            <attribute name="onClick">
+                Clients.showBusy("Executing..."); //show a busy message to user
+                Events.echoEvent("onLater", win, null); //echo an event back
+            </attribute>
+        </button>
+        <zscript><![CDATA[
+public doLongOperation(){
+    org.zkoss.lang.Threads.sleep(3000); //simulate a long operation
+}
+        ]]></zscript>
+    </window>
+    <window title="test of long operation" border="normal"
+            apply="org.zkoss.reference.developer.uipattern.LongOpQueueController">
+        <html><![CDATA[
+    <ul>
+    <li>Click the button it will start a long operation.</li>
+    <li>With this implementation, you can press the button again even if
+    the long operation is still being processed</li>
+    </ul>
+    ]]></html>
+        <button label="async long op">
+        </button>
+        <vlayout id="info"/>
+    </window>
+</zk>

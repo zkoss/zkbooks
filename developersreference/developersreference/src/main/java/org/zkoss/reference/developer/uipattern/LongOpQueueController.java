@@ -5,10 +5,10 @@ import org.zkoss.zk.ui.select.SelectorComposer;
 import org.zkoss.zk.ui.select.annotation.*;
 import org.zkoss.zul.*;
 
-public class LongOpQueue extends SelectorComposer {
+public class LongOpQueueController extends SelectorComposer {
 
     @Wire
-    private Vlayout inf;
+    private Vlayout info;
     private String result;
 
     @Listen(Events.ON_CLICK + "=button")
@@ -46,6 +46,6 @@ public class LongOpQueue extends SelectorComposer {
     }
 
     void print(String msg) {
-        new Label(msg).setParent(inf);
+        new Label(msg).setParent(info);
     }
 }
