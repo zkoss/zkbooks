@@ -4,7 +4,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class SystemConfiguration {
-	private String value = "my configuration";
+	private String value = "my configuration " + System.currentTimeMillis();
 
 	public String getValue() {
 		return value;

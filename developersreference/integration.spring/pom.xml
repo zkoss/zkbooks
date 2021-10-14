@@ -4,7 +4,7 @@
 	<groupId>org.zkoss.reference</groupId>
 	<artifactId>integration.spring</artifactId>
 	<packaging>war</packaging>
-	<version>9.1.0-Eval</version>
+	<version>9.6.0.1-Eval</version>
 	<properties>
 		<spring.version>3.0.5.RELEASE</spring.version>
 		<maven.compiler.source>1.8</maven.compiler.source>
@@ -106,7 +106,7 @@
 		</dependency>
 		<dependency>
 			<groupId>org.zkoss.zk</groupId>
-			<artifactId>zkbind</artifactId>
+			<artifactId>zkmax</artifactId>
 			<version>${project.version}</version>
 		</dependency>
 		<dependency>
@@ -120,12 +120,11 @@
 		<plugins>
 			<!-- Run with Jetty -->
 			<plugin>
-				<groupId>org.mortbay.jetty</groupId>
+				<groupId>org.eclipse.jetty</groupId>
 				<artifactId>jetty-maven-plugin</artifactId>
-				<version>7.6.8.v20121106</version>
+				<version>9.4.31.v20200723</version>
 				<configuration>
 					<webAppConfig>
-						<contextPath>/${project.artifactId}</contextPath>
 						<allowDuplicateFragmentNames>true</allowDuplicateFragmentNames>
 					</webAppConfig>
 					<scanIntervalSeconds>5</scanIntervalSeconds>
