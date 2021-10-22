@@ -40,6 +40,8 @@
                         <button id="update" label="update"/>
                         <button id="delete" label="delete"/>
                         <button id="clear" label="clear selection"/>
+                        <button id="expand" label="open all"/>
+                        <button id="collapse" label="close all"/>
                     </cell>
                 </row>
             </rows>

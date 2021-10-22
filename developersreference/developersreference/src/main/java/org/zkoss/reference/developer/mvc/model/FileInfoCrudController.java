@@ -6,7 +6,7 @@ import org.zkoss.zk.ui.select.SelectorComposer;
 import org.zkoss.zk.ui.select.annotation.*;
 import org.zkoss.zul.*;
 
-import java.util.LinkedList;
+import java.util.*;
 
 public class FileInfoCrudController extends SelectorComposer {
     @Wire
@@ -24,6 +24,22 @@ public class FileInfoCrudController extends SelectorComposer {
     @Override
     public void doAfterCompose(Component comp) throws Exception {
         super.doAfterCompose(comp);
+        model = new DefaultTreeModel(
+                new DefaultTreeNode(null,
+                        new DefaultTreeNode[]{
+                                new DefaultTreeNode(new FileInfo("/doc", "Release and License Notes")),
+                                new DefaultTreeNode(new FileInfo("/dist", "Distribution"),
+                                        new DefaultTreeNode[]{
+                                                new DefaultTreeNode(new FileInfo("/lib", "ZK Libraries"),
+                                                        new DefaultTreeNode[]{
+                                                                new DefaultTreeNode(new FileInfo("zcommon.jar", "ZK Common Library")),
+                                                                new DefaultTreeNode(new FileInfo("zk.jar", "ZK Core Library"))
+                                                        }),
+                                                new DefaultTreeNode(new FileInfo("/src", "Source Code")),
+                                                new DefaultTreeNode(new FileInfo("/xsd", "XSD Files"))
+                                        })
+                        }
+                ));
         tree.setModel(model);
     }
 
@@ -83,5 +99,15 @@ public class FileInfoCrudController extends SelectorComposer {
     @Listen(Events.ON_CLICK + "=#clear")
     public void clear() {
         model.clearSelection();
+    }
+
+    @Listen("onClick = #expand")
+    public void expandTree() {
+        model.setOpenObjects(model.getRoot().getChildren());
+    }
+
+    @Listen("onClick = #collapse")
+    public void collapseTree() {
+        model.setOpenObjects(Collections.emptyList());
     }
 }

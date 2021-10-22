@@ -1,4 +1,3 @@
-<?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c" ?>
 <tree model="${c:new('org.zkoss.reference.developer.mvc.model.LoadOnDemandModel')}" >
 	<treecols>
 		<treecol label="Names"/>

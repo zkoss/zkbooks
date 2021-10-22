@@ -8,12 +8,13 @@ import org.zkoss.zul.*;
 
 public class FileInfoTreeController extends SelectorComposer {
     @Wire
-    private Tree tree;
+    protected Tree tree;
+    private TreeModel model;
 
     @Override
     public void doAfterCompose(Component component) throws Exception {
         super.doAfterCompose(component);
-        TreeModel model = new DefaultTreeModel(
+        model = new DefaultTreeModel(
                 new DefaultTreeNode(null,
                         new DefaultTreeNode[]{
                                 new DefaultTreeNode(new FileInfo("/doc", "Release and License Notes")),
