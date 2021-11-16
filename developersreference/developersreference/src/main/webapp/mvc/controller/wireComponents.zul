@@ -8,5 +8,6 @@
         <if test="true" dynamicValue="true">
             in if
         </if>
+        <include id="messageArea" src="includedPage.zul"/>
     </div>
 </zk>
