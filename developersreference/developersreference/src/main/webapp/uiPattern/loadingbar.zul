@@ -1,0 +1,6 @@
+<zk>
+    <div width="fit-content" style="margin: 50px auto;" apply="org.zkoss.reference.developer.uipattern.LoadingbarComposer">
+        Start a loading bar:
+        <button id="start" label="start" />
+    </div>
+</zk>

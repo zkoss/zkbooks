@@ -45,17 +45,17 @@ public class WorkingThread extends Thread{
         }
     }
 
-    private void updateUI() {
+    protected void updateUI() {
         data.clear();
         data.add("now " + System.currentTimeMillis());
         // need to notify change if change a ViewModel's property with BindUtils.postNotifyChange();
     }
 
-    private void collectData() {
+    protected void collectData() {
         Threads.sleep(1000);
     }
 
-    private boolean anyDataToShow() {
+    protected boolean anyDataToShow() {
         return true;
     }
 

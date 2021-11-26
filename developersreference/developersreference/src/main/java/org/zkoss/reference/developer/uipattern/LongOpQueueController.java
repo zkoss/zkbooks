@@ -5,6 +5,8 @@ import org.zkoss.zk.ui.select.SelectorComposer;
 import org.zkoss.zk.ui.select.annotation.*;
 import org.zkoss.zul.*;
 
+import java.util.concurrent.CompletableFuture;
+
 public class LongOpQueueController extends SelectorComposer {
 
     @Wire
@@ -31,7 +33,7 @@ public class LongOpQueueController extends SelectorComposer {
             }
         }, true); //asynchronous
 
-        //subscribe a normal listener to show the resul to the browser
+        //subscribe a normal listener to show the result to the browser
         eq.subscribe(new EventListener() {
             public void onEvent(Event evt) {
                 if ("endLongOp".equals(evt.getName())) {
@@ -43,6 +45,11 @@ public class LongOpQueueController extends SelectorComposer {
 
         print("Wait for 3 seconds");
         eq.publish(new Event("doLongOp")); //kick off the long operation
+//        CompletableFuture.runAsync(() -> {
+//            org.zkoss.lang.Threads.sleep(3000); //simulate a long operation
+//            result = "success"; //store the result
+//            eq.publish(new Event("endLongOp")); //notify it is d
+//        });
     }
 
     void print(String msg) {
