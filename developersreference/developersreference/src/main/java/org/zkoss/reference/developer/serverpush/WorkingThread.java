@@ -42,6 +42,8 @@ public class WorkingThread extends Thread{
         } catch (InterruptedException ex) {
             //Interrupted. You might want to handle it
             ex.printStackTrace();
+        } catch (DesktopUnavailableException e){
+            System.out.println("desktop destroyed");
         }
     }
 
