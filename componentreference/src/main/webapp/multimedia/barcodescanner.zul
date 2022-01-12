@@ -1,4 +1,36 @@
 <zk xmlns:n="native">
-<barcodescanner type="ean" continuous="true" interval="100" height="225px" width="300px"
-        onDetect='Clients.showNotification(event.getType() + ": " + event.getResult(), self)'/>
+    <barcodescanner type="ean" continuous="true" interval="100" height="225px" width="300px"
+                    onDetect='Clients.showNotification(event.getType() + ": " + event.getResult(), self)'/>
+    <script src="add-datamatrix-decoder.js"/>
+    <div xmlns="native">
+        From <a href="https://zxing-js.github.io/library/">ZXing DataMatrix Examples</a>
+        <div id="datamatrix-1">
+            <div>
+                <button class="button decodeButton">Decode</button>
+            </div>
+            <div>
+                <img class="img" src="./0123456789.png"
+                     style="border: 1px solid gray"></img>
+            </div>
+            <label>Result:</label>
+            <blockquote>
+                <p class="result"></p>
+            </blockquote>
+        </div>
+
+        <div id="datamatrix-2">
+            <div>
+                <button class="button decodeButton">Decode</button>
+            </div>
+            <div>
+                <img class="img" src="./abcdefg-64x64.png"
+                     style="border: 1px solid gray"></img>
+            </div>
+            <label>Result:</label>
+            <blockquote>
+                <p class="result"></p>
+            </blockquote>
+        </div>
+    </div>
+    <script src="decode-image.js"/>
 </zk>
