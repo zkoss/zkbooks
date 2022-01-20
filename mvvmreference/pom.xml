@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.zkoss.reference</groupId>
 	<artifactId>mvvm</artifactId>
-	<version>9.6.0.1-Eval</version>
+	<version>9.6.1-Eval</version>
 	<properties>
 		<maven.build.timestamp.format>yyyy-MM-dd</maven.build.timestamp.format>
 		<packname>-0.0.1-SNAPSHOT-FL-${maven.build.timestamp}</packname>
@@ -29,6 +29,10 @@ The package naming convention follows the first level header of the book like or
 		<repository>
 			<id>ZK EE Evaluation</id>
 			<url>http://mavensync.zkoss.org/zk/ee-eval</url>
+		</repository>
+		<repository>
+			<id>ZK EE</id>
+			<url>https://maven.zkoss.org/repo/zk/ee</url>
 		</repository>
 	</repositories>
 	<pluginRepositories>

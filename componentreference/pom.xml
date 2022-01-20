@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.zkoss.reference</groupId>
 	<artifactId>component</artifactId>
-	<version>9.6.0.1-Eval</version>
+	<version>9.6.1-Eval</version>
 	<properties>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
@@ -86,6 +86,11 @@
 			<artifactId>ckez</artifactId>
 			<version>4.14.0.0</version>
 		</dependency>
+		<dependency>
+			<groupId>org.zkoss.themepack</groupId>
+			<artifactId>macaron_c</artifactId>
+			<version>${project.version}</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<finalName>${project.artifactId}</finalName>
@@ -104,7 +109,7 @@
 						<webInfIncludeJarPattern>^$</webInfIncludeJarPattern>
 						<containerIncludeJarPattern>^$</containerIncludeJarPattern>
 					</webAppConfig>
-					<scanIntervalSeconds>5</scanIntervalSeconds>
+<!--					<scanIntervalSeconds>5</scanIntervalSeconds>-->
 					<!-- allow https. http://juplo.de/configure-https-for-jetty-maven-plugin-9-0-x/	-->
 					<jettyXml>jetty.xml,jetty-http.xml, jetty-ssl.xml,jetty-https.xml</jettyXml>
 				</configuration>
