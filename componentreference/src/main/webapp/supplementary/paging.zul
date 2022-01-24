@@ -1,0 +1,12 @@
+<zk>
+    <div apply="org.zkoss.reference.component.supplementary.PagingComposer">
+        <listbox>
+            <template name="model">
+                <listitem>
+                    <listcell label="${each.language}"/>
+                </listitem>
+            </template>
+        </listbox>
+    <paging pageSize="10" mold="os"/>
+    </div>
+</zk>

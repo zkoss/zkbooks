@@ -86,11 +86,6 @@
 			<artifactId>ckez</artifactId>
 			<version>4.14.0.0</version>
 		</dependency>
-		<dependency>
-			<groupId>org.zkoss.themepack</groupId>
-			<artifactId>macaron_c</artifactId>
-			<version>${project.version}</version>
-		</dependency>
 	</dependencies>
 	<build>
 		<finalName>${project.artifactId}</finalName>
