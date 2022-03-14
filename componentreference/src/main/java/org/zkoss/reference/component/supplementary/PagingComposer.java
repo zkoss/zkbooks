@@ -33,6 +33,10 @@ public class PagingComposer extends SelectorComposer<Component> {
     }
 
     public List<Locale> getPageData(int activePage){
-        return dataSource.subList(activePage * paging.getPageSize(), (activePage+1) * paging.getPageSize());
+        if ((activePage+1) * paging.getPageSize() > (dataSource.size()-1)){
+            return dataSource.subList(activePage * paging.getPageSize(), dataSource.size()-1);
+        }else{
+            return dataSource.subList(activePage * paging.getPageSize(), (activePage + 1) * paging.getPageSize());
+        }
     }
 }
