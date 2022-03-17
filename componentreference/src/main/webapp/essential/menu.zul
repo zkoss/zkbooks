@@ -1,5 +1,16 @@
-<zk xmlns:n="native">
-    <menubar>
+<zk xmlns:h="native">
+    <h:h1>scrollable</h:h1>
+    <menubar width="500px" scrollable="true">
+        <forEach begin="1" end="9">
+        <menu label="${'Menu'+=each}">
+            <menupopup>
+                <menuitem label="Submenu"/>
+            </menupopup>
+        </menu>
+        </forEach>
+    </menubar>
+    <h:h1>Menu</h:h1>
+    <menubar id="bar">
         <menu id="targetMenu" label="File">
             <menupopup>
                 <menuitem label="New" onClick="alert(self.label)"/>
@@ -18,7 +29,7 @@
     }
     ]]></zscript>
 
-    <n:h1>Orient</n:h1>
+    <h:h1>Orient</h:h1>
     <menubar id="menubar" orient="vertical">
         <menu label="File" iconSclass="z-icon-file">
             <menupopup >
@@ -41,6 +52,6 @@
             </menupopup>
         </menu>
     </menubar>
-    <n:h1>Fileupload</n:h1>
+    <h:h1>Fileupload</h:h1>
     <menuitem upload="true" label="Upload" onUpload='alert(event.media)'/>
 </zk>
