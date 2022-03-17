@@ -1,0 +1,13 @@
+<zk>
+    set selected color
+    <colorbox color="#FFFFFF" />
+
+    <menubar id="menubar" width="100%">
+        <menu label="Color" iconSclass="z-icon-binoculars">
+            <menupopup>
+                <menuitem label="Index" onClick="alert(self.label)" />
+                <menu label="Color Picker" content="#color=#184dc6"/>
+            </menupopup>
+        </menu>
+    </menubar>
+</zk>
