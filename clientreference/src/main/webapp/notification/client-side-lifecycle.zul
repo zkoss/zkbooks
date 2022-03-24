@@ -1,0 +1,111 @@
+<zk xmlns:w="client">
+
+<?script src="logger.js"?>
+
+<style>
+	.red {
+		background-color: Crimson;
+		padding: 20px;
+	}
+	.green {
+		background-color: LawnGreen;
+		padding: 20px;
+	}
+	.blue {
+		background-color: DeepSkyBlue;
+		padding: 20px;
+	}
+</style>
+
+	<div id="root" sclass="red" hflex="min"
+			w:onBind="logEvent(event)"  
+			w:onAfterSize="logEvent(event)"
+		 	w:onUnbind="logEvent(event)"
+			>root
+		<div id="outer" sclass="green" width="400px"
+				w:onAfterSize="logEvent(event)"
+				w:onBind="logEvent(event);"
+			 	w:onUnbind="logEvent(event)"
+				>outer
+			<div id="inner" sclass="blue" hflex="1"
+					w:onAfterSize="logEvent(event)"
+					w:onBind="logEvent(event)"
+				 	w:onUnbind="logEvent(event)"
+					>
+				inner
+				<textbox id="innerTextbox" w:onAfterSize="logEvent(event)"
+						 w:onBind="logEvent(event)" w:onUnbind="logEvent(event)"/>
+			</div>
+		</div>
+	</div>
+	<button label="detach" onClick="root.detach()"/>
+
+<!-- 		<template name="outer"> -->
+<!-- 		</template> -->
+<!-- 					w:onUnbind="logEvent(event)" -->
+<!-- 						w:unbind_="function() { -->
+<!-- 										this.$unbind_.apply(this, arguments);  -->
+<!-- 										log('unbind', this) -->
+<!-- 									}" -->
+<!-- 	<button label="create Outer" onClick='root.getTemplate("outer").create(root, null, null, null);'/> -->
+<!-- 	<button label="remove Outer" onClick="outer.detach()"/> -->
+
+<!-- zUtl.fireSized(this.parent); -->
+<!-- Clients.resize(root); -->
+
+
+<script><![CDATA[
+
+zk.afterMount(function() {
+	console.log('afterMount');
+});
+zk.afterLoad(function() {
+	console.log('afterLoad: all wpd loaded');
+
+	var listener = {
+		onCommandReady: function() {
+			console.log('onCommandReady', arguments);
+		}, 
+		onSize: function() {
+			console.log('onSize', arguments);
+		},
+		isWatchable_: function() {
+			return true;
+		}
+	}
+	zWatch.listen({
+		onCommandReady: listener,
+		onSize: listener
+	});
+});
+zk.afterLoad('zul.inp', function() {
+	console.log('afterLoad zul.inp');
+});
+zk.afterLoad('zul.db', function() {
+	console.log('afterLoad zul.db');
+});
+
+
+/*
+zk.afterLoad(function() {
+	var _xWidget = {};
+	zk.override(zk.Widget.prototype, _xWidget, {
+		fireX : function(evt, timeout) {
+			if(evt.name.indexOf('Mouse') == -1) {
+				console.log(this.widgetName + '#' + this.id)
+				logEvent(evt);
+			}
+			return _xWidget.fireX.apply(this, arguments)
+		},
+		isListen : function() {
+			log('isListen:' + arguments[0], this);
+			return _xWidget.isListen.apply(this, arguments)
+		}
+	});
+});
+*/
+                 
+]]></script>
+
+
+</zk>
