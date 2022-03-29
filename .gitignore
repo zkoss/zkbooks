@@ -6,6 +6,9 @@ zkessentials/store/WebContent/META-INF
 zkessentials/store/WebContent/WEB-INF/lib
 zkessentials/storewithdb/WebContent/META-INF
 zkessentials/storewithdb/WebContent/WEB-INF/lib
+developersreference/integration.cdi/bin/
+developersreference/integration.hibernate/bin/
+developersreference/integration.spring.security/.gitignore
 **/.settings
 **/.classpath
 **/.project

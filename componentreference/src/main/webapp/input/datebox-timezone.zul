@@ -1,0 +1,142 @@
+<zk>
+	<style>
+		.important .z-label{
+			font-weight: bold;
+		}
+	</style>
+	<div id="main" apply="org.zkoss.reference.component.input.DateboxTimezoneComposer">
+		<timer id="uiUpdateTimer" repeats="true" delay="1000"></timer>
+		<vlayout>
+			<hlayout valign="bottom">
+				<datebox id="userInputDatebox" width="300px"></datebox>
+				<searchbox id="timeZoneSearchBox" width="300px" autoclose="true"></searchbox>
+				<button id="cleardb" label="clear datebox value"/>
+				<checkbox label="show time controls in datebox" id="timeControlCheck" checked="true"/>
+			</hlayout>
+			<hlayout>
+				<grid hflex="1">
+					<columns>
+						<column label="user selected Date object"></column>
+						<column label="value"></column>
+					</columns>
+					<rows>
+						<row sclass="important">
+							<cell>
+								<label
+									value="user selected time as user local timestamp">
+								</label>
+							</cell>
+							<cell>
+								<label id="userToUser" />
+							</cell>
+						</row>
+						<row sclass="important">
+							<cell>
+								<label
+									value="user selected time as server local timestamp">
+								</label>
+							</cell>
+							<cell>
+								<label id="userToServer" />
+							</cell>
+						</row>
+						<row>
+							<cell>
+								<label value="user locale"></label>
+							</cell>
+							<cell>
+								<label id="userLocal" />
+							</cell>
+						</row>
+						<row>
+							<cell>
+								<label value="user local timezone"></label>
+							</cell>
+							<cell>
+								<label id="userLocalTimeZone" />
+							</cell>
+						</row>
+						<row>
+							<cell>
+								<label
+									value="user local offset from GMT">
+								</label>
+							</cell>
+							<cell>
+								<label id="userLocalGmtOffset" />
+							</cell>
+						</row>
+						<row>
+							<cell>
+								<label
+									value="user selected time as GMT+0 timestamp">
+								</label>
+							</cell>
+							<cell>
+								<label id="userToGmt" />
+							</cell>
+						</row>
+						<row>
+							<cell>
+								<label
+									value="user selected time as LOCALDATETIME">
+								</label>
+							</cell>
+							<cell>
+								<label id="userLocalToUser" />
+							</cell>
+						</row>
+					</rows>
+				</grid>
+				<grid hflex="1">
+					<columns>
+						<column label="server current Date object"></column>
+						<column label="value"></column>
+					</columns>
+					<rows>
+						<row sclass="important">
+							<cell>
+								<label value="server time as as a server local timestamp"></label>
+							</cell>
+							<cell >
+								<label id="serverToServer" />
+							</cell>
+						</row>
+						<row>
+							<cell>
+								<label value="server local timezone"></label>
+							</cell>
+							<cell>
+								<label id="serverLocal" />
+							</cell>
+						</row>
+						<row>
+							<cell>
+								<label value="server local offset from GMT"></label>
+							</cell>
+							<cell>
+								<label id="serverLocalGmtOffset" />
+							</cell>
+						</row>
+						<row>
+							<cell>
+								<label value="server time as GMT+0 timestamp"></label>
+							</cell>
+							<cell >
+								<label id="serverToGmt" />
+							</cell>
+						</row>
+						<row>
+							<cell>
+								<label value="server time as as a user local timestamp"></label>
+							</cell>
+							<cell >
+								<label id="serverToUser" />
+							</cell>
+						</row>
+					</rows>
+				</grid>
+			</hlayout>
+		</vlayout>
+	</div>
+</zk>
