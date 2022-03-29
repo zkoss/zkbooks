@@ -4,7 +4,7 @@
 			font-weight: bold;
 		}
 	</style>
-	<div id="main" apply="org.zkoss.reference.component.input.DateboxTimezoneComposer">
+	<div id="main" apply="org.zkoss.reference.developer.internationalization.DateboxTimezoneComposer">
 		<timer id="uiUpdateTimer" repeats="true" delay="1000"></timer>
 		<vlayout>
 			<hlayout valign="bottom">

@@ -1,4 +1,4 @@
-package org.zkoss.reference.component.input;
+package org.zkoss.reference.developer.internationalization;
 
 import java.text.SimpleDateFormat;
 import java.time.Instant;
