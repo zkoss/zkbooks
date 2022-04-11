@@ -1,6 +1,6 @@
 <zk xmlns:w="http://www.zkoss.org/2005/zk/client" xmlns:h="native">
     <h:h1>Override a Widget Method</h:h1>
-    <label>
+    <label id="label1" value="myvalue">
         <attribute w:name="setValue">
             function (value) {
                 this.$setValue(value); //call the original method
@@ -11,7 +11,13 @@
             }
         </attribute>
     </label>
-    disable an event listener - disable key handling for a combobox
+    <button label="change value" onClick='label1.setValue(System.currentTimeMillis()+"")'/>
+    <zscript><![CDATA[
+String whatever = "what ever";
+    ]]></zscript>
+    <label value="myvalue" w:setValue='function (value) { this.$setValue(value + "${whatever}")}' />
+    <h:h1>disable an event listener</h:h1>
+    disable key handling for a combobox
     <combobox w:doKeyDown_="zk.$void">
         <comboitem label="1-1"/>
         <comboitem label="2-1"/>
@@ -24,8 +30,8 @@
     <script defer="true">
         var oldSV = zul.wgt.Label.prototype.setValue;
         zul.wgt.Label.prototype.setValue = function (){
-        arguments[0]="modified prototype"+arguments[0];
-        oldSV.apply(this, arguments);
+            arguments[0]="modified prototype"+arguments[0];
+            oldSV.apply(this, arguments);
         }
     </script>
     <button label="change" onClick="labelone.setValue((new Date()).toString());labeltwo.setValue((new Date()).toString());"/>
@@ -37,16 +43,5 @@
         <comboitem label="item-2"/>
         <comboitem label="item-3"/>
     </combobox>
-    <script><![CDATA[
-zk.afterLoad('zul.inp', function() { //specify zk widget package name
-    var exWidget = {};
-    zk.override(zul.inp.ComboWidget.prototype, exWidget, { //specify zk full widget name
-        doClick_: function(e){
-            exWidget.doClick_.apply(this, arguments); //call the original widget's overridden function
-            //implement your custom logic
-        },
-    });
-
-});
-    ]]></script>
+    <script src="method_override.js"/>
 </zk>

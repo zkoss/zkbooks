@@ -8,11 +8,12 @@ zk.afterLoad('zul.inp', function() { //specify zk widget package name
 		doClick_: function(e){
 			exWidget.doClick_.apply(this, arguments); //call the original widget's overridden function
 			//implement your custom logic
+			console.log('override onclick');
 		},
     });
 
 });
-if(zk.version != '9.0.0'){
+if(zk.version != '9.6.1'){
 	console.warn('This override script version compatibility was tested for ZK version ' + ''
 	    + 'If you are running a different version, please check this script compatibility ')
 }
