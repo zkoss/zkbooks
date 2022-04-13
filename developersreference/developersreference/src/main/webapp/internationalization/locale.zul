@@ -1,5 +1,15 @@
 <zk>
     current locale (determined by ServletRequest):  ${execution.nativeRequest.locale}
+    <button label="change to zh" onClick="setZh()"/>
+    <zscript><![CDATA[
+    import java.util.*;
+    import org.zkoss.web.Attributes;
+
+    public void setZh(){
+        Sessions.getCurrent().setAttribute(Attributes.PREFERRED_LOCALE, Locale.SIMPLIFIED_CHINESE);
+        Executions.sendRedirect(null);
+    }
+    ]]></zscript>
     <button label='show "processing"' onClick="org.zkoss.lang.Threads.sleep(3000)"/>
     <button label="show message box" onClick='Messagebox.show("my msg");'/>
 </zk>
