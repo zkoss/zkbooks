@@ -4,4 +4,18 @@
         <button label="server say hello" onClick="@command('sayHello')" />
     </div>
     <script defer="true" src="clientBinding.js"/>
+
+    <window viewModel="@id('vm') @init('org.zkoss.mvvm.databinding.ToClientVM')" xmlns:n="native">
+        <n:div id="display"></n:div>
+        <n:script>
+            zk.afterMount(function() {
+            var binder = zkbind.$('$display');
+            // the event handler of after 'doCountChange' from server
+            binder.after('doCountChange', function() {
+                alert("after doCountChange");
+              });
+            });
+        </n:script>
+        <button label="change" onClick="@command('doCountChange')" />
+    </window>
 </zk>
