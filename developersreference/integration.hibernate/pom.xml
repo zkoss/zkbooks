@@ -17,7 +17,7 @@
         <repository>
             <id>ZK EVAL</id>
             <name>ZK Evaluation Repository</name>
-            <url>http://mavensync.zkoss.org/eval</url>
+            <url>https://mavensync.zkoss.org/eval</url>
         </repository>
     </repositories>
     <dependencies>

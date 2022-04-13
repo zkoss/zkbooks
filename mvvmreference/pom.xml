@@ -24,11 +24,11 @@ The package naming convention follows the first level header of the book like or
 	<repositories>
 		<repository>
 			<id>ZK CE</id>
-			<url>http://mavensync.zkoss.org/maven2</url>
+			<url>https://mavensync.zkoss.org/maven2</url>
 		</repository>
 		<repository>
 			<id>ZK EE Evaluation</id>
-			<url>http://mavensync.zkoss.org/zk/ee-eval</url>
+			<url>https://mavensync.zkoss.org/zk/ee-eval</url>
 		</repository>
 		<repository>
 			<id>ZK EE</id>
@@ -39,7 +39,7 @@ The package naming convention follows the first level header of the book like or
 		<pluginRepository>
 			<id>zkmaven</id>
 			<name>ZK Maven Plugin Repository</name>
-			<url>http://mavensync.zkoss.org/maven2</url>
+			<url>https://mavensync.zkoss.org/maven2</url>
 		</pluginRepository>
 	</pluginRepositories>
 	<dependencies>
