@@ -31,4 +31,8 @@
 			<property-value>custom-css</property-value>
 		</property>
 	</component>
+	<component>
+		<component-name>megamenu</component-name>
+		<template-uri>/uiComposing/megaMenuParameterized.zul</template-uri>
+	</component>
 </language-addon>

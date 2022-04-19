@@ -1,0 +1,11 @@
+<?component name="megamenu" templateURI="megaMenuParameterized.zul"?>
+<zk>
+    <nodom apply="org.zkoss.reference.developer.uicomposing.DynamicMegaMenuComposer">
+<!--    <nodom >-->
+        <if test="${empty menuList}">
+            <custom-attributes menuTitle="No menu"/>
+        </if>
+        <apply templateURI="megaMenuParameterized.zul"/>
+<!--        <megamenu/>-->
+    </nodom>
+</zk>

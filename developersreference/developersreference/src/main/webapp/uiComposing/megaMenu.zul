@@ -1,5 +1,5 @@
+<?style src="mega-menu.css" ?>
 <zk xmlns="native" xmlns:z="zul">
-    <z:style src="mega-menu.css" />
     <z:div class="navbar" apply="org.zkoss.reference.developer.uicomposing.MegaMenuComposer">
         <a href="#home">Home</a>
         <a href="#news">News</a>
