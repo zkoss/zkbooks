@@ -1,0 +1,9 @@
+<zk>
+    <custom-attributes org.zkoss.zul.tree.rod="true"/>
+    only happends in rod
+    <nodom apply="org.zkoss.reference.component.data.tree.ScrollViewComposer">
+        <button id="expand" label="expand"/>
+        <button id="collapse" label="collapse"/>"
+    <tree width="200px" height="300px" />
+    </nodom>
+</zk>
