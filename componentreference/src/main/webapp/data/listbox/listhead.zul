@@ -1,0 +1,18 @@
+<zk>
+    <window title="Column's Menu Demo" border="normal" width="500px">
+        <menupopup id="editPopup">
+            <menuitem label="Group" image="~./zul/img/grid/menu-group.png" />
+            <menuitem label="Sort Ascending" image="~./zul/img/grid/menu-arrowup.png"/>
+            <menuitem label="Sort Descending" image="~./zul/img/grid/menu-arrowdown.png"/>
+            <menuitem label="Author" checkmark="true" onClick=""/>
+        </menupopup>
+        <listbox>
+            <listhead menupopup="editPopup">
+                <listheader label="Author" sort="auto"/>
+                <listheader label="Title" sort="auto"/>
+                <listheader label="Publisher" sort="auto"/>
+                <listheader label="Hardcover" sort="auto"/>
+            </listhead>
+        </listbox>
+    </window>
+</zk>
