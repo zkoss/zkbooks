@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- https://www.zkoss.org/wiki/ZK_Client-side_Reference/Language_Definition -->
 <language-addon>
 	<addon-name>myaddon</addon-name>
 	<language-name>xul/html</language-name>
+	<depends>zuti</depends>
 	<component>
 		<component-name>editableLabel</component-name>
 		<component-class>org.zkoss.reference.developer.mvvm.advance.EditableLabel</component-class>
