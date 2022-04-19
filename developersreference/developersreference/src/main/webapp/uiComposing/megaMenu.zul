@@ -1,0 +1,37 @@
+<zk xmlns="native" xmlns:z="zul">
+    <z:style src="mega-menu.css" />
+    <z:div class="navbar" apply="org.zkoss.reference.developer.uicomposing.MegaMenuComposer">
+        <a href="#home">Home</a>
+        <a href="#news">News</a>
+        <div class="dropdown">
+            <button class="dropbtn">Dropdown
+                <i class="z-icon-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+                <div class="header">
+                    <h2>Mega Menu</h2>
+                </div>
+                <div class="row">
+                    <div class="column">
+                        <h3>Category 1</h3>
+                        <z:a label="Link 1"/>
+                        <z:a label="Link 2"/>
+                        <z:a label="Link 3"/>
+                    </div>
+                    <div class="column">
+                        <h3>Category 2</h3>
+                        <z:a label="Link 1"/>
+                        <z:a label="Link 2"/>
+                        <z:a label="Link 3"/>
+                    </div>
+                    <div class="column">
+                        <h3>Category 3</h3>
+                        <z:a label="Link 1"/>
+                        <z:a label="Link 2"/>
+                        <z:a label="Link 3"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </z:div>
+</zk>
