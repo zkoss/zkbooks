@@ -1,0 +1,5 @@
+<?style src="mega-menu.css" ?>
+<zk>
+    <apply templateURI="megaMenu.zul" menu1="View" menu2="Navigate"/>
+    reuse as a template zul
+</zk>

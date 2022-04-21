@@ -1,8 +1,8 @@
+<?style src="mega-menu.css" ?>
 <zk xmlns="native" xmlns:z="zul">
-    <style src="mega-menu.css"/>
     <z:div class="navbar" apply="org.zkoss.reference.developer.uicomposing.MegaMenuComposer">
-        <a href="#${menu1}">${menu1}</a>
-        <a href="#${menu2}">${menu2}</a>
+        <a href="#home">Home</a>
+        <a href="#news">News</a>
         <div class="dropdown">
             <button class="dropbtn">Dropdown
                 <i class="z-icon-caret-down"></i>
@@ -34,4 +34,5 @@
             </div>
         </div>
     </z:div>
+    reuse HTML/CSS from <a href="https://www.w3schools.com/howto/howto_css_mega_menu.asp">How TO - Mega Menu</a>
 </zk>

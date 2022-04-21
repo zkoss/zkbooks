@@ -1,0 +1,7 @@
+<?component name="megamenu" templateURI="megaMenuParameterized.zul"?>
+<zk>
+    <nodom apply="org.zkoss.reference.developer.uicomposing.DynamicMegaMenuComposer">
+        <megamenu/>
+        reuse as a page-scope component
+    </nodom>
+</zk>
