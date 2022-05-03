@@ -1,0 +1,38 @@
+<zk>
+    <zscript>
+        ListModel model = new ListModelList(new String[] {
+        "2019-Q1",
+        "2019-Q2",
+        "2019-Q3",
+        "2019-Q4"
+        });
+    </zscript>
+    <div height="400px">
+    <linelayout model="${model}" height="800px">
+        <template name="model">
+            <lineitem>
+                <button label="${each}"></button>
+            </lineitem>
+        </template>
+    </linelayout>
+    </div>
+
+    <linelayout orient="horizontal" lineStyle="background:rgba(0,0,0,0.5)" >
+        <lineitem>
+            <label>8 am</label>
+            <button>good morning</button>
+        </lineitem>
+        <lineitem opposite="true" pointIconSclass="z-icon-plus-circle" pointStyle="background: #FF4051">
+            <label>12 pm</label>
+            <button>lunch time</button>
+        </lineitem>
+        <lineitem>
+            <label>6 pm</label>
+            <button>dinner time</button>
+        </lineitem>
+        <lineitem opposite="true">
+            <label>10 pm</label>
+            <button>good night</button>
+        </lineitem>
+    </linelayout>
+</zk>
