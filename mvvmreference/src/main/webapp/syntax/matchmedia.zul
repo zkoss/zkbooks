@@ -1,0 +1,13 @@
+<zk>
+    <div id="div" viewModel="@id('vm') @init('org.zkoss.mvvm.syntax.MatchMediaVM')">
+        <window width="@bind(vm.windowWidth)">
+            <apply template="@bind(vm.applyTemplateName)"/>
+        </window>
+    </div>
+    <template name="min501">
+        min 501
+    </template>
+    <template name="max500">
+        max 500
+    </template>
+</zk>
