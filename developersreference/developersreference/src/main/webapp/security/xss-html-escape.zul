@@ -1,0 +1,20 @@
+<?page title="</title><script>alert('XSS')</script>"?>
+<!--<?page viewport="\"><script>alert('XSS')</script>"?>-->
+<?meta name="'><script>" content="\"><script>alert('XSS')</script>"?>
+<?root-attributes anyname="\"><script>alert('XSS')</script>"?>
+<zk>
+    <zscript><![CDATA[
+String message = "</span><script>alert('XSS')</script>"; //might read from an external source
+String message2 = "<script>alert('XSS')</script>";
+    ]]></zscript>
+    <div>
+        ${message}
+    </div>
+    for meta, zk calls HTMLs.appendAttribute() -> XMLs.encodeAttribute() to escape HTML code and avoid xss
+    <div xmlns="native">
+        <script>alert('not encoded in html element')</script>
+    </div>
+    <div xmlns="xhtml">
+        <script>alert('not encoded in xhtml component')</script>
+    </div>
+</zk>
