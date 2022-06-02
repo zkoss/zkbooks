@@ -1,0 +1,7 @@
+<zk>
+    <div apply="org.zkoss.reference.component.input.CustomValidationComposer">
+    <textbox id="username"/>
+    <textbox id="password"/>
+        <button id="login" label="Login"/>
+    </div>
+</zk>
