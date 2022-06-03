@@ -5,7 +5,15 @@ import org.zkoss.zul.Constraint;
 
 public class EvenNumberConstraint implements Constraint {
     public void validate(Component comp, Object value) throws WrongValueException {
-        if (value != null && new Integer(value.toString()).intValue() % 2 == 1)
-            throw new WrongValueException(comp, "Only even numbers are allowed, not "+value);
+        try {
+            if (value != null && new Integer(value.toString()).intValue() % 2 == 1)
+                showError(comp, value);
+        }catch (NumberFormatException e){
+                showError(comp, value);
+        }
+    }
+
+    private void showError(Component comp, Object value) {
+        throw new WrongValueException(comp, "Only even numbers are allowed, not " + value);
     }
 }
