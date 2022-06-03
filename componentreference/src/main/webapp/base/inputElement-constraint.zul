@@ -38,12 +38,12 @@
                 errmsg.setValue(ex != null ? ex.getMessage(): "");
             }
         }
-        Constraint ctt = new MyConst();
+        Constraint customConstraint = new MyConst();
     ]]>
         </zscript>
         <hlayout>
             Enter a number at least 100:
-            <intbox constraint="${ctt}" />
+            <intbox constraint="${customConstraint}" />
             <label id="errmsg" />
         </hlayout>
     </window>
