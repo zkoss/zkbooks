@@ -59,6 +59,11 @@
 zk.afterMount(function() {
 	console.log('afterMount');
 });
+
+zk.afterResize(function(){
+	console.log('afterResize');
+});
+
 zk.afterLoad(function() {
 	console.log('afterLoad: all wpd loaded');
 
