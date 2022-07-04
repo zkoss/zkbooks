@@ -1,0 +1,12 @@
+<zk xmlns:h="native">
+
+    <vlayout apply="org.zkoss.bind.BindComposer">
+        <zscript><![CDATA[
+java.util.Date date = new java.util.Date();
+int aNumber = 123456;
+    ]]></zscript>
+        <h:h1>Built-in Converter</h:h1>
+        <label value="@init(date) @converter('formattedDate', format='yyyy/MM/dd')"/>
+        <label value="@init(aNumber) @converter('formattedNumber', format='###,##0.00')"/>
+    </vlayout>
+</zk>
