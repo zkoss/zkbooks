@@ -1,0 +1,21 @@
+<zk>
+    <zscript><![CDATA[
+    boolean isDirty = false;
+    String NO_CONFIRM = "No Confirm Dialog";
+    String SHOW_CONFIRM = "Show Confirm Dialog";
+
+    public void toggle(){
+        isDirty = !isDirty;
+        if (isDirty) {
+            Clients.confirmClose("non-empty string");
+            toggleButton.setLabel(SHOW_CONFIRM);
+        } else {
+            Clients.confirmClose(null); //reset. no more confirmation.
+            toggleButton.setLabel(NO_CONFIRM);
+        }
+    }
+
+    ]]></zscript>
+    <button id="toggleButton" label="${NO_CONFIRM}" onClick="toggle()"/>
+    <a href="action.zul">link to another page</a>
+</zk>
