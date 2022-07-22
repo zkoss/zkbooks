@@ -1,9 +1,11 @@
+<?script src="zwatch-listener.js"?>
 <zk>
-    <script src="zwatch-listener.js"/>
+<window title="root" border="normal" sizable="true">
+
     resize the browser window
-    <button onClick=""/>
     <button label="show window" onClick="win.setVisible(!win.isVisible())"/>
-    <window  id="win"  mode="highlighted" title="highlighted" border="normal" visible="false">
+    <window  id="win"  mode="overlapped" title="pop up" border="normal" visible="false" sizable="true">
 
     </window>
+</window>
 </zk>

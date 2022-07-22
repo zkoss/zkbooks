@@ -1,33 +1,40 @@
 var sizeListener = {
-    onSize: function(ctrl) {
+    onSize: function(controller) {
         zk.log(arguments[0].name);
+        //ctrl.origin is null
     },
-    onAfterSize: function(ctrl) {
+    onFitSize: function(controller) {
         zk.log(arguments[0].name);
+        //ctrl.origin is null
     },
-    onFitSize: function(ctrl) {
+    beforeSize: function(controller) {
         zk.log(arguments[0].name);
+        //ctrl.origin is null
+    },
+    afterSize: function(controller) {
+        zk.log(arguments[0].name);
+        //ctrl.origin is null
     },
     isWatchable_: function() { //required for a size event listener
         return true;
     }
 };
 
-zWatch.listen({onAfterSize: sizeListener,
-               onSize: sizeListener,
+zWatch.listen({onSize: sizeListener,
                onFitSize: sizeListener,
-               onShow: sizeListener,
+               beforeSize: sizeListener,
+               afterSize: sizeListener,
                });
 
 var listener = {
-    onCommandReady: function(ctrl) {
+    onCommandReady: function(controller) {
         zk.log(arguments[0].name);
     },
-    onResponse: function(ctrl) {
+    onResponse: function(controller) {
         zk.log(arguments[0].name);
     },
-    onFloatUp: function(ctrl) {
-        zk.log(arguments[0].name);
+    onFloatUp: function(controller) {
+        zk.log(`focus on ${controller.origin.widgetName}` )
     },
 }
 
