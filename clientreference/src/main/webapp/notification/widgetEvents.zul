@@ -1,0 +1,15 @@
+<zk xmlns:w="client">
+    <window id="win" title="afterSize" sizable="true" border="normal" w:onAfterSize="log(event)" w:onBind="log(event)" w:onUnbind="log(event)">
+        resize me
+    </window>
+    <button label="detach to unbind" onClick="win.detach()"/>
+    <script><![CDATA[
+function log(event){
+    zk.log(event.name);
+    let winWidget = zk.Widget.$('@window');
+    if (winWidget){
+        zk.log(winWidget.$n());
+    }
+}
+    ]]></script>
+</zk>

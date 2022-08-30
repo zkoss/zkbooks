@@ -17,7 +17,7 @@ function (out) {
 	out.push('<ul role="none">',
 			'<li style="' , showFirstLast, '" role="none">'+
 			'<button name="', uuid, '-first" class="', btn, ' ', this.$s('first'), '" aria-label="', msgzul.FIRST,
-            '" title="first page">'+
+            '" title="'+ tooltip.first + '">'+
             '<i class="z-paging-icon z-icon-angle-double-left" aria-hidden="true"></i></button></li>',
 			'<li role="none">'+
 			'<button name="', uuid, '-prev" class="', btn, ' ', this.$s('previous'),
