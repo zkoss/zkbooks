@@ -1,0 +1,12 @@
+<window title="AfterSizeEvent" border="normal" width="250px" height="200px" maximizable="true" sizable="true">
+    <attribute name="onAfterSize"><![CDATA[
+		int width = event.getWidth();
+		if (width >= 600){
+			Clients.log(">600");
+		}else if (width >= 400 && width < 600){
+			Clients.log("400 ~ 600");
+		}else{
+			Clients.log("<400");
+        }
+	]]></attribute>
+</window>
