@@ -1,8 +1,95 @@
-<zk>
-	<zscript><![CDATA[
+<zk xmlns:h="native">
+    <div width="50%">
+        <h:h1>Render On Demand</h:h1>
+        <zscript><![CDATA[
 import java.util.*;
 ListModelList model = new ListModelList(Locale.getAvailableLocales());
 ]]></zscript>
-	<custom-attributes org.zkoss.zul.listbox.rod="true" />
-	<listbox id="box" model="${model}"  multiple="true"  rows="10"/>
+        <custom-attributes org.zkoss.zul.listbox.rod="true"/>
+        <listbox model="${model}" multiple="true" rows="10"/>
+
+        <custom-attributes org.zkoss.zul.grid.rod="true"/>
+        <grid model="${model}" visibleRows="10"/>
+
+
+        <h:h1>Limitations</h:h1>
+        <h:h2>hflex="min"</h:h2>
+        <zscript><![CDATA[
+import java.util.*;
+ListModelList flexModel = new ListModelList();
+for (int i =0; i< 100; i++){
+	flexModel.add("item "+i);
+}
+flexModel.add("this is a very long item");
+
+]]></zscript>
+        <h:h3>a Listbox with model</h:h3>
+        scroll to the last item
+        <listbox model="${flexModel}" rows="10">
+            <listhead>
+                <listheader hflex="min" label="header"/>
+            </listhead>
+        </listbox>
+        <h:h3>create listitem directly</h:h3>
+        scroll to the last item
+        <listbox rows="10">
+            <listhead>
+                <listheader hflex="min" label="header"/>
+            </listhead>
+            <forEach begin="1" end="100">
+                <listitem label="${('item ' +=forEachStatus.index)}"/>
+            </forEach>
+            <listitem label="this is a very long item"/>
+        </listbox>
+
+        <h:h3>a Grid with model</h:h3>
+        <grid model="${flexModel}" visibleRows="10">
+            <columns>
+                <column hflex="min" label="header"/>
+            </columns>
+        </grid>
+        <h:h3>create rows directly</h:h3>
+        <grid visibleRows="10">
+            <columns>
+                <column hflex="min" label="header"/>
+            </columns>
+            <rows>
+                <forEach begin="1" end="100">
+                    <row>
+                        <label value="${('row ' +=forEachStatus.index)}"/>
+                    </row>
+                </forEach>
+                <row>
+                    ${'this is a very long item'}
+                </row>
+            </rows>
+        </grid>
+
+        <h:h3>a tree with a model</h:h3>
+        <tree apply="org.zkoss.reference.developer.performance.TreeComposer" height="200px">
+            <treecols>
+                <treecol label="Column" hflex="min"/>
+            </treecols>
+        </tree>
+        <h:h3>create treeitem directly</h:h3>
+        <tree height="200px">
+            <treecols>
+                <treecol label="Column" hflex="min"/>
+            </treecols>
+            <treechildren>
+                <forEach begin="1" end="50">
+                    <treeitem>
+                        <treerow>
+                            <treecell label="a"/>
+                        </treerow>
+                    </treeitem>
+                </forEach>
+                <treeitem>
+                    <treerow>
+                        <treecell label="this is a very long item"/>
+                    </treerow>
+                </treeitem>
+            </treechildren>
+        </tree>
+    </div>
 </zk>
