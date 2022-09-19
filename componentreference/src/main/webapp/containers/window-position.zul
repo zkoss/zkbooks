@@ -1,0 +1,22 @@
+<zk>
+    <div height="800px">
+        a div to produce a vertical scrollbar.
+    </div>
+    mode:
+    <radiogroup id="selectedMode">
+        <radio label="popup" selected="true"/>
+        <radio label="overlapped"/>
+        <radio label="highlighted"/>
+        <radio label="modal"/>
+    </radiogroup>
+    <button label="Create" onClick="createWindow()"/>
+    <zscript><![CDATA[
+public void createWindow(){
+    Window win = new Window();
+    win.setPage(page);
+    win.setMode(selectedMode.getSelectedItem().getLabel());
+    win.setPosition("top, center");
+    win.setTop("50px"); //be
+}
+    ]]></zscript>
+</zk>
