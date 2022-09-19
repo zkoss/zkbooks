@@ -1,4 +1,11 @@
 <zk xmlns:n="native">
+    <n:h1>Default</n:h1>
+    <rating rating="3"/>
+    <n:h1>Max</n:h1>
+    <rating rating="5" max="10"/>
+    <n:h1>Custom icon</n:h1>
+    <rating iconSclass="z-icon-bolt" />
+    <n:h2>CSS</n:h2>
     <style>
         .myGiftIcon:before {
             content: '🎁';
@@ -6,17 +13,11 @@
         .gift .z-rating-icon{
             opacity: 0.5;
         }
-        .gift .z-rating-selected{
+        .gift .z-rating-selected, .gift .z-rating-hover{
             opacity: 1;
         }
     </style>
-    <vlayout style="margin: 20px">
-        <n:h1>default</n:h1>
-        <rating rating="3"/>
-        <n:h1>custom icon</n:h1>
-        <rating iconSclass="z-icon-bolt" rating="3" max="7"/>
-        <div sclass="gift">
-            <rating iconSclass="myGiftIcon" rating="3"/>
-        </div>
-    </vlayout>
+    <rating iconSclass="myGiftIcon" sclass="gift" rating="3"/>
+    <n:h1>Cancelable</n:h1>
+    <rating cancelable="false"/>
 </zk>
