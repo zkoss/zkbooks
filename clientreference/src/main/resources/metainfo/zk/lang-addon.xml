@@ -1,0 +1,16 @@
+<language-addon>
+    <addon-name>custom-mold</addon-name>
+    <version>1.0</version>
+    <language-name>xul/html</language-name>
+
+    <depends>zul</depends>
+
+    <component>
+        <component-name>paging</component-name>
+        <extends>paging</extends>
+        <mold>
+            <mold-name>tooltip</mold-name>
+            <mold-uri>mold/paging-tooltip.js</mold-uri>
+        </mold>
+    </component>
+</language-addon>
