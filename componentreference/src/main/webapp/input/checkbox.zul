@@ -1,7 +1,7 @@
 <zk xmlns:n="native" xmlns:ca="client/attribute">
     <checkbox checked="true" disabled="true"/>
     <n:h1>toggle</n:h1>
-    <checkbox mold="toggle" />
+    <checkbox mold="toggle"/>
     <checkbox mold="toggle" checked="true"/>
     <checkbox mold="toggle" disabled="true"/>
     <n:h1>custom style</n:h1>
@@ -23,7 +23,7 @@
     <checkbox mold="switch"/>
     <checkbox mold="switch" checked="true"/>
     <div sclass="custom">
-    <n:h1>custom style</n:h1>
+        <n:h1>custom style</n:h1>
         <style>
             .custom .z-checkbox-switch-off > .z-checkbox-mold {
             background-color: red;
@@ -41,8 +41,17 @@
         <checkbox mold="switch"/>
         <checkbox mold="switch" checked="true"/>
     </div>
-    <n:h1>3 states</n:h1>
-    <checkbox indeterminate="true" checked="true" />
-
+    <n:h1>tri-states</n:h1>
+    <div>
+        <n:h3>Sandwich Condiments</n:h3>
+        <checkbox mold="tristate" label="All condiments"  apply="org.zkoss.reference.component.input.TristateComposer">
+            <custom-attributes subcheckbox=".condiment"/>
+        </checkbox>
+        <vlayout style="padding-left: 20px">
+            <checkbox label="Lettuce" sclass="condiment"/>
+            <checkbox label="Tomato" sclass="condiment"/>
+            <checkbox label="Mustard" sclass="condiment"/>
+        </vlayout>
+    </div>
 
 </zk>
