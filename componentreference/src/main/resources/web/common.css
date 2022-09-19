@@ -1,6 +1,6 @@
-/* eliminate "margin collapse" if h1 is the first element in a zul */
+/* there is a vertical scrollbar produced by "margin collapse" if h1 is the first element in a zul */
 h1{
-    margin-top: 0px;
+    margin-bottom: 5px;
 }
 
 :focus {
