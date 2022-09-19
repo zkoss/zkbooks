@@ -1,12 +1,13 @@
 <zk xmlns:h="native">
-    <div width="50%">
+    <div width="50%" apply="org.zkoss.reference.developer.performance.RodComposer">
         <h:h1>Render On Demand</h:h1>
-        <zscript><![CDATA[
-import java.util.*;
-ListModelList model = new ListModelList(Locale.getAvailableLocales());
-]]></zscript>
         <custom-attributes org.zkoss.zul.listbox.rod="true"/>
-        <listbox model="${model}" multiple="true" rows="10"/>
+        <listbox id="listbox1" rows="10">
+            <listhead>
+                <listheader label="Available Locale"/>
+            </listhead>
+        </listbox>
+        Current items size: <label id="size"/>
 
         <custom-attributes org.zkoss.zul.grid.rod="true"/>
         <grid model="${model}" visibleRows="10"/>
@@ -16,10 +17,7 @@ ListModelList model = new ListModelList(Locale.getAvailableLocales());
         <h:h2>hflex="min"</h:h2>
         <zscript><![CDATA[
 import java.util.*;
-ListModelList flexModel = new ListModelList();
-for (int i =0; i< 100; i++){
-	flexModel.add("item "+i);
-}
+ListModelList flexModel = new ListModelList(Collections.nCopies(200, "data"));
 flexModel.add("this is a very long item");
 
 ]]></zscript>
