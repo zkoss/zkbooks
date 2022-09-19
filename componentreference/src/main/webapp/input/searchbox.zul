@@ -13,6 +13,6 @@
        ]]></html>
         </template>
     </searchbox>
-    <h:h1>Multiple Selection</h:h1>
+    <h:h1>Multiple Selections</h:h1>
     <searchbox model="${model2}" multiple="true" width="500px"/>
 </zk>
