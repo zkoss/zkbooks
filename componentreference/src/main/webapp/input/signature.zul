@@ -7,7 +7,9 @@
     <image id="image"/>
 
     <h:h1>Load a background image</h:h1>
-    <signature id="sig" width="600px" height="300px" onSave="image2.setContent(event.getMedia())" backgroundImage="/component/multimedia/zklogo3.png"
+    load an image produced by scanning a paper form
+    <signature id="sig" width="602px" height="341px" onSave="image2.setContent(event.getMedia())" backgroundImage="checklist.jpg"
                backgroundIncluded="true"/>
+    <h:h2>Saved Result</h:h2>
     <image id="image2"/>
 </zk>
