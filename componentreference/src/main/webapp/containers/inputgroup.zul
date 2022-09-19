@@ -1,0 +1,56 @@
+<zk xmlns:h="native">
+    <h:h1>Basic Usages</h:h1>
+    <inputgroup>
+        @<textbox />
+    </inputgroup>
+
+    <inputgroup>
+        <textbox placeholder="Recipient's username"/>@example.com
+    </inputgroup>
+
+    <inputgroup>
+        $<textbox/>.00
+    </inputgroup>
+
+    <inputgroup>
+        <checkbox/><textbox/>
+    </inputgroup>
+
+    <inputgroup>
+        With textarea
+        <textbox multiline="true" rows="5" cols="30"/>
+    </inputgroup>
+    <h:h1>Multiple inputs</h:h1>
+    <inputgroup>
+        First and last name<textbox/><textbox/>
+    </inputgroup>
+
+    <h:h1>Multiple addons</h:h1>
+    <inputgroup>
+        <label value="$"/>0.00<textbox/>
+    </inputgroup>
+    <h:h1>Button addons</h:h1>
+    <inputgroup>
+        <button label="button"/><textbox/>
+    </inputgroup>
+    <h:h1>Button Group</h:h1>
+    <inputgroup>
+        <button label="Left"/>
+        <button label="Middle"/>
+        <button label="Right"/>
+    </inputgroup>
+
+    <inputgroup>
+        Options<combobox/>
+    </inputgroup>
+
+    <h:h1>Orient</h:h1>
+
+    <inputgroup orient="vertical">
+        <button label="Button"/>
+        <button label="Button"/>
+        <button label="Button"/>
+        <button label="Button"/>
+    </inputgroup>
+    <!-- ref https://getbootstrap.com/docs/5.2/forms/input-group/ -->
+</zk>
