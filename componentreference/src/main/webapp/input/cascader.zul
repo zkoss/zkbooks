@@ -13,4 +13,6 @@
     ]]></zscript>
     <cascader width="300px" model="${treeModel}" onSelect="result.setValue(self.getSelectedItem().toString());"/>
     <label id="result"/>
+    <h:h1>Different Selected Result</h:h1>
+    <cascader itemConverter="org.zkoss.reference.component.input.MyItemConverter" model="${treeModel}"  width="300px"/>
 </zk>
