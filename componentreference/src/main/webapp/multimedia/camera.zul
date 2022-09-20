@@ -8,7 +8,7 @@
     <button onClick="camera.snapshot()" label="Snapshot"/>
 
     <separator/>
-    <camera id="camera" height="300px"  width="400px" maxsize="-1" lengthLimit="60" previewRecord="true"
+    <camera id="camera" height="300px"  width="400px" maxsize="-1" lengthLimit="10" previewRecord="true"
             onVideoUpload='video.setContent(event.getMedia())'
     onSnapshotUpload='image.setContent(event.getMedia())'
     onLengthLimitExceed='Clients.log(event.getName())'
@@ -53,4 +53,16 @@
     <button onClick="c2.requestCamera()" label="Request camera"/>
     <camera id="c2" height="300px" width="400px" maxsize="-1" lengthLimit="60"
             constraintsString='{"video": {"facingMode": {"exact": "user"}}}'/>
+
+
+    <h:h1>Combine with Cropper</h:h1>
+    <vlayout>
+        <h:h3>Take a Picture</h:h3>
+        <camera height="180px"  width="200px" maxsize="-1" lengthLimit="10" previewRecord="true"
+                onSnapshotUpload='cropper.setContent(event.getMedia())' onCreate="self.requestCamera()" onClick="self.snapshot()"/>
+        <h:h3>Crop Your headshot</h:h3>
+        <cropper id="cropper" onCrop="headshot.setContent(event.getMedia())"/>
+        <h:h3>Your headshot</h:h3>
+        <image id="headshot"/>
+    </vlayout>
 </zk>
