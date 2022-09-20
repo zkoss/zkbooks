@@ -1,5 +1,7 @@
 <zk xmlns:n="native">
-    <video src="zk.mp4"  controls="true" autoplay="true" loop="true"/>
+    <n:h1>autoplay</n:h1>
+    muted autoplay is always allowed.
+    <video src="zk.mp4"  controls="true" autoplay="true" loop="true" muted="true"/>
 
     <n:h1>enableFullScreen</n:h1>
     <video id="player" src="zk.mp4" width="400px" controls="true"/>
@@ -8,14 +10,16 @@
 
     <n:h1>StateChangeEvent</n:h1>
     <div viewModel="@id('vm')@init('org.zkoss.reference.component.multimedia.VideoVM')">
-    <video src="zk.mp4"  controls="true" onStateChange="@command('stateChange')" />
+        <video src="zk.mp4"  controls="true" onStateChange="@command('stateChange')" />
     </div>
 
     <n:h1>streaming</n:h1>
     <video src="http://yt-dash-mse-test.commondatastorage.googleapis.com/media/car-20120827-85.mp4" controls="true"/>
 
     <n:h1>track</n:h1>
+    load subtitles
     <video src="zk.mp4"  controls="true">
-        <track kind="captions" srclang="en" src="sub.vtt"/>
+        <track kind="captions" srclang="en" src="sub_en.vtt" default="true"/>
+        <track kind="captions" srclang="zh" src="sub_zh.vtt" />
     </video>
 </zk>
