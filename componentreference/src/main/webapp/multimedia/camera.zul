@@ -1,25 +1,15 @@
 <zk xmlns:h="native">
-<style>
-    .z-camera-pause{
-        width: 30px;
-        height: 30px;
-        top: 30px;
-        left: 30px;
-        position: absolute;
-        border-left: 10px solid red;
-        border-right: 10px solid red;
-    }
-</style>
+    <h:h1>API Basic Usage</h:h1>
+    <button onClick="camera.requestCamera()" label="Request camera"/>
     <button onClick="camera.start()" label="Start"/>
     <button onClick="camera.pause()" label="Pause"/>
+    <button onClick="camera.resume()" label="Resume"/>
     <button onClick="camera.stop()" label="Stop"/>
     <button onClick="camera.snapshot()" label="Snapshot"/>
-    <button onClick="camera.requestCamera()" label="Request camera"/>
-    <button onClick="camera.resume()" label="Resume record video"/>
 
     <separator/>
-    <camera id="camera" height="300px"  width="400px" maxsize="-1" lengthLimit="60"
-    onVideoUpload='video.setContent(event.getMedia())'
+    <camera id="camera" height="300px"  width="400px" maxsize="-1" lengthLimit="60" previewRecord="true"
+            onVideoUpload='video.setContent(event.getMedia())'
     onSnapshotUpload='image.setContent(event.getMedia())'
     onLengthLimitExceed='Clients.log(event.getName())'
     onStateChange="Clients.log(event.getState().toString())">
@@ -29,9 +19,11 @@
     </camera>
 
     <separator/>
-    <image id="image" height="300px" width="400px"/>
+    <h:h2>Snapshot</h:h2>
+    <image id="image" height="300px" width="400px" style="border: solid 1px"/>
 
     <separator/>
+    <h:h2>Recorded Video</h:h2>
     <video id="video" width="400px" controls="true"/>
 
     <separator/>
@@ -51,7 +43,14 @@
             Clients.log(media.getName());
         </attribute>
     </button>
+    <h:h1>Customize recording hint</h:h1>
+<style>
+    .z-camera-pause:before{
+        color: red;
+    }
+</style>
     <h:h1>Enforce Specific Camera</h:h1>
-    <camera height="300px" width="400px" maxsize="-1" lengthLimit="60"
-            constraintsString='{"video": {    "facingMode": {      "exact": "user"    }}}'/>
+    <button onClick="c2.requestCamera()" label="Request camera"/>
+    <camera id="c2" height="300px" width="400px" maxsize="-1" lengthLimit="60"
+            constraintsString='{"video": {"facingMode": {"exact": "user"}}}'/>
 </zk>
