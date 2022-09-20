@@ -1,9 +1,28 @@
 <zk xmlns:n="native">
+    <n:h1>Basic</n:h1>
     <pdfviewer src="Bill.pdf" />
+
+    <n:h1>Zoom to Fit</n:h1>
+    <pdfviewer id="pv" src="Bill.pdf" zoom="fit-page-width" />
+
+    <n:h1>Custom Toolbar</n:h1>
+    <pdfviewer id="pv2" src="Bill.pdf">
+        <toolbar>
+            <toolbarbutton iconSclass="z-icon-fw z-icon-fast-backward"
+                           onClick="pv2.firstPage()"/>
+            <toolbarbutton iconSclass="z-icon-fw z-icon-chevron-left"
+                           onClick="pv2.previousPage()"/>
+            <toolbarbutton iconSclass="z-icon-fw z-icon-chevron-right"
+                           onClick="pv2.nextPage()"/>
+            <toolbarbutton iconSclass="z-icon-fw z-icon-fast-forward"
+                           onClick="pv2.lastPage()"/>
+        </toolbar>
+    </pdfviewer>
+    <button xmlns:w="client" label="Full Screen" w:onClick="zk.$('$pv2').toggleFullscreen()" />
+
     <n:h1>Partially visible</n:h1>
-    <div height="500px">
-        <pdfviewer src="Bill.pdf" vflex="1" />
-    </div>
-    content
+    <pdfviewer src="Bill.pdf" height="500px" />
+
+    <n:h1>Set Content</n:h1>
     <pdfviewer id="viewer" apply="org.zkoss.reference.component.multimedia.PdfviewerController"/>
 </zk>
