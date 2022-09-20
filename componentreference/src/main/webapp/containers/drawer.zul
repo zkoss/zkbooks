@@ -1,6 +1,7 @@
 <zk>
-    <button label="Show File Info" onClick="fi.open()"/>
-    <drawer id="fi" title="File information">
+    <button label="Show File Info" onClick="info.open()"/>
+    <button label="Show Others" onClick="bottomDrawer.open()"/>
+    <drawer id="info" title="File information">
         <grid>
             <columns>
                 <column/>
@@ -21,5 +22,11 @@
                 </row>
             </rows>
         </grid>
+    </drawer>
+    <drawer title="AutoDrop drawer" autodrop="true">
+        auto drop enabled
+    </drawer>
+    <drawer id="bottomDrawer" xmlns:ca="client/attribute" title="Other information" position="bottom" ca:data-animationspeed="0" >
+        this shows info
     </drawer>
 </zk>
