@@ -1,0 +1,39 @@
+<zk xmlns:h="native">
+    <h:h1>Next</h:h1>
+    <vlayout style="text-align:center">
+        <button label="Step 1" sclass="big-margin"/>
+        <coachmark target="${self.previousSibling}" next="mark2" onTargetClick="self.next()">
+            click here
+        </coachmark>
+        <button id="s2" label="Step 2" sclass="big-margin"/>
+        <coachmark id="mark2" target="${self.previousSibling}" next="mark3" onTargetClick="self.next()" visible="false">
+            click here
+        </coachmark>
+        <button label="Step 3" sclass="big-margin"/>
+        <coachmark id="mark3" target="${self.previousSibling}" onTargetClick="self.next()" visible="false">
+            click here
+        </coachmark>
+    </vlayout>
+    <style>
+        .big-margin{
+            margin-top:100px;
+        }
+    </style>
+    <idspace>
+        <vlayout style="text-align:center; padding-bottom: 100px">
+            <button label="Start teach me" sclass="big-margin" onClick="mark1.open()" style="background-color: coral"/>
+            <button label="Step 1" sclass="big-margin"/>
+            <coachmark id="mark1" target="${self.previousSibling}" next="mark2" onTargetClick="self.next()" visible="false">
+                click here
+            </coachmark>
+            <button id="s2" label="Step 2" sclass="big-margin"/>
+            <coachmark id="mark2" target="${self.previousSibling}" next="mark3" onTargetClick="self.next()" visible="false">
+                click here
+            </coachmark>
+            <button label="Step 3" sclass="big-margin"/>
+            <coachmark id="mark3" target="${self.previousSibling}" onTargetClick="self.next()" visible="false">
+                click here
+            </coachmark>
+        </vlayout>
+    </idspace>
+</zk>

@@ -1,0 +1,10 @@
+<zk xmlns:h="native">
+    <h:h1>Basic</h:h1>
+    <div style="text-align:center">
+        <button id="infoButton" label="Information"/>
+        <coachmark target="infoButton" onTargetClick="self.close()">
+            <label>Wellcome! click here for more information!</label>
+            <button style="display: block;margin: 10px auto 0" label="got it!" onClick="self.parent.close()"/>
+        </coachmark>
+    </div>
+</zk>
