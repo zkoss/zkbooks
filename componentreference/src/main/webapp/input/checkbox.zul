@@ -1,4 +1,5 @@
 <zk xmlns:n="native" xmlns:ca="client/attribute">
+    <n:h1>Disabled</n:h1>
     <checkbox checked="true" disabled="true"/>
     <n:h1>toggle</n:h1>
     <checkbox mold="toggle"/>

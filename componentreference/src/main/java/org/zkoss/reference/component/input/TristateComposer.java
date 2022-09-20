@@ -63,9 +63,9 @@ public class TristateComposer extends SelectorComposer {
         @Override
         public void onEvent(Event event) throws Exception {
             tristateCheckbox.setIndeterminate(false);
-            if (allCondimentsChecked()) {
+            if (isAllChecked()) {
                 tristateCheckbox.setChecked(true);
-            } else if (allCondimentsUnchecked()) {
+            } else if (isAllUnchecked()) {
                 tristateCheckbox.setChecked(false);
             } else {
                 tristateCheckbox.setIndeterminate(true);
@@ -73,23 +73,19 @@ public class TristateComposer extends SelectorComposer {
 
         }
 
-        private boolean allCondimentsChecked() {
+        private boolean isAllChecked() {
             for (Checkbox box : checkboxList) {
-                if (box.isChecked()) {
-                    continue;
-                } else {
+                if (!box.isChecked()) {
                     return false;
                 }
             }
             return true;
         }
 
-        private boolean allCondimentsUnchecked() {
+        private boolean isAllUnchecked() {
             for (Checkbox box : checkboxList) {
                 if (box.isChecked()) {
                     return false;
-                } else {
-                    continue;
                 }
             }
             return true;
