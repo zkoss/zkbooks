@@ -10,10 +10,11 @@ import java.util.*;
 
 
 /**
- * A composer that changes the tristate checkbox' state by monitoring the checked state of a group of checkboxes (sub-checkboxes). If not all sub-checkboxes are checked, the tristate checkbox shows indeterminate state.
- * Usage:
- * 1. Apply this composer on a tristate checkbox
- * 2. Set a custom attribute "subcheckbox" with a selector to select all sub-checkboxes.
+ * A composer that changes the tri-state checkbox' state by monitoring the checked state of a group of checkboxes (sub-checkboxes). If not all sub-checkboxes are checked, the tri-state checkbox shows indeterminate state.
+ * If you check the tri-state checkbox, all sub-checkboxes are checked. If you uncheck the tri-state checkbox, all sub-checkboxes are unchecked.
+ * <h2>Usage:</h2>
+ * 1. Apply this composer on a tri-state checkbox
+ * 2. Set a custom attribute <code>subcheckbox</code> with a selector to select all sub-checkboxes.
  */
 public class TristateComposer extends SelectorComposer {
     private Checkbox tristateCheckbox;
@@ -21,15 +22,18 @@ public class TristateComposer extends SelectorComposer {
     @Override
     public void doAfterCompose(Component comp) throws Exception {
         super.doAfterCompose(comp);
-        validateAppliedComponent(comp);
-        //sub-checkboxes are usually after tristate checkbox on a page
-        tristateCheckbox.addEventListener("onCreate", event -> {
+        ensureApplyOnTriStateCheckbox(comp);
+        //sub-checkboxes are usually after tristate checkbox on a page, need to add listeners later
+        tristateCheckbox.addEventListener(Events.ON_CREATE, event -> {
             subCheckboxListener.addOnCheckListener();
         });
-        //TODO check/uncheck the tristate checkbox
+
+        tristateCheckbox.addEventListener(Events.ON_CHECK, (CheckEvent event) -> {
+           subCheckboxListener.setCheckedForAll(event.isChecked());
+        });
     }
 
-    private void validateAppliedComponent(Component comp) {
+    private void ensureApplyOnTriStateCheckbox(Component comp) {
         if (!(comp instanceof Checkbox)) {
             throw new RuntimeException("Should apply " + this.getClass() + " on a Checkbox");
         }
@@ -70,7 +74,6 @@ public class TristateComposer extends SelectorComposer {
             } else {
                 tristateCheckbox.setIndeterminate(true);
             }
-
         }
 
         private boolean isAllChecked() {
@@ -89,6 +92,12 @@ public class TristateComposer extends SelectorComposer {
                 }
             }
             return true;
+        }
+
+        public void setCheckedForAll(boolean checked) {
+            for (Checkbox box : checkboxList) {
+                box.setChecked(checked);
+            }
         }
     }
 
