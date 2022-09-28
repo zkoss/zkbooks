@@ -78,7 +78,7 @@
     <n:h1>Template for GroupsModel</n:h1>
     <zscript><![CDATA[
 import org.zkoss.reference.developer.mvc.model.*;
-GroupsModelArray fooGroupsModel = new GroupsModelArray(FoodComposer._foods, new ArrayComparator(0, true));
+GroupsModelArray fooGroupsModel = new GroupsModelArray(Food.foods, new ArrayComparator(0, true));
     ]]></zscript>
 <div >
     <listbox model="${fooGroupsModel}">
