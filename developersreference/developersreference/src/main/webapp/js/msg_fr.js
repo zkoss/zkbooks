@@ -1,0 +1,1 @@
+msgzul.DATE_REQUIRED= 'Date requise au format：';
