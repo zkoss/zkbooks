@@ -1,0 +1,6 @@
+<zk>
+	<div>
+		<label value="created from Excecutions.createComponents"/>
+		<textbox value="${arg.myValue}"/>
+	</div>
+</zk>

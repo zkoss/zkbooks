@@ -1,0 +1,13 @@
+<zk>
+	<div>
+		<zscript><![CDATA[
+			void createContentFromJava(){
+				Map args = new HashMap();
+				args.put("myValue", "My Value data");
+				Executions.getCurrent().createComponents("./loadZumlInJavaInner.zul",contentContainer,args);
+			}
+		]]></zscript>
+		<button label="create content from java" onClick='createContentFromJava()'/>
+		<div id="contentContainer"></div>
+	</div>
+</zk>
