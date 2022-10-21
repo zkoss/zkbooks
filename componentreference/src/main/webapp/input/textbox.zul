@@ -25,4 +25,16 @@
     <label value="price" id="priceLabel"/>
     <textbox ca:aria-labelledby="${priceLabel.uuid}"/>
 
+    <h:h1>Show/Hide Password</h:h1>
+    <textbox id="pw" type="password" value="abc"/>
+    <checkbox label="show password" onCheck="toggleType()"/>
+    <zscript><![CDATA[
+    public void toggleType(){
+        if ("password".equals(pw.getType())){
+            pw.setType("text");
+        }else{
+            pw.setType("password");
+        }
+    }
+    ]]></zscript>
 </zk>
