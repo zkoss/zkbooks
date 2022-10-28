@@ -4,7 +4,7 @@
 	<groupId>org.zkoss.reference</groupId>
 	<artifactId>integration.spring</artifactId>
 	<packaging>war</packaging>
-	<version>9.6.2-Eval</version>
+	<version>9.6.3-Eval</version>
 	<properties>
 		<spring.version>3.0.5.RELEASE</spring.version>
 		<maven.compiler.source>1.8</maven.compiler.source>
