@@ -1,0 +1,5 @@
+<?script src="tooltip_en.js" ?>
+<zk>
+    hover on paging buttons to see tooltips
+    <paging mold="tooltip"/>
+</zk>

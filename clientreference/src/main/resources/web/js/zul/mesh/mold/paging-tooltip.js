@@ -1,5 +1,4 @@
-/*
-	Purpose: add title attribute on button to show tooltips
+/* Purpose: add title attribute on buttons to show tooltips
 */
 function (out) {
 	var uuid = this.uuid;
@@ -13,7 +12,7 @@ function (out) {
 	var btn = this.$s('button'),
 		showFirstLast = this._showFirstLast ? '' : 'display: none;';
 
-    //add title for all buttons
+    //add title on all buttons
 	out.push('<ul role="none">',
 			'<li style="' , showFirstLast, '" role="none">'+
 			'<button name="', uuid, '-first" class="', btn, ' ', this.$s('first'), '" aria-label="', msgzul.FIRST,
