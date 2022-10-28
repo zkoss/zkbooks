@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.zkoss.reference</groupId>
     <artifactId>integration.hibernate</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>9.6.3-Eval</version>
     <packaging>war</packaging>
     <description>hibernate example codes.
         Hibernate - maven setup:
@@ -13,6 +13,12 @@
         org.springframework.orm.hibernate4.LocalSessionFactoryBean that supports Hibernate 4 only exists in Spring
         3.1.x. Use org.springframework.orm.hibernate4.HibernateTransactionManager.
     </description>
+    <properties>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.build.timestamp.format>yyyy-MM-dd</maven.build.timestamp.format>
+        <packname>-${project.version}-FL-${maven.build.timestamp}</packname>
+    </properties>
     <repositories>
         <repository>
             <id>ZK EVAL</id>
@@ -24,12 +30,12 @@
         <dependency>
             <groupId>org.zkoss.zk</groupId>
             <artifactId>zkmax</artifactId>
-            <version>6.5.0</version>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>org.zkoss.zk</groupId>
             <artifactId>zkplus</artifactId>
-            <version>6.5.0</version>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>org.hibernate</groupId>
@@ -39,7 +45,7 @@
         <dependency>
             <groupId>org.hsqldb</groupId>
             <artifactId>hsqldb</artifactId>
-            <version>2.2.6</version>
+            <version>2.7.1</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
@@ -80,9 +86,19 @@
         <plugins>
             <!-- Run with Jetty -->
             <plugin>
-                <groupId>org.mortbay.jetty</groupId>
-                <artifactId>maven-jetty-plugin</artifactId>
-                <version>6.1.10</version>
+                <!-- starts up faster but no JSP, JSF supported	-->
+                <groupId>org.eclipse.jetty</groupId>
+                <artifactId>jetty-maven-plugin</artifactId>
+                <version>9.4.31.v20200723</version>
+                <configuration>
+                    <jvmArgs>-Xmx4096m</jvmArgs>
+                    <webAppConfig>
+                        <contextPath>/${project.artifactId}</contextPath>
+                        <!-- disable web fragment scanning to speed up startup time-->
+                        <webInfIncludeJarPattern>^$</webInfIncludeJarPattern>
+                        <containerIncludeJarPattern>^$</containerIncludeJarPattern>
+                    </webAppConfig>
+                </configuration>
             </plugin>
         </plugins>
     </build>

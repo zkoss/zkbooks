@@ -23,6 +23,13 @@ public class DaoTest {
 		
 		Assert.assertNotNull(order.getId());
 	}
+
+
+	@Test
+	public void findAll(){
+		List result = orderDao.findAllNewSession();
+		Assert.assertEquals(102, result.size());
+	}
 	@Test
 	public void saveNonTransaction(){
 		Order order = new Order();
@@ -30,13 +37,8 @@ public class DaoTest {
 		order.setDescription("an order for test");
 		orderDao.saveInNewSession(order);
 		List result = orderDao.findAllNewSession();
-		Assert.assertEquals(3, result.size());
+		Assert.assertEquals(103, result.size());
 	}
-	
-	@Test
-	public void findAll(){
-		List result = orderDao.findAllNewSession();
-		Assert.assertEquals(2, result.size());
-	}
+
 	
 }

@@ -71,21 +71,6 @@
 		<url-pattern>/zkau/*</url-pattern>
 	</servlet-mapping>
 
-	<!-- DSP Interpreter -->
-	<servlet>
-		<servlet-name>dspLoader</servlet-name>
-		<servlet-class>org.zkoss.web.servlet.dsp.InterpreterServlet</servlet-class>
-		<init-param>
-			<param-name>class-resource</param-name>
-			<param-value>true</param-value>
-		</init-param>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>dspLoader</servlet-name>
-		<url-pattern>*.dsp</url-pattern>
-	</servlet-mapping>
-
-
 	<!-- /////////// -->
 	<!-- Optional. Session timeout -->
 	<session-config>
