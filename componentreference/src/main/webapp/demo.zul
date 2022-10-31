@@ -1,0 +1,43 @@
+<zk>
+<script src="/highlight/highlight.min.js"/>
+<style src="/highlight/github.min.css"/>
+<!-- embedded demo in Component Reference  -->
+    <div viewModel="@id('vm')@init('org.zkoss.demo.DemoViewModel')" style="padding:1em; background: aliceblue">
+        <div >
+            <apply templateURI="${param.path}"/>
+        </div>
+        <div style="text-align: center">
+            <button iconSclass="z-icon-code" onClick="@command('toggleCodeVisibility')"/>
+        </div>
+<!-- highlight code with https://highlightjs.org/ -->
+        <if test="@load(vm.codeVisible)">
+            <tabbox >
+                <tabs>
+                    <tab label="View"/>
+                    <tab label="Controller"/>
+                </tabs>
+                <tabpanels xmlns:h="native">
+                    <tabpanel>
+                        <h:pre><h:code class="language-xml">${zulContent}</h:code></h:pre>
+                    </tabpanel>
+                    <tabpanel>
+                        <h:pre>
+                            ${javaContent}
+                        </h:pre>
+                    </tabpanel>
+                </tabpanels>
+            </tabbox>
+        <script defer="true">
+        hljs.highlightAll();
+        </script>
+        </if>
+        <style>
+            .z-tabpanel pre{
+                margin: 0;
+            }
+            .z-tabpanel pre code{
+                padding: 0;
+            }
+        </style>
+    </div>
+</zk>

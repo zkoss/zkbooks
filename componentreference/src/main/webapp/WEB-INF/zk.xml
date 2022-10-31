@@ -11,10 +11,9 @@
         <debug-js>true</debug-js>
         <!--<enable-source-map>true</enable-source-map>-->
     </client-config>
-    <!--
+    <!-- for embedded demo in Component Reference -->
     <library-property>
-        <name>org.zkoss.theme.preferred</name>
-        <value>iceblue_c</value>
+        <name>org.zkoss.web.servlet.http.embedded.enabled</name>
+        <value>true</value>
     </library-property>
-        -->
 </zk>
