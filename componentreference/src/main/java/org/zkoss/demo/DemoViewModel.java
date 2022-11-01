@@ -10,6 +10,7 @@ import java.nio.file.*;
 public class DemoViewModel {
     private static final Logger logger = LoggerFactory.getLogger(DemoViewModel.class);
     private boolean codeVisible;
+    private boolean javaContentVisible;
     static final String KEY_PATH = "path";
 
     public DemoViewModel() {
@@ -46,7 +47,7 @@ public class DemoViewModel {
         return codeVisible;
     }
 
-    public void setCodeVisible(boolean codeVisible) {
-        this.codeVisible = codeVisible;
+    public boolean isJavaContentVisible() {
+        return javaContentVisible;
     }
 }

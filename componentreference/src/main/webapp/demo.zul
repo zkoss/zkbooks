@@ -14,7 +14,7 @@
             <tabbox >
                 <tabs>
                     <tab label="View"/>
-                    <tab label="Controller"/>
+                    <tab label="Controller" visible="@init(vm.javaContentVisible)"/>
                 </tabs>
                 <tabpanels xmlns:h="native">
                     <tabpanel>
