@@ -6,6 +6,8 @@ import org.zkoss.zk.ui.select.annotation.*;
 import org.zkoss.zk.ui.util.Clients;
 import org.zkoss.zul.*;
 
+import java.util.*;
+
 public class BinaryPackageController extends SelectorComposer<Component> {
 
 	@Wire
@@ -28,7 +30,7 @@ public class BinaryPackageController extends SelectorComposer<Component> {
 	 */
 	@Listen("onClick = #selectModel")
 	public void selectModel(){
-		treeModel.setOpenObjects(treeModel.getRoot().getChildren());
+		treeModel.setOpenObjects(List.of(treeModel.getRoot().getChildren().get(path[0])));
 		treeModel.addToSelection(treeModel.getChild(path));
 	}
 
@@ -44,12 +46,12 @@ public class BinaryPackageController extends SelectorComposer<Component> {
 	}
 
 	/**
-	 * To scroll a tree item into view, the item's each ancestor should be open.
+	 * To scroll a tree item into view, the item's each ancestor should be open first.
 	 */
 	@Listen("onClick = #scroll")
 	public void scrollIntoView() {
 		treeModel.setOpenObjects(treeModel.getRoot().getChildren());
 		Treeitem[] items = tree.getItems().toArray(new Treeitem[0]);
-		Clients.scrollIntoView(items[items.length - 1]);
+		Clients.scrollIntoView(items[items.length - 1]); //last item is /WEB-INF
 	}
 }

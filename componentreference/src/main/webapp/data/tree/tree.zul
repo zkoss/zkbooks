@@ -1,45 +1,46 @@
-<zk>
-    <window title="tree demo" border="normal" width="400px">
-        <tree id="tree" rows="5">
-            <treecols sizable="true">
-                <treecol label="Name"/>
-                <treecol label="Description"/>
-            </treecols>
-            <treechildren>
-                <treeitem>
-                    <treerow>
-                        <treecell label="Item 1"/>
-                        <treecell label="Item 1 description"/>
-                    </treerow>
-                </treeitem>
-                <treeitem>
-                    <treerow>
-                        <treecell label="Item 2"/>
-                        <treecell label="Item 2 description"/>
-                    </treerow>
-                    <treechildren>
-                        <treeitem>
-                            <treerow>
-                                <treecell label="Item 2.1"/>
-                            </treerow>
-                        </treeitem>
-                        <treeitem>
-                            <treerow>
-                                <treecell label="Item 2.2"/>
-                                <treecell
-                                        label="Item 2.2 is something who cares"/>
-                            </treerow>
-                        </treeitem>
-                    </treechildren>
-                </treeitem>
-                <treeitem label="Item 3"/>
-            </treechildren>
-            <treefoot>
-                <treefooter label="Count"/>
-                <treefooter label="Summary"/>
-            </treefoot>
-        </tree>
-    </window>
+<zk xmlns:h="native">
+    <h:h1>Static</h:h1>
+    <tree id="tree" rows="5">
+        <treecols sizable="true">
+            <treecol label="Name"/>
+            <treecol label="Description"/>
+        </treecols>
+        <treechildren>
+            <treeitem>
+                <treerow>
+                    <treecell label="Item 1"/>
+                    <treecell label="Item 1 description"/>
+                </treerow>
+            </treeitem>
+            <treeitem>
+                <treerow>
+                    <treecell label="Item 2"/>
+                    <treecell label="Item 2 description"/>
+                </treerow>
+                <treechildren>
+                    <treeitem>
+                        <treerow>
+                            <treecell label="Item 2.1"/>
+                        </treerow>
+                    </treeitem>
+                    <treeitem>
+                        <treerow>
+                            <treecell label="Item 2.2"/>
+                            <treecell
+                                    label="Item 2.2 is something who cares"/>
+                        </treerow>
+                    </treeitem>
+                </treechildren>
+            </treeitem>
+            <treeitem label="Item 3"/>
+        </treechildren>
+        <treefoot>
+            <treefooter label="Count"/>
+            <treefooter label="Summary"/>
+        </treefoot>
+    </tree>
+
+    <h:h1>Tree Model</h:h1>
     <zscript><![CDATA[
     DefaultTreeModel treeModel = new DefaultTreeModel(new DefaultTreeNode("ROOT",
         Arrays.asList(new DefaultTreeNode[]{
@@ -47,6 +48,6 @@
                 new DefaultTreeNode("Thomas",new ArrayList()),
                 new DefaultTreeNode("Steven",new ArrayList())})));
     ]]></zscript>
-
-    <tree width="300px" model="${treeModel}" onAfterRender="self.setSelectedItem(self.getTreechildren().getLastChild())"/>
+    <tree width="300px" model="${treeModel}"
+          onAfterRender="self.setSelectedItem(self.getTreechildren().getLastChild())"/>
 </zk>

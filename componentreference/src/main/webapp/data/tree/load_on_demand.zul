@@ -1,4 +1,5 @@
 <zk>
+	load a tree node's children when opening it
 	<tree id="tree" apply="org.zkoss.reference.component.data.tree.LoadOnDemandComposer"/>
 </zk>
 			

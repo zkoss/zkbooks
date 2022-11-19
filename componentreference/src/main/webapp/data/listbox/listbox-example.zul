@@ -1,9 +1,4 @@
 <zk>
-<style>
-	.z-listbox{
-		margin: 20px;
-	}
-</style>
 	<listbox id="box">
 		<listhead sizable="true">
 			<listheader label="name" sort="auto" />
@@ -34,4 +29,9 @@
 			</listfooter>
 		</listfoot>
 	</listbox>
+	<style>
+		.z-listbox{
+			margin: 20px;
+		}
+	</style>
 </zk>

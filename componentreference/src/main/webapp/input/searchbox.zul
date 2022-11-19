@@ -4,7 +4,6 @@
         ListModel model = new ListModelArray(new String[] {
         "North America", "South America", "Europe", "Asia", "Africa", "Oceania", "Antarctica"
         });
-        List model2 = new ListModelList(Locale.getAvailableLocales());
     </zscript>
     <searchbox model="${model}" placeholder="An unknown place" autoclose="true">
         <template name="model">
@@ -14,5 +13,8 @@
         </template>
     </searchbox>
     <h:h1>Multiple Selections</h:h1>
+    <zscript><![CDATA[
+        List model2 = new ListModelList(Locale.getAvailableLocales());
+    ]]></zscript>
     <searchbox model="${model2}" multiple="true" width="500px"/>
 </zk>

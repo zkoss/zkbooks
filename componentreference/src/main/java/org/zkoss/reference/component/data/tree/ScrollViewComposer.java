@@ -1,6 +1,7 @@
 package org.zkoss.reference.component.data.tree;
 
 import org.zkoss.zk.ui.Component;
+import org.zkoss.zk.ui.event.*;
 import org.zkoss.zk.ui.select.SelectorComposer;
 import org.zkoss.zk.ui.select.annotation.*;
 import org.zkoss.zk.ui.util.Clients;
@@ -11,6 +12,12 @@ import java.util.*;
 public class ScrollViewComposer extends SelectorComposer {
     @Wire("tree")
     private Tree tree;
+    @Wire
+    private Textbox pathBox;
+    @Wire
+    private Intbox indexBox;
+    @Wire
+    private Textbox selectorBox;
     private DefaultTreeModel<DefaultTreeNode> model;
 
     @Override
@@ -19,7 +26,7 @@ public class ScrollViewComposer extends SelectorComposer {
 
         List<DefaultTreeNode> childnodes = new LinkedList<DefaultTreeNode>();
         for (int i = 0; i < 100; ++i) {
-            DefaultTreeNode node = new DefaultTreeNode("" + i, createChildNodes(i+"-", 10));
+            DefaultTreeNode node = new DefaultTreeNode("" + i, createChildNodes(i + "-", 10));
             childnodes.add(node);
         }
 
@@ -30,7 +37,7 @@ public class ScrollViewComposer extends SelectorComposer {
 
     }
 
-    List<DefaultTreeNode> createChildNodes(String data, int count){
+    List<DefaultTreeNode> createChildNodes(String data, int count) {
         List<DefaultTreeNode> childNodes = new ArrayList<DefaultTreeNode>(count);
         for (int i = 0; i < count; ++i) {
             DefaultTreeNode node = new DefaultTreeNode(data + i);
@@ -40,13 +47,48 @@ public class ScrollViewComposer extends SelectorComposer {
     }
 
 
-    @Listen("onClick = #expand")
+    @Listen("onClick = #expandAll")
     public void expandTree() {
         model.setOpenObjects(model.getRoot().getChildren());
     }
 
-    @Listen("onClick = #collapse")
+    @Listen("onClick = #expand")
+    public void expandNode() {
+        model.setOpenObjects(List.of(model.getChild(getTreePath())));
+    }
+
+    @Listen("onClick = #collapseAll")
     public void collapseTree() {
         model.setOpenObjects(Collections.emptyList());
     }
+
+    @Listen(Events.ON_CLICK + "= #select")
+    public void selectByPath() {
+        int path[] = getTreePath();
+        if (isMoreThan1Level(path)) { //need to open a node to select its child node
+            model.setOpenObjects(List.of(model.getRoot().getChildAt(path[0])));
+        }
+        model.addToSelection(model.getChild(path));
+    }
+
+    private boolean isMoreThan1Level(int[] path) {
+        return path.length > 1;
+    }
+
+    private int[] getTreePath() {
+        return Arrays.stream(pathBox.getValue().split(",")).mapToInt(value -> Integer.parseInt(value)).toArray();
+    }
+
+    /* disable tree ROD to render all treeitems in a browser to make scrollIntoView work*/
+    @Listen("onClick = #scroll")
+    public void scrollIntoViewByComponent() {
+        Clients.scrollIntoView(tree.getFellow(indexBox.getValue().toString()));
+    }
+
+    @Listen("onClick = #scrollSelector")
+    public void scrollIntoViewBySelector() {
+        Clients.scrollIntoView(selectorBox.getValue());
+    }
+
+
 }

@@ -1,9 +1,30 @@
-<zk>
-    <custom-attributes org.zkoss.zul.tree.rod="true"/>
-    only happends in rod
+<zk xmlns:w="client" xmlns:h="native">
+    <custom-attributes org.zkoss.zul.tree.initRodSize="-1"/>
     <nodom apply="org.zkoss.reference.component.data.tree.ScrollViewComposer">
-        <button id="expand" label="expand"/>
-        <button id="collapse" label="collapse"/>"
-    <tree width="200px" height="300px" />
+
+        <button id="expandAll" label="expand all"/>
+        <button id="collapseAll" label="collapse all"/>
+        <groupbox title="Select by path">
+            <textbox id="pathBox" placeholder="tree node path" value="31,1"/>
+            <button id="select" label="select"/>
+        </groupbox>
+        <h:h2> Disable ROD to make scroll into view work</h:h2>
+        <groupbox title="Scroll by index">
+            <intbox id="indexBox" value="30"/>
+            <button id="scroll" label="scroll by path first level"/>
+        </groupbox>
+        <groupbox title="Scroll by selector">
+            <textbox id="selectorBox" value="treeitem:nth-child(35)"/>
+            <button id="scrollSelector" label="scroll into view "/> e.g. treeitem[label='10']
+        </groupbox>
+        <tree width="200px" height="300px">
+            <template name="model">
+                <treeitem id="${each}">
+                    <treerow>
+                        <treecell label="${each}"/>
+                    </treerow>
+                </treeitem>
+            </template>
+        </tree>
     </nodom>
 </zk>

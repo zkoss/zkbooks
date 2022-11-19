@@ -1,0 +1,30 @@
+<zk>
+    <zscript><![CDATA[
+        List data = Collections.nCopies(20, "node")
+    ]]></zscript>
+    <borderlayout height="200px">
+        <west id="west" width="200px">
+            <tree id="tr" vflex="1">
+                <treechildren>
+                    <treeitem id="${each}${forEachStatus.index}" forEach="${data}" label="${each}-${forEachStatus.index}" open="false">
+                        <treechildren>
+                            <treeitem forEach="${data}" label="${each}-${forEachStatus.index}"></treeitem>
+                        </treechildren>
+                    </treeitem>
+                </treechildren>
+            </tree>
+        </west>
+        <center>
+            <div>
+                <button label="open scroll to node6" onClick="
+                    node6.setOpen(true);
+                    Clients.scrollIntoView(node6);
+                "/>
+                <button label="open scroll to node15" onClick="
+                    node15.setOpen(true);
+                    Clients.scrollIntoView(node15);
+                "/>
+            </div>
+        </center>
+    </borderlayout>
+</zk>
