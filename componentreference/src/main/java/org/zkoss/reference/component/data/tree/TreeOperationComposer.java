@@ -9,7 +9,7 @@ import org.zkoss.zul.*;
 
 import java.util.*;
 
-public class ScrollViewComposer extends SelectorComposer {
+public class TreeOperationComposer extends SelectorComposer {
     @Wire("tree")
     private Tree tree;
     @Wire
