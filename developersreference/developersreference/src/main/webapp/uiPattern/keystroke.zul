@@ -23,6 +23,7 @@
     <h:h1>Document-level Keystrokes</h:h1>
     <div onOK="doSomething(event)" ctrlKeys="^K" onCtrlKey="show(event)" >
         press enter key or ctrl+k.
+        require "org.zkoss.zk.ui.invokeFirstRootForAfterKeyDown.enabled"
         <zscript><![CDATA[
 public void show(KeyEvent e){
     Clients.showNotification(e.getKeyCode()+"");
@@ -31,10 +32,16 @@ public void show(KeyEvent e){
     </div>
 
     <h:h1>Nested Components</h:h1>
-    <div onOK='Clients.showNotification("outer");'>
+    <div onOK='Clients.showNotification("outer");' sclass="box">
         <textbox id="t1"/>
-        <div onOK='Clients.showNotification("inner");'>
+        <div onOK='Clients.showNotification("inner");' sclass="box">
             <textbox id="t2"/>
         </div>
     </div>
+    <style>
+        .box{
+            border: 2px solid;
+            padding: 30px
+        }
+    </style>
 </zk>
