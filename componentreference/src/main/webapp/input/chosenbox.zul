@@ -23,4 +23,6 @@
             self.addItemToSelection(obj);
         </attribute>
     </chosenbox>
+    <n:h1>Filter by containing user input </n:h1>
+    <chosenbox apply="org.zkoss.reference.component.input.ChosenboxFilteringComposer" width="50%"/>
 </zk>
