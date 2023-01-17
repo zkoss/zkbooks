@@ -6,7 +6,7 @@
 	<packaging>war</packaging>
 	<version>9.6.3-Eval</version>
 	<properties>
-		<spring.version>3.0.5.RELEASE</spring.version>
+		<spring.version>5.3.9</spring.version>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
 	</properties>
@@ -47,6 +47,11 @@
 			<artifactId>spring-web</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
 		<!-- required for using spring variable resolver -->
 		<dependency>
 			<groupId>org.zkoss.zk</groupId>
@@ -60,7 +65,7 @@
 			<plugin>
 				<groupId>org.eclipse.jetty</groupId>
 				<artifactId>jetty-maven-plugin</artifactId>
-				<version>9.4.31.v20200723</version>
+				<version>9.4.50.v20221201</version>
 				<configuration>
 					<webAppConfig>
 						<allowDuplicateFragmentNames>true</allowDuplicateFragmentNames>
