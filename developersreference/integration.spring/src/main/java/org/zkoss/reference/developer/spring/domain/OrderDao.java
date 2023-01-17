@@ -1,9 +1,6 @@
 package org.zkoss.reference.developer.spring.domain;
 
-import java.util.Calendar;
-import java.util.Date;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 import org.springframework.stereotype.Repository;
 
@@ -28,5 +25,15 @@ public class OrderDao{
 	public List findAll(){
 		return orderList;
 	}
-	
+
+	public Order newOrder() {
+		int lastId = orderList.get(orderList.size() - 1).id;
+		Calendar calendar = Calendar.getInstance();
+		Date today = calendar.getTime();
+		calendar.add(Calendar.DATE, 4);
+		Date shippingDate = calendar.getTime();
+		Order order = new Order(++lastId, "new order " + UUID.randomUUID().toString().substring(30), 20, 10, today, shippingDate);
+		orderList.add(order);
+		return order;
+	}
 }

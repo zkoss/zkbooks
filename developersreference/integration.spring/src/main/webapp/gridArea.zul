@@ -1,0 +1,20 @@
+<zk>
+    <vlayout apply="${orderComposer}" width="50vw" style="margin: 20px auto">
+        <label id="prototypeValue"/>
+        <button id="new" label="New Order"/>
+        <grid visibleRows="10">
+            <columns>
+                <column label="ID"/>
+                <column label="Description"/>
+                <column label="price"/>
+            </columns>
+            <template name="model">
+                <row>
+                    <cell>${each.id}</cell>
+                    <cell>${each.description}</cell>
+                    ${each.price}
+                </row>
+            </template>
+        </grid>
+    </vlayout>
+</zk>

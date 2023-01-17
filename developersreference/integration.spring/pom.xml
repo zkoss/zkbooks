@@ -10,6 +10,7 @@
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
 	</properties>
+	<name>ZK + Spring Integration Example</name>
 	<description>a project contains spring integration example code used in developer reference.</description>
 	<repositories>
 		<repository>
@@ -109,12 +110,6 @@
 			<artifactId>zkmax</artifactId>
 			<version>${project.version}</version>
 		</dependency>
-		<dependency>
-			<groupId>cglib</groupId>
-			<artifactId>cglib</artifactId>
-			<version>2.2.2</version>
-			<scope>runtime</scope>
-		</dependency>
 	</dependencies>
 	<build>
 		<plugins>
@@ -126,6 +121,7 @@
 				<configuration>
 					<webAppConfig>
 						<allowDuplicateFragmentNames>true</allowDuplicateFragmentNames>
+						<contextPath>/${project.artifactId}</contextPath>
 					</webAppConfig>
 					<scanIntervalSeconds>5</scanIntervalSeconds>
 				</configuration>

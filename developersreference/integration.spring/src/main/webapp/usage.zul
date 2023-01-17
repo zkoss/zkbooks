@@ -1,0 +1,9 @@
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+    <div>
+        <button id="detach" label="Detach" onClick='area.setSrc(null)'/>
+        <button id="attach" label="Attach" onClick='area.setSrc("gridArea.zul")'/>
+        prototype bean's value changes every time.
+        <include id="area" src="gridArea.zul"/>
+    </div>
+</zk>
