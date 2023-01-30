@@ -1,9 +1,20 @@
-<zk>
+<zk xmlns:h="native">
     <window title="${labels.s1}">
-            ${labels.s2}
-            ${labels.app.$}
+        <div>${labels.s2}</div>
     </window>
-            ${labels.resource}
-            ${labels.mylabel}
-            ${labels.msg}
+    <h:h1>Segmented Keys</h:h1>
+    <div>${labels.app.$}</div>
+    <div>${labels.app.title}</div>
+
+    <h:h1>Quote</h:h1>
+    <div>${labels.quote}</div>
+
+    <h:h1>Multiple lines</h:h1>
+    <h:h2>Label</h:h2>
+    <label multiline="true" value="${labels.multilines}"/>
+    <h:h2>HTML span</h:h2>
+    <h:span>${labels.lines}</h:span>
+
+    <h:h1>Non-existed Key</h:h1>
+    <div>${labels.msg}</div>
 </zk>
