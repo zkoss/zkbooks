@@ -17,6 +17,6 @@
 	</listener>
 
 	<welcome-file-list>
-		<welcome-file>scopes.zul</welcome-file>
+		<welcome-file>usage.zul</welcome-file>
 	</welcome-file-list>
 </web-app>
