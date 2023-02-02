@@ -1,0 +1,4 @@
+<zk>
+Show a print dialog after this page is loaded completely
+<script src="afterresize.js"/>
+</zk>
