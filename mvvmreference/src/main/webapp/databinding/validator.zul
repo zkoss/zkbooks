@@ -1,0 +1,5 @@
+<zk>
+    <textbox value="@save(vm.account.email) @validator(vm.emailValidator)"/>
+
+    <textbox value="@save(vm.account.email) @validator('org.foo.EmailValidator')"/>
+</zk>
