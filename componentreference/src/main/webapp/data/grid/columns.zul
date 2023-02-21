@@ -1,0 +1,58 @@
+<zk>
+    <grid>
+        <columns sizable="true">
+            <column label="Type" hflex="min"/>
+            <column label="Content"/>
+        </columns>
+        <rows>
+            <row>
+                <label value="File:"/>
+                <textbox width="99%"/>
+            </row>
+            <row>
+                <label value="Type:"/>
+                <hbox>
+                    <listbox rows="1" mold="select">
+                        <listitem label="Java Files,(*.java)"/>
+                        <listitem label="All Files,(*.*)"/>
+                    </listbox>
+                    <button label="Browse..."/>
+                </hbox>
+            </row>
+            <row>
+                <label value="Options:"/>
+                <textbox rows="3" width="99%"/>
+            </row>
+        </rows>
+    </grid>
+    Menupopup
+    <grid>
+        <columns menupopup="auto">
+            <column label="Author" sort="auto"/>
+            <column label="Title" sort="auto"/>
+            <column label="Publisher" sort="auto"/>
+            <column label="Hardcover" sort="auto"/>
+        </columns>
+        <rows>
+            <row>
+                <cell>john</cell>
+                <cell>My journey</cell>
+                <cell>Morning Star</cell>
+                <cell>Yes</cell>
+            </row>
+        </rows>
+    </grid>
+    custom menupopup
+    <menupopup id="editPopup">
+        <menuitem label="Group" image="~./zul/img/grid/menu-group.png"/>
+        <menuitem label="Sort Ascending" image="~./zul/img/grid/menu-arrowup.png"/>
+        <menuitem label="Sort Descending" image="~./zul/img/grid/menu-arrowdown.png"/>
+    </menupopup>
+    <grid>
+        <columns sizable="true" menupopup="editPopup">
+            <column id="col" label="Type" />
+            <column id="col1" label="Type1" />
+            <column id="col2" label="Content"/>
+        </columns>
+    </grid>
+</zk>
