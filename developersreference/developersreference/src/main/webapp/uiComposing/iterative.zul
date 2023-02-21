@@ -1,0 +1,13 @@
+<zk>
+    <listbox>
+        <listitem label="${each}" forEach="Apple, Orange, Strawberry"/>
+    </listbox>
+
+    <zscript><![CDATA[
+grades = new String[] {"Best", "Better", "Good"};
+    ]]></zscript>
+
+    <listbox>
+        <listitem label="${each}" forEach="${grades}"/>
+    </listbox>
+</zk>
