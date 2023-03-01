@@ -3,6 +3,7 @@
                type="gantt" threeD="false" fgAlpha="128" dateFormat="yyyy/MM/dd" >
             <zscript><![CDATA[
         import org.zkoss.zul.GanttModel.GanttTask;
+        import org.zkoss.reference.component.diagrams.*;
 
         public Date date(int year, int month, int day) {
             final java.util.Calendar calendar = java.util.Calendar.getInstance();
@@ -38,6 +39,7 @@
         ganttmodel.addValue("Actual", new GanttTask("Final Implementation", date(2008,11,18), date(2008,12,5), 0.0));
         ganttmodel.addValue("Actual", new GanttTask("Signoff", date(2008,12,10), date(2008,12,11), 0.0));
         gantt.setModel(ganttmodel);
+        gantt.setEngine(new MyJfreeChartEngine());
     ]]></zscript>
         </chart>
 </zk>

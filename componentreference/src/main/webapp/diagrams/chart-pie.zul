@@ -1,0 +1,16 @@
+<chart id="mychart" title="Pie Chart Demo" width="550" height="400"
+       type="pie" threeD="true" fgAlpha="128">
+    <attribute name="onClick"><![CDATA[
+        Area area = event.getAreaComponent();
+        if (area != null)
+            alert(""+area.getAttribute("entity")+":"+area.getTooltiptext());
+    ]]></attribute>
+    <zscript><![CDATA[
+        PieModel model = new SimplePieModel();
+        model.setValue("C/C++", new Double(21.2));
+        model.setValue("VB", new Double(10.2));
+        model.setValue("Java", new Double(40.4));
+        model.setValue("PHP", new Double(28.2));
+        mychart.setModel(model);
+    ]]></zscript>
+</chart>
