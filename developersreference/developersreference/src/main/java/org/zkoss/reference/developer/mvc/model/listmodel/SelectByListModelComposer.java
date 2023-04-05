@@ -7,6 +7,7 @@ import org.zkoss.zul.*;
 import org.zkoss.zul.ext.*;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * select/deselect a listitem via ListModel API.
@@ -18,6 +19,9 @@ public class SelectByListModelComposer extends SelectorComposer<Component> {
     private Listbox listbox;
     @Wire("intbox")
     private Intbox intbox;
+
+    @Wire
+    private Label selectedItem;
 
     private ListModelList<Locale> listModel = new ListModelList<>(Locale.getAvailableLocales());
 
@@ -36,5 +40,12 @@ public class SelectByListModelComposer extends SelectorComposer<Component> {
         }else{
             listModel.addToSelection(locale);
         }
+    }
+
+    @Listen("onSelect = listbox")
+    public void show(){
+
+        selectedItem.setValue(String.join( ",",
+                listModel.getSelection().stream().map(Locale::toString).collect(Collectors.toSet())));
     }
 }

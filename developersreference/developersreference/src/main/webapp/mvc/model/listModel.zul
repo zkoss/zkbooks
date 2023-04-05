@@ -16,9 +16,13 @@
 	<n:h2>Select through ListModel</n:h2>
 	<div apply="org.zkoss.reference.developer.mvc.model.listmodel.SelectByListModelComposer">
 
-	<listbox rows="10" checkmark="true" apply="">
-	</listbox>
-	select by index: <intbox value="0"/><button label="toggle selection"/>
+		<listbox rows="10" checkmark="true">
+		</listbox>
+		selected: <label id="selectedItem"/>
+		<n:br/>
+		select by index:
+		<intbox value="0"/>
+		<button label="toggle selection"/>
 	</div>
 
 	<n:h2>current page selection</n:h2>
