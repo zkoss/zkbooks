@@ -40,12 +40,12 @@
     <borderlayout height="200px" width="400px">
         <north title="North" vflex="min">
             <borderlayout vflex="min">
-                <west title="West" size="40%" flex="true" vflex="min">
+                <west title="West" size="40%" vflex="min">
                     <div style="background:#B8D335">
                         <label value="40%" style="color:white;font-size:50px"/>
                     </div>
                 </west>
-                <center flex="true" vflex="min">
+                <center hflex="true" vflex="min">
                     <div style="background:#E6D92C">
                         <label value="60%" style="color:white;font-size:50px"/>
                     </div>

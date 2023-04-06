@@ -48,6 +48,9 @@
 	<listener>
 		<listener-class>org.zkoss.zkmax.au.InaccessibleWidgetBlockService$DesktopInit</listener-class>
 	</listener>
+	<listener>
+		<listener-class>org.zkoss.reference.developer.customization.DesktopRemoveListener</listener-class>
+	</listener>
 	<!-- [ZK EE]
 		Turn on if you use InaccessibleWidgetBlockService (IWBS) and
 		want to block only particular events.
