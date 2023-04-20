@@ -1,0 +1,10 @@
+<zk xmlns:h="native">
+    <h:p>
+        open this page in 2 browser tabs you will see:
+        <h:code><![CDATA[
+        Access denied: component, &lt;Label h0sW1>, belongs to another desktop:
+        ]]>
+        </h:code>
+    </h:p>
+    <label value="click me" apply="org.zkoss.reference.developer.debugging.AnotherDesktopComposer"/>
+</zk>

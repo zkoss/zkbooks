@@ -1,0 +1,22 @@
+<zk>
+    <div apply="org.zkoss.reference.developer.mvc.model.CrudComposer">
+        <button id="stack" label="Add first"/>
+        <button id="append" label="Add last"/>
+        <button id="del" label="Delete"/>
+    <listbox id="box" rows="5">
+        <template name="model">
+            <listitem>
+                <listcell label="${each}"/>
+<!--                <listcell label="${forEachStatus.index}"/>-->
+            </listitem>
+        </template>
+    </listbox>
+<!--
+        <forEach items="${$composer.model}">
+            <div>
+            <label value="${each}"/>: <label value="${forEachStatus.index}"/>
+            </div>
+        </forEach>
+-->
+    </div>
+</zk>

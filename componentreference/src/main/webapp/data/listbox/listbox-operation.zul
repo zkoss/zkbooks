@@ -1,0 +1,23 @@
+<zk xmlns:h="native">
+    <zscript><![CDATA[
+	List model = new ListModelList(Locale.getAvailableLocales());
+    ]]></zscript>
+    <custom-attributes org.zkoss.zul.grid.listbox="true"/>
+    <button label="add (append at the end)" onClick="model.add(Locale.ENGLISH)"/>
+    <button label="remove 0" onClick="model.remove(0)"/>
+    <groupbox title="scroll by index">
+        <intbox id="indexBox" value="60"/><button label="scroll" onClick="box.scrollToIndex(indexBox.value)"/>
+    </groupbox>
+    <listbox id="box" model="${model}" rows="10">
+        <listhead>
+            <listheader label="index"/>
+            <listheader label="language"/>
+        </listhead>
+        <template name="model">
+            <listitem >
+                <listcell label="${forEachStatus.index}"/>
+                <listcell label="${each.language}"/>
+            </listitem>
+        </template>
+    </listbox>
+</zk>
