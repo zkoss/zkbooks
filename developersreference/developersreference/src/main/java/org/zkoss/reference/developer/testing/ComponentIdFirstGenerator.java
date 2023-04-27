@@ -3,20 +3,18 @@ package org.zkoss.reference.developer.testing;
 import org.zkoss.zk.ui.*;
 import org.zkoss.zk.ui.impl.*;
 import org.zkoss.zk.ui.metainfo.*;
-import org.zkoss.zk.ui.sys.IdGenerator;
 
 /**
- * Generate an UUID upon a component's ID first if exists. If not, then use static ID generator.
- * With this generator, you should specify id on those components you need to verify their state during testing.<br/>
+ * Generate an UUID upon a component's ID first if exists. If not, then fall back to {@link StaticIdGenerator}.
+ * With this generator, you should specify id on those components you need to verify their state during testing.
+ * Multiple components with same ID under multiple space owners causes UUID collision. In such case, you need to specify
+ * those ID space owners with ID.<br/>
  * Benefit:<br/>
- * Unlike {@link StaticIdGenerator}, component creation order can't affect this generator.<br/>
- * Limitation: <br/>
- * It can't handle same ID under the different space owner.
+ * Unlike {@link StaticIdGenerator}, component creation order can't affect id generation.<br/>
  * @author hawk
  */
-public class ComponentIdFirstGenerator implements IdGenerator {
+public class ComponentIdFirstGenerator extends StaticIdGenerator {
 
-	static StaticIdGenerator staticIdGenerator = new StaticIdGenerator();
 	@Override
 	public String nextComponentUuid(Desktop desktop, Component comp,
                                     ComponentInfo compInfo) {
@@ -25,9 +23,10 @@ public class ComponentIdFirstGenerator implements IdGenerator {
 			id = getIdFromComponentInfo(comp, compInfo);
 		}
 		if (id.isEmpty()){
-			return staticIdGenerator.nextComponentUuid(desktop, comp, compInfo);
+			return super.nextComponentUuid(desktop, comp, compInfo);
 		}else{
-			return id;
+
+			return getSpaceOwnerId(comp) + id;
 		}
 	}
 
@@ -56,12 +55,11 @@ public class ComponentIdFirstGenerator implements IdGenerator {
 
 	@Override
 	public String nextPageUuid(Page page) {
-		return staticIdGenerator.nextPageUuid(page);
+		return super.nextPageUuid(page);
 	}
 
 	@Override
 	public String nextDesktopId(Desktop desktop) {
-		return staticIdGenerator.nextDesktopId(desktop);
+		return super.nextDesktopId(desktop);
 	}
-
 }

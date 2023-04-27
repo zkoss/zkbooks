@@ -1,0 +1,16 @@
+<zk>
+    <window id="win1">
+        <button id="hello"/>
+    </window>
+    <window id="win2">
+        <button id="hello"/>
+    </window>
+<!-- cause uuid generation error
+    <window>
+        <button id="hello"/>
+    </window>
+    <window>
+        <button id="hello"/>
+    </window>
+-->
+</zk>
