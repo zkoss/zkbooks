@@ -1,0 +1,15 @@
+<zk xmlns:h="native">
+    <h:h1>dragging a label to see the dragging feedback</h:h1>
+    <vlayout style="text-align: center;">
+        <label draggable="true" value="drag me"/>
+        <label droppable="true" value="droppable"/>
+        <label droppable="false" value="not droppable"/>
+    </vlayout>
+    <style>
+        .z-label{
+            cursor:pointer;
+            font-size:26px;
+        }
+    </style>
+    <script src="drag-feedback.js"/>
+</zk>
