@@ -1,22 +1,22 @@
 <zk xmlns:h="native">
-    <div viewModel="@id('vm')@init('org.zkoss.MyViewModel)"></div>
-    <portallayout height="100%">
+    <div viewModel="@id('vm')@init('org.zkoss.MyViewModel')"></div>
+    <portallayout height="90%">
         <portalchildren width="50%">
-            <panel height="50%" title="Demo">
+            <panel height="50%" title="Calendar" border="normal">
                 <panelchildren>
-                    <iframe height="100%" width="100%" src="https://www.zkoss.org/zkdemo"/>
+                    <calendar/>
                 </panelchildren>
             </panel>
-            <panel height="50%" title="Doc">
+            <panel height="50%" title="Colorbox" border="normal">
                 <panelchildren>
-                    <iframe height="100%" width="100%" src="https://www.zkoss.org/documentation"/>
+                    <colorbox/>
                 </panelchildren>
             </panel>
         </portalchildren>
         <portalchildren width="50%">
-            <panel height="100%" title="ZK">
+            <panel height="100%" title="Editor" border="normal">
                 <panelchildren>
-                    <iframe  height="100%" width="100%" src="https://www.zkoss.org/"/>
+                    <tbeditor/>
                 </panelchildren>
             </panel>
         </portalchildren>
@@ -24,21 +24,21 @@
     <h:h1>Row-based layout</h:h1>
     <portallayout orient="horizontal">
         <portalchildren width="50%">
-            <panel height="150px" title="Yahoo">
+            <panel height="50%" title="Calendar" border="normal">
                 <panelchildren>
-                    <iframe width="100%" src="https://www.zkoss.org/"/>
+                    <calendar/>
                 </panelchildren>
             </panel>
-            <panel height="300px" title="Google">
+            <panel height="50%" title="Colorbox" border="normal">
                 <panelchildren>
-                    <iframe width="100%" src="https://keikai.io/"/>
+                    <colorbox/>
                 </panelchildren>
             </panel>
         </portalchildren>
         <portalchildren width="50%">
-            <panel height="150px" title="ZK">
+            <panel height="100%" title="Editor" border="normal">
                 <panelchildren>
-                    <iframe width="100%" src="https://www.zkoss.org/documentation/"/>
+                    <tbeditor/>
                 </panelchildren>
             </panel>
         </portalchildren>
