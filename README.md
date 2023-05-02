@@ -13,17 +13,17 @@ Each project has a Maven jetty plugin configured, just run the goal below:
 
 `mvn jetty:run`
 
-* Notice: All projecta are Maven project, so you need to install [Maven](https://maven.apache.org/) first to run.
+* Notice: Each project is a Maven project, so you need to install [Maven](https://maven.apache.org/) first to run.
 
 
 # Naming Conventions
-## Chapter -> Folder
+## Chapter Name as Folder Name
 Folder is named by a chapter or a subsection.
 *  chapter name - [`eventHandling`](https://www.zkoss.org/wiki/ZK%20Developer's%20Reference/Event%20Handling)
 * subsection name - [`mvc/controller`](https://www.zkoss.org/wiki/ZK%20Developer's%20Reference/MVC/Controller)
-## Page -> File
+## Page Name as File Name
  a zul file is named by a page
- e.g. , `eventQueue` -> [Use Event Queues](https://www.zkoss.org/wiki/ZK%20Developer's%20Reference/UI%20Patterns/Long%20Operations/Use%20Event%20Queues)
+ e.g. , `eventQueue.zul` is for [Use Event Queues](https://www.zkoss.org/wiki/ZK%20Developer's%20Reference/UI%20Patterns/Long%20Operations/Use%20Event%20Queues)
 
 
 ## Branches
