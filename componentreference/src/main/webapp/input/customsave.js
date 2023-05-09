@@ -9,7 +9,7 @@ zk.afterLoad('ckez', function() {
                         var wgt = zk.$(editor.element.$);
                         wgt.fire('onChange', { value: val }, { sendAhead: true });
                         wgt.fire('onSave', { value: val }, { sendAhead: true });
-                        console.log('own save handler is called');
+                        console.log('my own save handler is called');
                     }
                 }
             );

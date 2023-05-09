@@ -21,6 +21,15 @@
 </table>
 ]]></attribute>
     </ckeditor>
+    <n:h1>Enable save button</n:h1>
+    <zk xmlns:n="http://www.zkoss.org/2005/zk/native">
+        <n:form>
+            <ckeditor width="50%" />
+        </n:form>
+    </zk>
+
+    <n:h1>File browser</n:h1>
+    <ckeditor filebrowserImageBrowseUrl="multimedia"/>
 
     <n:h1>File Upload</n:h1>
     <ckeditor filebrowserImageBrowseUrl="input" filebrowserImageUploadUrl="input"/>
@@ -28,8 +37,6 @@
     <n:h2>Upload to a path out of web context root</n:h2>
     <ckeditor apply="org.zkoss.reference.component.input.CkeditorUploadComposer" filebrowserImageBrowseUrl="/s"
               filebrowserUploadUrl="/imgs" toolbar="Complex"  width="100%" />
-    <!-- might need fileBrowserTemplate="fileBrowser.zul"-->
-
 
     <n:h1>Custom Configuration</n:h1>
     <n:h2>By JavaScript</n:h2>
@@ -43,4 +50,11 @@ Map configMap = new HashMap();
 configMap.put("language", "de");
 editor.setConfig(configMap);
     ]]></zscript>
+
+    <n:h1>Custom Save Button</n:h1>
+    <ckeditor customConfigurationsPath="/input/customSaveConfig.js"/>
+    <script src="customsave.js"/>
+
+    <n:h1>Resizable attribute and Sizing</n:h1>
+    <ckeditor width="50%" height="500px"/>
 </zk>

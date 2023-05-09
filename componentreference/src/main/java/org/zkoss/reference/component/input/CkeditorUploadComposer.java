@@ -9,7 +9,7 @@ public class CkeditorUploadComposer extends SelectorComposer {
     @Override
     public void doAfterCompose(Component comp) throws Exception {
         super.doAfterCompose(comp);
-        ((CKeditor)comp).setFileWriter(new MyCkezFileWriter("/mydisk/upload"));
+        ((CKeditor)comp).setFileWriter(new MyCkezFileWriter("/tmp"));
     }
 }
 
