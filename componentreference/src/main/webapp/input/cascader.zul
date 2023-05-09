@@ -15,5 +15,6 @@
     <label id="result"/>
     <h:h1>Different Selected Result</h:h1>
     <cascader itemConverter="org.zkoss.reference.component.input.MyItemConverter" model="${treeModel}"  width="300px"/>
+    <h:h1>Custom ItemRenderer</h:h1>
     <cascader itemRenderer="org.zkoss.reference.component.input.TooltipRenderer" model="${treeModel}"  />
 </zk>
