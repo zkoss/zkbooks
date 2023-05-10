@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.zkoss.reference</groupId>
 	<artifactId>component</artifactId>
-	<version>9.6.3-Eval</version>
+	<version>9.6.3-jakarta-Eval</version>
 	<properties>
 		<maven.compiler.source>1.9</maven.compiler.source>
 		<maven.compiler.target>1.9</maven.compiler.target>
@@ -84,34 +84,35 @@
 		<dependency>
 			<groupId>org.zkoss.zkforge</groupId>
 			<artifactId>ckez</artifactId>
-			<version>4.21.0.0</version>
+			<version>4.21.0.0-jakarta</version>
 		</dependency>
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-log4j12</artifactId>
 			<version>1.7.30</version>
 		</dependency>
+		<dependency>
+			<groupId>jakarta.servlet</groupId>
+			<artifactId>jakarta.servlet-api</artifactId>
+			<version>5.0.0</version>
+			<scope>runtime</scope>
+		</dependency>
 	</dependencies>
 	<build>
 		<finalName>${project.artifactId}</finalName>
 		<plugins>
-			<!-- Run with Jetty -->
+			<!-- starts up faster but no JSP, JSF supported, https://www.eclipse.org/jetty/documentation/jetty-11/programming-guide/index.html#jetty-maven-plugin	-->
 			<plugin>
-				<!-- starts up faster but no JSP, JSF supported	-->
 				<groupId>org.eclipse.jetty</groupId>
 				<artifactId>jetty-maven-plugin</artifactId>
-				<version>9.4.31.v20200723</version>
+				<version>11.0.15</version>
 				<configuration>
-					<jvmArgs>-Xmx4096m</jvmArgs>
-					<webAppConfig>
+<!--					<jvmArgs>-Xmx4096m</jvmArgs>-->
+					<webApp>
 						<contextPath>/${project.artifactId}</contextPath>
-						<!-- disable web fragment scanning to speed up startup time-->
-						<webInfIncludeJarPattern>^$</webInfIncludeJarPattern>
-						<containerIncludeJarPattern>^$</containerIncludeJarPattern>
-					</webAppConfig>
-<!--					<scanIntervalSeconds>5</scanIntervalSeconds>-->
+					</webApp>
 					<!-- allow https. http://juplo.de/configure-https-for-jetty-maven-plugin-9-0-x/	-->
-					<jettyXml>jetty.xml,jetty-http.xml, jetty-ssl.xml,jetty-https.xml</jettyXml>
+<!--					<jettyXml>jetty.xml,jetty-http.xml, jetty-ssl.xml,jetty-https.xml</jettyXml>-->
 				</configuration>
 			</plugin>
 		</plugins>
