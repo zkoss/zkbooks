@@ -1,0 +1,71 @@
+<zk xmlns:h="native">
+    <h:h1>default</h:h1>
+    <grid>
+        <apply template="grid-content"/>
+    </grid>
+
+
+    <h:h1>sizedByContent only</h:h1>
+    <grid sizedByContent="true">
+        <apply template="grid-content"/>
+    </grid>
+
+    <h:h2>Narrower content than header</h:h2>
+    <grid sizedByContent="true">
+        <columns>
+            <column label="Product"/>
+            <column label="Option A"/>
+            <column label="Option B"/>
+            <column label="Option C"/>
+        </columns>
+        <rows>
+            <row>
+                <label value="product YYY"/>
+                <checkbox/>
+                <checkbox/>
+                <checkbox/>
+            </row>
+        </rows>
+    </grid>
+
+    <h:h1>sizedByContent with span</h:h1>
+    <grid sizedByContent="true" span="true">
+        <apply template="grid-content"/>
+    </grid>
+
+    <template name="grid-content">
+        <columns>
+            <column label="Time Message"/>
+            <column label="Level"/>
+            <column label="Source "/>
+            <column label="Message"/>
+        </columns>
+        <rows>
+            <row>
+                <label value="6/28/10 4:19:18 PM"/>
+                <label value="Info, long content.........................."/>
+                <label value="Server"/>
+                <label value="Merging recovery point 52 created 20 6/27/10 10 :11 PM"/>
+            </row>
+        </rows>
+    </template>
+
+
+    <h:h1>hflex="min"</h:h1>
+    <grid>
+        <columns>
+            <column label="Product" hflex="min"/>
+            <column label="Option A" hflex="min"/>
+            <column label="Option B" hflex="min"/>
+            <column label="Option C" hflex="min"/>
+        </columns>
+        <rows>
+            <row>
+                <label value="product YYY"/>
+                <checkbox/>
+                <checkbox/>
+                <checkbox/>
+            </row>
+        </rows>
+    </grid>
+</zk>
