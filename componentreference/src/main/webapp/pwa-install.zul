@@ -1,0 +1,5 @@
+<?link rel="manifest" href="/manifest.json" ?>
+<?page title="MyApp" ?>
+<zk>
+    install this app
+</zk>
