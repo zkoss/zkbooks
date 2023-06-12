@@ -17,7 +17,7 @@ Feel free to explore this project to gain insights into how to effectively modul
 # How to use in a zul
 Include this project as a dependency.
 * including a zul page or static resources:
-`~.mymodule.zul/` (see [Classpath Web Resource Path](https://www.zkoss.org/wiki/ZK_Developer%27s_Reference/UI_Composing/ZUML/Include_a_Page#Classpath_Web_Resource_Path))
+`~./mymodule.zul` or `~./mymodule.css` (see [Classpath Web Resource Path](https://www.zkoss.org/wiki/ZK_Developer%27s_Reference/UI_Composing/ZUML/Include_a_Page#Classpath_Web_Resource_Path))
 * use custom components: `<username>`directly in a zul without any declaration, since it's declared in `lang-addon.xml`. (see [Language Addon](https://www.zkoss.org/wiki/ZK_Client-side_Reference/Language_Definition#Language_Addon))
 
 
