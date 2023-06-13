@@ -1,5 +1,7 @@
 package org.zkoss.mvvm.collection;
 
+import org.zkoss.bind.annotation.*;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,7 +15,7 @@ public class MenuVM {
 		nodes.add(createNode("Item A",0,0));
 		nodes.add(createNode("Item B",1,1));
 		nodes.add(createNode("Item C",2,2));
-//		nodes.add(createNode("Item D",3,3));
+		nodes.add(createNode("Item D",3,3));
 	}
 	
 	public List<Node> getNodes(){
@@ -30,15 +32,14 @@ public class MenuVM {
 		return n;
 	}
 
+	public String getMessage() {
+		return message;
+	}
 
-//	public String getMessage() {
-//		return message;
-//	}
-
-//	@Command @NotifyChange("message")
-//	public void menuClicked(@BindingParam("node") Node node ){
-//		message = "clicked "+node.getName();
-//	}
+	@Command @NotifyChange("message")
+	public void menuClicked(@BindingParam("node") Node node ){
+		message = "clicked "+node.getName();
+	}
 	
 	static public class Node{
 		List<Node> children;

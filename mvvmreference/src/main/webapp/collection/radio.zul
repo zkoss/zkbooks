@@ -1,15 +1,15 @@
 <window
 	viewModel="@id('vm') @init('org.zkoss.mvvm.collection.ItemsVM')">
-	<radiogroup model="@bind(vm.itemList)">
+	<radiogroup model="@init(vm.itemList)">
 		<template name="model">
-			<radio label="@load(each.name)" value="@load(each.name)"></radio>
+			<radio label="@init(each.name)" value="@init(each.name)"></radio>
 		</template>
 	</radiogroup>
 	<separator />
 	<radiogroup>
 		<vlayout children="@bind(vm.itemList) @template('radios')">
 			<template name="radios">
-				<radio label="@load(each.name)" value="@load(each.name)"></radio>
+				<radio label="@init(each.name)" value="@init(each.name)"></radio>
 			</template>
 		</vlayout>
 	</radiogroup>

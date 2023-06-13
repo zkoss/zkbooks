@@ -1,5 +1,5 @@
 <window viewModel="@id('vm') @init('org.zkoss.mvvm.collection.ListboxViewModel')">
-	<listbox  width="400px" model="@bind(vm.itemList)">
+	<listbox  width="400px" model="@init(vm.itemList)">
 		<listhead>
 			<listheader label="index"/>
 			<listheader label="name"/>

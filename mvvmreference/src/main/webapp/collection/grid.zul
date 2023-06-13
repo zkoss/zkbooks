@@ -1,5 +1,5 @@
-<window viewModel="@id('vm') @init('org.zkoss.mvvm.collection.ItemsVM')">
-	<grid width="400px" model="@bind(vm.itemList)">
+<div viewModel="@id('vm') @init('org.zkoss.mvvm.collection.ItemsVM')">
+	<grid width="400px" model="@init(vm.itemList)">
 		<columns>
 			<column label="index" />
 			<column label="name" />
@@ -13,7 +13,7 @@
 	</grid>
 	<separator height="10px"/>	
 	<grid width="400px"
-		model="@bind(vm.itemList) @template(forEachStatus.index % 2 eq 0?'model1':'model2')">
+		model="@init(vm.itemList) @template(forEachStatus.index % 2 eq 0?'model1':'model2')">
 		<columns>
 			<column label="index" />
 			<column label="name" />
@@ -30,4 +30,4 @@
 			</row>
 		</template>
 	</grid>
-</window>
+</div>
