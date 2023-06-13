@@ -1,10 +1,15 @@
-<zk>
+<zk xmlns:h="native">
 
+    <h:h1>command binding</h:h1>
     <nodom viewModel="@id('vm')@init('org.zkoss.mvvm.databinding.CommandVM')">
+        standard syntax
+        <button label="save" onClick="@command('save')"/>
+        <button label="new" onClick="@command('newOrder')"/>
+        shortcut syntax
         <button label="hello" onClick="@('hello')"/>
     </nodom>
     <separator/>
     <nodom viewModel="@id('vmInit')@init('org.zkoss.mvvm.databinding.InitVM')">
-        <button label="call the previous VM" onClick="@('$vm.hello')"/>
+        <button label="call another VM" onClick="@('$vm.hello')"/>
     </nodom>
 </zk>
