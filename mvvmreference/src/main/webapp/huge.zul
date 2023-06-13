@@ -1,5 +1,5 @@
 <zk>
-	<window  width="400px" apply="org.zkoss.bind.BindComposer"
+	<window  width="400px"
 		viewModel="@id('vm') @init('org.zkoss.mvvm.advance.HugeDataVM')">
 		 Use custom ListModel:
 		<listbox model="@bind(vm.personListModel)" selectedItem="@bind(vm.selectedPerson)" rows="10">

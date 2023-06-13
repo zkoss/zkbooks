@@ -1,4 +1,4 @@
-<window apply="org.zkoss.bind.BindComposer"
+<window
 	viewModel="@id('vm') @init('org.zkoss.mvvm.collection.CustomMultipleSelectionsVM')">
 	<vlayout id="vlayout" children="@load(vm.itemList)">
 		<template name="children">

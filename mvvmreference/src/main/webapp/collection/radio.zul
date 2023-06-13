@@ -1,4 +1,4 @@
-<window apply="org.zkoss.bind.BindComposer"
+<window
 	viewModel="@id('vm') @init('org.zkoss.mvvm.collection.ItemsVM')">
 	<radiogroup model="@bind(vm.itemList)">
 		<template name="model">

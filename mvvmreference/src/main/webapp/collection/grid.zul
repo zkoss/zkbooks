@@ -1,5 +1,4 @@
-<window apply="org.zkoss.bind.BindComposer"
-viewModel="@id('vm') @init('org.zkoss.mvvm.collection.ItemsVM')">
+<window viewModel="@id('vm') @init('org.zkoss.mvvm.collection.ItemsVM')">
 	<grid width="400px" model="@bind(vm.itemList)">
 		<columns>
 			<column label="index" />

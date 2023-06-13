@@ -1,4 +1,4 @@
-<div apply="org.zkoss.bind.BindComposer" width="600px"
+<div  width="600px"
 	viewModel="@id('vm') @init('org.zkoss.mvvm.collection.CustomSingleSelectionVM')">
 	<tabbox>
 		<tabs children="@load(vm.itemList)">

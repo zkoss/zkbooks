@@ -1,6 +1,6 @@
 <zk xmlns:h="native">
 
-    <vlayout apply="org.zkoss.bind.BindComposer">
+    <vlayout >
         <zscript><![CDATA[
 java.util.Date date = new java.util.Date();
 int aNumber = 123456;

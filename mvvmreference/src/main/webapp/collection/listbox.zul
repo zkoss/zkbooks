@@ -1,5 +1,4 @@
-<window apply="org.zkoss.bind.BindComposer" 
-viewModel="@id('vm') @init('org.zkoss.mvvm.collection.ListboxViewModel')">
+<window viewModel="@id('vm') @init('org.zkoss.mvvm.collection.ListboxViewModel')">
 	<listbox  width="400px" model="@bind(vm.itemList)">
 		<listhead>
 			<listheader label="index"/>
