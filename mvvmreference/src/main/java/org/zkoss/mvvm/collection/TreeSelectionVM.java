@@ -12,7 +12,7 @@ import org.zkoss.zul.ext.Openable;
 public class TreeSelectionVM {
 
 	private TreeModel<TreeNode<String>> itemTree;
-	private String pickedItem;
+	private TreeNode<String> pickedItem;
 	private Set pickedSet;
 
 	public TreeSelectionVM() {
@@ -57,11 +57,11 @@ public class TreeSelectionVM {
 	}
 
 
-	public String getPickedItem() {
+	public TreeNode<String> getPickedItem() {
 		return pickedItem;
 	}
 
-	public void setPickedItem(String pickedItem) {
+	public void setPickedItem(TreeNode<String> pickedItem) {
 		this.pickedItem = pickedItem;
 	}
 
