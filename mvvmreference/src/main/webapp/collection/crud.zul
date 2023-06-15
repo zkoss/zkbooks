@@ -1,0 +1,15 @@
+<zk>
+    <div viewModel="@id('vm')@init('org.zkoss.mvvm.collection.CrudVM')">
+        <button label="add" onClick="@('add')"/>
+        <button label="delete" onClick="@('delete')"/>
+        <listbox model="@init(vm.model)">
+            <template name="model">
+                <listitem>
+                    <listcell>
+                        <textbox inplace="true" value="@bind(each)"/>
+                    </listcell>
+                </listitem>
+            </template>
+        </listbox>
+    </div>
+</zk>
