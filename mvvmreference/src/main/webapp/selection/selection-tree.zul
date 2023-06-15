@@ -1,6 +1,6 @@
 <window
 	viewModel="@id('vm') @init('org.zkoss.mvvm.collection.TreeSelectionVM')">
-	<tree id="tree" model="@bind(vm.itemTree) " width="600px" 
+	<tree id="tree" model="@init(vm.itemTree) " width="600px"
 	selectedItem="@bind(vm.pickedItem)">
 		<treecols>
 			<treecol label="name" />

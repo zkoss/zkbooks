@@ -7,5 +7,5 @@
 			</checkbox>
 		</template>
 	</vlayout>
-	<label value="@init(vm.pickedItemSet)"/>
+	<label value="@load(vm.pickedItemSet)"/>
 </window>
