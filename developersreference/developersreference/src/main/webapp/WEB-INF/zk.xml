@@ -74,5 +74,10 @@
 		<richlet-name>TestRichlet</richlet-name>
 		<url-pattern>/test</url-pattern>
 	</richlet-mapping>
+	
+	<library-property>
+		<name>org.zkoss.web.servlet.http.embedded.enabled</name>
+		<value>true</value>
+	</library-property>
 
 </zk>

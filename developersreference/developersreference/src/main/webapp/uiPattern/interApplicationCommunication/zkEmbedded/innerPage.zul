@@ -1,0 +1,23 @@
+<zk>
+    <script>
+    	window.sendMessageToParent = function(data){
+    		var wgt = zk.$("$parentTarget");
+    		zAu.send(new zk.Event(wgt, "onInnerPageCommunication", {textValue: data}, {toServer:true}));
+    	}
+    </script>
+    <separator orient="horizontal"></separator>
+	<label value="this is the inner page"/>
+	<label value="MVC"/>
+	<div apply="org.zkoss.reference.developer.uipattern.interapplicationcommunication.zkembedded.ZkEmbeddedInnerComposer">
+		<label value="${param.param1}"/>
+		<textbox id="inputTextbox" value="some text"/>
+		<button id="sendToOuterButton" label="Send event to outer page" />
+	</div>
+	<separator orient="horizontal"></separator>
+	<label value="MVVM"/>
+	<div viewModel="@id('vm')@init('org.zkoss.reference.developer.uipattern.interapplicationcommunication.zkembedded.ZkEmbeddedInnerViewModel')">
+		<label value="@init(vm.outerValue)"/>
+		<textbox value="@bind(vm.textValue)"/>
+		<button label="Send event to outer page" onClick="@command('sendDataToOuterPage')" />
+	</div>
+</zk>

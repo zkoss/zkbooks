@@ -2,8 +2,7 @@
 <zk>
 	<vlayout
 		viewModel="@id('vm')@init('org.zkoss.reference.component.input.BandboxSelectionPageVm')">
-		<BandboxSelect model="@init(vm.model)"
-			selectedItem='@save(vm.selectedItem))' />
+		<BandboxSelect model="@init(vm.model)" selectedItem='@save(vm.selectedItem))' />
 <!-- 		using the value returned by the bandbox select macro -->
 		<textbox disabled="true" value="@load(vm.selectedItem.code)" />
 	</vlayout>
