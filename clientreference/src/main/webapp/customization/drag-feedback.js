@@ -5,7 +5,7 @@
 zk.afterLoad('zul.wgt', function() {
     var exWidget = {};
     zk.override(zul.wgt.Label.prototype, exWidget, {
-        /** return a string and zk.DnD.ghost() encloses it with an icon.
+        /** return a string and zk.DnD.ghost() encloses it with an icon (plus or ban).
         return null and zk.DnD.ghost() just clones the widget's DOM elements.
         */
         getDragMessage_: function(){
