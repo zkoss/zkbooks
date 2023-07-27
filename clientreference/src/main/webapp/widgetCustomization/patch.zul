@@ -1,0 +1,6 @@
+<zk>
+    <panel title="patch " closable="true">
+
+    </panel>
+    <script src="patch.js"/>
+</zk>
