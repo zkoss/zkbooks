@@ -1,0 +1,11 @@
+<zk xmlns:n="native">
+	<window>
+		<button label="test" onClick='Clients.log("foo")'/>
+		<script>
+			console.log("foo");
+		</script>
+		<n:script>
+			console.log("foo");
+		</n:script>
+	</window>
+</zk>
