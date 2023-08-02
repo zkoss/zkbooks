@@ -10,14 +10,23 @@
 	<filter>
 		<filter-name>zkCspFilter</filter-name>
 		<filter-class>org.zkoss.support.zkdemo_csp_filter.ZkCspFilterStrictDynamic</filter-class>
-		<init-param>
-			<param-name>digest-algorithm</param-name>
-			<param-value>SHA-256</param-value>
-		</init-param>
-		<init-param>
-			<param-name>csp-header</param-name>
-			<param-value>script-src 'strict-dynamic' 'nonce-%s' 'unsafe-inline' 'unsafe-eval';object-src 'none';base-uri 'none';</param-value>
-		</init-param>
+<!-- 		optional init-param to choose the digest algorithm, default SHA-1 -->
+<!-- 		<init-param> -->
+<!-- 			<param-name>digest-algorithm</param-name> -->
+<!-- 			<param-value>SHA-256</param-value> -->
+<!-- 		</init-param> -->
+
+<!-- 		optional init-param to write a different CSP header, use %s as placeholder for the nonce value. -->
+<!-- 		<init-param> -->
+<!-- 			<param-name>csp-header</param-name> -->
+<!-- 			<param-value>script-src 'strict-dynamic' 'nonce-%s' 'unsafe-inline' 'unsafe-eval';object-src 'none';base-uri 'none';</param-value> -->
+<!-- 		</init-param> -->
+
+<!-- 		optional init-param to compress the resulting response after adding CSP content -->
+<!-- 		<init-param> -->
+<!-- 			<param-name>compress</param-name> -->
+<!-- 			<param-value>false</param-value> -->
+<!-- 		</init-param> -->
 	</filter>
 	<filter-mapping>
 		<filter-name>zkCspFilter</filter-name>
