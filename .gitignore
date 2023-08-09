@@ -14,4 +14,4 @@ developersreference/integration.spring.security/.gitignore
 **/.project
 **/target
 **/build
-clientreference/src/main/webapp/widgetCustomization/node_modules
+clientreference/src/main/webapp/node_modules
