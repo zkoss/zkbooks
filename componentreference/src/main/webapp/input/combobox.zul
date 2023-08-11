@@ -61,4 +61,19 @@ public List getMatched(String value){
         </n:div>
         combobox's selectedItem - <label value="@load(vm.selectedValue)"/>
     </div>
+    <n:h2>Avoid null selection</n:h2>
+    <combobox id="box" onBlur="avoidNullSelection()">
+        <comboitem label="Simple and Rich"/>
+        <comboitem label="Cool!"/>
+        <comboitem label="Ajax and RIA"/>
+    </combobox>
+    <button label="submit"/>
+    <zscript><![CDATA[
+public void avoidNullSelection(){
+    if (box.getSelectedItem() == null){
+        box.setFocus(true); // focus back to the combobox since the input value doesn't exist in the model
+    }
+}
+    ]]></zscript>
+
 </zk>
