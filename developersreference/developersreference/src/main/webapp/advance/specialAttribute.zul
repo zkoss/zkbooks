@@ -27,9 +27,9 @@
 	</div>
 	<div xmlns:ca="client/attribute">
 	    <!-- correct use for non-dynamic attribute values -->
-	    <checkbox ca:attribute="${vm.value}" />
+	    <checkbox ca:attribute="${vm.currentUser.firstName}" />
 	    <!-- binding a referenced value or dynamic value by recreating content after triggering a binding using shadow element apply -->
-	    <apply refvalue="@load(vm.value)">
+	    <apply refvalue="@load(vm.currentUser.firstName)">
 		<!-- apply content is recreated when the binding expression "vm.value" is notified -->
 		<!-- using ${value} is correct, since expression is re-evaluated once the apply content is recreated -->
 		<checkbox ca:attribute="${refvalue}" />
