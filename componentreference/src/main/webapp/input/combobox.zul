@@ -76,4 +76,6 @@ public void avoidNullSelection(){
 }
     ]]></zscript>
 
+    <n:h2>Enforce match</n:h2>
+    <combobox use="org.zkoss.reference.component.input.EnforceMatchCombobox" model="${model}" />
 </zk>
