@@ -1,4 +1,4 @@
-<?script src="/widgetCustomization/zwatch-listener.js"?>
+<?script src="zwatch-listener.js"?>
 <zk>
 <window title="root" border="normal" sizable="true">
 

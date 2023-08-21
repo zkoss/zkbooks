@@ -11,5 +11,5 @@
             font-size:26px;
         }
     </style>
-    <script src="../widgetCustomization/drag-feedback.js"/>
+    <script src="drag-feedback.js"/>
 </zk>
