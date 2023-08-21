@@ -1,0 +1,22 @@
+<zk>
+    <portallayout id="portalLayout" maximizedMode="whole">
+        <portalchildren style="padding: 5px" width="30%">
+            <panel id="calendar" title="Calendar" border="normal" collapsible="false" closable="false" maximizable="false" style="margin-bottom:10px">
+                <panelchildren>
+                    <calendar/>
+                </panelchildren>
+            </panel>
+            <panel id="translate" title="Translate" border="normal" collapsible="true" closable="true" maximizable="true" style="margin-bottom:10px">
+                <panelchildren>
+                    <calendar/>
+                </panelchildren>
+            </panel>
+        </portalchildren>
+
+        <portalchildren style="padding: 5px" width="40%">
+        </portalchildren>
+
+        <portalchildren style="padding: 5px" width="30%">
+        </portalchildren>
+    </portallayout>
+</zk>
