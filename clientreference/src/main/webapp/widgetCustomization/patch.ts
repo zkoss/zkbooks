@@ -4,12 +4,12 @@ zk.afterLoad('zul.wnd',
         const oldPanel = zk.augment(zul.wnd.Panel.prototype, {
             onClose(): void {
                 alert('Modified zul.wnd.Panel.prototype.onClose');
-
-                return oldPanel.onClose();
-            }
+                
+                return oldPanel.onClose(); //call the original function before overidden
+            },
         })
-
 });
+
 
 
 
