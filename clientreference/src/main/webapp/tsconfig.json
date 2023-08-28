@@ -7,5 +7,7 @@
     "strict": true,                                      /* Enable all strict type-checking options. */
 
     "skipLibCheck": true,                                 /* Skip type checking all .d.ts files. */
+    "lib": ["ES2015", "dom"],  /* dom for global function like alert() */
+    "target": "ES5",
   }
 }
