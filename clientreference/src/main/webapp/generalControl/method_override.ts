@@ -8,7 +8,7 @@ zk.afterLoad('zul.inp', function() { //specify zk widget package name
 		doClick_: function(e: zk.Event){
 			exWidget.doClick_.apply(this, arguments); //call the original widget's overridden function
 			//implement your custom logic
-			console.log('override onclick');
+			zk.log('override onclick');
 		},
     });
 
