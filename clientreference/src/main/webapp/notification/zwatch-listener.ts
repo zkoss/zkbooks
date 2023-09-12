@@ -1,6 +1,7 @@
+
 var sizeListener = {
     onSize: function(controller: zk.ZWatchController) {
-        zk.log(arguments[0].name);
+        zk.log(controller.name);
         //ctrl.origin is null
     },
     onFitSize: function(controller: zk.ZWatchController) {
