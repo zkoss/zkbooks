@@ -1,6 +1,6 @@
 <zk xmlns:h="native">
 
-    <vlayout >
+    <vlayout apply="org.zkoss.bind.BindComposer" >
         <zscript><![CDATA[
 java.util.Date date = new java.util.Date();
 int aNumber = 123456;
@@ -9,4 +9,37 @@ int aNumber = 123456;
         <label value="@init(date) @converter('formattedDate', format='yyyy/MM/dd')"/>
         <label value="@init(aNumber) @converter('formattedNumber', format='###,##0.00')"/>
     </vlayout>
+
+    <h:h1>Custom Converter</h:h1>
+    <div viewModel="@id('vm')@init('org.zkoss.mvvm.converter.GroupModelNumberVM')">
+        <listbox model="@init(vm.model)">
+            <listhead>
+                <listheader label="Index" />
+                <listheader label="Name" />
+                <listheader label="Top Nutrients" />
+                <listheader label="Daily Percent" />
+            </listhead>
+            <template name="model:group">
+                <listgroup label="@init(each[0].category)"/>
+            </template>
+            <template name="model">
+                <listitem>
+                    <listcell label="@init(each)@converter(vm.groupItemNumberConverter, model=vm.model)"/>
+                    <listcell label="@init(each.name)"/>
+                    <listcell label="@init(each.topNutrients)"/>
+                    <listcell >
+                        ${each.dailyPercent}%
+                    </listcell>
+                </listitem>
+            </template>
+            <template name="model:groupfoot">
+                <listgroupfoot >
+                    <listcell span="4">
+                        ${each}
+                    </listcell>
+                </listgroupfoot>
+            </template>
+        </listbox>
+
+    </div>
 </zk>
