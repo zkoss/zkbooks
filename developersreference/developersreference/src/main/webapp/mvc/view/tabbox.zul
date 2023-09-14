@@ -2,14 +2,14 @@
 
     <tabbox id="mytab" model="@init(vm.fruits)" viewModel="@id('vm')@init('org.zkoss.reference.developer.mvc.view.FruitProvider')">
         <template name="model:tab">
-            <tab iconSclass="z-icon-user">
-                ${each[0]}
+            <tab  iconSclass="@init(each.icon)" onClick="@command(each.command)">
+                ${each.name}
             </tab>
         </template>
         <template name="model:tabpanel">
             <tabpanel>
                 <div >
-                    ${each[1]}
+                    ${each.name}
                 </div>
             </tabpanel>
         </template>
