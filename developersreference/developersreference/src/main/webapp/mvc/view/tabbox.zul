@@ -1,10 +1,10 @@
 <zk xmlns:n="native">
 
-    <tabbox id="mytab" model="@init(vm.fruits)" viewModel="@id('vm')@init('org.zkoss.reference.developer.mvc.view.FruitProvider')">
+    <tabbox id="mytab" model="@init(vm.tabList)" viewModel="@id('vm')@init('org.zkoss.reference.developer.mvc.view.TabOperationVM')">
         <template name="model:tab">
-            <tab  iconSclass="@init(each.icon)" onClick="@command(each.command)">
-                ${each.name}
-            </tab>
+            <tab  label="@init(each.name)"
+                    iconSclass="@init(each.icon)" onClick="@command(each.command)"
+                  closable="@init(each.icon eq 'z-icon-user')" onClose="@command('del', target=each)"/>
         </template>
         <template name="model:tabpanel">
             <tabpanel>

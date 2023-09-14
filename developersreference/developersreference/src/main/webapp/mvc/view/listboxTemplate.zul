@@ -1,6 +1,6 @@
 <zk xmlns:n="native">
 
-<div apply="org.zkoss.reference.developer.mvc.view.FruitProvider">
+<div apply="org.zkoss.reference.developer.mvc.view.TabOperationVM">
     <listbox model="${$composer.fruits}">
         <listhead>
             <listheader label="Name" sort="auto"/>
