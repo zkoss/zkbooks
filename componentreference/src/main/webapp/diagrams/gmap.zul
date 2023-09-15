@@ -1,6 +1,6 @@
+<?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c"?>
 <zk xmlns:h="native">
-    <script type="text/javascript" content="zk.googleAPIkey='Your-Google-API-Key';"/>
-
+    <script type="text/javascript" content="zk.googleAPIkey='${c:property('zk.googleAPIkey')}';"/>
     <!-- you may wish specify the version of google map api manually for some reason,
         use version="[version]" to do it.
         ex: <gmaps version="3.25" id="mymap" ... /> -->

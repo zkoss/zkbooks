@@ -16,4 +16,8 @@
         <name>org.zkoss.web.servlet.http.embedded.enabled</name>
         <value>true</value>
     </library-property>
+    <library-property>
+        <name>zk.googleAPIkey</name>
+        <value>put your api key</value>
+    </library-property>
 </zk>
