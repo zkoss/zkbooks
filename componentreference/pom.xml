@@ -69,7 +69,7 @@
 		<dependency>
 			<groupId>org.zkoss.zkforge</groupId>
 			<artifactId>gmapsz</artifactId>
-			<version>3.0.2</version>
+			<version>4.0.0</version>
 			<exclusions>
 				<exclusion>
 					<groupId>org.zkoss.common</groupId>
