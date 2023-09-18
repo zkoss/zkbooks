@@ -22,4 +22,6 @@
 
     <datebox format="G yyyy/mm/dd"/>
 
+    <n:h1>Custom Calendar System</n:h1>
+    <datebox locale="zh-TW-u-ca-roc" format="Gyyy/MM/dd" hflex="min"/>
 </zk>
