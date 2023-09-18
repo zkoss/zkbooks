@@ -17,7 +17,7 @@
         <value>true</value>
     </library-property>
     <library-property>
-        <name>zk.googleAPIkey</name>
-        <value>put your api key</value>
+        <name>org.zkoss.gmaps.apiKey</name>
+        <value>your_key</value>
     </library-property>
 </zk>

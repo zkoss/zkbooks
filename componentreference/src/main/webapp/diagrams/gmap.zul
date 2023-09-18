@@ -1,6 +1,5 @@
 <?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c"?>
 <zk xmlns:h="native">
-    <script type="text/javascript" content="zk.googleAPIkey='${c:property('zk.googleAPIkey')}';"/>
     <!-- you may wish specify the version of google map api manually for some reason,
         use version="[version]" to do it.
         ex: <gmaps version="3.25" id="mymap" ... /> -->
@@ -45,6 +44,7 @@
     </gmaps>
 
     <h:h1>onMapClick event</h:h1>
+    click on the map to draw the lines
     <div apply="org.zkoss.reference.component.diagrams.DrawLineComposer">
         <button id="clear" label="Clear Lines"/>
         <gmaps id="map4draw" width="50%" height="500px" />
