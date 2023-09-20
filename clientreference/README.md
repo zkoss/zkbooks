@@ -11,7 +11,7 @@ Then visit http://localhost:8080/reference.client with your browser.
 See examples and configurations under `widgetCustomization`.
 
 ## Setup Steps
-### 1. Install TypeScript compiler and [zk-types](https://www.npmjs.com/package/zk-types), TypeScript Declarations for the ZK Framework widgets.
+### 1. Install TypeScript compiler and [zk-types](https://www.npmjs.com/package/zk-types), TypeScript Declarations for the ZK Framework
 `npm i -D typescript zk-types @types/jquery`
 
 (`-D`: It indicates that the packages being installed are development dependencies. )
