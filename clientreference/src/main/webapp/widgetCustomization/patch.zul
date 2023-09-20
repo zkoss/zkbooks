@@ -1,6 +1,8 @@
 <zk>
-    <panel title="patch " closable="true">
-
+    <panel title="patch " closable="true" border="normal">
+        <panelchildren>
+        close me to see the message
+        </panelchildren>
     </panel>
     <script src="patch.js"/>
 </zk>
