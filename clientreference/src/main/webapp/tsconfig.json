@@ -1,13 +1,11 @@
+/* https://www.typescriptlang.org/tsconfig */
 {
   // "include": ["patch.ts"], //specify the files to compile
   "compilerOptions": {
-    "types": ["zk-types", "jquery"],
-    "forceConsistentCasingInFileNames": true,            /* Ensure that casing is correct in imports. */
-    /* Type Checking */
+    "types": ["zk-types"],
     "strict": true,                                      /* Enable all strict type-checking options. */
-
     "skipLibCheck": true,                                 /* Skip type checking all .d.ts files. */
-    "lib": ["ES2015", "dom"],  /* dom for global function like alert() */
-    "target": "ES5",
+    "lib": ["ES2020", "DOM"],  /* dom for global function onwindow, document, etc like alert() */
+    "target": "ES5", /* same as config of *.d.ts */
   }
 }
