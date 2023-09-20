@@ -15,9 +15,19 @@
         </portalchildren>
 
         <portalchildren style="padding: 5px" width="40%">
+            <panel title="Calendar" border="normal" collapsible="false" closable="false" maximizable="false" style="margin-bottom:10px">
+                <panelchildren>
+                    <calendar/>
+                </panelchildren>
+            </panel>
         </portalchildren>
 
         <portalchildren style="padding: 5px" width="30%">
+            <panel title="Calendar" border="normal" collapsible="false" closable="false" maximizable="false" style="margin-bottom:10px">
+                <panelchildren>
+                    <calendar/>
+                </panelchildren>
+            </panel>
         </portalchildren>
     </portallayout>
     <script src="portallayout-disable-nav.js"/>
