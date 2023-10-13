@@ -1,5 +1,0 @@
-<zk>
-    <div width="100%" apply="org.zkoss.reference.component.diagrams.GanttchartComposer">
-        <fusionchart id="fusionchart" title="Gantt Chart" type="gantt" width="500" height="250" />
-    </div>
-</zk>
