@@ -45,8 +45,8 @@
 
     <h:h1>onMapClick event</h:h1>
     click on the map to draw the lines
-    <div apply="org.zkoss.reference.component.diagrams.DrawLineComposer">
+    <div apply="org.zkoss.reference.component.diagrams.DrawLineComposer" >
         <button id="clear" label="Clear Lines"/>
-        <gmaps id="map4draw" width="50%" height="500px" />
+        <gmaps id="map4draw" width="50%" height="500px" onMapRightClick="System.out.println(event)"/>
     </div>
 </zk>

@@ -19,6 +19,10 @@ public class DrawLineComposer extends SelectorComposer {
     @Override
     public void doAfterCompose(Component comp) throws Exception {
         super.doAfterCompose(comp);
+    }
+
+    @Listen("onCreate = #map4draw")
+    public void onCreate(){
         map4draw.appendChild(currentPolyline);
     }
 
