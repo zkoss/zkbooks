@@ -1,40 +1,47 @@
-<zk>
+<zk xmlns:h="native">
     <style>
         .red{
             color: red;
         }
     </style>
+    <vlayout>
+        font awesome 6.4.2
+        <button iconSclass="z-icon-house"/>
+        font awesome 4.7
+        <button iconSclass="z-icon-home"/>
+    </vlayout>
 
-<button iconSclass="z-icon-camera"></button>
-<checkbox iconSclass="z-icon-flag"></checkbox>
-<window>
-    <caption iconSclass="z-icon-twitter"></caption>
-</window>
+    <h:h2>Various Components that supports to show an icon</h:h2>
+    <vlayout>
+    <button iconSclass="z-icon-camera"></button>
+    <checkbox iconSclass="z-icon-flag"></checkbox>
+    <window border="normal" >
+        <caption iconSclass="z-icon-twitter">title</caption>
+    </window>
     <a iconSclass="z-icon-twitter ">a hyperlink</a>
     <combobox>
         <comboitem iconSclass="z-icon-twitter" label="twitter"></comboitem>
     </combobox>
 
     <menubar>
-    <menu  label="main" iconSclass="z-icon-twitter">
-        <menupopup>
-        <menuitem label="item 1" iconSclass="z-icon-flag"></menuitem>
-        </menupopup>
-    </menu>
+        <menu label="main" iconSclass="z-icon-twitter">
+            <menupopup>
+                <menuitem label="item 1" iconSclass="z-icon-flag"></menuitem>
+            </menupopup>
+        </menu>
     </menubar>
     <navbar>
-
-    <nav label="main nav" iconSclass="z-icon-flag">
-        <navitem label="nav 1" iconSclass="z-icon-flag "></navitem>
-        <navitem label="nav 2" iconSclass="z-icon-camera "></navitem>
-    </nav>
+        <nav label="main nav" iconSclass="z-icon-flag">
+            <navitem label="nav 1" iconSclass="z-icon-flag "></navitem>
+            <navitem label="nav 2" iconSclass="z-icon-camera "></navitem>
+        </nav>
     </navbar>
     <separator height="50px"></separator>
     <tabbox>
         <tabs>
-            <tab iconSclass="z-icon-flag " ></tab>
+            <tab iconSclass="z-icon-flag "></tab>
             <tab iconSclass="z-icon-camera red"></tab>
         </tabs>
     </tabbox>
-
+    </vlayout>
 </zk>
