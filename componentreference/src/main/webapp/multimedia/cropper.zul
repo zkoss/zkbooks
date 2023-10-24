@@ -1,13 +1,16 @@
 <zk xmlns:n="native">
     <groupbox title="Crop and Preview" apply="org.zkoss.reference.component.multimedia.CropPreviewComposer">
         <cropper x="50" y="100" w="100" h="100"  width="600px"
-                 toolbarVisible="true" src="swimming-pool.jpg"/>
+                 toolbarVisible="true" src="cropper-image.jpg"/>
         <n:h2>Cropped or Preview Image:</n:h2>
         <image id="img"/>
     </groupbox>
     <n:h2>MVVM</n:h2>
-    <cropper x="50" y="100" w="100" h="100" src="swimming-pool.jpg"
-             viewModel="@id('vm')@init('org.zkoss.reference.component.multimedia.CropperVM')"
+    <groupbox viewModel="@id('vm')@init('org.zkoss.reference.component.multimedia.CropperVM')">
+    <cropper x="50" y="100" w="100" h="100" src="cropper-image.jpg"
              onCrop="@command('crop', image=event.media)" width="600px" toolbarVisible="true"
-             onChange="@command('crop', image=self.croppedImage)" instant="true"/>
+             onChange="@command('changeSelection')" instant="true"/>
+    <n:h2>Cropped or Preview Image:</n:h2>
+    <image content="@load(vm.media)"/>
+    </groupbox>
 </zk>
