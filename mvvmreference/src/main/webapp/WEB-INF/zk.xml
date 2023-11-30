@@ -54,10 +54,10 @@ Copyright (C) 2006 Potix Corporation. All Rights Reserved.
 		<name>org.zkoss.zul.listbox.rod</name>
 		<value>true</value>
 	</library-property>
-
 	<session-config>
 		<timeout-uri>/timeout.zul</timeout-uri>
-
 	</session-config>
-
+	<listener>
+		<listener-class>org.zkoss.clientbind.BinderPropertiesRenderer</listener-class>
+	</listener>
 </zk>

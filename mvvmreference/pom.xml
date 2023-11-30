@@ -3,12 +3,12 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.zkoss.reference</groupId>
 	<artifactId>mvvm</artifactId>
-	<version>9.6.4-Eval</version>
+	<version>10.0.0-Beta</version>
 	<properties>
 		<maven.build.timestamp.format>yyyy-MM-dd</maven.build.timestamp.format>
-		<packname>-0.0.1-SNAPSHOT-FL-${maven.build.timestamp}</packname>
-		<maven.compiler.source>1.8</maven.compiler.source>
-		<maven.compiler.target>1.8</maven.compiler.target>
+		<packname>${project.version}</packname>
+		<maven.compiler.source>11</maven.compiler.source>
+		<maven.compiler.target>11</maven.compiler.target>
 	</properties>
 	<packaging>war</packaging>
 	<name>ZK MVVM Reference source code</name>
@@ -51,6 +51,11 @@ The package naming convention follows the first level header of the book like or
 		<dependency>
 			<groupId>org.zkoss.zk</groupId>
 			<artifactId>zuti</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.zkoss.zk</groupId>
+			<artifactId>client-bind</artifactId>
 			<version>${project.version}</version>
 		</dependency>
 		<dependency>
