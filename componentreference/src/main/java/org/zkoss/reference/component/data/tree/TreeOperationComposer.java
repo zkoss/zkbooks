@@ -19,13 +19,14 @@ public class TreeOperationComposer extends SelectorComposer {
     @Wire
     private Textbox selectorBox;
     private DefaultTreeModel<DefaultTreeNode> model;
+    private int maxNumber =100 ;
 
     @Override
     public void doAfterCompose(Component comp) throws Exception {
         super.doAfterCompose(comp);
 
         List<DefaultTreeNode> childnodes = new LinkedList<DefaultTreeNode>();
-        for (int i = 0; i < 100; ++i) {
+        for (int i = 0; i < maxNumber; ++i) {
             DefaultTreeNode node = new DefaultTreeNode("" + i, createChildNodes(i + "-", 10));
             childnodes.add(node);
         }
@@ -49,7 +50,14 @@ public class TreeOperationComposer extends SelectorComposer {
 
     @Listen("onClick = #expandAll")
     public void expandTree() {
-        model.setOpenObjects(model.getRoot().getChildren());
+        //option 1
+//        model.setOpenObjects(model.getRoot().getChildren());
+        //option 2
+        int[] path = {0};
+        for (int i = 0 ; i< maxNumber ; i++) {
+            path[0] = i;
+            model.addOpenPath(path);
+        }
     }
 
     @Listen("onClick = #expand")

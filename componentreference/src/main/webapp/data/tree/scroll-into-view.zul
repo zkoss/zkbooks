@@ -17,7 +17,7 @@
             <textbox id="selectorBox" value="treeitem:nth-child(35)"/>
             <button id="scrollSelector" label="scroll into view "/> e.g. treeitem[label='10']
         </groupbox>
-        <tree width="200px" height="300px">
+        <tree width="200px" height="300px" mold="paging" autopaging="true">
             <template name="model">
                 <treeitem id="${each}">
                     <treerow>
