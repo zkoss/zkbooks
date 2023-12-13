@@ -5,7 +5,7 @@ import org.zkoss.zk.ui.*;
 import org.zkoss.zk.ui.event.*;
 import org.zkoss.zk.ui.select.SelectorComposer;
 import org.zkoss.zk.ui.select.annotation.*;
-import org.zkoss.zul.Label;
+import org.zkoss.zul.*;
 
 import java.time.LocalDateTime;
 import java.util.concurrent.*;
@@ -17,7 +17,7 @@ import java.util.concurrent.*;
 public class AsyncTaskComposer extends SelectorComposer<Component> {
 
     @Wire
-    private Label status;
+    private Vlayout status;
     private Desktop desktop;
 
     @Override
@@ -36,7 +36,7 @@ public class AsyncTaskComposer extends SelectorComposer<Component> {
                 new EventListener<Event>() {
                     public void onEvent(Event event) {
                         //update UI
-                        status.setValue("done at " + LocalDateTime.now());
+                        status.appendChild(new Label("done at " + LocalDateTime.now()));
                     }
                 }, new Event("myEvent"));
         });
