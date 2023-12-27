@@ -19,12 +19,19 @@ public class AsyncTaskComposer extends SelectorComposer<Component> {
     @Wire
     private Vlayout status;
     private Desktop desktop;
+    private EventListener<Event> listener;
 
     @Override
     public void doAfterCompose(Component comp) throws Exception {
         super.doAfterCompose(comp);
         desktop = comp.getDesktop();
         desktop.enableServerPush(true);
+        listener = new EventListener<Event>() {
+            public void onEvent(Event event) {
+                //update UI
+                status.appendChild(new Label("done at " + LocalDateTime.now()));
+            }
+        };
     }
 
     @Listen("onClick = #start")
@@ -32,13 +39,12 @@ public class AsyncTaskComposer extends SelectorComposer<Component> {
         // run in a separate thread
         CompletableFuture.runAsync(() -> {
             Threads.sleep(3000); //simulate a long task
+            if (!desktop.isAlive()){
+                System.out.println("desktop dead");
+                return;
+            }
             Executions.schedule(desktop,
-                new EventListener<Event>() {
-                    public void onEvent(Event event) {
-                        //update UI
-                        status.appendChild(new Label("done at " + LocalDateTime.now()));
-                    }
-                }, new Event("myEvent"));
+                    listener, new Event("myEvent"));
         });
     }
 
