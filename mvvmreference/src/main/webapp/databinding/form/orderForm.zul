@@ -6,7 +6,7 @@
 </style>
 <window title="Order Management" border="normal" width="600px"
 	 viewModel="@id('vm') @init('org.zkoss.mvvm.databinding.form.OrderFormVM')" >
-	<vbox hflex="true">
+	<vlayout hflex="true">
 		<listbox model="@load(vm.orders)" selectedItem="@bind(vm.selected)" hflex="true" height="200px">
 			<listhead>
 				<listheader label="Id"/>
@@ -31,7 +31,7 @@
 			<!-- show confirm dialog when selected is persisted -->
 			<button label="Delete" onClick="@command(empty vm.selected.id?'deleteOrder':'confirmDelete')" disabled="@load(empty vm.selected)" />
 		</toolbar>
-		<groupbox form="@id('fx') @load(vm.selected) @save(vm.selected, before='saveOrder') @validator(vm.shippingDateValidator)" visible="@bind(not empty vm.selected)" hflex="true" mold="3d">
+		<groupbox form="@id('fx') @load(vm.selected) @save(vm.selected, before='saveOrder') @validator(vm.shippingDateValidator)" visible="@load(not empty vm.selected)" hflex="true" mold="3d">
 			<grid hflex="true" >
 				<columns>
 					<column width="120px"/>
@@ -49,16 +49,16 @@
 					<row>Quantity
 						<hlayout> 
 							<intbox value="@bind(fx.quantity) @validator(vm.quantityValidator)"/>
-							<label value="@load(vm.validationMessages['quantity'])" sclass="red" />
+<!--							<label value="@load(vm.validationMessages['quantity'])" sclass="red" />-->
 						</hlayout>	
 					</row>					
 					<row>Price 
 						<hlayout>
-							<doublebox value="@bind(fx.price) @validator(vm.priceValidator)" format="###,##0.00" />
+<!--							<doublebox value="@bind(fx.price) @validator(vm.priceValidator)" format="###,##0.00" />-->
 							<label value="@load(vm.validationMessages['price'])" sclass="red" />
 						</hlayout>
 					</row>
-					<row>Total Price <label value="@load(fx.totalPrice) @converter('formatedNumber', format='###,##0.00')" /></row>
+<!--					<row>Total Price <label value="@load(fx.totalPrice) @converter('formatedNumber', format='###,##0.00')" /></row>-->
 					<row>Creation Date 
 						<hlayout> 
 							<datebox value="@bind(fx.creationDate)
@@ -75,9 +75,9 @@
 				</rows>
 			</grid>
 		</groupbox>
-	</vbox>
+	</vlayout>
 	<window title="Confirm" mode="modal" border="normal" width="300px" visible="@load(not empty vm.deleteMessage)">
-		<vbox hflex="true">
+		<vlayout hflex="true">
 			<hlayout height="50px">
 				<image src="~./zul/img/msgbox/question-btn.png"/>
 				<label value="@load(vm.deleteMessage)"/>
@@ -86,7 +86,7 @@
 				<button label="Delete" onClick="@command('deleteOrder')"/>
 				<button label="Cancel" onClick="@command('cancelDelete')"/>
 			</hbox>
-		</vbox>
+		</vlayout>
 	</window>
 </window>
 </zk>

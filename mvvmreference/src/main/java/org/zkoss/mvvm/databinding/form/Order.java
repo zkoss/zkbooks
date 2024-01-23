@@ -81,7 +81,7 @@ public class Order {
 		this.description = description;
 	}
 
-	public double getPrice() {
+	public Double getPrice() {
 		return price;
 	}
 
@@ -90,7 +90,11 @@ public class Order {
 		this.price = price;
 	}
 
-	public int getQuantity() {
+	/**
+	 * should return an Object instead of a primitive for form binding.
+	 * if the proxy's getter is expected to return a primitive and a null is returned from the invoke() method of the MethodHandler. Since primitives can't be null, trying to auto-unbox a null would cause a NullPointerException.
+	 */
+	public Integer getQuantity() {
 		return quantity;
 	}
 
