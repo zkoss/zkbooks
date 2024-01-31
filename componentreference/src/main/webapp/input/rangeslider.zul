@@ -1,0 +1,12 @@
+<zk xmlns:h="native">
+    <rangeslider startValue="10" endValue="90" onCreate="showRange(self.startValue, self.endValue)"
+                 onRangeValueChange="showRange(event.getStartValue(), event.getEndValue())"/>
+    <label id="result"/>
+    <zscript><![CDATA[
+        public void showRange(int startValue, int endValue){
+            result.setValue(startValue + "~" + endValue);
+        }
+    ]]></zscript>
+    <h:h1>vertical</h:h1>
+    <rangeslider orient="vertical" startValue="20" endValue="80" markScale="20" />
+</zk>

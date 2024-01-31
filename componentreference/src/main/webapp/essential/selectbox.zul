@@ -1,4 +1,5 @@
-<zk>
+<zk xmlns:h="native">
+    <h:h1>Change item text</h:h1>
     <zscript>
         <![CDATA[
         String[] userName = { "Tony", "Ryan", "Jumper", "Wing", "Sam" };
@@ -40,6 +41,7 @@
     };
 */
     ]]></zscript>
+    <h:h1>Initialize selected item</h:h1>
     <div apply="org.zkoss.bind.BindComposer">
         Select User:
         <selectbox id="box" model="@init(mybean.userList)"
