@@ -2,4 +2,18 @@
     <textbox value="@save(vm.account.email) @validator(vm.emailValidator)"/>
 
     <textbox value="@save(vm.account.email) @validator('org.foo.EmailValidator')"/>
+
+    <vlayout viewModel="@id('vm')@init('org.zkoss.mvvm.databinding.ValidatorVM')" validationMessages="@id('vmsgs')">
+        JSR 303 bean validator.
+        <div>
+            Name: <textbox id="nameBox" value="@bind(vm.person.name) @validator('beanValidator')"/>
+            <label value="@load(vmsgs[nameBox])" style="color:red"/>
+            Age: <intbox id="ageBox" value="@bind(vm.person.age) @validator('beanValidator')" />
+            <label value="@load(vmsgs[ageBox])" style="color:red"/>
+        </div>
+        All Error Messages:
+        <forEach items="@load(vmsgs.texts)">
+            <label value="@load(each)" style="color:red"/>
+        </forEach>
+    </vlayout>
 </zk>
