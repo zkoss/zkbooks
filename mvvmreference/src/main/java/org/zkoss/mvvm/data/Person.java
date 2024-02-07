@@ -39,7 +39,7 @@ public class Person {
 		this.name = name;
 	}
 	
-	@Range(min=0, message="should be positive")
+	@Range(min=0, message="{no-negative}")
 	public Integer getAge() {
 		return age;
 	}

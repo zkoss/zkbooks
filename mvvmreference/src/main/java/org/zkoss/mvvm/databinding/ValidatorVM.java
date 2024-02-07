@@ -10,6 +10,7 @@ public class ValidatorVM {
 	private int price;
 	private Person person = new Person();
 
+
 	public Validator getPriceRangeValidator(){
 		return new AbstractValidator() {
 
