@@ -16,7 +16,7 @@
         <separator bar="true" stubonly="true"/>
         JSR 303 bean validator
         <div>
-            Name: (enter something and clear it) <textbox id="nameBox" value="@bind(vm.person.name) @validator('beanValidator')" />
+            Name: (enter something and clear it) <textbox id="nameBox" value="@bind(vm.person.firstName) @validator('beanValidator')" />
             <label value="@load(vmsgs[nameBox])" style="color:red"/>
             Age: (enter a negative to trigger an error) <intbox id="ageBox" value="@bind(vm.person.age) @validator('beanValidator')" />
             <label value="@load(vmsgs[ageBox])" style="color:red"/>

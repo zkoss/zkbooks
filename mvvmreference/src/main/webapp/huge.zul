@@ -1,8 +1,8 @@
 <zk>
-	<window  width="400px"
+	<window  hflex="min"
 		viewModel="@id('vm') @init('org.zkoss.mvvm.advance.HugeDataVM')">
 		 Use custom ListModel:
-		<listbox model="@bind(vm.personListModel)" selectedItem="@bind(vm.selectedPerson)" rows="10">
+		<listbox model="@bind(vm.personListModel)" selectedItem="@bind(vm.selectedPerson)" rows="10" hflex="min">
 			<listhead>
 				<listheader label="ID" />
 				<listheader label="First Name" />
@@ -20,7 +20,11 @@
 		</listbox>
 		Selected Item:
 		<groupbox>
-			<grid visible="@load(not empty vm.selectedPerson)">
+			<grid visible="@load(not empty vm.selectedPerson)" hflex="min">
+				<columns>
+					<column hflex="min"/>
+					<column/>
+				</columns>
 				<rows>
 					<row>
 						First Name:<textbox value="@bind(vm.selectedPerson.firstName)" />

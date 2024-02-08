@@ -3,7 +3,7 @@ package org.zkoss.mvvm.databinding;
 import org.zkoss.bind.*;
 import org.zkoss.bind.annotation.Command;
 import org.zkoss.bind.validator.AbstractValidator;
-import org.zkoss.mvvm.data.Person;
+import org.zkoss.mvvm.advance.domain.Person;
 
 public class ValidatorVM {
 	private String email;
