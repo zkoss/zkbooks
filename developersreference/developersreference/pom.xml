@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.zkoss.reference</groupId>
     <artifactId>developer</artifactId>
-    <version>9.6.3-Eval</version>
+    <version>9.6.4-jakarta-Eval</version>
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
@@ -77,9 +77,9 @@
             <version>5.1.22</version>
         </dependency>
         <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>javax.servlet-api</artifactId>
-            <version>3.0.1</version>
+            <groupId>jakarta.servlet</groupId>
+            <artifactId>jakarta.servlet-api</artifactId>
+            <version>5.0.0</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
@@ -94,12 +94,12 @@
             <plugin>
                 <groupId>org.eclipse.jetty</groupId>
                 <artifactId>jetty-maven-plugin</artifactId>
-                <version>9.4.27.v20200227</version>
+                <version>11.0.15</version>
                 <configuration>
 <!--                    <scanIntervalSeconds>5</scanIntervalSeconds>-->
-                    <webAppConfig>
+                    <webApp>
                         <contextPath>/${project.artifactId}</contextPath>
-                    </webAppConfig>
+                    </webApp>
                 </configuration>
             </plugin>
         </plugins>

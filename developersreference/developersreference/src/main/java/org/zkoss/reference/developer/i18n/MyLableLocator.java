@@ -1,8 +1,8 @@
 package org.zkoss.reference.developer.i18n;
 
+import jakarta.servlet.ServletContext;
 import org.zkoss.util.resource.LabelLocator;
 
-import javax.servlet.ServletContext;
 import java.net.URL;
 import java.util.Locale;
 

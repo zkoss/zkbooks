@@ -1,9 +1,9 @@
 package org.zkoss.reference.developer.performance.monitor;
 
+import jakarta.servlet.http.HttpServletRequest;
 import org.zkoss.zk.ui.Execution;
 import org.zkoss.zk.ui.util.PerformanceMeter;
 
-import javax.servlet.http.*;
 import java.util.HashMap;
 
 public class MyRequestMonitor implements PerformanceMeter {
