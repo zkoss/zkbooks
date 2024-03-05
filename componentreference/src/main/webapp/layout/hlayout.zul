@@ -1,0 +1,14 @@
+<zk>
+    <hlayout id="hlOne" height="100px">
+        <button id="lbOne" label="align top" />
+        <window width="100px" height="100px" title="test window" border="normal" />
+    </hlayout>
+    <hlayout id="hlTwo" valign="middle" height="100px">
+        <button id="lbTwo" label="align middle" />
+        <window width="100px" height="100px" title="test window" border="normal" />
+    </hlayout>
+    <hlayout id="hlThree" valign="bottom" height="100px">
+        <button id="lbThree" label="align bottom" />
+        <window width="100px" height="100px" title="test window" border="normal" />
+    </hlayout>
+</zk>

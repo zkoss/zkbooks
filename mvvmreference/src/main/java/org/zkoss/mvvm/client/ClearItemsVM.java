@@ -26,12 +26,10 @@ public class ClearItemsVM {
     @Command
     public void fill() {
         model.addAll(dataList);
-        Events.echoEvent("onSentTime", root, null ); //send client complete time back to performance meter
     }
     @Command
     public void clear() {
         model.clear();
-        Events.echoEvent("onSentTime", root, null ); //send client complete time back to performance meter
     }
 
     public ListModelList<String> getModel() {

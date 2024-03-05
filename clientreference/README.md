@@ -8,7 +8,7 @@ run it with maven command:
 Then visit http://localhost:8080/reference.client with your browser.
 
 # Widget Customization
-See examples and configurations under `widgetCustomization`.
+See examples and configurations under the folder: [widgetCustomization](src/main/webapp/widgetCustomization).
 
 ## Setup Steps
 ### 1. Install TypeScript compiler and [zk-types](https://www.npmjs.com/package/zk-types), TypeScript Declarations for the ZK Framework
