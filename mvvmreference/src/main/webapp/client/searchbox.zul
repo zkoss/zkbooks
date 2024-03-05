@@ -1,0 +1,9 @@
+<zk>
+    loading this page takes a longer time in server MVVM than in client MVVM
+    <!-- apply="org.zkoss.clientbind.ClientBindComposer"   -->
+    <searchbox viewModel="@id('vm')@init('org.zkoss.mvvm.client.SearchboxVM')" model="@init(vm.model)" multiple="true" autoclose="true">
+        <template name="model">
+            <label value="@load(each)"/>
+        </template>
+    </searchbox>
+</zk>
