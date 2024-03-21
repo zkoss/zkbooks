@@ -1,0 +1,16 @@
+<zk xmlns:h="native">
+    <zscript><![CDATA[
+import org.zkoss.zk.ui.*;
+Execution execution = Executions.getCurrent();
+String browser = execution.getBrowser();
+Double version = execution.getBrowser(browser);
+
+String userAgent = execution.getUserAgent();
+Double safariVersion = execution.getBrowser("safari");
+boolean isSafari = safariVersion != null;
+
+    ]]></zscript>
+Current browser is: ${browser} ${version} <h:br/>
+is Safari: ${isSafari} ${safariVersion} <h:br/>
+user agent: ${userAgent}<h:br/>
+</zk>

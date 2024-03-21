@@ -11,18 +11,18 @@ public class TestRichlet extends GenericRichlet {
 
 		final Window w = new Window("Richlet Test", "normal", false);
 		new Label("Hello World!").setParent(w);
-		final Label l = new Label();
-		l.setParent(w);
+		final Label label = new Label();
+		label.setParent(w);
 
-		final Button b = new Button("Change");
-		b.addEventListener(Events.ON_CLICK,
+		final Button button = new Button("Change");
+		button.addEventListener(Events.ON_CLICK,
 				new EventListener() {
 			int count;
 			public void onEvent(Event evt) {
-				l.setValue("" + ++count);
+				label.setValue("" + ++count);
 			}
 		});
-		b.setParent(w);
+		button.setParent(w);
 
 		w.setPage(page);
 	}
