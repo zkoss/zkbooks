@@ -3,4 +3,7 @@
     <barcode type="qr" value="https://www.zkoss.org/" height="100px"/>
     <n:h1>code128</n:h1>
     <barcode type="code128" value="https://www.zkoss.org/" height="100px"/>
+
+    <n:h1>EAN13</n:h1>
+    <barcode type="ean13" value="978020137962" fontSize="20" displayValue="true"/>
 </zk>

@@ -1,5 +1,7 @@
 package org.zkoss.reference.developer.mvc.model;
 
+import java.util.LinkedList;
+
 public class Food {
     //Data
     static public Object[][] foods = new Object[][] { //Note: the order does not matter
@@ -30,6 +32,35 @@ public class Food {
         new Object[] { "Grains", "Oats ", "Manganese", 69, 147},
         new Object[] { "Grains", "Barley ", "Dietary Fiber", 54, 270}
     };
+    static public LinkedList<Food> foodList = new LinkedList<Food>();
+    static{
+        Food.foodList.add(new Food("Vegetables", "Asparagus", "Vitamin K", 115, 43, 3));
+        Food.foodList.add(new Food("Vegetables", "Beets", "Folate", 33, 74, 4));
+        Food.foodList.add(new Food("Vegetables", "Bell peppers", "Vitamin C", 291, 24, 12));
+        Food.foodList.add(new Food("Vegetables", "Cauliflower", "Vitamin C", 92, 28, 21));
+        Food.foodList.add(new Food("Vegetables", "Eggplant", "Dietary Fiber", 10, 27, 12));
+        Food.foodList.add(new Food("Vegetables", "Onions", "Chromium", 21, 60, 4));
+        Food.foodList.add(new Food("Vegetables", "Potatoes", "Vitamin C", 26, 132, 6));
+        Food.foodList.add(new Food("Vegetables", "Spinach", "Vitamin K", 1110, 41, 12));
+        Food.foodList.add(new Food("Vegetables", "Tomatoes", "Vitamin C", 57, 37, 32));
+        Food.foodList.add(new Food("Seafood", "Salmon", "Tryptophan", 103, 261, 7));
+        Food.foodList.add(new Food("Seafood", "Shrimp", "Tryptophan", 103, 112, 6));
+        Food.foodList.add(new Food("Seafood", "Scallops", "Tryptophan", 81, 151, 6));
+        Food.foodList.add(new Food("Seafood", "Cod", "Tryptophan", 90, 119, 9));
+        Food.foodList.add(new Food("Fruits", "Apples", "Manganese", 33, 61, 4));
+        Food.foodList.add(new Food("Fruits", "Cantaloupe", "Vitamin C", 112, 56, 5));
+        Food.foodList.add(new Food("Fruits", "Grapes", "Manganese", 33, 61, 9));
+        Food.foodList.add(new Food("Fruits", "Pineapple", "Manganese", 128, 75, 4));
+        Food.foodList.add(new Food("Fruits", "Strawberries", "Vitamin C", 24, 48, 7));
+        Food.foodList.add(new Food("Fruits", "Watermelon", "Vitamin C", 24, 48, 3));
+        Food.foodList.add(new Food("Poultry & Lean Meats", "Beef, lean organic", "Tryptophan", 112, 240, 4));
+        Food.foodList.add(new Food("Poultry & Lean Meats", "Lamb", "Tryptophan", 109, 229, 3));
+        Food.foodList.add(new Food("Poultry & Lean Meats", "Chicken", "Tryptophan", 121, 223, 7));
+        Food.foodList.add(new Food("Poultry & Lean Meats", "Venison ", "Protein", 69, 179, 4));
+        Food.foodList.add(new Food("Grains", "Corn ", "Vatamin B1", 24, 177, 3));
+        Food.foodList.add(new Food("Grains", "Oats ", "Manganese", 69, 147, 6));
+        Food.foodList.add(new Food("Grains", "Barley ", "Dietary Fiber", 54, 270, 12));
+    }
     private String category;
     private String name;
     private String topNutrients;

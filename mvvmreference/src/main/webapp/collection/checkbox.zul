@@ -1,8 +1,7 @@
-<window apply="org.zkoss.bind.BindComposer"
-	viewModel="@id('vm') @init('org.zkoss.mvvm.collection.ItemsVM')">
+<div viewModel="@id('vm') @init('org.zkoss.mvvm.collection.ItemsVM')">
 	<vlayout id="vlayout" children="@load(vm.itemList) @template('checkboxes')">
 		<template name="checkboxes">
 			<checkbox label="@load(each.name)" />
 		</template>
 	</vlayout>
-</window>
+</div>

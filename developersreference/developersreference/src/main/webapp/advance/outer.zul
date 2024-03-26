@@ -8,8 +8,8 @@
 		Worked Usages:
 		<include type="outerPageTypeValue" src="@load(vm.innerZul)" />
 		
-		Not Worked Usages:
+		<!-- Not Worked Usages: 
 		<include type="@load(vm.myArgument)" src="inner.zul" mode="instant"/>
-		<include src="@load(vm.innerZul)" myArg="@load(vm.myArgument)"/>
+		<include src="@load(vm.innerZul)" myArg="@load(vm.myArgument)"/>-->
 	</div>
 </zk>

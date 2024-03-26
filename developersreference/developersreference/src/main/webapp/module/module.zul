@@ -1,0 +1,5 @@
+<zk>
+    include "mymodule" dependency to make this page work
+    <username/>
+    <apply templateURI="~./mymodule.zul"/>
+</zk>

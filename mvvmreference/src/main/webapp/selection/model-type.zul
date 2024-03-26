@@ -1,5 +1,5 @@
 <zk>
-	<div width="500px" apply="org.zkoss.bind.BindComposer"
+	<div width="500px"
 		viewModel="@id('vm') @init('org.zkoss.mvvm.collection.ModelTypeVM')">
 		<label style="font-size:16px" multiline="true">
 		Java List as a component's model:

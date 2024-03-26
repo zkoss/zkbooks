@@ -1,12 +1,12 @@
 <zk xmlns:n="native">
     <n:h1>Basic</n:h1>
-    <pdfviewer src="Bill.pdf" />
+    <pdfviewer src="Bill.pdf" width="60%" style="margin:auto"/>
 
     <n:h1>Zoom to Fit</n:h1>
     <pdfviewer id="pv" src="Bill.pdf" zoom="fit-page-width" />
 
     <n:h1>Custom Toolbar</n:h1>
-    <pdfviewer id="pv2" src="Bill.pdf">
+    <pdfviewer id="pv2" src="Bill.pdf" width="60%" style="margin:auto">
         <toolbar>
             <toolbarbutton iconSclass="z-icon-fw z-icon-fast-backward"
                            onClick="pv2.firstPage()"/>
@@ -21,8 +21,8 @@
     <button xmlns:w="client" label="Full Screen" w:onClick="zk.$('$pv2').toggleFullscreen()" />
 
     <n:h1>Partially visible</n:h1>
-    <pdfviewer src="Bill.pdf" height="500px" />
+    <pdfviewer src="Bill.pdf" height="500px" width="60%" style="margin:auto"/>
 
-    <n:h1>Set Content</n:h1>
-    <pdfviewer id="viewer" apply="org.zkoss.reference.component.multimedia.PdfviewerController"/>
+    <n:h1>Set Content in Java</n:h1>
+    <pdfviewer id="viewer" apply="org.zkoss.reference.component.multimedia.PdfviewerController" width="60%" style="margin:auto"/>
 </zk>

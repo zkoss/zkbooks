@@ -1,0 +1,14 @@
+<window viewModel="@id('vm') @init('org.zkoss.mvvm.collection.ListboxViewModel')">
+	<listbox  width="400px" model="@init(vm.itemList)">
+		<listhead>
+			<listheader label="index"/>
+			<listheader label="name"/>
+		</listhead>
+		<template name="model" var="item" status="s">
+			<listitem>
+				<listcell label="@init(s.index)"/>
+				<listcell label="@init(item)"/>
+			</listitem>
+		</template>
+	</listbox>
+</window>

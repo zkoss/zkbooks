@@ -1,5 +1,36 @@
 <zk>
-    <textbox value="@save(vm.account.email) @validator(vm.emailValidator)"/>
-
-    <textbox value="@save(vm.account.email) @validator('org.foo.EmailValidator')"/>
+    <vlayout viewModel="@id('vm')@init('org.zkoss.mvvm.databinding.ValidatorVM')" validationMessages="@id('vmsgs')">
+        <vlayout>
+            validate single field: enter a valid email
+            <textbox id="box" value="@bind(vm.email) @validator('org.zkoss.mvvm.databinding.EmailValidator')"/>
+            <label value="@load(vm.email)"/>
+            <label value="@load(vmsgs[box])" style="color: red"/>
+        </vlayout>
+        <separator bar="true"/>
+        <separator bar="true"/>
+        <vlayout>
+            accept parameters: price should be 0 ~ 100
+            <intbox value="@bind(vm.price) @validator(vm.priceRangeValidator, min=0, max=100)"/>
+            <label value="@load(vmsgs['price'])" style="color:red"/>
+        </vlayout>
+        <separator bar="true" stubonly="true"/>
+        JSR 303 bean validator
+        <div>
+            Name: (enter something and clear it) <textbox id="nameBox" value="@bind(vm.person.firstName) @validator('beanValidator')" />
+            <label value="@load(vmsgs[nameBox])" style="color:red"/>
+            Age: (enter a negative to trigger an error) <intbox id="ageBox" value="@bind(vm.person.age) @validator('beanValidator')" />
+            <label value="@load(vmsgs[ageBox])" style="color:red"/>
+        </div>
+        All Error Messages:
+        <forEach items="@load(vmsgs.texts)">
+            <label value="@load(each)" style="color:red"/>
+        </forEach>
+    </vlayout>
+    <button onClick="toTaiwan()" label="set to Taiwan"/>
+    <zscript><![CDATA[
+import org.zkoss.web.Attributes;
+public void toTaiwan(){
+    Sessions.getCurrent().setAttribute(Attributes.PREFERRED_LOCALE, Locale.TAIWAN);
+}
+    ]]></zscript>
 </zk>

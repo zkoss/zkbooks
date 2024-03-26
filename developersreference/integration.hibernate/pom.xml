@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.zkoss.reference</groupId>
     <artifactId>integration.hibernate</artifactId>
-    <version>9.6.3-Eval</version>
+    <version>9.6.4-Eval</version>
     <packaging>war</packaging>
     <description>hibernate example codes.
         Hibernate - maven setup:

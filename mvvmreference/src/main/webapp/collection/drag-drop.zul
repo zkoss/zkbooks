@@ -1,6 +1,6 @@
 <hlayout viewModel="@id('vm') @init('org.zkoss.mvvm.collection.DragDropVM')">
 	available locales:
-	<listbox  width="400px" model="@bind(vm.availableLocales)" droppable="true" onDrop="@command('deselect')">
+	<listbox  width="400px" model="@init(vm.availableLocales)" droppable="true" onDrop="@command('deselect')">
 		<listhead>
 			<listheader label="language"/>
 		</listhead>

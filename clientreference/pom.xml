@@ -3,10 +3,10 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.zkoss</groupId>
 	<artifactId>reference.client</artifactId>
-	<version>9.6.3-Eval</version>
+	<version>10.0.0-Eval</version>
 	<properties>
-		<maven.compiler.source>1.8</maven.compiler.source>
-		<maven.compiler.target>1.8</maven.compiler.target>
+		<maven.compiler.source>11</maven.compiler.source>
+		<maven.compiler.target>11</maven.compiler.target>
 	</properties>
 	<packaging>war</packaging>
 	<name>The client-side reference project</name>
@@ -53,15 +53,20 @@
 			<artifactId>zhtml</artifactId>
 			<version>${project.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>org.zkoss.zk</groupId>
+			<artifactId>za11y</artifactId>
+			<version>${project.version}</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<finalName>${project.artifactId}</finalName>
 		<plugins>
 			<!-- Run with Jetty -->
 			<plugin>
-				<groupId>org.mortbay.jetty</groupId>
+				<groupId>org.eclipse.jetty</groupId>
 				<artifactId>jetty-maven-plugin</artifactId>
-				<version>7.6.8.v20121106</version>
+				<version>9.4.24.v20191120</version>
 				<configuration>
 					<webAppConfig>
 						<contextPath>/${project.artifactId}</contextPath>

@@ -2,12 +2,13 @@
 <nodom viewModel="@id('vm')@init('org.zkoss.mvvm.template.FoodViewModel')">
 
 <n:h3>Groups Model Template</n:h3>
+    <button label="Rename Fruits" onClick="@command('rename')"/>
     <listbox id="box" model="@load(vm.foodGroupsModel)" height="300px" >
-        <listhead>
+        <listhead menupopup="auto">
             <listheader/>
         </listhead>
         <template name="model:group">
-            <listgroup  label="@init(each[0].category)"/>
+            <listgroup  label="@load(each[0].category)" />
         </template>
         <template name="model">
             <listitem  >

@@ -1,5 +1,6 @@
 package org.zkoss.mvvm.template;
 
+import org.zkoss.bind.BindUtils;
 import org.zkoss.bind.annotation.Command;
 import org.zkoss.bind.annotation.NotifyChange;
 import org.zkoss.zk.ui.util.Clients;
@@ -43,5 +44,18 @@ public class FoodViewModel{
 
 	public FoodGroupsModel getFoodGroupsModel() {
 		return foodGroupsModel;
+	}
+
+	/**
+	 * demonstrate how to update a GroupsModel
+	 */
+	@Command
+	public void rename(){
+		for (Food f : foods){
+			if (f.getCategory().equals("Fruits")){
+				f.setCategory("Various Fruits");
+				BindUtils.postNotifyChange(f, "category");
+			}
+		}
 	}
 }

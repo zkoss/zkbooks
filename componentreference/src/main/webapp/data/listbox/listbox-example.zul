@@ -21,11 +21,8 @@
 			<listcell label="MALE" />
 		</listitem>
 		<listfoot>
-			<listfooter>
+			<listfooter span="2" align="right">
 				<label value="This is footer1" />
-			</listfooter>
-			<listfooter>
-				<label value="This is footer2" />
 			</listfooter>
 		</listfoot>
 	</listbox>

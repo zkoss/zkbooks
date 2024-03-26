@@ -16,4 +16,8 @@
         <name>org.zkoss.web.servlet.http.embedded.enabled</name>
         <value>true</value>
     </library-property>
+    <library-property>
+        <name>org.zkoss.gmaps.apiKey</name>
+        <value>your_key</value>
+    </library-property>
 </zk>

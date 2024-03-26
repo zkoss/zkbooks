@@ -1,0 +1,14 @@
+<language-addon>
+    <addon-name>mymodule</addon-name>
+    <depends>zuti</depends>
+    <language-name>xul/html</language-name>
+
+    <version>
+        <zk-version>9.6.3</zk-version><!-- or later -->
+    </version>
+
+    <component>
+        <component-name>username</component-name>
+        <template-uri>~./component/username.zul</template-uri>
+    </component>
+</language-addon>

@@ -1,0 +1,83 @@
+<zk xmlns:h="native" xmlns:x="xhtml">
+    <a href="https://fontawesome.com/search?m=free&amp;o=r">Font Awesome 6.4.2 Free icons</a>
+    <style>
+        .red{
+            color: red;
+        }
+    </style>
+    <vlayout>
+        <h:h2>Free Icon</h:h2>
+        mostly need to specify z-icon-solid for free icon
+        <button label="z-icon-house z-icon-solid" iconSclass="z-icon-house z-icon-solid"/>
+        no z-icon-solid, z-iconll back to 4.7 icon
+        <button label="z-icon-house " iconSclass="z-icon-house"/>
+        font awesome 4.7 compatible name
+        <button label="z-icon-home" iconSclass="z-icon-home"/>
+        <h:h2>Brands Icon</h:h2>
+        no need to specify z-icon-solid if it's a brand icon
+        <button label="z-icon-twitter" iconSclass="z-icon-twitter"/>
+    </vlayout>
+
+    <h:h2>Various Components that supports to show an icon</h:h2>
+    <vlayout>
+    <button iconSclass="z-icon-camera z-icon-solid"></button>
+    <checkbox iconSclass="z-icon-flag z-icon-solid"></checkbox>
+    <window border="normal" >
+        <caption iconSclass="z-icon-twitter">title</caption>
+
+    </window>
+    <a iconSclass="z-icon-twitter">a hyperlink</a>
+    <combobox>
+        <comboitem iconSclass="z-icon-twitter" label="twitter"></comboitem>
+    </combobox>
+
+    <menubar>
+        <menu label="main" iconSclass="z-icon-twitter">
+            <menupopup>
+                <menuitem label="item 1" iconSclass="z-icon-flag z-icon-solid"></menuitem>
+            </menupopup>
+        </menu>
+    </menubar>
+    <navbar>
+        <nav label="main nav" iconSclass="z-icon-flag">
+            <navitem label="nav 1" iconSclass="z-icon-flag z-icon-solid"></navitem>
+            <navitem label="nav 2" iconSclass="z-icon-camera z-icon-solid"></navitem>
+        </nav>
+    </navbar>
+    <separator height="50px"></separator>
+    <tabbox>
+        <tabs>
+            <tab iconSclass="z-icon-flag "></tab>
+            <tab iconSclass="z-icon-camera-retro red"></tab>
+        </tabs>
+    </tabbox>
+    </vlayout>
+    <h:h1>Icon only without component</h:h1>
+    using HTML tag
+    <h:i class="z-icon-user z-icon-solid"/>
+    <h:span class="z-icon-download z-icon-solid"/>
+    or span
+    <span class="z-icon-download z-icon-solid" onClick='org.zkoss.zk.ui.util.Notification.show("click")'/>
+
+    <div xmlns="native">
+        <h2>Sizing</h2>
+        <p><i class="z-icon-solid z-icon-coffee z-icon-2xs"></i> When my six o’clock alarm buzzes, I require a pot of good java.</p>
+        <p><i class="z-icon-solid z-icon-coffee z-icon-xs"></i> When my six o’clock alarm buzzes, I require a pot of good java.</p>
+        <p><i class="z-icon-solid z-icon-coffee z-icon-sm"></i> When my six o’clock alarm buzzes, I require a pot of good java.</p>
+        <p><i class="z-icon-solid z-icon-coffee"></i> When my six o’clock alarm buzzes, I require a pot of good java.</p>
+        <p><i class="z-icon-solid z-icon-coffee z-icon-lg"></i> When my six o’clock alarm buzzes, I require a pot of good java.</p>
+        <p><i class="z-icon-solid z-icon-coffee z-icon-xl"></i> When my six o’clock alarm buzzes, I require a pot of good java.</p>
+        <p><i class="z-icon-solid z-icon-coffee z-icon-2xl"></i> When my six o’clock alarm buzze</p>
+    </div>
+    <h:h2>Animation</h:h2>
+    <button iconSclass="z-icon-solid z-icon-heart z-icon-beat"></button>
+    <h:h2>Icons in a List</h:h2>
+    <div xmlns="xhtml" style="font-size: 16px; font-family:'Helvetica Neue,Helvetica,Arial,sans-serif'">
+        <ul class="z-icon-ul">
+            <li><span class="z-icon-li"><i class="z-icon-solid z-icon-check-square"></i></span>List icons can</li>
+            <li><span class="z-icon-li"><i class="z-icon-solid z-icon-check-square"></i></span>be used to</li>
+            <li><span class="z-icon-li"><i class="z-icon-solid z-icon-spinner z-icon-pulse"></i></span>replace bullets</li>
+            <li><span class="z-icon-li"><i class="z-icon-regular z-icon-square"></i></span>in lists</li>
+        </ul>
+    </div>
+</zk>

@@ -58,4 +58,11 @@ editor.setConfig(configMap);
 
     <n:h1>Resizable attribute and Sizing</n:h1>
     <ckeditor width="50%" height="500px"/>
+
+    <n:h1>Readonly</n:h1>
+    <ckeditor id="editorReadOnly" width="50%" height="500px" value="This is read-only example"/>
+    <zscript><![CDATA[
+    editorReadOnly.setConfig(Map.of("readOnly", true));
+    ]]></zscript>
+
 </zk>

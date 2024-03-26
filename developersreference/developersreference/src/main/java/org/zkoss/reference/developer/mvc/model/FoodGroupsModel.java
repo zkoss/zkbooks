@@ -18,4 +18,9 @@ public class FoodGroupsModel extends GroupsModelArray {
     protected Object createGroupHead(Object[] groupdata,int index,int col) {
         return new Object[] {groupdata[0], new Integer(col)};
     }
+
+    @Override
+    protected Object createGroupFoot(Object[] groupdata, int index, int col) {
+        return "Total " + groupdata.length + " items";
+    }
 };

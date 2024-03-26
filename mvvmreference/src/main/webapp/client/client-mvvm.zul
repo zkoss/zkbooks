@@ -1,0 +1,73 @@
+<?component name="listheader" extends="listheader" width="105px"?>
+<zk>
+    <splitlayout orient="horizontal" height="500px" >
+        <groupbox apply="org.zkoss.clientbind.ClientBindComposer" viewModel="@id('vm') @init('org.zkoss.mvvm.client.ClearItemsVM')"
+                  hflex="1" vflex="1" contentStyle="overflow: auto">
+            <caption iconSclass="z-icon-chrome" label="Client MVVM"/>
+            <apply template="listbox"/>
+        </groupbox>
+        <groupbox viewModel="@id('vm') @init('org.zkoss.mvvm.client.ClearItemsVM')"
+                  hflex="1" vflex="1" contentStyle="overflow: auto">
+            <caption iconSclass="z-icon-server" label="Server MVVM"/>
+            <apply template="listbox"/>
+        </groupbox>
+    </splitlayout>
+
+
+    <template name="listbox">
+        open developer tool to compare the "waiting for server response"
+        <div sclass="area" style="margin-bottom: 5px">
+            <button label="Fill" onClick="@command('fill')"/>
+            <button label="Clear" onClick="@command('clear')"/>
+        </div>
+        <listbox model="@load(vm.model)" vflex="1">
+            <custom-attributes org.zkoss.zul.listbox.rod="true"/>
+            <listhead>
+                <listheader />
+                <listheader />
+                <listheader />
+                <listheader />
+                <listheader />
+                <listheader />
+                <listheader />
+                <listheader />
+                <listheader />
+                <listheader />
+            </listhead>
+            <template name="model">
+                <listitem>
+                    <listcell>
+                        <textbox value="@load(each)" width="85px"/>
+                    </listcell>
+                    <listcell>
+                        <textbox value="@load(each)" width="85px"/>
+                    </listcell>
+                    <listcell>
+                        <textbox value="@load(each)" width="85px"/>
+                    </listcell>
+                    <listcell>
+                        <textbox value="@load(each)" width="85px"/>
+                    </listcell>
+                    <listcell>
+                        <textbox value="@load(each)" width="85px"/>
+                    </listcell>
+                    <listcell>
+                        <textbox value="@load(each)" width="85px"/>
+                    </listcell>
+                    <listcell>
+                        <textbox value="@load(each)" width="85px"/>
+                    </listcell>
+                    <listcell>
+                        <textbox value="@load(each)" width="85px"/>
+                    </listcell>
+                    <listcell>
+                        <textbox value="@load(each)" width="85px"/>
+                    </listcell>
+                    <listcell>
+                        <textbox value="@load(each)" width="85px"/>
+                    </listcell>
+                </listitem>
+            </template>
+        </listbox>
+    </template>
+</zk>

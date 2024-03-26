@@ -16,7 +16,7 @@
 		padding: 20px;
 	}
 </style>
-
+see log in a browser developer tool
 	<div id="root" sclass="red" hflex="min"
 			w:onBind="logEvent(event)"  
 			w:onAfterSize="logEvent(event)"

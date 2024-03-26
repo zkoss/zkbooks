@@ -1,7 +1,7 @@
-<zk>
-	<div apply="org.zkoss.bind.BindComposer"
-		viewModel="@id('vm') @init('org.zkoss.mvvm.collection.SingleSelectionVM')">
-		<listbox width="400px" model="@bind(vm.itemList)" selectedItem="@bind(vm.pickedItem)">
+<zk xmlns:h="native">
+	<h:h1>Binding to Selected Item</h:h1>
+	<div viewModel="@id('vm') @init('org.zkoss.mvvm.collection.SingleSelectionVM')">
+		<listbox width="400px" model="@init(vm.itemList)" selectedItem="@bind(vm.pickedItem)">
 			<listhead>
 				<listheader label="index" />
 				<listheader label="name" />
@@ -15,9 +15,9 @@
 		</listbox>
 		Selected Item:
 		<label value="@load(vm.pickedItem.name)" />
-		<separator />
 
-		<listbox width="400px" model="@bind(vm.itemList)" selectedIndex="@bind(vm.pickedIndex)">
+		<h:h1>Binding to Selected Index</h:h1>
+		<listbox width="400px" model="@init(vm.itemList)" selectedIndex="@bind(vm.pickedIndex)">
 			<listhead>
 				<listheader label="index" />
 				<listheader label="name" />
@@ -33,9 +33,9 @@
 		<label value="@load(vm.pickedIndex)" />
 	</div>
 
-	<div apply="org.zkoss.bind.BindComposer"
-		viewModel="@id('vm') @init('org.zkoss.mvvm.collection.MultipleSelectionsVM')">
-		<listbox width="400px" model="@bind(vm.itemList)" checkmark="true" multiple="true"
+	<h:h1>Multiple Selection</h:h1>
+	<div viewModel="@id('vm') @init('org.zkoss.mvvm.collection.MultipleSelectionsVM')">
+		<listbox width="400px" model="@init(vm.itemList)" checkmark="true" multiple="true"
 			selectedItems="@bind(vm.pickedItemSet)">
 			<listhead>
 				<listheader label="index" />

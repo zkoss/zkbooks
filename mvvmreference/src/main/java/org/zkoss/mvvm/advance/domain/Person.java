@@ -1,5 +1,7 @@
 package org.zkoss.mvvm.advance.domain;
 
+import org.hibernate.validator.constraints.*;
+
 public class Person {
 
 	private int id;
@@ -25,6 +27,7 @@ public class Person {
 	public void setId(int id) {
 		this.id = id;
 	}
+	@NotEmpty(message = "can not be empty")
 	public String getFirstName() {
 		return firstName;
 	}
@@ -37,6 +40,7 @@ public class Person {
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
+	@Range(min=0, message="{no-negative}")
 	public int getAge() {
 		return age;
 	}

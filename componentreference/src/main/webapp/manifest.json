@@ -1,0 +1,12 @@
+{
+  "name": "MyApp",
+  "start_url": ".",
+  "display": "standalone",
+  "icons": [
+    {
+      "src": "images/zklogo.png",
+      "type": "image/png",
+      "sizes": "100x100"
+    }
+  ]
+}

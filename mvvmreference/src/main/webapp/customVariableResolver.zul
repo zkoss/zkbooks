@@ -3,7 +3,7 @@
 <?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?> 
  -->
 <zk>
-	<div apply="org.zkoss.bind.BindComposer" viewModel="@id('vm')@init(myvm)">
+	<div  viewModel="@id('vm')@init(myvm)">
 		<label value="@load(vm)" />
 	</div>
 </zk>

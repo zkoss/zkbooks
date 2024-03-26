@@ -47,10 +47,15 @@ public class WorkingThread extends Thread{
         }
     }
 
+    /**
+     * To update UI you can do one of the followings:
+     * - to notify changes with {@link BindUtils#postNotifyChange(Object, String)} if changing a ViewModel's property
+     * - call a component's setter
+     * - If calling a {@link org.zkoss.zul.ListModel} method, it automatically updates for you without notifying
+     */
     protected void updateUI() {
         data.clear();
         data.add("now " + System.currentTimeMillis());
-        // need to notify change if change a ViewModel's property with BindUtils.postNotifyChange();
     }
 
     protected void collectData() {

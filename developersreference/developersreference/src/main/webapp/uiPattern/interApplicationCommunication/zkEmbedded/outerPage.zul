@@ -1,0 +1,13 @@
+
+<?script src="http://localhost:8080/developer/zkau/web/js/zkmax/embedded/embedded.js" ?>
+<zk xmlns:n="native">
+	<div id="parentTarget" onInnerPageCommunication="Clients.log(event.data)">
+		<n:div id="embeddedZK" style="height:80%"></n:div>
+		<script>
+		zk.afterMount(function(){
+			zEmbedded.load('embeddedZK', 'http://localhost:8080/developer/uiPattern/interApplicationCommunication/zkEmbedded/innerPage.zul?param1=outerValue');
+		});
+		</script>
+		
+	</div>
+</zk>

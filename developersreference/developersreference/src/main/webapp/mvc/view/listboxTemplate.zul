@@ -1,6 +1,6 @@
 <zk xmlns:n="native">
 
-<div apply="org.zkoss.reference.developer.mvc.view.FruitProvider">
+<div apply="org.zkoss.reference.developer.mvc.view.TabOperationVM">
     <listbox model="${$composer.fruits}">
         <listhead>
             <listheader label="Name" sort="auto"/>
@@ -99,9 +99,6 @@ GroupsModelArray fooGroupsModel = new GroupsModelArray(Food.foods, new ArrayComp
                 </listcell>
             </listitem>
         </template>
-        <template name="model:groupfoot">
-        <listgroupfoot  span="3" align="right">....</listgroupfoot>
-        </template>
     </listbox>
     <listbox apply="org.zkoss.reference.developer.mvc.view.FoodComposer">
         <listhead>
@@ -122,7 +119,11 @@ GroupsModelArray fooGroupsModel = new GroupsModelArray(Food.foods, new ArrayComp
             </listitem>
         </template>
         <template name="model:groupfoot">
-            <listgroupfoot  span="3" align="right">....</listgroupfoot>
+            <listgroupfoot >
+                <listcell span="3">
+                    ${each}
+                </listcell>
+            </listgroupfoot>
         </template>
     </listbox>
 </div>

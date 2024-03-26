@@ -1,6 +1,5 @@
-<window title="Gmaps Demo" border="normal" width="520px">
-    <script type="text/javascript" content="zk.googleAPIkey='Your-Google-API-Key';"/>
-
+<?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c"?>
+<zk xmlns:h="native">
     <!-- you may wish specify the version of google map api manually for some reason,
         use version="[version]" to do it.
         ex: <gmaps version="3.25" id="mymap" ... /> -->
@@ -20,8 +19,34 @@
         <attribute name="onMapClick">
             Gmarker gmarker = event.getGmarker();
             if (gmarker != null) {
-            gmarker.setOpen(true);
+                gmarker.setOpen(true);
             }
         </attribute>
     </gmaps>
-</window>
+    <h:h1>gpolyline</h:h1>
+    <gmaps width="500px" height="300px" showSmallCtrl="true">
+        <gpolyline path="37.42838786,-122.13998795,
+                         37.43561240,-122.13277816,
+                         37.42416187,-122.11441040,
+                         37.42157162,-122.12007522,
+                         37.41734524,-122.12316513,
+                         37.42838786,-122.13998795"/>
+    </gmaps>
+
+    <h:h1>gpolygon</h:h1>
+    <gmaps width="500px" height="300px" showSmallCtrl="true">
+        <gpolygon path="37.42838786,-122.13998795,
+                        37.43561240,-122.13277816,
+                        37.42416187,-122.11441040,
+                        37.42157162,-122.12007522,
+                        37.41734524,-122.12316513,
+                        37.42838786,-122.13998795"/>
+    </gmaps>
+
+    <h:h1>onMapClick event</h:h1>
+    click on the map to draw the lines
+    <div apply="org.zkoss.reference.component.diagrams.DrawLineComposer" >
+        <button id="clear" label="Clear Lines"/>
+        <gmaps id="map4draw" width="50%" height="500px" onMapRightClick="System.out.println(event)"/>
+    </div>
+</zk>

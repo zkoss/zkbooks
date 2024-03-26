@@ -1,7 +1,7 @@
 <hlayout>
 	<vbox id="mainArea" width="200px" height="300px"
 		style="border:dashed 2px" visible="@bind(vm.visible)"
-		apply="org.zkoss.bind.BindComposer"
+
 		viewModel="@id('vm') @init('org.zkoss.mvvm.databinding.AddViewModel')"
 		validationMessages="@id('vmsgs')">
 		<label value="Main Panel" style="font-size:30px" />
@@ -15,7 +15,7 @@
 		<label value="@load(vm.msg)" />
 	</vbox>
 	<vbox id="listArea" width="400px" height="300px"
-		visible="@bind(vm.visible)" apply="org.zkoss.bind.BindComposer"
+		visible="@bind(vm.visible)"
 		style="border:solid 2px"
 		viewModel="@id('vm') @init('org.zkoss.mvvm.databinding.ListViewModel')">
 		<listbox model="@load(vm.items)">
