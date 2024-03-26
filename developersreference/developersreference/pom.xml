@@ -3,11 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.zkoss.reference</groupId>
     <artifactId>developer</artifactId>
-<<<<<<< HEAD
-    <version>9.6.4-jakarta-Eval</version>
-=======
-    <version>10.0.0-Eval</version>
->>>>>>> master
+    <version>10.0.0-jakarta-Eval</version>
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
