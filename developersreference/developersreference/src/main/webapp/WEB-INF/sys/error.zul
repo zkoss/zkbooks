@@ -9,13 +9,4 @@ MyApp encounters an error: ${requestScope['javax.servlet.error.message']}
             ${requestScope['javax.servlet.error.exception']}
             ${page.requestPath}
     </vlayout>
- 
-    <!-- optional: record the error for improving the app -->
-    <zscript><![CDATA[
-	import org.zkoss.zk.ui.select.*;                      
-    org.zkoss.util.logging.Log.lookup("Fatal").error(
-        requestScope.get("javax.servlet.error.exception"));
-        
-    ]]>
-    </zscript>
 </window>
