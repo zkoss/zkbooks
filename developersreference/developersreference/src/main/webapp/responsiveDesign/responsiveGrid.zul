@@ -1,0 +1,193 @@
+<zk xmlns:h="native">
+    <nodom viewModel="@id('vm')@init('org.zkoss.reference.developer.responsive.ProportionalColumnsVM')">
+        <h:h2>Proportional Columns</h:h2>
+        Reduce number of columns upon screen width.
+        Template in use:
+        <label value="@load(vm.currentTemplate)" style="font-weight:bold; font-size:20px"/>
+        <grid
+                model="@load(vm.myModel) @template(vm.currentTemplate)">
+            <columns>
+                <choose>
+                    <when test='@load(vm.currentTemplate eq "8cols")'>
+                        <column label="First Name"/>
+                        <column label="Last Name"/>
+                        <column label="Position"/>
+                        <column label="Office"/>
+                        <column label="Age"/>
+                        <column label="Start Date"/>
+                        <column label="Salary"/>
+                        <column label="Extn."/>
+                    </when>
+                    <when test='@load(vm.currentTemplate eq "6cols")'>
+                        <column width="60px" label="Details"/>
+                        <column label="First Name"/>
+                        <column label="Last Name"/>
+                        <column label="Position"/>
+                        <column label="Office"/>
+                        <column label="Age"/>
+                        <column label="Start Date"/>
+                    </when>
+                    <when test='@load(vm.currentTemplate eq "4cols")'>
+                        <column width="60px" label="Details"/>
+                        <column label="First Name"/>
+                        <column label="Last Name"/>
+                        <column label="Position"/>
+                        <column label="Office"/>
+                    </when>
+                    <when test='@load(vm.currentTemplate eq "2cols")'>
+                        <column width="60px" label="Details"/>
+                        <column label="First Name"/>
+                        <column label="Last Name"/>
+                    </when>
+                </choose>
+            </columns>
+            <template name="8cols">
+                <row>
+                    <label value="@init(each.firstName)"/>
+                    <label value="@init(each.lastName)"/>
+                    <label value="@init(each.position)"/>
+                    <label value="@init(each.office)"/>
+                    <label value="@init(each.age)"/>
+                    <label value="@init(each.startDate)"/>
+                    <label value="@init(each.salary)"/>
+                    <label value="@init(each.extension)"/>
+                </row>
+            </template>
+            <template name="6cols">
+                <row>
+                    <detail>
+                        <vlayout>
+                            <hlayout>
+                                <label value="Salary: "/>
+                                <label value="@init(each.salary)"/>
+                            </hlayout>
+                            <hlayout>
+                                <label value="Extn. "/>
+                                <label
+                                        value="@init(each.extension)"/>
+                            </hlayout>
+                        </vlayout>
+                    </detail>
+                    <label value="@init(each.firstName)"/>
+                    <label value="@init(each.lastName)"/>
+                    <label value="@init(each.position)"/>
+                    <label value="@init(each.office)"/>
+                    <label value="@init(each.age)"/>
+                    <label value="@init(each.startDate)"/>
+                </row>
+            </template>
+            <template name="4cols">
+                <row>
+                    <detail>
+                        <vlayout>
+                            <hlayout>
+                                <label value="Age: "/>
+                                <label value="@init(each.age)"/>
+                            </hlayout>
+                            <hlayout>
+                                <label value="Start Date: "/>
+                                <label
+                                        value="@init(each.startDate)"/>
+                            </hlayout>
+                            <hlayout>
+                                <label value="Salary: "/>
+                                <label value="@init(each.salary)"/>
+                            </hlayout>
+                            <hlayout>
+                                <label value="Extn. "/>
+                                <label
+                                        value="@init(each.extension)"/>
+                            </hlayout>
+                        </vlayout>
+                    </detail>
+                    <label value="@init(each.firstName)"/>
+                    <label value="@init(each.lastName)"/>
+                    <label value="@init(each.position)"/>
+                    <label value="@init(each.office)"/>
+                </row>
+            </template>
+            <template name="2cols">
+                <row>
+                    <detail>
+                        <vlayout>
+                            <hlayout>
+                                <label value="Position: "/>
+                                <label value="@init(each.position)"/>
+                            </hlayout>
+                            <hlayout>
+                                <label value="Office: "/>
+                                <label value="@init(each.office)"/>
+                            </hlayout>
+                            <hlayout>
+                                <label value="Age: "/>
+                                <label value="@init(each.age)"/>
+                            </hlayout>
+                            <hlayout>
+                                <label value="Start Date: "/>
+                                <label
+                                        value="@init(each.startDate)"/>
+                            </hlayout>
+                            <hlayout>
+                                <label value="Salary: "/>
+                                <label value="@init(each.salary)"/>
+                            </hlayout>
+                            <hlayout>
+                                <label value="Extn. "/>
+                                <label
+                                        value="@init(each.extension)"/>
+                            </hlayout>
+                        </vlayout>
+                    </detail>
+                    <label value="@init(each.firstName)"/>
+                    <label value="@init(each.lastName)"/>
+                </row>
+            </template>
+        </grid>
+    </nodom>
+    <nodom viewModel="@id('vm')@init('org.zkoss.reference.developer.responsive.StackingVM')">
+        <h:h2>Stacking</h:h2>
+        Stacking texts of columns
+        <grid model="@load(vm.myModel) @template(vm.currentTemplate)">
+            <columns>
+                <choose>
+                    <when test='@load(vm.currentTemplate eq "columns")'>
+                        <column label="First Name"/>
+                        <column label="Position"/>
+                        <column label="Office"/>
+                        <column label="Age"/>
+                    </when>
+                    <when test='@load(vm.currentTemplate eq "stacking")'>
+                        <column/>
+                    </when>
+                </choose>
+            </columns>
+            <template name="columns">
+                <row>
+                    <label value="@init(each.firstName)"/>
+                    <label value="@init(each.position)"/>
+                    <label value="@init(each.office)"/>
+                    <label value="@init(each.age)"/>
+                </row>
+            </template>
+            <template name="stacking">
+                <row>
+                    <vlayout xmlns:h="native">
+                        <h:span class="z-label heading">First Name:</h:span>
+                        <label value="@init(each.firstName)"/>
+                        <h:span class="z-label heading">Position:</h:span>
+                        <label value="@init(each.position)"/>
+                        <h:span class="z-label heading">Office:</h:span>
+                        <label value="@init(each.office)"/>
+                        <h:span class="z-label heading">Age:</h:span>
+                        <label value="@init(each.age)"/>
+                    </vlayout>
+                </row>
+            </template>
+        </grid>
+    </nodom>
+    <style>
+        .heading{
+            font-weight: bold;
+        }
+    </style>
+</zk>
