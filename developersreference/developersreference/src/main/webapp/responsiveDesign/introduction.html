@@ -1,0 +1,65 @@
+<html>
+	<head>
+		<style>
+			/*Fluid design*/
+			.fluidContainer {
+				display: flex;
+				max-width:960;
+				background-color: #006DB8;
+			}
+			
+			.fluidChild {
+				background-color: #01C7FF;
+				width: 300px;
+				height: 100px;
+				margin: 10px;
+			}
+			
+			/*Adaptive design*/
+			@media only screen and (max-width: 800px) {
+			    #view1 {
+			        display: none;
+			    }
+			    #view2 {
+			        display: block;
+			    }
+			}
+			@media only screen and (min-width: 800px) {
+			    #view1 {
+			        display: block;
+			    }
+			    #view2 {
+			        display: none;
+			    }
+			}
+		</style>
+	</head>
+	<body>
+		<p>
+			Resize the window to see how fluid and adaptive elements adjust to the new sizes.			
+		</p>
+		<hr/>
+		<p>
+			This is an example of fluid design.<br/>
+			The elements rescale depending on available space, but they do not change their nature of logical position in the page. 						
+		</p>
+		<div class="fluidContainer">
+			<div class="fluidChild">child 1</div>
+			<div class="fluidChild">child 2</div>
+			<div class="fluidChild">child 3</div>
+		</div>
+		<hr/>
+		<p>
+			This is an example of adaptive design
+			Entirely different elements are loaded depending on the viewing device dimensions and other conditions.						
+		</p>
+		<div class="Adaptive container">
+			<div id="view1" style="color:blue;">
+				adaptive view 1
+			</div>
+			<div id="view2" style="color: green;">
+				adaptive view 2
+			</div>
+		</div>
+	</body>
+</html>

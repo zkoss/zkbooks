@@ -1,0 +1,153 @@
+<zk>
+	<grid model="@load(dataModel)  @template(viewTemplate)">
+		<columns>
+			<choose>
+				<when test='@load(vm.viewTemplate eq "400to500")'>
+					<column label="Details" />
+					<column label="First Name" />
+				</when>
+				<when test='@load(vm.viewTemplate eq "500to600")'>
+					<column label="Details" />
+					<column label="First Name" />
+					<column label="Age" />
+				</when>
+				<when test='@load(vm.viewTemplate eq "600to700")'>
+					<column label="Details" />
+					<column label="First Name" />
+					<column label="Age" />
+					<column label="Position" />
+				</when>
+				<when test='@load(vm.viewTemplate eq "700to800")'>
+					<column label="Details" />
+					<column label="First Name" />
+					<column label="Age" />
+					<column label="Position" />
+					<column label="Department" />
+				</when>
+				<when test='@load(vm.viewTemplate eq "over800")'>
+					<column label="First Name" />
+					<column label="Age" />
+					<column label="Position" />
+					<column label="Department" />
+					<column label="User ID" />
+					<column label="Desk number" />
+				</when>
+			</choose>
+		</columns>
+		<template name="under400">
+			<row />
+		</template>
+		<template name="400to500">
+			<row>
+				<detail>
+					<vlayout>
+						<label value="User details:" />
+						<hlayout>
+							<label value="Age:" />
+							<label value="${each.age}" />
+						</hlayout>
+						<hlayout>
+							<label value="Position:" />
+							<label value="${each.position}" />
+						</hlayout>
+						<hlayout>
+							<label value="Department:" />
+							<label value="${each.department}" />
+						</hlayout>
+						<hlayout>
+							<label value="User ID:" />
+							<label value="${each.userId}" />
+						</hlayout>
+						<hlayout>
+							<label value="Desk number:" />
+							<label value="${each.deskNumber}" />
+						</hlayout>
+					</vlayout>
+				</detail>
+				<label value="${each.firstName}" onClick="@command('doAction', target=each)" sclass="showPointer"/>
+			</row>
+		</template>
+		<template name="500to600">
+			<row>
+				<detail>
+					<vlayout>
+						<label value="User details:" />
+						<hlayout>
+							<label value="User ID:" />
+							<label value="${each.userId}" />
+						</hlayout>
+						<hlayout>
+							<label value="Desk number:" />
+							<label value="${each.deskNumber}" />
+						</hlayout>
+						<hlayout>
+							<label value="Department:" />
+							<label value="${each.department}" />
+						</hlayout>
+						<hlayout>
+							<label value="Position:" />
+							<label value="${each.position}" />
+						</hlayout>
+					</vlayout>
+				</detail>
+				<label value="${each.firstName}" onClick="@command('doAction', target=each)" sclass="showPointer" />
+				<label value="${each.age}" />
+			</row>
+		</template>
+		<template name="600to700">
+			<row>
+				<detail>
+					<vlayout>
+						<label value="User details:" />
+						<hlayout>
+							<label value="User ID:" />
+							<label value="${each.userId}" />
+						</hlayout>
+						<hlayout>
+							<label value="Desk number:" />
+							<label value="${each.deskNumber}" />
+						</hlayout>
+						<hlayout>
+							<label value="Department:" />
+							<label value="${each.department}" />
+						</hlayout>
+					</vlayout>
+				</detail>
+				<label value="${each.firstName}" onClick="@command('doAction', target=each)" sclass="showPointer" />
+				<label value="${each.age}" />
+				<label value="${each.position}" />
+			</row>
+		</template>
+		<template name="700to800">
+			<row>
+				<detail>
+					<vlayout>
+						<label value="User details:" />
+						<hlayout>
+							<label value="User ID:" />
+							<label value="${each.userId}" />
+						</hlayout>
+						<hlayout>
+							<label value="Desk number:" />
+							<label value="${each.deskNumber}" />
+						</hlayout>
+					</vlayout>
+				</detail>
+				<label value="${each.firstName}" onClick="@command('doAction', target=each)" sclass="showPointer"/>
+				<label value="${each.age}" />
+				<label value="${each.position}" />
+				<label value="${each.department}" />
+			</row>
+		</template>
+		<template name="over800">
+			<row>
+				<label value="${each.firstName}" onClick="@command('doAction', target=each)" sclass="showPointer"/>
+				<label value="${each.age}" />
+				<label value="${each.position}" />
+				<label value="${each.department}" />
+				<label value="${each.userId}" />
+				<label value="${each.deskNumber}" />
+			</row>
+		</template>
+	</grid>
+</zk>

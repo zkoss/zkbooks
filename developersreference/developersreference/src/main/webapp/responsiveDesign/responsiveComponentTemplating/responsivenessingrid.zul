@@ -1,0 +1,22 @@
+<zk>
+	<style>
+		.showPointer{
+			cursor:pointer;
+		}
+	</style>
+	<div
+		viewModel="@id('vm') @init('org.zkoss.reference.developer.responsiveDesign.ResponsiveTemplateViewModel')">
+		<apply template='@load(vm.viewTemplate eq "under400"?"under400Template":"otherTemplate")'>
+			<template name="under400Template">
+				<apply viewTemplate="@load(vm.viewTemplate)"
+					dataModel="@load(vm.dataModel)"
+					templateURI="templates/staticVerticalLayout.zul"/>
+			</template>
+			<template name="otherTemplate">
+				<apply viewTemplate="@load(vm.viewTemplate)"
+					dataModel="@load(vm.dataModel)"
+					templateURI="templates/responsiveGrid.zul"/>
+			</template>
+		</apply>
+	</div>
+</zk>

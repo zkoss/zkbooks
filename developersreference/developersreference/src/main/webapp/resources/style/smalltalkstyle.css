@@ -1,0 +1,18 @@
+.background{
+	width:100%;
+	background-color:#006D8B;
+}
+.panel{
+	background-color:#01C7FF;
+	margin:0px;
+}
+.content1{
+	background-color:#FF2300;
+}
+.content2{
+	background-color:#FFB300;
+}
+.box{
+	border: 1px solid black;
+	text-align:center;
+}
