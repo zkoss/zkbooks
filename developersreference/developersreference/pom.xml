@@ -87,6 +87,12 @@
             <artifactId>slf4j-log4j12</artifactId>
             <version>1.7.30</version>
         </dependency>
+        <dependency>
+		  <groupId>javax.servlet.jsp</groupId>
+		  <artifactId>jsp-api</artifactId>
+		  <version>2.1</version>
+		  <scope>provided</scope>
+		</dependency>
     </dependencies>
     <build>
         <finalName>${project.artifactId}</finalName>
