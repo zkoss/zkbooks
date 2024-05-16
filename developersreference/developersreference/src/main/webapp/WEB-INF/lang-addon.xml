@@ -2,7 +2,7 @@
     <addon-name>message</addon-name>
     <language-name>xul/html</language-name>
 
-    <javascript src="/js/msg*.js" />
+    <javascript src="/js/msg.js" />
     <javascript src="/js/myjs.js" />
 
     <!-- application-wide property initialization    -->

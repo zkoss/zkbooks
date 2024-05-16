@@ -1,0 +1,8 @@
+<zk>
+	<?page title="Responsiveness with ZK components"?>
+	<?link rel="stylesheet" href="/resources/style/smalltalkstyle.css"?>
+	<div sclass="box background" apply="org.zkoss.reference.developer.responsiveDesign.ZkResponsiveComposer">
+		<div id="content" sclass="panel">
+		</div>
+	</div>
+</zk>

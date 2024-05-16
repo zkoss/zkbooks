@@ -1,0 +1,5 @@
+<zk>
+	<div apply="org.zkoss.reference.developer.uipattern.EchoEventComposer">
+		<button id="btn" label="Click for long operation"/>
+	</div>
+</zk>

@@ -1,0 +1,21 @@
+<zk>
+	<?page title="Responsiveness with ZK components"?>
+	<?link rel="stylesheet" href="/resources/style/smalltalkstyle.css"?>
+	<?link rel="stylesheet" href="/resources/bootstrap/css/bootstrap.css"?>
+	<div sclass="box background container" viewModel="@id('vm') @init('org.zkoss.reference.developer.responsiveDesign.ZKResponsiveViewModel')">
+		<div id="content" sclass="panel row">
+			<apply template="@load(vm.layoutState)">
+				<template name="bigLayout">
+					<listbox model="@init(vm.selectionModel)" mold="select"/>
+				</template>
+				<template name="smallLayout">
+					<radiogroup sclass="panel" height="60px" model="@init(vm.selectionModel)">
+							<template name="model">
+								<radio sclass="col-xs-12 col-sm-6 col-md-4" label="@load(each)" value="@load(each)"></radio>
+							</template>
+					</radiogroup>
+				</template>
+			</apply>
+		</div>
+	</div>
+</zk>

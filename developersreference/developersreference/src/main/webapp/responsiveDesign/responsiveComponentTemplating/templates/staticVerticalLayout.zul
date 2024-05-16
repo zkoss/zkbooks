@@ -1,0 +1,33 @@
+<zk>
+	<vlayout>
+		<forEach items="@load(dataModel)" >
+		  <groupbox>
+		  	<caption label="${each.firstName}"/>
+  			<vlayout>
+				<label value="User details" />
+				<hlayout>
+					<label value="User ID:" />
+					<label value="${each.userId}" />
+				</hlayout>
+				<hlayout>
+					<label value="Age:" />
+					<label value="${each.age}" />
+				</hlayout>
+				<hlayout>
+					<label value="Position:" />
+					<label value="${each.position}" />
+				</hlayout>
+				<hlayout>
+					<label value="Department:" />
+					<label value="${each.department}" />
+				</hlayout>
+				<hlayout>
+					<label value="Desk number:" />
+					<label value="${each.deskNumber}" />
+				</hlayout>
+				<button label="do action" onClick="@command('doAction',target=each)" />
+			</vlayout>
+		  </groupbox>
+		</forEach>
+	</vlayout>
+</zk>
