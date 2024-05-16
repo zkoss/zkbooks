@@ -63,6 +63,8 @@ public class ZkCspFilterStrictDynamic implements Filter {
 		String hex = Hex.toHexString(_digest.digest(Integer.toString(PRNG.nextInt()).getBytes()));
 		logger.log(Level.INFO, "filtered " + request + " \nwith nonce: " + hex);
 		CapturingResponseWrapper capturingResponseWrapper = new CapturingResponseWrapper((HttpServletResponse) response);
+		((HttpServletResponse) response).addHeader("Content-Security-Policy", String.format(cspHeader, hex));
+
 		chain.doFilter(request, capturingResponseWrapper);
 		String content = capturingResponseWrapper.getCaptureAsString();
 		String replacedContent = content.replaceAll("(?i)<script(\\s)*","<script nonce=\"" + hex + "\"");
@@ -82,8 +84,8 @@ public class ZkCspFilterStrictDynamic implements Filter {
 		}else {
 			response.getWriter().write(replacedContent);
 		}
-		
-		((HttpServletResponse) response).addHeader("Content-Security-Policy", String.format(cspHeader, hex));
+
+
 	}
 
 	public void destroy() {
