@@ -1,4 +1,4 @@
-<zk>
+<zk xmlns:c="client/attribute">
     Load an image in this web app:
     <textbox value="/multimedia/swimming-pool.jpg" onChange="load(self.value)"/>
     <image id="image" width="600px"/>
@@ -10,4 +10,5 @@
         }
     ]]>
     </zscript>
+    <image src="/multimedia/zklogo3.png" c:alt="zk logo"/>
 </zk>
