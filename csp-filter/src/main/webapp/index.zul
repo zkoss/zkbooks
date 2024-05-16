@@ -1,4 +1,9 @@
 <zk xmlns:n="native">
+	<label multiline="true"><![CDATA[
+	1. open Chrome developer tool > Elements tab
+	2. check script tab in <head>, each should have an "nonce" attribute
+	]]>
+	</label>
 	<window>
 		<button label="test" onClick='Clients.log("foo")'/>
 		<script>

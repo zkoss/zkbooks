@@ -32,11 +32,6 @@
 		<filter-name>zkCspFilter</filter-name>
 		<url-pattern>*.zul</url-pattern>
 	</filter-mapping>
-	<filter-mapping>
-		<filter-name>zkCspFilter</filter-name>
-		<url-pattern>*/</url-pattern>
-	</filter-mapping>
-
 	<!-- //// -->
 	<!-- ZK -->
 	<listener>
@@ -55,12 +50,6 @@
 			<param-name>update-uri</param-name>
 			<param-value>/zkau</param-value>
 		</init-param>
-		<!-- Optional. Specifies whether to compress the output
-		of the ZK loader. It speeds up the transmission over slow Internet.
-		However, if you configure a filter to post-processing the
-		output, you might have to disable it.
-
-		Default: true-->
 		<init-param>
 			<param-name>compress</param-name>
 			<param-value>false</param-value>

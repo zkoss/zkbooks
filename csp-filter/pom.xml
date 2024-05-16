@@ -2,11 +2,10 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.zkoss.support</groupId>
-	<artifactId>zkdemo-csp-filter</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<artifactId>csp-filter</artifactId>
+	<version>1.0</version>
 	<properties>
 		<zk.version>9.6.4-Eval</zk.version>
-		<commons-io>2.6</commons-io>
 		<maven.build.timestamp.format>yyyy-MM-dd</maven.build.timestamp.format>
 		<packname>-${project.version}-FL-${maven.build.timestamp}</packname>
 	</properties>
@@ -74,12 +73,6 @@
 			<groupId>org.zkoss.zk</groupId>
 			<artifactId>zhtml</artifactId>
 			<version>${zk.version}</version>
-		</dependency>
-		
-		<dependency>
-			<groupId>commons-io</groupId>
-			<artifactId>commons-io</artifactId>
-			<version>${commons-io}</version>
 		</dependency>
 		
 		<dependency>
