@@ -32,7 +32,7 @@ public class SelectByListModelComposer extends SelectorComposer<Component> {
         listbox.setModel(listModel);
     }
 
-    @Listen("onClick = button")
+    @Listen("onClick = #toggle")
     public void toggle(){
         Locale locale = listModel.getElementAt(intbox.getValue());
         if (listModel.getSelection().contains(locale)){
@@ -40,6 +40,17 @@ public class SelectByListModelComposer extends SelectorComposer<Component> {
         }else{
             listModel.addToSelection(locale);
         }
+    }
+
+    @Listen("onClick = #selectAll")
+    public void selectAll(){
+        listModel.getSelectionControl().setSelectAll(true);
+        /* alternative way
+        for (Locale locale : listModel){
+            listModel.addToSelection(locale);
+        }
+        */
+        System.out.println(listModel.getSelection().size() + " items are selected");
     }
 
     @Listen("onSelect = listbox")

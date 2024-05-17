@@ -15,14 +15,15 @@
 	<n:h1>Selection Control</n:h1>
 	<n:h2>Select through ListModel</n:h2>
 	<div apply="org.zkoss.reference.developer.mvc.model.listmodel.SelectByListModelComposer">
-
+		<custom-attributes org.zkoss.zul.listbox.rod="true" />
 		<listbox rows="10" checkmark="true">
 		</listbox>
 		selected: <label id="selectedItem"/>
 		<n:br/>
 		select by index:
 		<intbox value="0"/>
-		<button label="toggle selection"/>
+		<button id="toggle" label="toggle selection"/>
+		<button id="selectAll" label="select all"/>
 	</div>
 
 	<n:h2>current page selection</n:h2>
