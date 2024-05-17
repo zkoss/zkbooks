@@ -17,7 +17,6 @@ import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.security.MessageDigest;
 import java.security.SecureRandom;
-import java.util.Optional;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -39,13 +38,20 @@ import org.zkoss.web.servlet.http.Https;
 import org.zkoss.zk.ui.sys.DigestUtilsHelper;
 
 /**
- * @author jumperchen
+ * using strict-dynamic then 'unsafe-inline' will be ignored.
+ * @author jumperchen, Hawk Chen
  */
 public class ZkCspFilterStrictDynamic implements Filter {
-	
+
+	public static final String DEFAULT_CSP = "script-src " +
+			" 'unsafe-eval' " +
+			" 'strict-dynamic' 'nonce-%s' " + //https://content-security-policy.com/strict-dynamic/
+			" 'unsafe-hashes' " + //https://content-security-policy.com/unsafe-hashes/
+			" 'sha256-lfXlPY3+MCPOPb4mrw1Y961+745U3WlDQVcOXdchSQc=';" + // allow <a href="javascript:;">
+			"object-src 'none';base-uri 'none';";
 	private Logger logger = Logger.getLogger(ZkCspFilterStrictDynamic.class.getName());
 	
-	private static final SecureRandom PRNG = new SecureRandom();
+	private static final SecureRandom RNG = new SecureRandom();
 	private String cspHeader;
 	private boolean compress; 
 	private MessageDigest _digest;
@@ -53,39 +59,42 @@ public class ZkCspFilterStrictDynamic implements Filter {
 	public void init(FilterConfig filterConfig) throws ServletException {
 		// we can pass init parameters from web.xml here by the filterConfig object.
 		logger.log(Level.INFO, "Initialized CSP filter");
-		cspHeader = StringUtils.defaultIfEmpty(filterConfig.getInitParameter("csp-header"),"script-src 'strict-dynamic' 'nonce-%s' 'unsafe-inline' 'unsafe-eval';object-src 'none';base-uri 'none';");
+		cspHeader = StringUtils.defaultIfEmpty(filterConfig.getInitParameter("csp-header"), DEFAULT_CSP);
 		_digest = DigestUtilsHelper.getDigest(StringUtils.defaultIfEmpty(filterConfig.getInitParameter("digest-algorithm"),"SHA-1"));
 		compress = !"false".equals(filterConfig.getInitParameter("compress"));
 	}
 
 	public void doFilter(ServletRequest request, ServletResponse response,
 			FilterChain chain) throws IOException, ServletException {
-		String hex = Hex.toHexString(_digest.digest(Integer.toString(PRNG.nextInt()).getBytes()));
-		logger.log(Level.INFO, "filtered " + request + " \nwith nonce: " + hex);
-		CapturingResponseWrapper capturingResponseWrapper = new CapturingResponseWrapper((HttpServletResponse) response);
+		String hex = Hex.toHexString(_digest.digest(Integer.toString(RNG.nextInt()).getBytes()));
 		((HttpServletResponse) response).addHeader("Content-Security-Policy", String.format(cspHeader, hex));
 
+		CapturingResponseWrapper capturingResponseWrapper = new CapturingResponseWrapper((HttpServletResponse) response);
 		chain.doFilter(request, capturingResponseWrapper);
+
 		String content = capturingResponseWrapper.getCaptureAsString();
-		String replacedContent = content.replaceAll("(?i)<script(\\s)*","<script nonce=\"" + hex + "\"");
-		
+		String replacedContent = content.replaceAll("(?i)<script(\\s)*","<script nonce=\"" + hex + "\" ");
+
+		handleCompress((HttpServletRequest) request, response, replacedContent);
+		logger.log(Level.FINE, "filtered " + request + " \nwith nonce: " + hex);
+	}
+
+	protected void handleCompress(HttpServletRequest request, ServletResponse response, String replacedContent) throws IOException {
 		if(compress) {
 			// Do gzip after CSP rewriting
 			byte[] data = replacedContent.getBytes(response.getCharacterEncoding());
 			if (data.length > 200) {
-				byte[] bs = Https.gzip((HttpServletRequest)request, (HttpServletResponse)response, null, data);
+				byte[] bs = Https.gzip(request, (HttpServletResponse) response, null, data);
 				if (bs != null)
-					data = bs; //yes, browser support compress
+					data = bs;
 			}
-	
+
 			response.setContentLength(data.length);
 			response.getOutputStream().write(data);
 			response.flushBuffer();
 		}else {
 			response.getWriter().write(replacedContent);
 		}
-
-
 	}
 
 	public void destroy() {

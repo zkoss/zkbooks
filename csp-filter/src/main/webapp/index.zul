@@ -2,15 +2,19 @@
 	<label multiline="true"><![CDATA[
 	1. open Chrome developer tool > Elements tab
 	2. check script tab in <head>, each should have an "nonce" attribute
+	3. check response header of a zul page, it should have "Content-Security-Policy" header
+	4. Click the buttons and links below to see if it violates the CSP policy
 	]]>
 	</label>
-	<window>
+	<vlayout>
 		<button label="test" onClick='Clients.log("foo")'/>
+		<a label="a link with href=#" href="#" onClick="System.out.println(event)"/>
+		<a label="a link with unspecified href" onClick="System.out.println(event)"/>
+	</vlayout>
 		<script>
-			console.log("foo");
+			console.log("inline script");
 		</script>
 		<n:script>
 			console.log("foo");
 		</n:script>
-	</window>
 </zk>
