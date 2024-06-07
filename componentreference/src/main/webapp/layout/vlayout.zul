@@ -24,4 +24,19 @@
             0px height at first
         </window>
     </vlayout>
+
+    <n:h1>Align</n:h1>
+    <n:h1>Left (default)</n:h1>
+    <apply template="align"/>
+    <n:h1>Center</n:h1>
+    <apply template="align" align="text-align:center"/>
+    <n:h1>Right</n:h1>
+    <apply template="align" align="text-align:right"/>
+    <template name="align">
+        <vlayout style="${align}">
+            <button/>
+            <button/>
+            <button/>
+        </vlayout>
+    </template>
 </zk>
