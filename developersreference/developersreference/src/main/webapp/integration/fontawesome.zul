@@ -80,4 +80,17 @@
             <li><span class="z-icon-li"><i class="z-icon-regular z-icon-square"></i></span>in lists</li>
         </ul>
     </div>
+    <h:h2>Multiple icons and tooltips</h:h2>
+    <button iconSclasses="${['z-icon-camera','z-icon-podcast-1x'].toArray()}" />
+
+    <h:h2>Stacking Icons</h:h2>
+    <button iconSclass="z-icon-camera" />
+    <button iconSclasses="${['z-icon-camera z-icon-stack-1x', 'z-icon-ban z-icon-stack-1x'].toArray()}" />
+    <style>
+        .z-icon-stack {
+            height: 1em;
+            line-height: 16px;
+            width: 1em;
+        }
+    </style>
 </zk>
