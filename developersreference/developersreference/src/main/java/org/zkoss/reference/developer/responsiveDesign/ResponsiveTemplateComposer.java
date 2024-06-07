@@ -46,9 +46,11 @@ public class ResponsiveTemplateComposer extends SelectorComposer<Component> {
 	@Wire
 	private Panel myPanel;
 	
+	//wire shadow component "forEach", the shadow root directly under the main shadow host
 	@Wire(":host::shadow#staticPanelForEach")
 	private ForEach staticPanelForEach;
 	
+	//OPTIONAL: Choose between template renderer, and direct renderer to use templates from zul, or direct Java component creation from renderer
 	private RowRenderer<DataEntry> myResponsiveDirectRenderer;
 	private RowRenderer<DataEntry> myResponsiveTemplateRenderer;
 
