@@ -1,0 +1,186 @@
+<?meta name="viewport" content="width=device-width, initial-scale=1.0"?>
+<zk>
+	<style>
+		.showPointer{
+			cursor:pointer;
+		}
+	</style>
+	<div id="myHost" apply="org.zkoss.reference.developer.responsiveDesign.ResponsiveTemplateComposer">
+		<grid id="myGrid">
+			<columns id="myColumns">
+				<template name="under400">
+					<column label="Details" />
+					<column label="First Name" />
+				</template>
+				<template name="header400to500">
+					<column label="Details" />
+					<column label="First Name" />
+				</template>
+				<template name="header500to600">
+					<column label="Details" />
+					<column label="First Name" />
+					<column label="Age" />
+				</template>
+				<template name="header600to700">
+					<column label="Details" />
+					<column label="First Name" />
+					<column label="Age" />
+					<column label="Position" />
+				</template>
+				<template name="header700to800">
+					<column label="Details" />
+					<column label="First Name" />
+					<column label="Age" />
+					<column label="Position" />
+					<column label="Department" />
+				</template>
+				<template name="headerover800">
+					<column label="First Name" />
+					<column label="Age" />
+					<column label="Position" />
+					<column label="Department" />
+					<column label="User ID" />
+					<column label="Desk number" />
+				</template>
+			</columns>
+			<template name="under400">
+				<row />
+			</template>
+			<template name="400to500">
+				<detail>
+					<vlayout>
+						<label value="User details:" />
+						<hlayout>
+							<label value="Age:" />
+							<label value="${each.age}" />
+						</hlayout>
+						<hlayout>
+							<label value="Position:" />
+							<label value="${each.position}" />
+						</hlayout>
+						<hlayout>
+							<label value="Department:" />
+							<label value="${each.department}" />
+						</hlayout>
+						<hlayout>
+							<label value="User ID:" />
+							<label value="${each.userId}" />
+						</hlayout>
+						<hlayout>
+							<label value="Desk number:" />
+							<label value="${each.deskNumber}" />
+						</hlayout>
+					</vlayout>
+				</detail>
+				<label value="${each.firstName}" forward="myHost.onItemClick(${each})" sclass="showPointer"/>
+			</template>
+			<template name="500to600">
+				<detail>
+					<vlayout>
+						<label value="User details:" />
+						<hlayout>
+							<label value="User ID:" />
+							<label value="${each.userId}" />
+						</hlayout>
+						<hlayout>
+							<label value="Desk number:" />
+							<label value="${each.deskNumber}" />
+						</hlayout>
+						<hlayout>
+							<label value="Department:" />
+							<label value="${each.department}" />
+						</hlayout>
+						<hlayout>
+							<label value="Position:" />
+							<label value="${each.position}" />
+						</hlayout>
+					</vlayout>
+				</detail>
+				<label value="${each.firstName}" forward="myHost.onItemClick(${each})" sclass="showPointer" />
+				<label value="${each.age}" />
+			</template>
+			<template name="600to700">
+				<detail>
+					<vlayout>
+						<label value="User details:" />
+						<hlayout>
+							<label value="User ID:" />
+							<label value="${each.userId}" />
+						</hlayout>
+						<hlayout>
+							<label value="Desk number:" />
+							<label value="${each.deskNumber}" />
+						</hlayout>
+						<hlayout>
+							<label value="Department:" />
+							<label value="${each.department}" />
+						</hlayout>
+					</vlayout>
+				</detail>
+				<label value="${each.firstName}" forward="myHost.onItemClick(${each})" sclass="showPointer" />
+				<label value="${each.age}" />
+				<label value="${each.position}" />
+			</template>
+			<template name="700to800">
+				<detail>
+					<vlayout>
+						<label value="User details:" />
+						<hlayout>
+							<label value="User ID:" />
+							<label value="${each.userId}" />
+						</hlayout>
+						<hlayout>
+							<label value="Desk number:" />
+							<label value="${each.deskNumber}" />
+						</hlayout>
+					</vlayout>
+				</detail>
+				<label value="${each.firstName}" forward="myHost.onItemClick(${each})" sclass="showPointer"/>
+				<label value="${each.age}" />
+				<label value="${each.position}" />
+				<label value="${each.department}" />
+			</template>
+			<template name="over800">
+				<label value="${each.firstName}" forward="myHost.onItemClick(${each})" sclass="showPointer"/>
+				<label value="${each.age}" />
+				<label value="${each.position}" />
+				<label value="${each.department}" />
+				<label value="${each.userId}" />
+				<label value="${each.deskNumber}" />
+			</template>
+		</grid>
+		<panel id="myPanel" visible="false">
+			<panelchildren>
+				<forEach id="staticPanelForEach" dynamicValue="true" >
+				  <groupbox>
+				  	<caption label="${each.firstName}"/>
+		  			<vlayout>
+						<label value="User details" />
+						<hlayout>
+							<label value="User ID:" />
+							<label value="${each.userId}" />
+						</hlayout>
+						<hlayout>
+							<label value="Age:" />
+							<label value="${each.age}" />
+						</hlayout>
+						<hlayout>
+							<label value="Position:" />
+							<label value="${each.position}" />
+						</hlayout>
+						<hlayout>
+							<label value="Department:" />
+							<label value="${each.department}" />
+						</hlayout>
+						<hlayout>
+							<label value="Desk number:" />
+							<label value="${each.deskNumber}" />
+						</hlayout>
+						<button label="do action" forward="myHost.onItemClick(${each})"/>
+					</vlayout>
+				  </groupbox>
+				</forEach>
+			</panelchildren>
+		</panel>
+	</div>
+</zk>
