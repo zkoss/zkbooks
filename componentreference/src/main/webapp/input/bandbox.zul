@@ -1,0 +1,25 @@
+<zk>
+    <bandbox id="bd" constraint="no empty">
+        <bandpopup>
+            <listbox style="max-width:300px"
+                     onSelect="bd.value=self.selectedItem.label;bd.close();">
+                <listhead>
+                    <listheader label="Name"/>
+                    <listheader label="Description"/>
+                </listhead>
+                <listitem>
+                    <listcell label="John"/>
+                    <listcell label="CEO"/>
+                </listitem>
+                <listitem>
+                    <listcell label="Joe"/>
+                    <listcell label="Engineer"/>
+                </listitem>
+                <listitem>
+                    <listcell label="Mary"/>
+                    <listcell label="Supervisor"/>
+                </listitem>
+            </listbox>
+        </bandpopup>
+    </bandbox>
+</zk>
