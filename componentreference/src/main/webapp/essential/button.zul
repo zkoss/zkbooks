@@ -9,5 +9,7 @@ public void myProcessUpload(Media media){
     ]]></zscript>
     <n:h1>Upload</n:h1>
     <button label="Upload"
-            upload="true,maxsize=10,multiple=true,accept=audio/*|video/*|image/*|MIME_type, native"/>
+            upload="true,maxsize=1000,multiple=true,accept=audio/*|video/*|image/*|MIME_type"
+            onUpload="img.setContent(event.media)"/>
+    <image id="img" />
 </zk>
