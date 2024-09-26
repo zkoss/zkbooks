@@ -1,0 +1,6 @@
+<zk>
+    <nodom xmlns:w="client" xmlns:ca="client/attribute">
+        <textbox type="tel" ca:inputmode="numeric" cols="4" maxlength="4" style="margin-right: 5px"
+                 forEach="1,2,3,4"/>
+    </nodom>
+</zk>

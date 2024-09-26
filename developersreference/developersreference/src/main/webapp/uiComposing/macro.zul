@@ -1,0 +1,8 @@
+<?component name="creditcardbox" macroURI="/uiComposing/creditcardbox.zul" class="org.zkoss.reference.developer.uicomposing.Creditcardbox"?>
+<?component name="username" macroURI="/uiComposing/username.zul" class="org.zkoss.reference.developer.uicomposing.Username"?>
+<zk xmlns:h="native">
+    <h:h1>Username</h:h1>
+    <username/>
+    <h:h1>Creditcardbox</h:h1>
+    <creditcardbox/>
+</zk>

@@ -1,0 +1,3 @@
+<hlayout id="mc_layout">
+    Username: <textbox id="mc_who"/>
+</hlayout>
