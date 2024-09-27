@@ -4,5 +4,6 @@
     <h:h1>Username</h:h1>
     <username/>
     <h:h1>Creditcardbox</h:h1>
-    <creditcardbox/>
+    <creditcardbox id="cbox"/>
+    <button label="show number" onClick='org.zkoss.zk.ui.util.Notification.show(cbox.getNumber())'/>
 </zk>

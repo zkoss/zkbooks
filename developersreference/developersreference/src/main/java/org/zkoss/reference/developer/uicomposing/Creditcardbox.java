@@ -20,11 +20,7 @@ public class Creditcardbox extends HtmlMacroComponent {
      * @return credit card number
      */
     public String getNumber(){
-        String number = "";
-        for (Textbox textbox : textboxList) {
-            number += textbox.getValue();
-        }
-        return number;
+        return textboxList.stream().collect(StringBuilder::new, (sb, t) -> sb.append(t.getValue()), StringBuilder::append).toString();
     }
 
     @Listen("onChange = textbox")
