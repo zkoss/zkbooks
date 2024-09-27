@@ -1,0 +1,6 @@
+<zk>
+    <nodom apply="org.zkoss.reference.developer.serverpush.ServerPushComposer">
+        <button id="start" label="start"/>
+        <div id="result"/>
+    </nodom>
+</zk>
