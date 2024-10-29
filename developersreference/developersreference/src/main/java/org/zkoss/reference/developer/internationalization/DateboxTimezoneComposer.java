@@ -31,6 +31,8 @@ public class DateboxTimezoneComposer extends SelectorComposer<Component> {
 	@Wire
 	private Datebox userInputDatebox;
 	@Wire
+	private Datebox serverDatebox;
+	@Wire
 	private Searchbox<String> timeZoneSearchBox;
 	@Wire
 	private Label userLocal, userLocalTimeZone, userLocalGmtOffset, userToGmt, userToUser, userLocalToUser, userToServer, serverLocal, serverLocalGmtOffset, serverToGmt, serverToUser, serverToServer;
@@ -47,6 +49,7 @@ public class DateboxTimezoneComposer extends SelectorComposer<Component> {
 	public void doAfterCompose(Component comp) throws Exception {
 		super.doAfterCompose(comp);
 		userInputDatebox.setFormat("yyyy-MM-dd HH:mm:ss");
+		serverDatebox.setFormat("yyyy-MM-dd HH:mm:ss");
 		userInputDatebox.setLenient(true);
 		userInputDatebox.setTimeZonesReadonly(true);
 		userInputDatebox.setReadonly(true);
@@ -99,8 +102,11 @@ public class DateboxTimezoneComposer extends SelectorComposer<Component> {
 		userInputDatebox.setFormat(event.isChecked()?"yyyy-MM-dd HH:mm:ss":"yyyy-MM-dd");
 		updateAllTimeStamps();
 	}
-	
 
+	@Listen(Events.ON_CLICK + "=#serverDate")
+	public void populateServerTime() {
+		serverDatebox.setValueInLocalDateTime(LocalDateTime.now());
+	}
 	
 	private void updateAllTimeStamps() {
 		Date userValue = userInputDatebox.getValue();

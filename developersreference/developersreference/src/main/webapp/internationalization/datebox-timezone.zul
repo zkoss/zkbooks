@@ -5,13 +5,18 @@
 		}
 	</style>
 	<div id="main" apply="org.zkoss.reference.developer.internationalization.DateboxTimezoneComposer">
-		<timer id="uiUpdateTimer" repeats="true" delay="1000"></timer>
+		<timer id="uiUpdateTimer" repeats="true" delay="10000"></timer>
 		<vlayout>
 			<hlayout valign="bottom">
+				set from client
 				<datebox id="userInputDatebox" width="300px"></datebox>
 				<searchbox id="timeZoneSearchBox" width="300px" autoclose="true"></searchbox>
 				<button id="cleardb" label="clear datebox value"/>
 				<checkbox label="show time controls in datebox" id="timeControlCheck" checked="true"/>
+			</hlayout>
+			<hlayout>
+				<button label="populate date time from server" id="serverDate"/>
+				<datebox readonly="true" id="serverDatebox" disabled="true" width="300px"/>
 			</hlayout>
 			<hlayout>
 				<grid hflex="1">
