@@ -1,6 +1,12 @@
 <zk xmlns:h="native">
-	<h:h1>Binding to Selected Item</h:h1>
 	<div viewModel="@id('vm') @init('org.zkoss.mvvm.collection.SingleSelectionVM')">
+		<h:h1>Binding to ListModelList</h:h1>
+		<listbox width="400px" model="@init(vm.modelList)" >
+		</listbox>
+
+		<button label="show selection" onClick="@command('showSelection')"/>
+
+		<h:h1>Binding to Selected Item</h:h1>
 		<listbox width="400px" model="@init(vm.itemList)" selectedItem="@bind(vm.pickedItem)">
 			<listhead>
 				<listheader label="index" />
@@ -35,6 +41,12 @@
 
 	<h:h1>Multiple Selection</h:h1>
 	<div viewModel="@id('vm') @init('org.zkoss.mvvm.collection.MultipleSelectionsVM')">
+		<h:h1>Binding to ListModelList</h:h1>
+		<listbox model="@init(vm.modelList)">
+		</listbox>
+		<button label="show selection" onClick="@command('showSelection')"/>
+		
+		<h:h1>Binding to selectedItems</h:h1>
 		<listbox width="400px" model="@init(vm.itemList)" checkmark="true" multiple="true"
 			selectedItems="@bind(vm.pickedItemSet)">
 			<listhead>

@@ -3,19 +3,36 @@ package org.zkoss.mvvm.collection;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
+import org.zkoss.bind.annotation.*;
 import org.zkoss.mvvm.collection.model.Item;
 import org.zkoss.mvvm.collection.model.ItemService;
+import org.zkoss.zk.ui.util.Notification;
+import org.zkoss.zul.ListModelList;
 
 public class MultipleSelectionsVM {
 
 	private ItemService itemService = new ItemService();
 	private Set<Item> pickedItemSet = new HashSet<Item>();
+	private ListModelList<Item> modelList = new ListModelList<>(itemService.getAllItems());
 
 	private int pickedIndex;
 	private int pickedIndex2;
 	private String pickedItem;
-	
+
+	@Init
+	public void init(){
+		modelList.setMultiple(true);
+	}
+
+	@Command
+	public void showSelection(){
+		String selection = modelList.getSelection().isEmpty() ? "empty" : modelList.getSelection().stream()
+				.map(Object::toString).collect(Collectors.joining(","));
+		Notification.show(selection);
+	}
+
 	public List<Item> getItemList(){
 		return itemService.getAllItems();
 	}
@@ -51,5 +68,8 @@ public class MultipleSelectionsVM {
 	public void setPickedItemSet(Set pickedItemSet) {
 		this.pickedItemSet = pickedItemSet;
 	}
-	
+
+	public ListModelList<Item> getModelList() {
+		return modelList;
+	}
 }
