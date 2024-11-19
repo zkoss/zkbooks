@@ -1,0 +1,16 @@
+<zk xmlns:h="native">
+    <h:h1>Execution</h:h1>
+    <h:p>it's a wrapper of HttpServletRequest</h:p>
+    <zscript><![CDATA[
+        Execution exec = Executions.getCurrent();
+    ]]></zscript>
+    contextURI: ${exec.contextURI}
+    <h:h1>Request parameter (query string)</h:h1>
+    <include src="scopeObjectInner.zul?myparam=myvalue" />
+
+    <h:h1>Session</h:h1>
+    <zscript><![CDATA[
+    Session sess = Sessions.getCurrent();
+    ]]></zscript>
+    ${sess}
+</zk>

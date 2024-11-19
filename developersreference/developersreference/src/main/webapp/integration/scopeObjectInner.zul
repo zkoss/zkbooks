@@ -1,0 +1,11 @@
+<zk>
+    <div onCreate="showParam()">
+        <label id="label"/>
+    </div>
+    <zscript><![CDATA[
+public void showParam(){
+    Object value = Executions.getCurrent().getParameter("myparam");
+    label.setValue(value.toString());
+}
+    ]]></zscript>
+</zk>
