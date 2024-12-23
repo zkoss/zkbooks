@@ -1,0 +1,5 @@
+<zk>
+    <gmaps height="500px" width="500px" mapId="your-map-id">
+        <gadvancedmarker lat="37.4410" lng="-122.1490"/>
+    </gmaps>
+</zk>
