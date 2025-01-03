@@ -16,6 +16,9 @@ public class ChosenboxFilteringComposer implements Composer<Chosenbox> {
     public void doAfterCompose(Chosenbox chosenbox) throws Exception {
         ListModelList<Locale> fullModel = new ListModelList(Locale.getAvailableLocales());
         ListModel model = ListModels.toListSubModel(fullModel, new Comparator() {
+            /**
+             * @return 0: show the object, !0: don't show the object
+             */
             @Override
             public int compare(Object typedValue, Object modelObject) {
 
@@ -23,9 +26,6 @@ public class ChosenboxFilteringComposer implements Composer<Chosenbox> {
                 Locale modelObjectAsLocale = (Locale) modelObject;
 
                 boolean containsTypedString = modelObjectAsLocale.toString().toLowerCase().contains(TypedValueAsString.toLowerCase());
-
-                //return 0: show object
-                //return !0: don't show object
 
                 return containsTypedString?0:1;
             }
