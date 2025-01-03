@@ -1,4 +1,4 @@
-package org.zkoss;
+package org.zkoss.reference.component.layout;
 
 import org.zkoss.bind.annotation.Command;
 import org.zkoss.bind.annotation.Init;

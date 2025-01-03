@@ -1,5 +1,5 @@
 <zk xmlns:h="native">
-    <div viewModel="@id('vm')@init('org.zkoss.MyViewModel')"></div>
+    <div viewModel="@id('vm')@init('org.zkoss.reference.component.layout.MyViewModel')"></div>
     <portallayout height="90%">
         <portalchildren width="50%">
             <panel height="50%" title="Calendar" border="normal">
