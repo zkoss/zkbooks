@@ -15,7 +15,7 @@ import java.util.List;
 
 
 /**
- *
+ * represent the business service layer
  */
 public interface OrderService {
 	public List<Order> list();

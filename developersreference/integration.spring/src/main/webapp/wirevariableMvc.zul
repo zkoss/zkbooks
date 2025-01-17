@@ -1,0 +1,17 @@
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<window title="Variable resolver and @WireVariable in MVC" border="normal"
+	apply="org.zkoss.reference.developer.spring.composer.OrderComposer">
+	<vlayout>
+		<hlayout>
+			User Preference :
+			<label id="sessionValue">${userPreference.value}</label>
+		</hlayout>
+		<hlayout>
+			System Configuration :
+			<label id="singletonValue">${systemConfiguration.value}</label>
+		</hlayout>
+		<hlayout>
+			Total Number of items :<label id="number"/>
+		</hlayout>
+	</vlayout>
+</window>

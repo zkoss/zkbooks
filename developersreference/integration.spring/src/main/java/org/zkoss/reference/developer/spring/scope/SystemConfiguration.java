@@ -2,7 +2,7 @@ package org.zkoss.reference.developer.spring.scope;
 
 import org.springframework.stereotype.Component;
 
-@Component
+@Component //singleton by default
 public class SystemConfiguration {
 	private String value = "my configuration " + System.currentTimeMillis();
 

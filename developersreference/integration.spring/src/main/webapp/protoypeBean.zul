@@ -1,0 +1,7 @@
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+    <div>
+        <button id="re-create the area below" label="Re-create" onClick='area.invalidate()'/>
+        <include id="area" src="autowireMvc.zul" style="border: 1px solid; margin: 5px; padding: 5px"/>
+    </div>
+</zk>

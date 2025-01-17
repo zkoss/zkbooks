@@ -5,9 +5,10 @@
 	color:red;
 }
 </style>
-<window title="Order Management" border="normal"
-	apply="org.zkoss.bind.BindComposer" viewModel="@id('vm') @init(orderVm)" 
+
+<window title="Order Management" border="normal" viewModel="@id('vm') @init(orderBeanVm)"
 	validationMessages="@id('vmsgs')">
+	ViewModel as a Spring bean
 		<listbox model="@bind(vm.orders)" selectedItem="@bind(vm.selected)" height="200px">
 			<listhead>
 				<listheader label="Id"/>

@@ -1,46 +1,29 @@
 package org.zkoss.reference.developer.spring.composer;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Scope;
-import org.springframework.stereotype.*;
-import org.zkoss.reference.developer.spring.domain.*;
-import org.zkoss.reference.developer.spring.scope.PrototypeBean;
-import org.zkoss.zk.ui.Component;
+import org.zkoss.reference.developer.spring.domain.OrderService;
 import org.zkoss.zk.ui.select.SelectorComposer;
 import org.zkoss.zk.ui.select.annotation.*;
-import org.zkoss.zul.*;
+import org.zkoss.zul.Label;
+import org.zkoss.zul.Window;
 
 /**
- * "prototype" is the best-fit scope for ZK in most cases. Since when reloading a page, detach/re-attach a zul snippet, you usually want a fresh new state instead of keeping old state.
+ * demonstrate DelegatingVariableResolver + @WireVariable in a composer
+ * @author Hawk
+ *
  */
-@Controller
-@Scope("prototype")
-public class OrderComposer extends SelectorComposer {
+@VariableResolver(org.zkoss.zkplus.spring.DelegatingVariableResolver.class)
+public class OrderComposer extends SelectorComposer<Window> {
 
-    @Autowired
-    private OrderService orderService;
+	@WireVariable("orderService")
+	private OrderService orderService;
+	
+	@Wire("#number")
+	private Label label;
+	
+	@Override
+	public void doAfterCompose(Window comp) throws Exception {
+		super.doAfterCompose(comp);
+		label.setValue(Integer.toString(orderService.list().size()));
+	}
 
-    @Autowired
-    private PrototypeBean prototypeBean;
-
-    @Wire("grid")
-    private Grid grid;
-    @Wire
-    private Label prototypeValue;
-
-
-    private ListModelList<Order> model;
-
-    @Override
-    public void doAfterCompose(Component comp) throws Exception {
-        super.doAfterCompose(comp);
-        model = new ListModelList(orderService.list());
-        grid.setModel(model);
-        prototypeValue.setValue(prototypeBean.getValue());
-    }
-
-    @Listen("onClick = button")
-    public void newOrder(){
-       model.add(orderService.newOrder());
-    }
 }

@@ -1,5 +1,7 @@
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
 <zk>
-    <vlayout apply="${orderComposer}" width="50vw" style="margin: 20px auto">
+    Composer as a Spring bean
+    <vlayout apply="${orderBeanComposer}" width="50vw" style="margin: 20px auto">
         <label id="prototypeValue"/>
         <button id="new" label="New Order"/>
         <grid visibleRows="10">
