@@ -3,8 +3,9 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.zkoss.reference</groupId>
     <artifactId>cdi</artifactId>
-    <version>6.5.0</version>
+    <version>10.1.0</version>
     <packaging>war</packaging>
+    <name>ZK CDI Example</name>
     <description>CDI Example project for developer's reference.
     </description>
     <dependencies>
@@ -26,16 +27,32 @@
         </dependency>
         <dependency>
             <groupId>org.jboss.weld.servlet</groupId>
-            <artifactId>weld-servlet</artifactId>
-            <version>1.1.10.Final</version>
+            <artifactId>weld-servlet-core</artifactId>
+            <version>3.1.9.Final</version>
         </dependency>
     </dependencies>
+	<repositories>
+		<repository>
+			<id>ZK CE</id>
+			<name>ZK CE Repository</name>
+			<url>https://mavensync.zkoss.org/maven2</url>
+		</repository>
+		<repository>
+			<id>ZK EVAL</id>
+      		<name>ZK Evaluation Repository</name>
+			<url>https://mavensync.zkoss.org/eval</url>
+		</repository>
+		<repository>
+			<id>ZK EE</id>
+			<url>https://maven.zkoss.org/repo/zk/ee</url>
+		</repository>
+	</repositories>    
     <build>
         <plugins>
             <plugin>
-                <groupId>org.mortbay.jetty</groupId>
-                <artifactId>maven-jetty-plugin</artifactId>
-                <version>6.1.26</version>
+                <groupId>org.eclipse.jetty</groupId>
+                <artifactId>jetty-maven-plugin</artifactId>
+                <version>10.0.18</version>
             </plugin>
             <plugin>
                 <groupId>org.apache.tomcat.maven</groupId>
