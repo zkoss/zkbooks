@@ -4,11 +4,11 @@
 	<groupId>org.zkoss.reference</groupId>
 	<artifactId>integration.spring</artifactId>
 	<packaging>war</packaging>
-	<version>9.6.4-Eval</version>
+	<version>10.1.0-Eval</version>
 	<properties>
 		<spring.version>5.3.9</spring.version>
-		<maven.compiler.source>1.8</maven.compiler.source>
-		<maven.compiler.target>1.8</maven.compiler.target>
+		<maven.compiler.source>11</maven.compiler.source>
+		<maven.compiler.target>11</maven.compiler.target>
 	</properties>
 	<name>ZK + Spring Integration Example</name>
 	<description>a project contains spring integration example code used in developer reference.</description>
