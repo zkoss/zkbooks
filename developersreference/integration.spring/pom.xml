@@ -6,7 +6,7 @@
 	<packaging>war</packaging>
 	<version>10.1.0-Eval</version>
 	<properties>
-		<spring.version>5.3.9</spring.version>
+		<spring.version>5.3.39</spring.version>
 		<maven.compiler.source>11</maven.compiler.source>
 		<maven.compiler.target>11</maven.compiler.target>
 	</properties>
