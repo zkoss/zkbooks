@@ -69,5 +69,5 @@ int meter = 10;
     <h:h1>EL 3.0</h:h1>
     CommonFns.formatNumber(Object, String, Locale) : ${CommonFns.formatNumber(12345, '$ ###,###,###.00', null)}
     <h:br/>
-    ${Math.sqrt(16)}
+    square root of 16: ${Math.sqrt(16)}
 </zk>
