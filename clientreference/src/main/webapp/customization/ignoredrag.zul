@@ -1,0 +1,16 @@
+<zk>
+    you can drag a listitem and still select the text in a textbox
+    <listbox>
+        <listitem droppable="true" draggable="true">
+            <listcell label="">
+                <textbox value="try to select the text"></textbox>
+            </listcell>
+        </listitem>
+        <listitem droppable="true" draggable="true">
+            <listcell label="">
+                <textbox/>
+            </listcell>
+        </listitem>
+    </listbox>
+    <script src="ignore_drag.js"/>
+</zk>
