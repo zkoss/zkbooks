@@ -15,4 +15,3 @@ developersreference/integration.spring.security/.gitignore
 **/target
 **/build
 clientreference/src/main/webapp/node_modules
-*.js
