@@ -63,7 +63,7 @@ Copyright (C) 2004 Potix Corporation. All Rights Reserved.
 		<url-pattern>/zkau/*</url-pattern>
 	</servlet-mapping>
 
-	<!-- DSP Interpreter -->
+	<!-- DSP Interpreter
 	<servlet>
 		<servlet-name>dspLoader</servlet-name>
 		<servlet-class>org.zkoss.web.servlet.dsp.InterpreterServlet</servlet-class>
@@ -77,7 +77,7 @@ Copyright (C) 2004 Potix Corporation. All Rights Reserved.
 		<url-pattern>*.dsp</url-pattern>
 	</servlet-mapping>
 
-	<!-- Weld CDI bootstrap
+	Weld CDI bootstrap
 	https://docs.jboss.org/weld/reference/2.0.1.Final/en-US/html/environments.html
 	-->
 	<listener>

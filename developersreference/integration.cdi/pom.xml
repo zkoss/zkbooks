@@ -3,10 +3,24 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.zkoss.reference</groupId>
     <artifactId>cdi</artifactId>
-    <version>6.5.0</version>
+    <version>10.2.0.FL.202504101008-Eval</version>
     <packaging>war</packaging>
     <description>CDI Example project for developer's reference.
     </description>
+
+    <repositories>
+        <repository>
+            <id>ZK CE</id>
+            <name>ZK CE Repository</name>
+            <url>https://mavensync.zkoss.org/maven2</url>
+        </repository>
+        <repository>
+            <id>ZK EVAL</id>
+            <name>ZK Evaluation Repository</name>
+            <url>https://mavensync.zkoss.org/eval</url>
+        </repository>
+    </repositories>
+
     <dependencies>
         <dependency>
             <groupId>org.zkoss.zk</groupId>
@@ -19,6 +33,16 @@
             <version>${project.version}</version>
         </dependency>
         <dependency>
+            <groupId>org.zkoss.zk</groupId>
+            <artifactId>zul</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.zkoss.zk</groupId>
+            <artifactId>zk</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
             <version>3.0.1</version>
@@ -26,16 +50,16 @@
         </dependency>
         <dependency>
             <groupId>org.jboss.weld.servlet</groupId>
-            <artifactId>weld-servlet</artifactId>
-            <version>1.1.10.Final</version>
+            <artifactId>weld-servlet-core</artifactId>
+            <version>3.1.9.Final</version>
         </dependency>
     </dependencies>
     <build>
         <plugins>
             <plugin>
-                <groupId>org.mortbay.jetty</groupId>
-                <artifactId>maven-jetty-plugin</artifactId>
-                <version>6.1.26</version>
+                <groupId>org.eclipse.jetty</groupId>
+                <artifactId>jetty-maven-plugin</artifactId>
+                <version>10.0.18</version>
             </plugin>
             <plugin>
                 <groupId>org.apache.tomcat.maven</groupId>

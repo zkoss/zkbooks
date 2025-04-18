@@ -1,9 +1,8 @@
-<!-- https://docs.jboss.org/weld/reference/2.0.1.Final/en-US/html/environments.html -->
-<!DOCTYPE Configure PUBLIC "-//Mort Bay Consulting//DTD Configure//EN" "http://jetty.mortbay.org/configure.dtd">
-<Configure id="webAppCtx" class="org.mortbay.jetty.webapp.WebAppContext">
-	<New id="BeanManager" class="org.mortbay.jetty.plus.naming.Resource">
+<!DOCTYPE Configure PUBLIC "-//Jetty//Configure//EN" "https://www.eclipse.org/jetty/configure_10_0.dtd">
+<Configure id="webAppCtxUnique" class="org.eclipse.jetty.webapp.WebAppContext">
+	<New  class="org.eclipse.jetty.plus.jndi.Resource">
 		<Arg>
-			<Ref id="webAppCtx" />
+			<Ref id="webAppCtxUnique2" />
 		</Arg>
 		<Arg>BeanManager</Arg>
 		<Arg>
@@ -15,4 +14,3 @@
 		</Arg>
 	</New>
 </Configure>
-
