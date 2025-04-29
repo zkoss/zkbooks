@@ -1,0 +1,50 @@
+<zk xmlns:h="native">
+    <style>
+        .icon-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        .icon-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 120px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        .icon-item i {
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+        .icon-name {
+            font-size: 11px;
+            text-align: center;
+            word-break: break-word;
+        }
+    </style>
+
+    <div sclass="container" viewModel="@id('vm')@init('org.zkoss.reference.developer.integration.FontAwesomeDemoVM')">
+        <h:h2>Classic Solid</h:h2>
+
+        <div class="icon-container">
+            <forEach items="@init(vm.iconCssNames)">
+                <apply template="icon-item" iconClass="${each} z-icon-solid"/>
+            </forEach>
+        </div>
+        <h:h2>Brand Icons</h:h2>
+        <div class="icon-container">
+            <forEach items="@init(vm.brandIconCssNames)">
+                <apply template="icon-item" iconClass="${each}"/>
+            </forEach>
+        </div>
+    </div>
+    <template name="icon-item">
+        <h:div class="icon-item">
+            <h:i class="${iconClass}"/>
+            <h:div class="icon-name">${each}</h:div>
+        </h:div>
+    </template>
+</zk>

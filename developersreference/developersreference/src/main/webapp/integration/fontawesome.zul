@@ -5,6 +5,9 @@
             color: red;
         }
     </style>
+    <h:i class="z-icon-house"/>
+    <h:i class="z-icon-0"/>
+    <h:i class="z-icon-1"/>
     <vlayout>
         <h:h2>Free Icon</h:h2>
         mostly need to specify z-icon-solid for free icon
@@ -81,16 +84,12 @@
         </ul>
     </div>
     <h:h2>Multiple icons and tooltips</h:h2>
-    <button iconSclasses="${['z-icon-camera','z-icon-podcast-1x'].toArray()}" />
+    <button iconSclasses="${['z-icon-camera','z-icon-podcast'].toArray()}" />
 
     <h:h2>Stacking Icons</h:h2>
     <button iconSclass="z-icon-camera" />
-    <button iconSclasses="${['z-icon-camera z-icon-stack-1x', 'z-icon-ban z-icon-stack-1x'].toArray()}" />
-    <style>
-        .z-icon-stack {
-            height: 1em;
-            line-height: 16px;
-            width: 1em;
-        }
-    </style>
+     +
+    <button iconSclass="z-icon-ban" />
+     =
+    <button iconSclasses="${['z-icon-camera z-icon-stack-1x', 'z-icon-ban z-icon-stack-2x red'].toArray()}" />
 </zk>
