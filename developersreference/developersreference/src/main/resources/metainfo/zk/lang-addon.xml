@@ -4,6 +4,7 @@
 	<addon-name>myaddon</addon-name>
 	<language-name>xul/html</language-name>
 	<depends>zuti</depends>
+	<stylesheet href="~./base-style.css" type="text/css"/>
 	<component>
 		<component-name>editableLabel</component-name>
 		<component-class>org.zkoss.reference.developer.mvvm.advance.EditableLabel</component-class>
