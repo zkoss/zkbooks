@@ -1,0 +1,20 @@
+<zk >
+    <div apply="org.zkoss.reference.component.data.tree.TristateTreeComposer">
+
+    <div xmlns="native" >
+        <h2>3-State Tree Example</h2>
+        <p>This example demonstrates a tree with three states:</p>
+        <ul>
+            <li>Checked: All child nodes are checked</li>
+            <li>Unchecked: All child nodes are unchecked</li>
+            <li>Indeterminate: Some child nodes are checked, some are unchecked</li>
+        </ul>
+        <p>Clicking a checkbox will check/uncheck all child items and update parent states automatically.</p>
+    </div>
+
+    <tree id="tree" width="350px"
+          checkmark="true" >
+    </tree>
+        <label id="selection"/>
+    </div>
+</zk>
