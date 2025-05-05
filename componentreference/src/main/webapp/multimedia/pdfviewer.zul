@@ -5,7 +5,7 @@
     <n:h1>Zoom to Fit</n:h1>
     <pdfviewer id="pv" src="Bill.pdf" zoom="fit-page-width" />
 
-    <n:h1>Custom Toolbar</n:h1>
+    <n:h1>Custom Toolbar - permission control</n:h1>
     <pdfviewer id="pv2" src="Bill.pdf" width="60%" style="margin:auto">
         <toolbar>
             <toolbarbutton iconSclass="z-icon-fw z-icon-fast-backward"
