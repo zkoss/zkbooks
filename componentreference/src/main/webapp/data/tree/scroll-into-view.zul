@@ -1,6 +1,6 @@
 <zk xmlns:w="client" xmlns:h="native">
     <custom-attributes org.zkoss.zul.tree.initRodSize="-1"/>
-    <nodom apply="org.zkoss.reference.component.data.tree.TreeOperationComposer">
+    <nodom apply="org.zkoss.reference.component.data.tree.TreeScrollComposer">
 
         <button id="expandAll" label="expand all"/>
         <button id="collapseAll" label="collapse all"/>

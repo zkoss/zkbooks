@@ -9,7 +9,7 @@ import org.zkoss.zul.*;
 
 import java.util.*;
 
-public class TreeOperationComposer extends SelectorComposer {
+public class TreeScrollComposer extends SelectorComposer {
     @Wire("tree")
     private Tree tree;
     @Wire
