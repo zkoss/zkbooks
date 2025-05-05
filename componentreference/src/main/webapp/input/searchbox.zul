@@ -1,5 +1,5 @@
 <zk xmlns:h="native">
-    <h:h1>Basic</h:h1>
+    <h:h1>Single Selection</h:h1>
     <zscript>
         ListModel model = new ListModelArray(new String[] {
         "North America", "South America", "Europe", "Asia", "Africa", "Oceania", "Antarctica"

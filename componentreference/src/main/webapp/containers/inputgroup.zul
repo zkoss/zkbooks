@@ -1,21 +1,26 @@
 <zk xmlns:h="native">
     <h:h1>Basic Usages</h:h1>
+    <h:h3>Simple Input with Symbol After</h:h3>
     <inputgroup>
         @<textbox />
     </inputgroup>
 
+    <h:h3>Username with Domain</h:h3>
     <inputgroup>
         <textbox placeholder="Recipient's username"/>@example.com
     </inputgroup>
 
+    <h:h3>Currency Input</h:h3>
     <inputgroup>
         $<textbox/>.00
     </inputgroup>
 
+    <h:h3>Checkbox with Input</h:h3>
     <inputgroup>
         <checkbox/><textbox/>
     </inputgroup>
 
+    <h:h3>Multiline Textbox</h:h3>
     <inputgroup>
         With textarea
         <textbox multiline="true" rows="5" cols="30"/>
@@ -44,7 +49,7 @@
         Options<combobox/>
     </inputgroup>
 
-    <h:h1>Orient</h:h1>
+    <h:h1>Orient : vertical</h:h1>
 
     <inputgroup orient="vertical">
         <button label="Button"/>
