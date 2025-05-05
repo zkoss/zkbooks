@@ -4,10 +4,14 @@ import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.event.Events;
 import org.zkoss.zk.ui.select.SelectorComposer;
 import org.zkoss.zk.ui.select.annotation.*;
+import org.zkoss.zk.ui.util.Notification;
 import org.zkoss.zul.*;
 
 import java.util.*;
 
+/**
+ * an example to demonstrate CRUD operation of a tree model (DefaultTreeModel, DefaultTreeNode)
+ */
 public class FileInfoCrudController extends SelectorComposer {
     @Wire
     private Tree tree;
@@ -49,15 +53,15 @@ public class FileInfoCrudController extends SelectorComposer {
         String path = pathBox.getValue();
         String description = descriptionBox.getValue();
         if ("".equals(path)) {
-            alert("no new content to add");
+            Notification.show("no new content to add");
             return;
         }
 
         // if no treeitem is selected, append child to root
         DefaultTreeNode selectedTreeNode = model.getSelection().isEmpty() ?
-                (DefaultTreeNode) ((DefaultTreeModel) tree.getModel()).getRoot() : (DefaultTreeNode) model.getSelection().iterator().next();
+                (DefaultTreeNode) (tree.getModel()).getRoot() : (DefaultTreeNode) model.getSelection().iterator().next();
         Integer i = index.getValue();
-        DefaultTreeNode newNode = new DefaultTreeNode(new FileInfo(path, description), new LinkedList<>());
+        DefaultTreeNode newNode = new DefaultTreeNode(new FileInfo(path, description));
         if (i == null) // if no index specified, append to last.
             selectedTreeNode.add(newNode);
         else // if index specified, insert before the index number.
@@ -74,7 +78,7 @@ public class FileInfoCrudController extends SelectorComposer {
     @Listen(Events.ON_CLICK + "= #update")
     public void update() {
         if (model.getSelection().isEmpty()) {
-            alert("select one item to update");
+            Notification.show("select one item to update");
             return;
         }
         DefaultTreeNode selectedTreeNode = (DefaultTreeNode) model.getSelection().iterator().next();
@@ -90,7 +94,7 @@ public class FileInfoCrudController extends SelectorComposer {
     @Listen(Events.ON_CLICK + "=#delete")
     public void delete() {
         if (model.getSelection().isEmpty()) {
-            alert("select one item to delete");
+            Notification.show("select one item to delete");
             return;
         }
         ((DefaultTreeNode) model.getSelection().iterator().next()).removeFromParent();

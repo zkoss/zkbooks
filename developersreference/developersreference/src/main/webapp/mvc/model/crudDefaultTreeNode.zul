@@ -1,20 +1,5 @@
 <zk>
     <nodom apply="org.zkoss.reference.developer.mvc.model.FileInfoCrudController">
-        <tree id="tree" height="200px">
-            <treecols>
-                <treecol label="Path"/>
-                <treecol label="Description"/>
-            </treecols>
-            <template name="model">
-                <treeitem>
-                    <treerow>
-                        <treecell label="${each.data.path}"/>
-                        <treecell label="${each.data.description}"/>
-                    </treerow>
-                </treeitem>
-            </template>
-        </tree>
-        <separator stubonly="true" height="50px" bar="true"/>
         <grid>
             <auxhead>
                 <auxheader colspan="2" label="Add/Edit FileInfo"/>
@@ -34,17 +19,34 @@
                 </row>
                 <row>
                     <cell colspan="2" align="center">
+                        <hlayout valign="middle">
                         index:
                         <intbox id="index" placeholder="index"/>
-                        <button id="create" label="Add to selected parent node"/>
+                        <button id="create" label="Add to selected node"/>
                         <button id="update" label="update"/>
                         <button id="delete" label="delete"/>
                         <button id="clear" label="clear selection"/>
-                        <button id="expand" label="open all"/>
-                        <button id="collapse" label="close all"/>
+                        <button id="expand" label="open 1st level node"/>
+                        <button id="collapse" label="close 1st level node"/>
+                        </hlayout>
                     </cell>
                 </row>
             </rows>
         </grid>
+        <separator stubonly="true" height="50px" bar="true"/>
+        <tree id="tree" vflex="1">
+            <treecols>
+                <treecol label="Path"/>
+                <treecol label="Description"/>
+            </treecols>
+            <template name="model">
+                <treeitem>
+                    <treerow>
+                        <treecell label="${each.data.path}"/>
+                        <treecell label="${each.data.description}"/>
+                    </treerow>
+                </treeitem>
+            </template>
+        </tree>
     </nodom>
 </zk>
