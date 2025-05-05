@@ -1,9 +1,9 @@
 package org.zkoss.reference.component.multimedia;
 
 import org.zkoss.bind.annotation.*;
+import org.zkoss.zk.ui.event.StateChangeEvent;
 import org.zkoss.zk.ui.util.Clients;
 import org.zkoss.zkmax.zul.Video;
-import org.zkoss.zkmax.zul.event.StateChangeEvent;
 
 public class VideoVM {
 
