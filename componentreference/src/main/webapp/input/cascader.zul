@@ -13,8 +13,10 @@
     ]]></zscript>
     <cascader width="300px" model="${treeModel}" onSelect="result.setValue(self.getSelectedItem().toString());"/>
     <label id="result"/>
-    <h:h1>Different Selected Result</h:h1>
+    <h:h1>Different Selected Result : with '>'</h:h1>
     <cascader itemConverter="org.zkoss.reference.component.input.MyItemConverter" model="${treeModel}"  width="300px"/>
+    <!-- ZK-5938
     <h:h1>Custom ItemRenderer</h:h1>
     <cascader itemRenderer="org.zkoss.reference.component.input.TooltipRenderer" model="${treeModel}"  />
+    -->
 </zk>
