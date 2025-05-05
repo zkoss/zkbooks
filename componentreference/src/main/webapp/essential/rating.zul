@@ -18,6 +18,7 @@
         }
     </style>
     <rating iconSclass="myGiftIcon" sclass="gift" rating="3"/>
-    <n:h1>Cancelable</n:h1>
+    <n:h1>Not Cancelable</n:h1>
+    cannot click to cancel
     <rating cancelable="false"/>
 </zk>

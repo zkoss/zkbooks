@@ -1,11 +1,19 @@
 <?import org.zkoss.zk.ui.util.*?>
+<?import org.zkoss.zkmax.ui.util.*?>
 <zk xmlns:h="native">
 
     <h:h1>Notification</h:h1>
     <zscript><![CDATA[
-String msg = "this is a notification";
+String msg = "this is a message";
     ]]></zscript>
-<button label="notification info" onClick="Notification.show(msg)"/>
-<button label="notification warning" onClick='Notification.show(msg, Notification.TYPE_WARNING, null, "middle_center", 5000)'/>
-<button label="notification error" onClick='Notification.show(msg, Notification.TYPE_ERROR, null, "middle_center", 5000)'/>
+    <button label="notification info" onClick="Notification.show(msg)"/>
+    <button label="notification warning"
+            onClick='Notification.show(msg, Notification.TYPE_WARNING, null, "middle_center", 5000)'/>
+    <button label="notification error"
+            onClick='Notification.show(msg, Notification.TYPE_ERROR, null, "middle_center", 5000)'/>
+
+    <h:h1>Toast</h:h1>
+    <button label="simple toast" onClick="Toast.show(msg);"/>
+    <button label="top-right toast" onClick='Toast.show(msg, "warning", "top_right");'/>
+    <button label="top-right closable toast" onClick='Toast.show(msg, "warning", "top_right",0, true);'/>
 </zk>
