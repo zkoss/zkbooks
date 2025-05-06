@@ -40,6 +40,12 @@
                 <apply template="icon-item" iconClass="${each}"/>
             </forEach>
         </div>
+        <h:h2>Animation</h:h2>
+        <div class="icon-container">
+            <forEach items="@init(vm.animationNames)">
+                <apply template="icon-item" iconClass="z-icon-0 z-icon-solid ${each}"/>
+            </forEach>
+        </div>
     </div>
     <template name="icon-item">
         <h:div class="icon-item">

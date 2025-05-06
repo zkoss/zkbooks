@@ -73,7 +73,8 @@
         <p><i class="z-icon-solid z-icon-coffee z-icon-2xl"></i> When my six o’clock alarm buzze</p>
     </div>
     <h:h2>Animation</h:h2>
-    <button iconSclass="z-icon-solid z-icon-heart z-icon-beat"></button>
+    <button iconSclass="z-icon-solid z-icon-heart z-icon-beat"/>
+    <button iconSclass="z-icon-bell z-icon-spin" />
     <h:h2>Icons in a List</h:h2>
     <div xmlns="xhtml" style="font-size: 16px; font-family:'Helvetica Neue,Helvetica,Arial,sans-serif'">
         <ul class="z-icon-ul">
