@@ -1,0 +1,7 @@
+<zk>
+    <window border="normal" title="hello" mode="modal">
+        <textbox id="one" onFocus="Clients.log(self.id)"/>
+        <textbox id="two" onFocus="Clients.log(self.id)" />
+    </window>
+    <script src="disableModalWindowFocusGrabbing.js"/>
+</zk>
