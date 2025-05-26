@@ -1,0 +1,22 @@
+<zk xmlns:h="native">
+    <zscript><![CDATA[
+    String[] menuItems = {"home", "comment", "users"};
+    ]]></zscript>
+    <h:h1>Generate components according to a collection</h:h1>
+    "each" is a reserved variable inside forEach, which refers to the current item in the collection.
+    <div apply="org.zkoss.bind.BindComposer">
+        <forEach items="@load(menuItems)">
+            <button label="@load(each)"
+                    iconSclass='@load(("z-icon-" +=each))'/>
+        </forEach>
+    </div>
+
+    build UI upon a collection of items, such as a menu
+    <navbar id="navbar" orient="horizontal" collapsed="false" apply="org.zkoss.bind.BindComposer">
+        <forEach items="@load(menuItems)">
+            <navitem label="@load(each)"
+                     iconSclass='@load(("z-icon-" +=each))'>
+            </navitem>
+        </forEach>
+    </navbar>
+</zk>
