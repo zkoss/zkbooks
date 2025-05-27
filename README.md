@@ -6,6 +6,23 @@ This repository contains example source code used in ZK documentations including
 * [ZK Component Reference](http://books.zkoss.org/wiki/ZK_Component_Reference)
 * [ZK MVVM Reference](http://books.zkoss.org/zk-mvvm-book/9.5/index.html)
 * [ZK Client-side Reference](http://books.zkoss.org/wiki/ZK_Client-side_Reference)
+* [ZK Style Customization Guide](https://books.zkoss.org/wiki/ZK_Style_Customization_Guide)
+
+# Directory Structure
+
+- `componentreference/` — Example code for ZK Component Reference documentation
+- `developersreference/developersreference/` — Example code for ZK Developer's Reference
+- `developersreference/integration.cdi/` - Example code for ZK Developer's Reference / Integration / CDI
+- `developersreference/integration.ejb/` - Example code for ZK Developer's Reference / Integration / EJB
+- `developersreference/integration.hibernate/` - Example code for ZK Developer's Reference / Integration / Hibernate
+- `developersreference/integration.jpa/` - Example code for ZK Developer's Reference / Integration / JPA
+- `developersreference/integration.spring/` - Example code for ZK Developer's Reference / Integration / Spring
+
+- `mvvmreference/` — Example code for ZK MVVM Reference.
+- `clientreference/` — Example code for ZK Client-side Reference.
+- `mymodule/` — Example code for a reusable module
+- `styleguide/` — Example code for ZK Style Customization Guide
+- `csp-filter/` — Example code for ZK Developer's Reference / Security Tips / Content Security Policy / Enhancing Security with Strict-Dynamic
 
 
 # How to Run a Project
@@ -28,5 +45,26 @@ Folder is named by a chapter or a subsection.
 
 ## Branches
 master - for the latest ZK
+
+# Project Tags
+
+- `componentreference/`: components, UI, ZK components
+- `developersreference/`: developer guide, backend, architecture, 
+  - mvc, model-view-controller, controller, view, model
+  - integration, CDI, EJB, Hibernate, JPA, Spring, JDBC, datasource, font-awesome
+  - security, CSP, content security policy, XSS, HTML escape, widget accessibility
+  - performance, ROD (Render on Demand), cache, stubonly, client performance, optimization
+  - event handling, event queue, event listening, desktop events, chat events
+  - utilities, browser detection, logging
+  - testing, test tips
+  - debugging, error message, desktop debugging
+  - theming, theme preview, theme switch
+  - accessibility, label-input, accessible widgets
+  - internationalization, i18n, locale, labels, messages, timezone
+  - responsive design, mobile, adaptive UI
+  - server push, async update
+  - advanced, module, META-INF
+- `mvvmreference/`: MVVM pattern, data binding, shadow component, View Model
+- `clientreference/`: client-side, JavaScript, client API
 
 
