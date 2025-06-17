@@ -1,0 +1,14 @@
+<zk>
+	<button label="send a request" onClick='Clients.log("comnpleted a zkau request")'/> 
+	<script><![CDATA[
+	zk.afterLoad(function () {
+		const {getExtraHeaders} = zk.augment(zAu, {
+			getExtraHeaders() {
+				const extraHeaders = getExtraHeaders();
+				extraHeaders['myKey'] = 'myValue';
+				return extraHeaders;
+			}
+		});
+	});
+	]]></script>
+</zk>
