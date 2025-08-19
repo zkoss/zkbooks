@@ -1,5 +1,5 @@
 <window viewModel="@id('vm') @init('org.zkoss.mvvm.collection.TreeVM')">
-	<tree model="@init(vm.itemTree)" width="400px" >
+	<tree model="@init(vm.treeModel)" width="400px" >
 		<treecols>
 			<treecol label="name" />
 			<treecol label="index" />
@@ -14,7 +14,7 @@
 		</template>
 	</tree>
 		
-	<tree model="@load(vm.itemTree) @template(forEachStatus.index lt 2?'model1':'model2')"
+	<tree model="@load(vm.treeModel) @template(forEachStatus.index lt 2?'model1':'model2')"
 		width="400px" >
 		<treecols>
 			<treecol label="name" />
