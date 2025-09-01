@@ -1,4 +1,5 @@
 <zk>
+    avoid dragging a textbox inside a draggable listitem, so that
     you can drag a listitem and still select the text in a textbox
     <listbox>
         <listitem droppable="true" draggable="true">
