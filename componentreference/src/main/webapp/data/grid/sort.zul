@@ -1,0 +1,24 @@
+<zk xmlns:h="native">
+
+<h:h2>Sort by Comparator</h:h2>
+	<zscript><![CDATA[
+ListModelList model = new ListModelList();
+for (int i = 0; i < 100; i++) {
+	model.add("a" + i);
+}
+	]]></zscript>
+
+	<h:h1>The SortAscending and SortDescending Properties</h:h1>
+	<zscript>
+		import org.zkoss.zul.*;
+		Comparator asc = new RowComparator(-1, true, true);
+		Comparator dsc = new RowComparator(-1, false, true);
+	</zscript>
+
+	<h:h1>The Sort method</h:h1>
+	<grid width="200px" model="${model}"  visibleRows="10">
+		<columns>
+			<column id="header" label="ID"  sortAscending="${asc}" sortDescending="${dsc}"/>
+		</columns>
+	</grid>
+</zk>
