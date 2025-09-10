@@ -7,7 +7,7 @@ import org.zkoss.zul.TreeNode;
 
 public class TreeVM {
 
-	TreeModel<TreeNode<String>> itemTree;
+	TreeModel<TreeNode<String>> treeModel;
 
 	public TreeVM() {
 
@@ -32,11 +32,11 @@ public class TreeVM {
 			root.add(ni);
 		}
 
-		itemTree = new DefaultTreeModel<String>(root);
-
+		treeModel = new DefaultTreeModel<String>(root);
 	}
 
-	public TreeModel<TreeNode<String>> getItemTree() {
-		return itemTree;
+
+	public TreeModel<TreeNode<String>> getTreeModel() {
+		return treeModel;
 	}	
 }

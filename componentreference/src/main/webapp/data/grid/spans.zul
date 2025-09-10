@@ -17,23 +17,33 @@
                 <label value="Item A.5"/>
                 <label value="Item A.6"/>
             </row>
-            <row spans="1,2,2">
+            <row >
                 <label value="Item B.1"/>
                 <label value="Item B.2"/>
+                <cell colspan="2">
                 <label value="Item B.4"/>
+                </cell>
+                <cell colspan="2">
                 <label value="Item B.6"/>
+                </cell>
             </row>
-            <row spans="3">
+            <row >
+                <cell colspan="3">
                 <label value="Item C.1"/>
+                </cell>
                 <label value="Item C.4"/>
                 <label value="Item C.5"/>
                 <label value="Item C.6"/>
             </row>
-            <row spans=",,2,2">
+            <row>
                 <label value="Item D.1"/>
                 <label value="Item D.2"/>
+                <cell colspan="2">
                 <label value="Item D.3"/>
+                </cell>
+                <cell colspan="2">
                 <label value="Item D.5"/>
+                </cell>
             </row>
         </rows>
     </grid>

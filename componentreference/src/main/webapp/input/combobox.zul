@@ -78,4 +78,10 @@ public void avoidNullSelection(){
 
     <n:h2>Enforce match</n:h2>
     <combobox use="org.zkoss.reference.component.input.EnforceMatchCombobox" model="${model}" />
+    <n:h2>autodrop</n:h2>
+    <zscript><![CDATA[
+ListModelList model2 = new ListModelList(Locale.getAvailableLocales());
+    ]]></zscript>
+    <combobox autodrop="true" model="${model2}"/>
+
 </zk>

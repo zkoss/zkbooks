@@ -1,5 +1,29 @@
 <zk>
 	<div apply="org.zkoss.reference.developer.uipattern.EchoEventComposer">
-		<button id="btn" label="Click for long operation"/>
+		<button id="trigger" label="Click for long operation"/>
 	</div>
+
+	<window id="w" width="200px" title="Test echoEvent" border="normal">
+		<attribute name="onLater">
+			doLongOperation(); //take long to execute
+			Clients.clearBusy(); //remove the busy message
+		</attribute>
+
+		<button label="Echo Event">
+			<attribute name="onClick">
+				Clients.showBusy("Execute..."); //show a busy message to user
+				Events.echoEvent("onLater", w, null); //echo an event back
+			</attribute>
+		</button>
+		<zscript><![CDATA[
+			void doLongOperation() {
+				try {
+					System.out.println("do long operation");
+					Thread.sleep(3000); //simulate a long operation
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+			}
+		]]></zscript>
+	</window>
 </zk>

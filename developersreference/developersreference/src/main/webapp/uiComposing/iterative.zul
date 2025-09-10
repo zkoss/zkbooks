@@ -10,4 +10,11 @@ grades = new String[] {"Best", "Better", "Good"};
     <listbox>
         <listitem label="${each}" forEach="${grades}"/>
     </listbox>
+    <div xmlns:n="native">
+        <n:ol sclass="generalAppRules">
+        <n:li forEach="${grades}">
+            <label value="${each}" />
+        </n:li>
+        </n:ol>
+    </div>
 </zk>

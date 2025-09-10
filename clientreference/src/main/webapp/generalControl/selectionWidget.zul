@@ -1,0 +1,30 @@
+<zk xmlns:h="native">
+    <h:div id="div1">id="div1"</h:div>
+    <script defer="true">
+        console.log("#div1 scroll position: " + $('#div1').scrollTop());
+    </script>
+    <div sclass="class1">class1</div>
+    <script defer="true">
+        console.log(".class1 scroll position: " + jq('.class1').scrollTop());
+    </script>
+    <textbox id="tb" sclass="class2" value='a value in a textbox'/>
+    <script defer="true">
+        console.log("client-side textbox value: " + zk.$("$tb").getValue());
+        console.log("client-side textbox value: " + zk.$("@textbox").getValue());
+    </script>
+    <script defer="true">
+        var domNode = jq("$tb")[0];
+        console.log("client-side textbox value: " + zk.$(domNode).getValue());
+    </script>
+    <script defer="true">
+        var jqObject = jq("$tb");
+        console.log("client-side textbox value: " + zk.$(jqObject).getValue());
+
+        var zkWidget = zk.$("$tb");
+        console.log(jq(zkWidget).hasClass("class2")? "class found" : "class not found");
+    </script>
+    <script defer="true">
+        var zkWidget = zk.$("$tb");
+        console.log("DOM node: " + zkWidget.$n());
+    </script>
+</zk>

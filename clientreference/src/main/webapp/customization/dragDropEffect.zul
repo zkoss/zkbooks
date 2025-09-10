@@ -1,5 +1,5 @@
 <zk xmlns:h="native">
-    <h:h1>dragging a label to see the dragging feedback</h:h1>
+    <h:h1>dragging a label to the built-in visual feedback for droppable and not droppable</h:h1>
     <vlayout style="text-align: center;">
         <label draggable="true" value="drag me"/>
         <label droppable="true" value="droppable"/>
@@ -12,4 +12,32 @@
         }
     </style>
     <script src="drag-feedback.js"/>
+    <h:h1>Showing a line on the target listitem to indication the insertion position</h:h1>
+    <listbox>
+        <listitem droppable="true" draggable="true">
+            <listcell label="111"/>
+        </listitem>
+        <listitem droppable="true" draggable="true">
+            <listcell label="222"/>
+        </listitem>
+        <listitem droppable="true" draggable="true">
+            <listcell label="333"/>
+        </listitem>
+        <listitem droppable="true" draggable="true">
+            <listcell label="444"/>
+        </listitem>
+    </listbox>
+    <style>
+        /* could be border-top or border-bottom depending on your insertion logic */
+        .z-drag-over .z-listcell{
+            border-bottom: 2px solid blue;
+        }
+        .z-drag-over .z-listcell-content::before{
+            content: "|";
+            position: absolute;
+            left: 0;
+            bottom: -10px;
+            color: blue;
+        }
+    </style>
 </zk>

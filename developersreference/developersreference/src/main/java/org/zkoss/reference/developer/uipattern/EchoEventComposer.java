@@ -11,23 +11,22 @@ import org.zkoss.zk.ui.util.Notification;
 
 public class EchoEventComposer extends SelectorComposer<Component> {
 
-	private Component comp;
+	public static final String ON_DO_OPERATION = "onDoOperation";
 
 	@Override
 	public void doAfterCompose(Component comp) throws Exception {
-		this.comp = comp;
 		super.doAfterCompose(comp);
-		comp.addEventListener("onLater", event ->{
+		comp.addEventListener(ON_DO_OPERATION, event ->{
 			Threads.sleep(3000);
 			Clients.clearBusy();
 			Notification.show("operation finished");
 		});
 	}
 	
-	@Listen("onClick=#btn")
-	public void doButtonClick() {
+	@Listen("onClick = #trigger")
+	public void triggerLongOperation() {
 		Clients.showBusy("Doing loing task, please wait");
-		Events.echoEvent("onLater", comp, null);
+		Events.echoEvent(ON_DO_OPERATION, getSelf(), null);
 	}
 	
 }
