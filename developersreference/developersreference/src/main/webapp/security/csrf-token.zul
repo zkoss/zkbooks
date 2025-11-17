@@ -1,12 +1,26 @@
 <zk>
-	<button label="send a request" onClick='Clients.log("comnpleted a zkau request")'/> 
+	<button label="send a request" onClick='Clients.log("completed a zkau request")'/> 
 	<script><![CDATA[
+	/* using zk.augment */
+	/* chainable, since each override or augment will retrieve the original, or the previous modification if any exists */
 	zk.afterLoad(function () {
 		const {getExtraHeaders} = zk.augment(zAu, {
 			getExtraHeaders() {
-				const extraHeaders = getExtraHeaders();
-				extraHeaders['myKey'] = 'myValue';
-				return extraHeaders;
+				const extraHeaders = getExtraHeaders(); //obtain headers map from the original function
+				extraHeaders['myKey'] = 'myFirstValue'; //add or replace the header for a given key
+				return extraHeaders; //return the modified map
+			}
+		});
+	});
+	/* Using zk.override */
+	zk.afterLoad(function () {
+		var _XzAu = {};
+		zk.override(zAu, _XzAu, {
+			getExtraHeaders: function() {
+				const extraHeaders = _XzAu.getExtraHeaders.apply(this, arguments); //obtain headers map from the original function
+				extraHeaders['myKey'] = 'mySecondValue'; //add or replace the header for a given key
+				extraHeaders['myOtherKey'] = 'myThirdValue'; //add or replace the header for a given key
+				return extraHeaders; //return the modified map
 			}
 		});
 	});
