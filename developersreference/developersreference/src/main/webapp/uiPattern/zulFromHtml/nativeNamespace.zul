@@ -1,0 +1,24 @@
+<zk>
+	<zscript><![CDATA[
+		void sendMessage(){
+			Clients.log("Name:"+name.getValue()+"; Mail: "+mail.getValue()+"; Message: "+msg.getValue());		
+		}
+	]]></zscript>
+	<div xmlns="native" xmlns:z="zul">
+		<p>
+			<label for="name">Name:</label>
+			<z:textbox id="name" />
+		</p>
+		<p>
+			<label for="mail">Email:</label>
+			<z:textbox id="mail" />
+		</p>
+		<p>
+			<label for="msg">Message:</label>
+			<z:textbox multiline="true" height="200px" id="msg" />
+		</p>
+		<p class="button">
+			<z:button onClick='sendMessage()' label="Send your message"></z:button>
+		</p>
+	</div>
+</zk>
