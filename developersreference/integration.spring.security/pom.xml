@@ -11,7 +11,7 @@
   
 	<properties>
 		<zk.version>6.5.1.1</zk.version>
-		<springsecurity.version>3.1.2.RELEASE</springsecurity.version>
+		<springsecurity.version>5.2.10.RELEASE</springsecurity.version>
 		<packname>-${maven.build.timestamp}</packname>
 	</properties>
 	
