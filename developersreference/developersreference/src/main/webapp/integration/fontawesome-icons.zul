@@ -25,7 +25,7 @@
             word-break: break-word;
         }
     </style>
-
+    <h:h1>List ZK-Bundled Font Awesome Icons</h:h1>
     <div sclass="container" viewModel="@id('vm')@init('org.zkoss.reference.developer.integration.FontAwesomeDemoVM')">
         <h:h2>Classic Solid</h:h2>
 
