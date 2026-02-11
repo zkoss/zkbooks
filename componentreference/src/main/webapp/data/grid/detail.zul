@@ -2,7 +2,7 @@
 <zk>
 	Please open/close the +/- button, and the layout of this page shows
 	properly.
-	<grid fixedLayout="true" width="600px">
+	<grid sizedByContent="true" width="600px" oddRowSclass="odd">
 		<columns>
 			<column width="40px" />
 			<column>Product Name</column>
@@ -11,9 +11,9 @@
 		</columns>
 		<rows>
 			<row>
-				<detail>
+				<detail open="true">
 					<hlayout>
-						<image width="200px" height="200px" src="/img/icon_update.png" />
+						<image width="200px" height="200px" src="/images/zklogo.png" />
 						<vlayout>
 							<label value="Item Specifics - Item Condition    " style="font-weight:bold;font-style: italic;" />
 							<hlayout>

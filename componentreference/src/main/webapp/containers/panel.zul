@@ -7,7 +7,7 @@
     </panel>
 
     <h:h1>Sizable</h:h1>
-    <panel sizable="true" id="panel" framable="true" width="500px" height="400px"
+    <panel sizable="true" id="panel" width="500px" height="400px"
            title="Panel"
            maximizable="true" minimizable="true" border="normal"
            collapsible="true" closable="true">
@@ -24,7 +24,7 @@
     </panel>
 
     <h:h1>Toolbar positions</h:h1>
-    <panel framable="true" width="500px" height="550px"
+    <panel width="500px" height="550px"
            title="Panel component" floatable="true" movable="true"
            maximizable="true" minimizable="true" border="normal"
            collapsible="true" closable="true">
