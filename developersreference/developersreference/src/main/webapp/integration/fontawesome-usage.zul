@@ -94,10 +94,8 @@
      =
     <button iconSclasses="${['z-icon-camera z-icon-stack-1x', 'z-icon-ban z-icon-stack-2x red'].toArray()}" />
     <h:h2>Icon only</h:h2>
-    <style>
-        .z-icon{
-            font-family: ZK85Icons, FontAwesome;
-        }
-    </style>
-    <h:i class="z-icon-envelope z-icon"/>
+    static icon
+    <h:i class="z-icon-envelope"/>
+    allow click event and dynamic change
+    <span sclass="z-icon-envelope" onClick='Clients.log("click")'/>
 </zk>
