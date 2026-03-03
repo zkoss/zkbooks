@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>embed zul in html</title>
+    <script src="/developer/zkEmbedded"></script>
+</head>
+<body>
+<div id="embeddedZK" style="height:80%"></div>
+<script>
+    zEmbedded.load('embeddedZK', 'http://localhost:8080/developer/uiPattern/interApplicationCommunication/zkEmbedded/innerPage.zul?param1=outerValue');
+</script>
+</body>
+</html>
