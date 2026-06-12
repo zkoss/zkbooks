@@ -3,9 +3,6 @@ h1{
     margin-bottom: 5px;
 }
 
-:focus {
-    box-shadow: 0 0 3px 3px lightpink;
-}
 
 .card {
     display: inline-block;
