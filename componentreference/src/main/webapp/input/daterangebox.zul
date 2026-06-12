@@ -1,0 +1,83 @@
+<zk xmlns:n="native">
+	<zscript><![CDATA[
+		java.util.Calendar c = java.util.Calendar.getInstance();
+		java.util.Date defaultBegin = c.getTime();
+		c.add(java.util.Calendar.DAY_OF_MONTH, 7);
+		java.util.Date defaultEnd = c.getTime();
+	]]></zscript>
+	<n:p>
+	Daterangebox (ZK EE, since 10.4.0) lets the user pick a single contiguous
+	date range in one component: a begin input on the left, an end input on the
+	right, and a calendar popup whose month panels paint the whole selected span.
+	It addresses the common "date range picker" need - between two dates, before
+	a date, or after a date.
+	</n:p>
+
+	<n:h1>Basic</n:h1>
+	<n:p>
+	two inputs with a calendar popup; by default the popup shows two month panels
+	side by side
+	</n:p>
+	<daterangebox/>
+
+	<n:h1>Separator and placeholders</n:h1>
+	<n:p>
+	separator is rendered between the two inputs; beginPlaceholder/endPlaceholder
+	hint each field
+	</n:p>
+	<daterangebox separator=" &#8594; "
+				  beginPlaceholder="Check-in" endPlaceholder="Check-out"/>
+
+	<n:h1>With time</n:h1>
+	<n:p>
+	showTime adds a time-picker row per endpoint and appends HH:mm to the inputs
+	</n:p>
+	<daterangebox showTime="true"/>
+
+	<n:h1>Number of month panels</n:h1>
+	<n:p>
+	numberOfMonths controls how many calendars the popup shows side by side (1-12)
+	</n:p>
+	<daterangebox numberOfMonths="1"/>
+	<daterangebox numberOfMonths="3"/>
+
+	<n:h1>Range length: minNights / maxNights</n:h1>
+	<n:p>
+	bound the selectable span in calendar days; a violation raises a
+	WrongValueException error box
+	</n:p>
+	<daterangebox minNights="2" maxNights="14"/>
+
+	<n:h1>Constraint</n:h1>
+	<n:p>
+	reuses the Datebox constraint syntax, applied to both endpoints
+	</n:p>
+	<daterangebox constraint="no past"/>
+	<daterangebox constraint="after 20260101, before 20261231"/>
+
+	<n:h1>allowEmpty</n:h1>
+	<n:p>
+	which endpoints may be left empty: none / begin / end / both (default both)
+	</n:p>
+	<daterangebox allowEmpty="end" endPlaceholder="(open ended)"/>
+
+	<n:h1>Today link and week-of-year</n:h1>
+	<daterangebox showTodayLink="true" weekOfYear="true"/>
+
+	<n:h1>Handling the change event</n:h1>
+	<n:p>
+	the range commits via onChange, carried by a RangeChangeEvent (not an
+	InputEvent) - read getRange() / getBegin() / getEnd()
+	</n:p>
+	<daterangebox id="booking"
+		onChange='picked.setValue("From " + event.getBegin() + " to " + event.getEnd())'/>
+	<label id="picked"/>
+
+	<n:h1>Disabled and readonly</n:h1>
+	<n:p>
+	disabled greys out the whole component; readonly keeps the popup usable but
+	the inputs are not editable by typing
+	</n:p>
+	<daterangebox disabled="true" beginValue="${defaultBegin}" endValue="${defaultEnd}"/>
+	<daterangebox readonly="true" beginValue="${defaultBegin}" endValue="${defaultEnd}"/>
+</zk>
