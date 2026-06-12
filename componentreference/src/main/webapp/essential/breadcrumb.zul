@@ -1,0 +1,43 @@
+<zk xmlns:n="native">
+	<n:h1>Default separator</n:h1>
+	the last item without an href is the current page (aria-current="page")
+
+	<n:div sclass="card">
+	<breadcrumb>
+		<breadcrumbitem label="Home" href="/"/>
+		<breadcrumbitem label="Components" href="/essential/"/>
+		<breadcrumbitem label="Breadcrumb"/>
+	</breadcrumb>
+	</n:div>
+
+	<n:h1>Icon separator</n:h1>
+	the "icon:" prefix renders an icon sclass as the separator
+	<n:div sclass="card">
+	<breadcrumb separator="icon:z-icon-chevron-right">
+		<breadcrumbitem label="Home" href="/"/>
+		<breadcrumbitem label="Library" href="/library/"/>
+		<breadcrumbitem label="Books"/>
+	</breadcrumb>
+	</n:div>
+
+	<n:h1>Collapse with maxItems</n:h1>
+	when item count exceeds maxItems, leading items collapse behind a "…" button
+	<n:div sclass="card">
+	<breadcrumb maxItems="3">
+		<breadcrumbitem label="Home" href="/"/>
+		<breadcrumbitem label="Catalog" href="/catalog/"/>
+		<breadcrumbitem label="Electronics" href="/catalog/electronics/"/>
+		<breadcrumbitem label="Computers" href="/catalog/electronics/computers/"/>
+		<breadcrumbitem label="Laptops"/>
+	</breadcrumb>
+	</n:div>
+
+	<n:h1>Disabled item</n:h1>
+	<n:div sclass="card">
+	<breadcrumb>
+		<breadcrumbitem label="Home" href="/"/>
+		<breadcrumbitem label="Restricted" disabled="true"/>
+		<breadcrumbitem label="Current"/>
+	</breadcrumb>
+	</n:div>
+</zk>

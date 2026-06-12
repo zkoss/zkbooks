@@ -1,0 +1,42 @@
+<zk xmlns:n="native">
+	<n:h1>Inline mode</n:h1>
+	a standalone badge with no children renders at the document position
+	<n:h2>Value</n:h2>
+	<badge value="NEW"/>
+	<n:h2>Count and max</n:h2>
+	count above max (default 99) renders as {max}+
+	<badge count="5"/>
+	<badge count="120"/>
+	<badge count="8" max="5"/>
+	<n:h2>Show zero</n:h2>
+	by default a zero count renders nothing; showZero forces it
+	<badge count="0"/>
+	<badge count="0" showZero="true"/>
+	<n:h2>Severity</n:h2>
+	<badge count="1" severity="info"/>
+	<badge count="2" severity="success"/>
+	<badge count="3" severity="warning"/>
+	<badge count="4" severity="danger"/>
+	<badge count="5" severity="secondary"/>
+
+	<n:h1>Wrap mode</n:h1>
+	with exactly one child, the badge overlays the child at the given placement
+	<badge count="3" placement="top_right">
+		<button label="Inbox"/>
+	</badge>
+	<badge count="7" placement="top_left">
+		<button label="Alerts"/>
+	</badge>
+	<badge count="9" placement="bottom_right">
+		<button label="Tasks"/>
+	</badge>
+	<badge count="2" placement="bottom_left">
+		<button label="Drafts"/>
+	</badge>
+
+	<n:h1>Dot</n:h1>
+	the dot mode ignores value/count and shows a small colored dot
+	<badge dot="true" severity="danger" placement="top_right">
+		<button label="Messages"/>
+	</badge>
+</zk>

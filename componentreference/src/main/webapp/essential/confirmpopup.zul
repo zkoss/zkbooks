@@ -1,0 +1,34 @@
+<zk xmlns:n="native">
+	<n:h1>Basic</n:h1>
+	a confirmpopup is a Popup; open it relative to a reference element
+	<button label="Delete">
+		<attribute name="onClick">basic.open(self);</attribute>
+	</button>
+	<confirmpopup id="basic" message="Delete this item?"
+				  onOK='Clients.showNotification("confirmed")'
+				  onCancel='Clients.showNotification("cancelled")'/>
+	<n:p>Esc fires onCancel, clicking outside fires onCancel, Enter fires onOK.</n:p>
+
+	<n:h1>Severity</n:h1>
+	<button label="Danger">
+		<attribute name="onClick">danger.open(self);</attribute>
+	</button>
+	<confirmpopup id="danger" severity="danger"
+				  message="This action cannot be undone. Continue?"/>
+
+	<n:h1>Placement</n:h1>
+	placement is relative to the reference element passed to open()
+	<button label="Open below">
+		<attribute name="onClick">below.open(self);</attribute>
+	</button>
+	<confirmpopup id="below" placement="bottom" message="Popup below the button"/>
+
+	<n:h1>Header and icon</n:h1>
+	an optional header title, a custom icon, and the initial focus on Cancel
+	<button label="Save changes">
+		<attribute name="onClick">custom.open(self);</attribute>
+	</button>
+	<confirmpopup id="custom" severity="info" header="Unsaved changes"
+				  iconSclass="z-icon-circle-info" defaultFocus="cancel"
+				  message="Save your changes before leaving?"/>
+</zk>

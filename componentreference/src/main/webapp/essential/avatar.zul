@@ -1,0 +1,23 @@
+<zk xmlns:n="native">
+	<n:h1>Shape</n:h1>
+	<avatar image="/multimedia/zklogo3.png" shape="circle"/>
+	<avatar image="/multimedia/zklogo3.png" shape="square"/>
+
+	<n:h1>Size</n:h1>
+	<avatar image="/multimedia/zklogo3.png" size="small"/>
+	<avatar image="/multimedia/zklogo3.png" size="medium"/>
+	<avatar image="/multimedia/zklogo3.png" size="large"/>
+
+	<n:h1>Initials fallback</n:h1>
+	when no image source is available, the label initials are shown
+	<avatar label="Jensen Huang"/>
+	<avatar label="ZK"/>
+
+	<n:h1>Clickable</n:h1>
+	an avatar with an onClick listener behaves as a button
+	<avatar label="Tom">
+		<attribute name="onClick">
+			Clients.showNotification("avatar clicked");
+		</attribute>
+	</avatar>
+</zk>

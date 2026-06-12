@@ -1,0 +1,56 @@
+<zk xmlns:n="native">
+	<n:h1>Basic</n:h1>
+	<n:p>
+	a carousel of carouselitem slides; onSelect carries the new index
+	</n:p>
+	<carousel width="600px" height="300px"
+			  onSelect='Clients.showNotification("slide " + event.getData());'>
+		<carouselitem image="/multimedia/cropper-image.jpg"/>
+		<carouselitem image="/multimedia/zklogo3.png"/>
+		<carouselitem label="A slide can also hold any markup">
+			<vlayout>
+				<label value="Custom slide body"/>
+				<button label="Action"/>
+			</vlayout>
+		</carouselitem>
+	</carousel>
+
+	<n:h1>Autoplay</n:h1>
+	<n:p>
+	autoplay advances every interval ms (minimum 500); pauses on hover
+	</n:p>
+	<carousel width="600px" height="300px" autoplay="true" interval="2000">
+		<carouselitem image="/multimedia/cropper-image.jpg"/>
+		<carouselitem image="/multimedia/zklogo3.png"/>
+	</carousel>
+
+	<n:h1>Effect: fade</n:h1>
+	<carousel width="600px" height="300px" effect="fade">
+		<carouselitem image="/multimedia/cropper-image.jpg"/>
+		<carouselitem image="/multimedia/zklogo3.png"/>
+	</carousel>
+
+	<n:h1>Effect: none</n:h1>
+	<n:p>
+	an instantaneous swap with no transition
+	</n:p>
+	<carousel width="600px" height="300px" effect="none">
+		<carouselitem image="/multimedia/cropper-image.jpg"/>
+		<carouselitem image="/multimedia/zklogo3.png"/>
+	</carousel>
+
+	<n:h1>Vertical orientation</n:h1>
+	<carousel width="600px" height="300px" orient="vertical">
+		<carouselitem image="/multimedia/cropper-image.jpg"/>
+		<carouselitem image="/multimedia/zklogo3.png"/>
+	</carousel>
+
+	<n:h1>No loop</n:h1>
+	<n:p>
+	with loop="false", the prev/next arrows are disabled at the boundaries
+	</n:p>
+	<carousel width="600px" height="300px" loop="false">
+		<carouselitem image="/multimedia/cropper-image.jpg"/>
+		<carouselitem image="/multimedia/zklogo3.png"/>
+	</carousel>
+</zk>
