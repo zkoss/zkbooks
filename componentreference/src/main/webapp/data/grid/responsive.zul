@@ -1,0 +1,107 @@
+<zk xmlns:h="native">
+    <h:p>
+        Drag the bottom-right corner of each dashed box to narrow the container and see the grid switch
+        between the table layout and the stacking (card) layout. The breakpoint is evaluated against the
+        grid's own width, not the browser window. Stacking is implemented in zkmax (EE).
+    </h:p>
+
+    <h:h1>responsive="stacking"</h:h1>
+    <h:p>Default cascade "sm-1 md-none": 1 card per row below 768px, table at 768px and above.</h:p>
+    <h:div class="resizable">
+        <grid responsive="stacking" width="100%">
+            <apply template="grid-content"/>
+        </grid>
+    </h:div>
+
+    <h:h1>responsiveColumns</h:h1>
+    <h:p>"sm-1 md-2 lg-none": 1 card per row below 768px, 2 cards per row at 768px, table at 992px and above.</h:p>
+    <h:div class="resizable">
+        <grid responsive="stacking" responsiveColumns="sm-1 md-2 lg-none" width="100%">
+            <apply template="grid-content"/>
+        </grid>
+    </h:div>
+
+    <h:h1>responsiveVisible</h:h1>
+    <h:p>A column with responsiveVisible="false" is shown in table mode but omitted from each card.</h:p>
+    <h:div class="resizable">
+        <grid responsive="stacking" width="100%">
+            <columns>
+                <column label="Name"/>
+                <column label="Email"/>
+                <column label="Department"/>
+                <column label="Internal ID" responsiveVisible="false"/>
+            </columns>
+            <rows>
+                <row>
+                    <label value="Alice"/>
+                    <label value="alice@example.com"/>
+                    <label value="Engineering"/>
+                    <label value="EMP-0001"/>
+                </row>
+                <row>
+                    <label value="Bob"/>
+                    <label value="bob@example.com"/>
+                    <label value="Design"/>
+                    <label value="EMP-0002"/>
+                </row>
+            </rows>
+        </grid>
+    </h:div>
+
+    <h:h1>responsive="none"</h:h1>
+    <h:p>
+        Explicitly disables stacking, overriding the global default set by the library property
+        org.zkoss.zul.grid.responsive.
+    </h:p>
+    <h:div class="resizable">
+        <grid responsive="none" width="100%">
+            <apply template="grid-content"/>
+        </grid>
+    </h:div>
+
+    <h:h1>onResponsiveModeChange</h:h1>
+    <h:p>Fired when the effective mode switches; it does not fire on the initial resolution.</h:p>
+    <label id="modeLabel" value="mode = (no change yet)" style="font-weight:bold"/>
+    <h:div class="resizable">
+        <grid responsive="stacking" width="100%"
+              onResponsiveModeChange='modeLabel.setValue("mode = " + event.getData().get("mode"))'>
+            <apply template="grid-content"/>
+        </grid>
+    </h:div>
+
+    <template name="grid-content">
+        <columns>
+            <column label="Name"/>
+            <column label="Email"/>
+            <column label="Department"/>
+        </columns>
+        <rows>
+            <row>
+                <label value="Alice"/>
+                <label value="alice@example.com"/>
+                <label value="Engineering"/>
+            </row>
+            <row>
+                <label value="Bob"/>
+                <label value="bob@example.com"/>
+                <label value="Design"/>
+            </row>
+            <row>
+                <label value="Carol"/>
+                <label value="carol@example.com"/>
+                <label value="Marketing"/>
+            </row>
+        </rows>
+    </template>
+
+    <style>
+        .resizable {
+            resize: horizontal;
+            overflow: auto;
+            min-width: 280px;
+            max-width: 100%;
+            padding: 8px;
+            border: 1px dashed #999;
+        }
+    </style>
+</zk>
