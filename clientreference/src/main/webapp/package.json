@@ -1,0 +1,7 @@
+{
+  "devDependencies": {
+    "@types/jquery": "^3.5.29",
+    "typescript": "^5.3.3",
+    "zk-types": "^10.0.0"
+  }
+}

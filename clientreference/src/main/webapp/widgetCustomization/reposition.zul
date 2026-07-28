@@ -1,0 +1,35 @@
+<zk>
+    <div style="padding-top: 200px" >
+        reposition the bandbox popup for each clicking
+        <bandbox id="bbox" autodrop="true"  style="margin-top:300px">
+            <bandpopup>
+                    <listbox id="lbox" width="250px"
+                             onSelect='bbox.value=self.selectedItem.label; lbox.removeChild(lbox.getLastChild());'>
+                        <listhead>
+                            <listheader label="Name" />
+                            <listheader label="Description" />
+                        </listhead>
+                        <listitem>
+                            <listcell label="John" />
+                            <listcell label="CEO" />
+                        </listitem>
+                        <listitem>
+                            <listcell label="Joe" />
+                            <listcell label="Engineer" />
+                        </listitem>
+                        <listitem>
+                            <listcell label="Mary" />
+                            <listcell label="Supervisor" />
+                        </listitem>
+                    </listbox>
+            </bandpopup>
+        </bandbox>
+        <script><![CDATA[
+function repos(){
+    var bandbox = zk.Widget.$("$bd");
+    bandbox._checkPopupSpaceAndPosition(bandbox.getPopupNode_(), bandbox.$n());
+}
+        ]]></script>
+    </div>
+    <script src="reposition.js"/>
+</zk>
