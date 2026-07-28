@@ -1,0 +1,7 @@
+<zk>
+    <button label="add message"
+            onClick='msgArea.appendChild(new Label("msg " + System.currentTimeMillis()))'/>
+    <vlayout id="msgArea">
+
+    </vlayout>
+</zk>

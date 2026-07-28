@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<zk xmlns="http://www.zkoss.org/2005/zk/config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.zkoss.org/2005/zk/config http://www.zkoss.org/2005/zk/config/zk.xsd">
+	<!-- Refer to https://www.zkoss.org/wiki/ZK%20Configuration%20Reference/zk.xml for complete settings reference -->
+	<system-config>
+		<id-generator-class>org.zkoss.zk.ui.impl.StaticIdGenerator</id-generator-class>
+	</system-config>
+</zk>
