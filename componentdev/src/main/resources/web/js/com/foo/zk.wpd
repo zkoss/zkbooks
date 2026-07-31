@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	zk.wpd - the Widget Package Descriptor for the com.foo package.
+
+	Must be named zk.wpd and live at web/js/com/foo/ - the widget package name with
+	dots turned into slashes.
+
+	language="xul/html" is required: without it ZK serves the widget class but NO
+	molds, and the component renders as an empty element with no error message.
+-->
+<package name="com.foo" language="xul/html" depends="zul">
+	<widget name="SimpleLabel"/>
+</package>

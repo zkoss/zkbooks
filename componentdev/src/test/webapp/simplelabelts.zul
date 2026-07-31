@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	simplelabelts.zul - the TRACK PARITY fixture.
+
+	Holds both client implementations of the same server class on one page, so the parity
+	test compares them under identical conditions.
+
+	Deliberately separate from simplelabel.zul: a JavaScript error anywhere on a ZK page
+	stops that page's AU cycle, so a broken TypeScript widget sitting on the shared
+	fixture would fail every plain-JS test too. Keeping the tracks on separate pages means
+	a failure names the track that broke.
+-->
+<zk>
+	<zscript><![CDATA[
+		void onJsClear(org.zkoss.zk.ui.event.Event event) {
+			com.foo.ClearEvent ce = (com.foo.ClearEvent) event;
+			msg.setValue(ce.isCleared() ? "cleared" : "restored");
+		}
+
+		// Identical logic, different output label: the TS widget must deliver the same
+		// event with the same payload as the plain-JS one.
+		void onTsClear(org.zkoss.zk.ui.event.Event event) {
+			com.foo.ClearEvent ce = (com.foo.ClearEvent) event;
+			tsmsg.setValue(ce.isCleared() ? "cleared" : "restored");
+		}
+	]]></zscript>
+
+	<vlayout>
+		<!-- Plain-JS track: widget-class com.foo.SimpleLabel -->
+		<simplelabel id="greet" value="Hello ZK" onClear="onJsClear(event)"/>
+
+		<!-- TypeScript track: SAME component-class, widget-class labts.SimpleLabel -->
+		<simplelabelts id="ts" value="Hello ZK" onClear="onTsClear(event)"/>
+
+		<label id="msg" value="untouched"/>
+		<label id="tsmsg" value="untouched"/>
+	</vlayout>
+</zk>

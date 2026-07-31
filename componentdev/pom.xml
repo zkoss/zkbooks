@@ -1,0 +1,248 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.zkoss.reference</groupId>
+	<artifactId>componentdev</artifactId>
+	<version>1.0.0</version>
+	<packaging>jar</packaging>
+	<name>The Component Development Essentials Example Project</name>
+	<description>The example code used in "ZK Component Development Essentials". Builds a
+		distributable component jar; the demo webapp under src/test/webapp is served by
+		mvn jetty:run.</description>
+
+	<licenses>
+		<license>
+			<name>GNU LESSER GENERAL PUBLIC LICENSE, Version 3</name>
+			<url>http://www.gnu.org/licenses/lgpl.html</url>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven.compiler.source>11</maven.compiler.source>
+		<maven.compiler.target>11</maven.compiler.target>
+
+		<!-- Pin literally. The CE repo's <release> pointer is 10.3.0.1-jakarta, so
+		     RELEASE/LATEST/version-ranges would silently select the jakarta flavor. -->
+		<zk.version>10.3.0.1</zk.version>
+		<zats.version>10.2.1</zats.version>
+		<zkwebdriver.version>1.4.43.0.0</zkwebdriver.version>
+		<jetty.version>10.0.24</jetty.version>
+		<junit.version>5.11.3</junit.version>
+
+		<!-- one place to change the context path; used by jetty:run AND the WebDriver suite -->
+		<lab.contextPath>/componentdev</lab.contextPath>
+		<lab.webapp>./src/test/webapp/</lab.webapp>
+	</properties>
+
+	<repositories>
+		<!-- ZK CE, ZATS and zk-webdriver are NOT on Maven Central. -->
+		<repository>
+			<id>ZK CE</id>
+			<name>ZK CE Repository</name>
+			<url>https://mavensync.zkoss.org/maven2</url>
+		</repository>
+	</repositories>
+	<pluginRepositories>
+		<pluginRepository>
+			<id>zkmaven</id>
+			<name>ZK Maven Plugin Repository</name>
+			<url>https://mavensync.zkoss.org/maven2</url>
+		</pluginRepository>
+	</pluginRepositories>
+
+	<dependencyManagement>
+		<dependencies>
+			<!-- zk-webdriver brings Jetty 10.0.24 at depth 1; zats-mimic brings jetty-webapp
+			     AND websocket-javax-server 10.0.15 at depth 2. Nearest-wins would mix the two.
+			     This BOM manages both org.eclipse.jetty and org.eclipse.jetty.websocket. -->
+			<dependency>
+				<groupId>org.eclipse.jetty</groupId>
+				<artifactId>jetty-bom</artifactId>
+				<version>${jetty.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.junit</groupId>
+				<artifactId>junit-bom</artifactId>
+				<version>${junit.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			<!-- zk-webdriver declares guava 33.3.1-jre at depth 1, ZK declares 33.4.8-jre at
+			     depth 3; nearest-wins would silently DOWNGRADE guava. Pin it forward. -->
+			<dependency>
+				<groupId>com.google.guava</groupId>
+				<artifactId>guava</artifactId>
+				<version>33.4.8-jre</version>
+			</dependency>
+			<!-- Same shape: zats-mimic declares slf4j-api 1.7.31 at depth 3, zcommon 2.0.7
+			     at depth 5. Verified benign, pinned anyway so it stays that way. -->
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>slf4j-api</artifactId>
+				<version>2.0.7</version>
+			</dependency>
+			<!-- NOT optional. zcommon (via zweb-dsp, depth 3, COMPILE) pins httpcore5 to
+			     5.2.4, while Selenium's httpclient5:5.6 brings httpcore5-h2:5.4 at depth 4.
+			     Maven's nearest-wins keeps 5.2.4, and mixing it with httpcore5-h2 5.4 fails
+			     at runtime with:
+
+			       NoSuchMethodError: DefaultHttpRequestWriterFactory.<init>(Http1Config)
+
+			     which surfaces as "NoClassDefFoundError: Could not initialize class
+			     ChromiumHeadlessDriver" on every subsequent test, because the JVM caches
+			     the initialization failure. Pin httpcore5 forward to match the h2 artifact. -->
+			<dependency>
+				<groupId>org.apache.httpcomponents.core5</groupId>
+				<artifactId>httpcore5</artifactId>
+				<version>5.4</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<dependencies>
+		<!-- ============ the component itself: ZK 10.3.0.1 CE, javax ============ -->
+		<!-- zul brings zk, zweb, zcommon, zel, zkwebfragment transitively. -->
+		<dependency>
+			<groupId>org.zkoss.zk</groupId>
+			<artifactId>zul</artifactId>
+			<version>${zk.version}</version>
+		</dependency>
+		<!-- Needed only by the data-binding chapter; optional so consumers of this jar
+		     do not inherit it. -->
+		<dependency>
+			<groupId>org.zkoss.zk</groupId>
+			<artifactId>zkbind</artifactId>
+			<version>${zk.version}</version>
+			<optional>true</optional>
+		</dependency>
+		<!-- Serves the mold's *.css.dsp. Without it the stylesheet 404s at runtime. -->
+		<dependency>
+			<groupId>org.zkoss.common</groupId>
+			<artifactId>zweb-dsp</artifactId>
+			<version>${zk.version}</version>
+		</dependency>
+		<!-- MUST be declared: 'provided' is not transitive, so it does not arrive from zul. -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>4.0.1</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<!-- ============ test harness ============ -->
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<!-- Server-side: ZATS Mimic. Free, in CE. Newest release is 10.2.1; no 10.3.x exists. -->
+		<dependency>
+			<groupId>org.zkoss.zats</groupId>
+			<artifactId>zats-mimic-ext</artifactId>
+			<version>${zats.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<!-- ZATS declares this at 10.0.15; realign with jetty-bom (version omitted on purpose). -->
+		<dependency>
+			<groupId>org.eclipse.jetty.websocket</groupId>
+			<artifactId>websocket-javax-server</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<!-- Client round trip: ZK WebDriver. Free, in CE. Brings selenium-java and
+		     webdrivermanager (which auto-provisions chromedriver; a Chrome BROWSER must exist). -->
+		<dependency>
+			<groupId>org.zkoss.test</groupId>
+			<artifactId>zk-webdriver</artifactId>
+			<version>${zkwebdriver.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<!-- Without an slf4j binding the emulator's diagnostics are lost. -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-simple</artifactId>
+			<version>2.0.7</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<finalName>${project.artifactId}</finalName>
+		<plugins>
+			<!-- mvn jetty:run serves the demo webapp in src/test/webapp against this jar's
+			     classes. Jetty 9.4 is the zkbooks house version and is verified to support
+			     all four of the jar-packaging options below.
+
+			     NOTE: deliberately NO <useTestScope>. The archetype sets it, but this project's
+			     test scope contains Jetty 10 artifacts, and putting those on a Jetty 9.4
+			     plugin runtime classpath mixes two Jetty generations. The demo needs only the
+			     main classes plus compile-scope deps. -->
+			<plugin>
+				<groupId>org.eclipse.jetty</groupId>
+				<artifactId>jetty-maven-plugin</artifactId>
+				<version>9.4.54.v20240208</version>
+				<configuration>
+					<stopKey>componentdev</stopKey>
+					<stopPort>10080</stopPort>
+					<webApp>
+						<contextPath>${lab.contextPath}</contextPath>
+						<!-- skip web-fragment scanning: faster startup -->
+						<webInfIncludeJarPattern>^$</webInfIncludeJarPattern>
+						<containerIncludeJarPattern>^$</containerIncludeJarPattern>
+					</webApp>
+					<webAppSourceDirectory>${basedir}/src/test/webapp</webAppSourceDirectory>
+					<classesDirectory>${project.build.outputDirectory}</classesDirectory>
+					<supportedPackagings>
+						<supportedPackaging>jar</supportedPackaging>
+					</supportedPackagings>
+					<scanIntervalSeconds>5</scanIntervalSeconds>
+				</configuration>
+			</plugin>
+
+			<!-- surefire runs the ZATS tests (*Test.java): fast, no browser, offline.
+			     forkCount/reuseForks mirror Gradle's forkEvery=1, which every ZK test task
+			     uses: ZK's static per-WebApp state does not survive repeated emulator
+			     init/destroy in one JVM. -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>3.2.5</version>
+				<configuration>
+					<forkCount>1</forkCount>
+					<reuseForks>false</reuseForks>
+				</configuration>
+			</plugin>
+
+			<!-- failsafe runs the ZK WebDriver tests (*IT.java) in mvn verify. Needs a local
+			     Chrome. WebDriverTestCase starts its own Jetty, so no jetty:run is required. -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-failsafe-plugin</artifactId>
+				<version>3.2.5</version>
+				<configuration>
+					<forkCount>1</forkCount>
+					<reuseForks>false</reuseForks>
+					<systemPropertyVariables>
+						<!-- MANDATORY: BaseTestCase.getContextPath() throws
+						     IllegalArgumentException without it. -->
+						<zkWebdriverContextPath>${lab.contextPath}</zkWebdriverContextPath>
+						<!-- MANDATORY HERE: the default is ./src/main/webapp/, but this
+						     project's demo app lives in src/test/webapp. -->
+						<zkWebdriverBaseResource>${lab.webapp}</zkWebdriverBaseResource>
+					</systemPropertyVariables>
+				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>integration-test</goal>
+							<goal>verify</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+</project>

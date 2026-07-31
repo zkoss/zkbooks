@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	simplelabel.zul - the fixture BOTH test suites drive.
+
+	Kept deliberately minimal and stable: the ZATS test and the WebDriver test both
+	assert against these ids, so adding decoration here can break tests elsewhere.
+-->
+<zk>
+	<zscript><![CDATA[
+		// Keeps the page self-contained: no controller class needed.
+		void onLabelClear(org.zkoss.zk.ui.event.Event event) {
+			com.foo.ClearEvent ce = (com.foo.ClearEvent) event;
+			msg.setValue(ce.isCleared() ? "cleared" : "restored");
+		}
+	]]></zscript>
+
+	<vlayout>
+		<!-- The default mold. -->
+		<simplelabel id="greet" value="Hello ZK" onClear="onLabelClear(event)"/>
+
+		<!-- The same component, second mold. Proves mold selection works from ZUL. -->
+		<simplelabel id="fancy" value="Hello ZK" mold="fancy"/>
+
+		<!-- The server's view of the last client event. -->
+		<label id="msg" value="untouched"/>
+	</vlayout>
+</zk>

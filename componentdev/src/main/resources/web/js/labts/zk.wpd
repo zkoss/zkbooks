@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	zk.wpd for the TypeScript track's package.
+
+	<widget name="SimpleLabel"/> makes ZK inline the bytes of SimpleLabel.js - the tsc
+	OUTPUT, not the .ts source - into the concatenated WPD response. The compiler writes
+	that file here; see tsconfig.json.
+
+	Contrast with ZK's own zk.wpd files, which use <script src="index.js"/> plus
+	moldOnly="true", because ZK bundles a whole package into one index.js. One .js per
+	widget is simpler and is what a component author should start with.
+-->
+<package name="labts" language="xul/html" depends="zul">
+	<widget name="SimpleLabel"/>
+</package>

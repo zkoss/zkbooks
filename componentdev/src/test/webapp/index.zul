@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<zk>
+	<style>
+		body { font-family: sans-serif; padding: 2em; }
+		.note { color: #666; font-size: 0.9em; }
+	</style>
+
+	<vlayout spacing="1em">
+		<label value="ZK Component Development Essentials - lab" sclass="h1"
+				style="font-size:1.4em;font-weight:bold"/>
+		<label sclass="note" value="Every code snippet in the book is extracted from
+				this project. If a demo below is broken, the book is wrong."/>
+
+		<separator/>
+
+		<label value="com.foo.SimpleLabel - default mold, plain JS track"
+				style="font-weight:bold"/>
+		<simplelabel id="greet" value="Hello ZK"/>
+		<label sclass="note" value="Click it: the text toggles on the client and an
+				onClear event reaches the server."/>
+
+		<separator/>
+
+		<label value="com.foo.SimpleLabel - fancy mold" style="font-weight:bold"/>
+		<simplelabel value="Hello ZK" mold="fancy"/>
+		<label sclass="note" value="Same widget class, same sub-element ids, different
+				DOM structure and one extra scoped class."/>
+
+		<separator/>
+
+		<label sclass="note" value="Test fixture: /simplelabel.zul"/>
+	</vlayout>
+</zk>

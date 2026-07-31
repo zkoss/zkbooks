@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	Minimal ZK 10 (javax) descriptor for the demo webapp.
+
+	Servlets are declared explicitly rather than relying on annotation scanning,
+	because ZK WebDriver's embedded Jetty enables neither annotation scanning nor JSP.
+	The same file therefore works for mvn jetty:run, ZATS and the WebDriver suite.
+-->
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+		                    http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+		version="4.0">
+
+	<display-name>ZK Component Development Essentials - lab</display-name>
+
+	<listener>
+		<listener-class>org.zkoss.zk.ui.http.HttpSessionListener</listener-class>
+	</listener>
+
+	<servlet>
+		<description>The ZK loader for ZUML pages</description>
+		<servlet-name>zkLoader</servlet-name>
+		<servlet-class>org.zkoss.zk.ui.http.DHtmlLayoutServlet</servlet-class>
+		<init-param>
+			<param-name>update-uri</param-name>
+			<param-value>/zkau</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>zkLoader</servlet-name>
+		<url-pattern>*.zul</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<description>
+			The asynchronous update engine. It also serves classpath resources under
+			/web/** (ClassWebResource), which is how
+			src/main/resources/web/js/com/foo/SimpleLabel.js reaches the browser.
+		</description>
+		<servlet-name>auEngine</servlet-name>
+		<servlet-class>org.zkoss.zk.au.http.DHtmlUpdateServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>auEngine</servlet-name>
+		<url-pattern>/zkau/*</url-pattern>
+	</servlet-mapping>
+
+	<!-- Serves *.css.dsp. Omit this and the mold's stylesheet 404s, which shows up
+	     as a correctly-structured but completely unstyled component. -->
+	<servlet>
+		<servlet-name>dspLoader</servlet-name>
+		<servlet-class>org.zkoss.web.servlet.dsp.InterpreterServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>dspLoader</servlet-name>
+		<url-pattern>*.dsp</url-pattern>
+	</servlet-mapping>
+
+	<welcome-file-list>
+		<welcome-file>index.zul</welcome-file>
+	</welcome-file-list>
+</web-app>

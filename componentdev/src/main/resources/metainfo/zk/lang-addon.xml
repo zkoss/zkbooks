@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	lang-addon.xml
+
+	Registers the component with the xul/html language. This file is found
+	automatically because it sits at metainfo/zk/lang-addon.xml on the classpath -
+	no entry in zk.xml is needed when the component ships as a jar.
+-->
+<language-addon>
+	<addon-name>componentdev</addon-name>
+	<language-name>xul/html</language-name>
+	<!-- Load after zul, so zul.Widget exists before our widget extends it. -->
+	<depends>zul</depends>
+
+	<component>
+		<!-- The ZUL tag name: <simplelabel .../> -->
+		<component-name>simplelabel</component-name>
+		<!-- The server-side class. -->
+		<component-class>com.foo.SimpleLabel</component-class>
+		<!-- The client-side widget class. MUST equal the zk.wpd <package name>
+		     plus '.' plus its <widget name>, or the client cannot find it. -->
+		<widget-class>com.foo.SimpleLabel</widget-class>
+
+		<mold>
+			<mold-name>default</mold-name>
+			<!-- Resolved relative to the directory holding zk.wpd. -->
+			<mold-uri>mold/simple-label.js</mold-uri>
+			<!-- NOTE: css-uri is language-wide - it loads on every page of the
+			     application, not only where this mold is used. -->
+			<css-uri>css/simplelabel.css.dsp</css-uri>
+		</mold>
+		<mold>
+			<mold-name>fancy</mold-name>
+			<mold-uri>mold/fancy.js</mold-uri>
+		</mold>
+	</component>
+
+	<!--
+		The SAME server-side class, paired with the TypeScript track's widget.
+
+		This is not a second component so much as a second CLIENT IMPLEMENTATION of one
+		server contract: <simplelabel> uses the plain-JS widget, <simplelabelts> uses the
+		tsc-compiled one. The test suite asserts both render equivalent DOM and deliver
+		the same onClear event, which is what makes "pick either track" an honest claim
+		rather than an assertion.
+	-->
+	<component>
+		<component-name>simplelabelts</component-name>
+		<component-class>com.foo.SimpleLabel</component-class>
+		<widget-class>labts.SimpleLabel</widget-class>
+
+		<mold>
+			<mold-name>default</mold-name>
+			<mold-uri>mold/simple-label.js</mold-uri>
+		</mold>
+	</component>
+</language-addon>

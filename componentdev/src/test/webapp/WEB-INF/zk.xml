@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	Development-loop settings.
+
+	These make an edit to SimpleLabel.js, a mold or the css.dsp visible on a plain
+	browser reload. Without them ZK caches the assembled WPD response and you end up
+	debugging a stale copy of your own widget - the single most common time-waster
+	when developing a component.
+
+	Do NOT ship these settings in production: they disable caching entirely.
+-->
+<zk>
+	<client-config>
+		<!-- serve unminified JS and keep the source readable in devtools -->
+		<debug-js>true</debug-js>
+	</client-config>
+	<library-property>
+		<name>org.zkoss.zk.WPD.cache</name>
+		<value>false</value>
+	</library-property>
+	<library-property>
+		<name>org.zkoss.zk.WCS.cache</name>
+		<value>false</value>
+	</library-property>
+</zk>

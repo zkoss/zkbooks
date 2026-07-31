@@ -1,0 +1,7 @@
+target/
+node_modules/
+*.tsbuildinfo
+
+# NOTE: src/main/resources/web/js/labts/SimpleLabel.js is tsc OUTPUT but is
+# deliberately COMMITTED, so `mvn verify` can test the TypeScript track without
+# requiring npm. Regenerate it with `npm run build`.

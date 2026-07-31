@@ -1,0 +1,65 @@
+/* https://www.typescriptlang.org/tsconfig
+ *
+ * The advanced (TypeScript) authoring track. Every non-obvious flag below carries the
+ * reason it is there, because getting any one of them wrong produces a widget that
+ * compiles and then fails silently in the browser.
+ *
+ * Regenerate the emitted JS with:  npm install && npm run build
+ *
+ * The output is committed to src/main/resources/web/js/labts/ on purpose, so that
+ * `mvn verify` tests the real compiled artifact without requiring npm. Nothing in the
+ * Maven build shells out to node.
+ */
+{
+  "compilerOptions": {
+    /* One entry pulls in the typings for zk, zul, zhtml, zkbind and the rest. */
+    "types": ["zk-types"],
+
+    /* MUST be es5 - this is not a style choice, and getting it wrong produces a widget
+       that compiles cleanly and then dies in the browser with:
+
+         Uncaught TypeError: Class constructor SimpleLabel cannot be invoked without 'new'
+
+       ZK instantiates a widget class by CALLING it, which a native ES2015 class forbids.
+       At es5 tsc emits a plain function instead, which ZK can call. ZK's own
+       tsconfig.json targets es5 for exactly this reason.
+
+       Consequence, and the reason the widget below uses `super.bind_()`: tsc's own
+       inline __extends does not set the `_$super` property that ZK's build-time
+       replacement (extends.js, ZK-5441) adds. That property is what makes the
+       class-argument form `$supers(labts.SimpleLabel, 'bind_', arguments)` work, so in a
+       plain-tsc project that form is unavailable. `super.method()` compiles to
+       `_super.prototype.method.call(this, ...)` and works regardless. */
+    "target": "es5",
+    "lib": ["ES2020", "DOM"],
+
+    /* THE critical pair.
+       module:"none" keeps the emit a classic browser script that zk.wpd can inline
+       verbatim - no exports, no require, no define.
+       moduleResolution:"node" is nonetheless REQUIRED, because module:"none" otherwise
+       defaults to classic resolution, which cannot resolve zk-types' `export * from '.'`
+       barrels - you would get "Property 'WrapClass' does not exist on type 'typeof _zk'". */
+    "module": "none",
+    "moduleResolution": "node",
+
+    /* @zk.WrapClass is a legacy TS decorator, not a TS 5 standard decorator. */
+    "experimentalDecorators": true,
+
+    "strict": true,
+    /* Forces `override bind_()`, matching ZK's own tsconfig. Catches the case where a
+       lifecycle hook is misspelled and therefore silently never called. */
+    "noImplicitOverride": true,
+    /* zk-types ships typings for editions we do not compile against. */
+    "skipLibCheck": true,
+    /* A type error must fail the build, not quietly ship a broken widget. */
+    "noEmitOnError": true,
+
+    /* rootDir is REQUIRED, not cosmetic. Without it tsc infers the root as the longest
+       common prefix of the inputs, so a single package emits to web/js/SimpleLabel.js -
+       the "labts/" segment is silently dropped and the WPD can never resolve it. The
+       inferred root also MOVES when a second package is added. */
+    "rootDir": "src/main/ts",
+    "outDir": "src/main/resources/web/js"
+  },
+  "include": ["src/main/ts/**/*.ts"]
+}
