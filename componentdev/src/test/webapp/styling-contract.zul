@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	styling-contract.zul - the fixture DomAttrsIT and ZclassRuntimeIT drive.
+
+	A NEW page rather than an edit to styling.zul or moldforms.zul: StylingIT, ScopedDomIT
+	and MoldFormIT assert EXACT class attributes against those pages, and this one carries
+	components with sclass/style/tooltiptext/tabindex and a client attribute set, plus two
+	tests that install extra molds at runtime. None of that must become visible to them.
+
+	Design notes, both load-bearing:
+
+	1. no wrapper component. Everything sits directly under <zk>, so nothing but the
+	   widget's own domAttrs_() can contribute to a class attribute - which is what lets
+	   the tests compare domAttrs_() output as an EXACT string.
+	2. one component per claim, so a test that mutates a widget (setMold, setSclass,
+	   setZclass) cannot disturb the widget another test reads.
+-->
+<zk xmlns:ca="client/attribute">
+	<!-- #bare: nothing set but the value. domAttrs_() must then emit exactly
+	     ' id="<uuid>" class="z-simplelabel"' - no style, no title, no tabindex. That is
+	     the "each appears only when it has a value" half of the claim. -->
+	<simplelabel id="bare" value="Hi"/>
+
+	<!-- #full: every attribute domAttrs_() knows how to emit, so the documented ORDER
+	     (id, style, class, title, tabindex) is observable in one string. -->
+	<simplelabel id="full" value="Hi" style="width:100px" tooltiptext="tip" sclass="foo" tabindex="3"/>
+
+	<!-- #attrs: a client attribute, i.e. what the server's setClientAttribute() sends as
+	     domExtraAttrs. domAttrs_() is what appends it, which is the whole argument for
+	     never hand-rolling the root element. -->
+	<simplelabel id="attrs" value="Hi" ca:data-role="banner"/>
+
+	<!-- #markup: a value containing markup. The mold must XML-encode it on its way into
+	     out, and the widget's value hook must do the same when patching. -->
+	<simplelabel id="markup" value="&lt;b&gt;bold&lt;/b&gt;"/>
+
+	<!-- #sub: reserved for the setSclass/setZclass subtree test, which replaces this
+	     widget's DOM. -->
+	<simplelabel id="sub" value="Hi"/>
+</zk>
