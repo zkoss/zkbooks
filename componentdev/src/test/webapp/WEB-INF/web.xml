@@ -47,17 +47,6 @@
 		<url-pattern>/zkau/*</url-pattern>
 	</servlet-mapping>
 
-	<!-- Serves *.css.dsp. Omit this and the mold's stylesheet 404s, which shows up
-	     as a correctly-structured but completely unstyled component. -->
-	<servlet>
-		<servlet-name>dspLoader</servlet-name>
-		<servlet-class>org.zkoss.web.servlet.dsp.InterpreterServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>dspLoader</servlet-name>
-		<url-pattern>*.dsp</url-pattern>
-	</servlet-mapping>
-
 	<welcome-file-list>
 		<welcome-file>index.zul</welcome-file>
 	</welcome-file-list>

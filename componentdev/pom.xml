@@ -85,8 +85,8 @@
 				<artifactId>slf4j-api</artifactId>
 				<version>2.0.7</version>
 			</dependency>
-			<!-- NOT optional. zcommon (via zweb-dsp, depth 3, COMPILE) pins httpcore5 to
-			     5.2.4, while Selenium's httpclient5:5.6 brings httpcore5-h2:5.4 at depth 4.
+			<!-- NOT optional. zcommon (via zul -> zk -> zweb, depth 4, COMPILE) pins
+			     httpcore5 to 5.2.4, while Selenium's httpclient5:5.6 brings httpcore5-h2:5.4 at depth 4.
 			     Maven's nearest-wins keeps 5.2.4, and mixing it with httpcore5-h2 5.4 fails
 			     at runtime with:
 
@@ -118,12 +118,6 @@
 			<artifactId>zkbind</artifactId>
 			<version>${zk.version}</version>
 			<optional>true</optional>
-		</dependency>
-		<!-- Serves the mold's *.css.dsp. Without it the stylesheet 404s at runtime. -->
-		<dependency>
-			<groupId>org.zkoss.common</groupId>
-			<artifactId>zweb-dsp</artifactId>
-			<version>${zk.version}</version>
 		</dependency>
 		<!-- MUST be declared: 'provided' is not transitive, so it does not arrive from zul. -->
 		<dependency>

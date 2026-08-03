@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	styling-langwide.zul - a page that uses NO mold carrying a <css-uri>.
+
+	<simplelabelts> is registered with one mold and no <css-uri> at all (the only
+	<css-uri> in lang-addon.xml sits on the DEFAULT mold of <simplelabel>, which this
+	page never uses). If the component stylesheet still applies here, <css-uri> is
+	language-wide - it is folded into the language's one .wcs and therefore loads on
+	every page of the application, not only where that mold is used.
+
+	Nothing else in the suite can show that, because every other fixture happens to
+	contain a default-mold <simplelabel>.
+-->
+<zk>
+	<simplelabelts id="ts2" value="Hello ZK"/>
+
+	<!-- the unstyled control, same role as in styling.zul -->
+	<html><![CDATA[<span id="ctl" class="not-a-zk-class">control</span>]]></html>
+</zk>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	styling.zul - the fixture StylingIT drives.
+
+	A NEW page rather than an edit to simplelabel.zul, because two other suites assert
+	against that page's ids and structure.
+
+	Two deliberate differences from simplelabel.zul:
+
+	1. no <vlayout> wrapper. The components sit directly under <zk>, so nothing but the
+	   widget's own domAttrs_() can contribute to its class attribute - which is what
+	   lets StylingIT assert the class attribute as an EXACT string.
+	2. a raw control element (#ctl) that no rule of the component stylesheet matches.
+	   The computed-style assertions compare against it, so "display is inline-block"
+	   cannot pass by accident on a page where every span happens to read that way.
+-->
+<zk>
+	<!-- default mold, no sclass: the class attribute must be exactly the zclass. -->
+	<simplelabel id="plain" value="Hello ZK"/>
+
+	<!-- sclass + zclass on one element: pins the emitted ORDER. -->
+	<simplelabel id="styled" value="Hello ZK" sclass="foo"/>
+
+	<!-- second mold, so the extra $s() class and its stylesheet rule are observable. -->
+	<simplelabel id="deco" value="Hello ZK" mold="fancy"/>
+
+	<!-- the TypeScript track's widget: a DIFFERENT package, same simple class name. -->
+	<simplelabelts id="ts2" value="Hello ZK"/>
+
+	<!-- the unstyled control. -->
+	<html><![CDATA[<span id="ctl" class="not-a-zk-class">control</span>]]></html>
+</zk>

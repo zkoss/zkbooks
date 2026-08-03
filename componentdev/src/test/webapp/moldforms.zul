@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	moldforms.zul - the fixture MoldFormIT / ScopedDomIT / MoldFormTest drive.
+
+	A NEW page rather than an edit to simplelabel.zul or styling.zul: three other
+	suites assert against those pages' ids, and this one deliberately mutates state
+	(setMold from Java, and a client-injected extra mold) that they must not see.
+
+	Design notes, both load-bearing for the assertions:
+
+	1. no <vlayout> wrapper. The components sit directly under <zk>, so nothing but
+	   the widget's own domAttrs_() can contribute to the class attribute - which is
+	   what lets the tests compare it as an EXACT string.
+	2. the same server class is instantiated four ways on one page: default mold,
+	   mold chosen in the ZUL, mold chosen from Java, and the TypeScript track's
+	   widget. Every mold/zclass claim can then be asserted under identical
+	   conditions, which is what makes the parity comparisons meaningful.
+-->
+<zk>
+	<!-- default mold => mold/simple-label.js, whose content is a NAMED function
+	     expression (function simpleLabel$mold$(out) { ... }). -->
+	<simplelabel id="named" value="Hello ZK"/>
+
+	<!-- second mold, selected DECLARATIVELY in the ZUL. -->
+	<simplelabel id="fancydecl" value="Hello ZK" mold="fancy"/>
+
+	<!-- second mold, selected from JAVA - the other half of what the book's
+	     "Multiple Molds" page documents. -->
+	<simplelabel id="fancyjava" value="Hello ZK"/>
+
+	<!-- the TypeScript track: a DIFFERENT widget package (labts), the SAME server
+	     class, and its own copy of the mold file. -->
+	<simplelabelts id="tsnamed" value="Hello ZK"/>
+
+	<zscript><![CDATA[
+		// setMold("fancy") in Java, exactly as implementing_molds.md shows it.
+		fancyjava.setMold("fancy");
+	]]></zscript>
+</zk>
