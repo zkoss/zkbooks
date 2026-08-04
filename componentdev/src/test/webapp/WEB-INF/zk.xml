@@ -22,4 +22,15 @@
 		<name>org.zkoss.zk.WCS.cache</name>
 		<value>false</value>
 	</library-property>
+
+	<desktop-config>
+		<!-- U7's second half: <stylesheet> passes through the theme machinery, so an
+		     application can switch it off from zk.xml. HtmlPageRenders.getStyleSheets
+		     compares disabled.contains(ss.getHref()) against the RAW declared href
+		     (HtmlPageRenders.java:451-458), so this string must match the href in
+		     src/test/resources/metainfo/zk/lang-addon.xml BYTE FOR BYTE.
+		     It names a fixture stylesheet nothing else declares, so no page any other
+		     test reads changes. -->
+		<disable-theme-uri>~./labfix/css/labfix-disabled-link.css</disable-theme-uri>
+	</desktop-config>
 </zk>

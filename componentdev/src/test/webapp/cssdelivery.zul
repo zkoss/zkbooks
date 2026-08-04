@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  cssdelivery.zul - the fixture the CSS-delivery IT drives.
+
+  Every span below carries one class defined by one fixture stylesheet (see
+  src/test/resources/web/labfix/css/). Because <css-uri> is language-wide the rules are
+  present on every page of the suite; they only MATCH here, which is what keeps the other
+  fixtures' computed-style assertions untouched.
+
+  #ctl is the unstyled control, same role as in styling.zul.
+-->
+<zk>
+	<simplelabel id="plain3" value="Hello ZK"/>
+	<html><![CDATA[
+		<span id="ctl" class="not-a-zk-class">control</span>
+		<span id="p-plain" class="labfix-plain-css-probe">plain css</span>
+		<span id="p-less" class="labfix-less-probe">less</span>
+		<span id="p-el" class="labfix-unresolved-el">unresolved el</span>
+		<span id="p-link" class="labfix-separate-link-probe">separate link</span>
+		<span id="p-disabled" class="labfix-disabled-link-probe">disabled link</span>
+	]]></html>
+</zk>

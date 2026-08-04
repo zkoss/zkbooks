@@ -1,0 +1,3 @@
+/* TEST FIXTURE - the <stylesheet> half of the <css-uri>-vs-<stylesheet> contrast:
+   delivered as its OWN <link>, never folded into zk.wcs. */
+.labfix-separate-link-probe { padding-right: 11px; }

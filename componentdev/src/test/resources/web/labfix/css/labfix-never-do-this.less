@@ -1,0 +1,9 @@
+/* TEST FIXTURE - ANTI-PATTERN. NEVER copy this and NEVER point a <css-uri> at a .less
+   file. It exists only to prove that ZK validates no extension and that no LESS
+   interpreter is registered at runtime: the bytes below arrive verbatim in zk.wcs and
+   the browser drops them.
+   SAFETY: this file is concatenated into the MIDDLE of the aggregated stylesheet. Keep
+   it brace-balanced, use no // line comments and no @import - an unterminated construct
+   would corrupt every rule that follows it and break unrelated browser tests. */
+@labfixLessVar: 9px;
+.labfix-less-probe { padding-left: @labfixLessVar; }

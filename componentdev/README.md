@@ -91,7 +91,9 @@ broken lab. All four mutations turned it red, each with the matching test failin
 - **ZK swallows widget-loading errors** — it logs to the console and marks the package
   loaded. A broken `zk.wpd` renders an empty element with no exception, which is why every
   browser test ends with `assertNoJSError()`.
-- **The `*.dsp` servlet mapping is required** in `web.xml` or the mold's `css.dsp` 404s and
-  the component renders unstyled.
+- **No `*.dsp` servlet mapping is needed** in `web.xml`. A `.css.dsp` named by `<css-uri>` is
+  server-side-included into the language's single `~./zul/css/zk.wcs` response and interpreted
+  in-process, so the container never sees a `.dsp` request. Proven by deleting both the mapping
+  and the `zweb-dsp` dependency and observing a byte-identical aggregated response.
 - **The two tracks live on separate fixtures.** One JS error stops a ZK page's AU cycle, so a
   broken widget on a shared fixture fails every other test on that page too.

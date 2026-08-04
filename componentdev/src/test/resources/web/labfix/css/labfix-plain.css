@@ -1,0 +1,5 @@
+/* TEST FIXTURE - exemplary, not an anti-pattern. A plain .css declared as a <css-uri>:
+   no extendlet is registered for "css", so ZK takes the raw byte path and streams this
+   verbatim into the aggregated zk.wcs (ClassWebResource.java:592-706 - note the
+   content-type block is skipped entirely for an include). */
+.labfix-plain-css-probe { padding-left: 7px; }

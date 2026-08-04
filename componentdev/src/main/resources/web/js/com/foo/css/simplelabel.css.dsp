@@ -3,12 +3,14 @@
 	Styling for com.foo.SimpleLabel.
 
 	A .css.dsp file is a stylesheet run through ZK's DSP interpreter, so it CAN use
-	EL and taglibs - e.g. url(${c:encodeThemeURL("~./path/to/img.png")}) to resolve
-	a classpath resource URL without hard-coding one. This file does not need that:
-	every rule below is plain CSS, so a plain .css file would behave identically
-	here (verified: pointing <css-uri> at a plain .css produces byte-identical
-	rules in zk.wcs). Reach for .css.dsp only when a rule genuinely needs
-	server-side EL, such as a classpath image URL.
+	EL and taglibs. The .z-simplelabel-fancy rule below does exactly that: its
+	background-image resolves a classpath resource URL with
+	url(${c:encodeThemeURL("~./js/com/foo/img/dot.png")}) - the one thing a plain
+	.css file cannot do. Every OTHER rule in this file is plain CSS and would behave
+	identically as a plain .css file (verified: pointing <css-uri> at a plain .css
+	produces byte-identical output for those rules in zk.wcs). Reach for .css.dsp
+	only when a rule genuinely needs server-side EL, such as a classpath image URL;
+	everything else can stay a plain .css.
 
 	Delivery: this file is never requested by its own URL. <css-uri> in
 	lang-addon.xml causes ZK to server-side-include it into the language's single
@@ -36,4 +38,12 @@
 	border: 1px solid #c0c0c0;
 	border-radius: 0.25em;
 	background-color: #f5f5f5;
+	/* The one thing a plain .css cannot do: resolve a URL for a resource shipped
+	   inside this jar. c:encodeThemeURL = encodeURL(resolveThemeURL(uri)); with no
+	   theme configured resolveThemeURL returns the URI unchanged
+	   (ServletFns.java:95-116), so this becomes
+	   <ctx>/zkau/web/<cache-segment>/js/com/foo/img/dot.png. */
+	background-image: url(${c:encodeThemeURL("~./js/com/foo/img/dot.png")});
+	background-repeat: no-repeat;
+	background-position: right center;
 }

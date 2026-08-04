@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- TEST FIXTURE ONLY - not part of the component. On the surefire/failsafe classpath
+     only: NOT in the jar (jar packs src/main) and NOT on the mvn jetty:run classpath
+     (jetty-maven-plugin uses classesDirectory=target/classes and deliberately no
+     <useTestScope>, see pom.xml:169-197).
+     <addon-name> MUST NOT be "componentdev": getDependentXMLResources keys what it
+     finds by <addon-name> and silently OVERWRITES a duplicate name
+     (ClassLocator.java:82-93), which would drop the real addon.
+     Exactly ONE <css-uri> per <mold>: idom's getElementValue returns the FIRST match
+     and silently ignores the rest (Group.java:131-137), so a second <css-uri> in one
+     <mold> would be dead text.
+     Every <mold-uri> below points at mold/labfixprobe.js, deliberately NOT at
+     mold/simple-label.js or mold/fancy.js: WpdExtendlet keeps ONE moldInfos map keyed
+     by <mold-uri> STRING, shared across every widget in a single com.foo.wpd response
+     (WpdExtendlet.java:344-421). The first mold name it encounters for a given URI
+     keeps its inlined content; every later mold name sharing that URI is rewritten to
+     an ALIAS (zk._m['x']=[com.foo.SimpleLabel,'y'];) instead of its own bytes, and
+     which one is "first" depends on getMoldNames() iteration order, not declaration
+     order - reusing mold/simple-label.js here non-deterministically aliased away the
+     SHIPPED "default" mold's own content and took down MoldFormIT. None of these mold
+     names is ever selected by mold="..." on any page, so sharing labfixprobe.js among
+     themselves is harmless - only <css-uri> is the point of this file. -->
+<language-addon>
+  <addon-name>componentdev-testfixtures</addon-name>
+  <language-name>xul/html</language-name>
+  <depends>zul</depends>
+  <component>
+    <component-name>cssuriprobe</component-name>
+    <component-class>com.foo.SimpleLabel</component-class>
+    <widget-class>com.foo.SimpleLabel</widget-class>
+    <!-- U2: the SAME css-uri the shipped addon declares. Relative form + widget package
+         com.foo => ~./js/com/foo/css/simplelabel.css.dsp, i.e. a second, independent
+         declaration of one URI, across two addons. -->
+    <mold><mold-name>dupcss</mold-name><mold-uri>mold/labfixprobe.js</mold-uri>
+      <css-uri>css/simplelabel.css.dsp</css-uri></mold>
+    <!-- U3: a plain .css. No extendlet is registered for "css", so it takes the raw
+         byte path. -->
+    <mold><mold-name>plaincss</mold-name><mold-uri>mold/labfixprobe.js</mold-uri>
+      <css-uri>~./labfix/css/labfix-plain.css</css-uri></mold>
+    <!-- U3: a .less. ANTI-PATTERN, declared only to prove ZK validates no extension. -->
+    <mold><mold-name>lessprobe</mold-name><mold-uri>mold/labfixprobe.js</mold-uri>
+      <css-uri>~./labfix/css/labfix-never-do-this.less</css-uri></mold>
+    <!-- U6: an unresolved ${}. ANTI-PATTERN. -->
+    <mold><mold-name>elprobe</mold-name><mold-uri>mold/labfixprobe.js</mold-uri>
+      <css-uri>~./labfix/css/labfix-unresolved-el.css.dsp</css-uri></mold>
+  </component>
+  <!-- U7: <stylesheet> is a ROOT-level child and becomes its own <link>. The second one
+       is named in src/test/webapp/WEB-INF/zk.xml <disable-theme-uri> (fixture F4), so the
+       pair is a controlled experiment: same mechanism, one switched off from zk.xml.
+       Confirmed reachable for an ADDON: the <stylesheet> loop sits in parseLang's common
+       section, after the addon/language branch (DefinitionLoaders.java:423-439). -->
+  <stylesheet href="~./labfix/css/labfix-separate-link.css" type="text/css"/>
+  <stylesheet href="~./labfix/css/labfix-disabled-link.css" type="text/css"/>
+</language-addon>

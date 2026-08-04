@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- TEST FIXTURE - ANTI-PATTERN, and NEVER auto-loaded. It contains the one thing a
+     <css-uri> may not contain. Loaded on purpose by one test through
+     DefinitionLoaders.addAddon.
+     THE ORDER OF THE THREE COMPONENTS IS LOAD-BEARING: parseLang registers a
+     <component> BEFORE it walks that component's <mold> elements
+     (DefinitionLoaders.java:601-604 vs :625-633) and noEL() throws out of the mold loop
+     (:632, :734-737), so everything declared BEFORE the offending mold survives and
+     everything after it is silently lost. That asymmetry is the observable. -->
+<language-addon>
+  <addon-name>componentdev-elprobe</addon-name>
+  <language-name>xul/html</language-name>
+  <depends>zul</depends>
+  <component>
+    <component-name>elprobebefore</component-name>
+    <component-class>com.foo.SimpleLabel</component-class>
+    <widget-class>com.foo.SimpleLabel</widget-class>
+    <mold><mold-name>default</mold-name><mold-uri>mold/simple-label.js</mold-uri></mold>
+  </component>
+  <component>
+    <component-name>elprobeel</component-name>
+    <component-class>com.foo.SimpleLabel</component-class>
+    <widget-class>com.foo.SimpleLabel</widget-class>
+    <mold><mold-name>default</mold-name><mold-uri>mold/simple-label.js</mold-uri>
+      <css-uri>css/${labfixNoSuchVariable}.css</css-uri></mold>
+  </component>
+  <component>
+    <component-name>elprobeafter</component-name>
+    <component-class>com.foo.SimpleLabel</component-class>
+    <widget-class>com.foo.SimpleLabel</widget-class>
+    <mold><mold-name>default</mold-name><mold-uri>mold/simple-label.js</mold-uri></mold>
+  </component>
+</language-addon>

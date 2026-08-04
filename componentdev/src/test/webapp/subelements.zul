@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	subelements.zul - the fixture the sub-element anti-pattern IT drives.
+
+	A NEW page, because the DOM anti-pattern probes it carries (a runtime-installed
+	mold with a hard-coded id, a hand-copied sclass, an appended domClass_ class) mutate
+	widgets in place, and three other suites assert exact class strings and ids against
+	styling.zul, moldforms.zul and styling-contract.zul. No wrapper component here, so
+	nothing but domAttrs_() contributes to a class attribute.
+-->
+<zk>
+	<!-- U12: two instances, which is what turns a hard-coded sub-element id into a
+	     duplicate DOM id. -->
+	<simplelabel id="dupa" value="Hi"/>
+	<simplelabel id="dupb" value="Hi"/>
+
+	<!-- U10: the buggy/fixed pair. Both start with an sclass so "the copy is stale"
+	     is visible as a value, not as an absence. -->
+	<simplelabel id="copybug" value="Hi" sclass="one"/>
+	<simplelabel id="copyfix" value="Hi" sclass="one"/>
+
+	<!-- U9: the domClass_ recipe lands here. -->
+	<simplelabel id="extra" value="Hi"/>
+
+	<!-- U11 (sharpened): tabindex makes the root focusable, which is what makes
+	     "preserves focus" an observable rather than an adjective. -->
+	<simplelabel id="focusable" value="Hi" tabindex="0"/>
+</zk>

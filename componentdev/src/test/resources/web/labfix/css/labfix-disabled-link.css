@@ -1,0 +1,3 @@
+/* TEST FIXTURE - identical in every way to labfix-separate-link.css EXCEPT that
+   src/test/webapp/WEB-INF/zk.xml names it in <disable-theme-uri>. */
+.labfix-disabled-link-probe { padding-right: 13px; }
