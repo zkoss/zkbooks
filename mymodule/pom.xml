@@ -5,7 +5,7 @@
 	<artifactId>mymodule</artifactId>
 	<version>1.0.0</version>
 	<properties>
-		<zk.version>9.6.4-Eval</zk.version>
+		<zk.version>11.0.0.FL.20260812-Eval</zk.version>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
 	</properties>

@@ -23,9 +23,9 @@
 		<maven.compiler.source>11</maven.compiler.source>
 		<maven.compiler.target>11</maven.compiler.target>
 
-		<!-- Pin literally. The CE repo's <release> pointer is 10.3.0.1-jakarta, so
-		     RELEASE/LATEST/version-ranges would silently select the jakarta flavor. -->
-		<zk.version>10.3.0.1</zk.version>
+		<!-- Pin literally. The eval repo's <release> pointer is 11.0.0-jakarta.FL.20260812-Eval,
+		     so RELEASE/LATEST/version-ranges would silently select the jakarta flavor. -->
+		<zk.version>11.0.0.FL.20260812-Eval</zk.version>
 		<zats.version>10.2.1</zats.version>
 		<zkwebdriver.version>1.4.43.0.0</zkwebdriver.version>
 		<jetty.version>10.0.24</jetty.version>
@@ -42,6 +42,12 @@
 			<id>ZK CE</id>
 			<name>ZK CE Repository</name>
 			<url>https://mavensync.zkoss.org/maven2</url>
+		</repository>
+		<!-- The FL Eval builds are published here only; the CE repo stops at 10.3.0.1. -->
+		<repository>
+			<id>ZK EVAL</id>
+			<name>ZK Evaluation Repository</name>
+			<url>https://mavensync.zkoss.org/eval</url>
 		</repository>
 	</repositories>
 	<pluginRepositories>
@@ -104,7 +110,7 @@
 	</dependencyManagement>
 
 	<dependencies>
-		<!-- ============ the component itself: ZK 10.3.0.1 CE, javax ============ -->
+		<!-- ============ the component itself: ZK 11.0.0.FL.20260812-Eval, javax ============ -->
 		<!-- zul brings zk, zweb, zcommon, zel, zkwebfragment transitively. -->
 		<dependency>
 			<groupId>org.zkoss.zk</groupId>

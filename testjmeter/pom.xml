@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.zkoss.test</groupId>
 	<artifactId>testapp</artifactId>
-	<version>10.3.0.1-Eval</version>
+	<version>11.0.0.FL.20260812-Eval</version>
 	<properties>
 		<maven.compiler.source>11</maven.compiler.source>
 		<maven.compiler.target>11</maven.compiler.target>

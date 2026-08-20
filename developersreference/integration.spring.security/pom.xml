@@ -10,7 +10,7 @@
   <packaging>war</packaging>
   
 	<properties>
-		<zk.version>6.5.1.1</zk.version>
+		<zk.version>11.0.0.FL.20260812-Eval</zk.version>
 		<springsecurity.version>3.1.2.RELEASE</springsecurity.version>
 		<packname>-${maven.build.timestamp}</packname>
 	</properties>
@@ -29,6 +29,11 @@
 		<repository>
 			<id>ZK EE Evaluation</id>
 			<url>http://mavensync.zkoss.org/zk/ee-eval</url>
+		</repository>
+		<repository>
+			<id>ZK EVAL</id>
+			<name>ZK Evaluation Repository</name>
+			<url>https://mavensync.zkoss.org/eval</url>
 		</repository>
 		<repository>
 			<id>com.springsource.repository.bundles.release</id>

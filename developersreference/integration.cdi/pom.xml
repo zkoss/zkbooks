@@ -3,10 +3,21 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.zkoss.reference</groupId>
     <artifactId>cdi</artifactId>
-    <version>6.5.0</version>
+    <version>11.0.0.FL.20260812-Eval</version>
     <packaging>war</packaging>
     <description>CDI Example project for developer's reference.
     </description>
+    <repositories>
+        <repository>
+            <id>ZK CE</id>
+            <url>https://mavensync.zkoss.org/maven2</url>
+        </repository>
+        <repository>
+            <id>ZK EVAL</id>
+            <name>ZK Evaluation Repository</name>
+            <url>https://mavensync.zkoss.org/eval</url>
+        </repository>
+    </repositories>
     <dependencies>
         <dependency>
             <groupId>org.zkoss.zk</groupId>
