@@ -1,0 +1,114 @@
+<?page title="detail vs. client ROD (org.zkoss.zul.client.rod)"?>
+<zk xmlns:w="client">
+	<!--
+		Verifies whether <detail> participates in client ROD (org.zkoss.zul.client.rod),
+		i.e. whether its children's DOM is skipped until the detail is opened.
+
+		Client ROD is ON by default (HtmlPageRenders.isClientROD: true unless the
+		library property is literally "false"). Each block below puts the SAME payload
+		(100 labels) inside a collapsed/hidden container and the probe counts how many
+		of them actually exist in the DOM before opening.
+	-->
+	<zscript><![CDATA[
+		java.util.List payload = new java.util.ArrayList();
+		for (int i = 0; i < 100; i++)
+			payload.add("child " + i);
+	]]></zscript>
+
+	<vlayout hflex="1" spacing="10px" style="padding:10px">
+		<label value="Click 'Probe DOM' BEFORE opening anything." style="font-weight:bold"/>
+
+		<groupbox mold="3d">
+			<caption label="[subject] Grid row detail, open=false"/>
+			<grid>
+				<columns>
+					<column width="36px"/>
+					<column label="Row"/>
+				</columns>
+				<rows>
+					<row>
+						<detail id="dt" open="false">
+							<vlayout>
+								<label id="dtKid" value="MARKER detail"/>
+								<label forEach="${payload}" value="${each}" sclass="probe-detail"/>
+							</vlayout>
+						</detail>
+						<label value="master row"/>
+					</row>
+				</rows>
+			</grid>
+		</groupbox>
+
+		<groupbox mold="3d">
+			<caption label="[control] Groupbox, open=false"/>
+			<groupbox id="gb" closable="true" open="false">
+				<label id="gbKid" value="MARKER groupbox"/>
+				<label forEach="${payload}" value="${each}" sclass="probe-groupbox"/>
+			</groupbox>
+		</groupbox>
+
+		<groupbox mold="3d">
+			<caption label="[control] Tabpanel, not selected"/>
+			<tabbox>
+				<tabs>
+					<tab label="first"/>
+					<tab label="second"/>
+				</tabs>
+				<tabpanels>
+					<tabpanel><label value="selected panel"/></tabpanel>
+					<tabpanel id="tp">
+						<vlayout>
+							<label id="tpKid" value="MARKER tabpanel"/>
+							<label forEach="${payload}" value="${each}" sclass="probe-tabpanel"/>
+						</vlayout>
+					</tabpanel>
+				</tabpanels>
+			</tabbox>
+		</groupbox>
+
+		<groupbox mold="3d">
+			<caption label="[control] Window, visible=false"/>
+			<window id="wnd" visible="false" border="normal">
+				<label id="wndKid" value="MARKER window"/>
+				<label forEach="${payload}" value="${each}" sclass="probe-window"/>
+			</window>
+		</groupbox>
+
+		<hlayout>
+			<button label="Probe DOM" w:onClick="zkProbeRod()"/>
+			<button label="Open all (server side)">
+				<attribute name="onClick">
+					dt.setOpen(true); gb.setOpen(true); wnd.setVisible(true);
+					tp.getTabbox().setSelectedPanel(tp);
+				</attribute>
+			</button>
+		</hlayout>
+
+		<textbox id="result" multiline="true" rows="22" hflex="1"
+				 style="font-family:monospace;white-space:pre"/>
+	</vlayout>
+
+	<script><![CDATA[
+	function zkProbeRod() {
+		function block(title, containerId, kidId, cls) {
+			var box = zk.Widget.$('$' + containerId),
+				kid = zk.Widget.$('$' + kidId),
+				enabled = (window.zkmax && zkmax.rod) ? zkmax.rod(box) : 'zkmax not loaded',
+				bulk = jq('.' + cls).length;
+			return title + '\n'
+				+ '    client ROD allowed here : ' + enabled + '\n'
+				+ '    marker widget created   : ' + !!kid + '\n'
+				+ '    marker widget z_rod     : ' + (kid ? kid.z_rod : 'n/a') + '\n'
+				+ '    marker DOM node present : ' + (kid ? jq('#' + kid.uuid).length > 0 : 'n/a') + '\n'
+				+ '    payload DOM nodes       : ' + bulk + ' / 100'
+				+ (bulk ? '   <== RENDERED (no client ROD)' : '   <== NOT rendered (client ROD applied)') + '\n';
+		}
+		var out = [];
+		out.push(block('[subject]  detail   open=false', 'dt', 'dtKid', 'probe-detail'));
+		out.push(block('[control]  groupbox open=false', 'gb', 'gbKid', 'probe-groupbox'));
+		out.push(block('[control]  tabpanel unselected', 'tp', 'tpKid', 'probe-tabpanel'));
+		out.push(block('[control]  window   visible=false', 'wnd', 'wndKid', 'probe-window'));
+		zk.Widget.$('$result').setValue(out.join('\n'));
+	}
+	]]></script>
+</zk>

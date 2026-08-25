@@ -1,0 +1,91 @@
+<?page title="include vs. client ROD (org.zkoss.zul.client.rod)"?>
+<zk xmlns:w="client">
+	<!--
+		Does <include> honour client ROD, and does the mode matter?
+
+		Client ROD for Include is triggered by visible="false" (zkmax/rod.ts augments
+		zul.wgt.Include exactly like Window / Panel / Div) - the mode is NOT part of the
+		condition. This page runs the three inclusion flavours side by side, each
+		invisible and each carrying the same 100-element payload.
+
+		client ROD is ON by default; reload with ?rod=off to compare against it disabled.
+	-->
+	<zscript><![CDATA[
+		boolean rodOff = "off".equals(execution.getParameter("rod"));
+		if (rodOff) //this page only
+			//must be the STRING "false": HtmlPageRenders.isClientROD() evaluates
+			//(o instanceof Boolean && o) || !"false".equals(o), so Boolean.FALSE leaves ROD ON
+			page.setAttribute("org.zkoss.zul.client.rod", "false");
+	]]></zscript>
+	<vlayout hflex="1" spacing="10px" style="padding:10px">
+		<div>
+			<label value="${rodOff ? 'org.zkoss.zul.client.rod = false (OFF)' : 'org.zkoss.zul.client.rod = default (ON)'}"
+				   style="font-weight:bold"/>
+			<label value=" - switch: "/>
+			<a label="ON" href="clientRodInclude.zul"/>
+			<label value=" | "/>
+			<a label="OFF" href="clientRodInclude.zul?rod=off"/>
+		</div>
+		<label value="Click 'Probe DOM' BEFORE showing anything." style="font-weight:bold"/>
+
+		<!-- 1. instant mode: the included ZUL becomes child COMPONENTS of the include -->
+		<include id="incInstant" mode="instant" src="clientRodIncludedInstant.zul" visible="false"/>
+
+		<!-- 2. defer mode, ZUL source: a child Page; content arrives as the _xcnt string -->
+		<include id="incDefer" mode="defer" src="clientRodIncludedDefer.zul" visible="false"/>
+
+		<!-- 3. defer mode, plain HTML fragment: server writes it inline, then detachChildren() -->
+		<include id="incHtml" mode="defer" src="clientRodIncludedFragment.html" visible="false"/>
+
+		<div>
+			<button label="Probe DOM" w:onClick="zkProbeInclude()"/>
+			<button label="Show all (instant, defer, html)">
+				<attribute name="onClick">
+					incInstant.setVisible(true);
+					incDefer.setVisible(true);
+					incHtml.setVisible(true);
+				</attribute>
+			</button>
+			<button label="Show reverse (html, defer, instant)">
+				<attribute name="onClick">
+					incHtml.setVisible(true);
+					incDefer.setVisible(true);
+					incInstant.setVisible(true);
+				</attribute>
+			</button>
+			<button label="Show incHtml only">
+				<attribute name="onClick">incHtml.setVisible(true);</attribute>
+			</button>
+			<button label="Show defer first (defer, instant, html)">
+				<attribute name="onClick">
+					incDefer.setVisible(true);
+					incInstant.setVisible(true);
+					incHtml.setVisible(true);
+				</attribute>
+			</button>
+		</div>
+
+		<textbox id="result" multiline="true" rows="18" hflex="1"
+				 style="font-family:monospace;white-space:pre"/>
+	</vlayout>
+
+	<script><![CDATA[
+	function zkProbeInclude() {
+		function block(title, id, cls) {
+			var w = zk.Widget.$('$' + id),
+				n = jq('.' + cls).length;
+			return title + '\n'
+				+ '    client ROD allowed : ' + ((window.zkmax && zkmax.rod) ? zkmax.rod(w) : 'zkmax not loaded') + '\n'
+				+ '    include has DOM    : ' + (w ? jq('#' + w.uuid).length > 0 : 'n/a') + '\n'
+				+ '    child widgets      : ' + (w ? w.nChildren : 'n/a') + '\n'
+				+ '    payload DOM nodes  : ' + n + ' / 100'
+				+ (n ? '   <== RENDERED' : '   <== NOT rendered (client ROD applied)') + '\n';
+		}
+		var out = [];
+		out.push(block('[1] instant,      visible=false', 'incInstant', 'probe-inc-instant'));
+		out.push(block('[2] defer (zul),  visible=false', 'incDefer', 'probe-inc-defer'));
+		out.push(block('[3] defer (html), visible=false', 'incHtml', 'probe-inc-html'));
+		zk.Widget.$('$result').setValue(out.join('\n'));
+	}
+	]]></script>
+</zk>
