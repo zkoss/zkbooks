@@ -1,0 +1,71 @@
+<!-- include-defer-mode.zul
+
+	When is defer mode the right choice?
+
+	Defer mode is the only mode that can reach a servlet. Include#include() calls
+	Execution#include(), which calls Servlets.include(), which calls
+	RequestDispatcher#include() — so the target is served by the container, with
+	its filters, its own request, and the query string of src as real request
+	parameters.
+
+	Instant mode never leaves ZK: Include#afterCompose() calls
+	Execution#createComponents() on a ZUML page definition and composes the result
+	as its own children. There is no request, so a servlet cannot be reached and a
+	query string cannot be honoured.
+
+	Run: mvn jetty:run
+	Open: http://localhost:8080/component/essential/include-defer-mode.zul -->
+<zk xmlns:h="native">
+	<style>
+		.report { padding: .5em 1em; }
+		.report dt { font-family: monospace; color: #555; margin-top: .4em; }
+		.report dd { margin: 0 0 0 1.5em; font-weight: bold; }
+	</style>
+
+	<h:h2>1. Defer mode reaches a servlet, and the query string survives</h:h2>
+	<h:p>
+		The <h:code>src</h:code> below points at a plain servlet, not at a ZUML page.
+		Only defer mode can render it. <h:code>auto</h:code> already picks defer here,
+		for two independent reasons: the extension is not a ZUML one, and a query
+		string is present.
+	</h:p>
+	<groupbox mold="3d">
+		<include src="/sales-report?region=EMEA&amp;year=2026"
+				 currency="EUR"/>
+	</groupbox>
+
+	<h:h2>2. The same fragment, both modes, same query string</h:h2>
+	<h:p>
+		Both includes below name the same ZUML fragment with the same query string.
+		Only the deferred one is loaded through a request of its own, so only it sees
+		<h:code>param.region</h:code>. The instant one drops the query string and logs
+		<h:i>"Query string is not allowed in instant mode"</h:i> on the server console.
+	</h:p>
+	<grid>
+		<columns>
+			<column label="mode" width="120px"/>
+			<column label="what the fragment sees"/>
+		</columns>
+		<rows>
+			<row>
+				<label value="instant"/>
+				<include mode="instant" src="include-region-fragment.zul?region=EMEA&amp;year=2026"/>
+			</row>
+			<row>
+				<label value="defer"/>
+				<include mode="defer" src="include-region-fragment.zul?region=EMEA&amp;year=2026"/>
+			</row>
+		</rows>
+	</grid>
+
+	<h:h2>3. The same thing with a JSP</h:h2>
+	<h:p>
+		A JSP is the classic case for defer mode. It behaves exactly like the servlet
+		above, because it <h:i>is</h:i> a servlet: the container compiles it, runs it for
+		this request, and it reads its input from the request. The
+		<h:code>served by</h:code> line below is the generated servlet class.
+	</h:p>
+	<groupbox mold="3d">
+		<include src="sales-report.jsp?region=EMEA&amp;year=2026" currency="EUR"/>
+	</groupbox>
+</zk>

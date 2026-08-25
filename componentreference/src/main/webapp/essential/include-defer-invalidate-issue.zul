@@ -1,0 +1,25 @@
+<!-- include-defer-invalidate-issue.zul
+
+	A reduced reproduction, not a teaching example.
+
+	Include's javadoc says invalidate() re-includes the page in defer mode. That
+	holds when the target is ZUML, but not when the target is a servlet or a JSP:
+	on an asynchronous update the include is emptied and the target is never
+	dispatched again. Setting src to null and back has the same effect.
+
+	Observed on ZK 11.0.0.FL.20260812-Eval, Jetty 9.4.54, Chrome.
+
+	Watch the server console: "SalesReportServlet" is only reached on a full page
+	render, never after a button click.
+
+	Open: http://localhost:8080/component/essential/include-defer-invalidate-issue.zul -->
+<zk>
+	<hlayout>
+		<button label="a.invalidate() — servlet target" onClick="a.invalidate()"/>
+		<button label="b.invalidate() — ZUML target" onClick="b.invalidate()"/>
+		<button label="a.src = null, then back"
+				onClick='String t=a.src; a.src=null; a.src=t;'/>
+	</hlayout>
+	<groupbox><include id="a" src="/sales-report?region=X"/></groupbox>
+	<groupbox><include id="b" mode="defer" src="include-region-fragment.zul?region=X"/></groupbox>
+</zk>

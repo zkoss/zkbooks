@@ -86,6 +86,14 @@
 			<artifactId>ckez</artifactId>
 			<version>4.21.0.0</version>
 		</dependency>
+		<!-- Needed to compile the SalesReportServlet demo of the "Include" page.
+		     Provided by the container at runtime. -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>3.1.0</version>
+			<scope>provided</scope>
+		</dependency>
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-log4j12</artifactId>

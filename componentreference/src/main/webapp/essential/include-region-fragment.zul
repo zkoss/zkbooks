@@ -1,0 +1,17 @@
+<!-- Included by include-defer-mode.zul in BOTH modes, to show the difference.
+
+	${param.region} only has a value when the fragment is loaded through a request
+	of its own — that is, in defer mode. In instant mode the fragment is composed
+	into the caller's execution, so it sees the caller's parameters and the query
+	string written in src is dropped (Include logs "Query string is not allowed in
+	instant mode"). -->
+<zk>
+	<hlayout>
+		<label value="param.region =" sclass="k-name"/>
+		<label value="${empty param.region ? '(empty)' : param.region}"
+			   style="font-weight:bold"/>
+		<label value="| param.year =" sclass="k-name"/>
+		<label value="${empty param.year ? '(empty)' : param.year}"
+			   style="font-weight:bold"/>
+	</hlayout>
+</zk>

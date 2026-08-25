@@ -126,6 +126,30 @@
 	</servlet-mapping>
 	-->
 	
+	<!-- ///////////////////////////////////////////////// -->
+	<!-- Demo for the Component Reference "Include" page:      -->
+	<!-- a servlet that only <include mode="defer"> can reach. -->
+	<!-- See /essential/include-defer-mode.zul                 -->
+	<filter>
+		<filter-name>includeAudit</filter-name>
+		<filter-class>org.zkoss.reference.component.essential.IncludeAuditFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>includeAudit</filter-name>
+		<url-pattern>/sales-report</url-pattern>
+		<!-- Must. Filters do not run on an included request unless INCLUDE is listed. -->
+		<dispatcher>INCLUDE</dispatcher>
+		<dispatcher>REQUEST</dispatcher>
+	</filter-mapping>
+	<servlet>
+		<servlet-name>salesReport</servlet-name>
+		<servlet-class>org.zkoss.reference.component.essential.SalesReportServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>salesReport</servlet-name>
+		<url-pattern>/sales-report</url-pattern>
+	</servlet-mapping>
+
 	<!-- /////////// -->
 	<!-- [Optional] Session timeout -->
 	<session-config>
