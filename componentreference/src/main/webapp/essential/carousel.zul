@@ -143,10 +143,12 @@
 
 	<n:h1>onChanging</n:h1>
 	<n:p>
-	onChanging fires before the slide switches and is delivered as an InputEvent:
-	getValue() is the index it is moving to, getPreviousValue() is the index it is leaving.
-	Autoplay ticks are not sent to the server, so only arrow, indicator and swipe
-	navigation reach the listener below.
+	onChanging is delivered as an InputEvent: getValue() is the index it is moving to,
+	getPreviousValue() is the index it is leaving. It reaches the server before the
+	carousel updates its own activeIndex, so getActiveIndex() inside the listener still
+	returns the old index - the browser, however, has already animated the slide by then,
+	and the event cannot be cancelled. Autoplay ticks reach the server as well whenever a
+	listener is bound; with no listener bound they stay on the client.
 	</n:p>
 	<carousel id="changingCarousel" width="600px" height="300px">
 		<attribute name="onChanging">
@@ -268,9 +270,11 @@
 		</carouselitem>
 	</carousel>
 
-	<n:h2>Guarded step-through of a review queue</n:h2>
-	onChanging records the move before it happens, which is where a review workflow would
-	check whether the current step may be left
+	<n:h2>Navigation trail of a review queue</n:h2>
+	onChanging carries the pair of indexes and arrives before the server updates
+	activeIndex, which is where a review workflow writes the trail or prefetches the next
+	document. It cannot refuse the move: to hold a reviewer on a step, hide the arrows and
+	indicators and drive the carousel with setActiveIndex instead.
 	<vlayout style="border:1px solid #ddd; border-radius:4px; padding:12px; width:620px">
 		<carousel id="reviewQueue" width="580px" height="180px" loop="false"
 				  showIndicators="true">
