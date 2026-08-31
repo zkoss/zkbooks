@@ -42,13 +42,23 @@ Folder is named by a chapter or a subsection.
  a zul file is named by a page
  e.g. , `eventQueue.zul` is for [Use Event Queues](https://www.zkoss.org/wiki/ZK%20Developer's%20Reference/UI%20Patterns/Long%20Operations/Use%20Event%20Queues)
 
+## Component Reference: One Page per Component
+`componentreference/` adds a stricter rule on top of the above: **each component has exactly one zul page, named after its tag name in lowercase**.
+
+* `avatar` is demonstrated by `essential/avatar.zul`, `confirmpopup` by `essential/confirmpopup.zul`.
+* The page lives in the folder of the documentation category the component belongs to: `base/`, `essential/`, `input/`, `containers/`, `layout/`, `multimedia/`, `diagrams/`, `supplementary/`.
+* **A child element type gets no page of its own** — it is demonstrated inside its parent's page. `breadcrumbitem` lives in `breadcrumb.zul`, `carouselitem` in `carousel.zul`, `tab` and `tabpanel` in `containers/tabbox.zul`.
+* A page demonstrates **every public attribute and event** of the component, one `<n:h1>` section per feature.
+* A page ends with a **`Use Cases`** section listing at least 3 enterprise scenarios (B2B / ERP / internal tools). Each scenario has a short title, a one-line description, and only enough markup to show that scenario's state — not a complete feature.
+* A new component is not documented until its page exists and renders at `demo.zul?path=/<folder>/<name>.zul`.
+
 
 ## Branches
 master - for the latest ZK
 
 # Project Tags
 
-- `componentreference/`: components, UI, ZK components, essential components (Button, Label, Image, Menu, Toolbar, Popup, Timer), input components (Textbox, Combobox, Datebox, Bandbox, Spinner, Checkbox, Radiogroup, Colorbox, Intbox, Doublebox, Decimalbox, Timebox, Calendar, Signature, CKEditor), container components (Window, Panel, Groupbox, Tabbox, Drawer, Fragment, Inputgroup), layout components (Hlayout, Vlayout, Hbox, Vbox, Box, Borderlayout, Portallayout, Cardlayout, Columnlayout, Rowlayout, Splitter, Linelayout, Organigram, Goldenlayout), event handling (event listeners, afterSize, visibility change, chatroom), multimedia components (Audio, Video, Camera, Cropper, Barcode, Barcodescanner, PDFViewer), diagrams and charts (Gantt, Bar Chart, Pie Chart, Google Map, Advanced Marker), supplementary components (Stepbar, Coachmark, Paging, Auxhead, Cell, Frozen), base components (Div, Span, XulElement, InputElement), mobile support, PWA (Progressive Web App), image and file upload/download, customization (custom renderer, custom template, custom JS), ZK component features, UI patterns
+- `componentreference/`: components, UI, ZK components, essential components (Button, Label, Image, Menu, Toolbar, Popup, Timer, Avatar, Avatargroup, Badge, Breadcrumb, Carousel, Chip, Confirmpopup), input components (Textbox, Combobox, Datebox, Bandbox, Spinner, Checkbox, Radiogroup, Colorbox, Intbox, Doublebox, Decimalbox, Timebox, Calendar, Signature, CKEditor), container components (Window, Panel, Groupbox, Tabbox, Drawer, Fragment, Inputgroup), layout components (Hlayout, Vlayout, Hbox, Vbox, Box, Borderlayout, Portallayout, Cardlayout, Columnlayout, Rowlayout, Splitter, Linelayout, Organigram, Goldenlayout), event handling (event listeners, afterSize, visibility change, chatroom), multimedia components (Audio, Video, Camera, Cropper, Barcode, Barcodescanner, PDFViewer), diagrams and charts (Gantt, Bar Chart, Pie Chart, Google Map, Advanced Marker), supplementary components (Stepbar, Coachmark, Paging, Auxhead, Cell, Frozen), base components (Div, Span, XulElement, InputElement), mobile support, PWA (Progressive Web App), image and file upload/download, customization (custom renderer, custom template, custom JS), ZK component features, UI patterns
 - `developersreference/`: developer guide, backend, architecture, 
   - mvc, model-view-controller, controller, view, model
   - integration, CDI, EJB, Hibernate, JPA, Spring, JDBC, datasource, font-awesome
