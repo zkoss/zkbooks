@@ -166,6 +166,48 @@ const FOCUS_IS = which => `(document.activeElement.className || '').indexOf('z-c
 			return { count: e.length, width: e.length ? e[0].getBoundingClientRect().width : -1 }; })()`);
 		check('an empty badge renders no indicator and collapses to zero size',
 			empty.count >= 3 && empty.width === 0, JSON.stringify(empty));
+
+		// A wrap-mode indicator is pulled 10px past the corner of the child it decorates,
+		// so any ancestor that does not let content overflow cuts it off. .z-hlayout sets
+		// overflow:hidden and did exactly that to the top and bottom placements.
+		const clipped = await page.eval(`(() => {
+			const CLIP = ['hidden', 'scroll', 'auto', 'clip'], TOL = 1;
+			return Array.from(document.querySelectorAll('.z-badge'))
+				.filter(b => b.querySelector('.z-badge-indicator'))
+				.flatMap(b => {
+					const ir = b.querySelector('.z-badge-indicator').getBoundingClientRect();
+					const out = [];
+					for (let n = b.parentElement; n && n !== document.documentElement; n = n.parentElement) {
+						const cs = getComputedStyle(n);
+						if (!CLIP.includes(cs.overflowX) && !CLIP.includes(cs.overflowY)) continue;
+						const r = n.getBoundingClientRect();
+						if (r.top - ir.top > TOL || ir.bottom - r.bottom > TOL
+								|| r.left - ir.left > TOL || ir.right - r.right > TOL)
+							out.push(b.textContent.trim().slice(0, 16) + ' clipped by ' + n.className);
+					}
+					return out;
+				});
+		})()`);
+		check('no badge indicator is cut off by a container', clipped.length === 0,
+			JSON.stringify(clipped));
+
+		const row = await page.eval(`(() => {
+			const r = document.querySelector('.badge-wrap-row');
+			if (!r) return null;
+			const cs = getComputedStyle(r);
+			const inds = Array.from(r.querySelectorAll('.z-badge-indicator'))
+				.map(i => i.getBoundingClientRect());
+			let overlap = false;
+			for (let i = 0; i < inds.length; i++)
+				for (let j = i + 1; j < inds.length; j++)
+					if (inds[i].left < inds[j].right && inds[j].left < inds[i].right
+							&& inds[i].top < inds[j].bottom && inds[j].top < inds[i].bottom)
+						overlap = true;
+			return { display: cs.display, overflow: cs.overflowX, count: inds.length, overlap };
+		})()`);
+		check('the wrap-mode row shows all four placements without overlap',
+			row && row.display === 'flex' && row.overflow === 'visible'
+				&& row.count === 4 && !row.overlap, JSON.stringify(row));
 	});
 	report('badge.zul');
 

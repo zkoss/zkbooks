@@ -1,4 +1,11 @@
 <zk xmlns:n="native">
+	<style>
+		/* A wrap-mode badge indicator is pulled 10px outside the box of the child it
+		   decorates. .z-hlayout sets overflow:hidden, so an hlayout cuts that overhang
+		   off - see the Wrap mode section, which uses this row instead. */
+		.badge-wrap-row { display: flex; gap: 30px; align-items: center; padding: 12px 0; }
+	</style>
+
 	<n:h1>Inline mode</n:h1>
 	a standalone badge with no children renders at the document position
 	<n:h2>Value</n:h2>
@@ -31,9 +38,11 @@
 
 	<n:h1>Wrap mode</n:h1>
 	with exactly one child, the badge overlays the child at the given placement.
-	The badge sits on the corner of the child, so leave room between two wrapped
-	children or their badges overlap.
-	<hlayout spacing="24px">
+	The indicator is pulled 10px past the corner of the child, so the container has to
+	let it overflow - an hlayout clips it and the indicator loses its top or bottom edge.
+	The row below is a div styled with flex and a gap, which keeps the overhang visible
+	and also keeps two neighbouring badges from overlapping.
+	<div sclass="badge-wrap-row">
 		<badge count="3" placement="top_right">
 			<button label="Inbox"/>
 		</badge>
@@ -46,7 +55,7 @@
 		<badge count="2" placement="bottom_left">
 			<button label="Drafts"/>
 		</badge>
-	</hlayout>
+	</div>
 
 	<n:h1>Dot</n:h1>
 	the dot mode ignores value/count and shows a small colored dot
