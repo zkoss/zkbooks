@@ -17,8 +17,8 @@ withjdk.sh 11 mvn jetty:run -Djetty.port=8090 -Dhttps.port=8453
 
 # 2. in another shell
 cd componentreference/uitest
-node test-carousel.js     # 13 assertions
-node test-rest.js         # 44 assertions over the other six pages
+node test-carousel.js     # 14 assertions
+node test-rest.js         # 46 assertions over the other six pages
 ```
 
 Exit code is the number of failed assertions, so `node test-rest.js && echo ok` works in a
@@ -57,3 +57,11 @@ Requires Node 18+ for `fetch` and Node 22+ for the global `WebSocket` (no `ws` p
   injected `zkWidget()` / `zkNode()` helpers do.
 - **Some widgets render lazily.** A `menupopup` is not in the DOM at all until it is first
   opened.
+- **`.z-label` sets its own `font-size`.** Sizing a label by styling the wrapper around it
+  does nothing — the label's own rule wins over the inherited value, so the size has to go on
+  the label. This is silent: the text just renders at the theme size, and on the KPI board it
+  left the unit bigger than the number it belonged to.
+- **Layout components clip.** `.z-hlayout` sets `overflow: hidden`, so anything a child draws
+  outside its own box — a wrap-mode badge indicator sits 10px past the corner — is silently
+  cut off. The badge checks walk every ancestor with a clipping `overflow` and compare
+  rectangles, because the page still renders and screenshots still look plausible.

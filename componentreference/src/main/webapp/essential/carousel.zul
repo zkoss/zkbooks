@@ -1,4 +1,38 @@
 <zk xmlns:n="native">
+	<style>
+		/* The KPI board below. The theme draws the carousel indicators for a dark surface -
+		   the active dot is white with a dark ring, the idle ones are dark with a white ring -
+		   so on a white page they read inverted. Giving the board the dark surface a wall
+		   monitor actually has puts them back in the right order for free. */
+		.kpi-board {
+			margin: 12px 0 20px; border-radius: 10px;
+			background: linear-gradient(160deg, #1d2733 0%, #121821 100%);
+			box-shadow: 0 10px 24px rgba(15, 23, 32, 0.28);
+		}
+		.kpi-slide {
+			display: flex; flex-direction: column; justify-content: center; gap: 12px;
+			height: 100%; padding: 0 36px 28px; box-sizing: border-box;
+		}
+		.kpi-caption {
+			font-size: 13px; font-weight: 600; letter-spacing: 0.12em;
+			text-transform: uppercase; color: #8aa0bb;
+		}
+		/* The size has to sit on the label itself: .z-label carries its own font-size, so a
+		   size set on this wrapper alone is overridden and never reaches the number. */
+		.kpi-value { display: flex; align-items: baseline; gap: 6px; }
+		/* tabular-nums keeps the digits from shifting sideways as the value changes */
+		.kpi-number {
+			font-size: 58px; font-weight: 600; line-height: 1; letter-spacing: -0.02em;
+			color: #f2f6fb; font-variant-numeric: tabular-nums;
+		}
+		.kpi-unit { font-size: 26px; font-weight: 400; color: #8aa0bb; }
+		/* one pill shape for the third line of every panel, so neutral, bad and good news
+		   read as the same slot instead of three unrelated coloured sentences */
+		.kpi-note { align-self: flex-start; font-size: 13px; padding: 4px 12px; border-radius: 999px; }
+		.kpi-note-flat { background: rgba(138, 160, 187, 0.16); color: #b6c6da; }
+		.kpi-note-good { background: rgba(39, 174, 96, 0.18); color: #6ee7a0; }
+		.kpi-note-bad { background: rgba(231, 76, 60, 0.18); color: #ff9d92; }
+	</style>
 	<n:h1>Basic</n:h1>
 	<n:p>
 	a carousel of carouselitem slides; onSelect is a SelectEvent whose data carries the new
@@ -162,29 +196,35 @@
 
 	<n:h2>KPI board on a wall monitor</n:h2>
 	an unattended dashboard that rotates through its panels on its own, with no controls to
-	click and no pause when someone walks past
-	<carousel width="600px" height="220px" autoplay="true" interval="3000"
+	click and no pause when someone walks past <n:br/>
+	<carousel sclass="kpi-board" width="480px" height="270px" autoplay="true" interval="3000"
 			  pause="false" showArrows="false">
 		<carouselitem>
-			<vlayout style="padding:24px">
-				<label value="On-time delivery" style="font-size:16px; color:#666"/>
-				<label value="96.4 %" style="font-size:40px; font-weight:bold"/>
-				<label value="target 95 %, week 34" style="color:#666"/>
-			</vlayout>
+			<div sclass="kpi-slide">
+				<label sclass="kpi-caption" value="On-time delivery"/>
+				<div sclass="kpi-value">
+					<label sclass="kpi-number" value="96.4"/><label sclass="kpi-unit" value="%"/>
+				</div>
+				<label sclass="kpi-note kpi-note-flat" value="target 95 %, week 34"/>
+			</div>
 		</carouselitem>
 		<carouselitem>
-			<vlayout style="padding:24px">
-				<label value="Open service tickets" style="font-size:16px; color:#666"/>
-				<label value="128" style="font-size:40px; font-weight:bold"/>
-				<label value="18 breached SLA" style="color:#c0392b"/>
-			</vlayout>
+			<div sclass="kpi-slide">
+				<label sclass="kpi-caption" value="Open service tickets"/>
+				<div sclass="kpi-value">
+					<label sclass="kpi-number" value="128"/>
+				</div>
+				<label sclass="kpi-note kpi-note-bad" value="18 breached SLA"/>
+			</div>
 		</carouselitem>
 		<carouselitem>
-			<vlayout style="padding:24px">
-				<label value="Inventory turns" style="font-size:16px; color:#666"/>
-				<label value="7.2" style="font-size:40px; font-weight:bold"/>
-				<label value="up from 6.8 last quarter" style="color:#27ae60"/>
-			</vlayout>
+			<div sclass="kpi-slide">
+				<label sclass="kpi-caption" value="Inventory turns"/>
+				<div sclass="kpi-value">
+					<label sclass="kpi-number" value="7.2"/>
+				</div>
+				<label sclass="kpi-note kpi-note-good" value="up from 6.8 last quarter"/>
+			</div>
 		</carouselitem>
 	</carousel>
 

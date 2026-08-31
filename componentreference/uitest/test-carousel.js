@@ -75,6 +75,23 @@ const BASE = (process.env.ZK_BASE || 'http://localhost:8090/component') + '/esse
 			(await page.eval(`textOf('galleryCaption')`)) === 'Hydraulic unit, 2026-03-11',
 			await page.eval(`textOf('galleryCaption')`));
 
+		// --- the KPI board renders the size it asks for ----------------------
+		// .z-label carries its own font-size, so a size set on the wrapper alone never
+		// reaches the number: it has to sit on the label. Cheap to get wrong again.
+		const kpi = await page.eval(`(() => {
+			const b = document.querySelector('.kpi-board');
+			if (!b) return null;
+			const n = b.querySelector('.kpi-number');
+			return { number: getComputedStyle(n).fontSize,
+				unit: getComputedStyle(b.querySelector('.kpi-unit')).fontSize,
+				// count the real slides only: a looping carousel also renders clones
+				numbers: b.querySelectorAll('.z-carouselitem .kpi-number').length,
+				notes: b.querySelectorAll('.z-carouselitem .kpi-note').length };
+		})()`);
+		check('KPI board: the value renders at its declared size, larger than its unit',
+			kpi && parseFloat(kpi.number) === 58 && parseFloat(kpi.unit) < parseFloat(kpi.number)
+				&& kpi.numbers === 3 && kpi.notes === 3, JSON.stringify(kpi));
+
 		// --- the review-queue use case logs the move before it happens --------
 		await page.click(`zkNode('reviewQueue').querySelector('.z-carousel-arrow-next')`);
 		await page.waitFor(`textOf('reviewLog').indexOf('document 0') >= 0`);
