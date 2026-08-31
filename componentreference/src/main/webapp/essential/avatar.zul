@@ -1,17 +1,46 @@
 <zk xmlns:n="native">
 	<n:h1>Shape</n:h1>
-	<avatar image="/multimedia/zklogo3.png" shape="circle"/>
-	<avatar image="/multimedia/zklogo3.png" shape="square"/>
+	<avatar image="/images/avatar1.png" shape="circle"/>
+	<avatar image="/images/avatar1.png" shape="square"/>
 
 	<n:h1>Size</n:h1>
-	<avatar image="/multimedia/zklogo3.png" size="small"/>
-	<avatar image="/multimedia/zklogo3.png" size="medium"/>
-	<avatar image="/multimedia/zklogo3.png" size="large"/>
+	<avatar image="/images/avatar1.png" size="small"/>
+	<avatar image="/images/avatar1.png" size="medium"/>
+	<avatar image="/images/avatar1.png" size="large"/>
 
 	<n:h1>Initials fallback</n:h1>
-	when no image source is available, the label initials are shown
+	when no image source is available, the first two characters of the label are shown -
+	the leading characters, not one initial per word, so "Jensen Huang" renders "Je".
+	The theme uppercases them with CSS; the text in the DOM keeps the original case.
 	<avatar label="Jensen Huang"/>
 	<avatar label="ZK"/>
+	<avatar label="Wei-Ming"/>
+
+	<n:h1>Icon</n:h1>
+	an iconSclass renders an icon instead of the initials
+	<avatar iconSclass="z-icon-user"/>
+	<avatar iconSclass="z-icon-user" shape="square" size="large"/>
+
+	<n:h1>Fallback order</n:h1>
+	image, then iconSclass, then the label initials.
+	The image below points at a URL that does not exist, so the avatar falls back to the
+	next available source at runtime; the image URL itself is kept, so a later setImage()
+	retries it.
+	<avatar image="/images/no-such-file.png" iconSclass="z-icon-user" label="Jane Doe"/>
+	<avatar image="/images/no-such-file.png" label="Jane Doe"/>
+	<avatar image="/images/no-such-file.png"/>
+
+	<n:h1>Gap</n:h1>
+	gap is the horizontal padding (in px) around the rendered initials,
+	between 0 and 24; out-of-range values are clamped
+	<avatar label="WM" gap="0"/>
+	<avatar label="WM" gap="4"/>
+	<avatar label="WM" gap="12"/>
+	<avatar label="WM" gap="24"/>
+
+	<n:h1>Hover image</n:h1>
+	hoverImage is inherited from LabelImageElement and swaps the image while the pointer is over it
+	<avatar image="/images/avatar1.png" hoverImage="/images/avatar2.png"/>
 
 	<n:h1>Clickable</n:h1>
 	an avatar with an onClick listener behaves as a button
@@ -20,4 +49,97 @@
 			Clients.showNotification("avatar clicked");
 		</attribute>
 	</avatar>
+
+	<n:h1>Use Cases</n:h1>
+
+	<n:h2>Signed-in user menu</n:h2>
+	the header avatar is the trigger that opens the account menu
+	<hlayout valign="middle" style="background:#f5f5f5; padding:8px; width:420px">
+		<label value="Order Management" style="font-weight:bold"/>
+		<separator orient="vertical"/>
+		<avatar image="/images/avatar1.png" size="small" tooltiptext="Jane Chen">
+			<attribute name="onClick">
+				userMenu.open(self);
+			</attribute>
+		</avatar>
+	</hlayout>
+	<menupopup id="userMenu">
+		<menuitem label="Jane Chen - Sales Admin" disabled="true"/>
+		<menuseparator/>
+		<menuitem label="Profile" iconSclass="z-icon-user"/>
+		<menuitem label="Preferences" iconSclass="z-icon-gear"/>
+		<menuseparator/>
+		<menuitem label="Sign out" iconSclass="z-icon-sign-out"/>
+	</menupopup>
+
+	<n:h2>Assignee column in a ticket list</n:h2>
+	an avatar plus the name in each row; employees with no photo on file show their initials
+	<grid width="560px">
+		<columns>
+			<column label="Ticket" width="120px"/>
+			<column label="Subject"/>
+			<column label="Assignee" width="180px"/>
+		</columns>
+		<rows>
+			<row>
+				<label value="SD-1042"/>
+				<label value="Invoice export fails"/>
+				<hlayout valign="middle">
+					<avatar image="/images/avatar1.png" size="small"/>
+					<label value="Jane Chen"/>
+				</hlayout>
+			</row>
+			<row>
+				<label value="SD-1043"/>
+				<label value="Add tax code to the PO form"/>
+				<hlayout valign="middle">
+					<avatar image="/images/avatar2.png" size="small"/>
+					<label value="Mark Lee"/>
+				</hlayout>
+			</row>
+			<row>
+				<label value="SD-1044"/>
+				<label value="Warehouse report timeout"/>
+				<hlayout valign="middle">
+					<avatar label="Tom Wu" size="small"/>
+					<label value="Tom Wu"/>
+				</hlayout>
+			</row>
+		</rows>
+	</grid>
+
+	<n:h2>Audit trail</n:h2>
+	small avatars identify who changed what, without a photo lookup for every row
+	<vlayout style="border:1px solid #ddd; border-radius:4px; padding:12px; width:420px">
+		<hlayout valign="middle">
+			<avatar image="/images/avatar1.png" size="small"/>
+			<label value="Jane Chen changed status to Approved"/>
+			<label value="09:12" style="color:#888"/>
+		</hlayout>
+		<hlayout valign="middle">
+			<avatar label="Tom Wu" size="small"/>
+			<label value="Tom Wu attached quotation-v2.pdf"/>
+			<label value="08:47" style="color:#888"/>
+		</hlayout>
+		<hlayout valign="middle">
+			<avatar iconSclass="z-icon-gear" size="small"/>
+			<label value="Nightly job recalculated the credit limit"/>
+			<label value="02:00" style="color:#888"/>
+		</hlayout>
+	</vlayout>
+
+	<n:h2>Directory search result</n:h2>
+	a large avatar heads each employee card; the initials keep the layout stable while photos load
+	<hlayout>
+		<vlayout style="border:1px solid #ddd; border-radius:4px; padding:12px; width:180px">
+			<avatar image="/images/avatar2.png" size="large"/>
+			<label value="Mark Lee" style="font-weight:bold"/>
+			<label value="Finance" style="color:#666"/>
+		</vlayout>
+		<vlayout style="border:1px solid #ddd; border-radius:4px; padding:12px; width:180px">
+			<avatar label="Amy Lin" size="large"/>
+			<label value="Amy Lin" style="font-weight:bold"/>
+			<label value="Logistics" style="color:#666"/>
+		</vlayout>
+	</hlayout>
 </zk>

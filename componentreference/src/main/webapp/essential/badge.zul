@@ -8,10 +8,20 @@
 	<badge count="5"/>
 	<badge count="120"/>
 	<badge count="8" max="5"/>
+	<n:h2>Value takes precedence over count</n:h2>
+	a non-null value wins; the count is ignored
+	<badge value="HOT" count="42"/>
 	<n:h2>Show zero</n:h2>
 	by default a zero count renders nothing; showZero forces it
 	<badge count="0"/>
 	<badge count="0" showZero="true"/>
+	<n:h2>Empty rendering</n:h2>
+	with dot="false", no value, a zero count and showZero="false", a badge renders no
+	indicator at all: the element stays in the DOM but collapses to zero size, so the
+	three badges below are invisible
+	<badge/>
+	<badge count="0"/>
+	<badge value=""/>
 	<n:h2>Severity</n:h2>
 	<badge count="1" severity="info"/>
 	<badge count="2" severity="success"/>
@@ -20,23 +30,139 @@
 	<badge count="5" severity="secondary"/>
 
 	<n:h1>Wrap mode</n:h1>
-	with exactly one child, the badge overlays the child at the given placement
-	<badge count="3" placement="top_right">
-		<button label="Inbox"/>
-	</badge>
-	<badge count="7" placement="top_left">
-		<button label="Alerts"/>
-	</badge>
-	<badge count="9" placement="bottom_right">
-		<button label="Tasks"/>
-	</badge>
-	<badge count="2" placement="bottom_left">
-		<button label="Drafts"/>
-	</badge>
+	with exactly one child, the badge overlays the child at the given placement.
+	The badge sits on the corner of the child, so leave room between two wrapped
+	children or their badges overlap.
+	<hlayout spacing="24px">
+		<badge count="3" placement="top_right">
+			<button label="Inbox"/>
+		</badge>
+		<badge count="7" placement="top_left">
+			<button label="Alerts"/>
+		</badge>
+		<badge count="9" placement="bottom_right">
+			<button label="Tasks"/>
+		</badge>
+		<badge count="2" placement="bottom_left">
+			<button label="Drafts"/>
+		</badge>
+	</hlayout>
 
 	<n:h1>Dot</n:h1>
 	the dot mode ignores value/count and shows a small colored dot
 	<badge dot="true" severity="danger" placement="top_right">
 		<button label="Messages"/>
 	</badge>
+	<n:h2>Dot severity</n:h2>
+	severity still drives the dot color
+	<badge dot="true" severity="info"/>
+	<badge dot="true" severity="success"/>
+	<badge dot="true" severity="warning"/>
+	<badge dot="true" severity="danger"/>
+	<badge dot="true" severity="secondary"/>
+
+	<n:h1>Live update</n:h1>
+	setCount/setValue re-render the badge, including the transition to and from empty
+	<badge id="liveBadge" count="0" placement="top_right">
+		<button label="Approvals"/>
+	</badge>
+	<hlayout>
+		<button label="+1">
+			<attribute name="onClick">
+				liveBadge.setCount(liveBadge.getCount() + 1);
+			</attribute>
+		</button>
+		<button label="-1">
+			<attribute name="onClick">
+				liveBadge.setCount(Math.max(0, liveBadge.getCount() - 1));
+			</attribute>
+		</button>
+		<label id="displayValue" value="getDisplayValue():"/>
+		<button label="Read getDisplayValue()">
+			<attribute name="onClick">
+				displayValue.setValue("getDisplayValue(): [" + liveBadge.getDisplayValue() + "]");
+			</attribute>
+		</button>
+	</hlayout>
+
+	<n:h1>Use Cases</n:h1>
+
+	<n:h2>Sidebar navigation counters</n:h2>
+	each menu entry carries its own pending workload; the cap keeps a long queue from
+	widening the sidebar
+	<vlayout style="border:1px solid #ddd; border-radius:4px; padding:12px; width:260px">
+		<hlayout valign="middle">
+			<label value="Inbox" hflex="1"/>
+			<badge count="12" severity="info"/>
+		</hlayout>
+		<hlayout valign="middle">
+			<label value="Pending approvals" hflex="1"/>
+			<badge count="4" severity="warning"/>
+		</hlayout>
+		<hlayout valign="middle">
+			<label value="Failed imports" hflex="1"/>
+			<badge count="128" max="99" severity="danger"/>
+		</hlayout>
+		<hlayout valign="middle">
+			<label value="Archive" hflex="1"/>
+			<badge count="0"/>
+		</hlayout>
+	</vlayout>
+
+	<n:h2>Notification bell</n:h2>
+	the dot says "something is new" without committing to a number
+	<toolbar>
+		<badge dot="true" severity="danger" placement="top_right">
+			<toolbarbutton iconSclass="z-icon-bell" tooltiptext="Notifications"/>
+		</badge>
+		<badge dot="true" severity="info" placement="top_right">
+			<toolbarbutton iconSclass="z-icon-envelope" tooltiptext="Messages"/>
+		</badge>
+	</toolbar>
+
+	<n:h2>Order status column</n:h2>
+	the status text of each row is mapped to a severity so the state is readable at a glance
+	<grid width="520px">
+		<columns>
+			<column label="Order" width="140px"/>
+			<column label="Customer"/>
+			<column label="Status" width="150px"/>
+		</columns>
+		<rows>
+			<row>
+				<label value="SO-2026-0913"/>
+				<label value="ACME Industrial"/>
+				<badge value="NEW" severity="info"/>
+			</row>
+			<row>
+				<label value="SO-2026-0914"/>
+				<label value="Northwind Traders"/>
+				<badge value="SHIPPED" severity="success"/>
+			</row>
+			<row>
+				<label value="SO-2026-0915"/>
+				<label value="Globex Corp"/>
+				<badge value="ON HOLD" severity="warning"/>
+			</row>
+			<row>
+				<label value="SO-2026-0916"/>
+				<label value="Initech"/>
+				<badge value="PAYMENT FAILED" severity="danger"/>
+			</row>
+		</rows>
+	</grid>
+
+	<n:h2>Toolbar counters that vanish at zero</n:h2>
+	an empty queue renders no badge at all, so a clean toolbar means there is nothing to do
+	<toolbar>
+		<badge count="3" placement="top_right">
+			<toolbarbutton label="Import queue"/>
+		</badge>
+		<badge count="0" placement="top_right">
+			<toolbarbutton label="Export queue"/>
+		</badge>
+		<badge count="0" showZero="true" severity="secondary" placement="top_right">
+			<toolbarbutton label="Reconciliation"/>
+		</badge>
+	</toolbar>
 </zk>

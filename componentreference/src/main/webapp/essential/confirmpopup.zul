@@ -10,25 +10,200 @@
 	<n:p>Esc fires onCancel, clicking outside fires onCancel, Enter fires onOK.</n:p>
 
 	<n:h1>Severity</n:h1>
-	<button label="Danger">
-		<attribute name="onClick">danger.open(self);</attribute>
-	</button>
-	<confirmpopup id="danger" severity="danger"
+	severity drives the color scheme and the default icon; warning is the default
+	<hlayout>
+		<button label="info">
+			<attribute name="onClick">sevInfo.open(self);</attribute>
+		</button>
+		<button label="success">
+			<attribute name="onClick">sevSuccess.open(self);</attribute>
+		</button>
+		<button label="warning">
+			<attribute name="onClick">sevWarning.open(self);</attribute>
+		</button>
+		<button label="danger">
+			<attribute name="onClick">sevDanger.open(self);</attribute>
+		</button>
+		<button label="secondary">
+			<attribute name="onClick">sevSecondary.open(self);</attribute>
+		</button>
+	</hlayout>
+	<confirmpopup id="sevInfo" severity="info" message="Send the report now?"/>
+	<confirmpopup id="sevSuccess" severity="success" message="Mark the run as verified?"/>
+	<confirmpopup id="sevWarning" severity="warning" message="Overwrite the saved layout?"/>
+	<confirmpopup id="sevDanger" severity="danger"
 				  message="This action cannot be undone. Continue?"/>
+	<confirmpopup id="sevSecondary" severity="secondary" message="Dismiss this reminder?"/>
 
 	<n:h1>Placement</n:h1>
-	placement is relative to the reference element passed to open()
-	<button label="Open below">
-		<attribute name="onClick">below.open(self);</attribute>
-	</button>
-	<confirmpopup id="below" placement="bottom" message="Popup below the button"/>
+	placement is relative to the reference element passed to open(), and it always wins over
+	the position argument of Popup.open(ref, position)
+	<hlayout>
+		<button label="top">
+			<attribute name="onClick">placeTop.open(self);</attribute>
+		</button>
+		<button label="bottom">
+			<attribute name="onClick">placeBottom.open(self);</attribute>
+		</button>
+		<button label="left">
+			<attribute name="onClick">placeLeft.open(self);</attribute>
+		</button>
+		<button label="right">
+			<attribute name="onClick">placeRight.open(self);</attribute>
+		</button>
+	</hlayout>
+	<confirmpopup id="placeTop" placement="top" message="Popup above the button"/>
+	<confirmpopup id="placeBottom" placement="bottom" message="Popup below the button"/>
+	<confirmpopup id="placeLeft" placement="left" message="Popup left of the button"/>
+	<confirmpopup id="placeRight" placement="right" message="Popup right of the button"/>
 
 	<n:h1>Header and icon</n:h1>
-	an optional header title, a custom icon, and the initial focus on Cancel
+	an optional header title above the message, and a custom icon sclass
 	<button label="Save changes">
 		<attribute name="onClick">custom.open(self);</attribute>
 	</button>
 	<confirmpopup id="custom" severity="info" header="Unsaved changes"
-				  iconSclass="z-icon-circle-info" defaultFocus="cancel"
+				  iconSclass="z-icon-circle-info"
 				  message="Save your changes before leaving?"/>
+
+	<n:h1>Default focus</n:h1>
+	focus lands on the OK button by default; a destructive flow can move it to Cancel
+	<hlayout>
+		<button label="defaultFocus=ok (default)">
+			<attribute name="onClick">focusOk.open(self);</attribute>
+		</button>
+		<button label="defaultFocus=cancel">
+			<attribute name="onClick">focusCancel.open(self);</attribute>
+		</button>
+	</hlayout>
+	<confirmpopup id="focusOk" defaultFocus="ok" message="Submit the timesheet?"/>
+	<confirmpopup id="focusCancel" defaultFocus="cancel" severity="danger"
+				  header="Delete 3 records"
+				  message="The records cannot be recovered. Delete them?"/>
+	<n:p>
+		Tab cycles between OK and Cancel while the popup is open, and focus returns to the
+		trigger when it closes.
+	</n:p>
+
+	<n:h1>Open at a position</n:h1>
+	Popup.open(x, y) opens the popup without a reference element
+	<button label="Open at (400, 300)">
+		<attribute name="onClick">atPoint.open(400, 300);</attribute>
+	</button>
+	<confirmpopup id="atPoint" message="Opened at a fixed page position"/>
+
+	<n:h1>Lifecycle</n:h1>
+	the popup stays attached after onOK / onCancel, so the same instance can be reopened;
+	detach it explicitly if it is single-use
+	<button label="Open a reusable popup">
+		<attribute name="onClick">reusable.open(self);</attribute>
+	</button>
+	<confirmpopup id="reusable" message="Reopen me as often as you like">
+		<attribute name="onOK">
+			counter.setValue("confirmed " + (counter.getValue().length() > 0 ? "again" : "once"));
+		</attribute>
+	</confirmpopup>
+	<label id="counter" value=""/>
+
+	<n:h1>Use Cases</n:h1>
+
+	<n:h2>Row delete in a grid</n:h2>
+	a danger confirmation anchored to the delete button of the row it affects
+	<grid id="materialGrid" width="520px">
+		<columns>
+			<column label="Material" width="140px"/>
+			<column label="Description"/>
+			<column label="" width="90px"/>
+		</columns>
+		<rows>
+			<row>
+				<label value="MAT-10021"/>
+				<label value="Bearing 6204-2RS"/>
+				<button label="Delete" sclass="z-button-os">
+					<attribute name="onClick">
+						rowDelete.setAttribute("row", self.getParent());
+						rowDelete.open(self);
+					</attribute>
+				</button>
+			</row>
+			<row>
+				<label value="MAT-10022"/>
+				<label value="Shaft seal 25x40x7"/>
+				<button label="Delete" sclass="z-button-os">
+					<attribute name="onClick">
+						rowDelete.setAttribute("row", self.getParent());
+						rowDelete.open(self);
+					</attribute>
+				</button>
+			</row>
+			<row>
+				<label value="MAT-10023"/>
+				<label value="Hex bolt M8x40"/>
+				<button label="Delete" sclass="z-button-os">
+					<attribute name="onClick">
+						rowDelete.setAttribute("row", self.getParent());
+						rowDelete.open(self);
+					</attribute>
+				</button>
+			</row>
+		</rows>
+	</grid>
+	<confirmpopup id="rowDelete" severity="danger" placement="left"
+				  header="Delete material" defaultFocus="cancel"
+				  message="The material is removed from the master data. Delete it?">
+		<attribute name="onOK">
+			org.zkoss.zk.ui.Component row = (org.zkoss.zk.ui.Component) self.getAttribute("row");
+			if (row != null) {
+				row.detach();
+				self.removeAttribute("row");
+			}
+		</attribute>
+	</confirmpopup>
+
+	<n:h2>Unsaved-changes guard</n:h2>
+	leaving a half-edited form asks first, with the focus on Cancel so Enter does not discard
+	<vlayout style="border:1px solid #ddd; border-radius:4px; padding:12px; width:420px">
+		<label value="Customer: ACME Industrial" style="font-weight:bold"/>
+		<hlayout valign="middle">
+			<label value="Credit limit" width="110px"/>
+			<textbox value="120000" width="120px"/>
+		</hlayout>
+		<hlayout valign="middle">
+			<label value="Payment terms" width="110px"/>
+			<textbox value="NET 45" width="120px"/>
+		</hlayout>
+		<hlayout>
+			<button label="Save"/>
+			<button label="Back to list">
+				<attribute name="onClick">leaveForm.open(self);</attribute>
+			</button>
+		</hlayout>
+	</vlayout>
+	<confirmpopup id="leaveForm" severity="warning" placement="right"
+				  header="Unsaved changes" defaultFocus="cancel"
+				  message="The credit limit was edited. Leave without saving?"
+				  onOK='Clients.showNotification("navigated away, changes dropped")'/>
+
+	<n:h2>Bulk action on a selection</n:h2>
+	the confirmation states how many records the action covers before it runs
+	<vlayout style="border:1px solid #ddd; border-radius:4px; padding:12px; width:420px">
+		<label value="Invoice approval queue" style="font-weight:bold"/>
+		<label value="12 invoices selected, USD 148,220 total" style="color:#666"/>
+		<toolbar>
+			<toolbarbutton label="Approve selected" iconSclass="z-icon-check">
+				<attribute name="onClick">bulkApprove.open(self);</attribute>
+			</toolbarbutton>
+			<toolbarbutton label="Reject selected" iconSclass="z-icon-xmark">
+				<attribute name="onClick">bulkReject.open(self);</attribute>
+			</toolbarbutton>
+		</toolbar>
+	</vlayout>
+	<confirmpopup id="bulkApprove" severity="info" placement="bottom"
+				  header="Approve 12 invoices"
+				  message="The invoices are posted to the ledger tonight. Approve them?"
+				  onOK='Clients.showNotification("12 invoices approved")'/>
+	<confirmpopup id="bulkReject" severity="danger" placement="bottom"
+				  header="Reject 12 invoices" defaultFocus="cancel"
+				  message="Each supplier is notified by e-mail. Reject them?"
+				  onOK='Clients.showNotification("12 invoices rejected")'/>
 </zk>

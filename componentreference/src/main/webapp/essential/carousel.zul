@@ -1,10 +1,14 @@
 <zk xmlns:n="native">
 	<n:h1>Basic</n:h1>
 	<n:p>
-	a carousel of carouselitem slides; onSelect carries the new index
+	a carousel of carouselitem slides; onSelect is a SelectEvent whose data carries the new
+	index and whose reference is the activated carouselitem
 	</n:p>
-	<carousel width="600px" height="300px"
-			  onSelect='Clients.showNotification("slide " + event.getData());'>
+	<carousel width="600px" height="300px">
+		<attribute name="onSelect">
+			Clients.showNotification("slide " + event.getData().get("index")
+					+ " (" + event.getReference() + ")");
+		</attribute>
 		<carouselitem image="/multimedia/cropper-image.jpg"/>
 		<carouselitem image="/multimedia/zklogo3.png"/>
 		<carouselitem label="A slide can also hold any markup">
@@ -15,11 +19,60 @@
 		</carouselitem>
 	</carousel>
 
+	<n:h1>Active index</n:h1>
+	<n:p>
+	activeIndex selects the slide shown first; an out-of-range value is clamped into
+	[0, childCount-1]
+	</n:p>
+	<carousel width="600px" height="300px" activeIndex="1">
+		<carouselitem image="/multimedia/cropper-image.jpg"/>
+		<carouselitem image="/multimedia/zklogo3.png"/>
+		<carouselitem image="/multimedia/abcdefg-64x64.png"/>
+	</carousel>
+
 	<n:h1>Autoplay</n:h1>
 	<n:p>
-	autoplay advances every interval ms (minimum 500); pauses on hover
+	autoplay advances every interval ms (minimum 500)
 	</n:p>
 	<carousel width="600px" height="300px" autoplay="true" interval="2000">
+		<carouselitem image="/multimedia/cropper-image.jpg"/>
+		<carouselitem image="/multimedia/zklogo3.png"/>
+	</carousel>
+
+	<n:h1>Pause on hover</n:h1>
+	<n:p>
+	pause is true by default, so autoplay stops while the pointer rests on the carousel;
+	the one below keeps advancing under the cursor
+	</n:p>
+	<carousel width="600px" height="300px" autoplay="true" interval="1500" pause="false">
+		<carouselitem image="/multimedia/cropper-image.jpg"/>
+		<carouselitem image="/multimedia/zklogo3.png"/>
+	</carousel>
+
+	<n:h1>Keyboard</n:h1>
+	<n:p>
+	keyboard is true by default: with focus on the carousel, the left and right arrow keys
+	switch slides. The one below has it turned off.
+	</n:p>
+	<carousel width="600px" height="300px" keyboard="false">
+		<carouselitem image="/multimedia/cropper-image.jpg"/>
+		<carouselitem image="/multimedia/zklogo3.png"/>
+	</carousel>
+
+	<n:h1>Arrows and indicators</n:h1>
+	<n:h2>indicators only</n:h2>
+	<carousel width="600px" height="300px" showArrows="false">
+		<carouselitem image="/multimedia/cropper-image.jpg"/>
+		<carouselitem image="/multimedia/zklogo3.png"/>
+	</carousel>
+	<n:h2>arrows only</n:h2>
+	<carousel width="600px" height="300px" showIndicators="false">
+		<carouselitem image="/multimedia/cropper-image.jpg"/>
+		<carouselitem image="/multimedia/zklogo3.png"/>
+	</carousel>
+	<n:h2>neither, driven by autoplay alone</n:h2>
+	<carousel width="600px" height="300px" showArrows="false" showIndicators="false"
+			  autoplay="true" interval="2000">
 		<carouselitem image="/multimedia/cropper-image.jpg"/>
 		<carouselitem image="/multimedia/zklogo3.png"/>
 	</carousel>
@@ -53,4 +106,157 @@
 		<carouselitem image="/multimedia/cropper-image.jpg"/>
 		<carouselitem image="/multimedia/zklogo3.png"/>
 	</carousel>
+
+	<n:h1>onChanging</n:h1>
+	<n:p>
+	onChanging fires before the slide switches and is delivered as an InputEvent:
+	getValue() is the index it is moving to, getPreviousValue() is the index it is leaving.
+	Autoplay ticks are not sent to the server, so only arrow, indicator and swipe
+	navigation reach the listener below.
+	</n:p>
+	<carousel id="changingCarousel" width="600px" height="300px">
+		<attribute name="onChanging">
+			changingLog.setValue("onChanging: leaving " + event.getPreviousValue()
+					+ ", going to " + event.getValue());
+		</attribute>
+		<attribute name="onSelect">
+			selectLog.setValue("onSelect: activeIndex is now " + self.getActiveIndex()
+					+ ", getSelectedItem() is " + self.getSelectedItem().getLabel());
+		</attribute>
+		<carouselitem label="First" image="/multimedia/cropper-image.jpg"/>
+		<carouselitem label="Second" image="/multimedia/zklogo3.png"/>
+		<carouselitem label="Third" image="/multimedia/abcdefg-64x64.png"/>
+	</carousel>
+	<vlayout>
+		<label id="changingLog" value="onChanging: -"/>
+		<label id="selectLog" value="onSelect: -"/>
+	</vlayout>
+
+	<n:h1>Server-side navigation</n:h1>
+	<n:p>
+	setActiveIndex drives the carousel from the server; getSelectedItem returns the active
+	carouselitem
+	</n:p>
+	<carousel id="drivenCarousel" width="600px" height="300px">
+		<carouselitem label="Q1" image="/multimedia/cropper-image.jpg"/>
+		<carouselitem label="Q2" image="/multimedia/zklogo3.png"/>
+		<carouselitem label="Q3" image="/multimedia/abcdefg-64x64.png"/>
+	</carousel>
+	<hlayout>
+		<button label="Go to Q1">
+			<attribute name="onClick">drivenCarousel.setActiveIndex(0);</attribute>
+		</button>
+		<button label="Go to Q3">
+			<attribute name="onClick">drivenCarousel.setActiveIndex(2);</attribute>
+		</button>
+		<button label="Which slide is active?">
+			<attribute name="onClick">
+				Clients.showNotification("active: "
+						+ drivenCarousel.getSelectedItem().getLabel()
+						+ " (index " + drivenCarousel.getActiveIndex() + ")");
+			</attribute>
+		</button>
+	</hlayout>
+
+	<n:h1>Use Cases</n:h1>
+
+	<n:h2>KPI board on a wall monitor</n:h2>
+	an unattended dashboard that rotates through its panels on its own, with no controls to
+	click and no pause when someone walks past
+	<carousel width="600px" height="220px" autoplay="true" interval="3000"
+			  pause="false" showArrows="false">
+		<carouselitem>
+			<vlayout style="padding:24px">
+				<label value="On-time delivery" style="font-size:16px; color:#666"/>
+				<label value="96.4 %" style="font-size:40px; font-weight:bold"/>
+				<label value="target 95 %, week 34" style="color:#666"/>
+			</vlayout>
+		</carouselitem>
+		<carouselitem>
+			<vlayout style="padding:24px">
+				<label value="Open service tickets" style="font-size:16px; color:#666"/>
+				<label value="128" style="font-size:40px; font-weight:bold"/>
+				<label value="18 breached SLA" style="color:#c0392b"/>
+			</vlayout>
+		</carouselitem>
+		<carouselitem>
+			<vlayout style="padding:24px">
+				<label value="Inventory turns" style="font-size:16px; color:#666"/>
+				<label value="7.2" style="font-size:40px; font-weight:bold"/>
+				<label value="up from 6.8 last quarter" style="color:#27ae60"/>
+			</vlayout>
+		</carouselitem>
+	</carousel>
+
+	<n:h2>Asset photo gallery in a detail form</n:h2>
+	the photos attached to one equipment record, with the caption of the visible photo kept
+	in sync from onSelect
+	<vlayout style="border:1px solid #ddd; border-radius:4px; padding:12px; width:620px">
+		<label value="Equipment EQ-4410 - Hydraulic press" style="font-weight:bold"/>
+		<carousel id="gallery" width="580px" height="260px" effect="fade">
+			<attribute name="onSelect">
+				galleryCaption.setValue(gallery.getSelectedItem().getLabel());
+			</attribute>
+			<carouselitem label="Nameplate, 2026-03-11" image="/multimedia/cropper-image.jpg"/>
+			<carouselitem label="Hydraulic unit, 2026-03-11" image="/multimedia/zklogo3.png"/>
+			<carouselitem label="Control panel, 2026-05-02" image="/multimedia/abcdefg-64x64.png"/>
+		</carousel>
+		<label id="galleryCaption" value="Nameplate, 2026-03-11" style="color:#666"/>
+	</vlayout>
+
+	<n:h2>Release-notes announcement</n:h2>
+	a short onboarding sequence shown after a version upgrade; loop is off so the user
+	reaches a definite end
+	<carousel width="600px" height="200px" loop="false" effect="slide">
+		<carouselitem>
+			<vlayout style="padding:24px">
+				<label value="What is new in release 26.3" style="font-weight:bold; font-size:16px"/>
+				<label value="Three changes affect your daily work."/>
+			</vlayout>
+		</carouselitem>
+		<carouselitem>
+			<vlayout style="padding:24px">
+				<label value="1. Batch posting" style="font-weight:bold; font-size:16px"/>
+				<label value="Invoices can now be posted in batches of up to 500."/>
+			</vlayout>
+		</carouselitem>
+		<carouselitem>
+			<vlayout style="padding:24px">
+				<label value="2. Approval delegation" style="font-weight:bold; font-size:16px"/>
+				<label value="Approvers can delegate while out of office."/>
+			</vlayout>
+		</carouselitem>
+	</carousel>
+
+	<n:h2>Guarded step-through of a review queue</n:h2>
+	onChanging records the move before it happens, which is where a review workflow would
+	check whether the current step may be left
+	<vlayout style="border:1px solid #ddd; border-radius:4px; padding:12px; width:620px">
+		<carousel id="reviewQueue" width="580px" height="180px" loop="false"
+				  showIndicators="true">
+			<attribute name="onChanging">
+				reviewLog.setValue("moving from document " + event.getPreviousValue()
+						+ " to document " + event.getValue());
+			</attribute>
+			<carouselitem label="INV-88301">
+				<vlayout style="padding:16px">
+					<label value="INV-88301 - Northwind Traders" style="font-weight:bold"/>
+					<label value="USD 12,400, due 2026-09-15"/>
+				</vlayout>
+			</carouselitem>
+			<carouselitem label="INV-88302">
+				<vlayout style="padding:16px">
+					<label value="INV-88302 - Globex Corp" style="font-weight:bold"/>
+					<label value="USD 3,980, due 2026-09-18"/>
+				</vlayout>
+			</carouselitem>
+			<carouselitem label="INV-88303">
+				<vlayout style="padding:16px">
+					<label value="INV-88303 - Initech" style="font-weight:bold"/>
+					<label value="USD 41,150, due 2026-09-20"/>
+				</vlayout>
+			</carouselitem>
+		</carousel>
+		<label id="reviewLog" value="moving from document - to document -" style="color:#666"/>
+	</vlayout>
 </zk>

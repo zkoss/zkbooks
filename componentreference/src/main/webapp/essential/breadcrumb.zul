@@ -1,28 +1,47 @@
 <zk xmlns:n="native">
+	<style>
+		/* LabelImageElement renders a plain img at its natural size; size it per page. */
+		.z-breadcrumb img {
+			width: 18px;
+			height: 18px;
+			border-radius: 50%;
+			object-fit: cover;
+		}
+	</style>
+
 	<n:h1>Default separator</n:h1>
 	the last item without an href is the current page (aria-current="page")
-
-	<n:div sclass="card">
 	<breadcrumb>
 		<breadcrumbitem label="Home" href="/"/>
 		<breadcrumbitem label="Components" href="/essential/"/>
 		<breadcrumbitem label="Breadcrumb"/>
 	</breadcrumb>
-	</n:div>
+
+	<n:h1>Custom separator</n:h1>
+	any string can be used as the separator
+	<n:h2>separator="&amp;gt;"</n:h2>
+	<breadcrumb separator="&gt;">
+		<breadcrumbitem label="Home" href="/"/>
+		<breadcrumbitem label="Components" href="/essential/"/>
+		<breadcrumbitem label="Breadcrumb"/>
+	</breadcrumb>
+	<n:h2>separator="&amp;#187;"</n:h2>
+	<breadcrumb separator="&#187;">
+		<breadcrumbitem label="Home" href="/"/>
+		<breadcrumbitem label="Components" href="/essential/"/>
+		<breadcrumbitem label="Breadcrumb"/>
+	</breadcrumb>
 
 	<n:h1>Icon separator</n:h1>
 	the "icon:" prefix renders an icon sclass as the separator
-	<n:div sclass="card">
 	<breadcrumb separator="icon:z-icon-chevron-right">
 		<breadcrumbitem label="Home" href="/"/>
 		<breadcrumbitem label="Library" href="/library/"/>
 		<breadcrumbitem label="Books"/>
 	</breadcrumb>
-	</n:div>
 
 	<n:h1>Collapse with maxItems</n:h1>
 	when item count exceeds maxItems, leading items collapse behind a "…" button
-	<n:div sclass="card">
 	<breadcrumb maxItems="3">
 		<breadcrumbitem label="Home" href="/"/>
 		<breadcrumbitem label="Catalog" href="/catalog/"/>
@@ -30,14 +49,91 @@
 		<breadcrumbitem label="Computers" href="/catalog/electronics/computers/"/>
 		<breadcrumbitem label="Laptops"/>
 	</breadcrumb>
-	</n:div>
 
 	<n:h1>Disabled item</n:h1>
-	<n:div sclass="card">
 	<breadcrumb>
 		<breadcrumbitem label="Home" href="/"/>
 		<breadcrumbitem label="Restricted" disabled="true"/>
 		<breadcrumbitem label="Current"/>
 	</breadcrumb>
-	</n:div>
+
+	<n:h1>Target</n:h1>
+	target is passed through to the rendered anchor
+	<breadcrumb>
+		<breadcrumbitem label="ZK site" href="https://www.zkoss.org" target="_blank"/>
+		<breadcrumbitem label="Documentation" href="https://books.zkoss.org" target="_blank"/>
+		<breadcrumbitem label="This page"/>
+	</breadcrumb>
+
+	<n:h1>Image and icon on an item</n:h1>
+	breadcrumbitem extends LabelImageElement, so each item can carry an icon or an image
+	<breadcrumb separator="icon:z-icon-chevron-right">
+		<breadcrumbitem label="Home" iconSclass="z-icon-home" href="/"/>
+		<breadcrumbitem label="Folder" iconSclass="z-icon-folder" href="/folder/"/>
+		<breadcrumbitem label="Report.xlsx" iconSclass="z-icon-file"/>
+	</breadcrumb>
+	<breadcrumb>
+		<breadcrumbitem label="Team" href="/team/"/>
+		<breadcrumbitem label="Jane Chen" image="/images/avatar1.png"/>
+	</breadcrumb>
+
+	<n:h1>Use Cases</n:h1>
+
+	<n:h2>ERP master-detail drill-down</n:h2>
+	the path the user drilled through to reach one sales order; the order itself is the
+	current node and carries no link
+	<vlayout width="600px">
+		<breadcrumb separator="icon:z-icon-chevron-right">
+			<breadcrumbitem label="Customers" href="/crm/customers/"/>
+			<breadcrumbitem label="ACME Industrial" href="/crm/customers/acme/"/>
+			<breadcrumbitem label="Orders" href="/crm/customers/acme/orders/"/>
+			<breadcrumbitem label="SO-2026-0913"/>
+		</breadcrumb>
+		<grid width="600px">
+			<columns>
+				<column label="Line" width="60px"/>
+				<column label="Item"/>
+				<column label="Qty" width="80px"/>
+			</columns>
+			<rows>
+				<row><label value="10"/><label value="Bearing 6204-2RS"/><label value="240"/></row>
+				<row><label value="20"/><label value="Shaft seal 25x40x7"/><label value="120"/></row>
+			</rows>
+		</grid>
+	</vlayout>
+
+	<n:h2>Deep configuration tree</n:h2>
+	maxItems keeps a long settings path on a single toolbar line; the hidden leading nodes
+	are one click away
+	<vlayout width="600px">
+		<breadcrumb maxItems="3" separator="icon:z-icon-chevron-right">
+			<breadcrumbitem label="Administration" href="/admin/"/>
+			<breadcrumbitem label="Company" href="/admin/company/"/>
+			<breadcrumbitem label="Plant TW01" href="/admin/company/tw01/"/>
+			<breadcrumbitem label="Warehouses" href="/admin/company/tw01/wh/"/>
+			<breadcrumbitem label="WH-03" href="/admin/company/tw01/wh/03/"/>
+			<breadcrumbitem label="Putaway strategy"/>
+		</breadcrumb>
+		<label value="Strategy: fixed bin, then nearest empty bin" style="color:#666"/>
+	</vlayout>
+
+	<n:h2>Document management folder path</n:h2>
+	the folder path of the opened document, with an icon per node type
+	<vlayout width="600px">
+		<breadcrumb separator="icon:z-icon-angle-right">
+			<breadcrumbitem label="Shared" iconSclass="z-icon-folder" href="/dms/shared/"/>
+			<breadcrumbitem label="Finance" iconSclass="z-icon-folder" href="/dms/shared/finance/"/>
+			<breadcrumbitem label="FY26" iconSclass="z-icon-folder" href="/dms/shared/finance/fy26/"/>
+			<breadcrumbitem label="Budget Plan.xlsx" iconSclass="z-icon-file-excel"/>
+		</breadcrumb>
+		<label value="Last modified by Jane Chen, 09:12" style="color:#666"/>
+	</vlayout>
+
+	<n:h2>Restricted node in an audit path</n:h2>
+	a node the current role may not open stays visible for context but is disabled
+	<breadcrumb separator="icon:z-icon-chevron-right">
+		<breadcrumbitem label="Audit" href="/audit/"/>
+		<breadcrumbitem label="Payroll (no access)" disabled="true"/>
+		<breadcrumbitem label="Run 2026-08"/>
+	</breadcrumb>
 </zk>

@@ -1,4 +1,15 @@
 <zk xmlns:n="native">
+	<style>
+		/* LabelImageElement renders a plain img at its natural size, so a page that
+		   puts a photo in a chip sizes it itself - the same as button or menuitem. */
+		.z-chip img {
+			width: 18px;
+			height: 18px;
+			border-radius: 50%;
+			object-fit: cover;
+		}
+	</style>
+
 	<n:h1>Severity</n:h1>
 	<chip label="Info" severity="info"/>
 	<chip label="Success" severity="success"/>
@@ -15,13 +26,143 @@
 	<chip label="Pill" rounded="true"/>
 
 	<n:h1>Disabled</n:h1>
+	a disabled chip still renders its close button, but the button is inert -
+	Chip.onClose() returns immediately while the chip is disabled
 	<chip label="Disabled" disabled="true"/>
+	<chip label="Disabled and closable" disabled="true" closable="true"/>
+
+	<n:h1>Image and icon</n:h1>
+	chip extends LabelImageElement, so it also renders an image or an icon before the label.
+	An iconSclass is sized by the chip; an image is emitted at its natural size, so the page
+	sizes it with the CSS rule at the top of this file.
+	<chip label="Jane Chen" image="/images/avatar1.png" rounded="true"/>
+	<chip label="Mark Lee" image="/images/avatar2.png" rounded="true"/>
+	<chip label="Attachment" iconSclass="z-icon-paperclip"/>
+	<chip label="Overdue" iconSclass="z-icon-clock" severity="danger"/>
+	<chip iconSclass="z-icon-filter" severity="secondary"/>
 
 	<n:h1>Closable</n:h1>
-	the close button fires onClose; the application removes the chip explicitly
+	the close button fires onClose, and the default Chip.onClose handler detaches the chip -
+	the same convention as Window.onClose. No listener is needed to make the chip disappear.
 	<hlayout>
-		<chip label="React" closable="true" onClose="self.detach()"/>
-		<chip label="ZK" closable="true" onClose="self.detach()"/>
-		<chip label="Java" closable="true" onClose="self.detach()"/>
+		<chip label="React" closable="true"/>
+		<chip label="ZK" closable="true"/>
+		<chip label="Java" closable="true"/>
 	</hlayout>
+
+	<n:h2>Running your own code on close</n:h2>
+	a listener runs before the default handler, so the chip is still detached afterwards.
+	This is the usual filter-chip pattern: the listener updates the model, the default
+	handler removes the chip.
+	<chip label="Listener, then detached" closable="true" severity="secondary">
+		<attribute name="onClose">
+			Clients.showNotification("onClose fired on " + self.getLabel()
+					+ ", the default handler detaches it", "info", null, "end_center", 3000);
+		</attribute>
+	</chip>
+
+	<n:h2>Keeping the chip attached</n:h2>
+	call event.stopPropagation() in the listener to suppress the default handler; the chip
+	then stays until the application removes it
+	<chip label="Stays on close" closable="true" severity="info">
+		<attribute name="onClose">
+			event.stopPropagation();
+			Clients.showNotification("onClose fired, the chip is kept", "info", null,
+					"end_center", 3000);
+		</attribute>
+	</chip>
+
+	<n:h1>Use Cases</n:h1>
+
+	<n:h2>Active filters above a result grid</n:h2>
+	each chip is one applied filter; closing it drops that filter and refreshes the count
+	<vlayout width="560px">
+		<hlayout id="filterBar" valign="middle">
+			<label value="Filters:"/>
+			<chip label="Region: EMEA" severity="info" closable="true" rounded="true">
+				<attribute name="onClose">
+					resultCount.setValue("showing 412 of 1,208 orders");
+				</attribute>
+			</chip>
+			<chip label="Status: Open" severity="info" closable="true" rounded="true">
+				<attribute name="onClose">
+					resultCount.setValue("showing 620 of 1,208 orders");
+				</attribute>
+			</chip>
+			<chip label="Amount &gt; 10,000" severity="info" closable="true" rounded="true">
+				<attribute name="onClose">
+					resultCount.setValue("showing 980 of 1,208 orders");
+				</attribute>
+			</chip>
+		</hlayout>
+		<label id="resultCount" value="showing 187 of 1,208 orders" style="color:#666"/>
+	</vlayout>
+
+	<n:h2>Priority and labels on a ticket row</n:h2>
+	severity maps onto the business meaning: danger for P1, warning for P2, secondary for tags
+	<grid width="600px">
+		<columns>
+			<column label="Ticket" width="110px"/>
+			<column label="Subject"/>
+			<column label="Labels" width="240px"/>
+		</columns>
+		<rows>
+			<row>
+				<label value="SD-1042"/>
+				<label value="Invoice export fails"/>
+				<hlayout>
+					<chip label="P1" severity="danger" size="small"/>
+					<chip label="billing" severity="secondary" size="small"/>
+				</hlayout>
+			</row>
+			<row>
+				<label value="SD-1043"/>
+				<label value="Add tax code to the PO form"/>
+				<hlayout>
+					<chip label="P2" severity="warning" size="small"/>
+					<chip label="enhancement" severity="secondary" size="small"/>
+				</hlayout>
+			</row>
+			<row>
+				<label value="SD-1044"/>
+				<label value="Warehouse report timeout"/>
+				<hlayout>
+					<chip label="P3" severity="info" size="small"/>
+					<chip label="performance" severity="secondary" size="small"/>
+				</hlayout>
+			</row>
+		</rows>
+	</grid>
+
+	<n:h2>Multi-select recipients</n:h2>
+	the values already picked are rendered back as removable chips next to the picker
+	<vlayout style="border:1px solid #ddd; border-radius:4px; padding:12px; width:460px">
+		<label value="Notify on approval" style="font-weight:bold"/>
+		<hlayout valign="middle">
+			<combobox placeholder="Add a recipient" width="180px">
+				<comboitem label="Jane Chen"/>
+				<comboitem label="Mark Lee"/>
+				<comboitem label="Tom Wu"/>
+				<comboitem label="Amy Lin"/>
+			</combobox>
+		</hlayout>
+		<hlayout>
+			<chip label="Jane Chen" image="/images/avatar1.png" rounded="true" closable="true"/>
+			<chip label="Mark Lee" image="/images/avatar2.png" rounded="true" closable="true"/>
+			<chip label="Tom Wu" rounded="true" closable="true"/>
+		</hlayout>
+	</vlayout>
+
+	<n:h2>Read-only permission tags</n:h2>
+	the roles granted to an account; disabled chips make clear the current user cannot edit them
+	<vlayout style="border:1px solid #ddd; border-radius:4px; padding:12px; width:460px">
+		<label value="Account: svc-nightly-batch" style="font-weight:bold"/>
+		<hlayout>
+			<chip label="ORDER_READ" disabled="true" size="small"/>
+			<chip label="ORDER_WRITE" disabled="true" size="small"/>
+			<chip label="LEDGER_READ" disabled="true" size="small"/>
+			<chip label="ADMIN" disabled="true" size="small" severity="danger"/>
+		</hlayout>
+		<label value="Managed by the identity provider" style="color:#666"/>
+	</vlayout>
 </zk>
