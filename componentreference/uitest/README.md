@@ -18,7 +18,7 @@ withjdk.sh 11 mvn jetty:run -Djetty.port=8090 -Dhttps.port=8453
 # 2. in another shell
 cd componentreference/uitest
 node test-carousel.js     # 14 assertions
-node test-rest.js         # 46 assertions over the other six pages
+node test-rest.js         # 51 assertions over the other six pages
 ```
 
 Exit code is the number of failed assertions, so `node test-rest.js && echo ok` works in a
@@ -65,3 +65,14 @@ Requires Node 18+ for `fetch` and Node 22+ for the global `WebSocket` (no `ws` p
   outside its own box — a wrap-mode badge indicator sits 10px past the corner — is silently
   cut off. The badge checks walk every ancestor with a clipping `overflow` and compare
   rectangles, because the page still renders and screenshots still look plausible.
+- **Some labels contain `&nbsp;`, not spaces.** A comboitem renders "Tom Wu" as `Tom&nbsp;Wu`,
+  so matching on a typed space finds nothing and looks exactly like a missing element. The
+  `byText` / `byTextContains` / `textOf` helpers normalise U+00A0 through `normText()`; use that
+  rather than raw `textContent` when you compare label text yourself.
+- **Scrolling closes an open float.** `click()` scrolls its target into view first, which
+  dismisses an already-open combobox popup — so the click then fails with "element not found".
+  Scroll the *owner* into view, open the float, then `rect()` the item and `clickAt()` its
+  coordinates.
+- **Scope lookups that could match a second time.** `byTextContains('.z-chip', 'Jane Chen')`
+  hits the demo chip near the top of `chip.zul`, not the one in the use case; the recipient
+  checks search inside `zkNode('recipientBar')` instead.

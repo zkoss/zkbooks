@@ -135,21 +135,41 @@
 	</grid>
 
 	<n:h2>Multi-select recipients</n:h2>
-	the values already picked are rendered back as removable chips next to the picker
+	the chips are the current selection, so picking a name appends one and closing a chip
+	drops that recipient again - the removal needs no listener, because Chip.onClose()
+	already detaches the chip. The picker is readonly, since free-typed text fires no
+	onSelect and would look like a dead control; picking someone who is already a recipient
+	says so rather than quietly doing nothing. The avatar rides along on the comboitem's
+	value, which is where the new chip reads it from.
 	<vlayout style="border:1px solid #ddd; border-radius:4px; padding:12px; width:460px">
 		<label value="Notify on approval" style="font-weight:bold"/>
 		<hlayout valign="middle">
-			<combobox placeholder="Add a recipient" width="180px">
-				<comboitem label="Jane Chen"/>
-				<comboitem label="Mark Lee"/>
+			<combobox id="recipientPicker" placeholder="Add a recipient" readonly="true"
+					width="180px">
+				<comboitem label="Jane Chen" value="/images/avatar1.png"/>
+				<comboitem label="Mark Lee" value="/images/avatar2.png"/>
 				<comboitem label="Tom Wu"/>
 				<comboitem label="Amy Lin"/>
+				<attribute name="onSelect">
+					Comboitem picked = self.getSelectedItem();
+					self.setSelectedItem(null);
+					for (Object kid : recipientBar.getChildren())
+						if (((Chip) kid).getLabel().equals(picked.getLabel())) {
+							Clients.showNotification(picked.getLabel()
+									+ " is already a recipient", "info", null, "end_center", 2000);
+							return;
+						}
+					Chip chip = new Chip(picked.getLabel());
+					chip.setImage((String) picked.getValue());
+					chip.setRounded(true);
+					chip.setClosable(true);
+					chip.setParent(recipientBar);
+				</attribute>
 			</combobox>
 		</hlayout>
-		<hlayout>
+		<hlayout id="recipientBar">
 			<chip label="Jane Chen" image="/images/avatar1.png" rounded="true" closable="true"/>
 			<chip label="Mark Lee" image="/images/avatar2.png" rounded="true" closable="true"/>
-			<chip label="Tom Wu" rounded="true" closable="true"/>
 		</hlayout>
 	</vlayout>
 

@@ -113,7 +113,7 @@
 		<columns>
 			<column label="Material" width="140px"/>
 			<column label="Description"/>
-			<column label="" width="90px"/>
+			<column hflex="min" />
 		</columns>
 		<rows>
 			<row>

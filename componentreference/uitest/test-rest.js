@@ -102,6 +102,59 @@ const FOCUS_IS = which => `(document.activeElement.className || '').indexOf('z-c
 			(await page.eval(`textOf('resultCount')`)) === 'showing 412 of 1,208 orders',
 			await page.eval(`textOf('resultCount')`));
 
+		// --- the multi-select use case actually selects -----------------------
+		// The picker used to have no onSelect at all: choosing a name did nothing and the
+		// chips below it were hard-coded markup. Scope every lookup to the recipient bar,
+		// because the "Image and icon" section further up has its own "Jane Chen" chip.
+		const bar = `zkNode('recipientBar')`;
+		const names = `Array.from(${bar}.querySelectorAll('.z-chip')).map(e => normText(e.textContent))`;
+		const inBar = n => `Array.from(${bar}.querySelectorAll('.z-chip'))
+			.find(e => normText(e.textContent) === '${n}')`;
+		// Pick without click()'s scrollIntoView: scrolling with the popup open closes it.
+		const pick = async name => {
+			await page.eval(`zkNode('recipientPicker').scrollIntoView({block: 'center'})`);
+			await sleep(250);
+			await page.click(`zkNode('recipientPicker').querySelector('.z-combobox-button')`);
+			await page.waitFor(`byTextContains('.z-comboitem', '${name}')`);
+			const r = await page.rect(`byTextContains('.z-comboitem', '${name}')`);
+			await page.clickAt(r.x, r.y);
+		};
+
+		check('the recipient bar starts as the two already-picked names',
+			JSON.stringify(await page.eval(names)) === '["Jane Chen","Mark Lee"]',
+			JSON.stringify(await page.eval(names)));
+
+		await pick('Tom Wu');
+		await page.waitFor(`${names}.length === 3`);
+		const added = await page.eval(`JSON.stringify({
+			names: ${names},
+			img: !!${inBar('Tom Wu')}.querySelector('img'),
+			closable: /closable/.test(${inBar('Tom Wu')}.className),
+			picker: zkNode('recipientPicker').querySelector('input').value })`);
+		check('picking a name appends a closable chip for it and clears the picker',
+			added === JSON.stringify({ names: ['Jane Chen', 'Mark Lee', 'Tom Wu'],
+				img: false, closable: true, picker: '' }), added);
+
+		await pick('Tom Wu');
+		await page.waitFor(`(notifText() || '').indexOf('Tom Wu is already a recipient') >= 0`);
+		await sleep(400);
+		check('picking an existing recipient says so instead of adding a second chip',
+			(await page.eval(names)).length === 3, JSON.stringify(await page.eval(names)));
+
+		await page.click(`${inBar('Jane Chen')}.querySelector('.z-chip-close')`);
+		await page.waitFor(`${names}.length === 2`);
+		check('closing a recipient chip drops it with no listener of our own',
+			JSON.stringify(await page.eval(names)) === '["Mark Lee","Tom Wu"]',
+			JSON.stringify(await page.eval(names)));
+
+		await pick('Jane Chen');
+		await page.waitFor(`${names}.length === 3`);
+		const back = await page.eval(`(() => { const i = ${inBar('Jane Chen')}.querySelector('img');
+			return JSON.stringify({ src: i ? i.getAttribute('src').split(';')[0] : null,
+				width: i ? i.getBoundingClientRect().width : -1 }); })()`);
+		check('a dropped recipient can be picked again, avatar and all',
+			back === JSON.stringify({ src: '/component/images/avatar1.png', width: 18 }), back);
+
 		check('disabled chips render with the disabled class',
 			await page.eval(`!!byTextContains('.z-chip', 'ORDER_READ').className.match(/disabled/)`));
 	});

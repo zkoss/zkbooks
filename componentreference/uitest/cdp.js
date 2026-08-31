@@ -172,15 +172,18 @@ window.zkWidget = function (zkId) {
 	return null;
 };
 window.zkNode = function (zkId) { var w = window.zkWidget(zkId); return w ? w.$n() : null; };
+// Some widgets emit their label with &nbsp; instead of a space - a comboitem renders
+// "Tom Wu" as "Tom&nbsp;Wu" - so matching on a typed space would silently never hit.
+window.normText = function (s) { return (s || '').replace(/\u00a0/g, ' ').trim(); };
 window.byText = function (sel, text) {
 	return Array.from(document.querySelectorAll(sel))
-		.find(function (e) { return (e.textContent || '').trim() === text; }) || null;
+		.find(function (e) { return window.normText(e.textContent) === text; }) || null;
 };
 window.byTextContains = function (sel, text) {
 	return Array.from(document.querySelectorAll(sel))
-		.find(function (e) { return (e.textContent || '').indexOf(text) >= 0; }) || null;
+		.find(function (e) { return window.normText(e.textContent).indexOf(text) >= 0; }) || null;
 };
-window.textOf = function (zkId) { var n = window.zkNode(zkId); return n ? n.textContent.trim() : null; };
+window.textOf = function (zkId) { var n = window.zkNode(zkId); return n ? window.normText(n.textContent) : null; };
 // ZK appends each notification as a new node and keeps the old ones around,
 // so the newest one is the last in document order - not the first.
 window.notifText = function () {
