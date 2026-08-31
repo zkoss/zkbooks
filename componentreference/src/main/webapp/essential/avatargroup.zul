@@ -1,0 +1,194 @@
+<zk xmlns:n="native">
+	<n:h1>Basic</n:h1>
+	an avatargroup lays out its avatar children as one overlapping row
+	<avatargroup>
+		<avatar image="/images/avatar1.png"/>
+		<avatar image="/images/avatar2.png"/>
+		<avatar label="Tom Wu"/>
+	</avatargroup>
+
+	<n:h1>Size cascade</n:h1>
+	the group size applies to every child avatar; the child's own size attribute is left untouched
+	<n:h2>small</n:h2>
+	<avatargroup size="small">
+		<avatar image="/images/avatar1.png"/>
+		<avatar image="/images/avatar2.png"/>
+		<avatar label="Tom Wu"/>
+	</avatargroup>
+	<n:h2>medium (default)</n:h2>
+	<avatargroup size="medium">
+		<avatar image="/images/avatar1.png"/>
+		<avatar image="/images/avatar2.png"/>
+		<avatar label="Tom Wu"/>
+	</avatargroup>
+	<n:h2>large</n:h2>
+	<avatargroup size="large">
+		<avatar image="/images/avatar1.png"/>
+		<avatar image="/images/avatar2.png"/>
+		<avatar label="Tom Wu"/>
+	</avatargroup>
+
+	<n:h1>Shape cascade</n:h1>
+	<n:h2>circle (default)</n:h2>
+	<avatargroup shape="circle">
+		<avatar image="/images/avatar1.png"/>
+		<avatar image="/images/avatar2.png"/>
+		<avatar label="Tom Wu"/>
+	</avatargroup>
+	<n:h2>square</n:h2>
+	<avatargroup shape="square">
+		<avatar image="/images/avatar1.png"/>
+		<avatar image="/images/avatar2.png"/>
+		<avatar label="Tom Wu"/>
+	</avatargroup>
+
+	<n:h1>Max count</n:h1>
+	children beyond maxCount are hidden and replaced by a "+N" indicator,
+	which inherits the group's size and shape; maxCount="0" (default) means unlimited
+	<n:h2>maxCount="3" over 6 members</n:h2>
+	<avatargroup maxCount="3">
+		<avatar image="/images/avatar1.png"/>
+		<avatar image="/images/avatar2.png"/>
+		<avatar label="Tom Wu"/>
+		<avatar label="Amy Lin"/>
+		<avatar label="Ben Ho"/>
+		<avatar label="Cindy Kao"/>
+	</avatargroup>
+	<n:h2>maxCount="2" with a square large cascade</n:h2>
+	<avatargroup maxCount="2" size="large" shape="square">
+		<avatar image="/images/avatar1.png"/>
+		<avatar image="/images/avatar2.png"/>
+		<avatar label="Tom Wu"/>
+		<avatar label="Amy Lin"/>
+	</avatargroup>
+	<n:h2>maxCount larger than the child count adds no indicator</n:h2>
+	<avatargroup maxCount="10">
+		<avatar image="/images/avatar1.png"/>
+		<avatar image="/images/avatar2.png"/>
+	</avatargroup>
+
+	<n:h1>Live update</n:h1>
+	the "+N" indicator is recalculated whenever a child is added or removed
+	<avatargroup id="liveGroup" maxCount="3">
+		<avatar image="/images/avatar1.png"/>
+		<avatar image="/images/avatar2.png"/>
+		<avatar label="Tom Wu"/>
+		<avatar label="Amy Lin"/>
+	</avatargroup>
+	<hlayout>
+		<button label="Add a member">
+			<attribute name="onClick">
+				liveGroup.appendChild(new Avatar("New Member"));
+			</attribute>
+		</button>
+		<button label="Remove the last member">
+			<attribute name="onClick">
+				if (liveGroup.getLastChild() != null)
+					liveGroup.getLastChild().detach();
+			</attribute>
+		</button>
+	</hlayout>
+
+	<n:h1>Avatar children only</n:h1>
+	an avatargroup accepts avatar children only; anything else throws a UiException
+	<avatargroup id="strictGroup">
+		<avatar image="/images/avatar1.png"/>
+		<avatar label="Tom Wu"/>
+	</avatargroup>
+	<button label="Try to add a label child">
+		<attribute name="onClick">
+			try {
+				strictGroup.appendChild(new Label("not an avatar"));
+			} catch (Exception ex) {
+				Clients.showNotification(ex.getMessage(), "warning", self, "end_center", 4000);
+			}
+		</attribute>
+	</button>
+
+	<n:h1>Use Cases</n:h1>
+
+	<n:h2>Document collaborators</n:h2>
+	who is editing a shared document; the first three are shown and the rest collapse into "+N"
+	<vlayout style="border:1px solid #ddd; border-radius:4px; padding:12px; width:360px">
+		<hlayout valign="middle">
+			<label value="FY26 Budget Plan.xlsx" style="font-weight:bold"/>
+		</hlayout>
+		<hlayout valign="middle">
+			<avatargroup size="small" maxCount="3">
+				<avatar image="/images/avatar1.png"/>
+				<avatar image="/images/avatar2.png"/>
+				<avatar label="Tom Wu"/>
+				<avatar label="Amy Lin"/>
+				<avatar label="Ben Ho"/>
+			</avatargroup>
+			<label value="5 people have access" style="color:#666"/>
+		</hlayout>
+	</vlayout>
+
+	<n:h2>Approval chain on a workflow row</n:h2>
+	the approvers of a purchase request, in sequence, inside a compact list row
+	<grid width="560px">
+		<columns>
+			<column label="Request" width="140px"/>
+			<column label="Amount" width="100px"/>
+			<column label="Approvers"/>
+		</columns>
+		<rows>
+			<row>
+				<label value="PR-2026-0481"/>
+				<label value="USD 12,400"/>
+				<avatargroup size="small">
+					<avatar image="/images/avatar1.png"/>
+					<avatar label="Amy Lin"/>
+					<avatar label="Ben Ho"/>
+				</avatargroup>
+			</row>
+			<row>
+				<label value="PR-2026-0482"/>
+				<label value="USD 980"/>
+				<avatargroup size="small">
+					<avatar image="/images/avatar2.png"/>
+					<avatar label="Cindy Kao"/>
+				</avatargroup>
+			</row>
+		</rows>
+	</grid>
+
+	<n:h2>Project team roster</n:h2>
+	a team card that renders every member with one uniform square cascade
+	<vlayout style="border:1px solid #ddd; border-radius:4px; padding:12px; width:360px">
+		<label value="Platform Team" style="font-weight:bold"/>
+		<avatargroup shape="square" size="large">
+			<avatar image="/images/avatar1.png"/>
+			<avatar image="/images/avatar2.png"/>
+			<avatar label="Tom Wu"/>
+			<avatar label="Amy Lin"/>
+		</avatargroup>
+		<label value="4 engineers, 2 on call this week" style="color:#666"/>
+	</vlayout>
+
+	<n:h2>Meeting attendees with an overflow list</n:h2>
+	the group shows the first two attendees; clicking the row reveals the full list
+	<vlayout style="border:1px solid #ddd; border-radius:4px; padding:12px; width:360px">
+		<label value="Sprint Review - Thu 14:00" style="font-weight:bold"/>
+		<avatargroup size="small" maxCount="2">
+			<avatar image="/images/avatar1.png"/>
+			<avatar image="/images/avatar2.png"/>
+			<avatar label="Tom Wu"/>
+			<avatar label="Amy Lin"/>
+			<avatar label="Ben Ho"/>
+		</avatargroup>
+		<button label="Show all attendees" sclass="z-button-link">
+			<attribute name="onClick">
+				attendees.setVisible(!attendees.isVisible());
+			</attribute>
+		</button>
+		<vlayout id="attendees" visible="false">
+			<label value="Jane Chen (organizer)"/>
+			<label value="Mark Lee"/>
+			<label value="Tom Wu"/>
+			<label value="Amy Lin"/>
+			<label value="Ben Ho"/>
+		</vlayout>
+	</vlayout>
+</zk>
