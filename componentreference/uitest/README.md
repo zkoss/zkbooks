@@ -17,8 +17,9 @@ withjdk.sh 11 mvn jetty:run -Djetty.port=8090 -Dhttps.port=8453
 
 # 2. in another shell
 cd componentreference/uitest
-node test-carousel.js     # 14 assertions
-node test-rest.js         # 51 assertions over the other six pages
+node test-carousel.js       # 14 assertions
+node test-rest.js          # 51 assertions over the other six pages
+node test-daterangebox.js  # 21 assertions over the three daterangebox use cases
 ```
 
 Exit code is the number of failed assertions, so `node test-rest.js && echo ok` works in a
@@ -40,6 +41,8 @@ Requires Node 18+ for `fetch` and Node 22+ for the global `WebSocket` (no `ws` p
   offers `eval`, `waitFor`, `click`, `clickAt`, `key`, `shot`, plus `check`/`report`/`summary`.
 - `test-carousel.js` — carousel and carouselitem.
 - `test-rest.js` — confirmpopup, chip, avatargroup, badge, breadcrumb, avatar.
+- `test-daterangebox.js` — the ERP, HR and plant-maintenance use cases on
+  `input/daterangebox.zul`.
 
 ## Things that will bite you when writing more of these
 
@@ -73,6 +76,17 @@ Requires Node 18+ for `fetch` and Node 22+ for the global `WebSocket` (no `ws` p
   dismisses an already-open combobox popup — so the click then fails with "element not found".
   Scroll the *owner* into view, open the float, then `rect()` the item and `clickAt()` its
   coordinates.
+- **Calendar cells are addressed by `aria-label`.** A day in a daterangebox popup renders
+  as `<td aria-label="7 September, 2026">`, which is the only stable handle — the cell ids
+  are auto-generated and the visible text is just the day number, repeated once per panel.
+  The popup itself is appended to `body`, so pick the one that is displayed rather than the
+  one that belongs to the widget.
+- **A typed date commits on blur, not on Enter.** Typing into a daterangebox input and
+  pressing Enter leaves the text in the field and fires nothing; Tab commits it, and that is
+  also the only cheap way to ask for a range wide enough to violate `maxNights`.
+- **A second error box does not get the `-open` class.** While one `.z-errorbox` is still
+  showing, the next one is inserted as a plain `.z-errorbox` — visible, but not matched by
+  `.z-errorbox-open`. Match on the message text instead.
 - **Scope lookups that could match a second time.** `byTextContains('.z-chip', 'Jane Chen')`
   hits the demo chip near the top of `chip.zul`, not the one in the use case; the recipient
   checks search inside `zkNode('recipientBar')` instead.

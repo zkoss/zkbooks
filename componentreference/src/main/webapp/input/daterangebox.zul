@@ -6,7 +6,7 @@
 		java.util.Date defaultEnd = c.getTime();
 	]]></zscript>
 	<n:p>
-	Daterangebox (ZK EE, since 10.4.0) lets the user pick a single contiguous
+	Daterangebox (ZK EE, since 11.0.0) lets the user pick a single contiguous
 	date range in one component: a begin input on the left, an end input on the
 	right, and a calendar popup whose month panels paint the whole selected span.
 	It addresses the common "date range picker" need - between two dates, before
@@ -80,4 +80,376 @@
 	</n:p>
 	<daterangebox disabled="true" beginValue="${defaultBegin}" endValue="${defaultEnd}"/>
 	<daterangebox readonly="true" beginValue="${defaultBegin}" endValue="${defaultEnd}"/>
+
+	<n:h1>Use Cases</n:h1>
+	<n:p>
+	Three enterprise screens, each built around one Daterangebox. Only the picker and
+	the numbers it drives are real; the module header, the field labels and the framing
+	are plain text and CSS, so every block stays short enough to read.
+	</n:p>
+
+	<style>
+		.uc-card {
+			width: 720px;
+			margin-bottom: 8px;
+			border: 1px solid #d5dbe1;
+			border-radius: 6px;
+			background: #fff;
+		}
+		.uc-card .z-label { font-size: 13px; }
+		.uc-crumb {
+			padding: 6px 12px;
+			border-radius: 5px 5px 0 0;
+			background: #2f4a63;
+			color: #c9d8e6;
+			font-size: 12px;
+			letter-spacing: .04em;
+		}
+		.uc-crumb b { color: #fff; }
+		.uc-band {
+			padding: 10px 12px;
+			background: #f5f7f9;
+			border-bottom: 1px solid #e3e8ec;
+		}
+		.uc-body { padding: 12px; }
+		.uc-note {
+			padding: 8px 12px;
+			border-top: 1px solid #eef1f4;
+			color: #6b7785;
+			font-size: 12px;
+		}
+		.uc-card .uc-key { font-size: 12px; color: #6b7785; }
+		.uc-card .uc-value { font-weight: bold; }
+		.uc-amount {
+			display: block;
+			text-align: right;
+			font-variant-numeric: tabular-nums;
+		}
+		.uc-footer { color: #33475b; font-weight: bold; }
+		.uc-ok { color: #1a7f37; font-weight: bold; }
+		.uc-bad { color: #b3261e; font-weight: bold; }
+		.uc-slot {
+			display: block;
+			padding: 3px 0 3px 8px;
+			border-left: 3px solid #8b9aa8;
+			font-variant-numeric: tabular-nums;
+		}
+		.uc-slot-freeze { border-left-color: #b3261e; }
+	</style>
+
+	<zscript><![CDATA[
+		/* java.util.Calendar has to be imported explicitly: zscript already imports
+		   org.zkoss.zul.*, and that package holds the Calendar *component*. */
+		import java.util.Calendar;
+
+		java.text.SimpleDateFormat DAY = new java.text.SimpleDateFormat("yyyy/MM/dd");
+		java.text.SimpleDateFormat STAMP = new java.text.SimpleDateFormat("MM/dd HH:mm");
+		java.text.DecimalFormat MONEY = new java.text.DecimalFormat("#,##0.00");
+
+		Date atMidnight(Calendar c) {
+			c.set(Calendar.HOUR_OF_DAY, 0);
+			c.set(Calendar.MINUTE, 0);
+			c.set(Calendar.SECOND, 0);
+			c.set(Calendar.MILLISECOND, 0);
+			return c.getTime();
+		}
+		Date midnight(int daysFromToday) {
+			Calendar c = Calendar.getInstance();
+			c.add(Calendar.DAY_OF_MONTH, daysFromToday);
+			return atMidnight(c);
+		}
+		Date at(int daysFromToday, int hour) {
+			Calendar c = Calendar.getInstance();
+			c.add(Calendar.DAY_OF_MONTH, daysFromToday);
+			atMidnight(c);
+			c.set(Calendar.HOUR_OF_DAY, hour);
+			return c.getTime();
+		}
+
+		/* ---- ERP: posted journal lines, dated relative to today ---- */
+		List GL_LINES = new ArrayList();
+		void gl(int daysAgo, String doc, String account, double amount) {
+			GL_LINES.add(new Object[] { midnight(-daysAgo), doc, account,
+					new Double(amount) });
+		}
+		gl(0, "JV-000231", "6100 Freight out", 12480.00);
+		gl(1, "JV-000230", "5010 Raw material", 184200.00);
+		gl(5, "JV-000219", "6210 Utilities", 33910.50);
+		gl(12, "JV-000198", "1210 Accounts receivable", 428000.00);
+		gl(20, "JV-000154", "5300 Subcontracting", 96750.00);
+		gl(34, "JV-000121", "6100 Freight out", 8120.75);
+		gl(41, "JV-000098", "5010 Raw material", 211640.00);
+		gl(58, "JV-000067", "6300 Depreciation", 74000.00);
+		gl(75, "JV-000024", "1210 Accounts receivable", 512300.00);
+
+		void glApply(Date begin, Date end) {
+			glRows.getChildren().clear();
+			double total = 0;
+			int matched = 0;
+			for (int i = 0; i < GL_LINES.size(); i++) {
+				Object[] line = (Object[]) GL_LINES.get(i);
+				Date posted = (Date) line[0];
+				if (posted.before(begin) || posted.after(end))
+					continue;
+				double amount = ((Double) line[3]).doubleValue();
+				Row row = new Row();
+				row.appendChild(new Label(DAY.format(posted)));
+				row.appendChild(new Label((String) line[1]));
+				row.appendChild(new Label((String) line[2]));
+				Label money = new Label(MONEY.format(amount));
+				money.setSclass("uc-amount");
+				row.appendChild(money);
+				glRows.appendChild(row);
+				total += amount;
+				matched++;
+			}
+			long days = DateRange.of(begin, end).getDays().orElse(0);
+			glFooter.setValue(matched + " line(s) over " + days + " day(s)"
+					+ "  |  total " + MONEY.format(total));
+		}
+		void glPreset(int monthsBack) {
+			Calendar c = Calendar.getInstance();
+			c.add(Calendar.MONTH, -monthsBack);
+			c.set(Calendar.DAY_OF_MONTH, 1);
+			Date begin = atMidnight(c);
+			c.set(Calendar.DAY_OF_MONTH, c.getActualMaximum(Calendar.DAY_OF_MONTH));
+			Date end = atMidnight(c);
+			Date today = midnight(0);
+			if (end.after(today))
+				end = today;
+			glRange.setValue(DateRange.of(begin, end));
+			glApply(begin, end);
+		}
+		void glQuarterToDate() {
+			Calendar c = Calendar.getInstance();
+			c.set(Calendar.DAY_OF_MONTH, 1);
+			c.set(Calendar.MONTH, (c.get(Calendar.MONTH) / 3) * 3);
+			Date begin = atMidnight(c);
+			Date end = midnight(0);
+			glRange.setValue(DateRange.of(begin, end));
+			glApply(begin, end);
+		}
+
+		/* ---- HR: leave request ---- */
+		int LEAVE_BALANCE = 8;
+		/* allowEmpty="none" rejects a half-assigned range, so the initial value goes in
+		   as one DateRange rather than as beginValue plus endValue. */
+		DateRange leaveDates = DateRange.of(midnight(7), midnight(11));
+
+		void leaveQuote(Date begin, Date end) {
+			int working = 0;
+			Calendar c = Calendar.getInstance();
+			c.setTime(begin);
+			while (!c.getTime().after(end)) {
+				int dow = c.get(Calendar.DAY_OF_WEEK);
+				if (dow != Calendar.SATURDAY && dow != Calendar.SUNDAY)
+					working++;
+				c.add(Calendar.DAY_OF_MONTH, 1);
+			}
+			long calendarDays = DateRange.of(begin, end).getDays().orElse(0);
+			leaveSpan.setValue(DAY.format(begin) + " to " + DAY.format(end)
+					+ "  |  " + calendarDays + " calendar day(s), "
+					+ working + " working day(s)");
+			int left = LEAVE_BALANCE - working;
+			if (left < 0) {
+				leaveBalance.setSclass("uc-bad");
+				leaveBalance.setValue("Over the entitlement by " + (-left)
+						+ " working day(s) - unpaid leave needs a separate form");
+				leaveSubmit.setDisabled(true);
+			} else {
+				leaveBalance.setSclass("uc-ok");
+				leaveBalance.setValue(working + " day(s) deducted, " + left
+						+ " of " + LEAVE_BALANCE + " day(s) left");
+				leaveSubmit.setDisabled(false);
+			}
+		}
+
+		/* ---- Plant maintenance: windows already booked on the line ---- */
+		List MW_BOOKED = new ArrayList();
+		void booked(String what, Date begin, Date end, boolean freeze) {
+			MW_BOOKED.add(new Object[] { what, DateRange.of(begin, end),
+					Boolean.valueOf(freeze) });
+		}
+		booked("WO-8842 Firmware upgrade", at(3, 22), at(4, 6), false);
+		booked("WO-8851 Conveyor overhaul", at(9, 0), at(11, 18), false);
+		booked("Quarter-end freeze, no changes", at(20, 0), at(24, 23), true);
+
+		DateRange mwWindow = DateRange.of(at(1, 22), at(2, 6));
+
+		void mwCheck(Date begin, Date end) {
+			DateRange picked = DateRange.of(begin, end);
+			String clash = null;
+			for (int i = 0; i < MW_BOOKED.size(); i++) {
+				Object[] slot = (Object[]) MW_BOOKED.get(i);
+				if (picked.overlaps((DateRange) slot[1])) {
+					clash = (String) slot[0];
+					break;
+				}
+			}
+			long hours = (end.getTime() - begin.getTime()) / 3600000L;
+			if (clash != null) {
+				mwStatus.setSclass("uc-bad");
+				mwStatus.setValue("Rejected - the window overlaps " + clash);
+				mwSubmit.setDisabled(true);
+			} else {
+				mwStatus.setSclass("uc-ok");
+				mwStatus.setValue("Line 2 is free - " + hours
+						+ " h of planned downtime");
+				mwSubmit.setDisabled(false);
+			}
+		}
+	]]></zscript>
+
+	<n:h2>ERP: posting-date inquiry on the general ledger</n:h2>
+	<n:p>
+	The range is the query. Presets write it with setValue(DateRange), which smart-updates
+	both inputs, so the buttons and the calendar drive the same state; the grid is
+	rebuilt from whatever getBegin()/getEnd() report. Two attributes carry the accounting
+	rules: constraint="no future" keeps the inquiry out of unposted periods, and
+	maxNights="92" stops an accidental full-year scan at one quarter.
+	</n:p>
+	<div sclass="uc-card">
+		<n:div class="uc-crumb">FIN &#8250; General Ledger &#8250; <n:b>Journal Inquiry (GL-3200)</n:b></n:div>
+		<div sclass="uc-band">
+			<hlayout valign="middle" spacing="10px">
+				<label sclass="uc-key" value="Company"/>
+				<label sclass="uc-value" value="1000 Acme Manufacturing"/>
+				<label sclass="uc-key" value="Posting date"/>
+				<daterangebox id="glRange" width="300px" allowEmpty="none"
+							  constraint="no future" maxNights="92" showTodayLink="true"
+							  separator=" &#8594; "
+							  onChange="glApply(event.getBegin(), event.getEnd())"/>
+			</hlayout>
+			<hlayout valign="middle" spacing="10px">
+				<label sclass="uc-key" value="Period"/>
+				<button label="This month" onClick="glPreset(0)"/>
+				<button label="Last month" onClick="glPreset(1)"/>
+				<button label="Quarter to date" onClick="glQuarterToDate()"/>
+			</hlayout>
+		</div>
+		<div sclass="uc-body">
+			<grid width="100%" emptyMessage="No journal lines posted in this range">
+				<columns>
+					<column label="Posting date" width="110px"/>
+					<column label="Document" width="110px"/>
+					<column label="Account"/>
+					<column label="Amount" width="130px" align="right"/>
+				</columns>
+				<rows id="glRows"/>
+			</grid>
+			<label id="glFooter" sclass="uc-footer"/>
+		</div>
+		<n:div class="uc-note">
+			Try a range wider than a quarter: the component refuses it with an error box
+			before any listener runs, so the query never reaches the ledger.
+		</n:div>
+	</div>
+	<zscript>glPreset(0);</zscript>
+
+	<n:h2>HR: leave request bounded by policy</n:h2>
+	<n:p>
+	Here the range is the form's only real input, and the attributes are the leave policy:
+	constraint="no past" blocks a backdated request, allowEmpty="none" makes both endpoints
+	mandatory, and maxNights="20" is the cap on a single application. Everything below the
+	picker is priced in onChange - the calendar-day count comes from DateRange.getDays(),
+	the deduction only counts working days, and going over the entitlement disables Submit.
+	</n:p>
+	<div sclass="uc-card">
+		<n:div class="uc-crumb">HR &#8250; Time Off &#8250; <n:b>Leave Request (HR-204)</n:b></n:div>
+		<div sclass="uc-band">
+			<hlayout valign="middle" spacing="10px">
+				<label sclass="uc-key" value="Employee"/>
+				<label sclass="uc-value" value="E-10427 Jane Chen"/>
+				<label sclass="uc-key" value="Manager"/>
+				<label sclass="uc-value" value="Mark Lee"/>
+				<label sclass="uc-key" value="Balance"/>
+				<label sclass="uc-value" value="${LEAVE_BALANCE} working day(s)"/>
+			</hlayout>
+		</div>
+		<div sclass="uc-body">
+			<vlayout spacing="6px">
+				<hlayout valign="middle" spacing="10px">
+					<label sclass="uc-key" value="Leave type"/>
+					<combobox readonly="true" width="150px" value="Annual leave">
+						<comboitem label="Annual leave"/>
+						<comboitem label="Sick leave"/>
+						<comboitem label="Unpaid leave"/>
+					</combobox>
+					<label sclass="uc-key" value="Dates"/>
+					<daterangebox id="leaveRange" width="300px" constraint="no past" allowEmpty="none"
+								  maxNights="20" numberOfMonths="2"
+								  beginPlaceholder="First day" endPlaceholder="Last day"
+								  separator=" &#8594; "
+								  value="${leaveDates}"
+								  onChange="leaveQuote(event.getBegin(), event.getEnd())"/>
+				</hlayout>
+				<label id="leaveSpan"/>
+				<label id="leaveBalance"/>
+				<button id="leaveSubmit" label="Submit for approval"
+						onClick="Clients.showNotification('Request routed to Mark Lee',
+								'info', null, 'end_center', 3000)"/>
+			</vlayout>
+		</div>
+		<n:div class="uc-note">
+			Weekends are still selectable - the policy counts them, it does not forbid them,
+			so the working-day math belongs in the listener rather than in a constraint.
+		</n:div>
+	</div>
+	<zscript>leaveQuote(leaveDates.getBegin(), leaveDates.getEnd());</zscript>
+
+	<n:h2>Plant maintenance: a downtime window that must not collide</n:h2>
+	<n:p>
+	showTime="true" because downtime is booked in hours, not days. The picked range arrives
+	as a DateRange, so the collision check against what is already scheduled is one call -
+	DateRange.overlaps() - over the same kind of object, and the quarter-end freeze is just
+	one more range in that list. Note that overlaps() treats both endpoints as inclusive: a
+	window starting exactly when another ends still counts as a collision. The listener can
+	assume the window points forward: the times carry over from the previous pick, and the
+	component rejects a begin later than the end before onChange is fired.
+	</n:p>
+	<div sclass="uc-card">
+		<n:div class="uc-crumb">PM &#8250; Assets &#8250; <n:b>Maintenance Window (PM-1105)</n:b></n:div>
+		<div sclass="uc-band">
+			<hlayout valign="middle" spacing="10px">
+				<label sclass="uc-key" value="Asset"/>
+				<label sclass="uc-value" value="LINE-02 Bottling line 2"/>
+				<label sclass="uc-key" value="Plant"/>
+				<label sclass="uc-value" value="TPE-01"/>
+			</hlayout>
+		</div>
+		<div sclass="uc-body">
+			<vlayout spacing="6px">
+				<label sclass="uc-key" value="Already booked on this asset"/>
+				<vlayout id="mwBooked" spacing="2px"/>
+				<hlayout valign="middle" spacing="10px">
+					<label sclass="uc-key" value="Requested window"/>
+					<daterangebox id="mwRange" showTime="true" constraint="no past"
+								  allowEmpty="none" maxNights="7" numberOfMonths="2"
+								  separator=" &#8594; "
+								  value="${mwWindow}"
+								  onChange="mwCheck(event.getBegin(), event.getEnd())"/>
+				</hlayout>
+				<label id="mwStatus"/>
+				<button id="mwSubmit" label="Request downtime"
+						onClick="Clients.showNotification('Window sent to the shift supervisor',
+								'info', null, 'end_center', 3000)"/>
+			</vlayout>
+		</div>
+		<n:div class="uc-note">
+			Pick dates inside the second booked window above to see the request rejected,
+			and drag across the freeze period to see the same check catch a policy block.
+		</n:div>
+	</div>
+	<zscript><![CDATA[
+		for (int i = 0; i < MW_BOOKED.size(); i++) {
+			Object[] slot = (Object[]) MW_BOOKED.get(i);
+			DateRange r = (DateRange) slot[1];
+			Label line = new Label(STAMP.format(r.getBegin()) + "  -  "
+					+ STAMP.format(r.getEnd()) + "    " + slot[0]);
+			line.setSclass(((Boolean) slot[2]).booleanValue()
+					? "uc-slot uc-slot-freeze" : "uc-slot");
+			line.setParent(mwBooked);
+		}
+		mwCheck(mwWindow.getBegin(), mwWindow.getEnd());
+	]]></zscript>
 </zk>
