@@ -3,7 +3,7 @@
 Every code snippet in the `zk_component_dev_essentials` book is extracted from this project.
 If a demo here is broken, the book is wrong.
 
-- **ZK 11.0.0.FL.20260812-Eval, javax flavor, Java 11.** Pinned literally, and resolved from
+- **ZK 11.0.0, javax flavor, Java 11.** Pinned literally, and resolved from
   the ZK evaluation repository: ZK 11 has no CE release yet. Note this is an `-Eval`/`-FL`
   build, so a reader outside ZK cannot resolve it; switch to a released CE version before
   handing generated projects to outside readers.

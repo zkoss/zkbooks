@@ -1,0 +1,360 @@
+<zk xmlns:n="native" xmlns:ca="client/attribute">
+	<n:p>
+	Codeeditor (ZK CE, since 11.0.0) is a syntax-highlighting source editor: line
+	numbers, edit history, nine grammars and a light/dark surface, wrapping a
+	CodeMirror 6 editor. Use it wherever a page edits or shows code - an XML or
+	JSON config, a SQL statement, an HTML template - instead of a plain textbox.
+	It reports edits through the same onChanging/onChange InputEvent as the other
+	input components, so value binds exactly like a textbox value does.
+	</n:p>
+	<n:p>
+	Two things to know before the first example. It takes no children, so a
+	multi-line initial value goes in through &lt;attribute name="value"&gt; -
+	an XML attribute would collapse the newlines to spaces. And it has no
+	intrinsic height: give it one, or it grows with the content instead of
+	scrolling.
+	</n:p>
+
+	<n:h1>Basic</n:h1>
+	<n:p>
+	language picks the grammar, height fixes the box; the editor scrolls inside it
+	</n:p>
+	<codeeditor language="java" height="160px" width="600px">
+		<attribute name="value">public class Greeter {
+	public static void main(String[] args) {
+		System.out.println("Hello, ZK 11");
+	}
+}</attribute>
+	</codeeditor>
+
+	<n:h1>Languages</n:h1>
+	<n:p>
+	nine grammars ship in the CE build: plain, html, xml, java, javascript, css,
+	json, sql and markdown. plain is the default and means no highlighting;
+	an unrecognised value raises a WrongValueException. Switching language at
+	runtime re-highlights the same document in place.
+	</n:p>
+	<hlayout valign="middle">
+		<label value="language"/>
+		<combobox id="langPicker" readonly="true" value="javascript" width="140px"
+				  onChange="sampler.setLanguage(self.getValue())">
+			<comboitem label="plain"/>
+			<comboitem label="html"/>
+			<comboitem label="xml"/>
+			<comboitem label="java"/>
+			<comboitem label="javascript"/>
+			<comboitem label="css"/>
+			<comboitem label="json"/>
+			<comboitem label="sql"/>
+			<comboitem label="markdown"/>
+		</combobox>
+		<label value="(the document below stays the same; only the grammar changes)"/>
+	</hlayout>
+	<codeeditor id="sampler" language="javascript" height="150px" width="600px">
+		<attribute name="value">/* the same text under every grammar */
+const limit = 25;
+function pick(rows) { return rows.filter(r =&gt; r.total &gt; limit); }</attribute>
+	</codeeditor>
+
+	<n:h1>lineNumbers and tabSize</n:h1>
+	<n:p>
+	lineNumbers toggles the gutter (default true). tabSize is the displayed width
+	of a tab, 4 by default; the indent character itself is always a tab, so
+	tabSize changes how the same file looks, never what it contains. A tabSize
+	below 1 raises a WrongValueException.
+	</n:p>
+	<hlayout valign="middle">
+		<label value="no gutter, tabs 8 columns wide"/>
+	</hlayout>
+	<codeeditor language="xml" lineNumbers="false" tabSize="8" height="120px" width="600px">
+		<attribute name="value">&lt;routes&gt;
+	&lt;route path="/orders" service="order-api"&gt;
+		&lt;timeout ms="2000"/&gt;
+	&lt;/route&gt;
+&lt;/routes&gt;</attribute>
+	</codeeditor>
+
+	<n:h1>Theme</n:h1>
+	<n:p>
+	theme is light (default) or dark; dark adds the z-codeeditor-dark modifier and
+	swaps the surface plus the token palette. Any other non-null value raises a
+	WrongValueException.
+	</n:p>
+	<codeeditor language="css" theme="dark" height="140px" width="600px">
+		<attribute name="value">.z-button {
+	/* dark surface, VS Code Dark+ token colours */
+	border-radius: 4px;
+	padding: 6px 14px;
+}</attribute>
+	</codeeditor>
+
+	<n:h1>readonly and disabled</n:h1>
+	<n:p>
+	readonly keeps the editor focusable and its text selectable and copyable - the
+	right choice for a code viewer. disabled also drops it out of the tab order,
+	blocks the pointer and dims it.
+	</n:p>
+	<codeeditor language="json" readonly="true" height="110px" width="600px">
+		<attribute name="value">{
+	"readonly": true,
+	"note": "click into me, select this line, copy it"
+}</attribute>
+	</codeeditor>
+	<codeeditor language="json" disabled="true" height="110px" width="600px">
+		<attribute name="value">{
+	"disabled": true,
+	"note": "dimmed, not focusable, Tab skips over me"
+}</attribute>
+	</codeeditor>
+
+	<n:h1>Keyboard</n:h1>
+	<n:p>
+	Tab moves focus to the next control and Shift+Tab to the previous one, so the
+	editor is never a keyboard trap. Indent and outdent inside the document with
+	Ctrl+] and Ctrl+[ (Cmd on macOS). Undo and redo are Ctrl/Cmd+Z and
+	Ctrl/Cmd+Shift+Z.
+	</n:p>
+	<hlayout valign="middle">
+		<textbox placeholder="Tab from here..."/>
+		<label value="into the editor, then Tab again to reach the button"/>
+	</hlayout>
+	<codeeditor language="sql" height="90px" width="600px" value="SELECT * FROM orders"/>
+	<button label="the next stop"/>
+
+	<n:h1>onChange and onChanging</n:h1>
+	<n:p>
+	both carry an org.zkoss.zk.ui.event.InputEvent. onChanging fires while typing;
+	onChange fires when the edit is committed, which for this component means when
+	the editor loses focus - so click outside it to see the second counter move.
+	</n:p>
+	<codeeditor id="watched" language="markdown" height="110px" width="600px"
+			onChanging='changingCount.setValue("onChanging: " + (++typing)
+					+ " (" + event.getValue().length() + " chars)")'
+			onChange='changeCount.setValue("onChange: committed "
+					+ event.getValue().length() + " chars")'>
+		<attribute name="value"># Release notes
+
+Type here, then click away.</attribute>
+	</codeeditor>
+	<zscript>int typing = 0;</zscript>
+	<vlayout>
+		<label id="changingCount" value="onChanging: 0"/>
+		<label id="changeCount" value="onChange: not committed yet"/>
+	</vlayout>
+
+	<n:h1>Client-side API</n:h1>
+	<n:p>
+	the widget zul.code.Codeeditor exposes setValue, setLanguage, setReadonly,
+	setDisabled, setLineNumbers, setTabSize and setTheme (plus the matching
+	getters). Called from the browser they reconfigure the live editor with no
+	server round-trip - useful for a toolbar that only changes how code is
+	displayed.
+	</n:p>
+	<hlayout>
+		<button label="dark" onClick='clientSide.setTheme("dark")'/>
+		<button label="light" onClick='clientSide.setTheme("light")'/>
+		<button label="gutter off" onClick='clientSide.setLineNumbers(false)'/>
+		<button label="gutter on" onClick='clientSide.setLineNumbers(true)'/>
+		<button label="as sql" onClick='clientSide.setLanguage("sql")'/>
+		<button label="as plain" onClick='clientSide.setLanguage("plain")'/>
+	</hlayout>
+	<codeeditor id="clientSide" language="sql" height="120px" width="600px">
+		<attribute name="value">SELECT customer_id, SUM(total) AS revenue
+FROM orders
+WHERE status = 'SHIPPED'
+GROUP BY customer_id</attribute>
+	</codeeditor>
+
+	<n:h1>Data binding</n:h1>
+	<n:p>
+	value is two-way bindable and saves on onChange, so @bind(vm.source) writes
+	the edited text back when the editor loses focus. Edit the XML below, click
+	outside the editor, then press Deploy - the view model parses whatever it
+	received.
+	</n:p>
+	<vlayout viewModel="@id('vm')@init('org.zkoss.reference.component.input.CodeeditorVM')">
+		<codeeditor language="xml" height="150px" width="600px" value="@bind(vm.source)"/>
+		<hlayout valign="middle">
+			<button label="Deploy" onClick="@command('deploy')"/>
+			<label value="@load(vm.status)"/>
+		</hlayout>
+	</vlayout>
+
+	<n:h1>Accessible name</n:h1>
+	<n:p>
+	there is no label property; give the editor its accessible name through the
+	client/attribute namespace and the widget forwards it onto CodeMirror's
+	editable region, where a screen reader looks for it. A readonly editor also
+	exposes aria-readonly.
+	</n:p>
+	<codeeditor ca:aria-label="Deployment descriptor editor"
+				language="xml" height="100px" width="600px"
+				value="&lt;web-app version=&quot;4.0&quot;/&gt;"/>
+	<label id="visibleName" value="Startup script"/>
+	<codeeditor ca:aria-labelledby="${visibleName.uuid}"
+				language="javascript" height="100px" width="600px"
+				value="window.addEventListener('load', boot);"/>
+
+	<n:h1>Restyling the dark surface</n:h1>
+	<n:p>
+	the dark surface and every syntax token read a CSS custom property on the
+	.z-codeeditor root, so a theme - or one element's style - can repaint them.
+	The surface hooks are --zk-codeeditor-background, -color, -gutter-color and
+	-active-line; the token hooks are --zk-codeeditor-token- plus keyword, string,
+	comment, number, function, type, variable, tag, attribute or meta.
+	</n:p>
+	<codeeditor language="javascript" theme="dark" height="140px" width="600px"
+			style="--zk-codeeditor-background:#0b1021;
+				   --zk-codeeditor-color:#c0caf5;
+				   --zk-codeeditor-gutter-color:#3b4261;
+				   --zk-codeeditor-token-keyword:#bb9af7;
+				   --zk-codeeditor-token-string:#9ece6a;
+				   --zk-codeeditor-token-number:#ff9e64;
+				   --zk-codeeditor-token-comment:#565f89;">
+		<attribute name="value">// the same dark theme, repainted by seven custom properties
+const retries = 3;
+function boot(cfg) {
+	return cfg.enabled ? "started" : "skipped";
+}</attribute>
+	</codeeditor>
+
+	<n:h1>Use Cases</n:h1>
+	<n:p>
+	Two screens where a codeeditor is the working surface rather than a sample.
+	Only the editor and the values it drives are real; the framing is plain
+	markup and CSS.
+	</n:p>
+
+	<style>
+		.uc-card {
+			width: 720px;
+			margin-bottom: 12px;
+			border: 1px solid #d5dbe1;
+			border-radius: 6px;
+			background: #fff;
+		}
+		.uc-card .z-label { font-size: 13px; }
+		.uc-crumb {
+			padding: 6px 12px;
+			border-radius: 5px 5px 0 0;
+			background: #2f4a63;
+			color: #c9d8e6;
+			font-size: 12px;
+			letter-spacing: .04em;
+		}
+		.uc-crumb b { color: #fff; }
+		.uc-body { padding: 12px; }
+		.uc-note {
+			padding: 8px 12px;
+			border-top: 1px solid #eef1f4;
+			color: #6b7785;
+			font-size: 12px;
+		}
+		.uc-ok { color: #1a7f37; font-weight: bold; }
+		.uc-bad { color: #b3261e; font-weight: bold; }
+		.uc-preview {
+			padding: 10px;
+			border: 1px dashed #c7ced6;
+			border-radius: 4px;
+			background: #fbfcfd;
+		}
+	</style>
+
+	<n:h2>Marketing: an email template editor with preview</n:h2>
+	<vlayout sclass="uc-card" spacing="0">
+		<div sclass="uc-crumb">
+			<label value="Campaigns / Autumn Sale / "/><label value="Template" sclass="uc-crumb"/>
+		</div>
+		<vlayout sclass="uc-body">
+			<codeeditor id="tpl" language="html" height="180px" hflex="1">
+				<attribute name="value">&lt;div style="font-family:sans-serif"&gt;
+	&lt;h2 style="color:#b3261e"&gt;Autumn Sale&lt;/h2&gt;
+	&lt;p&gt;Hello ${'$'}{firstName}, everything in the outlet is &lt;b&gt;30% off&lt;/b&gt;
+	   until Sunday.&lt;/p&gt;
+	&lt;a href="#" style="color:#2f4a63"&gt;Browse the outlet&lt;/a&gt;
+&lt;/div&gt;</attribute>
+			</codeeditor>
+			<hlayout valign="middle">
+				<button label="Preview" onClick="renderTemplate()"/>
+				<label id="tplStatus" value="not rendered yet"/>
+			</hlayout>
+			<div id="tplPreview" sclass="uc-preview"/>
+		</vlayout>
+		<div sclass="uc-note">
+			<label value="Preview reads tpl.getValue() on the server, so the editor's current text is whatever the marketer last committed - click outside the editor before pressing Preview."/>
+		</div>
+	</vlayout>
+
+	<zscript><![CDATA[
+		void renderTemplate() {
+			String source = tpl.getValue();
+			tplPreview.getChildren().clear();
+			Html preview = new Html();
+			preview.setContent(source.replace("${firstName}", "Dana"));
+			tplPreview.appendChild(preview);
+			tplStatus.setValue("rendered " + source.length() + " chars");
+			tplStatus.setSclass("uc-ok");
+		}
+	]]></zscript>
+
+	<n:h2>Operations: a read-only config snapshot viewer</n:h2>
+	<vlayout sclass="uc-card" spacing="0">
+		<div sclass="uc-crumb">
+			<label value="Operations / gateway-prod / "/><label value="Snapshots" sclass="uc-crumb"/>
+		</div>
+		<hlayout sclass="uc-body" valign="top">
+			<listbox id="snapshots" width="230px" height="200px"
+					 onSelect="showSnapshot(self.getSelectedItem().getValue())">
+				<listhead>
+					<listheader label="Deployed"/>
+				</listhead>
+			</listbox>
+			<vlayout hflex="1">
+				<codeeditor id="snapshotView" language="json" readonly="true"
+							theme="dark" height="200px" hflex="1"/>
+				<label id="snapshotNote"/>
+			</vlayout>
+		</hlayout>
+		<div sclass="uc-note">
+			<label value="readonly rather than disabled: an operator still needs to select and copy a line out of an old snapshot."/>
+		</div>
+	</vlayout>
+
+	<zscript><![CDATA[
+		java.util.Map SNAPSHOTS = new java.util.LinkedHashMap();
+		SNAPSHOTS.put("2026-08-31 14:02  rollout", "{\n" +
+				"  \"upstream\": \"order-api-v3\",\n" +
+				"  \"timeoutMs\": 2000,\n" +
+				"  \"retries\": 2,\n" +
+				"  \"circuitBreaker\": { \"enabled\": true, \"failureRatio\": 0.5 }\n" +
+				"}");
+		SNAPSHOTS.put("2026-08-24 09:41  hotfix", "{\n" +
+				"  \"upstream\": \"order-api-v2\",\n" +
+				"  \"timeoutMs\": 8000,\n" +
+				"  \"retries\": 0,\n" +
+				"  \"circuitBreaker\": { \"enabled\": false }\n" +
+				"}");
+		SNAPSHOTS.put("2026-08-11 17:20  baseline", "{\n" +
+				"  \"upstream\": \"order-api-v2\",\n" +
+				"  \"timeoutMs\": 5000,\n" +
+				"  \"retries\": 1,\n" +
+				"  \"circuitBreaker\": { \"enabled\": true, \"failureRatio\": 0.8 }\n" +
+				"}");
+
+		void showSnapshot(String when) {
+			String json = (String) SNAPSHOTS.get(when);
+			snapshotView.setValue(json);
+			snapshotNote.setValue(when + "  -  " + json.split("\n").length + " lines, read-only");
+		}
+
+		for (java.util.Iterator it = SNAPSHOTS.keySet().iterator(); it.hasNext();) {
+			String when = (String) it.next();
+			Listitem item = new Listitem(when);
+			item.setValue(when);
+			snapshots.appendChild(item);
+		}
+		/* open on the newest snapshot rather than on an empty editor */
+		snapshots.setSelectedIndex(0);
+		showSnapshot((String) snapshots.getSelectedItem().getValue());
+	]]></zscript>
+</zk>

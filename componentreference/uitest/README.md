@@ -20,6 +20,7 @@ cd componentreference/uitest
 node test-carousel.js       # 14 assertions
 node test-rest.js          # 51 assertions over the other six pages
 node test-daterangebox.js  # 21 assertions over the three daterangebox use cases
+node test-codeeditor.js    # 38 assertions over the codeeditor page
 ```
 
 Exit code is the number of failed assertions, so `node test-rest.js && echo ok` works in a
@@ -43,6 +44,9 @@ Requires Node 18+ for `fetch` and Node 22+ for the global `WebSocket` (no `ws` p
 - `test-rest.js` — confirmpopup, chip, avatargroup, badge, breadcrumb, avatar.
 - `test-daterangebox.js` — the ERP, HR and plant-maintenance use cases on
   `input/daterangebox.zul`.
+- `test-codeeditor.js` — `input/codeeditor.zul`: grammars, gutter, tabSize, theme,
+  readonly vs disabled, the InputEvent pair, the client-side setters, `@bind`, the ARIA
+  name and both use cases.
 
 ## Things that will bite you when writing more of these
 
@@ -58,6 +62,11 @@ Requires Node 18+ for `fetch` and Node 22+ for the global `WebSocket` (no `ws` p
 - **There is no `zk.$$` in ZK 11.** To find a widget by its ZUL id, walk
   `document.querySelectorAll('[id]')` and compare `zk.Widget.$(el).id` — that is what the
   injected `zkWidget()` / `zkNode()` helpers do.
+- **CodeMirror ignores synthetic keystrokes.** `dispatchKeyEvent` inserts nothing into a
+  `codeeditor`; use `Input.insertText`, which goes through the same `beforeinput` path a real
+  keystroke does.
+- **Do not assert on CodeMirror class names.** Its highlight classes are generated (`ͼb`,
+  `ͼg`) and change between builds — assert on the computed colour instead.
 - **Some widgets render lazily.** A `menupopup` is not in the DOM at all until it is first
   opened.
 - **`.z-label` sets its own `font-size`.** Sizing a label by styling the wrapper around it
