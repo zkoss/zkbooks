@@ -19,12 +19,12 @@
   	<dependency>
   		<groupId>org.zkoss.zk</groupId>
   		<artifactId>zkplus</artifactId>
-  		<version>11.0.0.FL.20260812-Eval</version>
+  		<version>11.0.0.FL.20260831-Eval</version>
   	</dependency>
   	<dependency>
   		<groupId>org.zkoss.zk</groupId>
   		<artifactId>zkbind</artifactId>
-  		<version>11.0.0.FL.20260812-Eval</version>
+  		<version>11.0.0.FL.20260831-Eval</version>
   	</dependency>
   	<dependency>
   		<groupId>org.springframework</groupId>

@@ -5,7 +5,7 @@
 	<artifactId>csp-filter</artifactId>
 	<version>1.0</version>
 	<properties>
-		<zk.version>11.0.0.FL.20260812-Eval</zk.version>
+		<zk.version>11.0.0.FL.20260831-Eval</zk.version>
 		<maven.build.timestamp.format>yyyy-MM-dd</maven.build.timestamp.format>
 		<packname>-${project.version}-FL-${maven.build.timestamp}</packname>
 	</properties>

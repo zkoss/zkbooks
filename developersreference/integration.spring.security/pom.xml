@@ -10,7 +10,7 @@
   <packaging>war</packaging>
   
 	<properties>
-		<zk.version>11.0.0.FL.20260812-Eval</zk.version>
+		<zk.version>11.0.0.FL.20260831-Eval</zk.version>
 		<springsecurity.version>3.1.2.RELEASE</springsecurity.version>
 		<packname>-${maven.build.timestamp}</packname>
 	</properties>
