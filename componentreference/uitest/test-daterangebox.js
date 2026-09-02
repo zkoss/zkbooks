@@ -12,7 +12,15 @@ const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July',
 	'August', 'September', 'October', 'November', 'December'];
 const label = d => `${d.getDate()} ${MONTHS[d.getMonth()]}, ${d.getFullYear()}`;
 const plusDays = n => { const d = new Date(); d.setDate(d.getDate() + n); return d; };
-const cell = text => `${POPUP}.querySelector('[aria-label="${text}"]')`;
+// A panel also draws the neighbouring months' spill days. They carry the right
+// aria-label but are marked z-calendar-outside and are NOT selectable, so clicking one
+// is silently ignored. querySelector would hand back exactly that spill cell whenever it
+// comes first in document order - even when a live cell for the same date sits in the
+// next panel - so always take the first cell that is not an outside day.
+const cell = text => `Array.from(${POPUP}.querySelectorAll('[aria-label="${text}"]'))`
+	+ `.find(e => !e.classList.contains('z-calendar-outside'))`;
+const panelsShown = `Array.from(${POPUP}.querySelectorAll('.z-calendar'))`
+	+ `.map(p => p.querySelector('.z-calendar-title').textContent.trim())`;
 // What the inputs render and accept: "Aug 31, 2026".
 const typed = d => `${MONTHS[d.getMonth()].slice(0, 3)} ${d.getDate()}, ${d.getFullYear()}`;
 const openerOf = id => `zkNode('${id}').querySelector('.z-daterangebox-button')`;
@@ -20,12 +28,37 @@ const inputsOf = id => `JSON.stringify(Array.from(zkNode('${id}')`
 	+ `.querySelectorAll('input')).map(i => i.value))`;
 
 // Pick begin then end in the popup of the given daterangebox.
-async function pickRange(page, id, beginDate, endDate) {
-	await page.click(openerOf(id));
+// The popup opens on the month of the box's current begin value, so both dates have to
+// fall inside the months it shows. When they do not, say so instead of clicking a spill
+// cell and leaving the popup open - a left-open popup makes the NEXT opener click toggle
+// it shut, which used to surface much later as an unrelated timeout.
+// Pass {mayReject: true} when the pick is meant to be refused by a constraint.
+async function pickRange(page, id, beginDate, endDate, opts = {}) {
+	// showTime leaves the popup open after a pick so the times can be adjusted, and the
+	// opener toggles - so clicking it again would shut that popup rather than open a fresh
+	// one. Reuse whatever is already showing instead. (Esc closes it but wedges the
+	// renderer, and clicking the opener to close races the popup's own dismiss-on-blur.)
+	// Consecutive picks in this file always target the same box; if that ever stops being
+	// true, the selectable-cell check below fails loudly rather than clicking into a
+	// stranger's popup.
+	if (!(await page.eval(`!!${POPUP}`)))
+		await page.click(openerOf(id));
 	await page.waitFor(POPUP);
+	for (const d of [beginDate, endDate])
+		if (!(await page.eval(`!!(${cell(label(d))})`)))
+			throw new Error(`${label(d)} is not selectable in ${id}'s popup, which is showing `
+				+ `${JSON.stringify(await page.eval(panelsShown))}. Set the box to a range whose `
+				+ `begin month brings that date into view before picking it.`);
 	await page.click(cell(label(beginDate)));
 	await page.click(cell(label(endDate)));
 	await sleep(400);
+	// A showTime popup stays open for the time row, so the post-condition is that the value
+	// committed - not that the popup closed.
+	if (opts.mayReject) return;
+	const shown = await page.eval(inputsOf(id));
+	for (const d of [beginDate, endDate])
+		if (shown.indexOf(typed(d)) < 0)
+			throw new Error(`${id} did not take ${typed(d)} - its inputs read ${shown}`);
 }
 
 (async () => {
@@ -65,6 +98,11 @@ async function pickRange(page, id, beginDate, endDate) {
 			qtdDays >= monthDays, `qtd=${qtdDays} days, month=${monthDays} days`);
 
 		// A range picked in the calendar has to drive the same grid the buttons do.
+		// Quarter to date leaves the begin three months back, so the popup would open on
+		// months that do not contain the last week. Last month puts the previous and the
+		// current month on screen, which covers today-6 .. today whatever today is.
+		await page.click(`byText('.z-button', 'Last month')`);
+		await page.waitFor(`textOf('glFooter') !== ${JSON.stringify(qtd)}`);
 		await pickRange(page, 'glRange', plusDays(-6), plusDays(0));
 		const picked = await footer();
 		check('onChange rebuilds the grid from the range picked in the calendar',
@@ -155,7 +193,7 @@ async function pickRange(page, id, beginDate, endDate) {
 		// The carried-over times would invert a same-day pick (22:00 to 06:00), so the
 		// listener would see a negative duration - the component rejects it first.
 		const accepted = await status();
-		await pickRange(page, 'mwRange', plusDays(15), plusDays(15));
+		await pickRange(page, 'mwRange', plusDays(15), plusDays(15), { mayReject: true });
 		// An error box that opens while an earlier one is still showing does not get the
 		// -open class, so match on the text of any error box instead.
 		const invertBox = `Array.from(document.querySelectorAll('.z-errorbox'))`

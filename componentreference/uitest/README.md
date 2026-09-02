@@ -65,6 +65,19 @@ Requires Node 18+ for `fetch` and Node 22+ for the global `WebSocket` (no `ws` p
 - **CodeMirror ignores synthetic keystrokes.** `dispatchKeyEvent` inserts nothing into a
   `codeeditor`; use `Input.insertText`, which goes through the same `beforeinput` path a real
   keystroke does.
+- **Calendar panels draw their neighbours' days.** A September panel also renders the first
+  days of October as `z-calendar-outside` spill cells. They carry the correct `aria-label`
+  but are **not selectable**, and `querySelector` hands you the spill cell first whenever it
+  comes earlier in document order - even when a live cell for the same date sits in the next
+  panel. Always filter out `z-calendar-outside`. Clicking one is silently ignored, which
+  leaves the popup open and makes the *next* opener click toggle it shut - surfacing much
+  later as an unrelated timeout.
+- **A daterangebox popup opens on the month of its begin value**, so a date outside the
+  months on display cannot be picked at all. Set the box to a range that brings the date
+  into view first.
+- **Never press Esc to dismiss a daterangebox popup.** It closes, but wedges the renderer -
+  every later `Runtime.evaluate` then times out with no error on the page. A `showTime`
+  popup stays open after a pick by design; reuse it rather than trying to close it.
 - **Do not assert on CodeMirror class names.** Its highlight classes are generated (`ͼb`,
   `ͼg`) and change between builds — assert on the computed colour instead.
 - **Some widgets render lazily.** A `menupopup` is not in the DOM at all until it is first
