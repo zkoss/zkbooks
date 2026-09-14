@@ -73,7 +73,7 @@
 		<carouselitem image="/multimedia/zklogo3.png"/>
 	</carousel>
 
-	<n:h1>Pause on hover</n:h1>
+	<n:h1>Pause on hover - disabled</n:h1>
 	<n:p>
 	pause is true by default, so autoplay stops while the pointer rests on the carousel;
 	the one below keeps advancing under the cursor
@@ -83,7 +83,7 @@
 		<carouselitem image="/multimedia/zklogo3.png"/>
 	</carousel>
 
-	<n:h1>Keyboard</n:h1>
+	<n:h1>Keyboard - disabled</n:h1>
 	<n:p>
 	keyboard is true by default: with focus on the carousel, the left and right arrow keys
 	switch slides. The one below has it turned off.
